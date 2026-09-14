@@ -151,6 +151,11 @@ annual/facility-history slices, and the relational-versus-nonrelational
 ownership ablation. Its outputs record input hashes, the source commit, the
 manifest hash, timestamps, and bootstrap configuration.
 
+The available CMS snapshot has one or two prior inspections per retained
+target row, so its history slices are reported as `sparse_1` versus the
+dataset-relative `higher_history_2+` band rather than implying a long-history
+population.
+
 ## Verified v0.1 exploratory results
 
 These values are regenerated from the frozen snapshots listed in
