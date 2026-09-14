@@ -256,7 +256,6 @@ def main() -> int:
             "source_commit": _source_commit(),
             "manifest_sha256": _sha256_file(args.manifest),
             "started_at_utc": started_at_utc,
-            "finished_at_utc": datetime.now(timezone.utc).isoformat(),
             "model_config": {
                 "bootstrap_metric": "brier",
                 "resamples": args.resamples,
@@ -279,6 +278,7 @@ def main() -> int:
         "maude": _maude_analysis(maude_result, resamples=args.resamples, seed=args.seed),
         "cms_nursing": _cms_analysis(cms_result, resamples=args.resamples, seed=args.seed),
     }
+    result["execution"]["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {args.output}")
