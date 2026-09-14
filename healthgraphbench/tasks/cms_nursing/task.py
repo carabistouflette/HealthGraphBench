@@ -104,6 +104,10 @@ class CmsNursingTask:
                         "year": year,
                         "label": row["label"],
                         "score": score,
+                        "prior_inspections": row["prior_inspections"],
+                        "prior_serious": row["prior_serious"],
+                        "chow_prior": row["chow_prior"],
+                        "chow_recent365": row["chow_recent365"],
                     }
                     for row, score in zip(target_rows, scores, strict=True)
                 )

@@ -49,6 +49,10 @@ SUPPORT_THRESHOLDS: tuple[int, ...] = (1, 10, 50)
 TOP_KS: tuple[int, ...] = (5, 10, 20)
 NEGATIVE_RATIO = 1
 
+PREDICTION_EXPORT_METHODS = frozenset(
+    {"graph_message_passing_bpr", "graphsage_link_prediction"}
+)
+
 
 class MetricRow(TypedDict):
     positive_edges: int
@@ -245,6 +249,55 @@ def evaluate_method(
         },
         {band: accumulator.as_dict() for band, accumulator in bands.items()},
     )
+
+
+def prediction_rows(
+    context: FeatureContext,
+    eligible: frozenset[Edge],
+    scorer: Callable[[str, str], float],
+) -> list[dict[str, object]]:
+    """Return deterministic positive/negative rows for clustered analysis."""
+
+    positives_by_product: dict[str, tuple[str, ...]] = {
+        product: tuple(sorted(problem for edge_product, problem in eligible if edge_product == product))
+        for product in sorted({edge_product for edge_product, _ in eligible})
+    }
+    rows: list[dict[str, object]] = []
+    for product, positives in positives_by_product.items():
+        candidates = context.history.candidate_problems(product)
+        negative_candidates = [
+            problem for problem in candidates if problem not in set(positives)
+        ]
+        support = context.history.product_reports.get(product, 0)
+        for problem in positives:
+            rows.append(
+                {
+                    "cluster": product,
+                    "quarter": context.quarter,
+                    "product": product,
+                    "problem": problem,
+                    "label": 1,
+                    "score": scorer(product, problem),
+                    "history_support": support,
+                    "candidate_count": len(candidates),
+                }
+            )
+        if negative_candidates:
+            for index in range(len(positives)):
+                problem = negative_candidates[index % len(negative_candidates)]
+                rows.append(
+                    {
+                        "cluster": product,
+                        "quarter": context.quarter,
+                        "product": product,
+                        "problem": problem,
+                        "label": 0,
+                        "score": scorer(product, problem),
+                        "history_support": support,
+                        "candidate_count": len(candidates),
+                    }
+                )
+    return rows
 
 
 def _score_popularity(context: FeatureContext, _product: str, problem: str) -> float:
@@ -541,6 +594,10 @@ def run_gate(
                     "thresholds": threshold_rows,
                     "support_bands": band_rows,
                 }
+                if method.name in PREDICTION_EXPORT_METHODS:
+                    method_result.setdefault("prediction_rows", []).extend(
+                        prediction_rows(context, current_eligible, method.scorer)
+                    )
 
         if quarter < "2025Q1":
             training_rows.extend(

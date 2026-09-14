@@ -88,7 +88,20 @@ def _run_task(task_name: str, data_root: Path, manifest: dict[str, Any]) -> dict
     for model_type in TASK_MODELS[task_name]:
         model = model_type()
         predictions = model.fit_predict(train, validation, test)
-        methods.append({"method": model.name, "test": task.evaluate(predictions)})
+        method_result: dict[str, Any] = {
+            "method": model.name,
+            "test": task.evaluate(predictions),
+        }
+        if task_name == "cms_nursing" or model.name in {
+            "graph_message_passing_bpr",
+            "graphsage_link_prediction",
+        }:
+            prediction_rows = predictions.payload.get("predictions")
+            if prediction_rows is None:
+                prediction_rows = predictions.payload.get("prediction_rows")
+            if prediction_rows is not None:
+                method_result["prediction_rows"] = prediction_rows
+        methods.append(method_result)
     return {
         "task": task_name,
         "contract": task.manifest(),
