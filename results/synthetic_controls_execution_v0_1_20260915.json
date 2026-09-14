@@ -1,0 +1,87 @@
+{
+  "benchmark_version": "0.1",
+  "task": "cms_nursing",
+  "control_type": "synthetic node labels on real pre-cutoff ownership topology",
+  "interpretation": "implementation check only; not evidence that relational features should improve real CMS prediction",
+  "execution": {
+    "source_commit": "4e9f178fc689bd0710776a28d46e42d72cd0935a",
+    "manifest_sha256": "d01389cd5ffb245f481d036c592ed58b6de7cf4f817499214ce47c9f34661a87",
+    "started_at_utc": "2026-09-14T22:17:00.114335+00:00",
+    "model_config": {
+      "cutoff": "2024-01-01",
+      "seeds": [
+        301,
+        302,
+        303
+      ],
+      "betas": [
+        0.0,
+        2.5
+      ]
+    },
+    "source_snapshot": "August 2026 CMS nursing-home release.",
+    "finished_at_utc": "2026-09-14T22:17:18.868264+00:00"
+  },
+  "rows": [
+    {
+      "seed": 301,
+      "beta": 0.0,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.6588620073856796,
+      "relational_auc": 0.4947257844254281
+    },
+    {
+      "seed": 302,
+      "beta": 0.0,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.6326298406737282,
+      "relational_auc": 0.5059876364411195
+    },
+    {
+      "seed": 303,
+      "beta": 0.0,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.6281493259842209,
+      "relational_auc": 0.508548933973092
+    },
+    {
+      "seed": 301,
+      "beta": 2.5,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.59009614651903,
+      "relational_auc": 0.8060382094854014
+    },
+    {
+      "seed": 302,
+      "beta": 2.5,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.5993651671950709,
+      "relational_auc": 0.8231179338398038
+    },
+    {
+      "seed": 303,
+      "beta": 2.5,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.5889430805202397,
+      "relational_auc": 0.8232120415022651
+    }
+  ]
+}
