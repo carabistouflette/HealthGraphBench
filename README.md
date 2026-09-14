@@ -143,6 +143,12 @@ PYTHONPATH=. python scripts/analyze_execution.py \
   --maude-input results/maude_execution_v0_1_20260915.json \
   --cms-input results/cms_execution_v0_1_20260915.json \
   --output results/analysis_execution_v0_1_20260915.json
+PYTHONPATH=. python scripts/combine_execution.py \
+  --maude results/maude_execution_v0_1_20260915.json \
+  --cms results/cms_execution_v0_1_20260915.json \
+  --controls results/synthetic_controls_execution_v0_1_20260915.json \
+  --analysis results/analysis_execution_v0_1_20260915.json \
+  --output results/execution_v0_1_20260915.json
 ```
 
 `analyze_execution.py` reports product-clustered pairwise-ranking and
