@@ -273,12 +273,20 @@ def main() -> int:
     result = {
         "analysis_kind": "temporal_slices_and_entity_clustered_uncertainty",
         "benchmark_version": "0.1",
+        "row_semantics": {
+            "maude": "each eligible positive plus one deterministic historically-known non-positive candidate per positive",
+            "cms_nursing": "all retained target inspection rows",
+        },
         "execution": {
             "source_commit": _source_commit(),
             "manifest_sha256": _sha256_file(args.manifest),
             "started_at_utc": started_at_utc,
             "model_config": {
-                "bootstrap_metric": "brier",
+                "bootstrap_metric": "task-specific",
+                "statistics": {
+                    "maude": "pairwise_auc_difference",
+                    "cms_nursing": "brier_difference",
+                },
                 "resamples": args.resamples,
                 "seed": args.seed,
                 "cluster_units": {"maude": "product", "cms_nursing": "ccn"},
