@@ -58,6 +58,7 @@ def main() -> int:
         "interpretation": "implementation check only; not evidence that relational features should improve real CMS prediction",
         "execution": {
             "source_commit": _source_commit(),
+            "manifest_sha256": sha256_file(manifest_path),
             "started_at_utc": started_at_utc,
             "model_config": {
                 "cutoff": args.cutoff.isoformat(),
