@@ -1,0 +1,47 @@
+{
+  "benchmark": "HealthGraphBench",
+  "version": "0.1",
+  "research_question": "When does relational information add predictive value beyond strong entity-local and relational baselines in public health/regulatory ML?",
+  "implementation_dependencies": {"neo4j": false},
+  "tasks": {
+    "maude": {
+      "entities": "standardized MAUDE product code",
+      "target": "product/problem-code relation first observed in a retained quarter",
+      "observation_cutoff": "history contains only quarters strictly before the scored quarter",
+      "train_period": "2019Q1-2022Q4",
+      "validation_period": "2023Q1-2023Q4",
+      "test_period": "2024Q1-2025Q4",
+      "candidate_generation": "problem code observed globally before q, product has a prior report, and product/problem edge absent before q",
+      "feature_availability": "prior product reports, prior relations, prior manufacturers, prior problem hierarchy, and prior four-quarter activity only",
+      "negative_label": "candidate not observed for the product in q; temporal non-observation, not proof of no underlying failure",
+      "metrics": ["micro Recall@5", "micro Recall@10", "micro Recall@20", "macro Recall@5", "macro Recall@10", "macro Recall@20", "MRR"],
+      "cluster_unit": "product code",
+      "leakage_rules": [
+        "score before adding the current quarter to history",
+        "fit learned rankers only at frozen refit quarters using prior rows",
+        "rank all eligible candidate problems rather than sampled negatives",
+        "positive means first observed in the retained collection window, not first ever"
+      ]
+    },
+    "cms_nursing": {
+      "entities": "CMS Certification Number (CCN)",
+      "target": "serious G-L Health deficiency at the target Health Standard inspection",
+      "observation_cutoff": "facility history and CHOW counts are strictly prior to target inspection; ownership association is active at the target date",
+      "train_period": "2019-2022 expanding history",
+      "validation_period": "2023",
+      "test_period": "2024-2025",
+      "candidate_generation": "all retained Health Standard inspection episodes with at least one prior Health Standard inspection",
+      "feature_availability": "prior inspection outcomes, prior 365/730-day windows, facility age/state, prior CHOW events, and active historical ownership-network aggregates",
+      "negative_label": "no observed Standard Deficiency with Scope Severity Code G-L at target episode; not evidence of safety",
+      "metrics": ["ROC AUC", "average precision", "top-decile precision", "top-decile recall", "Brier score"],
+      "cluster_unit": "CCN",
+      "leakage_rules": [
+        "exclude the target inspection from all facility history counts",
+        "use expanding training rows ending before each target year",
+        "do not use target labels when constructing owner or peer features",
+        "use complete CHOW owner snapshot and restrict historical identifiers to provider CCNs"
+      ]
+    }
+  },
+  "status": "benchmark-development; existing 2023-2025 results have been inspected and are exploratory"
+}

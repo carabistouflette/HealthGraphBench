@@ -1,0 +1,188 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=23mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,booktabs,tabularx,array,enumitem}
+\usepackage[table]{xcolor}
+\definecolor{Ink}{HTML}{17334A}
+\definecolor{Accent}{HTML}{237A80}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily HealthGraphBench / Research Specification}
+\fancyfoot[L]{\small 14 September 2026}
+\fancyfoot[R]{\thepage}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=Ink,urlcolor=Accent,pdftitle={HealthGraphBench: Evaluating When Graph Structure Adds Predictive Value in Public Health Regulatory Data}}
+\usepackage{bookmark}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlist{nosep,leftmargin=1.4em}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\emergencystretch=2em
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+{\sffamily\color{Accent}\large RESEARCH AND PROJECT SPECIFICATION\par}
+\vspace{25mm}
+{\sffamily\bfseries\color{Ink}\Huge HealthGraphBench\par}
+\vspace{8mm}
+{\sffamily\LARGE Evaluating When Graph Structure Adds Predictive Value in Public Health Regulatory Data\par}
+\vspace{15mm}
+\textbf{Central question}\par
+Does relational graph structure provide predictive value beyond strong entity-local and relational non-neural baselines in public health-regulatory prediction tasks?
+\vspace{10mm}
+{\sffamily\bfseries HealthGraphBench v0.1}\par
+\textbf{Decision: adopt the benchmark project; stop application hunting.}\par
+A useful outcome may be positive, negative, mixed, or inconclusive. The project does not require a graph neural network to win. Graph storage is representation and query infrastructure; predictive value is a separate empirical claim.
+\vfill
+This is the authoritative v0.1 specification. Historical feasibility context is summarized in \path{docs/project_history.md}; private packets and source rows are not part of this release.
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\section{Scope, contribution, and intended users}
+HealthGraphBench comprises two public regulatory-data case studies: FDA MAUDE future relationship prediction and CMS nursing-home serious-deficiency prediction. Its contribution hypothesis is a reproducible, temporally evaluated benchmark of the incremental value of relational information, with strong baselines, explicit identity assumptions, support-stratified analysis, and uncertainty estimates.
+
+The intended users are health-ML researchers, public-health and regulatory-data scientists, and engineers deciding whether relational models justify their complexity. No clinical recommendations, facility safety judgments, causal ownership claims, or patient-level predictions are intended.
+
+\textbf{Novelty boundary.} Comparing GNNs with non-graph models is not new. \href{https://relbench.stanford.edu/}{RelBench} already provides relational prediction tasks and temporal evaluation, including health-related tasks. The proposed distinction is the particular regulatory tasks and their auditable graph-value ablations, not relational benchmarking, temporal splitting, or graph storage in general. Dataset/benchmark novelty remains a hypothesis pending a task-level literature comparison.
+
+\section{Research questions and estimands}
+\begin{enumerate}[label=RQ\arabic*.]
+\item Does relational context improve prediction beyond entity-local history?
+\item When relational signal exists, are simple aggregates and neighborhood heuristics sufficient?
+\item Do learned graph representations improve over the strongest relational baseline?
+\item Do conclusions change for sparse or low-history entities?
+\item How do temporal forecasting and random-split evaluation differ?
+\end{enumerate}
+For metric $M$, report paired differences $\Delta_M=M(\text{augmented})-M(\text{baseline})$ on identical targets and candidate sets. Positive differences favor augmentation except for losses such as Brier score. RQ1 concerns information; RQ2 and RQ3 concern how that information is modeled. A relational heuristic is not a graph-free baseline. A GNN losing to it does not show that relational information is useless.
+
+\section{Task A: MAUDE relationship prediction}
+\subsection{Sources and label contract}
+Use official \href{https://www.fda.gov/medical-devices/medical-device-reporting-mdr-how-report-medical-device-problems/mdr-data-files}{FDA MDR data files} and the official device-problem-code mapping. The frozen feasibility collection covers 2019--2025 and contains 89,349 unique product/problem edges, 3,346 product codes, and 539 problem codes. These are observed reporting relationships, not individual devices or disease outcomes.
+
+An edge $(p,d)$ is positive in quarter $q$ when it is first observed within the retained collection in that quarter. ``First observed'' does not mean first ever: pre-2019 relationships can be left-censored. Candidate problem codes must have appeared globally before $q$ and must not already have appeared with $p$. Report cold-start exclusions separately. A negative is a relationship not observed within the target window, never proof of an absent failure mode.
+
+Use DATE\_RECEIVED as the event clock. Record extraction/retrieval time separately. A later bulk extract cannot establish that every field or correction was publicly available at the historical prediction time. The study is retrospective temporal evaluation unless publication-time availability is separately established.
+
+\subsection{Splits, candidates, and models}
+Initial training: 2019Q1--2022Q4; development validation: 2023Q1--Q4; existing evaluation: 2024Q1--2025Q4. The gate refits annually and updates history only after scoring each quarter. Earlier observed test-period outcomes may enter subsequent history and scheduled fits: this is rolling evaluation, not a single frozen model.
+
+Retain global popularity, neighbor frequency, logistic tabular ranking, boosted stumps, spectral factorization, and BPR embeddings with fixed one-hop averaging. The current BPR implementation optimizes embeddings before averaging; it is \textbf{not an end-to-end message-passing GNN}. HealthGraphBench v0.1 deliberately stops at reproducible frozen baselines. The subsequent milestone adds one correctly trained message-passing model, one no-message ablation, and no architecture sweep.
+
+The existing tabular features already contain relational quantities. Add a clearly labeled entity-local comparator before claiming an answer to RQ1. Keep all-candidate ranking at evaluation; negative sampling is a training device only. Record deterministic tie rules and feature/normalization fit boundaries.
+
+\section{Task B: CMS nursing-home inspection prediction}
+\subsection{Sources and target}
+Use official CMS \href{https://data.cms.gov/provider-data/dataset/r5ix-sfxw}{health citations}, \href{https://data.cms.gov/provider-data/dataset/y2hd-n93e}{ownership}, survey dates, provider information, penalties where admissible, and CHOW transaction/owner records. The original gate has 43,916 unique CCN--Health Standard survey-date episodes, 5,535 with at least one G--L standard citation. Requiring earlier facility history and restricting target years to 2019--2025 gives 23,712 model episodes and 3,075 positives.
+
+A positive means at least one recorded G--L standard deficiency at the target standard inspection. A negative means no such citation in that episode. This regulatory label is not a patient outcome or proof of safe care. Current-provider extracts and limited inspection cycles introduce survivorship and historical truncation; they are not a census of every historical facility or inspection.
+
+The task conditions on a standard inspection occurring. It does not predict whether or when an inspection occurs. Features computed just before the inspection date define inspection-time prioritization, not forecasting from the previous inspection date. Do not call elapsed time to the target inspection an available predictor at the preceding inspection. A preceding-inspection forecasting variant requires a separately frozen prediction origin and feature cutoff.
+
+\subsection{Temporal and identity contract}
+Use expanding fits before 2023, 2024, and 2025, with 2023 for development and 2024--2025 for existing evaluation. The latter comprises 18,985 episodes and 2,423 positives. All facility and peer outcomes must strictly precede the prediction origin; process equal-date groups without same-day outcome leakage.
+
+The original entity-local model includes inspection counts, serious-citation history, 365/730-day windows, time since last inspection, facility age, prior CHOW counts, and state indicators. Its augmentation adds owner/peer counts and historical peer-risk aggregates. Do not substitute current ratings, current beds, target survey cycle, or other later snapshot covariates and call that an exact rerun.
+
+Keep three named ownership representations: normalized current-name links; stable CHOW owner identifiers; and the original stable-ID/current-name combination. Freeze role filters, normalization, deduplication, source precedence, and temporal association rules. Matching names are not definitive legal identity. Start-date-only associations do not establish former-owner end dates. An association's effective date is distinct from when that association became observable. Test sensitivity to these limitations rather than silently filling unknown intervals.
+
+\section{Graph representation and infrastructure}
+Versioned source snapshots and deterministic relational exports are authoritative. Neo4j is a rebuildable query projection, not a second mutable source of truth and not a prerequisite for model fitting.
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lY@{}}
+\toprule
+Task & Graph representation\\ \midrule
+MAUDE & ProductCode $\to$ ProblemCode with REPORTED\_WITH relations carrying quarter, count, source snapshot, and first-observed date.\\
+CMS & Owner $\to$ Facility associations; Facility $\to$ Inspection; Inspection $\to$ Deficiency. Preserve source role, valid-time bounds, unknown end dates, and observation-time evidence.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+Expose temporal neighborhood extraction, feature provenance, and explanation queries. Require projection queries and reference relational/adjacency queries to return identical memberships and counts on frozen cutoffs. Report ingestion time, query latency, memory, and operational complexity separately from model quality. No hosted service, GraphRAG, or production deployment is required.
+
+\section{Evaluation and uncertainty protocol}
+\subsection{Metrics and model selection}
+MAUDE: Recall@5/10/20, MRR, macro Recall@10, candidate coverage, and results in prior-support bands 1--9, 10--49, 50--199, and 200+. State the denominator for each metric; macro averaging over product-quarter units is not identical to averaging once per product.
+
+CMS: ROC AUC, average precision, Brier score, top-decile precision and recall, prevalence, and reliability diagrams. Choose thresholds and any calibration on training/development data only. Distinguish annual top-decile selection from pooling scores across years; the existing gate uses pooled top-decile scoring.
+
+For the final benchmark, freeze model families, hyperparameter search spaces, equal selection budgets, and primary comparisons before further evaluation. Include an adequately tuned tabular tree baseline; boosted stumps alone are not evidence against modern tabular learning. Preserve all variants, not just favorable seeds. Use at least five common stochastic seeds for final stochastic models, with identical fit settings. Deterministic full-batch models need reproducibility checks, not invented seed variance.
+
+\subsection{Paired uncertainty}
+Report absolute scores and paired effect sizes with percentile bootstrap intervals. Cluster MAUDE by product code, retaining its quarters, and CMS by CCN, retaining its episodes. Use the same resample for both methods. Record resample seed, count, undefined-metric handling, and period-specific results. Ownership networks may induce dependence between CCNs; add a network-component or other justified dependence sensitivity and report when giant components prevent useful independent-cluster inference.
+
+These intervals are conditional on fitted models, selected snapshots, and fixed periods. They do not capture every temporal shift, model-selection decision, or source error. Separate training-seed variation from test-sample uncertainty. A confidence interval spanning zero does not establish equivalence. Any formal equivalence margin or significance testing, including multiplicity treatment, must be prespecified and justified; none is inferred from the feasibility gates.
+
+\subsection{Random versus temporal analysis}
+Temporal evaluation remains authoritative. Random edge completion and future first-observed edge forecasting are different tasks: random splitting changes history, target mix, and candidate coverage. Report both protocols and denominators, without attributing every score difference causally to leakage. A claim that random splitting specifically inflates GNN advantage requires the same learned models and appropriate matched ablations; neighbor-frequency results alone cannot support it.
+
+\section{Controlled positive and negative tests}
+Use real graph topology with synthetic covariates and outcomes:
+\[
+P(y_i=1)=\sigma(-1+0.5x_i+\beta z_i),\qquad
+z_i=\operatorname{standardize}_{\mathrm{train}}\left(\frac{1}{|N(i)|}\sum_{j\in N(i)}x_j\right).
+\]
+Compare entity-local and relational models for both $\beta=0$ and a nonzero effect. State whether the setup is transductive: held-out node covariates may be observable, but held-out labels must never enter features. Handle isolated nodes explicitly. Keep topology, randomization, split IDs, and label-generation seeds.
+
+A positive aggregate-model result validates aggregate extraction and learning only. Every final graph model also needs a model-specific sanity task, no-message ablation, and optimization checks. Synthetic results are implementation diagnostics, not evidence about healthcare or regulatory behavior.
+
+\section{Bounded validation evidence and limitations}
+The corrected validation retains original predictions and supersedes an earlier preliminary record that changed the CMS feature contract and used non-clustered intervals. It supports choosing the benchmark project, not declaring the final benchmark complete.
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lY@{}}
+\toprule
+Check & Observed evidence\\ \midrule
+MAUDE & Neighbor Recall@10 0.192045; original BPR/averaging 0.183847. Two randomized BPR variants with matched four-epoch settings scored 0.183923 and 0.183467.\\
+MAUDE uncertainty & Graph minus neighbor Recall@10: $-0.008198$, product-clustered 95\% interval $[-0.011769,-0.004774]$; 5,000 resamples, 2,026 product clusters.\\
+CMS exact rerun & Original facility AUC 0.619975; original combined ownership AUC 0.621293. Original fitted contract and aggregate metrics reproduced.\\
+CMS uncertainty & Ownership minus facility AUC: $+0.001318$, CCN-clustered 95\% interval $[-0.001478,+0.004258]$; 1,000 resamples, 13,889 CCNs.\\
+CMS prioritization & Top-decile precision difference $-0.004739$, interval $[-0.014752,+0.005295]$. No robust improvement or equivalence claim follows.\\
+Real-topology control & 11,572 non-isolated facilities, 290,223 projected undirected links. With $\beta=2.5$, local AUC 0.592--0.604 versus relational 0.838--0.842 across three seeds. With $\beta=0$, both approximately 0.627--0.636.\\
+Random-split diagnostic & Neighbor Recall@10 0.2451--0.2509 across three random edge splits versus temporal 0.1920; protocols differ and this is not a GNN result.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+The original CMS full-batch model is deterministic. Two training-order permutations reproduced its aggregate metrics, with prediction changes only at floating-point precision. MAUDE randomized variants are initialization/order sensitivities, not three identically distributed independent training seeds.
+
+All existing evaluation periods have already been inspected. Do not relabel these results as untouched confirmatory tests. New model selection must disclose this exposure; an untouched future release is optional additional validation, not a reason to suppress current exploratory findings.
+
+\section{Reproducibility and completion criteria}
+\begin{enumerate}
+\item Freeze source URLs, retrieval times, rights, byte hashes, parser audits, entity keys, event clocks, and known availability limitations. Do not execute downloaded research code or retain unnecessary personal fields.
+\item Package task generators, cutoff assertions, frozen features, split/candidate manifests, model configurations, environment versions, prediction tables, and scoring scripts. A session-local result alone is not a released benchmark.
+\item Reproduce original metrics from saved prediction tables, then reproduce predictions from frozen features and fitted models. Raw-to-feature reconstruction must separately pass integrity and temporal checks.
+\item Freeze entity-local, relational aggregate, and learned-graph comparison contracts. Evaluate information removal, identity variants, low support, calibration, and model-specific controls without test-driven selection.
+\item Produce per-period results, paired intervals, stochastic-seed distributions where applicable, cost measurements, and a limitations statement. Report failures and null results alongside gains.
+\item Demonstrate graph-query/reference-query parity and provenance traversal if Neo4j is included. No deployment or clinical utility claim is required.
+\end{enumerate}
+The final deliverable is the reproducible benchmark, experimental report, and auditable graph/query demonstration. Success means reliable evidence about the tested tasks, not a winning GNN. No further application search is part of this roadmap.
+
+\section{Archive and preservation policy}
+DM-H01, OpenML linkage, UDI matching, and drug-label propagation remain project-selection evidence outside the active study. Their decisions, exclusions, and evidence boundary are summarized in \path{docs/project_history.md}; no active build depends on an external archive. Technical packet preparation did not complete independent human review.
+
+The FDA-label gate remains no-go for that application. Its TF-IDF result was 13/13 post-version preferences versus 12/13 for semantic comparison, not thirteen head-to-head semantic defeats or validated semantic accuracy. Dates alone do not prove that a label contains an adjudicated safety change.
+
+The MAUDE platform no-go and nursing graph-escalation no-go are historical decisions under their original application criteria. A benchmark may study those outcomes without retroactively converting them into successful predictive applications.
+
+\section{Primary references and evidence locations}
+\begin{itemize}
+\item \href{https://relbench.stanford.edu/}{RelBench official benchmark}; \href{https://arxiv.org/abs/2407.20060}{original benchmark paper}. These establish prior relational benchmarking, not the novelty of this proposed task pair.
+\item \href{https://www.fda.gov/medical-devices/medical-device-reporting-mdr-how-report-medical-device-problems/mdr-data-files}{FDA MDR data files}; \href{https://www.accessdata.fda.gov/MAUDE/ftparea/deviceproblemcodes2025.zip}{official device problem codes}.
+\item \href{https://data.cms.gov/provider-data/dataset/r5ix-sfxw}{CMS health citations}; \href{https://data.cms.gov/provider-data/dataset/y2hd-n93e}{CMS ownership}; \href{https://data.cms.gov/}{CMS data catalog} for survey, provider, and CHOW sources with pinned retrievals in the source inventory.
+\item Frozen MAUDE source manifest:\par
+\path{data/manifests/v0.1.json}\par
+MAUDE implementation: \path{healthgraphbench/tasks/maude/}.
+\item Frozen CMS source manifest:\par
+\path{data/manifests/v0.1.json}\par
+CMS implementation: \path{healthgraphbench/tasks/cms_nursing/}.
+\item Common interface and deterministic rebuild command:\par
+\path{healthgraphbench/core.py}; \path{scripts/build_benchmark.py}.
+\item Historical feasibility decisions and exclusions are summarized in \path{docs/project_history.md}; the active tasks remain defined by the versioned contract.
+\end{itemize}
+This v0.1 specification cites direct primary-source links; a publication bibliography requires a focused task-level prior-art audit.
+\end{document}

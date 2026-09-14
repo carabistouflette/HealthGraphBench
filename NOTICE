@@ -1,0 +1,8 @@
+HealthGraphBench
+Copyright 2026 HealthGraphBench contributors
+
+This repository contains authored benchmark code, task contracts,
+transformation logic, documentation, and evaluation utilities licensed under
+the Apache License, Version 2.0. Upstream FDA and CMS source files are not
+included or relicensed here. See data/manifests/v0.1.json for official source
+pages, retrieval URLs, and frozen snapshot hashes.

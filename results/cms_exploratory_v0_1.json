@@ -1,0 +1,73 @@
+{
+  "benchmark_version": "0.1",
+  "result_status": "exploratory_benchmark_development",
+  "tasks": [
+    {
+      "task": "cms_nursing",
+      "contract": {
+        "benchmark_version": "0.1",
+        "task": "cms_nursing",
+        "entity": "CMS Certification Number (CCN)",
+        "target": "serious G-L health deficiency at the target Health Standard inspection",
+        "observation_cutoff": "features use records strictly before the target inspection for facility history and CHOW counts; ownership associations are active at the target date",
+        "training_years": "2019-2022",
+        "validation_years": "2023",
+        "test_years": "2024-2025",
+        "negative_semantics": "no serious G-L citation observed in the target episode; not evidence of safety",
+        "metrics": [
+          "ROC AUC",
+          "average precision",
+          "top-decile precision",
+          "top-decile recall",
+          "Brier"
+        ],
+        "clusters": "CCN",
+        "standard_episodes": 43916,
+        "serious_episodes": 5535,
+        "model_rows": 23712,
+        "model_positives": 3075
+      },
+      "methods": [
+        {
+          "method": "prevalence",
+          "test": {
+            "rows": 18985,
+            "positives": 2423,
+            "prevalence": 0.12762707400579404,
+            "roc_auc": 0.47256774192776696,
+            "average_precision": 0.12175362285714753,
+            "precision_at_top_10_percent": 0.114797261716693,
+            "recall_at_top_10_percent": 0.08997111019397441,
+            "brier": 0.11148728897478441
+          }
+        },
+        {
+          "method": "facility_history",
+          "test": {
+            "rows": 18985,
+            "positives": 2423,
+            "prevalence": 0.12762707400579404,
+            "roc_auc": 0.6199749906092058,
+            "average_precision": 0.19602269766881902,
+            "precision_at_top_10_percent": 0.25487098472880465,
+            "recall_at_top_10_percent": 0.19975237309120925,
+            "brier": 0.1094067965136535
+          }
+        },
+        {
+          "method": "facility_plus_combined_ownership",
+          "test": {
+            "rows": 18985,
+            "positives": 2423,
+            "prevalence": 0.12762707400579404,
+            "roc_auc": 0.6212927045651894,
+            "average_precision": 0.19727190170769784,
+            "precision_at_top_10_percent": 0.25013164823591366,
+            "recall_at_top_10_percent": 0.19603796945934793,
+            "brier": 0.10953848940891621
+          }
+        }
+      ]
+    }
+  ]
+}

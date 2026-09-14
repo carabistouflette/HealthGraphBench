@@ -1,0 +1,673 @@
+{
+  "benchmark_version": "0.1",
+  "result_status": "exploratory_benchmark_development",
+  "tasks": [
+    {
+      "task": "maude",
+      "contract": {
+        "benchmark_version": "0.1",
+        "task": "maude",
+        "target": "first observed product/problem edge in the retained quarter window",
+        "candidate_rule": "problem code observed globally before q and edge absent before q",
+        "training_quarters": "2019Q1-2022Q4",
+        "validation_quarters": "2023Q1-2023Q4",
+        "test_quarters": "2024Q1-2025Q4",
+        "negative_semantics": "temporal non-observation, not a clinical negative",
+        "metrics": [
+          "Recall@5",
+          "Recall@10",
+          "Recall@20",
+          "macro Recall",
+          "MRR"
+        ],
+        "clusters": "product code",
+        "unique_edges": 89349,
+        "snapshots": 28
+      },
+      "methods": [
+        {
+          "method": "global_popularity",
+          "test": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 13174,
+                "products": 6370,
+                "hits_at_5": 1544,
+                "hits_at_10": 2430,
+                "hits_at_20": 3738,
+                "recall_at_5": 0.117200546531046,
+                "recall_at_10": 0.18445422802489753,
+                "recall_at_20": 0.28374070138150903,
+                "macro_recall_at_5": 0.14085359610594403,
+                "macro_recall_at_10": 0.2133486286232552,
+                "macro_recall_at_20": 0.31661891209613147,
+                "mrr": 0.15756526914778166
+              },
+              "10": {
+                "positive_edges": 12021,
+                "products": 5662,
+                "hits_at_5": 1317,
+                "hits_at_10": 2106,
+                "hits_at_20": 3283,
+                "recall_at_5": 0.10955827302221113,
+                "recall_at_10": 0.17519341152982282,
+                "recall_at_20": 0.27310539888528407,
+                "macro_recall_at_5": 0.12985990326284502,
+                "macro_recall_at_10": 0.20093175655245094,
+                "macro_recall_at_20": 0.3020644048973062,
+                "mrr": 0.15253897251722792
+              },
+              "50": {
+                "positive_edges": 10332,
+                "products": 4671,
+                "hits_at_5": 1049,
+                "hits_at_10": 1698,
+                "hits_at_20": 2683,
+                "recall_at_5": 0.10152922957801007,
+                "recall_at_10": 0.16434378629500582,
+                "recall_at_20": 0.2596786682152536,
+                "macro_recall_at_5": 0.11917514049769959,
+                "macro_recall_at_10": 0.1857254699413119,
+                "macro_recall_at_20": 0.28405796141307954,
+                "mrr": 0.14719001217232533
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 1153,
+                "products": 708,
+                "hits_at_5": 227,
+                "hits_at_10": 324,
+                "hits_at_20": 455,
+                "recall_at_5": 0.19687771032090198,
+                "recall_at_10": 0.2810060711188205,
+                "recall_at_20": 0.39462272333044235,
+                "macro_recall_at_5": 0.2287720832212357,
+                "macro_recall_at_10": 0.31264852927988523,
+                "macro_recall_at_20": 0.433013855259618,
+                "mrr": 0.19776144361415982
+              },
+              "10-49": {
+                "positive_edges": 1689,
+                "products": 991,
+                "hits_at_5": 268,
+                "hits_at_10": 408,
+                "hits_at_20": 600,
+                "recall_at_5": 0.1586737714624038,
+                "recall_at_10": 0.24156305506216696,
+                "recall_at_20": 0.3552397868561279,
+                "macro_recall_at_5": 0.18022168618513987,
+                "macro_recall_at_10": 0.27260538395974715,
+                "macro_recall_at_20": 0.38693634991730896,
+                "mrr": 0.17775087339617884
+              },
+              "50-199": {
+                "positive_edges": 2156,
+                "products": 1205,
+                "hits_at_5": 274,
+                "hits_at_10": 427,
+                "hits_at_20": 662,
+                "recall_at_5": 0.12708719851576994,
+                "recall_at_10": 0.19805194805194806,
+                "recall_at_20": 0.3070500927643785,
+                "macro_recall_at_5": 0.13789800793950172,
+                "macro_recall_at_10": 0.2171998886314239,
+                "macro_recall_at_20": 0.3223511044050463,
+                "mrr": 0.14610864379137253
+              },
+              "200+": {
+                "positive_edges": 8176,
+                "products": 3466,
+                "hits_at_5": 775,
+                "hits_at_10": 1271,
+                "hits_at_20": 2021,
+                "recall_at_5": 0.09478962818003914,
+                "recall_at_10": 0.15545499021526418,
+                "recall_at_20": 0.24718688845401174,
+                "macro_recall_at_5": 0.11266589200740196,
+                "macro_recall_at_10": 0.17478297873485343,
+                "macro_recall_at_20": 0.2707448519770379,
+                "mrr": 0.14756596396085614
+              }
+            }
+          }
+        },
+        {
+          "method": "neighbor_frequency",
+          "test": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 13174,
+                "products": 6370,
+                "hits_at_5": 1607,
+                "hits_at_10": 2530,
+                "hits_at_20": 3861,
+                "recall_at_5": 0.12198269318354334,
+                "recall_at_10": 0.19204493699711553,
+                "recall_at_20": 0.2930772734173372,
+                "macro_recall_at_5": 0.14786264148233633,
+                "macro_recall_at_10": 0.22444780353472252,
+                "macro_recall_at_20": 0.3295183312710607,
+                "mrr": 0.16409200384992112
+              },
+              "10": {
+                "positive_edges": 12021,
+                "products": 5662,
+                "hits_at_5": 1339,
+                "hits_at_10": 2162,
+                "hits_at_20": 3342,
+                "recall_at_5": 0.11138840362698611,
+                "recall_at_10": 0.17985192579652276,
+                "recall_at_20": 0.2780134764162715,
+                "macro_recall_at_5": 0.13245721028879914,
+                "macro_recall_at_10": 0.20738107303078585,
+                "macro_recall_at_20": 0.30814761041975575,
+                "mrr": 0.1563321256602182
+              },
+              "50": {
+                "positive_edges": 10332,
+                "products": 4671,
+                "hits_at_5": 1063,
+                "hits_at_10": 1746,
+                "hits_at_20": 2708,
+                "recall_at_5": 0.10288424312814556,
+                "recall_at_10": 0.16898954703832753,
+                "recall_at_20": 0.26209833526906695,
+                "macro_recall_at_5": 0.12062863776044543,
+                "macro_recall_at_10": 0.19209798758214516,
+                "macro_recall_at_20": 0.28686459304116263,
+                "mrr": 0.1499010779334667
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 1153,
+                "products": 708,
+                "hits_at_5": 268,
+                "hits_at_10": 368,
+                "hits_at_20": 519,
+                "recall_at_5": 0.23243712055507373,
+                "recall_at_10": 0.3191673894189072,
+                "recall_at_20": 0.45013009540329574,
+                "macro_recall_at_5": 0.27106257286342034,
+                "macro_recall_at_10": 0.3609334364630975,
+                "macro_recall_at_20": 0.5004237288135592,
+                "mrr": 0.2261491088076881
+              },
+              "10-49": {
+                "positive_edges": 1689,
+                "products": 991,
+                "hits_at_5": 276,
+                "hits_at_10": 416,
+                "hits_at_20": 634,
+                "recall_at_5": 0.16341030195381884,
+                "recall_at_10": 0.246299585553582,
+                "recall_at_20": 0.3753700414446418,
+                "macro_recall_at_5": 0.18821024992546953,
+                "macro_recall_at_10": 0.27941668567518607,
+                "macro_recall_at_20": 0.4084634269438814,
+                "mrr": 0.18664435969821638
+              },
+              "50-199": {
+                "positive_edges": 2156,
+                "products": 1205,
+                "hits_at_5": 275,
+                "hits_at_10": 447,
+                "hits_at_20": 675,
+                "recall_at_5": 0.12755102040816327,
+                "recall_at_10": 0.20732838589981448,
+                "recall_at_20": 0.31307977736549164,
+                "macro_recall_at_5": 0.13801656158502631,
+                "macro_recall_at_10": 0.22587208780154835,
+                "macro_recall_at_20": 0.329197577434092,
+                "mrr": 0.14913090698808687
+              },
+              "200+": {
+                "positive_edges": 8176,
+                "products": 3466,
+                "hits_at_5": 788,
+                "hits_at_10": 1299,
+                "hits_at_20": 2033,
+                "recall_at_5": 0.09637964774951076,
+                "recall_at_10": 0.15887964774951077,
+                "recall_at_20": 0.2486545988258317,
+                "macro_recall_at_5": 0.11458349978911822,
+                "macro_recall_at_10": 0.1803559821683019,
+                "macro_recall_at_20": 0.27214698017518457,
+                "mrr": 0.15016883788418295
+              }
+            }
+          }
+        },
+        {
+          "method": "logistic_tabular",
+          "test": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 13174,
+                "products": 6370,
+                "hits_at_5": 1530,
+                "hits_at_10": 2431,
+                "hits_at_20": 3703,
+                "recall_at_5": 0.11613784727493548,
+                "recall_at_10": 0.18453013511461971,
+                "recall_at_20": 0.28108395324123275,
+                "macro_recall_at_5": 0.1391505035806379,
+                "macro_recall_at_10": 0.21474254874227305,
+                "macro_recall_at_20": 0.31396796870015364,
+                "mrr": 0.15459147935040676
+              },
+              "10": {
+                "positive_edges": 12021,
+                "products": 5662,
+                "hits_at_5": 1292,
+                "hits_at_10": 2092,
+                "hits_at_20": 3229,
+                "recall_at_5": 0.10747857915314865,
+                "recall_at_10": 0.17402878296314783,
+                "recall_at_20": 0.26861326012810915,
+                "macro_recall_at_5": 0.12591865175227157,
+                "macro_recall_at_10": 0.1995065466680168,
+                "macro_recall_at_20": 0.29682500580045934,
+                "mrr": 0.1486308182941679
+              },
+              "50": {
+                "positive_edges": 10332,
+                "products": 4671,
+                "hits_at_5": 1029,
+                "hits_at_10": 1687,
+                "hits_at_20": 2619,
+                "recall_at_5": 0.09959349593495935,
+                "recall_at_10": 0.1632791327913279,
+                "recall_at_20": 0.2534843205574913,
+                "macro_recall_at_5": 0.1141750931576588,
+                "macro_recall_at_10": 0.1844563867934211,
+                "macro_recall_at_20": 0.276052352066588,
+                "mrr": 0.1426240130240443
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 1153,
+                "products": 708,
+                "hits_at_5": 238,
+                "hits_at_10": 339,
+                "hits_at_20": 474,
+                "recall_at_5": 0.20641803989592367,
+                "recall_at_10": 0.2940156114483955,
+                "recall_at_20": 0.4111014744145707,
+                "macro_recall_at_5": 0.24496794009505873,
+                "macro_recall_at_10": 0.33658752578244105,
+                "macro_recall_at_20": 0.45106324544883875,
+                "mrr": 0.20225992977473511
+              },
+              "10-49": {
+                "positive_edges": 1689,
+                "products": 991,
+                "hits_at_5": 263,
+                "hits_at_10": 405,
+                "hits_at_20": 610,
+                "recall_at_5": 0.1557134399052694,
+                "recall_at_10": 0.23978685612788633,
+                "recall_at_20": 0.3611604499703967,
+                "macro_recall_at_5": 0.1812709849464555,
+                "macro_recall_at_10": 0.27044428306986984,
+                "macro_recall_at_20": 0.3947352637125813,
+                "mrr": 0.17694341911833295
+              },
+              "50-199": {
+                "positive_edges": 2156,
+                "products": 1205,
+                "hits_at_5": 270,
+                "hits_at_10": 436,
+                "hits_at_20": 653,
+                "recall_at_5": 0.12523191094619665,
+                "recall_at_10": 0.20222634508348794,
+                "recall_at_20": 0.30287569573283857,
+                "macro_recall_at_5": 0.13496578110685992,
+                "macro_recall_at_10": 0.21823822097681017,
+                "macro_recall_at_20": 0.3191797943872632,
+                "mrr": 0.14666884124515375
+              },
+              "200+": {
+                "positive_edges": 8176,
+                "products": 3466,
+                "hits_at_5": 759,
+                "hits_at_10": 1251,
+                "hits_at_20": 1966,
+                "recall_at_5": 0.09283268101761252,
+                "recall_at_10": 0.15300880626223093,
+                "recall_at_20": 0.24045988258317025,
+                "macro_recall_at_5": 0.10694693996124002,
+                "macro_recall_at_10": 0.17271169256636287,
+                "macro_recall_at_20": 0.2610585355644491,
+                "mrr": 0.14121777586119458
+              }
+            }
+          }
+        },
+        {
+          "method": "boosted_stumps_tabular",
+          "test": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 13174,
+                "products": 6370,
+                "hits_at_5": 1538,
+                "hits_at_10": 2408,
+                "hits_at_20": 3671,
+                "recall_at_5": 0.11674510399271291,
+                "recall_at_10": 0.18278427205100956,
+                "recall_at_20": 0.27865492637012296,
+                "macro_recall_at_5": 0.14035491004603345,
+                "macro_recall_at_10": 0.2118711357171909,
+                "macro_recall_at_20": 0.31110849613045644,
+                "mrr": 0.15619644140044223
+              },
+              "10": {
+                "positive_edges": 12021,
+                "products": 5662,
+                "hits_at_5": 1311,
+                "hits_at_10": 2084,
+                "hits_at_20": 3216,
+                "recall_at_5": 0.10905914649363614,
+                "recall_at_10": 0.17336328092504782,
+                "recall_at_20": 0.26753181931619663,
+                "macro_recall_at_5": 0.1292988594264568,
+                "macro_recall_at_10": 0.19926951179589322,
+                "macro_recall_at_20": 0.29586494362896465,
+                "mrr": 0.15097726434319217
+              },
+              "50": {
+                "positive_edges": 10332,
+                "products": 4671,
+                "hits_at_5": 1043,
+                "hits_at_10": 1676,
+                "hits_at_20": 2616,
+                "recall_at_5": 0.10094850948509485,
+                "recall_at_10": 0.16221447928765,
+                "recall_at_20": 0.25319396051103366,
+                "macro_recall_at_5": 0.11849506552411146,
+                "macro_recall_at_10": 0.18371056310944936,
+                "macro_recall_at_20": 0.2765432215926236,
+                "mrr": 0.14532295583588803
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 1153,
+                "products": 708,
+                "hits_at_5": 227,
+                "hits_at_10": 324,
+                "hits_at_20": 455,
+                "recall_at_5": 0.19687771032090198,
+                "recall_at_10": 0.2810060711188205,
+                "recall_at_20": 0.39462272333044235,
+                "macro_recall_at_5": 0.2287720832212357,
+                "macro_recall_at_10": 0.31264852927988523,
+                "macro_recall_at_20": 0.433013855259618,
+                "mrr": 0.19793511442042855
+              },
+              "10-49": {
+                "positive_edges": 1689,
+                "products": 991,
+                "hits_at_5": 268,
+                "hits_at_10": 408,
+                "hits_at_20": 600,
+                "recall_at_5": 0.1586737714624038,
+                "recall_at_10": 0.24156305506216696,
+                "recall_at_20": 0.3552397868561279,
+                "macro_recall_at_5": 0.18022168618513987,
+                "macro_recall_at_10": 0.27260538395974715,
+                "macro_recall_at_20": 0.38693634991730896,
+                "mrr": 0.17762839959810403
+              },
+              "50-199": {
+                "positive_edges": 2156,
+                "products": 1205,
+                "hits_at_5": 274,
+                "hits_at_10": 427,
+                "hits_at_20": 660,
+                "recall_at_5": 0.12708719851576994,
+                "recall_at_10": 0.19805194805194806,
+                "recall_at_20": 0.30612244897959184,
+                "macro_recall_at_5": 0.13789800793950172,
+                "macro_recall_at_10": 0.2171998886314239,
+                "macro_recall_at_20": 0.3219085041284211,
+                "mrr": 0.14566913058287265
+              },
+              "200+": {
+                "positive_edges": 8176,
+                "products": 3466,
+                "hits_at_5": 769,
+                "hits_at_10": 1249,
+                "hits_at_20": 1956,
+                "recall_at_5": 0.09405577299412916,
+                "recall_at_10": 0.15276418786692758,
+                "recall_at_20": 0.23923679060665362,
+                "macro_recall_at_5": 0.11174938012003027,
+                "macro_recall_at_10": 0.17206756332468903,
+                "macro_recall_at_20": 0.260771390820657,
+                "mrr": 0.1452026036806322
+              }
+            }
+          }
+        },
+        {
+          "method": "matrix_factorization_spectral",
+          "test": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 13174,
+                "products": 6370,
+                "hits_at_5": 1318,
+                "hits_at_10": 2304,
+                "hits_at_20": 3872,
+                "recall_at_5": 0.1000455442538333,
+                "recall_at_10": 0.17488993471990283,
+                "recall_at_20": 0.2939122514042812,
+                "macro_recall_at_5": 0.11719619805832594,
+                "macro_recall_at_10": 0.2024496697057861,
+                "macro_recall_at_20": 0.3322554049674562,
+                "mrr": 0.13620635836216954
+              },
+              "10": {
+                "positive_edges": 12021,
+                "products": 5662,
+                "hits_at_5": 1123,
+                "hits_at_10": 1993,
+                "hits_at_20": 3411,
+                "recall_at_5": 0.09341984859828634,
+                "recall_at_10": 0.16579319524166042,
+                "recall_at_20": 0.28375343149488397,
+                "macro_recall_at_5": 0.10687227364492546,
+                "macro_recall_at_10": 0.18868929019873226,
+                "macro_recall_at_20": 0.3172699409807792,
+                "mrr": 0.13148766575538792
+              },
+              "50": {
+                "positive_edges": 10332,
+                "products": 4671,
+                "hits_at_5": 903,
+                "hits_at_10": 1626,
+                "hits_at_20": 2846,
+                "recall_at_5": 0.08739837398373984,
+                "recall_at_10": 0.15737514518002324,
+                "recall_at_20": 0.2754548974061169,
+                "macro_recall_at_5": 0.09931579195222912,
+                "macro_recall_at_10": 0.17848038848516923,
+                "macro_recall_at_20": 0.30760935268202694,
+                "mrr": 0.1289029440199032
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 1153,
+                "products": 708,
+                "hits_at_5": 195,
+                "hits_at_10": 311,
+                "hits_at_20": 461,
+                "recall_at_5": 0.1691240242844753,
+                "recall_at_10": 0.2697311361665221,
+                "recall_at_20": 0.3998265394622723,
+                "macro_recall_at_5": 0.1997584297372433,
+                "macro_recall_at_10": 0.3124938346336651,
+                "macro_recall_at_20": 0.45209678504170026,
+                "mrr": 0.17394256957629087
+              },
+              "10-49": {
+                "positive_edges": 1689,
+                "products": 991,
+                "hits_at_5": 220,
+                "hits_at_10": 367,
+                "hits_at_20": 565,
+                "recall_at_5": 0.13025458851391356,
+                "recall_at_10": 0.2172883362936649,
+                "recall_at_20": 0.3345174659561871,
+                "macro_recall_at_5": 0.1424891515324982,
+                "macro_recall_at_10": 0.23680813974873555,
+                "macro_recall_at_20": 0.362804358683576,
+                "mrr": 0.14367054691224868
+              },
+              "50-199": {
+                "positive_edges": 2156,
+                "products": 1205,
+                "hits_at_5": 248,
+                "hits_at_10": 422,
+                "hits_at_20": 704,
+                "recall_at_5": 0.1150278293135436,
+                "recall_at_10": 0.19573283858998144,
+                "recall_at_20": 0.32653061224489793,
+                "macro_recall_at_5": 0.12147141240502238,
+                "macro_recall_at_10": 0.21606904851718128,
+                "macro_recall_at_20": 0.3482787866812763,
+                "mrr": 0.135795426018982
+              },
+              "200+": {
+                "positive_edges": 8176,
+                "products": 3466,
+                "hits_at_5": 655,
+                "hits_at_10": 1204,
+                "hits_at_20": 2142,
+                "recall_at_5": 0.08011252446183953,
+                "recall_at_10": 0.14726027397260275,
+                "recall_at_20": 0.261986301369863,
+                "macro_recall_at_5": 0.09161310221027416,
+                "macro_recall_at_10": 0.16541220171697116,
+                "macro_recall_at_20": 0.2934700947567253,
+                "mrr": 0.12650668296713627
+              }
+            }
+          }
+        },
+        {
+          "method": "graph_message_passing_bpr",
+          "test": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 13174,
+                "products": 6370,
+                "hits_at_5": 1568,
+                "hits_at_10": 2422,
+                "hits_at_20": 3733,
+                "recall_at_5": 0.11902231668437832,
+                "recall_at_10": 0.18384697130712008,
+                "recall_at_20": 0.2833611659328981,
+                "macro_recall_at_5": 0.14078170748624985,
+                "macro_recall_at_10": 0.20881968350399271,
+                "macro_recall_at_20": 0.31115530799262797,
+                "mrr": 0.16130689511282081
+              },
+              "10": {
+                "positive_edges": 12021,
+                "products": 5662,
+                "hits_at_5": 1342,
+                "hits_at_10": 2104,
+                "hits_at_20": 3313,
+                "recall_at_5": 0.1116379668912736,
+                "recall_at_10": 0.17502703602029782,
+                "recall_at_20": 0.27560103152815907,
+                "macro_recall_at_5": 0.12999832363713235,
+                "macro_recall_at_10": 0.19650153680338237,
+                "macro_recall_at_20": 0.3012425825484336,
+                "mrr": 0.15671050643063963
+              },
+              "50": {
+                "positive_edges": 10332,
+                "products": 4671,
+                "hits_at_5": 1076,
+                "hits_at_10": 1717,
+                "hits_at_20": 2737,
+                "recall_at_5": 0.10414246999612853,
+                "recall_at_10": 0.166182733255904,
+                "recall_at_20": 0.26490514905149054,
+                "macro_recall_at_5": 0.12020835831008223,
+                "macro_recall_at_10": 0.18410873661609597,
+                "macro_recall_at_20": 0.2868151432799702,
+                "mrr": 0.15041350615066182
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 1153,
+                "products": 708,
+                "hits_at_5": 226,
+                "hits_at_10": 318,
+                "hits_at_20": 420,
+                "recall_at_5": 0.19601040763226366,
+                "recall_at_10": 0.27580225498699046,
+                "recall_at_20": 0.3642671292281006,
+                "macro_recall_at_5": 0.22701831674289297,
+                "macro_recall_at_10": 0.30733006008429736,
+                "macro_recall_at_20": 0.39042910949690607,
+                "mrr": 0.19806502042145194
+              },
+              "10-49": {
+                "positive_edges": 1689,
+                "products": 991,
+                "hits_at_5": 266,
+                "hits_at_10": 387,
+                "hits_at_20": 576,
+                "recall_at_5": 0.15748963883955003,
+                "recall_at_10": 0.2291296625222025,
+                "recall_at_20": 0.3410301953818828,
+                "macro_recall_at_5": 0.17614254971447973,
+                "macro_recall_at_10": 0.25491401881631337,
+                "macro_recall_at_20": 0.36924517470079704,
+                "mrr": 0.18639091844655936
+              },
+              "50-199": {
+                "positive_edges": 2156,
+                "products": 1205,
+                "hits_at_5": 271,
+                "hits_at_10": 407,
+                "hits_at_20": 649,
+                "recall_at_5": 0.12569573283858998,
+                "recall_at_10": 0.18877551020408162,
+                "recall_at_20": 0.3010204081632653,
+                "macro_recall_at_5": 0.13484264697957643,
+                "macro_recall_at_10": 0.1989366995383593,
+                "macro_recall_at_20": 0.31645701232838164,
+                "mrr": 0.14524743443538693
+              },
+              "200+": {
+                "positive_edges": 8176,
+                "products": 3466,
+                "hits_at_5": 805,
+                "hits_at_10": 1310,
+                "hits_at_20": 2088,
+                "recall_at_5": 0.09845890410958905,
+                "recall_at_10": 0.16022504892367906,
+                "recall_at_20": 0.2553816046966732,
+                "macro_recall_at_5": 0.1151205574310457,
+                "macro_recall_at_10": 0.1789536023629721,
+                "macro_recall_at_20": 0.27650976180180065,
+                "mrr": 0.15220955820401041
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
