@@ -93,7 +93,11 @@ class CmsTemporalTests(unittest.TestCase):
             current_records={},
         )
         task = CmsNursingTask.from_prepared(prepared)
-        prediction = FacilityHistory().fit_predict(task.train(), task.validation(), task.test())
+        prediction = FacilityHistory().fit_predict(
+            task.get_split("train"),
+            task.get_split("validation"),
+            task.get_split("test"),
+        )
         metrics = task.evaluate(prediction)
         self.assertEqual(metrics["rows"], 2)
         self.assertEqual(metrics["positives"], 1)

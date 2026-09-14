@@ -2,12 +2,17 @@
 
 from __future__ import annotations
 
+import math
 import unittest
 
 from healthgraphbench.tasks.maude.data import DataAudit, DataBundle, ProblemStats, QuarterSnapshot
 from healthgraphbench.tasks.maude.evaluate import eligible_edges, first_edges
-from healthgraphbench.tasks.maude.models import History, TrainingRow, fit_logistic
-
+from healthgraphbench.tasks.maude.models import (
+    History,
+    TrainingRow,
+    fit_graphsage,
+    fit_logistic,
+)
 
 class TemporalGateTests(unittest.TestCase):
     def setUp(self) -> None:
@@ -57,6 +62,17 @@ class TemporalGateTests(unittest.TestCase):
         history = History.empty()
         history.add(self.bundle.snapshots[0], {})
         self.assertEqual(eligible_edges(observed["2019Q2"], history), frozenset({("A", "2")}))
+
+    def test_graphsage_scores_are_finite_deterministic_and_bounded_to_nodes(self) -> None:
+        history = History.empty()
+        history.add(self.bundle.snapshots[0], {})
+        first = fit_graphsage(history)
+        second = fit_graphsage(history)
+        self.assertEqual(first, second)
+        self.assertTrue(math.isfinite(first.score("A", "1")))
+        self.assertTrue(math.isfinite(first.score("B", "2")))
+        self.assertEqual(first.score("missing", "1"), 0.0)
+        self.assertEqual(first.score("A", "missing"), 0.0)
 
     def test_logistic_score_is_deterministic(self) -> None:
         rows = [

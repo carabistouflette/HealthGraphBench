@@ -53,6 +53,11 @@ class BprNeighborAverage(_MethodModel):
         super().__init__("graph_message_passing_bpr")
 
 
+
+class GraphSageLinkPrediction(_MethodModel):
+    def __init__(self) -> None:
+        super().__init__("graphsage_link_prediction")
+
 class Prevalence(_MethodModel):
     def __init__(self) -> None:
         super().__init__("prevalence")

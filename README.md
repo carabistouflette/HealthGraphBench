@@ -73,9 +73,9 @@ from healthgraphbench import load_task
 from healthgraphbench.models import FacilityHistory
 
 task = load_task("cms_nursing", "/path/to/healthgraphbench-data")
-train = task.train()
-validation = task.validation()
-test = task.test()
+train = task.get_split("train")
+validation = task.get_split("validation")
+test = task.get_split("test")
 predictions = FacilityHistory().fit_predict(train, validation, test)
 metrics = task.evaluate(predictions)
 ```
@@ -90,17 +90,25 @@ method name. Neo4j is not required.
 python scripts/build_benchmark.py \
   --data-root /path/to/healthgraphbench-data \
   --task all \
-  --output results/exploratory_v0_1.json
+  --output results/exploratory_v0_1_run_20260915T000000Z.json
 ```
 
-The frozen MAUDE suite is:
+The runner refuses to overwrite an existing result path, including the
+committed exploratory files. Use a new versioned filename for every execution.
+Each new result records the source commit, manifest hash, UTC execution
+timestamps, verified source-file hashes, model wrappers, and seed semantics.
+
+The comparison suite is:
 
 - global popularity;
 - neighbor frequency;
 - logistic/tabular ranking;
 - boosted stumps;
 - spectral factorization;
-- BPR embeddings followed by fixed one-hop neighbor averaging.
+- BPR embeddings followed by fixed one-hop neighbor averaging (historical
+  relational baseline, not an end-to-end GNN);
+- one-layer bipartite GraphSAGE link prediction trained with BPR and
+  deterministic fixed-fanout neighbor sampling.
 
 The frozen CMS suite is:
 
@@ -108,9 +116,8 @@ The frozen CMS suite is:
 - facility history;
 - facility plus combined ownership aggregates.
 
-The current MAUDE relational model is not an end-to-end GNN. A subsequent
-milestone will add exactly one defensible message-passing model and a
-no-message ablation, with no architecture sweep.
+The GraphSAGE implementation is the sole genuine learned message-passing
+baseline in this milestone. No architecture sweep is included.
 
 ## Verified v0.1 exploratory results
 

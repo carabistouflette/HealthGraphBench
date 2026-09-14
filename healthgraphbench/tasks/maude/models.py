@@ -292,6 +292,317 @@ class GraphRanker:
             return 0.0
         return sum(a * b for a, b in zip(left, right, strict=True))
 
+GRAPHSAGE_DIMENSION = 8
+GRAPHSAGE_EPOCHS = 3
+GRAPHSAGE_NEIGHBOR_SAMPLE = 8
+GRAPHSAGE_LEARNING_RATE = 0.02
+GRAPHSAGE_REGULARIZATION = 0.0005
+
+
+@dataclass(frozen=True, slots=True)
+class GraphSageRanker:
+    """One-hop bipartite GraphSAGE link predictor trained with BPR."""
+
+    product_embeddings: Mapping[str, tuple[float, ...]]
+    problem_embeddings: Mapping[str, tuple[float, ...]]
+    configuration: Mapping[str, int | float | str]
+
+    def score(self, product: str, problem: str) -> float:
+        left = self.product_embeddings.get(product)
+        right = self.problem_embeddings.get(problem)
+        if left is None or right is None:
+            return 0.0
+        return _dot(left, right)
+
+
+def _sample_graph_neighbors(
+    values: Iterable[str],
+    key: str,
+    fanout: int,
+) -> tuple[str, ...]:
+    ordered = tuple(sorted(values))
+    if len(ordered) <= fanout:
+        return ordered
+    start = _stable_integer("graphsage-neighbors", key) % len(ordered)
+    return tuple(ordered[(start + offset) % len(ordered)] for offset in range(fanout))
+
+
+def _graph_message(
+    own: Sequence[float],
+    neighbors: Sequence[Sequence[float]],
+    self_weights: Sequence[Sequence[float]],
+    neighbor_weights: Sequence[Sequence[float]],
+) -> tuple[tuple[float, ...], tuple[float, ...]]:
+    dimension = len(own)
+    if neighbors:
+        mean = tuple(
+            sum(values[index] for values in neighbors) / len(neighbors)
+            for index in range(dimension)
+        )
+    else:
+        mean = (0.0,) * dimension
+    hidden = tuple(
+        math.tanh(
+            sum(self_weights[row][column] * own[column] for column in range(dimension))
+            + sum(
+                neighbor_weights[row][column] * mean[column]
+                for column in range(dimension)
+            )
+        )
+        for row in range(dimension)
+    )
+    return hidden, mean
+
+
+def _graph_message_gradients(
+    hidden_gradient: Sequence[float],
+    hidden: Sequence[float],
+    own: Sequence[float],
+    mean: Sequence[float],
+    self_weights: Sequence[Sequence[float]],
+    neighbor_weights: Sequence[Sequence[float]],
+    neighbor_count: int,
+) -> tuple[list[float], list[float], list[list[float]], list[list[float]]]:
+    dimension = len(own)
+    pre_gradient = [
+        hidden_gradient[index] * (1.0 - hidden[index] * hidden[index])
+        for index in range(dimension)
+    ]
+    own_gradient = [
+        sum(self_weights[row][column] * pre_gradient[row] for row in range(dimension))
+        for column in range(dimension)
+    ]
+    neighbor_gradient = [
+        sum(neighbor_weights[row][column] * pre_gradient[row] for row in range(dimension))
+        / max(1, neighbor_count)
+        for column in range(dimension)
+    ]
+    self_gradient = [
+        [pre_gradient[row] * own[column] for column in range(dimension)]
+        for row in range(dimension)
+    ]
+    neighbor_weight_gradient = [
+        [pre_gradient[row] * mean[column] for column in range(dimension)]
+        for row in range(dimension)
+    ]
+    return own_gradient, neighbor_gradient, self_gradient, neighbor_weight_gradient
+
+
+def _add_vector_gradient(
+    destination: dict[str, list[float]],
+    key: str,
+    values: Sequence[float],
+) -> None:
+    current = destination.setdefault(key, [0.0] * len(values))
+    for index, value in enumerate(values):
+        current[index] += value
+
+
+def _apply_vector_gradients(
+    values: dict[str, list[float]],
+    gradients: Mapping[str, Sequence[float]],
+    learning_rate: float,
+    regularization: float,
+) -> None:
+    for key, gradient in gradients.items():
+        vector = values[key]
+        for index, value in enumerate(gradient):
+            vector[index] += learning_rate * (value - regularization * vector[index])
+
+
+def _apply_matrix_gradient(
+    matrix: list[list[float]],
+    gradient: Sequence[Sequence[float]],
+    learning_rate: float,
+    regularization: float,
+) -> None:
+    for row in range(len(matrix)):
+        for column in range(len(matrix[row])):
+            matrix[row][column] += learning_rate * (
+                gradient[row][column] - regularization * matrix[row][column]
+            )
+
+
+def fit_graphsage(
+    history: History,
+    dimension: int = GRAPHSAGE_DIMENSION,
+    epochs: int = GRAPHSAGE_EPOCHS,
+    neighbor_sample: int = GRAPHSAGE_NEIGHBOR_SAMPLE,
+    learning_rate: float = GRAPHSAGE_LEARNING_RATE,
+    regularization: float = GRAPHSAGE_REGULARIZATION,
+) -> GraphSageRanker:
+    """Fit a one-layer GraphSAGE link predictor on the observed graph.
+
+    Node inputs are trainable identity embeddings. Each score uses a shared
+    self transform and a shared mean-neighbor transform, with deterministic
+    fixed-fanout sampling. BPR negatives are sampled only from historically
+    known problem nodes that are absent for the target product.
+    """
+
+    products = tuple(sorted(history.product_problems))
+    problems = tuple(sorted(history.problem_products))
+    if not products or not problems:
+        return GraphSageRanker({}, {}, {})
+    product_neighbors = {
+        product: _sample_graph_neighbors(history.product_problems[product], f"p:{product}", neighbor_sample)
+        for product in products
+    }
+    problem_neighbors = {
+        problem: _sample_graph_neighbors(history.problem_products[problem], f"d:{problem}", neighbor_sample)
+        for problem in problems
+    }
+    product_inputs = {
+        product: _initial_embedding(index, dimension, 11) for index, product in enumerate(products)
+    }
+    problem_inputs = {
+        problem: _initial_embedding(index, dimension, 17) for index, problem in enumerate(problems)
+    }
+    self_weights = [
+        [1.0 if row == column else 0.0 for column in range(dimension)]
+        for row in range(dimension)
+    ]
+    neighbor_weights = [
+        [0.25 if row == column else 0.0 for column in range(dimension)]
+        for row in range(dimension)
+    ]
+    positive_by_product = {
+        product: tuple(sorted(history.product_problems[product])) for product in products
+    }
+    problem_count = len(problems)
+    for epoch in range(epochs):
+        for product in products:
+            positives = positive_by_product[product]
+            positive_set = set(positives)
+            for problem in positives:
+                start = _stable_integer("graphsage-negative", str(epoch), product, problem) % problem_count
+                negative = None
+                for offset in range(problem_count):
+                    candidate = problems[(start + offset) % problem_count]
+                    if candidate not in positive_set:
+                        negative = candidate
+                        break
+                if negative is None:
+                    continue
+                product_hidden, product_mean = _graph_message(
+                    product_inputs[product],
+                    [problem_inputs[item] for item in product_neighbors[product]],
+                    self_weights,
+                    neighbor_weights,
+                )
+                positive_hidden, positive_mean = _graph_message(
+                    problem_inputs[problem],
+                    [product_inputs[item] for item in problem_neighbors[problem]],
+                    self_weights,
+                    neighbor_weights,
+                )
+                negative_hidden, negative_mean = _graph_message(
+                    problem_inputs[negative],
+                    [product_inputs[item] for item in problem_neighbors[negative]],
+                    self_weights,
+                    neighbor_weights,
+                )
+                margin = _dot(product_hidden, positive_hidden) - _dot(product_hidden, negative_hidden)
+                coefficient = 1.0 / (1.0 + math.exp(min(60.0, max(-60.0, margin))))
+                product_gradient, product_neighbor_gradient, product_self_gradient, product_neighbor_weight_gradient = _graph_message_gradients(
+                    [coefficient * (positive_hidden[index] - negative_hidden[index]) for index in range(dimension)],
+                    product_hidden,
+                    product_inputs[product],
+                    product_mean,
+                    self_weights,
+                    neighbor_weights,
+                    len(product_neighbors[product]),
+                )
+                positive_gradient, positive_neighbor_gradient, positive_self_gradient, positive_neighbor_weight_gradient = _graph_message_gradients(
+                    [coefficient * product_hidden[index] for index in range(dimension)],
+                    positive_hidden,
+                    problem_inputs[problem],
+                    positive_mean,
+                    self_weights,
+                    neighbor_weights,
+                    len(problem_neighbors[problem]),
+                )
+                negative_gradient, negative_neighbor_gradient, negative_self_gradient, negative_neighbor_weight_gradient = _graph_message_gradients(
+                    [-coefficient * product_hidden[index] for index in range(dimension)],
+                    negative_hidden,
+                    problem_inputs[negative],
+                    negative_mean,
+                    self_weights,
+                    neighbor_weights,
+                    len(problem_neighbors[negative]),
+                )
+                product_input_gradients: dict[str, list[float]] = {}
+                problem_input_gradients: dict[str, list[float]] = {}
+                _add_vector_gradient(product_input_gradients, product, product_gradient)
+                for item in product_neighbors[product]:
+                    _add_vector_gradient(problem_input_gradients, item, product_neighbor_gradient)
+                _add_vector_gradient(problem_input_gradients, problem, positive_gradient)
+                for item in problem_neighbors[problem]:
+                    _add_vector_gradient(product_input_gradients, item, positive_neighbor_gradient)
+                _add_vector_gradient(problem_input_gradients, negative, negative_gradient)
+                for item in problem_neighbors[negative]:
+                    _add_vector_gradient(product_input_gradients, item, negative_neighbor_gradient)
+                self_gradient = [
+                    [
+                        product_self_gradient[row][column]
+                        + positive_self_gradient[row][column]
+                        + negative_self_gradient[row][column]
+                        for column in range(dimension)
+                    ]
+                    for row in range(dimension)
+                ]
+                neighbor_gradient = [
+                    [
+                        product_neighbor_weight_gradient[row][column]
+                        + positive_neighbor_weight_gradient[row][column]
+                        + negative_neighbor_weight_gradient[row][column]
+                        for column in range(dimension)
+                    ]
+                    for row in range(dimension)
+                ]
+                _apply_matrix_gradient(
+                    self_weights, self_gradient, learning_rate, regularization
+                )
+                _apply_matrix_gradient(
+                    neighbor_weights, neighbor_gradient, learning_rate, regularization
+                )
+                _apply_vector_gradients(
+                    product_inputs, product_input_gradients, learning_rate, regularization
+                )
+                _apply_vector_gradients(
+                    problem_inputs, problem_input_gradients, learning_rate, regularization
+                )
+    product_hidden = {
+        product: _graph_message(
+            product_inputs[product],
+            [problem_inputs[item] for item in product_neighbors[product]],
+            self_weights,
+            neighbor_weights,
+        )[0]
+        for product in products
+    }
+    problem_hidden = {
+        problem: _graph_message(
+            problem_inputs[problem],
+            [product_inputs[item] for item in problem_neighbors[problem]],
+            self_weights,
+            neighbor_weights,
+        )[0]
+        for problem in problems
+    }
+    return GraphSageRanker(
+        product_hidden,
+        problem_hidden,
+        {
+            "dimension": dimension,
+            "epochs": epochs,
+            "neighbor_sample": neighbor_sample,
+            "learning_rate": learning_rate,
+            "regularization": regularization,
+            "objective": "bpr",
+            "activation": "tanh",
+        },
+    )
+
 
 def _sigmoid(value: float) -> float:
     if value >= 0:

@@ -38,33 +38,44 @@ class BenchmarkModel(Protocol):
 
 
 class BenchmarkTask(Protocol):
-    """Protocol shared by the MAUDE and CMS tasks."""
+    """Protocol shared by the MAUDE and CMS benchmark tasks."""
 
     name: str
 
-    def train(self) -> Split:
+    def get_split(self, name: str) -> Split:
+        """Return one frozen temporal split by name."""
         ...
 
-    def validation(self) -> Split:
-        ...
-
-    def test(self) -> Split:
+    def fit_predict(
+        self, method: str, train: Split, validation: Split, test: Split
+    ) -> PredictionSet:
         ...
 
     def evaluate(self, predictions: PredictionSet) -> dict[str, Any]:
         ...
 
 
-def load_task(name: str, source_root: str | Path, **kwargs: Any) -> BenchmarkTask:
-    """Load a task from official-source snapshots under ``source_root``."""
+def load_task(
+    name: str,
+    source_root: str | Path | None = None,
+    **kwargs: Any,
+) -> BenchmarkTask:
+    """Load a task from official-source snapshots under ``source_root``.
 
+    When omitted, ``source_root`` defaults to ``$HEALTHGRAPHBENCH_DATA_ROOT``
+    or ``./data``. Raw snapshots remain external to the repository.
+    """
+
+    import os
+
+    root = Path(source_root or os.environ.get("HEALTHGRAPHBENCH_DATA_ROOT", "data"))
     normalized = name.strip().lower().replace("-", "_")
     if normalized == "maude":
         from .tasks.maude.task import MaudeTask
 
-        return MaudeTask.from_source_root(Path(source_root), **kwargs)
+        return MaudeTask.from_source_root(root, **kwargs)
     if normalized in {"cms", "cms_nursing", "nursing_home"}:
         from .tasks.cms_nursing.task import CmsNursingTask
 
-        return CmsNursingTask.from_source_root(Path(source_root), **kwargs)
+        return CmsNursingTask.from_source_root(root, **kwargs)
     raise ValueError(f"Unknown task {name!r}; expected 'maude' or 'cms_nursing'")

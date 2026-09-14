@@ -55,18 +55,21 @@ class CmsNursingTask:
 
         return cls(prepared, source_root)
 
-    def train(self) -> Split:
-        return Split(
-            self,
-            "train",
-            {"years": list(range(2019, 2023)), "cutoff": "2022-12-31"},
-        )
+    def get_split(self, name: str) -> Split:
+        """Return a frozen CMS temporal split by name."""
 
-    def validation(self) -> Split:
-        return Split(self, "validation", {"years": [2023], "cutoff": "2023-12-31"})
-
-    def test(self) -> Split:
-        return Split(self, "test", {"years": [2024, 2025], "cutoff": "2025-12-31"})
+        normalized = name.strip().lower()
+        if normalized == "train":
+            return Split(
+                self,
+                "train",
+                {"years": list(range(2019, 2023)), "cutoff": "2022-12-31"},
+            )
+        if normalized == "validation":
+            return Split(self, "validation", {"years": [2023], "cutoff": "2023-12-31"})
+        if normalized == "test":
+            return Split(self, "test", {"years": [2024, 2025], "cutoff": "2025-12-31"})
+        raise ValueError(f"Unknown CMS split {name!r}; expected train, validation, or test")
 
     def _run_all(self) -> dict[str, PredictionSet]:
         if self._cached_predictions is not None:

@@ -22,15 +22,22 @@ from .data import (
 from .models import (
     FEATURE_NAMES,
     SUPPORT_BANDS,
+    GRAPHSAGE_DIMENSION,
+    GRAPHSAGE_EPOCHS,
+    GRAPHSAGE_LEARNING_RATE,
+    GRAPHSAGE_NEIGHBOR_SAMPLE,
+    GRAPHSAGE_REGULARIZATION,
     BoostedStumpRanker,
     FeatureContext,
     GraphRanker,
+    GraphSageRanker,
     History,
     LogisticRanker,
     SpectralRanker,
     TrainingRow,
     fit_boosted_stumps,
     fit_graph,
+    fit_graphsage,
     fit_logistic,
     fit_spectral,
     sample_training_rows,
@@ -74,7 +81,9 @@ class MethodResult(TypedDict):
     test: NotRequired[AggregateResult]
 
 
-FittedRanker = LogisticRanker | BoostedStumpRanker | SpectralRanker | GraphRanker
+FittedRanker = (
+    LogisticRanker | BoostedStumpRanker | SpectralRanker | GraphRanker | GraphSageRanker
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -268,7 +277,7 @@ def _score_graph(
     _context: FeatureContext,
     product: str,
     problem: str,
-    model: GraphRanker,
+    model: GraphRanker | GraphSageRanker,
 ) -> float:
     return model.score(product, problem)
 
@@ -308,11 +317,11 @@ def _bind_spectral_scorer(
 
 
 def _bind_graph_scorer(
-    context: FeatureContext,
-    model: GraphRanker,
+    _context: FeatureContext,
+    model: GraphRanker | GraphSageRanker,
 ) -> Callable[[str, str], float]:
     def scorer(product: str, problem: str) -> float:
-        return _score_graph(context, product, problem, model)
+        return _score_graph(_context, product, problem, model)
 
     return scorer
 
@@ -475,6 +484,7 @@ def run_gate(
             "boosted_stumps_tabular": fit_boosted_stumps(training_rows),
             "matrix_factorization_spectral": fit_spectral(history),
             "graph_message_passing_bpr": fit_graph(history),
+            "graphsage_link_prediction": fit_graphsage(history),
         }
 
     for snapshot in bundle.snapshots:
@@ -492,6 +502,7 @@ def run_gate(
             boosted_model = fitted["boosted_stumps_tabular"]
             spectral_model = fitted["matrix_factorization_spectral"]
             graph_model = fitted["graph_message_passing_bpr"]
+            graphsage_model = fitted["graphsage_link_prediction"]
             if not isinstance(logistic_model, LogisticRanker):
                 raise TypeError("Internal logistic model shape error")
             if not isinstance(boosted_model, BoostedStumpRanker):
@@ -500,6 +511,8 @@ def run_gate(
                 raise TypeError("Internal spectral model shape error")
             if not isinstance(graph_model, GraphRanker):
                 raise TypeError("Internal graph model shape error")
+            if not isinstance(graphsage_model, GraphSageRanker):
+                raise TypeError("Internal GraphSAGE model shape error")
             methods = (
                 MethodEvaluator("global_popularity", _bind_popularity_scorer(context)),
                 MethodEvaluator("neighbor_frequency", _bind_neighbor_scorer(context)),
@@ -513,6 +526,10 @@ def run_gate(
                 ),
                 MethodEvaluator(
                     "graph_message_passing_bpr", _bind_graph_scorer(context, graph_model)
+                ),
+                MethodEvaluator(
+                    "graphsage_link_prediction",
+                    _bind_graph_scorer(context, graphsage_model),
                 ),
             )
             for method in methods:
@@ -580,6 +597,15 @@ def run_gate(
             "graph_embedding_dimension": 8,
             "graph_bpr_epochs": 4,
             "graph_propagation": "0.5 learned node embedding + 0.5 mean one-hop neighbor embedding",
+            "graphsage": {
+                "dimension": GRAPHSAGE_DIMENSION,
+                "epochs": GRAPHSAGE_EPOCHS,
+                "neighbor_sample": GRAPHSAGE_NEIGHBOR_SAMPLE,
+                "learning_rate": GRAPHSAGE_LEARNING_RATE,
+                "regularization": GRAPHSAGE_REGULARIZATION,
+                "objective": "bpr",
+                "activation": "tanh",
+            },
             "tree_rounds": 12,
         },
         "sources": {

@@ -19,6 +19,7 @@ _ALLOWED_METHODS = {
     "boosted_stumps_tabular",
     "matrix_factorization_spectral",
     "graph_message_passing_bpr",
+    "graphsage_link_prediction",
 }
 
 
@@ -71,29 +72,32 @@ class MaudeTask:
             problem_code_map,
         )
 
-    def train(self) -> Split:
-        return Split(
-            self,
-            "train",
-            {"quarters": [q for q in QUARTERS if q <= "2022Q4"], "cutoff": "2022Q4"},
-        )
+    def get_split(self, name: str) -> Split:
+        """Return a frozen MAUDE temporal split by name."""
 
-    def validation(self) -> Split:
-        return Split(
-            self,
-            "validation",
-            {"quarters": [q for q in QUARTERS if q.startswith("2023")], "cutoff": "2023Q4"},
-        )
-
-    def test(self) -> Split:
-        return Split(
-            self,
-            "test",
-            {
-                "quarters": [q for q in QUARTERS if q.startswith(("2024", "2025"))],
-                "cutoff": "2025Q4",
-            },
-        )
+        normalized = name.strip().lower()
+        if normalized == "train":
+            return Split(
+                self,
+                "train",
+                {"quarters": [q for q in QUARTERS if q <= "2022Q4"], "cutoff": "2022Q4"},
+            )
+        if normalized == "validation":
+            return Split(
+                self,
+                "validation",
+                {"quarters": [q for q in QUARTERS if q.startswith("2023")], "cutoff": "2023Q4"},
+            )
+        if normalized == "test":
+            return Split(
+                self,
+                "test",
+                {
+                    "quarters": [q for q in QUARTERS if q.startswith(("2024", "2025"))],
+                    "cutoff": "2025Q4",
+                },
+            )
+        raise ValueError(f"Unknown MAUDE split {name!r}; expected train, validation, or test")
 
     def fit_predict(
         self, method: str, train: Split, validation: Split, test: Split
