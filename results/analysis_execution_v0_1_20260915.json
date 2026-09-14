@@ -1,12 +1,20 @@
 {
   "analysis_kind": "temporal_slices_and_entity_clustered_uncertainty",
   "benchmark_version": "0.1",
+  "row_semantics": {
+    "maude": "each eligible positive plus one deterministic historically-known non-positive candidate per positive",
+    "cms_nursing": "all retained target inspection rows"
+  },
   "execution": {
-    "source_commit": "c07f9444060b55cbb17948e2f39965862dfc36b5",
+    "source_commit": "ecb6dd397d4133cc6218b3074e4ce6ede800f3ec",
     "manifest_sha256": "d01389cd5ffb245f481d036c592ed58b6de7cf4f817499214ce47c9f34661a87",
-    "started_at_utc": "2026-09-14T23:08:26.184193+00:00",
+    "started_at_utc": "2026-09-14T23:15:55.521111+00:00",
     "model_config": {
-      "bootstrap_metric": "brier",
+      "bootstrap_metric": "task-specific",
+      "statistics": {
+        "maude": "pairwise_auc_difference",
+        "cms_nursing": "brier_difference"
+      },
       "resamples": 1000,
       "seed": 410,
       "cluster_units": {
@@ -14,7 +22,7 @@
         "cms_nursing": "ccn"
       }
     },
-    "finished_at_utc": "2026-09-14T23:12:11.268281+00:00"
+    "finished_at_utc": "2026-09-14T23:19:41.622673+00:00"
   },
   "inputs": {
     "maude": {
