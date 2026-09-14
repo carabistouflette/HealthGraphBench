@@ -209,16 +209,10 @@ def _maude_analysis(
             ),
         },
     }
-
-
 def _cms_history_band(value: int) -> str:
-    if value < 5:
-        return "1-4"
-    if value < 10:
-        return "5-9"
-    if value < 20:
-        return "10-19"
-    return "20+"
+    if value <= 1:
+        return "sparse_1"
+    return "higher_history_2+"
 
 
 def _cms_analysis(
