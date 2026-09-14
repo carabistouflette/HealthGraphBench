@@ -258,15 +258,19 @@ def prediction_rows(
 ) -> list[dict[str, object]]:
     """Return deterministic positive/negative rows for clustered analysis."""
 
-    positives_by_product: dict[str, tuple[str, ...]] = {
-        product: tuple(sorted(problem for edge_product, problem in eligible if edge_product == product))
-        for product in sorted({edge_product for edge_product, _ in eligible})
+    positive_problems: dict[str, set[str]] = defaultdict(set)
+    for product, problem in eligible:
+        positive_problems[product].add(problem)
+    positives_by_product = {
+        product: tuple(sorted(problems))
+        for product, problems in sorted(positive_problems.items())
     }
     rows: list[dict[str, object]] = []
     for product, positives in positives_by_product.items():
         candidates = context.history.candidate_problems(product)
+        positive_set = set(positives)
         negative_candidates = [
-            problem for problem in candidates if problem not in set(positives)
+            problem for problem in candidates if problem not in positive_set
         ]
         support = context.history.product_reports.get(product, 0)
         for problem in positives:
