@@ -119,6 +119,38 @@ The frozen CMS suite is:
 The GraphSAGE implementation is the sole genuine learned message-passing
 baseline in this milestone. No architecture sweep is included.
 
+## Post-baseline execution artifacts
+
+The post-baseline runs use distinct paths and retain row-level predictions for
+the clustered analyses:
+
+```bash
+PYTHONPATH=. python scripts/build_benchmark.py \
+  --data-root /tmp/healthgraphbench-data \
+  --task cms_nursing \
+  --output results/cms_execution_v0_1_20260915.json
+
+PYTHONPATH=. python scripts/build_benchmark.py \
+  --data-root /tmp/healthgraphbench-data \
+  --task maude \
+  --output results/maude_execution_v0_1_20260915.json
+
+PYTHONPATH=. python scripts/run_controls.py \
+  --data-root /tmp/healthgraphbench-data \
+  --output results/synthetic_controls_execution_v0_1_20260915.json
+
+PYTHONPATH=. python scripts/analyze_execution.py \
+  --maude-input results/maude_execution_v0_1_20260915.json \
+  --cms-input results/cms_execution_v0_1_20260915.json \
+  --output results/analysis_execution_v0_1_20260915.json
+```
+
+`analyze_execution.py` reports product- and CCN-clustered Brier-score
+intervals, MAUDE quarterly/support slices, CMS annual/facility-history slices,
+and the relational-versus-nonrelational ownership ablation. Its outputs
+record input hashes, the source commit, the manifest hash, timestamps, and
+bootstrap configuration.
+
 ## Verified v0.1 exploratory results
 
 These values are regenerated from the frozen snapshots listed in
