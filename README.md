@@ -145,11 +145,11 @@ PYTHONPATH=. python scripts/analyze_execution.py \
   --output results/analysis_execution_v0_1_20260915.json
 ```
 
-`analyze_execution.py` reports product- and CCN-clustered Brier-score
-intervals, MAUDE quarterly/support slices, CMS annual/facility-history slices,
-and the relational-versus-nonrelational ownership ablation. Its outputs
-record input hashes, the source commit, the manifest hash, timestamps, and
-bootstrap configuration.
+`analyze_execution.py` reports product-clustered pairwise-ranking and
+CCN-clustered Brier-score intervals, MAUDE quarterly/support slices, CMS
+annual/facility-history slices, and the relational-versus-nonrelational
+ownership ablation. Its outputs record input hashes, the source commit, the
+manifest hash, timestamps, and bootstrap configuration.
 
 ## Verified v0.1 exploratory results
 

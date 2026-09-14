@@ -111,8 +111,31 @@ def _brier_difference(rows: list[Mapping[str, Any]]) -> float:
     ) / len(rows)
 
 
+def _pairwise_auc_difference(rows: list[Mapping[str, Any]]) -> float:
+    grouped: dict[str, list[Mapping[str, Any]]] = defaultdict(list)
+    for row in rows:
+        grouped[str(row["cluster"])].append(row)
+    wins_a = 0.0
+    wins_b = 0.0
+    pairs = 0
+    for cluster_rows in grouped.values():
+        positives = [row for row in cluster_rows if int(row["label"]) == 1]
+        negatives = [row for row in cluster_rows if int(row["label"]) == 0]
+        for positive in positives:
+            for negative in negatives:
+                score_a = float(positive["score_a"]) - float(negative["score_a"])
+                score_b = float(positive["score_b"]) - float(negative["score_b"])
+                wins_a += 1.0 if score_a > 0 else 0.5 if score_a == 0 else 0.0
+                wins_b += 1.0 if score_b > 0 else 0.5 if score_b == 0 else 0.0
+                pairs += 1
+    if not pairs:
+        raise ValueError("pairwise ranking requires both labels in each bootstrap sample")
+    return (wins_b - wins_a) / pairs
+
+
 def _bootstrap(
     rows: Sequence[Mapping[str, Any]],
+    statistic: Callable[[list[Mapping[str, Any]]], float],
     *,
     resamples: int,
     seed: int,
@@ -122,7 +145,7 @@ def _bootstrap(
     return paired_cluster_bootstrap(
         rows,
         lambda row: str(row["cluster"]),
-        _brier_difference,
+        statistic,
         resamples=resamples,
         seed=seed,
     ).as_dict()
@@ -178,10 +201,12 @@ def _maude_analysis(
         "prediction_row_methods": sorted(exported),
         "cluster_bootstrap": {
             "comparison": f"{graphsage_name} minus {bpr_name}",
-            "metric": "brier",
+            "metric": "pairwise_auc",
             "scope": "2024Q1-2025Q4",
             "rows": len(paired),
-            "interval": _bootstrap(paired, resamples=resamples, seed=seed),
+            "interval": _bootstrap(
+                paired, _pairwise_auc_difference, resamples=resamples, seed=seed
+            ),
         },
     }
 
@@ -230,7 +255,9 @@ def _cms_analysis(
             "metric": "brier",
             "scope": "2024-2025",
             "rows": len(paired),
-            "interval": _bootstrap(paired, resamples=resamples, seed=seed + 1),
+            "interval": _bootstrap(
+                paired, _brier_difference, resamples=resamples, seed=seed + 1
+            ),
         },
     }
 
