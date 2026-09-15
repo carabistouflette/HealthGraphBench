@@ -46,9 +46,9 @@ a new run. The compression preserves original provenance fields.
 For citation, use [`CITATION.cff`](CITATION.cff) and the Zenodo DOI:
 **[10.5281/zenodo.22765003](https://doi.org/10.5281/zenodo.22765003)**.
 The versioned GitHub release remains available at the link above.
-The DOI was supplied after release packaging; the original release assets
-and their checksum manifest remain unchanged, including their historical
-pre-DOI citation metadata.
+The release citation asset now includes the DOI, and the release
+`SHA256SUMS` and asset manifest were regenerated accordingly. Benchmark
+result payloads, report files, and their hashes remain unchanged.
 
 ### Artifact policy from the next release onward
 

@@ -19,8 +19,8 @@
   "assets": [
     {
       "name": "CITATION.cff",
-      "bytes": 992,
-      "sha256": "4a661ab4307db03559a2d17b2163553e9bf2f114d9274fbaaf3c719a21317d54",
+      "bytes": 1023,
+      "sha256": "220cd493e357fcd8a438685437d5374f4e55f869178cc2b51220d30690f1c0db",
       "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.1/CITATION.cff"
     },
     {
@@ -73,5 +73,7 @@
     }
   ],
   "verification": "SHA256SUMS covers all payload files and this manifest; checksum file does not hash itself.",
-  "doi": null
+  "doi": "10.5281/zenodo.22765003",
+  "metadata_revision_at_utc": "2026-09-15T08:48:03.511424+00:00",
+  "metadata_revision": "Added the supplied Zenodo DOI to the release citation asset; benchmark result payloads are unchanged."
 }
