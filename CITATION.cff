@@ -1,14 +1,14 @@
 cff-version: 1.2.0
-message: "If you use HealthGraphBench, cite this frozen exploratory benchmark release."
+message: "If you use HealthGraphBench, cite this post-DOI benchmark release."
 title: "HealthGraphBench: Incremental relational value in health-regulatory prediction"
 authors:
   - name: "HealthGraphBench contributors"
-version: 0.1.1
+version: 0.1.2
 type: software
 repository-code: "https://github.com/carabistouflette/HealthGraphBench"
-url: "https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.1.1"
+url: "https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.1.2"
 doi: "10.5281/zenodo.22765003"
-commit: a8754a7b1c8d5c253d7fe32658d7255b77896dc0
+commit: dcff32ee926c2e52f242fe0edb67381cff30b24a
 license: Apache-2.0
 abstract: >-
   Frozen exploratory temporal evaluation of incremental relational predictive

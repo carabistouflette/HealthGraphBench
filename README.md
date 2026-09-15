@@ -19,25 +19,27 @@ justified empirically, not presumed beneficial.
 
 ## Release downloads and citation
 
-The [v0.1.1 GitHub Release](https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.1.1)
-provides the report PDF and Markdown source, summary CSV/JSON/SVG, compressed
-combined results, a post-DOI source archive generated from commit
-`cb3c0f046ce719218b40849b3c6eb869e29ec0b0`, source manifest, task contract,
-`CITATION.cff`, and `SHA256SUMS`. The report and source archive are explicitly
-post-release documentation/package supplements; the immutable Git tag and
-result payload remain unchanged.
-[`results/release_assets_v0_1_1.json`](results/release_assets_v0_1_1.json)
-records download URLs, byte sizes, SHA-256 hashes, and packaging provenance.
+`v0.1.1` is the immutable pre-DOI exploratory package. Its GitHub-generated
+source archive is the exact source snapshot for tag `v0.1.1`.
+
+The [v0.1.2 GitHub Release](https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.1.2)
+is the post-DOI citation package. It provides the report PDF and Markdown
+source, summary CSV/JSON/SVG, compressed combined results, source manifest,
+task contract, DOI-bearing `CITATION.cff`, and `SHA256SUMS`. No redundant
+custom source archive is included; GitHub generates the tag source archive.
+[`results/release_assets_v0_1_2.json`](results/release_assets_v0_1_2.json)
+records download URLs, byte sizes, SHA-256 hashes, DOI, and packaging
+provenance.
 
 Download into a new external directory and verify before decompressing:
 
 ```bash
-mkdir healthgraphbench-v0.1.1-download
-gh release download v0.1.1 --repo carabistouflette/HealthGraphBench \
-  --dir healthgraphbench-v0.1.1-download
-(cd healthgraphbench-v0.1.1-download && sha256sum -c SHA256SUMS)
-gzip -dk healthgraphbench-v0.1.1-download/large-results.json.gz
-sha256sum healthgraphbench-v0.1.1-download/large-results.json
+mkdir healthgraphbench-v0.1.2-download
+gh release download v0.1.2 --repo carabistouflette/HealthGraphBench \
+  --dir healthgraphbench-v0.1.2-download
+(cd healthgraphbench-v0.1.2-download && sha256sum -c SHA256SUMS)
+gzip -dk healthgraphbench-v0.1.2-download/large-results.json.gz
+sha256sum healthgraphbench-v0.1.2-download/large-results.json
 ```
 
 The uncompressed SHA-256 must equal `compression.uncompressed_sha256` in the
@@ -47,10 +49,8 @@ a new run. The compression preserves original provenance fields.
 
 For citation, use [`CITATION.cff`](CITATION.cff) and the Zenodo DOI:
 **[10.5281/zenodo.22765003](https://doi.org/10.5281/zenodo.22765003)**.
-The versioned GitHub release remains available at the link above.
-The release citation asset now includes the DOI, and the release `SHA256SUMS`
-and asset manifest cover the post-DOI source archive as well. Benchmark result
-payloads, report files, and their hashes remain unchanged.
+The DOI-bearing metadata belongs to v0.1.2. The v0.1.1 tag, its source
+snapshot, and its pre-DOI release package remain unchanged.
 
 ### Artifact policy from the next release onward
 
