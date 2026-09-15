@@ -25,13 +25,6 @@
       "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.1/CITATION.cff"
     },
     {
-      "name": "HealthGraphBench-v0.1.1-source.tar.gz",
-      "bytes": 8876882,
-      "sha256": "f5ccfdbcbae304d5533662b0e4fe57df149876faa72da6e29d1f061fbb3b49da",
-      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.1/HealthGraphBench-v0.1.1-source.tar.gz",
-      "generated_from_commit": "a8754a7b1c8d5c253d7fe32658d7255b77896dc0"
-    },
-    {
       "name": "benchmark_report_v0_1.md",
       "bytes": 14449,
       "sha256": "0c788d05bffc28bc10a6d9084ea41f28ab1ba88cbcd26841829990ff08b8d32e",
@@ -80,6 +73,6 @@
       "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.1/task_contract_v0_1.json"
     }
   ],
-  "verification": "SHA256SUMS covers all payload files and this manifest; checksum file does not hash itself.",
+  "verification": "SHA256SUMS covers all payload files and this manifest; the GitHub-generated tag source archive is available separately and is not included in this manifest.",
   "doi": null
 }
