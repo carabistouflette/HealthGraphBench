@@ -103,6 +103,32 @@ def _pair_rows(
     return paired
 
 
+def _pair_entity_rows(
+    rows_a: Sequence[Mapping[str, Any]],
+    rows_b: Sequence[Mapping[str, Any]],
+    key_fields: Sequence[str],
+) -> list[dict[str, Mapping[str, Any] | str]]:
+    grouped_a: dict[tuple[str, ...], list[Mapping[str, Any]]] = defaultdict(list)
+    grouped_b: dict[tuple[str, ...], list[Mapping[str, Any]]] = defaultdict(list)
+    for row in rows_a:
+        grouped_a[tuple(str(row[field]) for field in key_fields)].append(row)
+    for row in rows_b:
+        grouped_b[tuple(str(row[field]) for field in key_fields)].append(row)
+    paired: list[dict[str, Mapping[str, Any] | str]] = []
+    for key in sorted(set(grouped_a).intersection(grouped_b)):
+        left = sorted(grouped_a[key], key=lambda row: str(row.get("product", "")))
+        right = sorted(grouped_b[key], key=lambda row: str(row.get("product", "")))
+        for row_a, row_b in zip(left, right, strict=False):
+            paired.append(
+                {
+                    "cluster": str(row_a.get("cluster", row_a.get("product", row_a.get("ccn")))),
+                    "a": row_a,
+                    "b": row_b,
+                }
+            )
+    return paired
+
+
 def _brier_difference(rows: list[Mapping[str, Any]]) -> float:
     return sum(
         (float(row["score_b"]) - int(row["label"])) ** 2
@@ -131,6 +157,49 @@ def _pairwise_auc_difference(rows: list[Mapping[str, Any]]) -> float:
     if not pairs:
         raise ValueError("pairwise ranking requires both labels in each bootstrap sample")
     return (wins_b - wins_a) / pairs
+
+
+def _maude_entity_difference(
+    rows: list[Mapping[str, Any]],
+    metric: str,
+) -> float:
+    positive_edges = sum(int(row["a"]["positive_edges"]) for row in rows)
+    if not positive_edges:
+        raise ValueError("MAUDE bootstrap sample has no positive edges")
+    if metric == "recall_at_10":
+        hits_a = sum(int(row["a"]["hits_at_10"]) for row in rows)
+        hits_b = sum(int(row["b"]["hits_at_10"]) for row in rows)
+        return hits_b / positive_edges - hits_a / positive_edges
+    if metric == "macro_recall_at_10":
+        return sum(
+            float(row["b"]["recall_at_10"]) - float(row["a"]["recall_at_10"])
+            for row in rows
+        ) / len(rows)
+    if metric == "mrr":
+        return sum(
+            float(row["b"]["mrr"]) - float(row["a"]["mrr"]) for row in rows
+        ) / len(rows)
+    raise ValueError(f"unsupported MAUDE metric {metric!r}")
+
+
+def _classification_difference(
+    rows: list[Mapping[str, Any]],
+    metric: str,
+) -> float:
+    labels = [int(row["label"]) for row in rows]
+    scores_a = [float(row["score_a"]) for row in rows]
+    scores_b = [float(row["score_b"]) for row in rows]
+    if metric == "roc_auc":
+        value_a = ranking_auc(labels, scores_a)
+        value_b = ranking_auc(labels, scores_b)
+    elif metric == "average_precision":
+        value_a = average_precision(labels, scores_a)
+        value_b = average_precision(labels, scores_b)
+    else:
+        raise ValueError(f"unsupported classification metric {metric!r}")
+    if value_a is None or value_b is None:
+        raise ValueError(f"{metric} is undefined for a bootstrap sample")
+    return value_b - value_a
 
 
 def _bootstrap(
@@ -173,6 +242,12 @@ def _maude_analysis(
         for name, item in methods.items()
         if item.get("prediction_rows")
     }
+    entity_exported = {
+        name: list(item.get("entity_metrics", []))
+        for name, item in methods.items()
+        if item.get("entity_metrics")
+    }
+    neighbor_name = "neighbor_frequency"
     bpr_name = "graph_message_passing_bpr"
     graphsage_name = "graphsage_link_prediction"
     test_rows = {
@@ -195,17 +270,41 @@ def _maude_analysis(
         name: item.get("quarters", {})
         for name, item in methods.items()
     }
+    entity_test_rows = {
+        name: [row for row in rows if str(row["quarter"]) >= "2024Q1"]
+        for name, rows in entity_exported.items()
+    }
+    primary_paired = _pair_entity_rows(
+        entity_test_rows.get(neighbor_name, []),
+        entity_test_rows.get(graphsage_name, []),
+        ("quarter", "product"),
+    )
+    primary_metrics = {}
+    for offset, metric in enumerate(("recall_at_10", "macro_recall_at_10", "mrr")):
+        primary_metrics[metric] = {
+            "comparison": f"{graphsage_name} minus {neighbor_name}",
+            "metric": metric,
+            "scope": "2024Q1-2025Q4",
+            "rows": len(primary_paired),
+            "interval": _bootstrap(
+                primary_paired,
+                lambda rows, metric=metric: _maude_entity_difference(rows, metric),
+                resamples=resamples,
+                seed=seed + offset,
+            ),
+        }
     return {
         "quarterly_ranking_metrics": quarterly,
         "test_support_slices": support_slices,
         "prediction_row_methods": sorted(exported),
+        "primary_metric_bootstrap": primary_metrics,
         "cluster_bootstrap": {
             "comparison": f"{graphsage_name} minus {bpr_name}",
             "metric": "pairwise_auc",
             "scope": "2024Q1-2025Q4",
             "rows": len(paired),
             "interval": _bootstrap(
-                paired, _pairwise_auc_difference, resamples=resamples, seed=seed
+                paired, _pairwise_auc_difference, resamples=resamples, seed=seed + 3
             ),
         },
     }
@@ -241,9 +340,24 @@ def _cms_analysis(
     test_nonrelational = [row for row in nonrelational if int(row["year"]) >= 2024]
     test_relational = [row for row in relational if int(row["year"]) >= 2024]
     paired = _pair_rows(test_nonrelational, test_relational, ("year", "ccn", "date", "label"))
+    primary_metrics = {}
+    for offset, metric in enumerate(("roc_auc", "average_precision")):
+        primary_metrics[metric] = {
+            "comparison": "facility_plus_combined_ownership minus facility_history",
+            "metric": metric,
+            "scope": "2024-2025",
+            "rows": len(paired),
+            "interval": _bootstrap(
+                paired,
+                lambda rows, metric=metric: _classification_difference(rows, metric),
+                resamples=resamples,
+                seed=seed + 4 + offset,
+            ),
+        }
     return {
         "annual_metrics": annual,
         "test_facility_history_slices": history_slices,
+        "primary_metric_bootstrap": primary_metrics,
         "cluster_bootstrap": {
             "comparison": "facility_plus_combined_ownership minus facility_history",
             "metric": "brier",
@@ -284,8 +398,14 @@ def main() -> int:
             "model_config": {
                 "bootstrap_metric": "task-specific",
                 "statistics": {
-                    "maude": "pairwise_auc_difference",
-                    "cms_nursing": "brier_difference",
+                    "maude_primary": [
+                        "recall_at_10_difference",
+                        "macro_recall_at_10_difference",
+                        "mrr_difference",
+                    ],
+                    "maude_secondary": "pairwise_auc_difference",
+                    "cms_primary": ["roc_auc_difference", "average_precision_difference"],
+                    "cms_secondary": "brier_difference",
                 },
                 "resamples": args.resamples,
                 "seed": args.seed,

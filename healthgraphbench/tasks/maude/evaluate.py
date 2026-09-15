@@ -50,7 +50,7 @@ TOP_KS: tuple[int, ...] = (5, 10, 20)
 NEGATIVE_RATIO = 1
 
 PREDICTION_EXPORT_METHODS = frozenset(
-    {"graph_message_passing_bpr", "graphsage_link_prediction"}
+    {"neighbor_frequency", "graph_message_passing_bpr", "graphsage_link_prediction"}
 )
 
 
@@ -83,6 +83,8 @@ class MethodResult(TypedDict):
     quarters: dict[str, QuarterResult]
     validation: NotRequired[AggregateResult]
     test: NotRequired[AggregateResult]
+    entity_metrics: NotRequired[list[dict[str, object]]]
+    prediction_rows: NotRequired[list[dict[str, object]]]
 
 
 FittedRanker = (
@@ -212,7 +214,7 @@ def evaluate_method(
     context: FeatureContext,
     eligible: frozenset[Edge],
     scorer: Callable[[str, str], float],
-) -> tuple[dict[str, MetricRow], dict[str, MetricRow]]:
+) -> tuple[dict[str, MetricRow], dict[str, MetricRow], list[dict[str, object]]]:
     positives_by_product: dict[str, set[str]] = defaultdict(set)
     for product, problem in eligible:
         positives_by_product[product].add(problem)
@@ -222,7 +224,9 @@ def evaluate_method(
 
     threshold_totals = {threshold: MetricAccumulator() for threshold in SUPPORT_THRESHOLDS}
     bands = {band: MetricAccumulator() for band in SUPPORT_BANDS}
-    for product, positives in positives_by_product.items():
+    entity_rows: list[dict[str, object]] = []
+    for product in sorted(positives_by_product):
+        positives = positives_by_product[product]
         ranking = rankings[product]
         ranks_by_problem = {problem: index + 1 for index, problem in enumerate(ranking)}
         supports = {
@@ -241,6 +245,25 @@ def evaluate_method(
             by_band[support_band(support)].append(ranks_by_problem[problem])
         for band, ranks in by_band.items():
             bands[band].add_product(ranks, len(ranks))
+        hits_at_5 = sum(ranks_by_problem[problem] <= 5 for problem in positives)
+        hits_at_10 = sum(ranks_by_problem[problem] <= 10 for problem in positives)
+        hits_at_20 = sum(ranks_by_problem[problem] <= 20 for problem in positives)
+        entity_rows.append(
+            {
+                "cluster": product,
+                "quarter": context.quarter,
+                "product": product,
+                "history_support": context.history.product_reports.get(product, 0),
+                "positive_edges": len(positives),
+                "hits_at_5": hits_at_5,
+                "hits_at_10": hits_at_10,
+                "hits_at_20": hits_at_20,
+                "recall_at_5": hits_at_5 / len(positives),
+                "recall_at_10": hits_at_10 / len(positives),
+                "recall_at_20": hits_at_20 / len(positives),
+                "mrr": 1.0 / min(ranks_by_problem[problem] for problem in positives),
+            }
+        )
 
     return (
         {
@@ -248,6 +271,7 @@ def evaluate_method(
             for threshold, accumulator in threshold_totals.items()
         },
         {band: accumulator.as_dict() for band, accumulator in bands.items()},
+        entity_rows,
     )
 
 
@@ -590,7 +614,7 @@ def run_gate(
                 ),
             )
             for method in methods:
-                threshold_rows, band_rows = evaluate_method(
+                threshold_rows, band_rows, entity_rows = evaluate_method(
                     context, current_eligible, method.scorer
                 )
                 method_result = result_by_method.setdefault(method.name, {"quarters": {}})
@@ -598,6 +622,7 @@ def run_gate(
                     "thresholds": threshold_rows,
                     "support_bands": band_rows,
                 }
+                method_result.setdefault("entity_metrics", []).extend(entity_rows)
                 if method.name in PREDICTION_EXPORT_METHODS:
                     method_result.setdefault("prediction_rows", []).extend(
                         prediction_rows(context, current_eligible, method.scorer)

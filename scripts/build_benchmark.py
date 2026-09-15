@@ -94,7 +94,10 @@ def _run_task(task_name: str, data_root: Path, manifest: dict[str, Any]) -> dict
         }
         if task_name == "maude" and predictions.payload.get("quarters") is not None:
             method_result["quarters"] = predictions.payload["quarters"]
+        if task_name == "maude" and predictions.payload.get("entity_metrics") is not None:
+            method_result["entity_metrics"] = predictions.payload["entity_metrics"]
         if task_name == "cms_nursing" or model.name in {
+            "neighbor_frequency",
             "graph_message_passing_bpr",
             "graphsage_link_prediction",
         }:
