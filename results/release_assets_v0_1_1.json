@@ -2,9 +2,10 @@
   "schema_version": 1,
   "release": "v0.1.1",
   "source_commit": "a8754a7b1c8d5c253d7fe32658d7255b77896dc0",
+  "package_status": "pre_doi_tag_compatible",
   "packaged_at_utc": "2026-09-15T07:07:58.272692+00:00",
   "evaluation_status": "frozen exploratory temporal evaluation",
-  "report_status": "post-release documentation supplement; not part of the original v0.1.1 tag",
+  "report_status": "benchmark report accompanying the pre-DOI v0.1.1 package",
   "report_source_path": "docs/benchmark_report_v0_1.md",
   "raw_data_included": false,
   "compression": {
@@ -19,9 +20,16 @@
   "assets": [
     {
       "name": "CITATION.cff",
-      "bytes": 1023,
-      "sha256": "220cd493e357fcd8a438685437d5374f4e55f869178cc2b51220d30690f1c0db",
+      "bytes": 701,
+      "sha256": "149ee54c74902d27068a6d7251ce4495668d3409c9249c2731f3add7582a7946",
       "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.1/CITATION.cff"
+    },
+    {
+      "name": "HealthGraphBench-v0.1.1-source.tar.gz",
+      "bytes": 8876882,
+      "sha256": "f5ccfdbcbae304d5533662b0e4fe57df149876faa72da6e29d1f061fbb3b49da",
+      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.1/HealthGraphBench-v0.1.1-source.tar.gz",
+      "generated_from_commit": "a8754a7b1c8d5c253d7fe32658d7255b77896dc0"
     },
     {
       "name": "benchmark_report_v0_1.md",
@@ -70,17 +78,8 @@
       "bytes": 3101,
       "sha256": "fcee1943a660800316d064ce2d24a93f825dbb8f87bff393ac99b0668a6d481f",
       "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.1/task_contract_v0_1.json"
-    },
-    {
-      "name": "HealthGraphBench-v0.1.1-source.tar.gz",
-      "bytes": 8881120,
-      "sha256": "16d72382a64f8b79ff69e46243ebff56f250943777ca622e1cb53afe149bce9c",
-      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.1/HealthGraphBench-v0.1.1-source.tar.gz",
-      "generated_from_commit": "cb3c0f046ce719218b40849b3c6eb869e29ec0b0"
     }
   ],
-  "verification": "SHA256SUMS covers all payload files and this manifest, including the post-DOI source archive; checksum file does not hash itself.",
-  "doi": "10.5281/zenodo.22765003",
-  "metadata_revision_at_utc": "2026-09-15T08:48:03.511424+00:00",
-  "metadata_revision": "Added the supplied Zenodo DOI to the release citation asset and added a source archive generated from the post-DOI main branch; benchmark result payloads are unchanged."
+  "verification": "SHA256SUMS covers all payload files and this manifest; checksum file does not hash itself.",
+  "doi": null
 }
