@@ -2,7 +2,8 @@ cff-version: 1.2.0
 message: "If you use HealthGraphBench, cite this post-DOI benchmark release."
 title: "HealthGraphBench: Incremental relational value in health-regulatory prediction"
 authors:
-  - name: "HealthGraphBench contributors"
+  - family-names: "Robin"
+    given-names: "Alexis"
 version: 0.1.2
 type: software
 repository-code: "https://github.com/carabistouflette/HealthGraphBench"
