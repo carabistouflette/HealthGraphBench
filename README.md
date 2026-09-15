@@ -21,9 +21,11 @@ justified empirically, not presumed beneficial.
 
 The [v0.1.1 GitHub Release](https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.1.1)
 provides the report PDF and Markdown source, summary CSV/JSON/SVG, compressed
-combined results, source manifest, task contract, `CITATION.cff`, and
-`SHA256SUMS`. The report is explicitly a documentation supplement prepared
-after the tag; the result payload is byte-identical to the tagged execution.
+combined results, a post-DOI source archive generated from commit
+`cb3c0f046ce719218b40849b3c6eb869e29ec0b0`, source manifest, task contract,
+`CITATION.cff`, and `SHA256SUMS`. The report and source archive are explicitly
+post-release documentation/package supplements; the immutable Git tag and
+result payload remain unchanged.
 [`results/release_assets_v0_1_1.json`](results/release_assets_v0_1_1.json)
 records download URLs, byte sizes, SHA-256 hashes, and packaging provenance.
 
@@ -46,9 +48,9 @@ a new run. The compression preserves original provenance fields.
 For citation, use [`CITATION.cff`](CITATION.cff) and the Zenodo DOI:
 **[10.5281/zenodo.22765003](https://doi.org/10.5281/zenodo.22765003)**.
 The versioned GitHub release remains available at the link above.
-The release citation asset now includes the DOI, and the release
-`SHA256SUMS` and asset manifest were regenerated accordingly. Benchmark
-result payloads, report files, and their hashes remain unchanged.
+The release citation asset now includes the DOI, and the release `SHA256SUMS`
+and asset manifest cover the post-DOI source archive as well. Benchmark result
+payloads, report files, and their hashes remain unchanged.
 
 ### Artifact policy from the next release onward
 

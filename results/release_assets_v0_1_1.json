@@ -70,10 +70,17 @@
       "bytes": 3101,
       "sha256": "fcee1943a660800316d064ce2d24a93f825dbb8f87bff393ac99b0668a6d481f",
       "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.1/task_contract_v0_1.json"
+    },
+    {
+      "name": "HealthGraphBench-v0.1.1-source.tar.gz",
+      "bytes": 8881120,
+      "sha256": "16d72382a64f8b79ff69e46243ebff56f250943777ca622e1cb53afe149bce9c",
+      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.1/HealthGraphBench-v0.1.1-source.tar.gz",
+      "generated_from_commit": "cb3c0f046ce719218b40849b3c6eb869e29ec0b0"
     }
   ],
-  "verification": "SHA256SUMS covers all payload files and this manifest; checksum file does not hash itself.",
+  "verification": "SHA256SUMS covers all payload files and this manifest, including the post-DOI source archive; checksum file does not hash itself.",
   "doi": "10.5281/zenodo.22765003",
   "metadata_revision_at_utc": "2026-09-15T08:48:03.511424+00:00",
-  "metadata_revision": "Added the supplied Zenodo DOI to the release citation asset; benchmark result payloads are unchanged."
+  "metadata_revision": "Added the supplied Zenodo DOI to the release citation asset and added a source archive generated from the post-DOI main branch; benchmark result payloads are unchanged."
 }
