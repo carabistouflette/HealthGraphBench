@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "release": "v0.1.2",
+  "source_commit": "8c199e3ceec48117db0858f4270cc2d15f984786",
+  "package_status": "post_doi_citation_package",
+  "packaged_at_utc": "2026-09-15T09:29:14.959910+00:00",
+  "evaluation_status": "frozen exploratory temporal evaluation",
+  "report_status": "post-release documentation supplement; benchmark result payloads are unchanged",
+  "report_source_path": "docs/benchmark_report_v0_1.md",
+  "raw_data_included": false,
+  "compression": {
+    "file": "large-results.json.gz",
+    "format": "gzip",
+    "level": 9,
+    "mtime": 0,
+    "uncompressed_path": "results/execution_v0_1_20260915.json",
+    "uncompressed_sha256": "952407366013416536dff4334ff97bfaef14063cea393af6c3eb4e61d23328a1",
+    "uncompressed_bytes": 89962992
+  },
+  "assets": [
+    {
+      "name": "CITATION.cff",
+      "bytes": 1013,
+      "sha256": "a951b269ddccdbdefd9d383196205f3390fe0b823c0ee452696220def2dbf87d",
+      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.2/CITATION.cff"
+    },
+    {
+      "name": "benchmark_report_v0_1.md",
+      "bytes": 14449,
+      "sha256": "0c788d05bffc28bc10a6d9084ea41f28ab1ba88cbcd26841829990ff08b8d32e",
+      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.2/benchmark_report_v0_1.md"
+    },
+    {
+      "name": "benchmark_report_v0_1.pdf",
+      "bytes": 38863,
+      "sha256": "59dd282253b19edea9ddaf4443ac2ee36f2af96ac6f53bdb5869736638cb7c39",
+      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.2/benchmark_report_v0_1.pdf"
+    },
+    {
+      "name": "benchmark_summary_v0_1.csv",
+      "bytes": 1892,
+      "sha256": "6873db6d93878fa0648e80c32f2019cd9f71069b32cc9309f7ac6fb555e2243b",
+      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.2/benchmark_summary_v0_1.csv"
+    },
+    {
+      "name": "benchmark_summary_v0_1.json",
+      "bytes": 7478,
+      "sha256": "7fbaae0fe067cc91d97dbc2e8a24e2a7f7a7e2de790aec4f18d361298681bddf",
+      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.2/benchmark_summary_v0_1.json"
+    },
+    {
+      "name": "benchmark_summary_v0_1.svg",
+      "bytes": 4075,
+      "sha256": "77600ddebe9519422620758268c4d1aae7875382a1124fe24d8f707d43b33988",
+      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.2/benchmark_summary_v0_1.svg"
+    },
+    {
+      "name": "large-results.json.gz",
+      "bytes": 4130744,
+      "sha256": "d03ab37e3520190f8009e8382320d9aeb1536b90771a6af86508010cfa496675",
+      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.2/large-results.json.gz"
+    },
+    {
+      "name": "source_manifest_v0_1.json",
+      "bytes": 4599,
+      "sha256": "d01389cd5ffb245f481d036c592ed58b6de7cf4f817499214ce47c9f34661a87",
+      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.2/source_manifest_v0_1.json"
+    },
+    {
+      "name": "task_contract_v0_1.json",
+      "bytes": 3101,
+      "sha256": "fcee1943a660800316d064ce2d24a93f825dbb8f87bff393ac99b0668a6d481f",
+      "download_url": "https://github.com/carabistouflette/HealthGraphBench/releases/download/v0.1.2/task_contract_v0_1.json"
+    }
+  ],
+  "verification": "SHA256SUMS covers all payload files and this manifest; GitHub-generated source archives for tag v0.1.2 are available separately and are not included in this manifest.",
+  "doi": "10.5281/zenodo.22765003"
+}
