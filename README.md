@@ -43,10 +43,12 @@ asset manifest. `large-results.json.gz` contains the combined execution
 artifact, including task results, analyses, and synthetic controls; it is not
 a new run. The compression preserves original provenance fields.
 
-For citation, use [`CITATION.cff`](CITATION.cff) and the versioned release URL.
-No Zenodo DOI has been registered. DOI publication requires a repository
-owner's Zenodo account/integration and verified deposition metadata; do not
-substitute an invented DOI or recreate the existing tag to trigger archiving.
+For citation, use [`CITATION.cff`](CITATION.cff) and the Zenodo DOI:
+**[10.5281/zenodo.22765003](https://doi.org/10.5281/zenodo.22765003)**.
+The versioned GitHub release remains available at the link above.
+The DOI was supplied after release packaging; the original release assets
+and their checksum manifest remain unchanged, including their historical
+pre-DOI citation metadata.
 
 ### Artifact policy from the next release onward
 

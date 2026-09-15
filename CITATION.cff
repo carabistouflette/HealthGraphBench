@@ -7,6 +7,7 @@ version: 0.1.1
 type: software
 repository-code: "https://github.com/carabistouflette/HealthGraphBench"
 url: "https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.1.1"
+doi: "10.5281/zenodo.22765003"
 commit: a8754a7b1c8d5c253d7fe32658d7255b77896dc0
 license: Apache-2.0
 abstract: >-
