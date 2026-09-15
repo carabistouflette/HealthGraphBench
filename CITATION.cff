@@ -1,20 +1,22 @@
 cff-version: 1.2.0
-message: "If you use HealthGraphBench, please cite the repository and the versioned benchmark contract."
-title: "HealthGraphBench"
-abstract: >-
-  A reproducible temporal benchmark for studying when relational information
-  adds predictive value beyond strong entity-local and relational baselines in
-  public health and regulatory machine learning.
-version: 0.1.0
-date-released: 2026-09-14
-repository-code: "https://github.com/carabistouflette/HealthGraphBench"
-license: Apache-2.0
+message: "If you use HealthGraphBench, cite this frozen exploratory benchmark release."
+title: "HealthGraphBench: Incremental relational value in health-regulatory prediction"
 authors:
-  - family-names: "HealthGraphBench"
-    given-names: "contributors"
+  - name: "HealthGraphBench contributors"
+version: 0.1.1
+type: software
+repository-code: "https://github.com/carabistouflette/HealthGraphBench"
+url: "https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.1.1"
+commit: a8754a7b1c8d5c253d7fe32658d7255b77896dc0
+license: Apache-2.0
+abstract: >-
+  Frozen exploratory temporal evaluation of incremental relational predictive
+  value in FDA MAUDE and CMS nursing-home inspection tasks, with strong simple
+  baselines, a deterministic GraphSAGE comparison, entity-clustered uncertainty,
+  and synthetic implementation sanity checks. Evaluation periods were inspected
+  during development; results are not untouched prospective confirmation.
 keywords:
-  - public health
-  - regulatory machine learning
+  - benchmark
   - temporal evaluation
   - relational learning
-  - benchmark
+  - public health

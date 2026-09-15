@@ -11,6 +11,60 @@ post-baseline execution freeze adds exactly one genuine GraphSAGE model,
 primary-metric uncertainty, and versioned task/control artifacts without
 changing the frozen source manifest or baseline result files.
 
+The main research report is
+[`docs/benchmark_report_v0_1.md`](docs/benchmark_report_v0_1.md). Its expanded
+post-release text explains the contribution and bounded negative/conditional
+findings; it does not change the frozen evaluation. Graph complexity must be
+justified empirically, not presumed beneficial.
+
+## Release downloads and citation
+
+The [v0.1.1 GitHub Release](https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.1.1)
+provides the report PDF and Markdown source, summary CSV/JSON/SVG, compressed
+combined results, source manifest, task contract, `CITATION.cff`, and
+`SHA256SUMS`. The report is explicitly a documentation supplement prepared
+after the tag; the result payload is byte-identical to the tagged execution.
+[`results/release_assets_v0_1_1.json`](results/release_assets_v0_1_1.json)
+records download URLs, byte sizes, SHA-256 hashes, and packaging provenance.
+
+Download into a new external directory and verify before decompressing:
+
+```bash
+mkdir healthgraphbench-v0.1.1-download
+gh release download v0.1.1 --repo carabistouflette/HealthGraphBench \
+  --dir healthgraphbench-v0.1.1-download
+(cd healthgraphbench-v0.1.1-download && sha256sum -c SHA256SUMS)
+gzip -dk healthgraphbench-v0.1.1-download/large-results.json.gz
+sha256sum healthgraphbench-v0.1.1-download/large-results.json
+```
+
+The uncompressed SHA-256 must equal `compression.uncompressed_sha256` in the
+asset manifest. `large-results.json.gz` contains the combined execution
+artifact, including task results, analyses, and synthetic controls; it is not
+a new run. The compression preserves original provenance fields.
+
+For citation, use [`CITATION.cff`](CITATION.cff) and the versioned release URL.
+No Zenodo DOI has been registered. DOI publication requires a repository
+owner's Zenodo account/integration and verified deposition metadata; do not
+substitute an invented DOI or recreate the existing tag to trigger archiving.
+
+### Artifact policy from the next release onward
+
+- Keep small summaries, manifests, configurations, hashes, CSVs, and plots in Git.
+- Publish large generated JSON as versioned GitHub Release assets or Zenodo
+  deposits, optionally compressed as `.json.gz`; record both compressed and
+  uncompressed SHA-256 hashes and stable download locations.
+- Preserve source commits, input hashes, execution timestamps, and model
+  configurations in each result. Keep raw FDA/CMS snapshots external.
+- Never overwrite an existing result or published asset. Corrections require
+  a new version and explicit provenance.
+- Do not rewrite history to remove the current large files. `v0.1.0`,
+  `v0.1.1`, and their result bytes remain immutable; asset distribution does
+  not shrink existing clone history.
+
+The research design and model suite remain frozen. Additional models require
+a specific reviewer question and a separately versioned analysis.
+
 ## Repository map
 
 ```text

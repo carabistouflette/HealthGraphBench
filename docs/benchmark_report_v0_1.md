@@ -1,4 +1,28 @@
-# HealthGraphBench v0.1 benchmark report
+# HealthGraphBench: When does relational structure add predictive value?
+
+Research report accompanying the v0.1.1 frozen exploratory benchmark.
+This expanded report is a post-release documentation supplement; the tagged
+code, design, source manifest, and result bytes remain unchanged.
+
+## Abstract
+
+HealthGraphBench evaluates the incremental predictive value of relational
+structure against strong non-graph and simple relational baselines under
+temporally valid health-regulatory prediction tasks. We study first-observed
+product/problem-code relationships in FDA MAUDE and serious deficiencies at
+later CMS nursing-home inspections. Historical features precede target
+observations; the comparison suite and source snapshots are frozen.
+On MAUDE, neighbor frequency achieves Recall@10 of 0.192045 versus 0.172840
+for a deterministic GraphSAGE link predictor. The paired product-clustered
+95% interval for GraphSAGE minus neighbor frequency is
+[-0.023578, -0.014845]. On CMS, ownership augmentation changes facility-history
+ROC AUC by +0.001318, with a CCN-clustered interval of
+[-0.001458, +0.004329]. Synthetic controls recover injected relational signal
+but provide no health-outcome evidence. These are exploratory
+benchmark-development results: the temporal evaluation periods were inspected
+during development, not reserved for untouched prospective confirmation.
+The contribution is a reproducible comparison in which graph complexity must
+earn its place, rather than an assertion that graphs do not work.
 
 ## 1. Motivation
 
@@ -6,6 +30,24 @@ Relational structure is common in public-health and regulatory data, but its
 presence does not establish that a learned graph model will improve prediction.
 HealthGraphBench evaluates that question against strong entity-local and
 relational baselines rather than assuming that graph complexity should win.
+
+The core contribution is the benchmark's controlled comparison of incremental
+relational value, not a new graph architecture. It combines two temporal
+prediction contracts, non-graph and simple relational baselines, one learned
+message-passing model, paired uncertainty on headline metrics, and synthetic
+implementation checks. This makes a negative or conditional outcome an
+informative result rather than a failed model demonstration.
+
+The research questions are deliberately narrow:
+
+1. Does learned message passing improve MAUDE ranking over a simple
+   historical relational heuristic?
+2. Does ownership-network information add predictive value beyond a facility's
+   own inspection history?
+3. Can the control implementation recover relational signal when it is
+   injected under a known data-generating mechanism?
+
+The third question is an implementation check, not a third health task.
 
 ## 2. Benchmark
 
@@ -22,6 +64,19 @@ The source manifest is `data/manifests/v0.1.json`. Raw FDA and CMS snapshots
 remain external. The immutable `v0.1.0` tag records the pre-message-passing
 baseline definition; the post-baseline execution is frozen as benchmark
 version 0.1 in the versioned artifacts listed below.
+
+For MAUDE, an eligible product has prior reports, a candidate problem has
+appeared globally before the scored quarter, and the product/problem edge
+has not previously appeared in retained history. A positive is first observed
+within the retained collection window, not necessarily first ever. A negative
+is temporal non-observation, not proof that no underlying failure exists.
+Ranking covers all eligible candidates rather than sampled evaluation negatives.
+
+For CMS, eligible Health Standard inspection episodes have at least one prior
+such inspection. The target is an observed G–L Standard Deficiency at the
+target episode. A negative is not evidence that a facility is safe.
+Ownership associations are restricted to those active at the target date;
+historical features and change-of-ownership counts exclude the target episode.
 
 ## 3. Methods
 
@@ -47,11 +102,32 @@ The reported results are a **frozen exploratory temporal evaluation**. The
 confirmatory holdouts. They should not be described as final unbiased clinical
 performance.
 
+The frozen contract assigns 2019–2022 to initial training history, 2023 to
+validation, and 2024–2025 to test evaluation for both tasks. MAUDE advances
+quarterly, scoring before adding the current quarter to history and refitting
+learned rankers only at the frozen refit quarters using prior rows. CMS uses
+expanding training rows ending before each target year. The annual and
+quarterly diagnostics below include validation periods; they must not be
+confused with the pooled 2024–2025 test tables.
+
+Temporal ordering prevents the specified target-to-feature leakage; it does
+not undo researcher exposure to evaluation results. The intervals quantify
+resampling uncertainty for the frozen comparisons, not model-selection bias,
+future distribution shift, or clinical deployment validity.
+
 Primary uncertainty uses 1,000-resample entity-clustered bootstrap intervals:
 products for MAUDE and CCNs for CMS. MAUDE intervals are computed directly on
 per-product/per-quarter ranking contributions. CMS intervals use all retained
 target inspection rows. Network links may leave residual dependence between
 clusters.
+
+Resampling preserves each entity's retained observations and pairs methods
+within the same clusters. Reported differences are GraphSAGE minus neighbor
+frequency for MAUDE and ownership augmentation minus facility history for
+CMS. Higher ranking/discrimination metrics are better; lower Brier is better.
+Micro Recall@10 pools recovered positives over eligible positives; macro
+Recall@10 weights eligible entity/quarter recalls equally. MRR summarizes
+reciprocal first-relevant ranks over eligible entity/quarter observations.
 
 ## 5. Main results
 
@@ -92,7 +168,10 @@ Brier score.
 | ownership − facility history | Brier | +0.000132 | [-0.000038, +0.000303] | 13,889 CCNs |
 
 The MAUDE intervals directly quantify the headline comparison and exclude zero
-in the negative direction. All CMS intervals include zero.
+in the negative direction: the Recall@10 difference is approximately -1.92
+percentage points. All CMS intervals include zero. This is no clear evidence
+of an ownership gain under this design, not an equivalence test or proof that
+the true increment is exactly zero.
 
 ## 7. Temporal and history slices
 
@@ -126,7 +205,7 @@ The retained CMS rows have one or two prior inspections. The history analysis
 therefore uses the dataset-relative bands `sparse_1` and
 `higher_history_2+`, not a claim of long facility history.
 
-## 8. Controlled relational validation
+## 8. Synthetic implementation sanity checks
 
 On the real pre-cutoff ownership topology, the zero-signal relational control
 has mean relational AUC 0.503087 across three seeds. Injecting relational
@@ -135,18 +214,37 @@ support the narrower conclusion that the relational implementation can exploit
 neighborhood signal when it is present; they do not imply that the real CMS
 ownership features should improve prediction.
 
+The labels in these controls are synthetic. Their performance does not
+validate health labels, establish a causal ownership effect, or certify every
+component of the MAUDE GraphSAGE implementation. It only shows sensitivity to
+the injected signal in the exercised control pipeline and topology.
+
 ## 9. Interpretation and limitations
 
-The result is not that graphs are intrinsically useless. In these two public
-regulatory tasks, additional learned graph complexity does not currently beat
-stronger simpler relational baselines, while the controlled experiment shows
-that the machinery can recover injected graph signal.
+The result is not “graphs do not work.” Graph complexity must be justified
+empirically; in these tasks, simpler relational structure captured as much or
+more predictive value. MAUDE directly compares learned message passing with a
+simple relational heuristic. CMS instead tests ownership-feature augmentation,
+not a GNN-versus-tabular architecture comparison. Neither experiment warrants
+a universal claim about graph learning.
 
 Limitations include two tasks, passive/regulatory labels rather than clinical
 outcomes, reporting and coding bias, limited CMS history depth, and development
 inspection of the evaluation periods. Future prospective data could support a
 truly untouched validation, but that is outside this frozen exploratory
 release.
+
+The deterministic GraphSAGE run establishes the behavior of one fixed
+implementation and configuration, not the best attainable performance of all
+graph models. Its bootstrap intervals do not include training-seed
+variability. Sparse facility history and incomplete historical ascertainment
+also constrain the CMS comparison. Cluster resampling cannot remove all
+dependence induced by shared manufacturers, owners, or problem codes.
+
+The design is frozen. No further model search is planned for this release.
+A specific reviewer question may motivate a separately versioned analysis,
+but must not retroactively alter this comparison or turn inspected periods
+into purported untouched confirmation.
 
 ## 10. Reproduction and artifacts
 
@@ -165,3 +263,26 @@ checkout. The canonical committed artifacts are:
 
 The suite is frozen: no additional GNN architectures, Neo4j backend, frontend,
 or LLM component is part of this release.
+
+## 11. Conclusion
+
+HealthGraphBench provides an exploratory benchmark-development result about
+incremental relational value: a simple relational baseline outperforms the
+frozen learned graph model on MAUDE, and CMS ownership augmentation has no
+reliable measured gain over facility history. Synthetic controls provide a
+separate implementation sanity check. The next research step is communicating
+and scrutinizing these bounded findings, not expanding the model suite.
+
+## Source and method references
+
+- FDA, MAUDE database: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfmaude/search.cfm
+- CMS, Provider Data Catalog: https://data.cms.gov/provider-data/
+- Exact snapshot URLs, retrieval records, and checksums:
+  `data/manifests/v0.1.json`.
+- Frozen task definitions: `configs/task_contract_v0_1.json`.
+- Hamilton, Ying, and Leskovec (2017), *Inductive Representation Learning on
+  Large Graphs*: https://arxiv.org/abs/1706.02216. The benchmark uses the
+  documented one-hop implementation, not an exhaustive reproduction of all
+  configurations in that work.
+- Rendle et al. (2009), *BPR: Bayesian Personalized Ranking from Implicit
+  Feedback*: https://arxiv.org/abs/1205.2618.
