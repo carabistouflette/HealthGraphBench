@@ -266,6 +266,24 @@ MAUDE uncertainty is clustered by product code; CMS uncertainty is clustered
 by CCN. Network links can leave residual dependence between clusters.
 Intervals spanning zero do not establish equivalence.
 
+### Primary clustered intervals
+
+Intervals use 1,000 resamples and preserve products/CCNs as the bootstrap
+clusters. Positive differences favor the first method named in the comparison.
+
+| comparison | metric | difference | 95% CI | clusters |
+| --- | --- | ---: | ---: | ---: |
+| GraphSAGE − neighbor frequency (MAUDE) | Recall@10 | -0.019204 | [-0.023578, -0.014845] | 2,026 products |
+| GraphSAGE − neighbor frequency (MAUDE) | macro Recall@10 | -0.027883 | [-0.033630, -0.022316] | 2,026 products |
+| GraphSAGE − neighbor frequency (MAUDE) | MRR | -0.018949 | [-0.023026, -0.014850] | 2,026 products |
+| ownership − facility history (CMS) | ROC AUC | +0.001318 | [-0.001458, +0.004329] | 13,889 CCNs |
+| ownership − facility history (CMS) | average precision | +0.001249 | [-0.001186, +0.003570] | 13,889 CCNs |
+| ownership − facility history (CMS) | Brier | +0.000132 | [-0.000038, +0.000303] | 13,889 CCNs |
+
+The MAUDE intervals directly quantify the headline ranking metrics. The CMS
+intervals include zero for all three metrics; ownership augmentation therefore
+does not show a clear predictive gain.
+
 ## Interpretation boundary
 
 Existing 2023--2025 results were inspected during development and remain
@@ -274,7 +292,11 @@ where relational information pays for itself, including cases where a simple
 relational heuristic beats a learned graph representation or where the
 increment is compatible with zero.
 
-See [`docs/HealthGraphBench_Specification.pdf`](docs/HealthGraphBench_Specification.pdf),
+See [`docs/benchmark_report_v0_1.md`](docs/benchmark_report_v0_1.md) for the
+research write-up and [`results/benchmark_summary_v0_1.csv`](results/benchmark_summary_v0_1.csv),
+[`results/benchmark_summary_v0_1.json`](results/benchmark_summary_v0_1.json), and
+[`results/benchmark_summary_v0_1.svg`](results/benchmark_summary_v0_1.svg) for
+the rendered result table and plot. The formal contract remains in
+[`docs/HealthGraphBench_Specification.pdf`](docs/HealthGraphBench_Specification.pdf),
 [`configs/task_contract_v0_1.json`](configs/task_contract_v0_1.json), and
-[`docs/project_history.md`](docs/project_history.md) for the complete v0.1
-contract and project-selection context.
+[`docs/project_history.md`](docs/project_history.md).

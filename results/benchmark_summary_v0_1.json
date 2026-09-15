@@ -1,0 +1,265 @@
+{
+  "summary_kind": "frozen_benchmark_summary",
+  "benchmark_version": "0.1",
+  "suite_status": "frozen",
+  "interpretation": "development-stage held-out temporal evaluation; test periods were inspected during feasibility work",
+  "model_suite": {
+    "status": "frozen",
+    "architecture_sweep": false,
+    "maude": [
+      "global_popularity",
+      "neighbor_frequency",
+      "logistic_tabular",
+      "boosted_stumps_tabular",
+      "matrix_factorization_spectral",
+      "graph_message_passing_bpr",
+      "graphsage_link_prediction"
+    ],
+    "cms_nursing": [
+      "prevalence",
+      "facility_history",
+      "facility_plus_combined_ownership"
+    ],
+    "learned_message_passing_models": [
+      "graphsage_link_prediction"
+    ]
+  },
+  "execution": {
+    "source_commit": "d724165b131280e14710c1f028547c63c38d60e5",
+    "manifest_sha256": "d01389cd5ffb245f481d036c592ed58b6de7cf4f817499214ce47c9f34661a87",
+    "input_sha256": "952407366013416536dff4334ff97bfaef14063cea393af6c3eb4e61d23328a1",
+    "started_at_utc": "2026-09-15T06:48:52.741583+00:00",
+    "model_config": {
+      "maude_metric_scope": "test threshold=1",
+      "cms_metric_scope": "pooled 2024-2025 test",
+      "graphsage_seed_semantics": "deterministic; seed null"
+    },
+    "finished_at_utc": "2026-09-15T06:48:53.742075+00:00"
+  },
+  "maude": {
+    "metric_scope": "test threshold=1",
+    "rows": [
+      {
+        "task": "maude",
+        "method": "global_popularity",
+        "recall_at_10": 0.18445422802489753,
+        "macro_recall_at_10": 0.2133486286232553,
+        "mrr": 0.15756526914778166
+      },
+      {
+        "task": "maude",
+        "method": "neighbor_frequency",
+        "recall_at_10": 0.19204493699711553,
+        "macro_recall_at_10": 0.22444780353472255,
+        "mrr": 0.16409200384992126
+      },
+      {
+        "task": "maude",
+        "method": "logistic_tabular",
+        "recall_at_10": 0.18453013511461971,
+        "macro_recall_at_10": 0.21474254874227308,
+        "mrr": 0.15459147935040676
+      },
+      {
+        "task": "maude",
+        "method": "boosted_stumps_tabular",
+        "recall_at_10": 0.18278427205100956,
+        "macro_recall_at_10": 0.21187113571719096,
+        "mrr": 0.15619644140044228
+      },
+      {
+        "task": "maude",
+        "method": "matrix_factorization_spectral",
+        "recall_at_10": 0.17488993471990283,
+        "macro_recall_at_10": 0.20244966970578612,
+        "mrr": 0.13620635836216954
+      },
+      {
+        "task": "maude",
+        "method": "graph_message_passing_bpr",
+        "recall_at_10": 0.18384697130712008,
+        "macro_recall_at_10": 0.20881968350399271,
+        "mrr": 0.16130689511282087
+      },
+      {
+        "task": "maude",
+        "method": "graphsage_link_prediction",
+        "recall_at_10": 0.17284044329740397,
+        "macro_recall_at_10": 0.1965646479520473,
+        "mrr": 0.1451426689388205
+      }
+    ],
+    "primary_metric_bootstrap": {
+      "recall_at_10": {
+        "comparison": "graphsage_link_prediction minus neighbor_frequency",
+        "metric": "recall_at_10",
+        "scope": "2024Q1-2025Q4",
+        "rows": 6370,
+        "interval": {
+          "estimate": -0.019204493699711556,
+          "ci95": [
+            -0.023577756307688026,
+            -0.014845313928500433
+          ],
+          "resamples": 1000,
+          "seed": 410,
+          "clusters": 2026
+        }
+      },
+      "macro_recall_at_10": {
+        "comparison": "graphsage_link_prediction minus neighbor_frequency",
+        "metric": "macro_recall_at_10",
+        "scope": "2024Q1-2025Q4",
+        "rows": 6370,
+        "interval": {
+          "estimate": -0.027883155582675245,
+          "ci95": [
+            -0.03363005755332725,
+            -0.022316291409247933
+          ],
+          "resamples": 1000,
+          "seed": 411,
+          "clusters": 2026
+        }
+      },
+      "mrr": {
+        "comparison": "graphsage_link_prediction minus neighbor_frequency",
+        "metric": "mrr",
+        "scope": "2024Q1-2025Q4",
+        "rows": 6370,
+        "interval": {
+          "estimate": -0.018949334911100763,
+          "ci95": [
+            -0.023026273665309904,
+            -0.01484999615681513
+          ],
+          "resamples": 1000,
+          "seed": 412,
+          "clusters": 2026
+        }
+      }
+    }
+  },
+  "cms_nursing": {
+    "metric_scope": "pooled 2024-2025 test",
+    "rows": [
+      {
+        "task": "cms_nursing",
+        "method": "prevalence",
+        "roc_auc": 0.47256774192776696,
+        "average_precision": 0.12175362285714753,
+        "brier": 0.11148728897478441
+      },
+      {
+        "task": "cms_nursing",
+        "method": "facility_history",
+        "roc_auc": 0.6199749906092058,
+        "average_precision": 0.19602269766881902,
+        "brier": 0.1094067965136535
+      },
+      {
+        "task": "cms_nursing",
+        "method": "facility_plus_combined_ownership",
+        "roc_auc": 0.6212927045651894,
+        "average_precision": 0.19727190170769784,
+        "brier": 0.10953848940891621
+      }
+    ],
+    "primary_metric_bootstrap": {
+      "roc_auc": {
+        "comparison": "facility_plus_combined_ownership minus facility_history",
+        "metric": "roc_auc",
+        "scope": "2024-2025",
+        "rows": 18985,
+        "interval": {
+          "estimate": 0.0013177139559835682,
+          "ci95": [
+            -0.0014575143474241437,
+            0.004328510104283761
+          ],
+          "resamples": 1000,
+          "seed": 414,
+          "clusters": 13889
+        }
+      },
+      "average_precision": {
+        "comparison": "facility_plus_combined_ownership minus facility_history",
+        "metric": "average_precision",
+        "scope": "2024-2025",
+        "rows": 18985,
+        "interval": {
+          "estimate": 0.0012492040388788206,
+          "ci95": [
+            -0.0011864654662018614,
+            0.0035701872177330792
+          ],
+          "resamples": 1000,
+          "seed": 415,
+          "clusters": 13889
+        }
+      }
+    }
+  },
+  "controls": [
+    {
+      "seed": 301,
+      "beta": 0.0,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.6588620073856796,
+      "relational_auc": 0.4947257844254281
+    },
+    {
+      "seed": 302,
+      "beta": 0.0,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.6326298406737282,
+      "relational_auc": 0.5059876364411195
+    },
+    {
+      "seed": 303,
+      "beta": 0.0,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.6281493259842209,
+      "relational_auc": 0.508548933973092
+    },
+    {
+      "seed": 301,
+      "beta": 2.5,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.59009614651903,
+      "relational_auc": 0.8060382094854014
+    },
+    {
+      "seed": 302,
+      "beta": 2.5,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.5993651671950709,
+      "relational_auc": 0.8231179338398038
+    },
+    {
+      "seed": 303,
+      "beta": 2.5,
+      "nodes": 11601,
+      "undirected_links": 291280,
+      "train_nodes": 8120,
+      "test_nodes": 3481,
+      "local_auc": 0.5889430805202397,
+      "relational_auc": 0.8232120415022651
+    }
+  ]
+}

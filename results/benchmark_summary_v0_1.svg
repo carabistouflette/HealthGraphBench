@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+<style>.title{font:700 18px sans-serif}.axis{stroke:#333}.tick,.label,.value{font:12px sans-serif}.value{font-weight:700}</style>
+<rect width="1400" height="760" fill="white"/>
+<text x="40" y="34" class="title">HealthGraphBench v0.1 — frozen exploratory temporal evaluation</text>
+<text x="80" y="82" class="title">MAUDE test Recall@10</text>
+<line x1="80" y1="520" x2="640" y2="520" class="axis"/>
+<line x1="80" y1="100" x2="80" y2="520" class="axis"/>
+<text x="72" y="524" text-anchor="end" class="tick">0</text>
+<text x="72" y="104" text-anchor="end" class="tick">0.22</text>
+<rect x="92.8" y="169.2" width="54.4" height="350.8" fill="#3973ac"/>
+<text x="120.0" y="164.2" text-anchor="middle" class="value">0.184</text>
+<text x="120.0" y="538" text-anchor="end" transform="rotate(-35 120.0 538)" class="label">global_popularity</text>
+<rect x="172.8" y="154.8" width="54.4" height="365.2" fill="#3973ac"/>
+<text x="200.0" y="149.8" text-anchor="middle" class="value">0.192</text>
+<text x="200.0" y="538" text-anchor="end" transform="rotate(-35 200.0 538)" class="label">neighbor_frequency</text>
+<rect x="252.8" y="169.1" width="54.4" height="350.9" fill="#3973ac"/>
+<text x="280.0" y="164.1" text-anchor="middle" class="value">0.185</text>
+<text x="280.0" y="538" text-anchor="end" transform="rotate(-35 280.0 538)" class="label">logistic_tabular</text>
+<rect x="332.8" y="172.4" width="54.4" height="347.6" fill="#3973ac"/>
+<text x="360.0" y="167.4" text-anchor="middle" class="value">0.183</text>
+<text x="360.0" y="538" text-anchor="end" transform="rotate(-35 360.0 538)" class="label">boosted_stumps_tabular</text>
+<rect x="412.8" y="187.4" width="54.4" height="332.6" fill="#3973ac"/>
+<text x="440.0" y="182.4" text-anchor="middle" class="value">0.175</text>
+<text x="440.0" y="538" text-anchor="end" transform="rotate(-35 440.0 538)" class="label">matrix_factorization_spectral</text>
+<rect x="492.8" y="170.4" width="54.4" height="349.6" fill="#3973ac"/>
+<text x="520.0" y="165.4" text-anchor="middle" class="value">0.184</text>
+<text x="520.0" y="538" text-anchor="end" transform="rotate(-35 520.0 538)" class="label">graph_message_passing_bpr</text>
+<rect x="572.8" y="191.3" width="54.4" height="328.7" fill="#b23a48"/>
+<text x="600.0" y="186.3" text-anchor="middle" class="value">0.173</text>
+<text x="600.0" y="538" text-anchor="end" transform="rotate(-35 600.0 538)" class="label">graphsage_link_prediction</text>
+<text x="760" y="82" class="title">CMS test ROC AUC</text>
+<line x1="760" y1="520" x2="1320" y2="520" class="axis"/>
+<line x1="760" y1="100" x2="760" y2="520" class="axis"/>
+<text x="752" y="524" text-anchor="end" class="tick">0</text>
+<text x="752" y="104" text-anchor="end" class="tick">0.71</text>
+<rect x="789.9" y="242.2" width="126.9" height="277.8" fill="#3973ac"/>
+<text x="853.3" y="237.2" text-anchor="middle" class="value">0.473</text>
+<text x="853.3" y="538" text-anchor="end" transform="rotate(-35 853.3 538)" class="label">prevalence</text>
+<rect x="976.5" y="155.6" width="126.9" height="364.4" fill="#3973ac"/>
+<text x="1040.0" y="150.6" text-anchor="middle" class="value">0.620</text>
+<text x="1040.0" y="538" text-anchor="end" transform="rotate(-35 1040.0 538)" class="label">facility_history</text>
+<rect x="1163.2" y="154.8" width="126.9" height="365.2" fill="#3973ac"/>
+<text x="1226.7" y="149.8" text-anchor="middle" class="value">0.621</text>
+<text x="1226.7" y="538" text-anchor="end" transform="rotate(-35 1226.7 538)" class="label">facility_plus_combined_ownership</text>
+<text x="80" y="620" class="tick">MAUDE: threshold=1 aggregate; higher is better.</text>
+<text x="760" y="620" class="tick">CMS: pooled 2024–2025 test predictions; higher is better.</text>
+<text x="80" y="650" class="tick">GraphSAGE is the sole learned message-passing model; no architecture sweep.</text>
+<text x="80" y="680" class="tick">Results are development-stage exploratory temporal evaluations, not confirmatory clinical claims.</text>
+</svg>
