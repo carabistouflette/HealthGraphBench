@@ -81,8 +81,8 @@ healthgraphbench/
 configs/task_contract_v0_1.json   model-independent benchmark contract
 data/manifests/v0.1.json          official URLs and frozen source hashes
 docs/HealthGraphBench_Specification.tex
- docs/HealthGraphBench_Specification.pdf
- docs/project_history.md          historical feasibility and selection record
+docs/HealthGraphBench_Specification.pdf
+docs/project_history.md          historical feasibility and selection record
 scripts/                          download, verify, rebuild, and control commands
 results/                          regenerated benchmark result artifacts
 ```
@@ -185,8 +185,10 @@ artificial multi-seed sweep is reported.
 
 ## Post-baseline execution artifacts
 
-The post-baseline runs use distinct paths and retain row-level predictions for
-the clustered analyses:
+The following commands generated the committed post-baseline artifacts. Their
+output paths already exist in this checkout and are immutable; use the clean-
+clone sequence below, with an external output directory, to rerun them. The
+post-baseline runs retain row-level predictions for the clustered analyses:
 
 ```bash
 PYTHONPATH=. python scripts/build_benchmark.py \
@@ -296,12 +298,13 @@ generalization.
 
 ## Synthetic controls and uncertainty
 
-Run the real-topology positive and zero-signal controls with:
+Run the real-topology positive and zero-signal controls with a new output path
+(the committed `results/synthetic_controls_v0_1.json` path is immutable):
 
 ```bash
 python scripts/run_controls.py \
   --data-root /path/to/healthgraphbench-data \
-  --output results/synthetic_controls_v0_1.json
+  --output results/synthetic_controls_run_20260915T000000Z.json
 ```
 
 The controls use synthetic node covariates/outcomes on a pre-cutoff ownership
@@ -327,7 +330,9 @@ Intervals spanning zero do not establish equivalence.
 ### Primary clustered intervals
 
 Intervals use 1,000 resamples and preserve products/CCNs as the bootstrap
-clusters. Positive differences favor the first method named in the comparison.
+clusters. For ranking and discrimination metrics, positive differences favor
+the first method named; Brier is a loss, so negative differences favor the
+first method.
 
 | comparison | metric | difference | 95% CI | clusters |
 | --- | --- | ---: | ---: | ---: |
