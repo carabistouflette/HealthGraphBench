@@ -5,10 +5,11 @@ beyond strong entity-local and relational baselines in public
 health/regulatory ML. It does not assume that graph methods should
 outperform non-graph methods.
 
-Version **0.1** is a reproducible benchmark-development release. It freezes
-two temporal tasks, source manifests, feature availability rules, baseline
-families, metrics, and dependence-aware evaluation utilities. It does not
-include an end-to-end message-passing model yet.
+Version **0.1** is a reproducible benchmark release. The immutable `v0.1.0`
+commit/tag records the pre-message-passing baseline definition. The completed
+post-baseline execution freeze adds exactly one genuine GraphSAGE model,
+primary-metric uncertainty, and versioned task/control artifacts without
+changing the frozen source manifest or baseline result files.
 
 ## Repository map
 
@@ -25,7 +26,7 @@ docs/HealthGraphBench_Specification.tex
  docs/HealthGraphBench_Specification.pdf
  docs/project_history.md          historical feasibility and selection record
 scripts/                          download, verify, rebuild, and control commands
-results/                          regenerated compact result tables
+results/                          regenerated benchmark result artifacts
 ```
 
 The historical record is intentionally a concise, self-contained summary.
@@ -119,6 +120,11 @@ The frozen CMS suite is:
 The GraphSAGE implementation is the sole genuine learned message-passing
 baseline in this milestone. No architecture sweep is included.
 
+GraphSAGE is deterministic end to end: it uses sorted node order, stable
+hash-derived neighbor and negative sampling, and no runtime random generator.
+Its execution metadata records `seed: null` and `deterministic: true`; no
+artificial multi-seed sweep is reported.
+
 ## Post-baseline execution artifacts
 
 The post-baseline runs use distinct paths and retain row-level predictions for
@@ -149,13 +155,50 @@ PYTHONPATH=. python scripts/combine_execution.py \
   --controls results/synthetic_controls_execution_v0_1_20260915.json \
   --analysis results/analysis_execution_v0_1_20260915.json \
   --output results/execution_v0_1_20260915.json
+
+PYTHONPATH=. python scripts/render_summary.py \
+  --input results/execution_v0_1_20260915.json \
+  --output-json results/benchmark_summary_v0_1.json \
+  --output-csv results/benchmark_summary_v0_1.csv \
+  --output-svg results/benchmark_summary_v0_1.svg
 ```
 
-`analyze_execution.py` reports product-clustered pairwise-ranking and
-CCN-clustered Brier-score intervals, MAUDE quarterly/support slices, CMS
-annual/facility-history slices, and the relational-versus-nonrelational
-ownership ablation. Its outputs record input hashes, the source commit, the
-manifest hash, timestamps, and bootstrap configuration.
+For a clean-clone rebuild, keep generated files outside the checkout (the
+checked-in result paths are immutable) and run this sequence after placing the
+manifest-matching snapshots under `DATA_ROOT`:
+
+```bash
+python -m pip install .
+DATA_ROOT=/path/to/healthgraphbench-data
+OUT=/tmp/healthgraphbench-v0_1-rebuild
+mkdir -p "$OUT"
+python scripts/verify_sources.py --data-root "$DATA_ROOT"
+PYTHONPATH=. python scripts/build_benchmark.py --data-root "$DATA_ROOT" \
+  --task cms_nursing --output "$OUT/cms.json"
+PYTHONPATH=. python scripts/build_benchmark.py --data-root "$DATA_ROOT" \
+  --task maude --output "$OUT/maude.json"
+PYTHONPATH=. python scripts/run_controls.py --data-root "$DATA_ROOT" \
+  --output "$OUT/controls.json"
+PYTHONPATH=. python scripts/analyze_execution.py \
+  --maude-input "$OUT/maude.json" --cms-input "$OUT/cms.json" \
+  --output "$OUT/uncertainty.json"
+PYTHONPATH=. python scripts/combine_execution.py --maude "$OUT/maude.json" \
+  --cms "$OUT/cms.json" --controls "$OUT/controls.json" \
+  --analysis "$OUT/uncertainty.json" --output "$OUT/benchmark_summary.json"
+PYTHONPATH=. python scripts/render_summary.py --input "$OUT/benchmark_summary.json" \
+  --output-json "$OUT/summary.json" --output-csv "$OUT/summary.csv" \
+  --output-svg "$OUT/summary.svg"
+```
+
+`analyze_execution.py` reports primary-metric intervals aligned with the
+headline comparisons: product-clustered GraphSAGE-versus-neighbor-frequency
+intervals for MAUDE Recall@10, macro Recall@10, and MRR; CCN-clustered
+ownership-versus-facility-history intervals for CMS ROC AUC and average
+precision, plus Brier score. It also reports secondary pairwise-ranking
+uncertainty, MAUDE quarterly/support slices, CMS annual/facility-history
+slices, and the relational-versus-nonrelational ownership ablation. Its
+outputs record input hashes, the source commit, the manifest hash, timestamps,
+and bootstrap configuration.
 
 The available CMS snapshot has one or two prior inspections per retained
 target row, so its history slices are reported as `sparse_1` versus the
@@ -178,6 +221,7 @@ the JSON result files retain full precision.
 | boosted stumps/tabular | 0.182784 | 0.211871 | 0.156196 |
 | spectral factorization | 0.174890 | 0.202450 | 0.136206 |
 | BPR + fixed neighbor average | 0.183847 | 0.208820 | 0.161307 |
+| GraphSAGE link prediction | 0.172840 | 0.196565 | 0.145143 |
 
 ### CMS nursing-home inspections
 
@@ -186,10 +230,11 @@ the JSON result files retain full precision.
 | prevalence | 0.472568 | 0.121754 | 0.114797 | 0.089971 | 0.111487 |
 | facility history | 0.619975 | 0.196023 | 0.254871 | 0.199752 | 0.109407 |
 | facility + combined ownership | 0.621293 | 0.197272 | 0.250132 | 0.196038 | 0.109538 |
-
 The CMS table pools 2024 and 2025 predictions after annual expanding-window
-fits. The MAUDE table reports the aggregate temporal-gate metrics. Neither
-table is a claim of clinical utility or confirmatory generalization.
+fits. Neighbor frequency remains the strongest MAUDE method on Recall@10;
+GraphSAGE is lower. Ownership augmentation changes CMS performance only
+marginally. Neither table is a claim of clinical utility or confirmatory
+generalization.
 
 ## Synthetic controls and uncertainty
 

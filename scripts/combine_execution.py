@@ -63,6 +63,25 @@ def main() -> int:
     result = {
         "benchmark_version": "0.1",
         "result_status": "post_baseline_execution",
+        "model_suite": {
+            "status": "frozen",
+            "architecture_sweep": False,
+            "maude": [
+                "global_popularity",
+                "neighbor_frequency",
+                "logistic_tabular",
+                "boosted_stumps_tabular",
+                "matrix_factorization_spectral",
+                "graph_message_passing_bpr",
+                "graphsage_link_prediction",
+            ],
+            "cms_nursing": [
+                "prevalence",
+                "facility_history",
+                "facility_plus_combined_ownership",
+            ],
+            "learned_message_passing_models": ["graphsage_link_prediction"],
+        },
         "execution": {
             "source_commit": _source_commit(),
             "manifest_sha256": _sha256_file(args.manifest),
