@@ -24,9 +24,9 @@ source archive is the exact source snapshot for tag `v0.1.1`.
 
 The [v0.1.2 GitHub Release](https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.1.2)
 is the post-DOI citation package. It provides the report PDF and Markdown
-source, summary CSV/JSON/SVG, compressed combined results, source manifest,
-task contract, DOI-bearing `CITATION.cff`, and `SHA256SUMS`. No redundant
-custom source archive is included; GitHub generates the tag source archive.
+source, summary CSV/JSON/SVG, compressed combined results, a source archive
+generated directly from tag `v0.1.2`, source manifest, task contract,
+DOI-bearing `CITATION.cff`, and `SHA256SUMS`.
 [`results/release_assets_v0_1_2.json`](results/release_assets_v0_1_2.json)
 records download URLs, byte sizes, SHA-256 hashes, DOI, and packaging
 provenance.
