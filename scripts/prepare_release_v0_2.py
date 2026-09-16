@@ -33,6 +33,9 @@ REPOSITORY_ASSETS = (
     ),
 )
 
+RELEASE_DOI = "10.5281/zenodo.22796551"
+ZENODO_RECORD_URL = "https://zenodo.org/records/22765003"
+
 
 def _sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
@@ -151,7 +154,8 @@ def main() -> int:
         "assets": assets,
         "distributions": distributions,
         "verification": "SHA256SUMS_v0_2 covers every repository payload asset and this manifest; distribution hashes are recorded separately; raw datasets remain external.",
-        "doi": None,
+        "doi": RELEASE_DOI,
+        "zenodo_record_url": ZENODO_RECORD_URL,
     }
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     checksums_path.parent.mkdir(parents=True, exist_ok=True)

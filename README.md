@@ -66,8 +66,9 @@ built wheel and source distribution:
 The canonical v0.2 citation metadata is [`CITATION.cff`](CITATION.cff).
 The frozen v0.1 DOI metadata remains in the immutable v0.1.2 tag and release.
 Repository payload checksums are in
-[`results/SHA256SUMS_v0_2`](results/SHA256SUMS_v0_2). The manifest deliberately
-records `doi: null` until a DOI is assigned.
+[`results/SHA256SUMS_v0_2`](results/SHA256SUMS_v0_2). The manifest records the
+assigned DOI `10.5281/zenodo.22796551`; the corresponding Zenodo record is
+[`22765003`](https://zenodo.org/records/22765003).
 
 ### Artifact policy from the next release onward
 

@@ -7,6 +7,7 @@ version: 0.2.0
 type: software
 repository-code: "https://github.com/carabistouflette/HealthGraphBench"
 url: "https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.2.0"
+doi: "10.5281/zenodo.22796551"
 license: Apache-2.0
 abstract: >-
   Temporal benchmark of incremental relational value in FDA MAUDE, CMS
