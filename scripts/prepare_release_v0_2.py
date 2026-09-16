@@ -59,7 +59,7 @@ def _source_commit(root: Path) -> str:
     return completed.stdout.strip() or "unknown"
 
 
-def _source_tree_dirty(root: Path) -> bool:
+def _source_tree_dirty(root: Path, *, ignored_paths: tuple[str, ...] = ()) -> bool:
     try:
         completed = subprocess.run(
             ["git", "status", "--porcelain"],
@@ -70,7 +70,11 @@ def _source_tree_dirty(root: Path) -> bool:
         )
     except (OSError, subprocess.CalledProcessError):
         return True
-    return bool(completed.stdout.strip())
+    return any(
+        line[3:].strip() not in ignored_paths
+        for line in completed.stdout.splitlines()
+        if line.strip()
+    )
 
 
 def _asset(name: str, path: Path, role: str, *, source_path: str) -> dict[str, Any]:
@@ -144,7 +148,11 @@ def main() -> int:
                 )
 
     source_commit = _source_commit(root)
-    dirty = _source_tree_dirty(root)
+    ignored_release_paths = tuple(
+        os.path.relpath(path.resolve(), root)
+        for path in (manifest_path, checksums_path)
+    )
+    dirty = _source_tree_dirty(root, ignored_paths=ignored_release_paths)
     release_status = args.release_status or (
         "local_payload_prepared_not_tagged" if dirty else "tag_ready"
     )
