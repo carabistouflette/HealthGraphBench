@@ -1,0 +1,56 @@
+{
+  "benchmark": "HealthGraphBench",
+  "version": "0.2-candidates-model-gate",
+  "tasks": {
+    "partd_prescriber_drug": {
+      "source": "CMS",
+      "graph_type": "bipartite_temporal",
+      "target": "first_observed_published_provider_drug_relationship",
+      "status": "replication_candidate",
+      "primary_drug_identity": "exact_trimmed_generic_name",
+      "sensitivity_drug_identity": "exact_trimmed_brand_name_plus_generic_name",
+      "model_gate": {
+        "training_history": "2019-2022 for 2023 validation; 2019-2023 for 2024 held-out test",
+        "methods": [
+          "specialty_popularity",
+          "history_overlap",
+          "tabular_logistic",
+          "graph_bpr"
+        ],
+        "evaluation": "all eligible candidates; positive-containing Recall@5/10/20 and MRR plus all-provider-year precision and recommendation burden",
+        "high_score_threshold": "fixed 95th percentile of strictly prior candidate scores; operational flag, not calibrated confidence",
+        "negative_sampling": "training only; no sampled evaluation negatives"
+      },
+      "model_gate_status": "no_go_for_escalation",
+      "benchmark_admission": "deferred",
+      "limitations": [
+        "Part D labels are published observations subject to suppression and left censoring; CMS suppresses provider-drug combinations with 10 or fewer Part D claims.",
+        "The target is not a first prescription, prescribing start, or verified molecule identity.",
+        "Generic-only is the primary source-text representation; exact brand+generic is a sensitivity representation.",
+        "No RxNorm or molecule-level clinical-equivalence mapping is asserted.",
+        "The bounded model gate does not establish full national scalability or benchmark admission.",
+        "Historical publication-time availability is not verified, so this is not deployment-valid next-calendar-year forecasting."
+      ]
+    },
+    "clinical_trials_reporting": {
+      "source": "ClinicalTrials.gov/AACT",
+      "graph_type": "heterogeneous_temporal",
+      "target": "timely_results_posting_within_365_days_of_actual_primary_completion",
+      "status": "stability_gate_pending",
+      "graph_model_status": "paused",
+      "benchmark_admission": "deferred",
+      "limitations": [
+        "ClinicalTrials requires historical pre-outcome predictors and is not a legal-compliance target."
+      ]
+    },
+    "faers_drug_reaction": {
+      "source": "FDA",
+      "graph_type": "bipartite_temporal",
+      "target": "first_observed_drug_reaction_edge",
+      "status": "optional",
+      "limitations": [
+        "FAERS observations are not causal drug-safety labels and may duplicate MAUDE's relational regime."
+      ]
+    }
+  }
+}

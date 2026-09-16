@@ -1,4 +1,4 @@
-"""Frozen model wrappers exposed through the common benchmark interface."""
+"""Task model wrappers exposed through the common benchmark interface."""
 
 from .baselines import (
     BprNeighborAverage,
@@ -6,10 +6,14 @@ from .baselines import (
     FacilityHistory,
     GlobalPopularity,
     GraphSageLinkPrediction,
+    HistoryOverlap,
     LogisticTabular,
     NeighborFrequency,
     OwnershipAggregates,
+    PartDGraphBpr,
+    PartDTabularLogistic,
     Prevalence,
+    SpecialtyPopularity,
     SpectralFactorization,
 )
 
@@ -19,9 +23,13 @@ __all__ = [
     "FacilityHistory",
     "GlobalPopularity",
     "GraphSageLinkPrediction",
+    "HistoryOverlap",
     "LogisticTabular",
     "NeighborFrequency",
     "OwnershipAggregates",
+    "PartDGraphBpr",
+    "PartDTabularLogistic",
     "Prevalence",
+    "SpecialtyPopularity",
     "SpectralFactorization",
 ]

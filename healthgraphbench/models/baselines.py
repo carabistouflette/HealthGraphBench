@@ -71,3 +71,23 @@ class FacilityHistory(_MethodModel):
 class OwnershipAggregates(_MethodModel):
     def __init__(self) -> None:
         super().__init__("facility_plus_combined_ownership")
+
+
+class SpecialtyPopularity(_MethodModel):
+    def __init__(self) -> None:
+        super().__init__("specialty_popularity")
+
+
+class HistoryOverlap(_MethodModel):
+    def __init__(self) -> None:
+        super().__init__("history_overlap")
+
+
+class PartDTabularLogistic(_MethodModel):
+    def __init__(self) -> None:
+        super().__init__("tabular_logistic")
+
+
+class PartDGraphBpr(_MethodModel):
+    def __init__(self) -> None:
+        super().__init__("graph_bpr")

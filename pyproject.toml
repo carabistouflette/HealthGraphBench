@@ -4,10 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "healthgraphbench"
-version = "0.1.0"
+version = "0.2.0"
 description = "A temporal benchmark for incremental relational value in public health and regulatory ML"
 readme = "README.md"
 requires-python = ">=3.11"
+dependencies = [
+  "numpy>=2.0,<3",
+]
 license = { file = "LICENSE" }
 authors = [{ name = "HealthGraphBench contributors" }]
 classifiers = [
@@ -24,6 +27,9 @@ healthgraphbench = "healthgraphbench.cli:main"
 [tool.setuptools.packages.find]
 include = ["healthgraphbench*"]
 
+
+[tool.setuptools.package-data]
+"healthgraphbench.tasks.partd" = ["task_contract_v0_2.json"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = ["-q"]

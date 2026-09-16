@@ -1,0 +1,41 @@
+{
+  "benchmark": "HealthGraphBench",
+  "version": "0.2-candidates-lookback",
+  "tasks": {
+    "partd_prescriber_drug": {
+      "source": "CMS",
+      "graph_type": "bipartite_temporal",
+      "target": "first_observed_published_provider_drug_relationship",
+      "target_definition": "A provider-drug relationship is positive in year t when it is absent from every retained earlier CMS Part D public-use snapshot and observable in the published file for year t.",
+      "status": "replication_candidate",
+      "model_gate": "no_go_for_escalation",
+      "benchmark_admission": "deferred",
+      "drug_identity_policy": "source_native_exact_brand_generic_signature",
+      "limitations": [
+        "Part D labels are published observations subject to suppression and left censoring; CMS suppresses provider-drug combinations with 10 or fewer Part D claims.",
+        "The target is not a first prescription, prescribing start, or verified clinical molecule identity.",
+        "Brand and generic text are retained as source-native values; no RxNorm or molecule-level merge is asserted."
+      ]
+    },
+    "clinical_trials_reporting": {
+      "source": "ClinicalTrials.gov/AACT",
+      "graph_type": "heterogeneous_temporal",
+      "target": "timely_results_posting_within_365_days_of_actual_primary_completion",
+      "status": "stability_gate_pending",
+      "graph_model_status": "paused",
+      "benchmark_admission": "deferred",
+      "limitations": [
+        "ClinicalTrials requires historical pre-outcome predictors and is not a legal-compliance target."
+      ]
+    },
+    "faers_drug_reaction": {
+      "source": "FDA",
+      "graph_type": "bipartite_temporal",
+      "target": "first_observed_drug_reaction_edge",
+      "status": "optional",
+      "limitations": [
+        "FAERS observations are not causal drug-safety labels and may duplicate MAUDE's relational regime."
+      ]
+    }
+  }
+}

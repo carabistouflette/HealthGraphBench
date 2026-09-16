@@ -5,17 +5,21 @@ beyond strong entity-local and relational baselines in public
 health/regulatory ML. It does not assume that graph methods should
 outperform non-graph methods.
 
-Version **0.1** is a reproducible benchmark release. The immutable `v0.1.0`
-commit/tag records the pre-message-passing baseline definition. The completed
-post-baseline execution freeze adds exactly one genuine GraphSAGE model,
-primary-metric uncertainty, and versioned task/control artifacts without
-changing the frozen source manifest or baseline result files.
+Version **0.1** remains the reproducible frozen benchmark core. The immutable
+`v0.1.0` commit/tag records the pre-message-passing baseline definition, and
+the post-baseline v0.1.1/v0.1.2 release assets remain unchanged.
 
-The main research report is
-[`docs/benchmark_report_v0_1.md`](docs/benchmark_report_v0_1.md). Its expanded
-post-release text explains the contribution and bounded negative/conditional
-findings; it does not change the frozen evaluation. Graph complexity must be
-justified empirically, not presumed beneficial.
+The current v0.2 development line admits CMS Medicare Part D as one bounded
+cross-domain replication task. It preserves the MAUDE and CMS nursing tasks,
+adds no new graph architecture, and keeps ClinicalTrials deferred. The v0.2
+admission contract and publication artifacts are versioned separately from the
+frozen v0.1 payloads.
+
+The v0.2 research report is
+[`docs/benchmark_report_v0_2.md`](docs/benchmark_report_v0_2.md). The historical
+v0.1 report remains available at
+[`docs/benchmark_report_v0_1.md`](docs/benchmark_report_v0_1.md).
+Graph complexity must be justified empirically, not presumed beneficial.
 
 ## Release downloads and citation
 
@@ -52,6 +56,19 @@ For citation, use [`CITATION.cff`](CITATION.cff) and the Zenodo DOI:
 The DOI-bearing metadata belongs to v0.1.2. The v0.1.1 tag, its source
 snapshot, and its pre-DOI release package remain unchanged.
 
+### v0.2.0 release payload
+
+The versioned v0.2.0 payload is prepared in this checkout. Its manifest records
+the source-tree state, hashes for the report, contract, unified table, compact
+execution records, and immutable Part D ranking artifact, plus hashes for the
+built wheel and source distribution:
+[`results/release_assets_v0_2.json`](results/release_assets_v0_2.json).
+The canonical v0.2 citation metadata is [`CITATION.cff`](CITATION.cff).
+The frozen v0.1 DOI metadata remains in the immutable v0.1.2 tag and release.
+Repository payload checksums are in
+[`results/SHA256SUMS_v0_2`](results/SHA256SUMS_v0_2). The manifest deliberately
+records `doi: null` until a DOI is assigned.
+
 ### Artifact policy from the next release onward
 
 - Keep small summaries, manifests, configurations, hashes, CSVs, and plots in Git.
@@ -66,8 +83,161 @@ snapshot, and its pre-DOI release package remain unchanged.
   `v0.1.1`, and their result bytes remain immutable; asset distribution does
   not shrink existing clone history.
 
-The research design and model suite remain frozen. Additional models require
-a specific reviewer question and a separately versioned analysis.
+The v0.1 research design and model suite remain frozen. The v0.2 Part D
+extension adds no model architecture: it admits the already-run specialty
+popularity, history-overlap, tabular-logistic, and graph-BPR methods as a
+replication task. The model-gate result remains `no_go_for_escalation`.
+
+The machine-readable admission contract is
+[`configs/task_contract_v0_2.json`](configs/task_contract_v0_2.json). Historical
+Part D feasibility and model-gate inputs remain immutable under
+`results/generated/`; raw CMS snapshots remain external.
+
+### CMS Medicare Part D v0.2 admission
+
+Part D is admitted as the primary v0.2 cross-domain replication task. The
+positive is a first observed published provider-drug relationship. The primary
+identity is exact trimmed `generic_name`; candidates are all globally prior
+drugs absent from the target provider's entire prior history. The validation
+target is 2023 after 2019--2022 history; the held-out target is 2024 after
+2019--2023 history. Each target cohort contains up to 2,000 providers selected
+from pre-target observations. CMS suppression at 10 or fewer claims makes
+absence non-observation subject to left censoring.
+
+The common interface consumes the verified model-gate artifact without
+rewriting it:
+
+```bash
+PYTHONPATH=. python scripts/build_partd_execution_v0_2.py \
+  --model-gate-dir results/generated/partd-v0_2-model-gate-run-003 \
+  --output results/partd_execution_v0_2_20260916.json
+```
+
+The compact execution record and unified v0.2 table are
+[`results/partd_execution_v0_2_20260916.json`](results/partd_execution_v0_2_20260916.json),
+[`results/benchmark_summary_v0_2.csv`](results/benchmark_summary_v0_2.csv), and
+[`results/relational_value_v0_2.json`](results/relational_value_v0_2.json).
+
+### ClinicalTrials.gov/AACT feasibility gate
+
+ClinicalTrials.gov remains an exploratory candidate outside the frozen
+benchmark. The gate predicts whether an interventional trial with an actual
+primary completion date 0--90 days before a historical snapshot will have a
+`results_first_posted_date` within the following 365 days. It uses only the
+historical AACT snapshot at origin; this is a registry-publication target, not
+a legal-compliance label.
+
+The frozen AACT inputs are first-of-month archives from 2019-01-01 through
+2025-02-01. The 2019--2022 origins are training, 2023 is validation, 2024 is
+held-out test, and 2025 supplies future observation only. Exact trimmed,
+case-folded, whitespace-normalized source names are used for sponsor,
+condition, intervention, facility, and collaborator relations; no entity
+resolution is asserted. Trials missing from the paired future archive, or
+whose future result date is at or before the blank origin state, are excluded
+from labeled evaluation rather than labeled untimely.
+
+Keep the raw ZIP archives under an external directory and run the separate
+feasibility commands:
+
+```bash
+AACT_ROOT=/path/to/healthgraphbench-data/clinical-trials-v0_2
+PYTHONPATH=. python scripts/download_aact.py \
+  --output "$AACT_ROOT" \
+  --manifest data/manifests/clinical_trials_feasibility_v0_2.json
+PYTHONPATH=. python scripts/run_clinical_trials_gate.py \
+  --source-root "$AACT_ROOT" \
+  --manifest data/manifests/clinical_trials_feasibility_v0_2.json \
+  --output-dir results/generated/clinical-trials-v0_2-feasibility-run-002
+```
+
+The corrected official output is
+`results/generated/clinical-trials-v0_2-feasibility-run-002/`. It records
+`decision: REVIEW_REQUIRED`, `status: exploratory`,
+`admission_status: deferred`, and
+`graph_model_status: no_go_for_escalation`. The earlier `run-001` output is
+preserved as an immutable superseded diagnostic artifact; use `run-002` for interpretation.
+
+| origin/model | ROC-AUC | average precision | Brier | log loss | top-decile precision | top-decile recall |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| validation / trial-local | 0.782977 | 0.316535 | 0.113463 | 0.479275 | 0.392000 | 0.328859 |
+| validation / sponsor history | 0.819718 | 0.355488 | 0.111895 | 0.458759 | 0.424000 | 0.355705 |
+| validation / heterogeneous context | 0.780505 | 0.326306 | 0.112496 | 0.478612 | 0.368000 | 0.308725 |
+| held-out test / trial-local | 0.774702 | 0.315710 | 0.114862 | 0.418183 | 0.367647 | 0.284091 |
+| held-out test / sponsor history | 0.843830 | 0.365784 | 0.109672 | 0.374544 | 0.389706 | 0.301136 |
+| held-out test / heterogeneous context | 0.856241 | 0.418027 | 0.103204 | 0.347487 | 0.441176 | 0.340909 |
+
+The held-out heterogeneous-context model improves average precision by
+0.102317 over trial-local features and 0.052243 over sponsor history. The
+validation-origin increments are +0.009771 and -0.029182, respectively, so
+the heterogeneous signal is not reproducible across the bounded rolling
+origins. The report also contains pooled metrics, per-entity relation/history
+coverage, isolated-target counts, source hashes, and row-level predictions.
+Coverage ranges across origins were 100% for sponsor and condition relation
+presence, 100% for intervention relation presence, 93.8--99.2% for facility
+relation presence, and 30.1--33.5% for collaborator relation presence; history
+coverage was lower, especially for interventions and collaborators. Isolated
+target trials ranged from 1 to 6 per origin. No graph neural model is
+justified by this gate without a separate review.
+
+### ClinicalTrials.gov/AACT stability gate
+
+The bounded stability gate is complete, but candidate admission remains
+deferred. It evaluates five rolling origins, fitting each origin only on
+labeled examples from strictly earlier origins. The relational context is
+decomposed into sponsor, condition, facility, intervention, and collaborator
+ablations; the all-context model includes all five entity types. The official
+command is:
+
+```bash
+PYTHONPATH=. python scripts/run_clinical_trials_stability.py \
+  --source-root /path/to/healthgraphbench-data/clinical-trials-v0_2 \
+  --manifest data/manifests/clinical_trials_feasibility_v0_2.json \
+  --output-dir results/generated/clinical-trials-v0_2-stability-run-001
+```
+
+The per-origin average-precision results are:
+
+| origin | trials / positives | trial-local | local + sponsor | all entity context | sponsor − local | all context − sponsor |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2020-01-01 | 939 / 158 | 0.368399 | 0.472921 | 0.487943 | +0.104522 | +0.015022 |
+| 2021-01-01 | 947 / 137 | 0.375904 | 0.409251 | 0.378173 | +0.033348 | -0.031079 |
+| 2022-02-01 | 1,117 / 98 | 0.290692 | 0.241920 | 0.226297 | -0.048773 | -0.015623 |
+| 2023-02-01 | 1,243 / 149 | 0.316535 | 0.355488 | 0.247411 | +0.038953 | -0.108077 |
+| 2024-02-01 | 1,353 / 176 | 0.315710 | 0.365784 | 0.353906 | +0.050074 | -0.011878 |
+
+Each AP difference has a separate paired percentile bootstrap interval using
+1,000 trial-cluster resamples; undefined resamples are omitted and counted,
+not converted to zero. The sponsor-minus-trial-local 95% intervals were
+[+0.041160, +0.170611], [-0.030384, +0.098740],
+[-0.088028, -0.021689], [+0.019729, +0.057229], and
+[+0.026271, +0.075609] in chronological order. The all-context-minus-sponsor
+intervals were [-0.022369, +0.060294], [-0.087890, +0.028991],
+[-0.069626, +0.044298], [-0.171780, -0.049169], and
+[-0.054550, +0.030322].
+
+Across-origin relation increments over the sponsor model were: condition
+positive in 0/5 origins (mean -0.015417; range -0.023950 to -0.001240),
+facility positive in 4/5 (mean -0.005130; range -0.062158 to +0.016780),
+intervention positive in 2/5 (mean -0.002313; range -0.012844 to +0.011852),
+and collaborator positive in 1/5 (mean -0.009482; range -0.025141 to
++0.003535). These are descriptive summaries across separate origins, not a
+pooled AP claim; the report retains every model metric, delta, interval,
+relation-coverage audit, and future-label audit separately by origin.
+
+Sponsor history improves trial-local AP in 4/5 origins, but the 2022-origin
+increment is negative with a wholly negative interval. Broader heterogeneous
+context improves sponsor history in only 1/5 origins and is materially
+negative in the 2023 origin. No stable heterogeneous value is established.
+The candidate therefore remains
+`status: stability_gate_pending`, `benchmark_admission: deferred`, and
+`graph_model_status: paused`; no graph neural model is admitted by this gate.
+The immutable official artifacts are
+`results/generated/clinical-trials-v0_2-stability-run-001/`,
+with `predictions.jsonl` SHA-256
+`0ef619748cdd7bc74580c0ef6799565a4cde5892d47fd5aaef7911f4c6365fd1` and
+`report.json` SHA-256
+`b93f187acf5d17991738892353dcebab735cdb1fb9cc970d63abce811b159c8a`.
+
 
 ## Repository map
 
@@ -76,15 +246,18 @@ healthgraphbench/
   core.py                         common task/model interface
   tasks/maude/                    MAUDE ingestion, temporal ranking, baselines
   tasks/cms_nursing/              CMS preparation, features, baselines
+  tasks/partd/                    Part D admitted replication adapter
   evaluation/                     metrics and entity-clustered bootstrap
   controls/                       positive and zero-signal topology controls
-configs/task_contract_v0_1.json   model-independent benchmark contract
+configs/task_contract_v0_1.json   frozen v0.1 task contract
+configs/task_contract_v0_2.json   admitted Part D v0.2 contract
 data/manifests/v0.1.json          official URLs and frozen source hashes
+docs/benchmark_report_v0_2.md     v0.2 research report
 docs/HealthGraphBench_Specification.tex
 docs/HealthGraphBench_Specification.pdf
-docs/project_history.md          historical feasibility and selection record
-scripts/                          download, verify, rebuild, and control commands
-results/                          regenerated benchmark result artifacts
+docs/project_history.md            historical feasibility and selection record
+scripts/                          download, verify, rebuild, and analysis commands
+results/                          versioned benchmark result artifacts
 ```
 
 The historical record is intentionally a concise, self-contained summary.
@@ -93,7 +266,10 @@ archives, and abandoned application artifacts are not included.
 
 ## Installation
 
-The package uses only the Python standard library for the v0.1 tasks.
+Frozen v0.1 task code keeps its standard-library numerical implementations.
+The v0.2 path adds NumPy (`numpy>=2.0,<3`) for new evaluation and
+candidate-model numerical code. The frozen v0.1 artifacts and release packages
+remain unchanged.
 Install it from the repository root:
 
 ```bash
@@ -101,6 +277,23 @@ python -m pip install .
 ```
 
 Python 3.11 or newer is required.
+
+## Deterministic ranking contract
+
+The v0.2 candidate contract orders every candidate ranking by score
+descending, then canonical candidate ID ascending for equal effective scores.
+Methods that explicitly use support or popularity as a precedence key apply it
+before the final candidate-ID key; the candidate ID remains the final tie
+breaker. Array-based metrics receive no IDs, so callers must supply rows in
+canonical candidate-ID order before numerical ranking. Stable numerical
+sorting then preserves that order for equal scores.
+
+Canonical IDs are the MAUDE problem code, the ISO target inspection date
+followed by CMS CCN, the source-native Part D drug identity, the ClinicalTrials
+NCT ID, and the source-native FAERS drug/reaction edge identifier. The
+machine-readable policy is
+[`configs/task_candidates_v0_2.json`](configs/task_candidates_v0_2.json).
+Frozen v0.1 interfaces and artifacts are unchanged.
 
 ## Source data
 
@@ -123,9 +316,7 @@ silently accepted as the frozen v0.1 input. If a source publisher replaces a
 file, record a new benchmark version instead of editing this manifest in
 place.
 
-## Common interface
-
-Both tasks expose the same rolling-safe interface:
+All admitted tasks expose the same rolling-safe interface:
 
 ```python
 from healthgraphbench import load_task
@@ -137,6 +328,13 @@ validation = task.get_split("validation")
 test = task.get_split("test")
 predictions = FacilityHistory().fit_predict(train, validation, test)
 metrics = task.evaluate(predictions)
+```
+
+The Part D adapter consumes its verified model-gate result through the same
+interface:
+
+```python
+task = load_task("partd", "results/generated/partd-v0_2-model-gate-run-003")
 ```
 
 The task owns entity definitions, temporal cutoffs, candidate/episode
@@ -265,6 +463,31 @@ target row, so its history slices are reported as `sparse_1` versus the
 dataset-relative `higher_history_2+` band rather than implying a long-history
 population.
 
+## v0.2 publication artifacts
+
+The v0.2 publication step consumes the immutable v0.1 task outputs and the
+existing Part D model-gate result. It writes only new versioned paths:
+
+```bash
+PYTHONPATH=. python scripts/build_partd_execution_v0_2.py \
+  --model-gate-dir results/generated/partd-v0_2-model-gate-run-003 \
+  --output results/partd_execution_v0_2_20260916.json
+PYTHONPATH=. python scripts/render_summary_v0_2.py \
+  --output-json results/benchmark_summary_v0_2.json \
+  --output-csv results/benchmark_summary_v0_2.csv \
+  --output-svg results/benchmark_summary_v0_2.svg
+PYTHONPATH=. python scripts/analyze_relational_value_v0_2.py \
+  --output results/relational_value_v0_2.json
+PYTHONPATH=. python scripts/combine_execution_v0_2.py \
+  --output results/execution_v0_2_20260916.json
+```
+
+The unified table preserves task-local scopes and denominators instead of
+pooling incomparable metrics. The relational-value analysis selects MAUDE
+Recall@10, CMS ROC AUC, and Part D micro Recall@10 as the task-primary
+held-out metrics. Part D has no local-only admitted comparator; its conclusion
+is therefore heuristic-versus-learned, not local-versus-relational.
+
 ## Verified v0.1 exploratory results
 
 These values are regenerated from the frozen snapshots listed in
@@ -349,17 +572,22 @@ does not show a clear predictive gain.
 
 ## Interpretation boundary
 
-Existing 2023--2025 results were inspected during development and remain
-exploratory. They are not untouched confirmatory tests. The benchmark asks
-where relational information pays for itself, including cases where a simple
-relational heuristic beats a learned graph representation or where the
-increment is compatible with zero.
+The v0.1 and v0.2 evaluation periods were inspected during development and
+remain exploratory, not untouched confirmatory tests. Across tasks, simple
+relational heuristics improve the selected point metric where a local reference
+exists, while the selected learned-relational methods do not consistently
+improve beyond those heuristics. Part D has no local-only admitted comparator,
+and its CMS publication labels remain subject to suppression and left censoring.
 
-See [`docs/benchmark_report_v0_1.md`](docs/benchmark_report_v0_1.md) for the
-research write-up and [`results/benchmark_summary_v0_1.csv`](results/benchmark_summary_v0_1.csv),
-[`results/benchmark_summary_v0_1.json`](results/benchmark_summary_v0_1.json), and
-[`results/benchmark_summary_v0_1.svg`](results/benchmark_summary_v0_1.svg) for
-the rendered result table and plot. The formal contract remains in
-[`docs/HealthGraphBench_Specification.pdf`](docs/HealthGraphBench_Specification.pdf),
-[`configs/task_contract_v0_1.json`](configs/task_contract_v0_1.json), and
-[`docs/project_history.md`](docs/project_history.md).
+See [`docs/benchmark_report_v0_2.md`](docs/benchmark_report_v0_2.md) for the
+v0.2 report,
+[`results/benchmark_summary_v0_2.csv`](results/benchmark_summary_v0_2.csv),
+[`results/benchmark_summary_v0_2.json`](results/benchmark_summary_v0_2.json),
+[`results/benchmark_summary_v0_2.svg`](results/benchmark_summary_v0_2.svg), and
+[`results/relational_value_v0_2.json`](results/relational_value_v0_2.json).
+The frozen v0.1 report and artifacts remain documented at
+[`docs/benchmark_report_v0_1.md`](docs/benchmark_report_v0_1.md) and
+[`results/benchmark_summary_v0_1.json`](results/benchmark_summary_v0_1.json).
+The v0.2 contracts are
+[`configs/task_contract_v0_2.json`](configs/task_contract_v0_2.json) and
+[`configs/task_candidates_v0_2.json`](configs/task_candidates_v0_2.json).

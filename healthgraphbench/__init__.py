@@ -1,4 +1,4 @@
-"""HealthGraphBench v0.1 public API."""
+"""HealthGraphBench v0.2 development public API."""
 
 from .core import BenchmarkModel, BenchmarkTask, PredictionSet, Split, load_task
 

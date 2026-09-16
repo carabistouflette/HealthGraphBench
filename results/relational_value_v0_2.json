@@ -1,0 +1,196 @@
+{
+  "analysis_kind": "cross_task_relational_value",
+  "benchmark_version": "0.2",
+  "generated_at_utc": "2026-09-16T12:36:26.684939+00:00",
+  "input": {
+    "path": "results/benchmark_summary_v0_2.json",
+    "sha256": "cfe4a745162027017c4cecfbdd8095a93a4e72c8eb661f72545f9da3d91d5225"
+  },
+  "metric_selection": {
+    "maude": "Recall@10",
+    "cms_nursing": "ROC AUC",
+    "partd_prescriber_drug": "micro Recall@10",
+    "selection_rule": "task-specific primary held-out metric; values are not pooled across tasks"
+  },
+  "method_families": {
+    "local": [
+      "local_popularity",
+      "local_history"
+    ],
+    "relational_heuristic": [
+      "relational_heuristic"
+    ],
+    "learned_relational": [
+      "learned_relational"
+    ],
+    "learned_tabular": [
+      "learned_tabular"
+    ]
+  },
+  "tasks": {
+    "maude": {
+      "primary_metric": "recall_at_10",
+      "scope": "test; threshold=1",
+      "local_reference": {
+        "method": "global_popularity",
+        "method_family": "local_popularity",
+        "metric": "recall_at_10",
+        "value": 0.18445422802489753,
+        "scope": "2024Q1-2025Q4; threshold=1"
+      },
+      "best_relational_heuristic": {
+        "method": "neighbor_frequency",
+        "method_family": "relational_heuristic",
+        "metric": "recall_at_10",
+        "value": 0.19204493699711553,
+        "scope": "2024Q1-2025Q4; threshold=1"
+      },
+      "best_learned_tabular": {
+        "method": "logistic_tabular",
+        "method_family": "learned_tabular",
+        "metric": "recall_at_10",
+        "value": 0.18453013511461971,
+        "scope": "2024Q1-2025Q4; threshold=1"
+      },
+      "best_learned_relational": {
+        "method": "graph_message_passing_bpr",
+        "method_family": "learned_relational",
+        "metric": "recall_at_10",
+        "value": 0.18384697130712008,
+        "scope": "2024Q1-2025Q4; threshold=1"
+      },
+      "comparison_status": {
+        "local_to_relational": "estimable",
+        "relational_to_learned_relational": "estimable",
+        "relational_to_learned_tabular": "estimable"
+      },
+      "deltas": {
+        "relational_heuristic_minus_local": 0.007590708972218002,
+        "learned_tabular_minus_local": 7.590708972218807e-05,
+        "learned_relational_minus_local": -0.000607256717777449,
+        "relational_heuristic_minus_learned_tabular": 0.007514801882495814,
+        "learned_relational_minus_relational_heuristic": -0.008197965689995451
+      }
+    },
+    "cms_nursing": {
+      "primary_metric": "roc_auc",
+      "scope": "test; 2024-2025 pooled",
+      "local_reference": {
+        "method": "facility_history",
+        "method_family": "local_history",
+        "metric": "roc_auc",
+        "value": 0.6199749906092058,
+        "scope": "2024-2025 pooled"
+      },
+      "best_relational_heuristic": {
+        "method": "facility_plus_combined_ownership",
+        "method_family": "relational_heuristic",
+        "metric": "roc_auc",
+        "value": 0.6212927045651894,
+        "scope": "2024-2025 pooled"
+      },
+      "best_learned_tabular": null,
+      "best_learned_relational": null,
+      "comparison_status": {
+        "local_to_relational": "estimable",
+        "relational_to_learned_relational": "not_estimable",
+        "relational_to_learned_tabular": "not_estimable"
+      },
+      "deltas": {
+        "relational_heuristic_minus_local": 0.0013177139559835682,
+        "learned_tabular_minus_local": null,
+        "learned_relational_minus_local": null,
+        "relational_heuristic_minus_learned_tabular": null,
+        "learned_relational_minus_relational_heuristic": null
+      }
+    },
+    "partd_prescriber_drug": {
+      "primary_metric": "micro_recall_at_10",
+      "scope": "test; 2024 held-out generic representation",
+      "local_reference": null,
+      "best_relational_heuristic": {
+        "method": "specialty_popularity",
+        "method_family": "relational_heuristic",
+        "metric": "micro_recall_at_10",
+        "value": 0.21785975164353544,
+        "scope": "2024 held-out test; generic primary representation"
+      },
+      "best_learned_tabular": {
+        "method": "tabular_logistic",
+        "method_family": "learned_tabular",
+        "metric": "micro_recall_at_10",
+        "value": 0.16818845872899926,
+        "scope": "2024 held-out test; generic primary representation"
+      },
+      "best_learned_relational": {
+        "method": "graph_bpr",
+        "method_family": "learned_relational",
+        "metric": "micro_recall_at_10",
+        "value": 0.18078889700511322,
+        "scope": "2024 held-out test; generic primary representation"
+      },
+      "comparison_status": {
+        "local_to_relational": "not_estimable",
+        "relational_to_learned_relational": "estimable",
+        "relational_to_learned_tabular": "estimable"
+      },
+      "deltas": {
+        "relational_heuristic_minus_local": null,
+        "learned_tabular_minus_local": null,
+        "learned_relational_minus_local": null,
+        "relational_heuristic_minus_learned_tabular": 0.049671292914536175,
+        "learned_relational_minus_relational_heuristic": -0.03707085463842222
+      }
+    }
+  },
+  "comparison_statuses": {
+    "local_to_relational": {
+      "estimable": [
+        "maude",
+        "cms_nursing"
+      ],
+      "not_estimable": [
+        "partd_prescriber_drug"
+      ]
+    },
+    "relational_to_learned_relational": {
+      "estimable": [
+        "maude",
+        "partd_prescriber_drug"
+      ],
+      "not_estimable": [
+        "cms_nursing"
+      ]
+    },
+    "relational_to_learned_tabular": {
+      "estimable": [
+        "maude",
+        "partd_prescriber_drug"
+      ],
+      "not_estimable": [
+        "cms_nursing"
+      ]
+    }
+  },
+  "cross_task_counts": {
+    "relational_heuristic_beats_local": [
+      "maude",
+      "cms_nursing"
+    ],
+    "learned_relational_beats_relational_heuristic": [],
+    "local_reference_unavailable": [
+      "partd_prescriber_drug"
+    ]
+  },
+  "conclusion": {
+    "point_evidence": "Simple relational heuristics exceed the selected local reference on every task with an available local reference; the admitted Part D contract has no local-only method, so it cannot support the same within-task comparison.",
+    "learned_relational_evidence": "The selected learned-relational method does not exceed the best relational heuristic on the tasks where both families are present in this table.",
+    "interpretation_boundary": "These are task-local held-out point comparisons with heterogeneous targets and metrics; they are not evidence of a universal relational or graph-learning effect."
+  },
+  "limitations": [
+    "Part D has no admitted local-only comparator; specialty popularity and history overlap are relational heuristics.",
+    "Metric scales and target semantics differ across MAUDE, CMS nursing, and Part D.",
+    "Point comparisons do not replace task-specific clustered uncertainty intervals.",
+    "The inspected held-out periods are development-stage evaluations, not prospective confirmation."
+  ]
+}

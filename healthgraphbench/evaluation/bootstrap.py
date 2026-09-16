@@ -13,6 +13,8 @@ from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass
 from typing import TypeVar
 
+import numpy as np
+
 T = TypeVar("T")
 
 
@@ -43,6 +45,31 @@ def _percentile(sorted_values: Sequence[float], probability: float) -> float:
     upper = min(lower + 1, len(sorted_values) - 1)
     fraction = position - lower
     return sorted_values[lower] + fraction * (sorted_values[upper] - sorted_values[lower])
+
+
+def cluster_bootstrap_indices(
+    cluster_ids: Sequence[str],
+    *,
+    resamples: int = 5000,
+    seed: int = 0,
+) -> np.ndarray:
+    """Return deterministic NumPy cluster positions for paired resampling.
+
+    Cluster positions refer to the sorted unique cluster IDs. The returned
+    matrix has one sampled cluster position per column for every resample.
+    """
+    if resamples <= 0:
+        raise ValueError("resamples must be positive")
+    ordered_clusters = tuple(sorted(set(cluster_ids)))
+    if not ordered_clusters:
+        raise ValueError("cluster_ids must not be empty")
+    generator = np.random.default_rng(seed)
+    return generator.integers(
+        0,
+        len(ordered_clusters),
+        size=(resamples, len(ordered_clusters)),
+        dtype=np.intp,
+    )
 
 
 def paired_cluster_bootstrap(

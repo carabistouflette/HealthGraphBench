@@ -1,21 +1,19 @@
 cff-version: 1.2.0
-message: "If you use HealthGraphBench, cite this post-DOI benchmark release."
+message: "If you use HealthGraphBench, cite this v0.2.0 benchmark release."
 title: "HealthGraphBench: Incremental relational value in health-regulatory prediction"
 authors:
   - name: "HealthGraphBench contributors"
-version: 0.1.2
+version: 0.2.0
 type: software
 repository-code: "https://github.com/carabistouflette/HealthGraphBench"
-url: "https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.1.2"
-doi: "10.5281/zenodo.22765003"
-commit: dcff32ee926c2e52f242fe0edb67381cff30b24a
+url: "https://github.com/carabistouflette/HealthGraphBench/releases/tag/v0.2.0"
 license: Apache-2.0
 abstract: >-
-  Frozen exploratory temporal evaluation of incremental relational predictive
-  value in FDA MAUDE and CMS nursing-home inspection tasks, with strong simple
-  baselines, a deterministic GraphSAGE comparison, entity-clustered uncertainty,
-  and synthetic implementation sanity checks. Evaluation periods were inspected
-  during development; results are not untouched prospective confirmation.
+  Temporal benchmark of incremental relational value in FDA MAUDE, CMS
+  nursing-home inspection, and CMS Medicare Part D prescriber-drug tasks, with
+  interpretable relational heuristics, learned relational baselines, and
+  task-local held-out evaluation. Evaluation periods were inspected during
+  development; results are not untouched prospective confirmation.
 keywords:
   - benchmark
   - temporal evaluation

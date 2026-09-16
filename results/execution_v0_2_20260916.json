@@ -1,0 +1,73 @@
+{
+  "benchmark_version": "0.2",
+  "result_status": "admitted_replication_extension",
+  "generated_at_utc": "2026-09-16T12:40:11.442264+00:00",
+  "immutability_statement": "v0.1 MAUDE, CMS, controls, and result payloads are referenced without modification.",
+  "task_artifacts": {
+    "maude": {
+      "kind": "frozen_v0_1_task_result",
+      "path": "results/maude_execution_v0_1_20260915.json",
+      "bytes": 68114705,
+      "sha256": "cab43cf672ba81fc90a1ab36ce902fadb4251200ddb126bb4490c4b77df113f6"
+    },
+    "cms_nursing": {
+      "kind": "frozen_v0_1_task_result",
+      "path": "results/cms_execution_v0_1_20260915.json",
+      "bytes": 21476553,
+      "sha256": "f3794fef2db35f3f6670a9a912d3cc35126f503e5569cb38b9ce96a388edfaf4"
+    },
+    "partd_prescriber_drug": {
+      "kind": "v0_2_admitted_task_result",
+      "path": "results/partd_execution_v0_2_20260916.json",
+      "bytes": 40252,
+      "sha256": "779560e8f21bf19bc8c4517b3c1837efe7ac932dca3d984a40c1a22e22c99b14"
+    }
+  },
+  "controls": {
+    "kind": "frozen_v0_1_controls",
+    "path": "results/synthetic_controls_execution_v0_1_20260915.json",
+    "bytes": 2258,
+    "sha256": "ee4ae06fbd3facd46b50bfb5502ec16c9c87c6554065d9b7e1e1a917e4367989"
+  },
+  "summary": {
+    "kind": "v0_2_unified_cross_task_table",
+    "path": "results/benchmark_summary_v0_2.json",
+    "bytes": 53534,
+    "sha256": "cfe4a745162027017c4cecfbdd8095a93a4e72c8eb661f72545f9da3d91d5225"
+  },
+  "analysis": {
+    "kind": "v0_2_cross_task_relational_value",
+    "path": "results/relational_value_v0_2.json",
+    "bytes": 7028,
+    "sha256": "606390fe2831f36417d0a7b6d92e0a1f3aac3c70cf810546980149c702d03a65"
+  },
+  "contract": {
+    "kind": "v0_2_admission_contract",
+    "path": "configs/task_contract_v0_2.json",
+    "bytes": 2875,
+    "sha256": "482adfa6665138c246f6212158d61bf2cd33e70049ad3d5e793283a6b2cd9b8f"
+  },
+  "method_suite": {
+    "maude": [
+      "global_popularity",
+      "neighbor_frequency",
+      "logistic_tabular",
+      "boosted_stumps_tabular",
+      "matrix_factorization_spectral",
+      "graph_message_passing_bpr",
+      "graphsage_link_prediction"
+    ],
+    "cms_nursing": [
+      "prevalence",
+      "facility_history",
+      "facility_plus_combined_ownership"
+    ],
+    "partd_prescriber_drug": [
+      "specialty_popularity",
+      "history_overlap",
+      "tabular_logistic",
+      "graph_bpr"
+    ],
+    "architecture_sweep": false
+  }
+}

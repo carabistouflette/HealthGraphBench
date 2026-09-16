@@ -1,0 +1,127 @@
+{
+  "benchmark": "HealthGraphBench",
+  "version": "0.2-candidates-clinical-trials-feasibility",
+  "task": {
+    "id": "clinical_trials_reporting",
+    "source": "ClinicalTrials.gov/AACT",
+    "graph_type": "heterogeneous_temporal",
+    "target": "timely_results_posting_within_365_days_of_actual_primary_completion",
+    "status": "stability_gate_pending",
+    "graph_model_status": "paused",
+    "benchmark_admission": "deferred",
+    "snapshot_policy": {
+      "format": "AACT pipe-delimited flat-file ZIP archive",
+      "archive_path_template": "https://aact.ctti-clinicaltrials.org/static/exported_files/pipe_files/{yyyymmdd}_export_ctgov.zip",
+      "snapshot_dates": [
+        "2019-01-01",
+        "2020-01-01",
+        "2021-01-01",
+        "2022-02-01",
+        "2023-02-01",
+        "2024-02-01",
+        "2025-02-01"
+      ],
+      "roles": {
+        "2019-01-01": "train_origin",
+        "2020-01-01": "train_origin",
+        "2021-01-01": "train_origin",
+        "2022-02-01": "train_origin",
+        "2023-02-01": "validation_origin",
+        "2024-02-01": "held_out_test_origin",
+        "2025-02-01": "future_observation_only"
+      }
+    },
+    "origin": {
+      "study_type": "Interventional",
+      "primary_completion_date_type": "Actual",
+      "completion_lag_days": {
+        "minimum": 0,
+        "maximum": 90
+      },
+      "results_first_posted_date": "blank at origin",
+      "rule": "Use a snapshot row only when the actual primary completion date is on or before the snapshot date and no more than 90 days earlier; exclude rows with a results-first-posted date at that snapshot."
+    },
+    "horizon_days": 365,
+    "cohort": {
+      "size_per_origin": 2000,
+      "future_observation": "Rows absent from the paired future snapshot or showing a future result date at or before the blank origin are excluded from labeled evaluation rather than treated as untimely.",
+      "selection": "smallest SHA-256(NCT ID) then NCT ID among eligible origin rows",
+      "future_label": "results_first_posted_date is after origin and no later than origin plus 365 days in the paired future snapshot"
+    },
+    "entities": [
+      "sponsor",
+      "condition",
+      "intervention",
+      "facility",
+      "collaborator"
+    ],
+    "models": [
+      {
+        "name": "trial_local_logistic",
+        "features": "phase, enrollment, arms, groups, design, masking, FDA-regulated indicators, and trial timing"
+      },
+      {
+        "name": "sponsor_history_logistic",
+        "features": "trial-local features plus lead-sponsor completed-trial count, timely-posting fraction, and posting-delay summary"
+      },
+      {
+        "name": "heterogeneous_context_logistic",
+        "features": "sponsor-history model plus facility, condition, intervention, and collaborator prior-trial context"
+      }
+    ],
+    "history": {
+      "prior_outcome_rule": "Only prior interventional trials with actual primary completion at least 365 days before the origin are used for historical outcomes; an absent result by that completed horizon is a known untimely outcome.",
+      "relation_identity": "Exact trimmed source names, case-folded and whitespace-normalized for matching; no cross-source entity merging."
+    },
+    "evaluation": {
+      "metrics": [
+        "roc_auc",
+        "average_precision",
+        "brier_score",
+        "log_loss",
+        "top_decile_precision",
+        "top_decile_recall"
+      ],
+      "strata": "each origin role plus pooled train-independent validation/test summaries",
+      "coverage": "eligible trials with relation rows and prior historical neighbors by entity type"
+    },
+    "stability_gate": {
+      "status": "stability_gate_pending",
+      "origins": [
+        "2020-01-01",
+        "2021-01-01",
+        "2022-02-01",
+        "2023-02-01",
+        "2024-02-01"
+      ],
+      "training_rule": "For each origin, fit only on labeled examples from strictly earlier origins.",
+      "ablation_models": [
+        "trial_local_logistic",
+        "local_plus_sponsor_logistic",
+        "local_plus_sponsor_condition_logistic",
+        "local_plus_sponsor_facility_logistic",
+        "local_plus_sponsor_intervention_logistic",
+        "local_plus_sponsor_collaborator_logistic",
+        "heterogeneous_context_by_entity_logistic"
+      ],
+      "uncertainty": {
+        "metric": "average_precision_difference",
+        "method": "paired percentile bootstrap",
+        "cluster_unit": "trial",
+        "separate_by_origin": true,
+        "undefined_resamples": "omit and count"
+      },
+      "pooled_metrics": false,
+      "admission": "No automatic benchmark admission or graph-model escalation; review per-origin stability first."
+    },
+    "escalation_rule": "Do not build a graph neural model in this gate. Review sponsor-history and heterogeneous-context increments over the trial-local baseline first; a future graph-model gate requires a positive, reproducible held-out increment and separate reviewer approval.",
+    "historical_availability_verified": true,
+    "admission": "feasibility only; not a legal-compliance target and not benchmark admission"
+  },
+  "limitations": [
+    "Results-first-posted-date is a registry publication outcome, not proof of legal reporting obligation or compliance.",
+    "AACT snapshots capture historical registry states; this feasibility gate does not infer information unavailable to a model at every real-world operational cutoff.",
+    "Exact source names are retained for relation matching; no sponsor, facility, condition, or intervention entity resolution is asserted.",
+    "The bounded cohort and selected monthly archives do not establish national representativeness or deployment readiness."
+  ]
+}

@@ -38,7 +38,7 @@ class BenchmarkModel(Protocol):
 
 
 class BenchmarkTask(Protocol):
-    """Protocol shared by the MAUDE and CMS benchmark tasks."""
+    """Protocol shared by all benchmark tasks."""
 
     name: str
 
@@ -60,10 +60,11 @@ def load_task(
     source_root: str | Path | None = None,
     **kwargs: Any,
 ) -> BenchmarkTask:
-    """Load a task from official-source snapshots under ``source_root``.
+    """Load a task from its source root or verified result artifact.
 
     When omitted, ``source_root`` defaults to ``$HEALTHGRAPHBENCH_DATA_ROOT``
-    or ``./data``. Raw snapshots remain external to the repository.
+    or ``./data``. Raw snapshots remain external to the repository; Part D
+    consumes a verified model-gate artifact directory.
     """
 
     import os
@@ -78,4 +79,10 @@ def load_task(
         from .tasks.cms_nursing.task import CmsNursingTask
 
         return CmsNursingTask.from_source_root(root, **kwargs)
-    raise ValueError(f"Unknown task {name!r}; expected 'maude' or 'cms_nursing'")
+    if normalized in {"partd", "part_d", "partd_prescriber_drug"}:
+        from .tasks.partd.task import PartDTask
+
+        return PartDTask.from_source_root(root, **kwargs)
+    raise ValueError(
+        f"Unknown task {name!r}; expected 'maude', 'cms_nursing', or 'partd_prescriber_drug'"
+    )

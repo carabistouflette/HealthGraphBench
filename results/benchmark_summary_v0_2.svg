@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="860" viewBox="0 0 1800 860">
+<style>.title{font:700 18px sans-serif}.axis{stroke:#333}.tick,.label,.value{font:12px sans-serif}.value{font-weight:700}</style>
+<rect width="1800" height="860" fill="white"/>
+<text x="40" y="34" class="title">HealthGraphBench v0.2 — unified held-out task summary</text>
+<text x="80" y="82" class="title">MAUDE test Recall@10</text>
+<line x1="80" y1="520" x2="580" y2="520" class="axis"/>
+<line x1="80" y1="100" x2="80" y2="520" class="axis"/>
+<text x="72" y="524" text-anchor="end" class="tick">0</text>
+<text x="72" y="104" text-anchor="end" class="tick">0.22</text>
+<rect x="91.4" y="169.2" width="48.6" height="350.8" fill="#3973ac"/>
+<text x="115.7" y="164.2" text-anchor="middle" class="value">0.184</text>
+<text x="115.7" y="538" text-anchor="end" transform="rotate(-35 115.7 538)" class="label">global_popularity</text>
+<rect x="162.9" y="154.8" width="48.6" height="365.2" fill="#4f8f62"/>
+<text x="187.1" y="149.8" text-anchor="middle" class="value">0.192</text>
+<text x="187.1" y="538" text-anchor="end" transform="rotate(-35 187.1 538)" class="label">neighbor_frequency</text>
+<rect x="234.3" y="169.1" width="48.6" height="350.9" fill="#4f8f62"/>
+<text x="258.6" y="164.1" text-anchor="middle" class="value">0.185</text>
+<text x="258.6" y="538" text-anchor="end" transform="rotate(-35 258.6 538)" class="label">logistic_tabular</text>
+<rect x="305.7" y="172.4" width="48.6" height="347.6" fill="#4f8f62"/>
+<text x="330.0" y="167.4" text-anchor="middle" class="value">0.183</text>
+<text x="330.0" y="538" text-anchor="end" transform="rotate(-35 330.0 538)" class="label">boosted_stumps_tabular</text>
+<rect x="377.1" y="187.4" width="48.6" height="332.6" fill="#b23a48"/>
+<text x="401.4" y="182.4" text-anchor="middle" class="value">0.175</text>
+<text x="401.4" y="538" text-anchor="end" transform="rotate(-35 401.4 538)" class="label">matrix_factorization_spectral</text>
+<rect x="448.6" y="170.4" width="48.6" height="349.6" fill="#b23a48"/>
+<text x="472.9" y="165.4" text-anchor="middle" class="value">0.184</text>
+<text x="472.9" y="538" text-anchor="end" transform="rotate(-35 472.9 538)" class="label">graph_message_passing_bpr</text>
+<rect x="520.0" y="191.3" width="48.6" height="328.7" fill="#b23a48"/>
+<text x="544.3" y="186.3" text-anchor="middle" class="value">0.173</text>
+<text x="544.3" y="538" text-anchor="end" transform="rotate(-35 544.3 538)" class="label">graphsage_link_prediction</text>
+<text x="650" y="82" class="title">CMS test ROC AUC</text>
+<line x1="650" y1="520" x2="1150" y2="520" class="axis"/>
+<line x1="650" y1="100" x2="650" y2="520" class="axis"/>
+<text x="642" y="524" text-anchor="end" class="tick">0</text>
+<text x="642" y="104" text-anchor="end" class="tick">0.71</text>
+<rect x="676.7" y="242.2" width="113.3" height="277.8" fill="#3973ac"/>
+<text x="733.3" y="237.2" text-anchor="middle" class="value">0.473</text>
+<text x="733.3" y="538" text-anchor="end" transform="rotate(-35 733.3 538)" class="label">prevalence</text>
+<rect x="843.3" y="155.6" width="113.3" height="364.4" fill="#4f8f62"/>
+<text x="900.0" y="150.6" text-anchor="middle" class="value">0.620</text>
+<text x="900.0" y="538" text-anchor="end" transform="rotate(-35 900.0 538)" class="label">facility_history</text>
+<rect x="1010.0" y="154.8" width="113.3" height="365.2" fill="#4f8f62"/>
+<text x="1066.7" y="149.8" text-anchor="middle" class="value">0.621</text>
+<text x="1066.7" y="538" text-anchor="end" transform="rotate(-35 1066.7 538)" class="label">facility_plus_combined_ownership</text>
+<text x="1220" y="82" class="title">Part D held-out micro Recall@10</text>
+<line x1="1220" y1="520" x2="1720" y2="520" class="axis"/>
+<line x1="1220" y1="100" x2="1220" y2="520" class="axis"/>
+<text x="1212" y="524" text-anchor="end" class="tick">0</text>
+<text x="1212" y="104" text-anchor="end" class="tick">0.25</text>
+<rect x="1240.0" y="154.8" width="85.0" height="365.2" fill="#4f8f62"/>
+<text x="1282.5" y="149.8" text-anchor="middle" class="value">0.218</text>
+<text x="1282.5" y="538" text-anchor="end" transform="rotate(-35 1282.5 538)" class="label">specialty_popularity</text>
+<rect x="1365.0" y="167.3" width="85.0" height="352.7" fill="#4f8f62"/>
+<text x="1407.5" y="162.3" text-anchor="middle" class="value">0.210</text>
+<text x="1407.5" y="538" text-anchor="end" transform="rotate(-35 1407.5 538)" class="label">history_overlap</text>
+<rect x="1490.0" y="238.1" width="85.0" height="281.9" fill="#4f8f62"/>
+<text x="1532.5" y="233.1" text-anchor="middle" class="value">0.168</text>
+<text x="1532.5" y="538" text-anchor="end" transform="rotate(-35 1532.5 538)" class="label">tabular_logistic</text>
+<rect x="1615.0" y="216.9" width="85.0" height="303.1" fill="#b23a48"/>
+<text x="1657.5" y="211.9" text-anchor="middle" class="value">0.181</text>
+<text x="1657.5" y="538" text-anchor="end" transform="rotate(-35 1657.5 538)" class="label">graph_bpr</text>
+<text x="80" y="620" class="tick">Part D uses exact trimmed generic identity and all eligible candidates.</text>
+<text x="650" y="620" class="tick">Raw metric scales differ; panels are task-local, not pooled scores.</text>
+<text x="80" y="660" class="tick">Colors distinguish local/popularity, relational heuristic, and learned relational families.</text>
+<text x="80" y="700" class="tick">Held-out periods were inspected during development; this is not prospective confirmation.</text>
+</svg>

@@ -1,0 +1,52 @@
+{
+  "benchmark": "HealthGraphBench",
+  "version": "0.2-candidates",
+  "ranking_tie_policy": {
+    "primary_key": "score descending",
+    "secondary_key": "canonical candidate ID ascending",
+    "array_metric_input_order": "canonical candidate ID ascending",
+    "final_tie_key": "canonical candidate ID ascending",
+    "method_specific_precedence": "Declared support or popularity keys may precede the final candidate-ID key for methods that define them.",
+    "canonical_candidate_ids": {
+      "maude": "problem code",
+      "cms_nursing": "ISO target inspection date followed by CCN",
+      "partd_prescriber_drug": "exact trimmed generic_name",
+      "clinical_trials_reporting": "NCT ID",
+      "faers_drug_reaction": "source-native drug/reaction edge identifier"
+    }
+  },
+  "tasks": {
+    "partd_prescriber_drug": {
+      "source": "CMS",
+      "graph_type": "bipartite_temporal",
+      "target": "first_observed_provider_drug_edge",
+      "status": "admitted_v0_2_replication_task",
+      "model_gate": "no_go_for_escalation",
+      "benchmark_admission": "admitted_v0_2",
+      "admission_contract": "configs/task_contract_v0_2.json",
+      "limitations": [
+        "Part D labels are published observations subject to suppression and left censoring."
+      ]
+    },
+    "clinical_trials_reporting": {
+      "source": "ClinicalTrials.gov/AACT",
+      "graph_type": "heterogeneous_temporal",
+      "target": "timely_results_posting_within_365_days_of_actual_primary_completion",
+      "status": "stability_gate_pending",
+      "graph_model_status": "paused",
+      "benchmark_admission": "deferred",
+      "limitations": [
+        "ClinicalTrials requires historical pre-outcome predictors and is not a legal-compliance target."
+      ]
+    },
+    "faers_drug_reaction": {
+      "source": "FDA",
+      "graph_type": "bipartite_temporal",
+      "target": "first_observed_drug_reaction_edge",
+      "status": "optional",
+      "limitations": [
+        "FAERS observations are not causal drug-safety labels and may duplicate MAUDE's relational regime."
+      ]
+    }
+  }
+}
