@@ -88,6 +88,15 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=Path("."))
     parser.add_argument("--dist-dir", type=Path)
     parser.add_argument(
+        "--release-status",
+        choices=(
+            "local_payload_prepared_not_tagged",
+            "tag_ready",
+            "github_release_published",
+        ),
+        help="override the automatically inferred payload status",
+    )
+    parser.add_argument(
         "--output-manifest", type=Path, default=Path("results/release_assets_v0_2.json")
     )
     parser.add_argument(
@@ -136,12 +145,15 @@ def main() -> int:
 
     source_commit = _source_commit(root)
     dirty = _source_tree_dirty(root)
+    release_status = args.release_status or (
+        "local_payload_prepared_not_tagged" if dirty else "tag_ready"
+    )
     manifest = {
         "schema_version": 1,
         "release": "v0.2.0",
         "source_commit": source_commit,
         "source_tree_dirty": dirty,
-        "release_status": "local_payload_prepared_not_tagged" if dirty else "tag_ready",
+        "release_status": release_status,
         "packaged_at_utc": datetime.now(timezone.utc).isoformat(),
         "evaluation_status": "development-stage admitted replication extension",
         "report_status": "v0.2 report and unified cross-task analysis are frozen for packaging",
