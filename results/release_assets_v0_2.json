@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "release": "v0.2.0",
-  "source_commit": "1e6fb5af33d7af856f81af697826cdb08008ab58",
-  "source_tree_dirty": true,
-  "release_status": "local_payload_prepared_not_tagged",
-  "packaged_at_utc": "2026-09-16T13:34:55.555784+00:00",
+  "source_commit": "2c73b54e649cc300ea1483c60bfc853e6e49ad62",
+  "source_tree_dirty": false,
+  "release_status": "github_release_published",
+  "packaged_at_utc": "2026-09-16T13:38:36.290696+00:00",
   "evaluation_status": "development-stage admitted replication extension",
   "report_status": "v0.2 report and unified cross-task analysis are frozen for packaging",
   "raw_data_included": false,
@@ -105,14 +105,14 @@
       "source_path": "/tmp/healthgraphbench-v0_2-dist/healthgraphbench-0.2.0-py3-none-any.whl",
       "role": "Python distribution",
       "bytes": 112100,
-      "sha256": "e2d7acfb0ab5037d0aaf5a0cca8b52a9ace0386a0545f648361f6bdd85fc9db3"
+      "sha256": "d8fbadb9485d9db1080d555195ad8319f2f4d9d0ab9adc91fd5ba6c349bbb3d1"
     },
     {
       "name": "healthgraphbench-0.2.0.tar.gz",
       "source_path": "/tmp/healthgraphbench-v0_2-dist/healthgraphbench-0.2.0.tar.gz",
       "role": "Python distribution",
-      "bytes": 124230,
-      "sha256": "048cddf2a260d80511134206c89e86230b6c40b8548c32819dea5f2509fd8d31"
+      "bytes": 124236,
+      "sha256": "e1472eea321ce7f952ed0516e01bcda9f4f594dbc65784f50da1b3023a251b94"
     }
   ],
   "verification": "SHA256SUMS_v0_2 covers every repository payload asset and this manifest; distribution hashes are recorded separately; raw datasets remain external.",
