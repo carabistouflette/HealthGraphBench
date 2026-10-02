@@ -31,7 +31,7 @@ def main():
             ax.annotate(f'{recall:.6f}', (n, recall), xytext=(0, 9), textcoords='offset points', ha='center')
         ax.set(xticks=durations, ylim=(0, .24), xlabel='Époques' if french else 'Epochs',
                ylabel='Rappel micro à 10' if french else 'Micro recall@10',
-               title='C — grille indépendante, validation 2023' if french else 'C — independent fits, 2023 validation')
+               title='C — grille indépendante, validation 2023' if french else 'C — independent grid, 2023 validation')
         ax.grid(axis='y', alpha=.2)
         fig.savefig(output / f'maude_duration_RC2_{language}.png', dpi=180)
         plt.close(fig)
@@ -42,7 +42,7 @@ def main():
         axes[0].bar(x + .18, [r['none_r10'] for r in rows], .36, label='none30 (D1)', color='#d57536')
         axes[0].set(xticks=x, xticklabels=['Val. 2023', '2024', '2025', '2024–25'], ylim=(0, .25),
                     ylabel='Rappel micro à 10' if french else 'Micro recall@10',
-                    title='D1 — mêmes cohortes, pas de nouvel IC' if french else 'D1 — matched cohorts, no new CI')
+                    title='D1 — mêmes cohortes, pas de nouvel IC' if french else 'D1 — same cohorts, no new CI')
         axes[0].legend(fontsize=8)
         axes[0].grid(axis='y', alpha=.2)
         colors = {'validation_2023': '#27648e', 'test_2024': '#557c36', 'test_2025': '#964d85'}
@@ -56,7 +56,7 @@ def main():
                              linestyle=style, color=colors[split], label=model + ' ' + labels[split])
         axes[1].axhline(np.log(2), color='grey', linewidth=.7, linestyle=':', label='ln(2)')
         axes[1].set(xlabel='Époque' if french else 'Epoch', ylabel='Perte BPR observée' if french else 'Observed BPR loss',
-                    title='mean conservé; none nouveau' if french else 'Retained mean; newly trained none')
+                    title='mean conservé; none nouveau' if french else 'Retained mean; new none')
         axes[1].legend(fontsize=8.5, ncol=3, loc='center', bbox_to_anchor=(.5, .55))
         axes[1].grid(alpha=.2)
         fig.savefig(output / f'maude_aggregation_RC2_{language}.png', dpi=180)

@@ -106,3 +106,12 @@ Le ZIP RC1 fourni est le parent attesté (`2d066cfbbe1c50ed1f0dc021799d3bac631a7
 
 Aucun fit, tuning, D2, bootstrap, IC ni audit scientifique réussi relancé pour RC2. Les anciennes empreintes A/B/C/D1 ne sont pas réécrites : leurs snapshots documentaires restent ceux de leurs commits datés. Les quatre changements préexistants de l'utilisateur sont exclus. Les approbations humaines, déclarations, revue cible, format final et décision F demeurent ouverts.
 
+
+## 3 octobre 2026 — français canonique, anglais traduit
+
+Exigence explicite : la version anglaise doit être une traduction de la française. Le manuscrit principal et le supplément anglais sont retraduits dans l'ordre français, sans rédaction parallèle abrégée. Titres, paragraphes, légendes, déclarations et portée scientifique sont repris ; la relecture rétablit notamment le paragraphe source/DOI manquant en S1 et supprime les ajouts anglais.
+
+Les 26 paires de sources et tables concordent pour les valeurs, formules, structure, citations et références ; les 53 sources françaises LaTeX restent byte-identiques. Les cinq PDF sont recompilés : anglais principal 15 pages, supplément 20 ; texte des trois PDF français identique à la livraison précédente. Planches de toutes les pages anglaises, résumé, S1 et figure D1 agrandis examinés ; aucune référence non résolue ni boîte débordante dans les logs anglais. Figures anglaises relégendées depuis les sorties conservées, sans fit ou nouveau score. Quatre tables traduites distinctes préservent les originaux historiques protégés.
+
+Nouvelle livraison `HealthGraphBench_FAIA_LaTeX_RC2_traduction_FR.zip`, avec empreintes et manifeste distincts ; le candidat précédent reste conservé. Publication sur la même branche et PR #4 en brouillon, pas de merge/tag. Les gates auteurs/revue/soumission restent ouverts ; aucune nouvelle expérience ni réécriture des ledgers scientifiques antérieurs.
+

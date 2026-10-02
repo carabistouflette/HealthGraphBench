@@ -1,8 +1,10 @@
 # HealthGraphBench — révision de travail RC2
 
 **2 octobre 2026 • `manuscript-rc2` • non soumise, non approuvée par les auteurs.**
-Archive : `HealthGraphBench_FAIA_LaTeX_RC2.zip`; racine : `HealthGraphBench_RC2`.
+Archive : `HealthGraphBench_FAIA_LaTeX_RC2_traduction_FR.zip`; racine : `HealthGraphBench_RC2`.
 RC1 fournie est conservée intacte (SHA-256 `2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be`).
+
+**Révision linguistique du 3 octobre 2026.** Le français est la référence ; le manuscrit et le supplément anglais sont ses traductions fidèles, non des réécritures indépendantes. Les sources scientifiques françaises restent inchangées. Titres, paragraphes, légendes, formules, résultats, limites et déclarations sont conservés ; syntaxe et ponctuation numérique sont adaptées à l'anglais. La concordance de 26 paires de fichiers est documentée dans `verification/rc2_translation/language_concordance.json`. Les PDF anglais traduits ont 15 et 20 pages. Le ZIP RC2 précédent reste une livraison historique distincte.
 
 ## Contenu et portée
 

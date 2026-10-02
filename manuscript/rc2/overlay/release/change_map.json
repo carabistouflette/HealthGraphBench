@@ -12,25 +12,25 @@
       "file": "README_EN.md",
       "status": "changed",
       "previous_sha256": "93610899393cbf89539e77af56ccdc49f8aa731d3ebd05f92a0f4885a78dd3f8",
-      "overlay_sha256": "a4de290bc3021893fdcb2c31b7d5e8e1a9a384db622688807d4fd40686b122ec"
+      "overlay_sha256": "f1a437d0d56189b096173cbd077382eae0de47b527aefe3f979c51257e0b516c"
     },
     {
       "file": "README_FR.md",
       "status": "changed",
       "previous_sha256": "a24b5eeac23ec302863193b86b00a5aa3e05f2386c7debdc0ff70c12c3dee025",
-      "overlay_sha256": "8d9800c55d39cf7561a052dacd3655946124cc904f6939e750590f73c067c65c"
+      "overlay_sha256": "9c9d64dda83224e725bc9c4539dc1c1541acbcb3ec379dc03cd08639a538b01a"
     },
     {
       "file": "RELEASE_NOTES_EN.md",
       "status": "changed",
       "previous_sha256": "2f6b3eeb7272dd170a9889c40ec94cf06acd5378b20acbe6f9d1018b2331d105",
-      "overlay_sha256": "6f150aa87d4ba9034c27b65a543883cb40a230ea0292e78c172b20b95812d59d"
+      "overlay_sha256": "e2b1fbd34dd4c3ea446ce8453102791dafc610876f39bfa57f1a8d9edf8a3984"
     },
     {
       "file": "RELEASE_NOTES_FR.md",
       "status": "changed",
       "previous_sha256": "90c392e1adbd95b6e4fa0f7e29c827b049a1b7d1f5fd0e8bd59d6bbbbec7f875",
-      "overlay_sha256": "da15b29ac6c0dea15d92d6a92e932df3fa604f64a405147b16c25421268ff83b"
+      "overlay_sha256": "c79315f429e24ea4aa48a5d088f6881f358d8e5506879fa097bda7b2e21fe44b"
     },
     {
       "file": "VERSION",
@@ -108,7 +108,7 @@
       "file": "figures/maude_aggregation_RC2_en.png",
       "status": "added",
       "previous_sha256": null,
-      "overlay_sha256": "ac10b764339fb0d79d9bb3942c0e15783b6fc4a1c46f03363665859ffdbdc698"
+      "overlay_sha256": "6b6f5101bf7f5ea1298a97d7c51fcea74f7944ba00fe23b9258b2426785f6911"
     },
     {
       "file": "figures/maude_aggregation_RC2_fr.png",
@@ -120,7 +120,7 @@
       "file": "figures/maude_duration_RC2_en.png",
       "status": "added",
       "previous_sha256": null,
-      "overlay_sha256": "4d1855c85195b0b6d7e5e4fefd271441e4b627342ae3310219fcf5f714256f05"
+      "overlay_sha256": "99cb90867f2aacdec6a061cd0ff4e3fac4e4285a3171d3d1e08bc2f01e1f7bd2"
     },
     {
       "file": "figures/maude_duration_RC2_fr.png",
@@ -216,7 +216,7 @@
       "file": "main_en.tex",
       "status": "changed",
       "previous_sha256": "9929e5fb96a35f5167b26bc030c8e91d7be59683badc43ac4ee339282bb34c30",
-      "overlay_sha256": "b5a900b14b3105af20da0dfd0d21cf2cf3306779866a7c68d63fa39410109cec"
+      "overlay_sha256": "718d725cf7b8945c0bdab46c5e10e608d37b86d585d2a8ddf57115a39c0f29ce"
     },
     {
       "file": "main_fr.tex",
@@ -228,7 +228,7 @@
       "file": "metadata_en.tex",
       "status": "changed",
       "previous_sha256": "1190ad7146a1616111fde3a28152d5b0b4b7d7afa8940bda85efac9f5dad3b9a",
-      "overlay_sha256": "158349b3635e5270d4e2e87c9158d6f4e9aba3dc64a006207634a0ddba6a319f"
+      "overlay_sha256": "509f7ac01eec5b54f5b21a79a7466090f7d838baaec31085228c1e9686d0f911"
     },
     {
       "file": "metadata_fr.tex",
@@ -240,7 +240,7 @@
       "file": "provenance.json",
       "status": "changed",
       "previous_sha256": "031ad9cfb6edd63626c98c04251b81f6f9b0715ff2b49ea984105de890627bdf",
-      "overlay_sha256": "e507e90314c71352b8d0f46762c6d713457552afce0ab02dfed5d65d522cc3a7"
+      "overlay_sha256": "0246a8df62406ce2b1c662d2a257f53a649f83ec9d59d592697699a770ff779f"
     },
     {
       "file": "release/input_validation.json",
@@ -264,7 +264,7 @@
       "file": "release.json",
       "status": "changed",
       "previous_sha256": "aeb8f124ed31f831a709e955829008e9ced4d82f31e45ac085fa34d6b9597f4d",
-      "overlay_sha256": "6451cea57fbfa17b4eaf98ec9b4af6386c1ab09c2e255f313a45924ce933f4c7"
+      "overlay_sha256": "f968b618632a741ce034e2cefd64b138ab110c149b1307ac363f8832510b2d4b"
     },
     {
       "file": "response_reviewers_fr.tex",
@@ -282,7 +282,7 @@
       "file": "sections/abstract_en.tex",
       "status": "changed",
       "previous_sha256": "759382927d4d67c3ec36b698c766d182f190e0d4ad5e8de32b820f7d2fb0eacb",
-      "overlay_sha256": "276de00d4615772fa11b922556922fa815b764b3234b20685536f395cd78cee1"
+      "overlay_sha256": "b99c428a72ccb453fb302d8458cb8397c6e2eff383dc78f321f09df8e620b947"
     },
     {
       "file": "sections/abstract_fr.tex",
@@ -294,7 +294,7 @@
       "file": "sections/body_en.tex",
       "status": "changed",
       "previous_sha256": "b23e08b2e04069a8eb5fcc0450305d6da631443c9231db9e74f3d98bbe4dd104",
-      "overlay_sha256": "74c6a2f7576f71f2557c0df9c26d8eb0434eee6ab2de24d10615185537295ff5"
+      "overlay_sha256": "7eb01853b8c9083236500f86cc212eb3c55f8777c412daedaf14def848f6cda9"
     },
     {
       "file": "sections/body_fr.tex",
@@ -306,7 +306,7 @@
       "file": "sections/post_rc1_en.tex",
       "status": "added",
       "previous_sha256": null,
-      "overlay_sha256": "2adba2153183775ffaf622be19f06ce8de859092024f01685adf5979aa92537e"
+      "overlay_sha256": "09e7b2c3205598be33d162d07f581059b5efd6bd99a20dd1dae153d50fdf7b5a"
     },
     {
       "file": "sections/post_rc1_fr.tex",
@@ -318,7 +318,7 @@
       "file": "sections/supp_additions_en.tex",
       "status": "changed",
       "previous_sha256": "02d2a026fbe8acee26c0240f415d1e2ea55c83cc9de0ed2156b92f68e99fb9b0",
-      "overlay_sha256": "bc4bf44b5c3b9f38f346bfe76e29cf3c7d059851a1e86c24c226708aabfa1b00"
+      "overlay_sha256": "33d322103bea088c44697e425b9dd0ada6b6c299be2486139c4adbf6c65de7f4"
     },
     {
       "file": "sections/supp_additions_fr.tex",
@@ -330,7 +330,7 @@
       "file": "submission_ios_en.tex",
       "status": "changed",
       "previous_sha256": "fcfc7b48ed361f6ab20c0a4de7456ea0c80b29a59e893083604b302078a95075",
-      "overlay_sha256": "ed46026aac1b54e31bec936f7289c53f041f85bc288cbb2f41189b948c19e94e"
+      "overlay_sha256": "b15242cba2b2b02f46f8979ecae8d3c7afbeac6abe75094a599ea0d650e661eb"
     },
     {
       "file": "submission_ios_fr.tex",
@@ -342,13 +342,37 @@
       "file": "supplement_en.tex",
       "status": "changed",
       "previous_sha256": "448ef4b0d2bca6398873b8ed423b51043a21c3e48b7621a9248c5aabeca7fca7",
-      "overlay_sha256": "4e58d0775e684a3bb3a82c396a9282618fdb1d8bc97f51340fce1943b82315b1"
+      "overlay_sha256": "837790aecc8fbfbadba58a66aa7c4b7f9ef3a3b185aab273c99e953797654cde"
     },
     {
       "file": "supplement_fr.tex",
       "status": "changed",
       "previous_sha256": "481778fb8cd57fb199fdcb42c0a726faf8c1ae4b7a2f03fdd2ecf806e3f0fd6e",
       "overlay_sha256": "3c78264dfc6e584dfaf446426dcf4acbbb702848ed249cd73cfda0569a718bb8"
+    },
+    {
+      "file": "tables/cms_ap_bounds_R4_translated_en.tex",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "f5130941bda713bfb027475edff197f576665b03bd34b755cf29aa30593f6bab"
+    },
+    {
+      "file": "tables/cms_ap_exact_R4_translated_en.tex",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "93434c94c2eb2256fa2add5cd2f1c13fb087e791968e3d1eb992ce1a7f469b08"
+    },
+    {
+      "file": "tables/cms_ap_identity_R4_translated_en.tex",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "648b4ce2b4835ff8af43678c10b59df1397088313a041db7941ab9fa73d2aa14"
+    },
+    {
+      "file": "tables/cms_decile_exact_R4_translated_en.tex",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "05ac7d5551d56e8efb406dc300e4a40429be188fbd4a9e0d2988e7c1dd47d9cf"
     },
     {
       "file": "tables/maude_aggregation_RC2_en.tex",
@@ -366,7 +390,7 @@
       "file": "tables/maude_duration_RC2_en.tex",
       "status": "added",
       "previous_sha256": null,
-      "overlay_sha256": "70a1bf2c1e873da81a4160cffa71e916cb8c14b20b9229caf0d958625c2f26ce"
+      "overlay_sha256": "87f426ed2ffaaca6d220932861148289988106f0501415a69ea38eb9c291995d"
     },
     {
       "file": "tables/maude_duration_RC2_fr.tex",
@@ -463,6 +487,18 @@
       "status": "added",
       "previous_sha256": null,
       "overlay_sha256": "dced22b91ab9924b47e1cdbe189ff6aa65483fe2630e640c6c5170be3a36596a"
+    },
+    {
+      "file": "verification/rc2_translation/language_concordance.json",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "3eb94c2177fc1bf7ecb1bb18e36322ebfa3bcb3e624ffdfe000970557a5f25a2"
+    },
+    {
+      "file": "verification/rc2_translation/visual_review.json",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "83445aa01e87432cbe1530269fccdaccde4de04e88fbbecb09f3160c350d26b9"
     }
   ]
 }

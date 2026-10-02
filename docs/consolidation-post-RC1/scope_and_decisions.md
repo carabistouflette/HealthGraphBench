@@ -139,3 +139,10 @@ Intégrer les seules preuves terminées dans une révision distincte, sans nouve
 Les manuscrits principaux FR/EN sont révisés dans leur ensemble pour une lecture scientifique claire ; S11 porte la provenance détaillée, les dénominateurs, coûts et réserves C/D1. Les cinq PDF compilés/examinés, 642 contrôles de paquet, 16 lignes nouvelles concordantes et neuf checkpoints inclus sont consignés dans le [manifeste RC2](../../results/manuscript_rc2_20261002T214332Z.json). Sources et assembleur : [guide RC2](../../manuscript/rc2/README.md).
 
 **Décision de périmètre :** préparation technique E réalisée, mais clôture humaine E et décision F ouvertes. Aucun nouveau fit/tuning/IC/D2 ni audit scientifique réussi relancé ; aucune conformité à une revue non choisie, approbation, déclaration ou acceptation inventée. Le DOI du benchmark v0.2.0 n'identifie pas RC2. Les anciennes matrices et ledgers restent des preuves datées ; le pilotage courant ne les remplace pas.
+
+## 3 octobre 2026 — français canonique pour la traduction anglaise
+
+Le français est la référence exclusive de contenu. L'anglais est une traduction fidèle, non une réécriture indépendante ou une version condensée : mêmes unités éditoriales, valeurs, formules, références, limites et déclarations. La syntaxe, les termes mathématiques textuels et la ponctuation numérique sont localisés, sans changer la portée scientifique. Les sources françaises restent inchangées.
+
+La traduction et ses PDF compilés/examinés sont identifiés par le [manifeste distinct](../../results/manuscript_rc2_translation_20261002T233250Z.json) : 26 paires concordantes et 648 contrôles du paquet. Le candidat précédent et les preuves scientifiques sont conservés ; publication sur la PR #4 en brouillon, sans nouveau fit, tag, fusion ou approbation déduite.
+

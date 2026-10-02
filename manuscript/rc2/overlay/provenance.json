@@ -3,6 +3,15 @@
   "package_id": "manuscript-rc2",
   "prepared_on": "2026-10-02",
   "packaging_started_at_utc": "2026-10-02T21:43:32+00:00",
+  "translation_revision": {
+    "requested_on": "2026-10-03",
+    "canonical_language": "fr",
+    "english_role": "translation_not_independent_redrafting",
+    "previous_RC2_source_commit": "ed94a0c24d4e5813dcdd3b23ee9529d672da9152",
+    "previous_RC2_archive_sha256": "6e596ec0953581429bcee9c292e9443da30f52e92fe6132379e8579169de81f3",
+    "french_scientific_sources_modified": false,
+    "historical_english_tables": "Original protected tables retained; translated headers in separate *_translated_en.tex inputs."
+  },
   "parent_archive": {
     "name": "HealthGraphBench_FAIA_LaTeX_RC1.zip",
     "sha256": "2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be",

@@ -17,55 +17,56 @@
 \renewcommand{\arraystretch}{1.15}\renewcommand{\bibfont}{\footnotesize}
 \renewcommand{\thesection}{S\arabic{section}}
 \setcounter{secnumdepth}{2}
-\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small HealthGraphBench | RC2 working revision}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small HealthGraphBench | RC2}
 \fancyhead[R]{\small Scientific supplement}\fancyfoot[C]{\small\thepage}
 \renewcommand{\headrulewidth}{0pt}\raggedbottom
 \clubpenalty=10000\widowpenalty=10000
 \newcommand{\src}[1]{{\small\nolinkurl{#1}}}
-\hypersetup{pdftitle={HealthGraphBench RC2 — Scientific supplement},pdfauthor={},pdfsubject={Working manuscript revision; author approval and submission remain outstanding}}
+\hypersetup{pdftitle={HealthGraphBench RC2 — Scientific supplement},pdfauthor={},pdfsubject={RC2 working revision; author approval required}}
 \begin{document}
 
 \begin{center}
-{\small SCIENTIFIC SUPPLEMENT • RC2 WORKING REVISION • NOT AUTHOR-APPROVED}\par\vspace{7pt}
+{\small SCIENTIFIC SUPPLEMENT • RC2 WORKING VERSION — not author-approved}\par\vspace{7pt}
 {\LARGE\bfseries HealthGraphBench — RC2}\par\vspace{6pt}
-{\large Methods, provenance, and supplementary analyses}
+{\large Methods, traceability, and complementary analyses}
 \end{center}
 
-\textbf{Inherited R5 evidence.} The R5 delivery retains health-data results, both R2 bootstraps, and additions verified in R4: CMS AP and decile boundaries, recoverable MAUDE candidate distributions, three real compacts, and their replays. The GraphSAGE core was compared with the complete source file and rerun on a synthetic instance. Network acquisition of frozen outputs succeeded. R5 adds the audit at the package root and harmonizes presentation, without a new experiment. Omissions in the inherited MAUDE summary are distinguished from current results in S3 and S10.
+\textbf{Historical R5/R6 scope.} Earlier deliveries retain historical health results, the two R2 bootstraps, additions verified in R4, and the R6 MAUDE B1/B2 reconstructions. R5 harmonized the package without a new experiment; the R6 MAUDE collection reproduced prepared inputs without retraining the models or recalculating their scores. These findings describe those historical stages, not the present RC2.
 
-\textbf{Historical R6 collection.} The R6 B1/B2 collection reacquired nine official MAUDE archives and reproduced historical ingestion and example preparation without model training or new scores. These statements describe that historical collection only; separate health-model training for RC2 analyses C and D1 is reported in S11.
+\textbf{RC2 additions.} C trains new MAUDE GraphSAGE fits for 0, 3, 10, and 30 epochs on validation, selects 30 using validation R@10, then evaluates the selected duration on the historical tests. D1 reuses C's mean30 fit and trains a none30 variant without aggregation. Sources, metrics, audit evidence, and limitations are detailed in S11. Historical results and S7--S10 tables remain unchanged.
 
 \section{Evidence scope and package inventory}
 \label{supp:evidence}
-Commit \nolinkurl{b010d5a49eae56837a920b2e30dece41c42c0c44} identifies the benchmark source state\cite{hgb2026,hgbresults}. DOI \nolinkurl{10.5281/zenodo.22796551} identifies v0.2: its resolution and the public Zenodo record were checked online in R4. This DOI does not identify the manuscript package. Completion changes neither frozen experimental artifacts nor a remote repository.
+Commit \nolinkurl{b010d5a49eae56837a920b2e30dece41c42c0c44} identifies the benchmark's source state\cite{hgb2026,hgbresults}. DOI \nolinkurl{10.5281/zenodo.22796551} identifies v0.2: its resolution and the public Zenodo record were checked online in R4. This DOI does not identify the manuscript package. The additions modify neither the frozen experimental artifacts nor a remote repository.
 
 \begin{tabularx}{\linewidth}{@{}p{31mm}Xp{39mm}@{}}
 \toprule
 Evidence & Use in the study & Verification level\\
 \midrule
 Task definitions, v0.1/v0.2 reports, and unified summary & Targets, periods, results, and existing intervals & Targeted reading documented in R2; transcriptions retained in R3\\
-v0.1 analysis & Annual AUC/AP/Brier, counts, and history depth & Compact-summary values; top-decile P/R extracted separately in R2 from frozen predictions\\
+v0.1 analysis & Annual AUC/AP/Brier, counts, and history depth & Compact-summary values; top-decile P/R separately extracted in R2 from frozen predictions\\
 Code for the three tasks & Heuristics, conventions, training constants, and ties & Targeted R2 reading, not an exhaustive audit; description retained\\
 Project history and ClinicalTrials memo & Task selection and reasons for deferral & Available records, not a complete log of human decisions\\
 Individual MAUDE files, Part D rankings, and CMS predictions & Inputs for complementary analyses & Fingerprints rechecked, network downloads and three real replays executed in R4\\
-Synthetic-control code & Scope of direct-score AUC & Reread at pinned commit for R3; not executed\\
+Post-RC1 C/D1 results and corresponding raw checkpoints & Metric files, manifests, preflights, epoch series, and numerical audits; C/D1 sources pinned & New fits verified; exposure and memory-metric limits detailed in S11\\
+Synthetic-control code & Scope of direct AUC & Source reread at the pinned commit for R3; not executed\\
 Raw FDA/CMS archives & Ingestion and historical reconstruction & Nine official MAUDE archives ingested for B1/B2; CMS and comprehensive FDA/CMS reconstruction remain outside scope\\
 \bottomrule
 \end{tabularx}
 
 \textbf{Versions and evidence.} R2 added available descriptors, the CMS decomposition, the differences plot, the two bootstraps, and annual deciles. R3 preserves numerical files byte-for-byte and corrects the synthetic-control scope, provenance declarations, and printed commands. Historical status is in \src{history/R3/data/revision_status_R3.json}; inherited declarations are archived under \src{history/R2}. \src{data/source_map_R3.csv} distinguishes reread sources from supplied files. Analyses and external fingerprints documented in R2 are not presented as independently reproduced in R3.
 
-\textbf{R4 evidence retained through R5; historical R6 collection.} AP identities and reconstructed CMS counts remain summary-based checks. Exact calculations, candidate distributions, and real compacts are separated under \src{data/real_R4}. The R4 synthetic GraphSAGE-core diagnostic used a synthetic instance only; this does not describe the separate RC2 health-model training in S11. Historical R5 statuses are in \src{data/revision_status_R5.json}; the R6 MAUDE tables and prepared snapshots are under \src{data/real_R6/maude_B}, with acquisition and replay evidence in \src{verification/real_R6}. Those historical records are neither checkpoint inspection nor recovered optimizer logs. R5 delivery checks remain under \src{verification/r5}; historical artifact names are unchanged.
+\textbf{Historical R4/R5 evidence and R6 collection; RC2 C/D1 additions.} AP identities and the reconstruction of CMS counts remain summary-based checks. Exact calculations, candidate distributions, and historical compact exports are kept under \src{data/real_R4}. The GraphSAGE core in S8 is checked on the synthetic instance. Historical R5 statuses remain under \src{data/revision_status_R5.json}; MAUDE B1/B2 tables and prepared snapshots remain under \src{data/real_R6/maude_B}. These historical items did not concern the new C/D1 fits or their checkpoints. The new C/D1 fits, checkpoints, and audits are documented under \src{data/post_rc1} and in S11. R5 packaging checks and other inherited evidence retain their historical paths.
 
-\textbf{Contents and versions.} The earlier RC1 delivery comprised five PDFs and their LaTeX sources in \src{HealthGraphBench_FAIA_LaTeX_RC1.zip}. This is a historical archive, not the RC2 working package. RC2 retains the historical results and adds the evidence described in S11. The inherited \src{SHA256SUMS} records the prior package, not the current RC2 working copy or external inputs. The prior inventory is in \src{README_EN.md}.
+\textbf{Inherited content.} The RC1 archive and its sources remain historical items, not the RC2 package ready for submission. The \src{data}, \src{scripts}, \src{tests}, and \src{figures} directories describe the RC1 content; new RC2 files and evidence are identified separately in S11. The status of the RC2 working package, which is neither a submission nor an approved version, is summarized in S12.
 
 \par\Needspace{8\baselineskip}
 \section{Method definitions and retained configurations}
 \label{supp:methods}
-\subsection{Historical MAUDE: histories, heuristics, and training}
+\subsection{MAUDE: histories, heuristics, and training}
 For product $p$, $H_p$ is the set of prior problems and $U_c$ the set of products historically associated with problem $c$. The peer set is $N_p=(\bigcup_{d\in H_p}U_d)\setminus\{p\}$. Neighbor frequency is $|N_p\cap U_c|$; global popularity is $|U_c|$. Each distinct peer contributes once, regardless of report volume or the number of shared problems. The MAUDE heuristic has neither Jaccard weighting nor degree normalization. Missing support gives zero. Candidates are all previously known problems outside $H_p$; ties are resolved by descending score, descending global support, then ascending code\cite{hgbcode}.
 
-The twelve tabular variables are: $\log(1+x)$ of prior product and problem reports, the number of products associated with the problem, the number of neighbors associated with it, and the number of products associated with it during the four most recent quarters; the problem's recent-support fraction; $\log(1+x)$ of product manufacturers and their products' cumulative activity; product and problem ages in quarters; $\log(1+x)$ of parent-problem prevalence; and the product's recent-report fraction. They therefore already include relational information: “tabular” does not mean “strictly local.”
+The twelve tabular variables are: logarithms $\log(1+x)$ of prior product and problem reports, the number of products associated with the problem, the number of neighbors associated with it, and the number of products associated with it during the four most recent quarters; the problem's recent-support fraction; logarithms of the number of product manufacturers and their products' cumulative activity; product and problem ages in quarters; the logarithm of parent-problem prevalence; and the product's recent-report fraction. They therefore already include relational information: “tabular” does not mean “strictly local.”
 
 The tabular path accumulates first eligible links and one deterministic historical non-positive per positive, with features built before the target quarter is added. Refits at 2023Q1, 2024Q1, and 2025Q1 use only rows already accumulated. Embedding methods fit their representations on the historical graph available at those refits, not on the same first-occurrence table. This difference in objectives and examples means their performance gap cannot be attributed to aggregation alone.
 
@@ -77,7 +78,7 @@ MAUDE logistic & 40 epochs; learning rate 0.15; $L_2=0.01$; standardization on t
 Boosted stumps & One-level trees; 12 rounds; learning rate 0.08.\\
 Spectral factorization & Rank 8; 18 iterations.\\
 BPR + fixed one-hop averaging & Dimension 8; 4 epochs; post-training combination of 0.5 target vector and 0.5 mean neighbor vector. No end-to-end learned message passing.\\
-Historical one-hop GraphSAGE (v0.1) & Dimension 8; 3 epochs; 8 neighbors; learning rate 0.02; regularization 0.0005; BPR loss; $\tanh$ activation; trainable node inputs and shared transforms.\\
+One-hop GraphSAGE & Dimension 8; 3 epochs; 8 neighbors; learning rate 0.02; regularization 0.0005; BPR loss; $\tanh$ activation; trainable node vectors and shared transformations.\\
 \bottomrule
 \end{tabularx}
 
@@ -85,7 +86,7 @@ GraphSAGE samples neighbors; negative examples are determined by hashes, with no
 
 Inductive generalization to nodes absent from the latest refit is not evaluated separately. These cases receive the zero fallback score; their frequency among evaluated observations is documented in S10. BPR triplets depend on the historical graph at refit. Using the same loss function does not make these examples comparable to tabular rows.
 
-Tabular counts at the three historical refits, graph inventories, and triplet/step counts implied by the frozen loops are reconstructed from raw archives and prepared histories; details are in S10. For this historical collection, BPR/GraphSAGE step totals are implications of frozen code, not observed optimizer logs, and checkpoints/vectors were not inspected. The original collection added no aggregation ablation; the distinct RC2 D1 comparison is reported in S11. The separate extracted-core diagnostic remains described in S8\cite{hgbcode,hgbresults,hamilton2017}.
+Tabular counts at the three historical refits, graph inventories, and triplet/step counts implied by the loops are reconstructed from archives and prepared histories; details are in S10. These B1/B2 reconstructions did not inspect historical checkpoints, and their step counts are implications of frozen code, not observed optimizer logs. In contrast, the new raw C/D1 checkpoints were inspected and numerically audited as described in S11. The D1 exploration provides a mean/none comparison, but not an isolated effect at equal capacity. The separate synthetic diagnostic of the extracted core remains described in S8\cite{hgbcode,hgbresults,hamilton2017}.
 
 \subsection{CMS: two logistic regressions, not a GNN--tabular contest}
 The models use eleven local numeric features and state indicators: prior inspection and serious-deficiency counts, their prior rate, inspection and deficiency counts in 365- and 730-day windows, time since the previous inspection, facility age, and prior and 365-day owner-change counts. Counts use $\log(1+x)$; time is capped at 1,460 days and divided by 365.25; age is capped at 100 years. Rates are not logged.
@@ -108,18 +109,18 @@ Logistic regression uses 18 epochs, learning rate 0.10, and $L_2=0.01$. BPR uses
 \par\Needspace{17\baselineskip}
 \subsection{Synthetic control: what is actually measured}
 \label{supp:control}
-The control in \src{healthgraphbench/controls/synthetic.py}, reread at the pinned commit, projects associations starting before 1 January 2024 into CCN neighborhoods. This filter does not certify a complete history of active ownership. It generates $x_i\sim\mathcal N(0,1)$ for each node, computes the mean of neighboring $x_j$, and standardizes it to $z_i$ using the subset called ``training'' (70\,\% of nodes). Labels follow
+The control in \src{healthgraphbench/controls/synthetic.py}, reread at the pinned commit, projects associations whose start date precedes 1 January 2024 into CCN neighborhoods. This filter does not certify a complete history of active ownership. For each node, it generates $x_i\sim\mathcal N(0,1)$, computes the mean of neighboring $x_j$, then standardizes it to $z_i$ using the subset designated “training” (70\,\% of nodes). Labels follow
 \[
 Y_i\sim\mathrm{Bernoulli}\!\left(\sigma(-1+0.5x_i+\beta z_i)\right),
 \qquad \sigma(a)=(1+e^{-a})^{-1}.
 \]
-The code directly measures the AUC of $z_i$ and of $x_i$ on test nodes. The training subset is used for standardization, not for fitting the CMS logistic regressions. At $\beta=0$, the relational signal does not enter the labels, but the local term $0.5x_i$ remains. Retained values for seeds 301, 302, and 303 are a signal-construction and measurement diagnostic; they validate neither the CMS models nor MAUDE GraphSAGE\cite{hgbcontrols}. R3 corrects this interpretation without rerunning the control.
+The code directly measures the AUC of $z_i$ and of $x_i$ on test nodes. The training subset is used for standardization, not for fitting the CMS logistic models. At $\beta=0$, the relational signal does not enter the labels, but the local term $0.5x_i$ remains. Retained values for seeds 301, 302, and 303 are a signal-construction and measurement diagnostic; they validate neither the CMS models nor MAUDE GraphSAGE\cite{hgbcontrols}. R3 corrects this interpretation without rerunning the control.
 
 
 
 \section{Populations and scope of documented data}
 \label{supp:population}
-The counts below combine frozen summaries, the R2 extraction of descriptors from individual files, and the limited R6 ingestion of raw MAUDE archives. MAUDE validation/test counts and candidate descriptors for positive-containing observations below retain their historical scope; the B1/B2 tables report training inputs and reconstructed representation coverage separately. A MAUDE observation is a product--quarter with at least one positive; a CMS observation is a target inspection; a Part D observation is an eligible prescriber--year. Resampled units do not replace these denominators.
+The historical tables below combine frozen summaries, the R2 extraction of descriptors from individual files, and the R6 collection limited to raw MAUDE archives. Their historical denominators remain unchanged; new C/D1 denominators are listed separately in S11. A MAUDE observation is a product--quarter with at least one positive link; a CMS observation is a target inspection; a Part D observation is an eligible prescriber--year. Resampled units do not replace these denominators.
 
 \begin{tabularx}{\linewidth}{@{}p{35mm}rrX@{}}
 \toprule
@@ -166,12 +167,12 @@ These descriptors are transcribed in \src{data/available_descriptors_R2.json}. E
 
 CMS has 10,313 test observations with one prior inspection (1,341 positives), and 8,672 with at least two (1,082 positives). The report characterizes retained history as one or two inspections. These strata do not count all care or inspections ever received by facilities. Current extracts, provider selection, and a limited number of cycles truncate history\cite{hgbanalysis,hgbresults}.
 
-\textbf{Reconstructed CMS training counts.} Let $n_0,p_0$ be the pre-2023 counts and $c_{23},c_{24}$ the recorded prevalence constants, 0.1181026137463698 and 0.13793103448275862. The annual protocol adds all 2,661 inspections and 408 positives from 2023\cite{hgbcode}. Under this protocol,
+\textbf{Reconstructed CMS training counts.} Let $n_0,p_0$ be the pre-2023 counts, and $c_{23},c_{24}$ the recorded prevalence constants: 0.1181026137463698 and 0.13793103448275862. The annual protocol adds all 2,661 inspections and their 408 positives from 2023\cite{hgbcode}. Under this protocol,
 \[
  c_{23}=p_0/n_0,\quad c_{24}=(p_0+408)/(n_0+2661),\qquad
  n_0=\frac{408-2661c_{24}}{c_{24}-c_{23}}=2066.
 \]
-This gives $p_0=244$ and the counts below. The 2025 constant is separately recovered as $1905/13636=0.1397037254326782$. Integers and all three ratios are numerically checked by \src{summary_identities_R4.py}.
+This gives $p_0=244$ and the counts below. The 2025 constant is independently recovered as $1905/13636=0.1397037254326782$. The integers and all three ratios are numerically checked by \src{summary_identities_R4.py}.
 \begin{table}[!htbp]\centering\small
 \caption{CMS counts reconstructed algebraically under the stated protocol, not read directly from training rows.}
 \input{tables/cms_training_R4_en.tex}
@@ -191,7 +192,7 @@ Test 2024--2025 & 6,370 & 151 & 444 & 485 & 510 & 533\\\bottomrule
 
 Means are 464.710881 and 467.057457. These observations contain 7,705 and 13,174 positive links, respectively. Results and scope are in \src{data/real_R4/maude_descriptors.json}.
 
-\textbf{Inherited descriptors and R6 scope.} The inherited R4 MAUDE export contains neither \src{training_row_counts_at_refit} nor \src{quarterly_first_edges}; its candidate descriptors concern only positive-containing product--quarters and do not cover zero-positive observations or the full candidate history. These omissions describe the earlier summary, not the current collection: raw MAUDE archives and prepared histories re-ingested in R6 provide refit counts and node/pair coverage for all twelve quarters, reported in S10. This collection remains limited to evaluated positive-containing product--quarters and all eligible candidates within them; it does not extend the population to zero-positive observations. Inventories are reconstructed, not read from checkpoints; a zero score is not used to infer a missing vector. CMS counts remain algebraically reconstructed because training rows are unavailable. Historical public availability, the human decision log, extensive ablations, and comparable resources also remain unestablished.
+\textbf{Inherited descriptors and R6 scope.} The inherited R4 MAUDE export contains neither \src{training_row_counts_at_refit} nor \src{quarterly_first_edges}; its candidate descriptors concern only positive-containing product--quarters and do not cover zero-positive observations or the full candidate history. These omissions describe the earlier summary, not the current collection: the MAUDE archives and histories re-ingested in R6 provide refit counts and node/pair coverage for all twelve quarters, reported in S10. This collection remains limited to evaluated positive-containing product--quarters and all eligible candidates within them; it does not extend the population to zero-positive observations. Inventories are reconstructed, not extracted from checkpoints; a zero score is not used to infer a missing vector. CMS counts remain an algebraic reconstruction because training rows are unavailable. Historical public availability, the human log, extended ablations, and comparable resources are not established.
 
 \section{Chronology and task selection}
 \label{supp:chronology}
@@ -199,20 +200,21 @@ Means are 464.710881 and 467.057457. These observations contain 7,705 and 13,174
 \toprule
 Record & What is established & What the record does not establish\\
 \midrule
-v0.1 core & MAUDE and CMS retained despite adverse or uncertain findings; definitions and executions preserved & A common criterion fixed before results were examined\\
-15 September 2026 & Date carried by the v0.1 execution and analyses used & Exact date of each scientific decision or human access to test results\\
+v0.1 core & MAUDE and CMS retained despite adverse or uncertain findings; definitions and executions preserved & A common criterion fixed before all results were examined\\
+15 September 2026 & Date carried by the v0.1 execution files and analyses used & Exact date of each scientific decision or each human access to test results\\
 Part D extension & Bounded v0.2 cohort and task definition; previously run methods retained & Independent replication of v0.1 experiments\\
-16 September 2026 & Compact Part D record and v0.2 package release; packaging commit at 13:38:48 UTC & Training date for every model; the compact adapter is not new training\\
+16 September 2026 & Compact Part D record and v0.2 package release; packaging commit at 13:38:48 UTC & Training date for all models; the compact adapter is not new training\\
 ClinicalTrials memo & Deferral explicitly motivated by relational instability & Performance-independent exclusion\\
-29 September 2026 & R2: documented analyses; R3: package corrections and checks & Reopening an unexamined test period\\
+29 September 2026 & R2: documented analyses; R3: package corrections and checks & Reopening an unconsulted test period\\
+2 October 2026 & C: validation duration grid, lock at 30, then tests; D1: none30 locked on validation before its tests & Test periods already consulted earlier; no independent confirmation\\
 \bottomrule
 \end{tabularx}
 
-The project also documents abandoned product--label linkage directions whose predictive definition remained insufficiently defensible, and a human-evaluation direction whose independent approval was not completed. These reasons differ from a low score. The available history is a summary, not the complete private archive\cite{hgbhistory}.
+The project also documents abandoned product--label linkage directions whose predictive definition remained insufficiently defensible, and a human-evaluation direction whose independent approval was not completed. These reasons are not interchangeable with a low score. The available history is a summary, not the complete private archive\cite{hgbhistory}.
 
-ClinicalTrials considers interventional trials whose actual primary completion is 0--90 days before origin, and first results publication within the following 365 days. Sponsor--local AP is negative in 2022 ($-0.048773$, CI $[-0.088028,-0.021689]$), and heterogeneous-context--sponsor AP is negative in 2023 ($-0.108077$, CI $[-0.171780,-0.049169]$). These values concern separate origins; they are neither pooled AP nor legal-compliance evidence. Deferral explicitly depends on results. CMS and ClinicalTrials therefore did not have a demonstrated uniform historical relational-success rule shown to precede test evaluation.
+ClinicalTrials considers interventional trials whose actual primary completion is 0--90 days before origin, and first results publication within the following 365 days. Sponsor--local AP is negative in 2022 ($-0.048773$, CI $[-0.088028;-0.021689]$), and heterogeneous-context--sponsor AP is negative in 2023 ($-0.108077$, CI $[-0.171780;-0.049169]$). These values describe separate origins, with neither pooled AP nor a legal conclusion. Deferral explicitly depends on results. CMS and ClinicalTrials therefore do not have a demonstrated uniform historical relational-success rule shown to precede test evaluation.
 
-\textbf{Decisions for authors to date.} For each change to targets, candidates, features, hyperparameters, primary metric, architecture, or admission: record the date, decision document, results then available, and reason. Without that record, R2 does not reconstruct preregistration. Separating data admissibility from model continuation is a prospective recommendation; a negative result alone should not exclude an otherwise valid task.
+\textbf{Decisions for authors to date.} For each change to targets, candidates, features, hyperparameters, primary metric, architecture, or admission: record the date, decision document, results then available, and reason. Without that record, R2 does not reconstruct preregistration. Separating data admissibility from model continuation in future versions is a prospective recommendation; a negative result alone should not exclude an otherwise valid task.
 
 \section{CMS: annual analysis and AUC decomposition}
 \label{supp:cms}
@@ -221,23 +223,23 @@ ClinicalTrials considers interventional trials whose actual primary completion i
 \input{tables/cms_annual_all_en}
 \end{table}
 
-For $y\in\{2024,2025\}$, let $P_y,N_y$ be positive and negative counts, and $A_y$ the annual AUC. Define $W=\sum_y P_yN_y$, $T=(\sum_y P_y)(\sum_y N_y)$, and $C=T-W$. Every positive--negative pair in pooled AUC is either within-year or cross-year. Thus
+For $y\in\{2024,2025\}$, let $P_y$ be positive counts, $N_y$ negative counts, and $A_y$ annual AUC. Define $W=\sum_y P_yN_y$, $T=(\sum_y P_y)(\sum_y N_y)$, and $C=T-W$. Each positive--negative pair in pooled AUC is either within-year or between-year. Thus
 \begin{align}
-A_{\mathrm{within}}&=\frac{\sum_y P_yN_yA_y}{W},\\
-A_{\mathrm{pooled}}&=\frac{W}{T}A_{\mathrm{within}}+\frac{C}{T}A_{\mathrm{cross}}.
+A_{\mathrm{intra}}&=\frac{\sum_y P_yN_y A_y}{W},\\
+A_{\mathrm{pooled}}&=\frac{W}{T}A_{\mathrm{intra}}+\frac{C}{T}A_{\mathrm{inter}}.
 \end{align}
 Within-year AUC weights years by positive--negative pair counts; it is not a simple average of years. The summaries give $P_{2024}=1253$, $N_{2024}=7656$, $P_{2025}=1170$, and $N_{2025}=8906$. Therefore $W=20,012,988$, $C=20,116,738$, $T=40,129,726$, and the weights are 0.498707 and 0.501293.
 
 \begin{table}[!htbp]\centering\small
-\caption{R2 decomposition. Cross-year AUC is reconstructed from the other terms, not reevaluated on predictions.}
+\caption{R2 decomposition. Between-year AUC is reconstructed from the other terms, not reevaluated on predictions.}
 \input{tables/cms_decomposition_en}
 \end{table}
 
-The within-year owners--history difference is $+0.0002157849$; the reconstructed cross-year difference is $+0.0024139600$. Their weighted contributions are $+0.0001076135$ and $+0.0012101005$, summing to the pooled increment $+0.0013177140$. \src{scripts/revision_assets.py} computes these values and exports \src{data/cms_year_decomposition_R2.json}. These calculations are neither a new test nor evidence of a causal temporal effect. The published pooled interval does not apply to within-year AUC without a new uncertainty analysis.
+The within-year owners--history difference is $+0.0002157849$; the reconstructed between-year difference is $+0.0024139600$. Their weighted contributions are $+0.0001076135$ and $+0.0012101005$, whose sum is the pooled increment $+0.0013177140$. \src{scripts/revision_assets.py} computes these values and exports \src{data/cms_year_decomposition_R2.json}. These calculations are neither a new test nor evidence of a causal temporal effect. The published pooled interval does not apply to within-year AUC without a new uncertainty analysis.
 
-\textbf{Prevalence and ties.} The prevalence constant is specific to each annual training set, so the code gives an AUC of 0.5 in each year. If the 2025 score exceeds the 2024 score, $(W/2+P_{2025}N_{2024})/T$ recovers 0.4725677419 exactly. This is an algebraic consistency check, not an independent reading of individual score order.
+\textbf{Prevalence and ties.} The prevalence constant is specific to each annual training set. The code therefore gives an AUC of 0.5 in each year. With the 2025 score higher than the 2024 score, the formula $(W/2+P_{2025}N_{2024})/T$ recovers 0.4725677419 exactly. This is an algebraic consistency check, not an independent reading of individual score order.
 
-AUC handles ties by average ranks. Frozen AP sorts by descending score, then ascending row index, and averages precision at positive ranks. For two tied-score observations, the illustrative example $(1,0)$ gives AP=1, whereas $(0,1)$ gives AP=0.5; both give AUC=0.5. R2 tests this behavior; it is not an additional CMS result. The decile takes the first $\lceil0.1n\rceil$ ranks under the same tie rule. Historical metrics are retained and their convention disclosed rather than silently replaced with threshold-grouped AP. Annual top-decile precision/recall were extracted directly from frozen predictions, not inferred from AUC/AP/Brier alone:
+AUC handles ties by average ranks. Frozen AP sorts by descending score, then ascending row index, and averages precision at positive ranks. For two tied-score observations, the purely illustrative example $(1,0)$ gives AP=1, whereas $(0,1)$ gives AP=0.5; both give AUC=0.5. This behavior is tested in R2; it is not an additional CMS result. The decile takes the first $\lceil0.1n\rceil$ ranks under the same tie rule. Historical metrics are retained and their convention disclosed rather than silently replaced with threshold-grouped AP. Annual top-decile precision/recall were extracted directly from frozen predictions, not inferred from AUC/AP/Brier alone:
 \begin{table}[!htbp]\centering\small
 \caption{CMS top-decile precision and recall, computed separately by year from frozen predictions. The cutoff retains $\lceil0.1n\rceil$ rows under the historical tie rule.}
 \begin{tabular}{@{}llrr@{}}
@@ -254,21 +256,21 @@ Year & Model & $P_{10\%}$ & $R_{10\%}$\\
 \end{tabular}
 \end{table}
 
-These metrics are in \src{data/cms_annual_predictions_R2.json}, produced by \src{scripts/paired_revision_analysis.py} from frozen CMS predictions; no retraining took place.
+These CMS metrics are from \src{data/cms_annual_predictions_R2.json}, produced by \src{scripts/paired_revision_analysis.py} from frozen CMS predictions; no CMS retraining took place in this R2 analysis.
 
 \section{Paired analyses on retained predictions}
 \label{supp:bootstrap}
-\textbf{Status.} The two intervals were produced in R2, according to the supplied outputs and provenance, from individual files associated with the source commit. R3 retains the results and fingerprints without replaying the draws on those external inputs. The protocol below is the R2 protocol: post hoc, conditional on the observed predictions and population, without rerunning training or providing independent validation.
+\textbf{Status.} The two intervals were produced in R2, according to the supplied outputs and provenance, from individual files associated with the source commit. R3 retains the results and their fingerprints without replaying the draws on those external inputs. The protocol described below is the R2 protocol: post hoc, conditional on the observed predictions and population, without rerunning training or providing independent validation.
 
 \subsection{Units, denominators, and protocol}
 For MAUDE, the \src{entity_metrics} field contains contributions from both methods for products with prior support of at least 1, a positive, and an observation between 2024Q1 and 2025Q4. Pairing is by product--quarter; resampling covers 2,026 products and retains all their quarters. The data include 6,370 positive-containing product--quarters and 13,174 positive links. Since these contributions omit product--quarters without positives, they do not suffice to calculate precision or burden.
 
-For Part D, \src{rankings.jsonl} covers the \src{generic} representation and year 2024. All 2,000 prescribers are retained, including 981 with no positive; the 5,476 positive links occur in 1,019 prescriber--year observations. Positive ranks determine recall and MRR; precision and burden also include zero-positive observations.
+For Part D, \src{rankings.jsonl} covers the \src{generic} representation and year 2024. All 2,000 prescribers are retained, including 981 with no positive; the 5,476 positive links occur in 1,019 prescriber--year observations. Positive ranks determine recall and MRR; precision and burden also include observations without positives.
 
 For each contrast, the script draws 1,000 paired groups with replacement. Seed 20260929 initializes the random-number generator; percentile limits at 2.5 and 97.5\,\% use linear interpolation. No draw is undefined for either main contrast at $K=10$. The seed initializes the draws, not historical training. The protocol was designed after the results had been examined and was not prespecified before the reviewers' reports.
 
 \begin{table}[!htbp]\centering\small
-\caption{Main R2 contrasts in micro recall at ten. Estimates and 95\,\% CIs come from the paired entity-cluster bootstrap; values are rounded to six decimals.}
+\caption{Main R2 contrasts in micro recall at 10. Estimates and 95\,\% CIs come from the paired entity-cluster bootstrap; values are rounded to six decimals.}
 \begin{tabularx}{\linewidth}{@{}Xrrr@{}}
 \toprule
 Contrast (A -- B) & Unit / clusters & $\Delta R@10$ & 95\,\% CI\\
@@ -295,7 +297,7 @@ python scripts/paired_revision_analysis.py cms INPUT.json \
   --output NEW/cms_annual_predictions_R2.json
 \end{Verbatim}
 
-Exact input paths are in \src{README_EN.md}. Replace \src{INPUT.json}/\src{INPUT.jsonl} with the frozen inputs and \src{NEW} with a new output directory; do not target existing supplied files. ASCII double hyphens are preserved in the PDF. The four fingerprints below were recorded as verified during R2 production; R3 does not recalculate them on external inputs:
+Exact input paths are in \src{README_FR.md}. Replace \src{INPUT.json}/\src{INPUT.jsonl} with the frozen inputs and \src{NEW} with a new output directory; do not target existing delivered files. ASCII double hyphens are preserved in the PDF. The four fingerprints below were recorded as verified during R2 production; R3 does not recalculate them on external inputs:
 
 \begin{tabularx}{\linewidth}{@{}lX@{}}
 MAUDE file & \src{cab43cf672ba81fc90a1ab36ce902fadb4251200ddb126bb4490c4b77df113f6}\\
@@ -308,20 +310,20 @@ Outputs are \src{data/maude_neighbors_vs_global_R2.json}, \src{data/partd_bpr_vs
 
 The 13 synthetic tests cover zero-positive denominators, pairing keys, denominator mismatches, entity grouping, zero difference for identical methods, undefined draws, MAUDE/Part D/CMS adapters, AP ties, CMS decomposition, prevalence consistency, and seed reproducibility. They do not replace the real analyses and do not test FDA/CMS preprocessing or GraphSAGE.
 In R3, the 13 tests are rerun, with a separate log in \src{verification/unit_tests_R3.log}. Preservation of the supplied outputs can be checked using \src{history/R3/data/retained_R2_manifest.json}. This does not replace independent reproduction of the intervals on their inputs.
-
 \input{sections/supp_additions_en}
 \input{sections/post_rc1_en}
 
 \section{Open items and editorial preparation}
 \label{supp:open}
-RC2 incorporates the exploratory MAUDE C/D1 analyses in S11 while preserving historical tables and intervals. The R6 review and response remain historical material, not an assessment or approval of RC2. Technical package checks are recorded in \src{verification/rc2}; they do not replace the authors' scientific and bibliographic approval. The manuscript has not been submitted or accepted.
+RC2 incorporates the exploratory MAUDE C/D1 analyses in S11 while preserving the historical tables. The R6 reviewer comment and its associated response remain historical items: they constitute neither a review nor an approval of RC2. Technical package checks are recorded in \src{verification/rc2}; they do not replace the authors' scientific and bibliographic approval. The manuscript has neither been submitted nor accepted.
 
-The earlier R3 source corrected the RelBench v2 venue to \emph{3rd DATA-FM Workshop at ICLR 2026}, matching the venue printed on the article's first page rather than describing it as a main-conference paper\cite{gu2026relbench}. That earlier revision also added a precise synthetic-control reference and harmonized provenance notes; no new exhaustive literature search is claimed for RC2.
+The RelBench v2 reference was corrected to \emph{3rd DATA-FM Workshop at ICLR 2026}, in accordance with the venue printed on the article's first page, rather than describing it as a main-conference paper\cite{gu2026relbench}. R3 adds a precise reference for the synthetic control and harmonizes provenance notes; no new exhaustive literature search is claimed.
 
-The target journal and its length, language, anonymization, and formatting requirements remain to be selected. The inherited FAIA name denotes a book and proceedings series, not a journal choice. \src{submission_ios_fr.tex} and \src{submission_ios_en.tex} are IOS-class entrypoints; they have not been compiled or validated here for a final venue. Delivered PDFs use the reading layout.
+The target journal and its requirements for length, language, anonymization, and presentation remain to be set. The inherited FAIA name denotes a book and proceedings series, not a journal choice. \src{submission_ios_fr.tex} and \src{submission_ios_en.tex} are IOS-class entrypoints; they have not been compiled or validated here for a final venue. Delivered PDFs use a reading layout.
 
-Finally, author names, affiliations, corresponding author, contributions, funding, competing interests, ethics position, data-use conditions, and AI-assistance disclosure require author approval. Missing fields must not be replaced by “none” or an assumed exemption. Any retained proposed reviewer-response items are historical unsent working materials, not a signed attestation, an RC2 response, or a completed submission.
+Finally, author names, affiliations, corresponding author, contributions, funding, competing interests, ethics position, data-use conditions, and AI-assistance disclosure require author approval. Missing fields must not be replaced by “none” or an assumed exemption. Reviewer-response items are documented response proposals, not a signed attestation or a completed submission.
 
 \bibliographystyle{unsrtnat}
 \bibliography{references}
 \end{document}
+

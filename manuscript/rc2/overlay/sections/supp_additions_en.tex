@@ -10,7 +10,7 @@ An annual constant has threshold AP equal to prevalence. Distinct scores make bo
 
 \begin{table}[!htbp]\centering\small
 \caption{AP calculated from frozen individual predictions. Nine decimal places distinguish numerical precision from statistical uncertainty; no new interval is attached to threshold AP.}
-\input{tables/cms_ap_exact_R4_en.tex}
+\input{tables/cms_ap_exact_R4_translated_en.tex}
 \end{table}
 
 The pooled prevalence reference takes two values: 0.1379310345 in 2024 and 0.1397037254 in 2025. Thus 2025 precedes 2024. Its two threshold groups give
@@ -42,8 +42,8 @@ Local and owner-augmented model boundaries each contain a single observation in 
 \src{scripts/cms_ties_analysis.py} executed the exact analysis: inspection keys, labels, and method order are checked. The JSON also records uniform expectations, attainable extrema, and hypergeometric variance. Synthetic tests check, among other properties, threshold-AP invariance to within-tie permutations; they are separate from the real-data calculation.
 
 \begin{table}[!htbp]\centering\small
-\caption{Observed boundaries: $m$ tied observations, $t$ positives, $r$ selected slots. $P_{\mathrm{hist}}$ is historical precision and $\mathbb{E}[P_{\mathrm{boundary}}]$ its expectation under uniform selection restricted to the boundary group.}
-\input{tables/cms_decile_exact_R4_en.tex}
+\caption{Observed boundaries: $m$ tied observations, $t$ positives, $r$ selected slots. $P_{\mathrm{hist}}$ is historical precision and $\mathbb{E}[P_{\text{boundary}}]$ its expectation under uniform selection restricted to the boundary group.}
+\input{tables/cms_decile_exact_R4_translated_en.tex}
 \end{table}
 
 \par\Needspace{9\baselineskip}
@@ -59,21 +59,21 @@ The recorded diagnostic design has two blocks, each with 12 products and six pro
 \input{tables/graphsage_control_R4_en.tex}
 \end{table}
 
-The diagnostic mean loss is $\log(1+\exp(-\Delta s))$ on training edges against an opposite-block problem. It is not a historical MAUDE optimization trace and does not exactly reproduce its sampled negatives. Recall and MRR concern the 24 masked links. Three epochs change a score by at most 0.003000684 and lower Recall@1; thirty epochs rank every masked edge first. The unfavorable three-epoch outcome is retained.
+The mean diagnostic loss is $\log(1+\exp(-\Delta s))$ on training edges against a problem from the opposite block. It does not reconstruct the historical MAUDE optimizer trace and does not exactly match its sampled negatives. Recall and MRR in the table concern the 24 masked links. After three epochs, the maximum score change is 0.003000684 and Recall@1 decreases; after thirty epochs, every masked link ranks first. The unfavorable three-epoch result is retained.
 
 \subsection{Checks and scope}
-Fourteen scalar propagation derivatives are checked against central finite differences with step $10^{-6}$: maximum absolute error $4.52\times10^{-11}$ at tolerance $10^{-6}$. Repeating the three-epoch run exactly reproduces scores. All scores are finite. Outcomes, ranks, parameters, the core fingerprint and environment are in \src{data/graphsage_control_R4.json}; an execution log is included.
+Fourteen scalar propagation derivatives are checked against central finite differences with step $10^{-6}$: maximum absolute error $4.52\times10^{-11}$ at tolerance $10^{-6}$. Repeating the three-epoch run exactly reproduces the scores. All scores are finite. Results, ranks, parameters, the core fingerprint, and environment are in \src{data/graphsage_control_R4.json}; an execution log is included.
 
-A new run after source verification exactly recovers the graph and masked ranks, and metrics within $10^{-12}$ (\src{data/real_R4/graphsage_control_verified.json}). All 14 derivatives pass, with maximum error $5.07\times10^{-11}$. Score-array fingerprints differ from the supplied diagnostic; because the original arrays were not retained, their exact equality cannot be checked. The three-epoch repetition is deterministic in the new environment. This limitation precludes claiming bitwise reproduction of prior scores.
+A new run after source verification exactly recovers the graph and masked ranks, and metrics within $10^{-12}$ (\src{data/real_R4/graphsage_control_verified.json}). All 14 derivatives pass, with maximum error $5.07\times10^{-11}$. Fingerprints of the score arrays differ from the supplied diagnostic; because the original arrays were not retained, their exact equality cannot be checked. The three-epoch repetition is deterministic in the new environment. This limitation precludes claiming bitwise reproduction of the earlier scores.
 
-This checks that a documented computational core changes scores and can recover this constructed signal. It establishes neither model optimality nor a specific aggregation effect; the distinct RC2 D1 comparison is exploratory and not capacity matched (S11). It also establishes neither the sufficiency of three epochs on the real task nor the validity of preprocessing, temporal availability, MAUDE vector coverage, or clinical utility. No health-data model was retrained for this synthetic R4 diagnostic; separate RC2 health-model training is reported in S11.
+This historical control shows that a documented computational core changes scores and can recover the constructed synthetic signal. It proves neither model optimality, a specific effect of aggregation, nor the sufficiency of three epochs on MAUDE. At this R4 stage, no health model was retrained or replaced; the later MAUDE C/D1 training is described separately in S11.
 
 \par\Needspace{9\baselineskip}
 \section{Reproduction path and compact formats}
 \label{supp:replay}
-The historical package \src{HealthGraphBench_FAIA_LaTeX_RC1.zip} is distinct from the benchmark commit. It contained the earlier PDFs and sources, retained results, complementary analyses, three real compact exports, the B1/B2 collection, scripts, and tests. The historical audit is accessible at its root as \src{AUDIT_R5_FR.md}, with an updated preface. This archive was not published to a remote repository; its contents do not describe the current RC2 working package.
+The package \src{HealthGraphBench_FAIA_LaTeX_RC2.zip} is distinct from the published benchmark version. It contains bilingual manuscripts and supplements, a historical response to the R6 review, sources, retained results, three historical compact exports, the B1/B2 collection, scripts and tests, as well as the C/D1 evidence described in S11. The earlier audit remains at the root as \src{AUDIT_R5_FR.md}. The ZIP is a working revision, not a submission or editorial acceptance.
 
-For the historical replay procedures below, already computed individual outputs were read after fingerprint checks. Those included exports permit offline replay of the listed retained analyses without raw FDA/CMS archives or retraining. This statement concerns replay only; the separate RC2 C/D1 health-model training and evidence are reported in S11. Output names must be new:
+Already computed individual outputs were read from the local repository after their fingerprints were checked. The included exports permit offline replay without raw FDA/CMS archives or retraining. Output names must be new:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 mkdir -p /tmp/hgb-r4-replay
@@ -119,7 +119,7 @@ The separate table below describes the historical graphs used by spectral factor
 \end{table}
 
 \FloatBarrier
-For this historical B1 collection, inventories are reconstructed from prepared histories, not inspected in checkpoints. The files provide neither recovered learned weights nor historical optimizer traces; these inventory counts establish neither score quality nor a specific aggregation effect. The separate RC2 D1 comparison is reported in S11.
+The inventories are reconstructed from prepared histories, not inspected in checkpoints. The files provide neither recovered learned weights nor historical optimizer traces; these counts establish neither score quality, an ablation, nor a specific aggregation effect.
 
 \par\Needspace{10\baselineskip}
 \subsection{B2: quarterly representation coverage}
@@ -147,4 +147,4 @@ Unrepresented pairs are partitioned without overlap by availability of the two n
 \end{table}
 
 \FloatBarrier
-This historical coverage analysis is descriptive: for BPR and GraphSAGE, it measures node-key presence in reconstructed inventories. For spectral factorization, it describes the input domain without guaranteeing non-degenerate components. Zero scores are not used to infer absence of a saved vector. It provides neither a causal explanation of historical GraphSAGE results nor new scores for this R6 collection; the distinct RC2 training and scores are reported in S11.
+This coverage is descriptive: for BPR and GraphSAGE, it measures the presence of node keys in reconstructed inventories. For spectral factorization, it describes the input domain without guaranteeing non-degenerate components. Zero scores are not used to infer the absence of a saved vector. It provides neither a causal explanation of the GraphSAGE results nor new scores, and it does not imply retraining.

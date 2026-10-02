@@ -204,3 +204,20 @@ rewritten to match current planning documents. The four pre-existing user
 changes are excluded. Author approval, declarations, venue selection and
 final formatting, public historical availability and decision F remain open.
 
+
+## RC2 English translation from canonical French
+
+The user requires English to be a translation of French, not a separate
+redraft. The main manuscript and supplement were translated paragraph by
+paragraph, preserving the scientific content, structure, captions and
+declarations. The missing source/DOI paragraph in S1 was restored and
+English-only additions removed.
+
+Concordance passed for 26 file pairs: numbers, mathematics, structure and
+citations/references. All 53 French LaTeX sources remain byte-identical;
+extracted text of the three French PDFs is unchanged. The English PDFs
+were compiled and visually examined (main 15 pages, supplement 20).
+Four translated-header tables retain the protected historical originals.
+The new translation ZIP is a separate candidate; the previous delivery,
+scientific evidence and human approval gates remain unchanged.
+

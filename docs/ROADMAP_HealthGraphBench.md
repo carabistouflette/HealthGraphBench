@@ -135,7 +135,7 @@ Le manuscrit identifie trois conditions : une origine non consultée, des choix 
 
 ## 8. Lot E — Finaliser le manuscrit et le dossier
 
-**Avancement technique RC2 :** manuscrits/suppléments FR/EN révisés et compilés, cinq PDF examinés, 642 contrôles de livraison et 16 lignes numériques nouvelles concordantes. Voir le [manifeste RC2](../results/manuscript_rc2_20261002T214332Z.json) et les [sources versionnées](../manuscript/rc2/README.md). C/D1 restent exploratoires ; aucune nouvelle expérience n'est engagée. L'exigence rédactionnelle Q1/Q2 ne certifie ni l'acceptation ni le format d'une revue non choisie. Les cases ci-dessous conservent les gates humains/éditoriaux ouverts.
+**Avancement technique RC2 :** le français est canonique et l'anglais en est une traduction fidèle. Cinq PDF compilés/examinés, 648 contrôles de livraison et 26 paires de fichiers concordantes ; sources françaises inchangées. Voir le [manifeste de traduction RC2](../results/manuscript_rc2_translation_20261002T233250Z.json) et les [sources versionnées](../manuscript/rc2/README.md). C/D1 restent exploratoires ; aucune nouvelle expérience n'est engagée. L'exigence rédactionnelle Q1/Q2 ne certifie ni l'acceptation ni le format d'une revue non choisie. Les cases ci-dessous conservent les gates humains/éditoriaux ouverts.
 
 ### Cohérence scientifique
 
