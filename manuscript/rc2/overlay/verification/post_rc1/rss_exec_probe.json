@@ -1,0 +1,35 @@
+{
+  "schema": "healthgraphbench.linux-rss-exec-probe.v1",
+  "recorded_at_utc": "2026-10-02T21:25:24.582421+00:00",
+  "scope": "throwaway non-health telemetry investigation; no training or repeated numeric audit",
+  "observations": [
+    {
+      "stage": "before_allocation",
+      "pid": 313138,
+      "VmRSS_bytes": 15859712,
+      "VmHWM_bytes": 15859712,
+      "ru_maxrss_bytes": 15642624
+    },
+    {
+      "stage": "before_exec_after_32MiB_touch",
+      "pid": 313138,
+      "VmRSS_bytes": 49500160,
+      "VmHWM_bytes": 49500160,
+      "ru_maxrss_bytes": 49500160
+    },
+    {
+      "stage": "after_exec_same_pid",
+      "pid": 313138,
+      "VmRSS_bytes": 15872000,
+      "VmHWM_bytes": 15872000,
+      "ru_maxrss_bytes": 49500160
+    }
+  ],
+  "source": "\nimport json, os, resource, sys\nfrom pathlib import Path\nsource, stage=sys.argv[1:]\ndef snapshot(name):\n    fields={}\n    for line in Path('/proc/self/status').read_text().splitlines():\n        if line.startswith(('VmRSS:','VmHWM:')):\n            key,value,*_=line.split(); fields[key.rstrip(':')]=int(value)*1024\n    print(json.dumps({'stage':name,'pid':os.getpid(),'VmRSS_bytes':fields['VmRSS'],'VmHWM_bytes':fields['VmHWM'],'ru_maxrss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024}),flush=True)\nif stage=='fork':\n    pid=os.fork()\n    if pid==0: os.execv(sys.executable,[sys.executable,'-c',source,source,'allocate'])\n    _,status=os.waitpid(pid,0); sys.exit(os.waitstatus_to_exitcode(status))\nif stage=='allocate':\n    snapshot('before_allocation')\n    storage=bytearray(32*1024*1024)\n    for offset in range(0,len(storage),4096): storage[offset]=1\n    snapshot('before_exec_after_32MiB_touch')\n    os.execv(sys.executable,[sys.executable,'-c',source,source,'after_exec'])\nelse: snapshot('after_exec_same_pid')\n",
+  "documentation": [
+    "https://man7.org/linux/man-pages/man2/getrusage.2.html",
+    "https://man7.org/linux/man-pages/man5/proc_pid_status.5.html"
+  ],
+  "observed_conclusion": "VmHWM resets across exec on the same PID; ru_maxrss retains the earlier image high-water mark",
+  "audit_specific_limitation": "D1 audit has no startup RSS readings; this probe does not establish the precise origin of its earlier 571580416-byte cumulative high-water mark; both audit readings remain unchanged"
+}

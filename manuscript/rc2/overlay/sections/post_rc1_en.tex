@@ -1,0 +1,51 @@
+\par\Needspace{12\baselineskip}
+\section{Post-RC1 MAUDE experiments: duration C and aggregation D1}
+\label{supp:post-rc1}
+
+\textbf{Scope and provenance.} RC2 adds two completed exploratory analyses of MAUDE: duration selection (C) and one mean-versus-self-only comparison (D1). Their results are separate from the unchanged historical benchmark tables, the historical GraphSAGE interval, and the earlier synthetic R4 core diagnostic. No new bootstrap or confidence interval was calculated. The compact record is \src{data/post_rc1/post_rc1_metrics.json}; the C and D1 code states are \src{4a22c2addc8203efd2b38a60c416270855c3bf3b} and \src{b14d878a78f559b65c70fc872a51a59af4c5ae85}, respectively. Prepared inputs were read-only snapshots covering 2019Q1--2025Q4 (SHA-256 \src{1cba7f84ff24131715c68a985d9302c96c7bab4a4b2a27d906559a41104fbd36}); the runs use \texttt{DATE\_RECEIVED}, which does not establish public availability of every field at the recorded time. Validation and test periods had already been consulted in the broader development history. These runs are not independent confirmation, and the C/D1 timing locks do not undo that prior exposure.
+
+\subsection{C: duration selection and selected test result}
+C ran independent one-hop GraphSAGE fits without warm starts at 0, 3, 10, and 30 epochs. The shared configuration was dimension 8, eight sampled neighbors, BPR, learning rate 0.02, regularization 0.0005, and $\tanh$. Validation used the same cohort for every fit: 7,705 positive links across 3,483 positive-containing product--quarters and 1,618,588 eligible candidate pairs. The 0-epoch row is a zero-optimization reference with no observed training loss; selection among the eligible 3/10/30-epoch fits used validation micro R@10, with an exact tie resolved toward fewer epochs.
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{C validation duration grid. The recorded data loss is mean pre-update $\operatorname{softplus}(-\mathrm{margin})$ and excludes regularization; no loss is observed at zero epochs. Only the validation-selected 30-epoch fit was evaluated on the C test periods.}
+\label{tab:duration-rc2}
+\input{tables/maude_duration_RC2_en.tex}
+\end{table}
+
+The maximum eligible validation R@10 selected 30 epochs and was locked at 2026-10-02 17:32:26.207893 UTC, before C's test runs; the lock records that test scores were not consulted for this choice. On the selected fit, test R@10 was 0.200899550 (1,206/6,003 links) in 2024 and 0.218797936 (1,569/7,171) in 2025. Pooled by summing hits and links, it was 0.210642174 (2,775/13,174) across 6,370 positive-containing product--quarters and 2,975,156 candidate pairs. The pooled metric is not the unweighted mean of annual recalls. All these denominators exclude zero-positive product--quarters.
+
+The retained historical MAUDE test table gives 0.172840443 for its three-epoch GraphSAGE variant and 0.192044937 for neighbor frequency. They remain historical point results; the new C tests did not evaluate a three-epoch model. Consequently, comparing historical GraphSAGE-3 with selected C-30 is not a matched 3-versus-30 test contrast. C's selected value is descriptively above both historical values, but no new uncertainty interval, significance claim, or causal effect of training duration follows. The earlier GraphSAGE interval remains tied to the historical model and predictions, not C.
+
+C's numerical audit checked 9,449,508 prediction rows using six raw checkpoints, with zero discrepancies at absolute tolerance $10^{-12}$. The 2023 phase ran the complete duration grid; the separate 2024 and 2025 test phases each refit the selected duration. Total wall time was 1,167.908 s (worker CPU 1,160.983 s); phase wall times were 482.360 s for validation, 329.318 s for 2024, and 356.214 s for 2025. The maximum measured aggregate RSS was 249,405,440 bytes. The per-phase limits were 900 s, 512 MiB aggregate RSS, and 512 MiB output, under single-worker, single-thread settings and without retries; these do not constitute a global 900-s budget.
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{figures/maude_duration_RC2_en.png}
+\caption{C: validation micro R@10 by training duration. The zero-epoch fit has no observed training loss.}
+\label{fig:maude-duration-rc2}
+\end{figure}
+
+\subsection{D1: mean aggregation versus a self-only non-GNN variant}
+D1 fixes 30 epochs from C and introduces no duration grid or further tuning. The same graph, positives, hashed negatives, candidate lists, ranking rules, and node vocabulary/dimensions were used; node-identity vectors remained trainable separately in both fits. The $\textit{mean}$ model is the C 30-epoch one-hop GraphSAGE fit, reused without a D1 refit. Only the $\textit{none}$ model was newly fit: once for 2023 validation and separately for the 2024 and 2025 annual test origins. It computes $h=\tanh(W_{\mathrm{self}}x)$ from each trainable node-identity vector and does not pass messages; it is not a GNN.
+
+D1 locked its comparison at 2026-10-02 20:53:30.842192 UTC before its new test runs. This lock says D1 test scores had not yet been consulted for that decision, but the historical test periods and the C results were already known. Table~\ref{tab:aggregation-rc2} gives micro R@10 and denominators. The pooled result sums hits and positive links across the two test years.
+
+\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{2.5pt}
+\caption{D1 mean30--none30 comparison at historical product support $\geq1$. Cohorts contain only positive-containing product--quarters; R@10 is micro recall. Mean30 scores are reused from C; none30 scores are newly fit in D1. No interval is attached.}
+\label{tab:aggregation-rc2}
+\input{tables/maude_aggregation_RC2_en.tex}
+\end{table}
+
+For the pooled test, mean30 reached R@10 0.210642174 and none30 0.035600425, a signed mean-minus-none difference of $+0.175041749$. The difference is descriptive, not an isolated causal aggregation effect. Although dimension, task, node vectors, and training protocol are shared, mean has 128 active shared-transformation scalars versus 64 for none; the node vectors have the same number of active scalars in each fit, so mean has 64 more active parameters overall. The comparison is not capacity-matched. None's measured loss stayed near $\ln 2$ through 30 epochs in each of its three fits: epoch-1 to epoch-30 values were 0.693145362 to 0.693147181 (validation), 0.693132478 to 0.693147181 (2024), and 0.693139947 to 0.693147181 (2025). Across these fits, 90 epochs comprised 6,756,720 steps and no positive skips. This is an observed loss pattern, not evidence for a causal mechanism or a diagnosis of why performance differed.
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{figures/maude_aggregation_RC2_en.png}
+\caption{D1: upper panel, matched micro R@10 across validation and test cohorts; lower panel, observed mean30 and none30 training-loss curves for validation, 2024, and 2025 fits. The pooled recall combines the two test years; it is not an additional disjoint cohort.}
+\label{fig:maude-aggregation-rc2}
+\end{figure}
+
+The D1 training-phase budget was 900 s, 512 MiB aggregate RSS, and 512 MiB output per phase, with one worker and single-threaded numerical libraries; there were no retries. D1 wall time was 416.144 s (worker CPU 413.766 s), of which the validation, 2024, and 2025 phases used 128.005, 136.895, and 150.303 s; maximum measured aggregate phase RSS was 303,284,224 bytes. Mean30 fit costs were measured in C and reused, not newly incurred by D1. C's validation phase includes the full duration grid, so its phase cost is not comparable to D1's none-only validation phase; no equal-CPU comparison is claimed.
+
+The numeric audit reconstructed 4,593,744 new none scores from three raw checkpoints and paired them with the C mean outputs; it checked 9,853 candidate lists per variant over 12 quarters, 12 quarterly tables, and 51,260,776 numeric invariants, with zero discrepancies at tolerance $10^{-12}$. The audit took 58.547 s. Its reported $\mathrm{VmHWM}$ was 118,292,480 bytes, while $\texttt{ru\_maxrss}$ was 571,580,416 bytes. There were no startup RSS readings, so the audit is not certified globally below 512 MiB and the exact source of the higher cumulative reading is unknown. A separate non-health telemetry probe shows that the counters can have different scope across \texttt{exec}; it establishes a possible explanation, not the certain cause of this audit's discrepancy. This caveat does not change the separately measured training-phase resource readings or verified scores.
+
+The RC2 package includes the nine inference checkpoints indexed by \src{data/post_rc1/checkpoint_index.json} (six duration-analysis and three self-only checkpoints). Full candidate-score streams remain local to the original runs and are not included; complete offline replay is not claimed. Neither analysis is independent confirmation, and no new interval, bootstrap, capacity-matched causal test, or generalization evaluation is provided. No D2 experiment was conducted. These analyses do not establish clinical utility, and the evaluated MAUDE cohorts exclude product--quarters with no observed positives. Prepared event dates do not prove historical public availability. Adding these analyses does not constitute author approval.

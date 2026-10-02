@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "package_id": "manuscript-rc2",
+  "completed_at_utc": "2026-10-02T22:58:48.913991+00:00",
+  "source_rc1": {
+    "path": "/home/arobin/Downloads/HealthGraphBench_FAIA_LaTeX_RC1.zip",
+    "sha256": "2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be",
+    "unchanged": true
+  },
+  "archive": {
+    "path": "/home/arobin/Downloads/HealthGraphBench_FAIA_LaTeX_RC2.zip",
+    "sha256": "6e596ec0953581429bcee9c292e9443da30f52e92fe6132379e8579169de81f3",
+    "size_bytes": 12418210,
+    "member_files": 485,
+    "ledger_entries": 484,
+    "crc_and_all_members_match_ready_root": true
+  },
+  "source_overlay": "manuscript/rc2/overlay",
+  "assembler": "scripts/build_manuscript_rc2.py",
+  "delivery_root": "results/generated/manuscript-rc2-20261002T214332Z/ready/HealthGraphBench_RC2",
+  "pdfs": [
+    {
+      "file": "main_fr.pdf",
+      "pages": 16,
+      "sha256": "4642599f18bfa7604377f3d4d7b9e6e727bff0ec992932b40db410c62e6febfd"
+    },
+    {
+      "file": "main_en.pdf",
+      "pages": 14,
+      "sha256": "3de7380561b7e63d8dda7880f6a8cfbc99bf3fcc1183c8aeb96b3865ced1f0fa"
+    },
+    {
+      "file": "supplement_fr.pdf",
+      "pages": 21,
+      "sha256": "196c86bd3dc7ee6cdd652d0fce726ca088b1f1c598a96cbce2e30bd37e20d502"
+    },
+    {
+      "file": "supplement_en.pdf",
+      "pages": 19,
+      "sha256": "2830259d3feed1e0b9495b97b7839bfa772c94239f3cc7cb003add8058c005e8"
+    },
+    {
+      "file": "response_reviewers_fr.pdf",
+      "pages": 2,
+      "sha256": "72605d8d336b9ef2e433cdeb63e88e29eb17e04a899d4d856bd74827ed23e243"
+    }
+  ],
+  "standalone_pdf_exports": [
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_manuscrit_fr_RC2.pdf",
+      "sha256": "4642599f18bfa7604377f3d4d7b9e6e727bff0ec992932b40db410c62e6febfd"
+    },
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_manuscript_en_RC2.pdf",
+      "sha256": "3de7380561b7e63d8dda7880f6a8cfbc99bf3fcc1183c8aeb96b3865ced1f0fa"
+    },
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_supplement_fr_RC2.pdf",
+      "sha256": "196c86bd3dc7ee6cdd652d0fce726ca088b1f1c598a96cbce2e30bd37e20d502"
+    },
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_supplement_en_RC2.pdf",
+      "sha256": "2830259d3feed1e0b9495b97b7839bfa772c94239f3cc7cb003add8058c005e8"
+    }
+  ],
+  "package_check": {
+    "passed": true,
+    "checks": 642,
+    "report": "results/generated/manuscript-rc2-20261002T214332Z/ready/RC2_delivery_check.json"
+  },
+  "numeric_concordance": {
+    "new_table_rows": 16,
+    "all_passed": true,
+    "bilingual_labels_match": true,
+    "report": "results/generated/manuscript-rc2-20261002T214332Z/bilingual_numeric_concordance.json"
+  },
+  "visual_review": {
+    "scope": "Technical assistant review, not human author approval or venue compliance",
+    "actual_pdfs_rendered": {
+      "main_fr": 16,
+      "main_en": 14,
+      "supplement_fr": 21,
+      "supplement_en": 19,
+      "response_reviewers_fr": 2
+    },
+    "contact_sheets_examined": true,
+    "enlarged_pages_examined": {
+      "main_en": [
+        1
+      ],
+      "supplement_en": [
+        16,
+        17
+      ],
+      "supplement_fr": [
+        17
+      ]
+    },
+    "no_overfull_boxes_in_final_latex_logs": true,
+    "remaining_underfull_boxes": "Narrow inherited supplement cells and bibliography; no clipping observed",
+    "final_ready_pdf_text_equals_reviewed_build": {
+      "main_fr": true,
+      "main_en": true,
+      "supplement_fr": true,
+      "supplement_en": true,
+      "response_reviewers_fr": true
+    }
+  },
+  "repository_checks": {
+    "gitflow_passed": true,
+    "unit_tests": 61,
+    "unit_test_status": "OK",
+    "unit_test_seconds": 3.043
+  },
+  "science_scope": {
+    "new_fits_during_RC2_preparation": false,
+    "successful_scientific_audits_rerun": false,
+    "D2_executed": false,
+    "C_D1_completed_results_incorporated": true,
+    "independent_confirmation_claimed": false,
+    "new_intervals_claimed": false,
+    "full_prediction_streams_included": false,
+    "inference_checkpoints_included": 9
+  },
+  "editorial_scope": {
+    "Q1_Q2_level_readability_aim": true,
+    "specific_journal_format_certified": false,
+    "author_validation_complete": false,
+    "ready_for_submission": false,
+    "editorial_acceptance_claimed": false,
+    "new_tag_or_manuscript_DOI_created": false
+  }
+}

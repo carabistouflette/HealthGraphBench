@@ -172,3 +172,35 @@ general superiority, optimum or independent confirmation. No tuning,
 additional seeds, bootstrap or interval was added. A/B human review, public
 availability, author declarations/editorial choice, manuscript E and decision F
 remain open; C/D1 do not complete the four-week cycle.
+
+## Manuscript RC2: technical preparation
+
+The RC1 archive supplied by the user is preserved byte-for-byte. RC2 is a
+separate working revision, not author-approved or submitted. Branch
+`feature/manuscript-rc2` starts from `develop` and explicitly merges the D1
+dependency; `main` and the four existing tags remain untouched.
+
+The French and English manuscripts and supplements now incorporate C/D1,
+distinguish historical three-epoch GraphSAGE from C30, and keep the new
+contrasts exploratory. The complete main text was revised for readability
+and scientific precision; operational details are concentrated in S11.
+Q1/Q2-level writing is an editorial aim, not an acceptance or venue-format
+certification.
+
+Five PDFs were compiled and visually examined: main FR/EN 16/14 pages,
+supplements 21/19 pages, historical R6 response 2 pages. The final package
+passed 642 checks, includes 484 manifest entries and nine inference
+checkpoints, and matches its ZIP member-by-member. Sixteen new numeric table
+rows agree with retained results; Gitflow passed and all 61 existing tests
+passed. No new scientific fit, tuning, D2, bootstrap, interval or successful
+scientific audit was run for RC2.
+
+Sources and the assembler are described in
+[`manuscript/rc2/README.md`](../manuscript/rc2/README.md); the
+[compact RC2 manifest](../results/manuscript_rc2_20261002T214332Z.json) and
+separate checksum ledger identify the delivered archive and PDFs. Older
+C/D1 ledgers retain their dated documentary snapshots rather than being
+rewritten to match current planning documents. The four pre-existing user
+changes are excluded. Author approval, declarations, venue selection and
+final formatting, public historical availability and decision F remain open.
+

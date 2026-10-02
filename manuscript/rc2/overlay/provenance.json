@@ -1,0 +1,64 @@
+{
+  "revision": "RC2",
+  "package_id": "manuscript-rc2",
+  "prepared_on": "2026-10-02",
+  "packaging_started_at_utc": "2026-10-02T21:43:32+00:00",
+  "parent_archive": {
+    "name": "HealthGraphBench_FAIA_LaTeX_RC1.zip",
+    "sha256": "2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be",
+    "modified": false
+  },
+  "historical_provenance": "history/RC1/provenance.json",
+  "current_status_file": "data/revision_status_RC2.json",
+  "historical_benchmark_commit": "b010d5a49eae56837a920b2e30dece41c42c0c44",
+  "post_rc1_code_and_evidence": {
+    "C": {
+      "code_before_fits": "4a22c2addc8203efd2b38a60c416270855c3bf3b",
+      "evidence_commit": "5eb82ba534169b48cf3b926aa2aadaae04c38dba",
+      "manifest": "data/post_rc1/C_manifest.json",
+      "manifest_sha256": "0c8a610991e313d49a9fba03736d225897620cec86779989c8b243665942dff2"
+    },
+    "D1": {
+      "code_before_fits": "b14d878a78f559b65c70fc872a51a59af4c5ae85",
+      "evidence_commit": "55b2644e620dcd95fbbc1b3461a630f140c5e338",
+      "manifest": "data/post_rc1/D1_manifest.json",
+      "manifest_sha256": "8b78d8972004a4e3818c529f030e63b91340cff2bb1466248f6961c92699da12"
+    }
+  },
+  "current_operations": {
+    "latex_scientific_text_revised": true,
+    "completed_C_D1_results_incorporated": true,
+    "historical_numeric_payload_modified": false,
+    "new_figures_from_completed_outputs": true,
+    "health_model_training_executed_during_RC2_preparation": false,
+    "raw_archives_reacquired": false,
+    "new_predictions_computed_during_RC2_preparation": false,
+    "new_tuning_bootstrap_or_intervals": false,
+    "pdfs_recompiled": false,
+    "package_checks_executed": false,
+    "submission_sent": false,
+    "github_release_published": false,
+    "new_DOI_created": false,
+    "new_tag_created": false
+  },
+  "current_verification_directory": "verification/rc2",
+  "retention_manifest": "release/protected_payload.json",
+  "current_change_log": "RELEASE_NOTES_FR.md",
+  "ready_for_review": true,
+  "submission_ready_claimed": false,
+  "DOI": {
+    "benchmark_declared": "10.5281/zenodo.22796551",
+    "manuscript_package_DOI": null,
+    "new_publication_or_DOI_claimed": false
+  },
+  "scientific_scope": "C and D1 are prior completed new trainings on prepared MAUDE snapshots, not performed again for RC2. C mean30 retained in D1; only none30 trained for D1. All consulted origins remain exploratory. Historical IC applies only to original contrast. D2 excluded.",
+  "rss_audit_reserve": {
+    "VmHWM_bytes": 118292480,
+    "ru_maxrss_bytes": 571580416,
+    "startup_metrics_recorded": false,
+    "global_audit_RSS_below_512MiB_certified": false,
+    "certain_peak_cause_claimed": false,
+    "note": "Scientific phase budgets separately passed; post-audit RSS measures have different scope. The non-health exec probe does not establish the audit peak cause."
+  },
+  "review_scope": "Inherited R6 review and response are historical attachments, not approval of C/D1 or RC2. No author declarations or editorial approval inferred."
+}

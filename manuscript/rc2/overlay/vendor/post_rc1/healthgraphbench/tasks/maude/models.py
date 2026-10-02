@@ -1,0 +1,1284 @@
+"""Leakage-safe baselines and learned rankers for the MAUDE edge gate."""
+
+from __future__ import annotations
+
+import hashlib
+import math
+from collections import Counter, defaultdict
+from collections.abc import Callable, Collection, Iterable, Mapping, Sequence
+from dataclasses import dataclass, field
+
+from .data import QUARTER_INDEX, Edge, QuarterSnapshot
+
+FEATURE_NAMES: tuple[str, ...] = (
+    "product_log_prior_reports",
+    "problem_log_prior_reports",
+    "problem_log_product_prevalence",
+    "neighbor_log_product_count",
+    "recent_problem_log_product_count",
+    "recent_problem_prevalence_fraction",
+    "product_log_manufacturer_count",
+    "manufacturer_log_product_activity",
+    "product_age_quarters",
+    "problem_age_quarters",
+    "parent_log_product_prevalence",
+    "product_recent_report_fraction",
+)
+SUPPORT_BANDS: tuple[str, ...] = ("1-9", "10-49", "50-199", "200+")
+
+
+@dataclass(slots=True)
+class History:
+    """Mutable graph state containing only quarters before the current cutoff."""
+
+    product_reports: Counter[str]
+    problem_reports: Counter[str]
+    product_problems: dict[str, set[str]]
+    problem_products: dict[str, set[str]]
+    product_manufacturers: dict[str, set[str]]
+    manufacturer_products: dict[str, set[str]]
+    parent_products: dict[str, set[str]]
+    quarter_product_reports: dict[str, Counter[str]]
+    quarter_problem_products: dict[str, dict[str, set[str]]]
+    first_product_index: dict[str, int]
+    first_problem_index: dict[str, int]
+
+    @classmethod
+    def empty(cls) -> History:
+        return cls(
+            product_reports=Counter(),
+            problem_reports=Counter(),
+            product_problems=defaultdict(set),
+            problem_products=defaultdict(set),
+            product_manufacturers=defaultdict(set),
+            manufacturer_products=defaultdict(set),
+            parent_products=defaultdict(set),
+            quarter_product_reports={},
+            quarter_problem_products={},
+            first_product_index={},
+            first_problem_index={},
+        )
+
+    def add(
+        self,
+        snapshot: QuarterSnapshot,
+        problem_parent_map: Mapping[str, str],
+    ) -> None:
+        quarter_index = QUARTER_INDEX[snapshot.quarter]
+        self.quarter_product_reports[snapshot.quarter] = Counter(snapshot.product_reports)
+        quarter_problem_products: dict[str, set[str]] = defaultdict(set)
+        for product, report_count in snapshot.product_reports.items():
+            self.product_reports[product] += report_count
+            self.first_product_index.setdefault(product, quarter_index)
+        for product, manufacturers in snapshot.product_manufacturers.items():
+            self.product_manufacturers[product].update(manufacturers)
+            for manufacturer in manufacturers:
+                self.manufacturer_products[manufacturer].add(product)
+        for product, problem in snapshot.edges:
+            self.product_problems[product].add(problem)
+            self.problem_products[problem].add(product)
+            self.problem_reports[problem] += snapshot.edge_report_counts[(product, problem)]
+            self.first_problem_index.setdefault(problem, quarter_index)
+            quarter_problem_products[problem].add(product)
+            parent = problem_parent_map.get(problem)
+            if parent is not None:
+                self.parent_products[parent].add(product)
+        self.quarter_problem_products[snapshot.quarter] = dict(quarter_problem_products)
+
+    def candidate_problems(self, product: str) -> list[str]:
+        observed = self.product_problems.get(product, set())
+        return sorted(set(self.problem_products).difference(observed))
+
+
+@dataclass(frozen=True, slots=True)
+class FeatureContext:
+    history: History
+    quarter: str
+    problem_parent_map: Mapping[str, str]
+    recent_window: int = 4
+    _neighbor_cache: dict[str, Counter[str]] = field(default_factory=dict, compare=False)
+    _recent_problem_cache: dict[str, int] = field(default_factory=dict, compare=False)
+    _recent_product_cache: dict[str, int] = field(default_factory=dict, compare=False)
+    _manufacturer_cache: dict[str, int] = field(default_factory=dict, compare=False)
+    _feature_cache: dict[tuple[str, str], tuple[float, ...]] = field(
+        default_factory=dict, compare=False
+    )
+
+    def neighbor_scores(self, product: str) -> Counter[str]:
+        cached = self._neighbor_cache.get(product)
+        if cached is not None:
+            return cached
+        own_problems = self.history.product_problems.get(product, set())
+        neighbors: set[str] = set()
+        for problem in own_problems:
+            neighbors.update(self.history.problem_products.get(problem, set()))
+        neighbors.discard(product)
+        scores = Counter(
+            {
+                problem: len(neighbors.intersection(products))
+                for problem, products in self.history.problem_products.items()
+                if problem not in own_problems and neighbors.intersection(products)
+            }
+        )
+        self._neighbor_cache[product] = scores
+        return scores
+
+    def _recent_problem_products(self, problem: str) -> int:
+        cached = self._recent_problem_cache.get(problem)
+        if cached is not None:
+            return cached
+        current = QUARTER_INDEX[self.quarter]
+        products: set[str] = set()
+        for quarter, values in self.history.quarter_problem_products.items():
+            if current - QUARTER_INDEX[quarter] <= self.recent_window:
+                products.update(values.get(problem, set()))
+        result = len(products)
+        self._recent_problem_cache[problem] = result
+        return result
+
+    def _recent_product_reports(self, product: str) -> int:
+        cached = self._recent_product_cache.get(product)
+        if cached is not None:
+            return cached
+        current = QUARTER_INDEX[self.quarter]
+        total = 0
+        for quarter, values in self.history.quarter_product_reports.items():
+            if current - QUARTER_INDEX[quarter] <= self.recent_window:
+                total += values.get(product, 0)
+        self._recent_product_cache[product] = total
+        return total
+
+    def _manufacturer_activity(self, product: str) -> int:
+        cached = self._manufacturer_cache.get(product)
+        if cached is not None:
+            return cached
+        result = sum(
+            len(self.history.manufacturer_products[manufacturer])
+            for manufacturer in self.history.product_manufacturers.get(product, set())
+        )
+        self._manufacturer_cache[product] = result
+        return result
+
+    def features_for(
+        self,
+        product: str,
+        problem: str,
+        neighbor_scores: Counter[str] | None = None,
+    ) -> tuple[float, ...]:
+        cached = self._feature_cache.get((product, problem))
+        if cached is not None:
+            return cached
+        product_reports = self.history.product_reports.get(product, 0)
+        problem_reports = self.history.problem_reports.get(problem, 0)
+        problem_prevalence = len(self.history.problem_products.get(problem, set()))
+        if neighbor_scores is None:
+            neighbor_scores = self.neighbor_scores(product)
+        neighbor_count = neighbor_scores.get(problem, 0)
+        recent_problem_products = self._recent_problem_products(problem)
+        recent_fraction = recent_problem_products / max(1, problem_prevalence)
+        product_recent_reports = self._recent_product_reports(product)
+        product_recent_fraction = product_recent_reports / max(1, product_reports)
+        quarter_index = QUARTER_INDEX[self.quarter]
+        product_age = quarter_index - self.history.first_product_index.get(product, quarter_index)
+        problem_age = quarter_index - self.history.first_problem_index.get(problem, quarter_index)
+        parent = self.problem_parent_map.get(problem)
+        parent_prevalence = len(self.history.parent_products.get(parent, set())) if parent else 0
+        values = (
+            math.log1p(product_reports),
+            math.log1p(problem_reports),
+            math.log1p(problem_prevalence),
+            math.log1p(neighbor_count),
+            math.log1p(recent_problem_products),
+            recent_fraction,
+            math.log1p(len(self.history.product_manufacturers.get(product, set()))),
+            math.log1p(self._manufacturer_activity(product)),
+            float(product_age),
+            float(problem_age),
+            math.log1p(parent_prevalence),
+            product_recent_fraction,
+        )
+        self._feature_cache[(product, problem)] = values
+        return values
+
+    def row_features(
+        self,
+        product: str,
+        problems: Iterable[str],
+    ) -> dict[str, tuple[float, ...]]:
+        scores = self.neighbor_scores(product)
+        return {problem: self.features_for(product, problem, scores) for problem in problems}
+
+
+@dataclass(frozen=True, slots=True)
+class TrainingRow:
+    features: tuple[float, ...]
+    label: int
+
+
+@dataclass(frozen=True, slots=True)
+class LogisticRanker:
+    means: tuple[float, ...]
+    scales: tuple[float, ...]
+    weights: tuple[float, ...]
+    intercept: float
+
+    def score(self, features: Sequence[float]) -> float:
+        return self.intercept + sum(
+            weight * ((value - mean) / scale)
+            for value, mean, scale, weight in zip(
+                features, self.means, self.scales, self.weights, strict=True
+            )
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class Stump:
+    feature: int
+    threshold: float
+    left_value: float
+    right_value: float
+
+
+@dataclass(frozen=True, slots=True)
+class BoostedStumpRanker:
+    base_score: float
+    stumps: tuple[Stump, ...]
+    learning_rate: float
+
+    def score(self, features: Sequence[float]) -> float:
+        score = self.base_score
+        for stump in self.stumps:
+            score += self.learning_rate * (
+                stump.left_value
+                if features[stump.feature] <= stump.threshold
+                else stump.right_value
+            )
+        return score
+
+
+@dataclass(frozen=True, slots=True)
+class SpectralRanker:
+    problem_order: tuple[str, ...]
+    problem_index: Mapping[str, int]
+    vectors: tuple[tuple[float, ...], ...]
+    problem_weights: tuple[float, ...]
+    product_problem_order: Mapping[str, tuple[str, ...]]
+    product_projections: Mapping[str, tuple[float, ...]]
+
+    def score(self, product: str, problem: str) -> float:
+        projections = self.product_projections.get(product, ())
+        if not projections or not self.vectors:
+            return 0.0
+        target = self.problem_index.get(problem)
+        if target is None:
+            return 0.0
+        return sum(
+            projection * vector[target]
+            for projection, vector in zip(projections, self.vectors, strict=True)
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class GraphRanker:
+    product_embeddings: Mapping[str, tuple[float, ...]]
+    problem_embeddings: Mapping[str, tuple[float, ...]]
+    propagated_product_embeddings: Mapping[str, tuple[float, ...]]
+    propagated_problem_embeddings: Mapping[str, tuple[float, ...]]
+
+    def score(self, product: str, problem: str) -> float:
+        left = self.propagated_product_embeddings.get(product)
+        right = self.propagated_problem_embeddings.get(problem)
+        if left is None or right is None:
+            return 0.0
+        return sum(a * b for a, b in zip(left, right, strict=True))
+
+GRAPHSAGE_DIMENSION = 8
+GRAPHSAGE_EPOCHS = 3
+GRAPHSAGE_NEIGHBOR_SAMPLE = 8
+GRAPHSAGE_LEARNING_RATE = 0.02
+GRAPHSAGE_REGULARIZATION = 0.0005
+
+
+@dataclass(frozen=True, slots=True)
+class GraphSageRanker:
+    """BPR ranker with historical mean aggregation or self-only ``none``."""
+
+    product_embeddings: Mapping[str, tuple[float, ...]]
+    problem_embeddings: Mapping[str, tuple[float, ...]]
+    configuration: Mapping[str, int | float | str]
+
+    def score(self, product: str, problem: str) -> float:
+        left = self.product_embeddings.get(product)
+        right = self.problem_embeddings.get(problem)
+        if left is None or right is None:
+            return 0.0
+        return _dot(left, right)
+
+    @classmethod
+    def from_checkpoint(cls, checkpoint: Mapping[str, object]) -> GraphSageRanker:
+        """Rebuild an inference ranker from a serialized GraphSAGE checkpoint."""
+        if checkpoint.get("schema") != "healthgraphbench.graphsage-checkpoint.v1":
+            raise ValueError("Unsupported GraphSAGE checkpoint schema")
+        products = _checkpoint_strings(checkpoint.get("products"), "products")
+        problems = _checkpoint_strings(checkpoint.get("problems"), "problems")
+        configuration = _checkpoint_configuration(checkpoint.get("configuration"))
+        aggregation = configuration.get("aggregation", "mean")
+        if aggregation not in ("mean", "none"):
+            raise ValueError("Invalid GraphSAGE checkpoint aggregation")
+        product_inputs = _checkpoint_vectors(checkpoint.get("product_inputs"), "product_inputs")
+        problem_inputs = _checkpoint_vectors(checkpoint.get("problem_inputs"), "problem_inputs")
+        self_weights = _checkpoint_matrix(checkpoint.get("self_weights"), "self_weights")
+        if aggregation == "mean":
+            product_neighbors = _checkpoint_neighbors(
+                checkpoint.get("product_neighbors"), "product_neighbors"
+            )
+            problem_neighbors = _checkpoint_neighbors(
+                checkpoint.get("problem_neighbors"), "problem_neighbors"
+            )
+            neighbor_weights = _checkpoint_matrix(
+                checkpoint.get("neighbor_weights"), "neighbor_weights"
+            )
+        else:
+            product_neighbors = None
+            problem_neighbors = None
+            neighbor_weights = None
+        product_embeddings, problem_embeddings = _graphsage_embeddings(
+            products,
+            problems,
+            product_neighbors,
+            problem_neighbors,
+            product_inputs,
+            problem_inputs,
+            self_weights,
+            neighbor_weights,
+            aggregation=aggregation,
+        )
+        return cls(product_embeddings, problem_embeddings, configuration)
+
+
+def _sample_graph_neighbors(
+    values: Iterable[str],
+    key: str,
+    fanout: int,
+) -> tuple[str, ...]:
+    ordered = tuple(sorted(values))
+    if len(ordered) <= fanout:
+        return ordered
+    start = _stable_integer("graphsage-neighbors", key) % len(ordered)
+    return tuple(ordered[(start + offset) % len(ordered)] for offset in range(fanout))
+
+
+def _graph_message(
+    own: Sequence[float],
+    neighbors: Sequence[Sequence[float]],
+    self_weights: Sequence[Sequence[float]],
+    neighbor_weights: Sequence[Sequence[float]],
+) -> tuple[tuple[float, ...], tuple[float, ...]]:
+    dimension = len(own)
+    if neighbors:
+        mean = tuple(
+            sum(values[index] for values in neighbors) / len(neighbors)
+            for index in range(dimension)
+        )
+    else:
+        mean = (0.0,) * dimension
+    hidden = tuple(
+        math.tanh(
+            sum(self_weights[row][column] * own[column] for column in range(dimension))
+            + sum(
+                neighbor_weights[row][column] * mean[column]
+                for column in range(dimension)
+            )
+        )
+        for row in range(dimension)
+    )
+    return hidden, mean
+
+
+def _self_message(
+    own: Sequence[float],
+    self_weights: Sequence[Sequence[float]],
+) -> tuple[float, ...]:
+    """Transform only a node's own identity input (no message passing)."""
+    dimension = len(own)
+    return tuple(
+        math.tanh(
+            sum(self_weights[row][column] * own[column] for column in range(dimension))
+        )
+        for row in range(dimension)
+    )
+
+
+def _self_message_gradients(
+    hidden_gradient: Sequence[float],
+    hidden: Sequence[float],
+    own: Sequence[float],
+    self_weights: Sequence[Sequence[float]],
+) -> tuple[list[float], list[list[float]]]:
+    dimension = len(own)
+    pre_gradient = [
+        hidden_gradient[index] * (1.0 - hidden[index] * hidden[index])
+        for index in range(dimension)
+    ]
+    own_gradient = [
+        sum(self_weights[row][column] * pre_gradient[row] for row in range(dimension))
+        for column in range(dimension)
+    ]
+    self_gradient = [
+        [pre_gradient[row] * own[column] for column in range(dimension)]
+        for row in range(dimension)
+    ]
+    return own_gradient, self_gradient
+
+
+def _graph_message_gradients(
+    hidden_gradient: Sequence[float],
+    hidden: Sequence[float],
+    own: Sequence[float],
+    mean: Sequence[float],
+    self_weights: Sequence[Sequence[float]],
+    neighbor_weights: Sequence[Sequence[float]],
+    neighbor_count: int,
+) -> tuple[list[float], list[float], list[list[float]], list[list[float]]]:
+    dimension = len(own)
+    pre_gradient = [
+        hidden_gradient[index] * (1.0 - hidden[index] * hidden[index])
+        for index in range(dimension)
+    ]
+    own_gradient = [
+        sum(self_weights[row][column] * pre_gradient[row] for row in range(dimension))
+        for column in range(dimension)
+    ]
+    neighbor_gradient = [
+        sum(neighbor_weights[row][column] * pre_gradient[row] for row in range(dimension))
+        / max(1, neighbor_count)
+        for column in range(dimension)
+    ]
+    self_gradient = [
+        [pre_gradient[row] * own[column] for column in range(dimension)]
+        for row in range(dimension)
+    ]
+    neighbor_weight_gradient = [
+        [pre_gradient[row] * mean[column] for column in range(dimension)]
+        for row in range(dimension)
+    ]
+    return own_gradient, neighbor_gradient, self_gradient, neighbor_weight_gradient
+
+
+def _add_vector_gradient(
+    destination: dict[str, list[float]],
+    key: str,
+    values: Sequence[float],
+) -> None:
+    current = destination.setdefault(key, [0.0] * len(values))
+    for index, value in enumerate(values):
+        current[index] += value
+
+
+def _apply_vector_gradients(
+    values: dict[str, list[float]],
+    gradients: Mapping[str, Sequence[float]],
+    learning_rate: float,
+    regularization: float,
+) -> None:
+    for key, gradient in gradients.items():
+        vector = values[key]
+        for index, value in enumerate(gradient):
+            vector[index] += learning_rate * (value - regularization * vector[index])
+
+
+def _apply_matrix_gradient(
+    matrix: list[list[float]],
+    gradient: Sequence[Sequence[float]],
+    learning_rate: float,
+    regularization: float,
+) -> None:
+    for row in range(len(matrix)):
+        for column in range(len(matrix[row])):
+            matrix[row][column] += learning_rate * (
+                gradient[row][column] - regularization * matrix[row][column]
+            )
+
+
+def _checkpoint_strings(value: object, name: str) -> tuple[str, ...]:
+    if not isinstance(value, (list, tuple)) or not all(
+        isinstance(item, str) for item in value
+    ):
+        raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+    return tuple(value)
+
+
+def _checkpoint_vectors(value: object, name: str) -> dict[str, tuple[float, ...]]:
+    if not isinstance(value, Mapping):
+        raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+    vectors: dict[str, tuple[float, ...]] = {}
+    for key, raw_vector in value.items():
+        if (
+            not isinstance(key, str)
+            or not isinstance(raw_vector, (list, tuple))
+            or not all(
+                isinstance(component, (int, float)) and not isinstance(component, bool)
+                for component in raw_vector
+            )
+        ):
+            raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+        vectors[key] = tuple(float(component) for component in raw_vector)
+    return vectors
+
+
+def _checkpoint_neighbors(value: object, name: str) -> dict[str, tuple[str, ...]]:
+    if not isinstance(value, Mapping):
+        raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+    neighbors: dict[str, tuple[str, ...]] = {}
+    for key, raw_neighbors in value.items():
+        if (
+            not isinstance(key, str)
+            or not isinstance(raw_neighbors, (list, tuple))
+            or not all(isinstance(neighbor, str) for neighbor in raw_neighbors)
+        ):
+            raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+        neighbors[key] = tuple(raw_neighbors)
+    return neighbors
+
+
+def _checkpoint_matrix(value: object, name: str) -> list[list[float]]:
+    if not isinstance(value, (list, tuple)):
+        raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+    matrix: list[list[float]] = []
+    for raw_row in value:
+        if (
+            not isinstance(raw_row, (list, tuple))
+            or not all(
+                isinstance(component, (int, float)) and not isinstance(component, bool)
+                for component in raw_row
+            )
+        ):
+            raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+        matrix.append([float(component) for component in raw_row])
+    return matrix
+
+
+def _checkpoint_configuration(value: object) -> dict[str, int | float | str]:
+    if not isinstance(value, Mapping) or not all(
+        isinstance(key, str)
+        and isinstance(item, (int, float, str))
+        and not isinstance(item, bool)
+        for key, item in value.items()
+    ):
+        raise ValueError("Invalid GraphSAGE checkpoint field: configuration")
+    return dict(value)
+
+
+def _graphsage_embeddings(
+    products: Sequence[str],
+    problems: Sequence[str],
+    product_neighbors: Mapping[str, Sequence[str]] | None,
+    problem_neighbors: Mapping[str, Sequence[str]] | None,
+    product_inputs: Mapping[str, Sequence[float]],
+    problem_inputs: Mapping[str, Sequence[float]],
+    self_weights: Sequence[Sequence[float]],
+    neighbor_weights: Sequence[Sequence[float]] | None,
+    aggregation: str = "mean",
+) -> tuple[dict[str, tuple[float, ...]], dict[str, tuple[float, ...]]]:
+    if aggregation == "none":
+        product_embeddings = {
+            product: _self_message(product_inputs[product], self_weights)
+            for product in products
+        }
+        problem_embeddings = {
+            problem: _self_message(problem_inputs[problem], self_weights)
+            for problem in problems
+        }
+        return product_embeddings, problem_embeddings
+    assert product_neighbors is not None
+    assert problem_neighbors is not None
+    assert neighbor_weights is not None
+    product_embeddings = {
+        product: _graph_message(
+            product_inputs[product],
+            [problem_inputs[item] for item in product_neighbors[product]],
+            self_weights,
+            neighbor_weights,
+        )[0]
+        for product in products
+    }
+    problem_embeddings = {
+        problem: _graph_message(
+            problem_inputs[problem],
+            [product_inputs[item] for item in problem_neighbors[problem]],
+            self_weights,
+            neighbor_weights,
+        )[0]
+        for problem in problems
+    }
+    return product_embeddings, problem_embeddings
+
+
+def _softplus_negative_margin(margin: float) -> float:
+    if margin >= 0:
+        return math.log1p(math.exp(-margin))
+    return -margin + math.log1p(math.exp(margin))
+
+
+def fit_graphsage(
+    history: History,
+    dimension: int = GRAPHSAGE_DIMENSION,
+    epochs: int = GRAPHSAGE_EPOCHS,
+    neighbor_sample: int = GRAPHSAGE_NEIGHBOR_SAMPLE,
+    learning_rate: float = GRAPHSAGE_LEARNING_RATE,
+    regularization: float = GRAPHSAGE_REGULARIZATION,
+    *,
+    aggregation: str = "mean",
+    on_epoch: Callable[[dict[str, int | float | None]], None] | None = None,
+    on_checkpoint: Callable[[dict[str, object]], None] | None = None,
+) -> GraphSageRanker:
+    """Fit a mean-aggregation GraphSAGE or self-only BPR ranker.
+
+    Node inputs are trainable identity embeddings. ``mean`` uses the
+    historical one-hop self and mean-neighbor transforms; ``none`` uses only
+    ``tanh(W_self x)`` and is not a message-passing model. BPR negatives in
+    either mode are sampled only from historically known problem nodes absent
+    for the target product. Optional callbacks report optimization diagnostics
+    and an inference checkpoint.
+    """
+
+    if aggregation not in ("mean", "none"):
+        raise ValueError("aggregation must be 'mean' or 'none'")
+    products = tuple(sorted(history.product_problems))
+    problems = tuple(sorted(history.problem_products))
+    if not products or not problems:
+        empty_configuration: dict[str, int | float | str] = (
+            {"aggregation": "none"} if aggregation == "none" else {}
+        )
+        ranker = GraphSageRanker({}, {}, empty_configuration)
+        if on_epoch is not None:
+            for epoch in range(epochs):
+                on_epoch(
+                    {
+                        "epoch": epoch + 1,
+                        "steps": 0,
+                        "positive_edges_skipped": 0,
+                        "mean_bpr_data_loss": None,
+                        "triplets_visited": 0,
+                    }
+                )
+        if on_checkpoint is not None:
+            on_checkpoint(
+                {
+                    "schema": "healthgraphbench.graphsage-checkpoint.v1",
+                    "configuration": dict(empty_configuration),
+                    "epochs_completed": max(0, epochs),
+                    "products": [],
+                    "problems": [],
+                    "product_neighbors": {},
+                    "problem_neighbors": {},
+                    "positive_by_product": {},
+                    "product_inputs": {},
+                    "problem_inputs": {},
+                    "self_weights": [],
+                    "neighbor_weights": [],
+                    "product_embeddings": {},
+                    "problem_embeddings": {},
+                    "resume_supported": False,
+                }
+            )
+        return ranker
+    if aggregation == "mean":
+        product_neighbors = {
+            product: _sample_graph_neighbors(history.product_problems[product], f"p:{product}", neighbor_sample)
+            for product in products
+        }
+        problem_neighbors = {
+            problem: _sample_graph_neighbors(history.problem_products[problem], f"d:{problem}", neighbor_sample)
+            for problem in problems
+        }
+    else:
+        product_neighbors = None
+        problem_neighbors = None
+    product_inputs = {
+        product: _initial_embedding(index, dimension, 11) for index, product in enumerate(products)
+    }
+    problem_inputs = {
+        problem: _initial_embedding(index, dimension, 17) for index, problem in enumerate(problems)
+    }
+    self_weights = [
+        [1.0 if row == column else 0.0 for column in range(dimension)]
+        for row in range(dimension)
+    ]
+    positive_by_product = {
+        product: tuple(sorted(history.product_problems[product])) for product in products
+    }
+    neighbor_weights: list[list[float]] | None = None
+    if aggregation == "mean":
+        neighbor_weights = [
+            [0.25 if row == column else 0.0 for column in range(dimension)]
+            for row in range(dimension)
+        ]
+    problem_count = len(problems)
+    epochs_completed = 0
+    for epoch in range(epochs):
+        steps = 0
+        positive_edges_skipped = 0
+        data_loss_sum = 0.0
+        triplets_visited = 0
+        for product in products:
+            positives = positive_by_product[product]
+            positive_set = set(positives)
+            for problem in positives:
+                if on_epoch is not None:
+                    triplets_visited += 1
+                start = _stable_integer("graphsage-negative", str(epoch), product, problem) % problem_count
+                negative = None
+                for offset in range(problem_count):
+                    candidate = problems[(start + offset) % problem_count]
+                    if candidate not in positive_set:
+                        negative = candidate
+                        break
+                if negative is None:
+                    if on_epoch is not None:
+                        positive_edges_skipped += 1
+                    continue
+                if aggregation == "mean":
+                    assert product_neighbors is not None
+                    assert problem_neighbors is not None
+                    assert neighbor_weights is not None
+                    product_hidden, product_mean = _graph_message(
+                        product_inputs[product],
+                        [problem_inputs[item] for item in product_neighbors[product]],
+                        self_weights,
+                        neighbor_weights,
+                    )
+                    positive_hidden, positive_mean = _graph_message(
+                        problem_inputs[problem],
+                        [product_inputs[item] for item in problem_neighbors[problem]],
+                        self_weights,
+                        neighbor_weights,
+                    )
+                    negative_hidden, negative_mean = _graph_message(
+                        problem_inputs[negative],
+                        [product_inputs[item] for item in problem_neighbors[negative]],
+                        self_weights,
+                        neighbor_weights,
+                    )
+                else:
+                    product_hidden = _self_message(product_inputs[product], self_weights)
+                    positive_hidden = _self_message(problem_inputs[problem], self_weights)
+                    negative_hidden = _self_message(problem_inputs[negative], self_weights)
+                margin = _dot(product_hidden, positive_hidden) - _dot(product_hidden, negative_hidden)
+                if on_epoch is not None:
+                    data_loss_sum += _softplus_negative_margin(margin)
+                coefficient = 1.0 / (1.0 + math.exp(min(60.0, max(-60.0, margin))))
+                if aggregation == "mean":
+                    assert product_neighbors is not None
+                    assert problem_neighbors is not None
+                    assert neighbor_weights is not None
+                    product_gradient, product_neighbor_gradient, product_self_gradient, product_neighbor_weight_gradient = _graph_message_gradients(
+                        [coefficient * (positive_hidden[index] - negative_hidden[index]) for index in range(dimension)],
+                        product_hidden,
+                        product_inputs[product],
+                        product_mean,
+                        self_weights,
+                        neighbor_weights,
+                        len(product_neighbors[product]),
+                    )
+                    positive_gradient, positive_neighbor_gradient, positive_self_gradient, positive_neighbor_weight_gradient = _graph_message_gradients(
+                        [coefficient * product_hidden[index] for index in range(dimension)],
+                        positive_hidden,
+                        problem_inputs[problem],
+                        positive_mean,
+                        self_weights,
+                        neighbor_weights,
+                        len(problem_neighbors[problem]),
+                    )
+                    negative_gradient, negative_neighbor_gradient, negative_self_gradient, negative_neighbor_weight_gradient = _graph_message_gradients(
+                        [-coefficient * product_hidden[index] for index in range(dimension)],
+                        negative_hidden,
+                        problem_inputs[negative],
+                        negative_mean,
+                        self_weights,
+                        neighbor_weights,
+                        len(problem_neighbors[negative]),
+                    )
+                    product_input_gradients: dict[str, list[float]] = {}
+                    problem_input_gradients: dict[str, list[float]] = {}
+                    _add_vector_gradient(product_input_gradients, product, product_gradient)
+                    for item in product_neighbors[product]:
+                        _add_vector_gradient(problem_input_gradients, item, product_neighbor_gradient)
+                    _add_vector_gradient(problem_input_gradients, problem, positive_gradient)
+                    for item in problem_neighbors[problem]:
+                        _add_vector_gradient(product_input_gradients, item, positive_neighbor_gradient)
+                    _add_vector_gradient(problem_input_gradients, negative, negative_gradient)
+                    for item in problem_neighbors[negative]:
+                        _add_vector_gradient(product_input_gradients, item, negative_neighbor_gradient)
+                else:
+                    product_gradient, product_self_gradient = _self_message_gradients(
+                        [
+                            coefficient * (positive_hidden[index] - negative_hidden[index])
+                            for index in range(dimension)
+                        ],
+                        product_hidden,
+                        product_inputs[product],
+                        self_weights,
+                    )
+                    positive_gradient, positive_self_gradient = _self_message_gradients(
+                        [coefficient * product_hidden[index] for index in range(dimension)],
+                        positive_hidden,
+                        problem_inputs[problem],
+                        self_weights,
+                    )
+                    negative_gradient, negative_self_gradient = _self_message_gradients(
+                        [-coefficient * product_hidden[index] for index in range(dimension)],
+                        negative_hidden,
+                        problem_inputs[negative],
+                        self_weights,
+                    )
+                    product_input_gradients: dict[str, list[float]] = {}
+                    problem_input_gradients: dict[str, list[float]] = {}
+                    _add_vector_gradient(product_input_gradients, product, product_gradient)
+                    _add_vector_gradient(problem_input_gradients, problem, positive_gradient)
+                    _add_vector_gradient(problem_input_gradients, negative, negative_gradient)
+                self_gradient = [
+                    [
+                        product_self_gradient[row][column]
+                        + positive_self_gradient[row][column]
+                        + negative_self_gradient[row][column]
+                        for column in range(dimension)
+                    ]
+                    for row in range(dimension)
+                ]
+                neighbor_gradient: list[list[float]] | None = None
+                if aggregation == "mean":
+                    neighbor_gradient = [
+                        [
+                            product_neighbor_weight_gradient[row][column]
+                            + positive_neighbor_weight_gradient[row][column]
+                            + negative_neighbor_weight_gradient[row][column]
+                            for column in range(dimension)
+                        ]
+                        for row in range(dimension)
+                    ]
+                _apply_matrix_gradient(
+                    self_weights, self_gradient, learning_rate, regularization
+                )
+                if neighbor_gradient is not None:
+                    assert neighbor_weights is not None
+                    _apply_matrix_gradient(
+                        neighbor_weights, neighbor_gradient, learning_rate, regularization
+                    )
+                _apply_vector_gradients(
+                    product_inputs, product_input_gradients, learning_rate, regularization
+                )
+                _apply_vector_gradients(
+                    problem_inputs, problem_input_gradients, learning_rate, regularization
+                )
+                if on_epoch is not None:
+                    steps += 1
+        epochs_completed = epoch + 1
+        if on_epoch is not None:
+            on_epoch(
+                {
+                    "epoch": epoch + 1,
+                    "steps": steps,
+                    "positive_edges_skipped": positive_edges_skipped,
+                    "mean_bpr_data_loss": data_loss_sum / steps if steps else None,
+                    "triplets_visited": triplets_visited,
+                }
+            )
+    product_hidden, problem_hidden = _graphsage_embeddings(
+        products,
+        problems,
+        product_neighbors,
+        problem_neighbors,
+        product_inputs,
+        problem_inputs,
+        self_weights,
+        neighbor_weights,
+        aggregation=aggregation,
+    )
+    configuration: dict[str, int | float | str] = {
+        "dimension": dimension,
+        "epochs": epochs,
+        "neighbor_sample": neighbor_sample if aggregation == "mean" else 0,
+        "learning_rate": learning_rate,
+        "regularization": regularization,
+        "objective": "bpr",
+        "activation": "tanh",
+    }
+    if aggregation == "none":
+        configuration["aggregation"] = "none"
+    ranker = GraphSageRanker(product_hidden, problem_hidden, configuration)
+    if on_checkpoint is not None:
+        on_checkpoint(
+            {
+                "schema": "healthgraphbench.graphsage-checkpoint.v1",
+                "configuration": dict(configuration),
+                "epochs_completed": epochs_completed,
+                "products": list(products),
+                "problems": list(problems),
+                "product_neighbors": (
+                    product_neighbors if product_neighbors is not None else {}
+                ),
+                "problem_neighbors": (
+                    problem_neighbors if problem_neighbors is not None else {}
+                ),
+                "positive_by_product": positive_by_product,
+                "product_inputs": product_inputs,
+                "problem_inputs": problem_inputs,
+                "self_weights": self_weights,
+                "neighbor_weights": (
+                    neighbor_weights
+                    if neighbor_weights is not None
+                    else [[0.0 for _ in range(dimension)] for _ in range(dimension)]
+                ),
+                "product_embeddings": dict(product_hidden),
+                "problem_embeddings": dict(problem_hidden),
+                "resume_supported": False,
+            }
+        )
+    return ranker
+
+
+def _sigmoid(value: float) -> float:
+    if value >= 0:
+        exponent = math.exp(-value) if value < 700 else 0.0
+        return 1.0 / (1.0 + exponent)
+    exponent = math.exp(value) if value > -700 else 0.0
+    return exponent / (1.0 + exponent)
+
+
+def fit_logistic(
+    rows: Sequence[TrainingRow],
+    epochs: int = 40,
+    learning_rate: float = 0.15,
+    l2: float = 0.01,
+) -> LogisticRanker:
+    if not rows:
+        raise ValueError("Cannot fit logistic ranker without training rows")
+    width = len(rows[0].features)
+    means = tuple(sum(row.features[index] for row in rows) / len(rows) for index in range(width))
+    scales = tuple(
+        max(
+            math.sqrt(sum((row.features[index] - means[index]) ** 2 for row in rows) / len(rows)),
+            1e-9,
+        )
+        for index in range(width)
+    )
+    normalized = [
+        tuple((value - means[index]) / scales[index] for index, value in enumerate(row.features))
+        for row in rows
+    ]
+    weights = [0.0] * width
+    intercept = 0.0
+    size = float(len(rows))
+    for _ in range(epochs):
+        gradient = [0.0] * width
+        intercept_gradient = 0.0
+        for row, values in zip(rows, normalized, strict=True):
+            error = (
+                _sigmoid(
+                    intercept
+                    + sum(weight * value for weight, value in zip(weights, values, strict=True))
+                )
+                - row.label
+            )
+            intercept_gradient += error
+            for index, value in enumerate(values):
+                gradient[index] += error * value
+        intercept -= learning_rate * intercept_gradient / size
+        for index in range(width):
+            gradient[index] = gradient[index] / size + l2 * weights[index]
+            weights[index] -= learning_rate * gradient[index]
+    return LogisticRanker(means, scales, tuple(weights), intercept)
+
+
+def _quantile_thresholds(values: Sequence[float], count: int = 12) -> tuple[float, ...]:
+    unique = sorted(set(values))
+    if len(unique) <= 1:
+        return ()
+    if len(unique) <= count + 1:
+        return tuple(unique[:-1])
+    thresholds: list[float] = []
+    for index in range(1, count + 1):
+        position = int(index * (len(unique) - 1) / (count + 1))
+        threshold = unique[position]
+        if threshold not in thresholds:
+            thresholds.append(threshold)
+    return tuple(thresholds)
+
+
+def fit_boosted_stumps(
+    rows: Sequence[TrainingRow],
+    rounds: int = 12,
+    learning_rate: float = 0.08,
+) -> BoostedStumpRanker:
+    if not rows:
+        raise ValueError("Cannot fit boosted stumps without training rows")
+    width = len(rows[0].features)
+    positive_rate = sum(row.label for row in rows) / len(rows)
+    base_score = math.log(max(positive_rate, 1e-6) / max(1.0 - positive_rate, 1e-6))
+    scores = [base_score] * len(rows)
+    feature_orders = [
+        sorted(range(len(rows)), key=lambda row_index: rows[row_index].features[feature])
+        for feature in range(width)
+    ]
+    split_count = 8
+    stumps: list[Stump] = []
+    for _ in range(rounds):
+        residuals = [row.label - _sigmoid(score) for row, score in zip(rows, scores, strict=True)]
+        total_sum = sum(residuals)
+        total_squared = sum(value * value for value in residuals)
+        best: tuple[float, Stump] | None = None
+        for feature, order in enumerate(feature_orders):
+            target_positions = {
+                int(split * (len(order) - 1) / (split_count + 1))
+                for split in range(1, split_count + 1)
+            }
+            left_count = 0
+            left_sum = 0.0
+            left_squared = 0.0
+            for position, row_index in enumerate(order):
+                residual = residuals[row_index]
+                left_count += 1
+                left_sum += residual
+                left_squared += residual * residual
+                if position not in target_positions or position >= len(order) - 1:
+                    continue
+                value = rows[row_index].features[feature]
+                next_value = rows[order[position + 1]].features[feature]
+                if value == next_value:
+                    continue
+                right_count = len(order) - left_count
+                right_sum = total_sum - left_sum
+                right_squared = total_squared - left_squared
+                reduction = (
+                    left_squared
+                    - left_sum * left_sum / left_count
+                    + right_squared
+                    - right_sum * right_sum / right_count
+                )
+                stump = Stump(
+                    feature,
+                    value,
+                    left_sum / left_count,
+                    right_sum / right_count,
+                )
+                if best is None or reduction < best[0]:
+                    best = (reduction, stump)
+        if best is None:
+            break
+        stump = best[1]
+        stumps.append(stump)
+        for index, row in enumerate(rows):
+            scores[index] += learning_rate * (
+                stump.left_value
+                if row.features[stump.feature] <= stump.threshold
+                else stump.right_value
+            )
+    return BoostedStumpRanker(base_score, tuple(stumps), learning_rate)
+
+
+def _matrix_vector_product(
+    vector: Sequence[float],
+    products: Sequence[tuple[int, ...]],
+    problem_weights: Sequence[float],
+) -> list[float]:
+    row_projections = [
+        sum(problem_weights[index] * vector[index] for index in row) for row in products
+    ]
+    result = [0.0] * len(vector)
+    for row, projection in zip(products, row_projections, strict=True):
+        for index in row:
+            result[index] += problem_weights[index] * projection
+    return result
+
+
+def _normalize(vector: list[float]) -> list[float]:
+    norm = math.sqrt(sum(value * value for value in vector))
+    if norm <= 1e-12:
+        return [0.0] * len(vector)
+    return [value / norm for value in vector]
+
+
+def fit_spectral(
+    history: History,
+    rank: int = 8,
+    iterations: int = 18,
+) -> SpectralRanker:
+    problem_order = tuple(sorted(history.problem_products))
+    problem_index = {problem: index for index, problem in enumerate(problem_order)}
+    product_rows = tuple(
+        tuple(problem_index[problem] for problem in sorted(problems))
+        for product, problems in sorted(history.product_problems.items())
+        if problems
+    )
+    product_problem_order = {
+        product: tuple(sorted(problems))
+        for product, problems in history.product_problems.items()
+        if problems
+    }
+    problem_weights = tuple(
+        1.0 / math.sqrt(max(1, len(history.problem_products[problem]))) for problem in problem_order
+    )
+    vectors: list[tuple[float, ...]] = []
+    for component in range(min(rank, len(problem_order))):
+        vector = [
+            math.sin((index + 1) * (component + 1) * 0.731) + 0.1 / (index + component + 1)
+            for index in range(len(problem_order))
+        ]
+        vector = _normalize(vector)
+        for _ in range(iterations):
+            candidate = _matrix_vector_product(vector, product_rows, problem_weights)
+            for previous in vectors:
+                projection = sum(
+                    left * right for left, right in zip(candidate, previous, strict=True)
+                )
+                for index in range(len(candidate)):
+                    candidate[index] -= projection * previous[index]
+            vector = _normalize(candidate)
+        if not any(abs(value) > 1e-9 for value in vector):
+            break
+        vectors.append(tuple(vector))
+    product_projections = {
+        product: tuple(
+            sum(
+                problem_weights[problem_index[item]] * vector[problem_index[item]]
+                for item in product_problems
+            )
+            for vector in vectors
+        )
+        for product, product_problems in product_problem_order.items()
+    }
+    return SpectralRanker(
+        problem_order,
+        problem_index,
+        tuple(vectors),
+        problem_weights,
+        product_problem_order,
+        product_projections,
+    )
+
+
+def _stable_integer(*parts: str) -> int:
+    payload = "|".join(parts).encode("utf-8")
+    return int.from_bytes(hashlib.sha256(payload).digest()[:8], "big")
+
+
+def _initial_embedding(index: int, dimension: int, salt: int) -> list[float]:
+    return [
+        0.05 * math.sin((index + 1) * (component + salt + 1) * 0.173)
+        for component in range(dimension)
+    ]
+
+
+def _dot(left: Sequence[float], right: Sequence[float]) -> float:
+    return sum(a * b for a, b in zip(left, right, strict=True))
+
+
+def fit_graph(
+    history: History,
+    dimension: int = 8,
+    epochs: int = 4,
+    learning_rate: float = 0.03,
+    regularization: float = 0.001,
+) -> GraphRanker:
+    products = tuple(sorted(history.product_problems))
+    problems = tuple(sorted(history.problem_products))
+    if not products or not problems:
+        return GraphRanker({}, {}, {}, {})
+    product_embeddings = {
+        product: _initial_embedding(index, dimension, 1) for index, product in enumerate(products)
+    }
+    problem_embeddings = {
+        problem: _initial_embedding(index, dimension, 7) for index, problem in enumerate(problems)
+    }
+    positive_by_product = {
+        product: tuple(sorted(history.product_problems[product])) for product in products
+    }
+    problem_count = len(problems)
+    for epoch in range(epochs):
+        for product in products:
+            positives = positive_by_product[product]
+            for problem in positives:
+                negative_index = _stable_integer(str(epoch), product, problem) % problem_count
+                for _ in range(problem_count):
+                    candidate = problems[negative_index]
+                    if candidate not in history.product_problems[product]:
+                        break
+                    negative_index = (negative_index + 1) % problem_count
+                else:
+                    continue
+                left = product_embeddings[product]
+                positive = problem_embeddings[problem]
+                negative = problem_embeddings[candidate]
+                margin = _dot(left, positive) - _dot(left, negative)
+                gradient = 1.0 / (1.0 + math.exp(min(60.0, max(-60.0, margin))))
+                left_before = tuple(left)
+                positive_before = tuple(positive)
+                negative_before = tuple(negative)
+                for component in range(dimension):
+                    left[component] += learning_rate * (
+                        gradient * (positive_before[component] - negative_before[component])
+                        - regularization * left_before[component]
+                    )
+                    positive[component] += learning_rate * (
+                        gradient * left_before[component]
+                        - regularization * positive_before[component]
+                    )
+                    negative[component] += learning_rate * (
+                        -gradient * left_before[component]
+                        - regularization * negative_before[component]
+                    )
+
+    propagated_products: dict[str, tuple[float, ...]] = {}
+    propagated_problems: dict[str, tuple[float, ...]] = {}
+    for product in products:
+        neighbors = positive_by_product[product]
+        mean = [
+            sum(problem_embeddings[problem][component] for problem in neighbors) / len(neighbors)
+            for component in range(dimension)
+        ]
+        propagated_products[product] = tuple(
+            0.5 * product_embeddings[product][component] + 0.5 * mean[component]
+            for component in range(dimension)
+        )
+    for problem in problems:
+        neighbors = tuple(sorted(history.problem_products[problem]))
+        mean = [
+            sum(product_embeddings[product][component] for product in neighbors) / len(neighbors)
+            for component in range(dimension)
+        ]
+        propagated_problems[problem] = tuple(
+            0.5 * problem_embeddings[problem][component] + 0.5 * mean[component]
+            for component in range(dimension)
+        )
+    return GraphRanker(
+        {product: tuple(values) for product, values in product_embeddings.items()},
+        {problem: tuple(values) for problem, values in problem_embeddings.items()},
+        propagated_products,
+        propagated_problems,
+    )
+
+
+def sample_training_rows(
+    quarter: str,
+    eligible_edges: Collection[Edge],
+    context: FeatureContext,
+    negative_ratio: int = 5,
+) -> list[TrainingRow]:
+    by_product: dict[str, set[str]] = defaultdict(set)
+    for product, problem in eligible_edges:
+        by_product[product].add(problem)
+    rows: list[TrainingRow] = []
+    for product in sorted(by_product):
+        positives = sorted(by_product[product])
+        candidates = context.history.candidate_problems(product)
+        positive_set = set(positives)
+        negatives = [candidate for candidate in candidates if candidate not in positive_set]
+        negatives.sort(key=lambda problem: _stable_integer(quarter, product, problem))
+        negative_limit = min(len(negatives), negative_ratio * len(positives))
+        selected = positives + negatives[:negative_limit]
+        features = context.row_features(product, selected)
+        rows.extend(
+            TrainingRow(features[problem], int(problem in positive_set)) for problem in selected
+        )
+    return rows

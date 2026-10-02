@@ -1,0 +1,150 @@
+\par\Needspace{9\baselineskip}
+\section{CMS : AP par seuils et égalités au décile}
+\label{supp:ties}
+Les douze AP par seuils et les frontières de décile ont été recalculées depuis les prédictions CMS individuelles, après vérification de leur empreinte. La sortie exacte est \src{data/real_R4/cms_ties_exact.json}. Les identités issues des résumés, conservées dans \src{data/cms_summary_identities_R4.json}, servent de contrôles distincts; elles ne remplacent plus les trois valeurs locales auparavant manquantes.
+
+\subsection{Valeurs exactes et effet de la convention}
+L'AP historique est notée $\mathrm{AP}_{\mathrm{rang}}$. L'AP regroupant les scores exactement égaux est notée $\mathrm{AP}_{\mathrm{seuils}}$ et vaut $\sum_j(t_j/P)(T_j/N_j)$, avec $t_j$ positifs au seuil, $T_j$ positifs cumulés et $N_j$ observations cumulées\cite{sklearnap}. Le regroupement porte sur l'égalité exacte des scores sérialisés, sans tolérance ni arrondi supplémentaire. Les valeurs d'AP et les rappels sont indéfinis si $P=0$; le script les représente par \src{null}.
+
+Une constante annuelle a une AP par seuils égale à la prévalence. Lorsque tous les scores sont distincts, les deux AP sont identiques. Le tableau donne désormais les valeurs calculées pour les trois méthodes, en validation 2023, en test 2024 et 2025, puis sur le test regroupé.
+
+\begin{table}[!htbp]\centering\small
+\caption{AP calculées sur les prédictions individuelles gelées. Les neuf décimales distinguent la précision numérique de l'incertitude statistique; aucun nouvel intervalle n'est associé à l'AP par seuils.}
+\input{tables/cms_ap_exact_R4_fr.tex}
+\end{table}
+
+Dans le regroupement, la référence de prévalence prend deux valeurs : 0,1379310345 en 2024 et 0,1397037254 en 2025. L'année 2025 est donc classée avant 2024. Les deux groupes donnent
+\[
+\mathrm{AP}_{\mathrm{seuils}}=
+\frac{1170}{2423}\frac{1170}{10076}
++\frac{1253}{2423}\frac{2423}{18985}=0,1220694209.
+\]
+Cette identité utilisant les constantes et effectifs enregistrés concorde avec le recalcul direct. Elle n'ajoute aucune prédiction.
+
+\subsection{Bornes algébriques et différences observées}
+Soient $n$ observations, $u$ scores distincts et $P>0$ positifs. Pour un groupe de $m$ observations à égalité, contenant $t$ positifs, la différence entre les contributions non divisées par $P$ aux deux AP est au plus $m-1$ en valeur absolue. Si $t<m$, au plus $m-1$ termes sont comparés, chacun compris entre 0 et 1; si $t=m$, le dernier terme est identique et il en reste au plus $m-1$. En sommant sur les groupes,
+\[
+ |\mathrm{AP}_{\mathrm{seuils}}-\mathrm{AP}_{\mathrm{rang}}|\le\frac{n-u}{P}.
+\]
+Les excédents $n-u$ du modèle local sont 0, 2, 1 et 3 pour 2023, 2024, 2025 et le test regroupé. Les scores du modèle avec propriétaires sont tous distincts. Les bornes calculées avant accès aux scores sont conservées dans \src{data/cms_summary_identities_R4.json}; elles ne mesurent aucune incertitude d'échantillonnage.
+
+Les deux groupes d'égalité du modèle local en 2024 comportent chacun deux négatifs. Celui de 2025 contient un négatif puis un positif dans l'ordre historique : le positif est dernier dans le groupe et sa précision est donc celle du seuil complet. Ces trois groupes expliquent l'égalité observée des deux AP; elle ne constitue pas une invariance générale de l'AP de rang aux permutations.
+
+Le recalcul exact donne la même AP de rang et de seuils pour les deux modèles appris. L'écart propriétaires moins local vaut $-0,002620600$ en validation 2023, $+0,001796527$ en 2024, $-0,000175565$ en 2025 et $+0,001249204$ sur le test regroupé. Le signe 2025, indéterminé à partir des seules bornes, est donc négatif. Aucun intervalle historique n'est transféré à cette nouvelle métrique.
+
+\subsection{Décile : frontière et sélection uniforme}
+Pour $k=\lceil0,1n\rceil$, soient $a$ les positifs strictement au-dessus de la frontière, $m$ le nombre d'observations à égalité à la frontière, $t$ leurs positifs, et $r$ les places restant à remplir. Une sélection uniforme dans ce groupe donne $\mathbb{E}[H]=a+rt/m$. Les nombres de positifs possibles sont compris entre $a+\max(0,r-m+t)$ et $a+\min(r,t)$. Une sélection uniforme parmi \emph{toutes} les observations a pour précision attendue $P/n$ et pour rappel attendu $k/n$; elle est distincte de la sélection uniforme seulement parmi les ex æquo de frontière.
+
+Pour la référence annuelle constante, les groupes de frontière contiennent respectivement 2\,661, 8\,909 et 10\,076 observations en 2023, 2024 et 2025; les précisions attendues uniformes valent 0,153326, 0,140644 et 0,116118. Dans le test regroupé, les 1\,899 places sont prises dans le groupe 2025 de 10\,076 observations : la précision attendue \emph{dans ce groupe} vaut 0,116118, contre 0,127627 pour un tirage uniforme dans les 18\,985 inspections.
+
+Les frontières des modèles local et avec propriétaires comportent chacune une seule observation, pour les quatre partitions : $m=r=1$. Leur sélection ne dépend donc pas du départage à la frontière, même si le modèle local possède quelques égalités ailleurs dans le classement. Pour la référence de prévalence, le groupe frontal contient respectivement 408, 1\,253 et 1\,170 positifs en 2023, 2024 et 2025; les places à remplir sont 267, 891 et 1\,008. Dans le test regroupé, ce groupe contient 1\,170 positifs et 1\,899 places sont retenues.
+
+\src{scripts/cms_ties_analysis.py} a exécuté l'analyse exacte : les clés d'inspection, étiquettes et ordre des méthodes sont contrôlés. Le JSON conserve aussi les attentes uniformes, les extrema réalisables et la variance hypergéométrique. Les tests synthétiques vérifient notamment l'invariance de l'AP par seuils aux permutations des ex æquo; ils sont distincts du calcul sur les données réelles.
+
+\begin{table}[!htbp]\centering\small
+\caption{Frontières observées : $m$ observations à égalité, $t$ positives, $r$ places retenues. $P_{\mathrm{hist}}$ est la précision historique et $\mathbb{E}[P_{\text{frontière}}]$ celle attendue sous sélection uniforme dans le seul groupe frontal.}
+\input{tables/cms_decile_exact_R4_fr.tex}
+\end{table}
+
+\par\Needspace{9\baselineskip}
+\section{Contrôle direct du noyau GraphSAGE}
+\label{supp:graphsage}
+Le diagnostic \src{scripts/graphsage_control.py} exécute les fonctions extraites de \src{healthgraphbench/tasks/maude/models.py} au commit épinglé\cite{hgbcode}. Elles sont livrées dans \src{vendor/graphsage_core.py}, sous Apache-2.0 avec leur notice. Les imports et le conteneur d'historique sont autonomes; l'ingestion FDA/CMS est exclue. Le fichier source complet a été vérifié : identifiant Git \src{8f597390fb09bb7cb971cec92abd4742a8a9e718} conforme et arbres syntaxiques des 16 définitions extraites identiques. La preuve est dans \src{verification/real_R4/source_core_comparison.json}.
+
+\subsection{Construction et résultats}
+Le plan diagnostique enregistré comporte deux blocs, chacun avec 12 produits et six problèmes. Chaque produit est associé aux six problèmes de son bloc, sauf un lien masqué par la règle $i\bmod6$. Les 120 arêtes restantes sont les seules utilisées pour l'entraînement. Chaque produit a sept candidats non observés, dont un positif masqué; tous les nœuds existent dans le graphe d'entraînement. Les négatifs BPR peuvent inclure un lien masqué, conformément au mécanisme de feedback implicite testé. La séquence 0, 3 et 30 époques est exécutée intégralement, sans sélection d'un seul résultat. Dimension 8, huit voisins, taux d'apprentissage 0,02 et régularisation 0,0005 restent inchangés.
+
+\begin{table}[!htbp]\centering\small
+\caption{Diagnostic synthétique du noyau extrait. Les métriques ne concernent pas MAUDE.}
+\input{tables/graphsage_control_R4_fr.tex}
+\end{table}
+
+La perte diagnostique moyenne est $\log(1+\exp(-\Delta s))$ sur les arêtes d'entraînement contre un problème du bloc opposé. Elle ne reconstitue pas la trace historique de l'optimiseur MAUDE et ne correspond pas exactement à ses négatifs échantillonnés. Le rappel et la MRR du tableau portent sur les 24 liens masqués. Après trois époques, la variation maximale d'un score est 0,003000684 et le rappel à 1 diminue; après trente époques, tous les liens masqués sont retrouvés au premier rang. Le résultat défavorable à trois époques n'est pas supprimé.
+
+\subsection{Contrôles et portée}
+Quatorze dérivées scalaires de la propagation sont comparées à des différences finies centrales de pas $10^{-6}$ : erreur absolue maximale $4,52\times10^{-11}$ pour une tolérance $10^{-6}$. Une nouvelle exécution à trois époques reproduit exactement les scores. Tous les scores sont finis. Les résultats, rangs, paramètres, empreinte du noyau et environnement sont dans \src{data/graphsage_control_R4.json}; le journal d'exécution est joint.
+
+Une nouvelle exécution après vérification de la source retrouve exactement le graphe et les rangs masqués, et les métriques à $10^{-12}$ près (\src{data/real_R4/graphsage_control_verified.json}). Les 14 dérivées passent, avec une erreur maximale de $5,07\times10^{-11}$. Les empreintes des tableaux de scores diffèrent du diagnostic reçu; les tableaux initiaux n'ayant pas été conservés, leur égalité exacte ne peut pas être vérifiée. La répétition à trois époques est déterministe dans le nouvel environnement. Cette limite exclut une revendication de reproduction bit à bit des scores antérieurs.
+
+Ce contrôle historique montre qu'un noyau de calcul documenté modifie les scores et peut récupérer le signal synthétique construit. Il ne prouve ni l'optimalité du modèle, ni un effet propre de l'agrégation, ni la suffisance de trois époques sur MAUDE. À cette étape R4, aucun modèle de santé n'a été réentraîné ou remplacé ; les entraînements MAUDE C/D1 ultérieurs sont décrits séparément en S11.
+
+\par\Needspace{9\baselineskip}
+\section{Parcours de reproduction et formats compacts}
+\label{supp:replay}
+Le paquet \src{HealthGraphBench_FAIA_LaTeX_RC2.zip} est distinct de la version publiée du benchmark. Il contient les manuscrits et suppléments bilingues, une réponse historique à l'avis R6, les sources, résultats conservés, trois exports compacts historiques, collecte B1/B2, scripts et tests, ainsi que les preuves C/D1 décrites en S11. L'audit antérieur reste à la racine sous \src{AUDIT_R5_FR.md}. Le ZIP est une révision de travail, non une soumission ou une acceptation éditoriale.
+
+Les sorties individuelles déjà calculées ont été lues dans le dépôt local, après contrôle de leurs empreintes. Les exports inclus permettent un rejeu hors ligne, sans archives brutes FDA/CMS ni réentraînement. Les noms de sortie doivent être nouveaux :
+
+\begin{Verbatim}[fontsize=\footnotesize]
+mkdir -p /tmp/hgb-r4-replay
+python scripts/compact_replay.py replay data/real_R4/maude.json.gz \
+  --output /tmp/hgb-r4-replay/maude.json \
+  --compare data/maude_neighbors_vs_global_R2.json
+python scripts/compact_replay.py replay data/real_R4/partd.json.gz \
+  --output /tmp/hgb-r4-replay/partd.json \
+  --compare data/partd_bpr_vs_specialty_R2.json
+python scripts/compact_replay.py replay data/real_R4/cms.json.gz \
+  --output /tmp/hgb-r4-replay/cms.json
+\end{Verbatim}
+
+L'acquisition réseau des cinq entrées a aussi abouti, avec vérification de toutes les empreintes attendues. \src{scripts/acquire_inputs.py} utilise GitHub au commit épinglé pour MAUDE, CMS et la source, et le dépôt Zenodo v0.2 pour les classements et le rapport Part D : leur ancien chemin GitHub renvoyait une erreur 404. \src{verification/real_R4/network_acquisition_manifest.json} consigne les URL, tailles et empreintes. Le DOI v0.2 a été résolu; ce n'est pas un DOI attribué au présent paquet.
+
+Pour MAUDE et Part D, l'export conserve les 13 sommes suffisantes par grappe et leur ordre lexical d'origine : positifs, observations avec positif, observations admissibles, somme des rangs réciproques, liens retrouvés, sommes des rappels macro et places effectivement proposées à 5/10/20. L'ordre est remplacé par des identifiants locaux ordinaux, sans NPI ou code produit brut. La fenêtre d'évaluation est enregistrée. Les colonnes de places MAUDE restent des valeurs de compatibilité et ne servent pas à rapporter une précision inexistante dans ces sorties. Toutes les observations d'une grappe restent agrégées ensemble.
+
+Le compact CMS conserve l'étiquette, les trois scores, l'année, l'ordre original et un identifiant local de grappe, sans CCN brut ni date quotidienne. L'ordre suffit à conserver le départage historique; l'année et la grappe permettent les analyses correspondantes. Il s'agit de pseudonymisation locale, non d'une garantie générale d'anonymat.
+
+\src{compact_replay.py replay --compare} a comparé 49 champs numériques MAUDE et 91 champs Part D aux sorties conservées, à tolérance absolue $10^{-12}$. Les deux rejeux utilisent 1\,000 tirages et la graine 20260929. Le rejeu des 21\,646 lignes CMS reproduit exactement les résultats directs des quatre partitions. Les horodatages sont distincts; les anciens fichiers ne sont pas remplacés.
+
+Les preuves d'exécution et environnements sont dans \src{verification/real_R4}; les journaux de la R4 reçue restent dans \src{verification/r4}. Le parcours commun Part D a aussi été exécuté sur un arbre de travail propre au commit épinglé : \src{load_task}, partitions, adaptateur \src{fit_predict} d'un comparateur conservé et \src{evaluate}, sans nouvel entraînement. Les README documentent les commandes, les contrôles et la compilation.
+\par\Needspace{10\baselineskip}
+\section{Collecte MAUDE réelle : entrées B1 et couverture B2}
+\label{supp:maudeB}
+La collecte R6 a réacquis les neuf archives officielles FDA MAUDE avec tailles et empreintes SHA-256 identiques à celles de l'expérience gelée. Elle a vérifié 24 trimestres de l'échantillonneur et les inventaires des trois réajustements contre le code d'origine. Sur 9\,853 produit--trimestres et sept méthodes, identités positives, cardinalités de candidats, soutien historique, groupes évalués et effectifs positifs concordent avec l'évaluation gelée. Aucun score appris n'a été recalculé; états d'optimiseur et checkpoints n'ont pas été récupérés. Le rejeu hors ligne reproduit octet pour octet les instantanés préparés, descripteurs et trois tableaux CSV. Les données sont sous \src{data/real_R6/maude_B}; les contrôles sont dans \src{verification/real_R6/collection_checks.json}.
+
+\subsection{B1 : lignes tabulaires et graphes historiques}
+Le chemin tabulaire accumule les premières relations admissibles et un non-positif déterministe échantillonné par positif, jusqu'au rapport négatif/positif maximal de 1. Le tableau donne les effectifs réellement reconstruits pour chaque réajustement et la fin de son historique :
+
+\begin{table}[!htbp]\centering\small
+\caption{B1, lignes tabulaires d'entraînement MAUDE aux trois réajustements; effectifs issus de \src{training_tabular.csv}.}
+\label{tab:maude-B1-tabular}
+\input{tables/maude_B1_tabular_R6_fr.tex}
+\end{table}
+
+Le tableau distinct ci-dessous décrit les graphes historiques utilisés par la factorisation spectrale, le BPR avec moyenne fixe à un saut et GraphSAGE. Les nombres « produits avec signalements / nœuds produit / nœuds problème » distinguent les produits ayant un passé des nœuds de produit uniques. Pour les boucles BPR et GraphSAGE, chaque passage parcourt toutes les arêtes positives historiques; aucune visite positive n'est sautée. Le nombre de pas est donc le nombre de triplets par époque multiplié par les époques configurées, une implication du code gelé et des historiques reconstruits, non le contenu de journaux d'optimiseur récupérés.
+
+\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{2pt}
+\caption{B1, inventaires des graphes et pas de gradient triplet impliqués par les boucles; effectifs reconstruits depuis \src{training_graph.csv}. « -- » : non applicable à la factorisation spectrale.}
+\label{tab:maude-B1-graph}
+\input{tables/maude_B1_graph_R6_fr.tex}
+\end{table}
+
+\FloatBarrier
+Les inventaires sont reconstruits à partir des historiques préparés, et non examinés dans des checkpoints. Les fichiers ne fournissent ni poids appris récupérés ni trace historique de l'optimiseur; ces effectifs ne prouvent pas la qualité des scores, une ablation, ni un effet propre de l'agrégation.
+
+\par\Needspace{10\baselineskip}
+\subsection{B2 : couverture trimestrielle des représentations}
+La couverture est calculée séparément à chaque trimestre. Les produits comptent les produits évalués; les problèmes sont les codes candidats distincts du trimestre; les paires sont toutes les paires admissibles produit--problème; les liens positifs sont les positives évaluées. Dans chaque cellule, le numérateur est le nombre représenté, le dénominateur le nombre éligible et le pourcentage leur rapport. Le total additionne les unités trimestrielles (et non les entités uniques entre trimestres). Le périmètre est celui des produit--trimestres avec au moins un positif et de tous leurs candidats admissibles; il ne constitue pas une extension aux observations sans positif.
+
+\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{2pt}
+\caption{B2, couverture par trimestre : représentés / éligibles (couverture en pourcentage). Le total couvre 2023--2025; la dernière ligne ne couvre que le test 2024--2025. Comptes issus de \src{coverage_quarterly.csv}.}
+\label{tab:maude-B2-coverage}
+\input{tables/maude_B2_coverage_R6_fr.tex}
+\end{table}
+
+\FloatBarrier
+\par\Needspace{8\baselineskip}
+\paragraph{Synthèse limitée au test et listes entièrement couvertes.}
+Sur le test 2024--2025, 2\,902\,573 des 2\,975\,156 paires candidates (97,56\,\%) et 12\,884 des 13\,174 liens positifs (97,80\,\%) ont leurs deux nœuds représentés. Pourtant, seuls \textbf{1\,414 des 6\,370 produit--trimestres, soit 22,20\,\%}, ont les deux nœuds représentés pour chacun de leurs candidats. Sur l'ensemble validation et test (2023--2025), ce dernier compte est de 2\,331 sur 9\,853 (23,66\,\%). Une couverture élevée des paires n'implique donc pas une couverture complète de presque toutes les listes : quelques problèmes candidats absents peuvent concerner de nombreuses listes. Le total des douze trimestres et la synthèse des huit trimestres de test ne sont pas deux populations disjointes.
+
+Cette synthèse additionne les comptes déjà livrés, sans nouveau score, rééchantillonnage ni mesure de performance sur une sous-population. Le script \src{scripts/summarize_maude_coverage.py} agrège \src{coverage_quarterly.csv} et confronte les effectifs de listes aux observations détaillées de \src{descriptors.json}; \src{data/maude_coverage_periods_R6.json} conserve les numérateurs, dénominateurs et empreintes des deux entrées. Ces taux décrivent la présence des clés; ils n'isolent pas la contribution du repli à zéro à l'écart de performance.
+
+Les paires non représentées se répartissent sans chevauchement selon la disponibilité des deux nœuds. « Produit seul manquant » signifie que le problème candidat est représenté; « problème seul manquant » signifie que le produit est représenté. Au total, 87\,994 paires manquent : 58\,215 par absence du seul nœud produit, 29\,240 par absence du seul nœud problème et 539 par absence des deux.
+
+\begin{table}[!htbp]\centering\small
+\caption{B2, paires candidates non représentées par trimestre, réparties selon les nœuds absents; source : \src{coverage_quarterly.csv}.}
+\label{tab:maude-B2-missing}
+\input{tables/maude_B2_missing_pairs_R6_fr.tex}
+\end{table}
+
+\FloatBarrier
+Cette couverture est descriptive : pour BPR et GraphSAGE, elle mesure la présence des clés de nœuds dans les inventaires reconstruits. Pour la factorisation spectrale, elle décrit le domaine d'entrée, sans garantir des composantes non dégénérées. Les scores nuls ne servent pas à déduire une absence de vecteur sauvegardé. Elle ne fournit ni explication causale des résultats GraphSAGE, ni nouveaux scores, et n'implique aucun réentraînement.

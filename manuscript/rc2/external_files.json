@@ -1,0 +1,47 @@
+[
+  {
+    "source": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/fit_epochs_30/checkpoint.json.gz",
+    "target": "data/post_rc1/checkpoints/C_test_2024_fit_epochs_30.json.gz",
+    "sha256": "9f5a0173ec023d3c03ca8ac63b62fce828ba1b79fef76280753ee27f8381db23"
+  },
+  {
+    "source": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/fit_epochs_30/checkpoint.json.gz",
+    "target": "data/post_rc1/checkpoints/C_test_2025_fit_epochs_30.json.gz",
+    "sha256": "a3c6122945b20110c9aad93dd872edc353d5f06f670a6329fa4c04002f293134"
+  },
+  {
+    "source": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_00/checkpoint.json.gz",
+    "target": "data/post_rc1/checkpoints/C_validation_2023_fit_epochs_00.json.gz",
+    "sha256": "68273e490281e85da8fa2ada1c2b0ffd605b62a61e8a04dbc6957cc731ba2d68"
+  },
+  {
+    "source": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_03/checkpoint.json.gz",
+    "target": "data/post_rc1/checkpoints/C_validation_2023_fit_epochs_03.json.gz",
+    "sha256": "adf2782b36bcd7607f7921aca74c3e78ab86feb75b6f08fe383d5e5604d137dc"
+  },
+  {
+    "source": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_10/checkpoint.json.gz",
+    "target": "data/post_rc1/checkpoints/C_validation_2023_fit_epochs_10.json.gz",
+    "sha256": "6d5b459e7ad16c72258faaeffb264d735d86a6e258bf05484f4f1a776353845b"
+  },
+  {
+    "source": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/checkpoint.json.gz",
+    "target": "data/post_rc1/checkpoints/C_validation_2023_fit_epochs_30.json.gz",
+    "sha256": "429aca80805463f0448e2d9dd66e018f30a1d099ebd4b4abad37be25548bdb71"
+  },
+  {
+    "source": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/fit_epochs_30/checkpoint.json.gz",
+    "target": "data/post_rc1/checkpoints/D1_test_2024_fit_epochs_30.json.gz",
+    "sha256": "15eeae8cfc5f6c233b0350de52042e5a52df669efa3817708552fb7550e3e765"
+  },
+  {
+    "source": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/fit_epochs_30/checkpoint.json.gz",
+    "target": "data/post_rc1/checkpoints/D1_test_2025_fit_epochs_30.json.gz",
+    "sha256": "aeb0996196d0473cf4bda8b2bdd490afa128139e604fb4de77d1a61195f35602"
+  },
+  {
+    "source": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/checkpoint.json.gz",
+    "target": "data/post_rc1/checkpoints/D1_validation_2023_fit_epochs_30.json.gz",
+    "sha256": "71279ddbc9761084ddc3fefa69f344f9386d43518e30dd2d3275ceb601349788"
+  }
+]

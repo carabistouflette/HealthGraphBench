@@ -1,0 +1,27 @@
+% Point d'entrée utilisant la classe officielle ; non compilé dans cette livraison.
+% Installer la classe et le style avec scripts/install_ios_template.py.
+% Vérifier que le volume choisi accepte un manuscrit en français.
+\documentclass[french]{IOS-Book-Article}
+\input{ios_packages}
+\input{metadata_fr}
+\begin{document}
+\begin{frontmatter}
+\title{\PaperTitle}
+\runningtitle{HealthGraphBench : benchmark exploratoire}
+\author{\PaperAuthors}
+\address{\PaperAffiliation}
+\runningauthor{Auteurs à renseigner}
+\begin{abstract}
+\input{sections/abstract_fr}
+\end{abstract}
+\begin{keyword}
+\PaperKeywords
+\end{keyword}
+\end{frontmatter}
+\input{sections/body_fr}
+\section*{Déclarations}
+% À remplacer par des déclarations factuelles validées et la déclaration d'assistance d'IA.
+Identité et contributions des auteurs, financement, intérêts concurrents, usage des données, cadre éthique et assistance d'IA sont à finaliser avant soumission. Consulter le supplément scientifique RC2, notamment S11 pour les explorations post-RC1 et S12 pour les éléments ouverts. Ne pas soumettre ce fichier avec ses champs provisoires.
+\bibliographystyle{vancouver}
+\bibliography{references}
+\end{document}

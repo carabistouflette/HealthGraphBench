@@ -1,0 +1,150 @@
+\par\Needspace{9\baselineskip}
+\section{CMS: threshold AP and top-decile ties}
+\label{supp:ties}
+All twelve threshold AP values and decile boundaries were recomputed from individual CMS predictions after verifying their fingerprint. The exact output is \src{data/real_R4/cms_ties_exact.json}. Summary-derived identities, retained in \src{data/cms_summary_identities_R4.json}, provide separate checks; they no longer substitute for the three previously missing local-model values.
+
+\subsection{Exact values and effect of the convention}
+Historical AP is denoted $\mathrm{AP}_{\mathrm{rank}}$. AP grouping exactly equal scores is denoted $\mathrm{AP}_{\mathrm{thresholds}}$ and equals $\sum_j(t_j/P)(T_j/N_j)$, with $t_j$ threshold-group positives, $T_j$ cumulative positives and $N_j$ cumulative observations\cite{sklearnap}. Ties use exact equality of serialized scores, without tolerance or additional rounding. AP and recalls are undefined if $P=0$; the script represents them as \src{null}.
+
+An annual constant has threshold AP equal to prevalence. Distinct scores make both AP conventions identical. The table now gives computed values for all three methods in 2023 validation, 2024 and 2025 test, and pooled test evaluation.
+
+\begin{table}[!htbp]\centering\small
+\caption{AP calculated from frozen individual predictions. Nine decimal places distinguish numerical precision from statistical uncertainty; no new interval is attached to threshold AP.}
+\input{tables/cms_ap_exact_R4_en.tex}
+\end{table}
+
+The pooled prevalence reference takes two values: 0.1379310345 in 2024 and 0.1397037254 in 2025. Thus 2025 precedes 2024. Its two threshold groups give
+\[
+\mathrm{AP}_{\mathrm{thresholds}}=
+\frac{1170}{2423}\frac{1170}{10076}
++\frac{1253}{2423}\frac{2423}{18985}=0.1220694209.
+\]
+This identity using recorded constants and counts agrees with the direct recalculation. It adds no predictions.
+
+\subsection{Algebraic bounds and observed differences}
+Let $n$ be the observation count, $u$ the distinct-score count and $P>0$ the positive count. For a tied group of $m$ observations containing $t$ positives, the AP contributions before division by $P$ differ by at most $m-1$ in absolute value. If $t<m$, at most $m-1$ terms bounded between 0 and 1 are compared; if $t=m$, the last term agrees and at most $m-1$ remain. Summing over groups yields
+\[
+ |\mathrm{AP}_{\mathrm{thresholds}}-\mathrm{AP}_{\mathrm{rank}}|\le\frac{n-u}{P}.
+\]
+The local model has $n-u$ equal to 0, 2, 1, and 3 in 2023, 2024, 2025, and pooled test evaluation. All owner-augmented scores are distinct. Bounds calculated before score access remain in \src{data/cms_summary_identities_R4.json}; they quantify no sampling uncertainty.
+
+The local model's two tied groups in 2024 each contain two negatives. Its 2025 group contains a negative followed by a positive in historical order: the positive is last in the group, so its precision equals that at the complete threshold. These three groups explain the observed equality of both AP values; this is not a general invariance of rank AP to permutations.
+
+Exact recalculation gives identical rank and threshold AP for both learned models. Owners minus local history is $-0.002620600$ in 2023 validation, $+0.001796527$ in 2024, $-0.000175565$ in 2025, and $+0.001249204$ in pooled test evaluation. The 2025 sign, unidentified from the bounds alone, is therefore negative. No historical interval is transferred to this new metric.
+
+\subsection{Decile boundary and uniform selection}
+For $k=\lceil0.1n\rceil$, let $a$ count positives strictly above the boundary, $m$ the tied boundary observations, $t$ their positives, and $r$ the remaining slots. Uniform selection within this group gives $\mathbb{E}[H]=a+rt/m$. Possible hit counts range from $a+\max(0,r-m+t)$ to $a+\min(r,t)$. Uniform selection among \emph{all} observations has expected precision $P/n$ and expected recall $k/n$; it differs from uniform selection only within the boundary tie group.
+
+For annual constant scores, the boundary groups contain all 2,661, 8,909 and 10,076 observations in 2023, 2024 and 2025; expected uniform precisions are 0.153326, 0.140644 and 0.116118. In pooled evaluation, all 1,899 slots come from the higher-scoring 2025 group of 10,076 observations: expected precision \emph{within that group} is 0.116118, compared with 0.127627 for uniform selection among all 18,985 inspections.
+
+Local and owner-augmented model boundaries each contain a single observation in all four scopes: $m=r=1$. Selection therefore does not depend on boundary tie-breaking, even though the local model has a few ties elsewhere in the ranking. For the prevalence reference, the boundary group contains 408, 1,253, and 1,170 positives in 2023, 2024, and 2025; the available slots are 267, 891, and 1,008. In pooled test evaluation, this group contains 1,170 positives and 1,899 slots are filled.
+
+\src{scripts/cms_ties_analysis.py} executed the exact analysis: inspection keys, labels, and method order are checked. The JSON also records uniform expectations, attainable extrema, and hypergeometric variance. Synthetic tests check, among other properties, threshold-AP invariance to within-tie permutations; they are separate from the real-data calculation.
+
+\begin{table}[!htbp]\centering\small
+\caption{Observed boundaries: $m$ tied observations, $t$ positives, $r$ selected slots. $P_{\mathrm{hist}}$ is historical precision and $\mathbb{E}[P_{\mathrm{boundary}}]$ its expectation under uniform selection restricted to the boundary group.}
+\input{tables/cms_decile_exact_R4_en.tex}
+\end{table}
+
+\par\Needspace{9\baselineskip}
+\section{Direct GraphSAGE-core check}
+\label{supp:graphsage}
+The diagnostic \src{scripts/graphsage_control.py} executes functions extracted from \src{healthgraphbench/tasks/maude/models.py} at the pinned commit\cite{hgbcode}. They are included in \src{vendor/graphsage_core.py}, under Apache-2.0 with their notice. Imports and the history container are standalone; FDA/CMS ingestion is excluded. The complete source file was verified: Git identifier \src{8f597390fb09bb7cb971cec92abd4742a8a9e718} matches and syntax trees of all 16 extracted definitions are identical. Evidence is in \src{verification/real_R4/source_core_comparison.json}.
+
+\subsection{Construction and outcomes}
+The recorded diagnostic design has two blocks, each with 12 products and six problems. Every product connects to its six in-block problems except for one masked link chosen by $i\bmod6$. Only the remaining 120 edges are used for training. Every product has seven unseen candidates, including one masked positive; all target nodes exist in the training graph. BPR negatives may include a masked positive, as allowed by the tested implicit-feedback mechanism. The full sequence of 0, 3 and 30 epochs is reported rather than selecting one outcome. Dimension 8, eight neighbors, learning rate 0.02 and regularization 0.0005 are unchanged.
+
+\begin{table}[!htbp]\centering\small
+\caption{Synthetic diagnostic of the extracted core. These are not MAUDE metrics.}
+\input{tables/graphsage_control_R4_en.tex}
+\end{table}
+
+The diagnostic mean loss is $\log(1+\exp(-\Delta s))$ on training edges against an opposite-block problem. It is not a historical MAUDE optimization trace and does not exactly reproduce its sampled negatives. Recall and MRR concern the 24 masked links. Three epochs change a score by at most 0.003000684 and lower Recall@1; thirty epochs rank every masked edge first. The unfavorable three-epoch outcome is retained.
+
+\subsection{Checks and scope}
+Fourteen scalar propagation derivatives are checked against central finite differences with step $10^{-6}$: maximum absolute error $4.52\times10^{-11}$ at tolerance $10^{-6}$. Repeating the three-epoch run exactly reproduces scores. All scores are finite. Outcomes, ranks, parameters, the core fingerprint and environment are in \src{data/graphsage_control_R4.json}; an execution log is included.
+
+A new run after source verification exactly recovers the graph and masked ranks, and metrics within $10^{-12}$ (\src{data/real_R4/graphsage_control_verified.json}). All 14 derivatives pass, with maximum error $5.07\times10^{-11}$. Score-array fingerprints differ from the supplied diagnostic; because the original arrays were not retained, their exact equality cannot be checked. The three-epoch repetition is deterministic in the new environment. This limitation precludes claiming bitwise reproduction of prior scores.
+
+This checks that a documented computational core changes scores and can recover this constructed signal. It establishes neither model optimality nor a specific aggregation effect; the distinct RC2 D1 comparison is exploratory and not capacity matched (S11). It also establishes neither the sufficiency of three epochs on the real task nor the validity of preprocessing, temporal availability, MAUDE vector coverage, or clinical utility. No health-data model was retrained for this synthetic R4 diagnostic; separate RC2 health-model training is reported in S11.
+
+\par\Needspace{9\baselineskip}
+\section{Reproduction path and compact formats}
+\label{supp:replay}
+The historical package \src{HealthGraphBench_FAIA_LaTeX_RC1.zip} is distinct from the benchmark commit. It contained the earlier PDFs and sources, retained results, complementary analyses, three real compact exports, the B1/B2 collection, scripts, and tests. The historical audit is accessible at its root as \src{AUDIT_R5_FR.md}, with an updated preface. This archive was not published to a remote repository; its contents do not describe the current RC2 working package.
+
+For the historical replay procedures below, already computed individual outputs were read after fingerprint checks. Those included exports permit offline replay of the listed retained analyses without raw FDA/CMS archives or retraining. This statement concerns replay only; the separate RC2 C/D1 health-model training and evidence are reported in S11. Output names must be new:
+
+\begin{Verbatim}[fontsize=\footnotesize]
+mkdir -p /tmp/hgb-r4-replay
+python scripts/compact_replay.py replay data/real_R4/maude.json.gz \
+  --output /tmp/hgb-r4-replay/maude.json \
+  --compare data/maude_neighbors_vs_global_R2.json
+python scripts/compact_replay.py replay data/real_R4/partd.json.gz \
+  --output /tmp/hgb-r4-replay/partd.json \
+  --compare data/partd_bpr_vs_specialty_R2.json
+python scripts/compact_replay.py replay data/real_R4/cms.json.gz \
+  --output /tmp/hgb-r4-replay/cms.json
+\end{Verbatim}
+
+Network acquisition of all five inputs also succeeded, with every expected fingerprint verified. \src{scripts/acquire_inputs.py} uses GitHub at the pinned commit for MAUDE, CMS, and source, and the Zenodo v0.2 record for Part D rankings and report: their previous GitHub path returned HTTP 404. \src{verification/real_R4/network_acquisition_manifest.json} records URLs, sizes, and fingerprints. The v0.2 DOI resolved; it is not a DOI assigned to this package.
+
+For MAUDE and Part D, compact exports retain 13 sufficient sums per cluster in original lexical order: positives, positive-containing observations, eligible observations, reciprocal-rank sum, hits, macro-recall sums and actual slots at 5/10/20. Raw NPI/product codes are replaced with local ordinal group identifiers and the evaluation window is recorded. MAUDE slot columns remain compatibility placeholders, not grounds for reporting precision unavailable from those outputs. All observations of a cluster stay aggregated together.
+
+The CMS compact retains labels, three scores, year, original order and a local cluster identifier, without raw CCN or daily date. Order preserves historical tie-breaking; year and cluster allow the corresponding analyses. This is local pseudonymization, not a general anonymity guarantee.
+
+\src{compact_replay.py replay --compare} compared 49 MAUDE and 91 Part D numerical fields with retained outputs at absolute tolerance $10^{-12}$. Both replays use 1,000 draws and seed 20260929. Replay of all 21,646 CMS rows exactly reproduces direct results for the four scopes. Timestamps differ; earlier files are not replaced.
+
+Execution evidence and environments are in \src{verification/real_R4}; logs from the supplied R4 remain in \src{verification/r4}. The common Part D path was also executed on a clean worktree at the pinned commit: \src{load_task}, splits, the \src{fit_predict} adapter for a retained comparator, and \src{evaluate}, without new training. README files document commands, checks, and compilation.
+\par\Needspace{10\baselineskip}
+\section{Real MAUDE collection: B1 inputs and B2 coverage}
+\label{supp:maudeB}
+The R6 collection reacquired all nine official FDA MAUDE archives with sizes and SHA-256 fingerprints identical to the frozen experiment. It checked 24 sampler quarters and all three refit inventories against the original code. Across 9,853 product--quarters and seven methods, positive identities, candidate cardinalities, history support, evaluated groups, and positive counts concord with the frozen evaluation. No learned scores were recomputed; optimizer states and checkpoints were not recovered. Offline replay is byte-identical for prepared snapshots, descriptors, and the three CSV tables. Data are under \src{data/real_R6/maude_B}; checks are in \src{verification/real_R6/collection_checks.json}.
+
+\subsection{B1: tabular rows and historical graphs}
+The tabular path accumulates eligible first relationships and one deterministically sampled historical non-positive per positive, up to a maximum negative/positive ratio of 1. The table reports the reconstructed counts at each refit and the end of its history:
+
+\begin{table}[!htbp]\centering\small
+\caption{B1, MAUDE tabular training rows at the three refits; counts from \src{training_tabular.csv}.}
+\label{tab:maude-B1-tabular}
+\input{tables/maude_B1_tabular_R6_en.tex}
+\end{table}
+
+The separate table below describes the historical graphs used by spectral factorization, BPR with fixed one-hop averaging, and GraphSAGE. “Products with prior reports / product nodes / problem nodes” distinguishes products with history from unique product nodes. For BPR and GraphSAGE loops, each pass visits every historical positive edge; no positive visit is skipped. The step count is therefore triplets per epoch multiplied by configured epochs, an implication of the frozen code and reconstructed histories, not the contents of recovered optimizer logs.
+
+\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{2pt}
+\caption{B1, graph inventories and triplet-gradient steps implied by the loops; counts reconstructed from \src{training_graph.csv}. “--” is not applicable to spectral factorization.}
+\label{tab:maude-B1-graph}
+\input{tables/maude_B1_graph_R6_en.tex}
+\end{table}
+
+\FloatBarrier
+For this historical B1 collection, inventories are reconstructed from prepared histories, not inspected in checkpoints. The files provide neither recovered learned weights nor historical optimizer traces; these inventory counts establish neither score quality nor a specific aggregation effect. The separate RC2 D1 comparison is reported in S11.
+
+\par\Needspace{10\baselineskip}
+\subsection{B2: quarterly representation coverage}
+Coverage is calculated separately for each quarter. Products count evaluated products; problems are distinct candidate codes in that quarter; pairs are all eligible product--problem pairs; positive edges are evaluated positives. Each cell gives represented count / eligible count and their percentage. The total sums quarterly units (not unique entities across quarters). Scope is positive-containing product--quarters and all their eligible candidates; it does not extend the population to zero-positive observations.
+
+\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{2pt}
+\caption{B2, quarterly coverage: represented / eligible (coverage percentage). The total covers 2023--2025; the last row covers only the 2024--2025 test. Counts come from \src{coverage_quarterly.csv}.}
+\label{tab:maude-B2-coverage}
+\input{tables/maude_B2_coverage_R6_en.tex}
+\end{table}
+
+\FloatBarrier
+\par\Needspace{8\baselineskip}
+\paragraph{Test-only summary and fully covered lists.}
+On the 2024--2025 test, 2,902,573 of 2,975,156 candidate pairs (97.56\,\%) and 12,884 of 13,174 positive edges (97.80\,\%) have both nodes represented. However, only \textbf{1,414 of 6,370 product--quarters, or 22.20\,\%}, have both nodes represented for every candidate. Across validation and test together (2023--2025), this count is 2,331 of 9,853 (23.66\,\%). High pair coverage therefore does not imply that nearly every list is fully covered: a few absent candidate problems can occur in many lists. The twelve-quarter total and the eight-quarter test summary are not disjoint populations.
+
+This summary adds existing counts, without new scores, resampling, or subpopulation performance measures. The script \src{scripts/summarize_maude_coverage.py} aggregates \src{coverage_quarterly.csv} and checks list-level counts against detailed observations in \src{descriptors.json}; \src{data/maude_coverage_periods_R6.json} retains numerators, denominators, and the fingerprints of both inputs. These rates describe key presence; they do not isolate the contribution of the zero fallback to the performance gap.
+
+Unrepresented pairs are partitioned without overlap by availability of the two nodes. “Product only missing” means the candidate problem is represented; “problem only missing” means the product is represented. In total, 87,994 pairs are missing: 58,215 because only the product node is absent, 29,240 because only the problem node is absent, and 539 because both are absent.
+
+\begin{table}[!htbp]\centering\small
+\caption{B2, unrepresented candidate pairs by quarter and absent-node category; source: \src{coverage_quarterly.csv}.}
+\label{tab:maude-B2-missing}
+\input{tables/maude_B2_missing_pairs_R6_en.tex}
+\end{table}
+
+\FloatBarrier
+This historical coverage analysis is descriptive: for BPR and GraphSAGE, it measures node-key presence in reconstructed inventories. For spectral factorization, it describes the input domain without guaranteeing non-degenerate components. Zero scores are not used to infer absence of a saved vector. It provides neither a causal explanation of historical GraphSAGE results nor new scores for this R6 collection; the distinct RC2 training and scores are reported in S11.

@@ -1,0 +1,68 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}\usepackage[french]{babel}
+\usepackage[a4paper,textwidth=150mm,textheight=235mm,centering,headheight=13pt]{geometry}
+\usepackage{microtype,amsmath,booktabs,tabularx,array,longtable,needspace}
+\usepackage{xurl}\usepackage[hidelinks]{hyperref}\usepackage{fancyhdr,titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{.5em}{}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}\setlength{\emergencystretch}{3em}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.15}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small HealthGraphBench | RC2}
+\fancyhead[R]{\small Annexe historique — avis R6}\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}\raggedbottom
+\clubpenalty=10000\widowpenalty=10000
+\newcommand{\src}[1]{{\small\nolinkurl{#1}}}
+\hypersetup{pdftitle={HealthGraphBench RC2 — Réponse historique à l'avis R6},pdfauthor={},pdfsubject={Retained historical R6 response, not a review or approval of RC2; author validation required}}
+\begin{document}
+\begin{center}
+{\small RÉVISION DE TRAVAIL RC2 • ANNEXE HISTORIQUE NON SOUMISE}\par\vspace{7pt}
+{\LARGE\bfseries HealthGraphBench}\par\vspace{7pt}
+{\large Réponse historique à l'avis sur R6}
+\end{center}
+
+\textbf{Périmètre RC2.} Le texte ci-dessous conserve la réponse aux révisions mineures R6. Il ne répond pas à un nouvel avis sur RC2 et ne constitue ni une approbation des nouvelles analyses C/D1 ni une acceptation éditoriale. C et D1 sont intégrées séparément au manuscrit et au supplément RC2; les résultats historiques et leurs intervalles restent distincts. Cette annexe n'a pas été envoyée.
+
+\textbf{Statut de cette réponse.} Nous prenons acte de la levée des réserves B1/B2 et du maintien des levées A/C/D dans l'avis reçu, qui recommande une acceptation après révisions mineures. Les deux modifications demandées sont appliquées en français et en anglais. Cette réponse reste à valider par les auteurs; elle ne vaut ni décision éditoriale d'acceptation ni soumission effectuée.
+
+\section{Synthèse de couverture limitée au test — avis 4.1}
+
+\textbf{Modification.} Le tableau 13 du supplément S10.2 conserve les douze trimestres et leur total, puis ajoute une ligne limitée au test 2024--2025. Les pourcentages des deux synthèses sont les rapports des sommes des numérateurs et dénominateurs, et non la moyenne des taux trimestriels. Le test est un sous-ensemble du total : les deux lignes ne doivent pas être additionnées.
+
+Le nouveau paragraphe \emph{Synthèse limitée au test et listes entièrement couvertes}, en S10.2, distingue explicitement couverture des paires et couverture intégrale des listes. Le manuscrit, section 3.2, reprend les valeurs limitées à la fenêtre du résultat principal :
+
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}Xrr@{}}
+\toprule
+Mesure & Validation et test, 2023--2025 & Test seul, 2024--2025\\
+\midrule
+Produit--trimestres, produit représenté & \shortstack{9\,740 / 9\,853\\(98,85\,\%)} & \shortstack{6\,282 / 6\,370\\(98,62\,\%)}\\
+Paires candidates, deux nœuds représentés & \shortstack{4\,505\,750 / 4\,593\,744\\(98,08\,\%)} & \shortstack{2\,902\,573 / 2\,975\,156\\(97,56\,\%)}\\
+Liens positifs, deux nœuds représentés & \shortstack{20\,538 / 20\,879\\(98,37\,\%)} & \shortstack{12\,884 / 13\,174\\(97,80\,\%)}\\
+Listes entièrement couvertes & \shortstack{2\,331 / 9\,853\\(23,66\,\%)} & \shortstack{1\,414 / 6\,370\\(22,20\,\%)}\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Interprétation.} Quelques problèmes candidats absents peuvent affecter beaucoup de listes tout en ne représentant qu'une faible fraction des paires. Ces mesures décrivent la présence de clés de nœuds dans des inventaires reconstruits. Elles n'isolent pas la contribution du repli à zéro à l'écart de performance et n'ajoutent aucune évaluation de sous-population.
+
+\textbf{Traçabilité.} \src{scripts/summarize_maude_coverage.py} agrège le CSV trimestriel déjà fourni et confronte les comptes de listes aux 9\,853 observations détaillées de \src{descriptors.json}. Les résultats avec numérateurs, dénominateurs et empreintes sont dans \src{data/maude_coverage_periods_R6.json}. Les fichiers d'entrée restent inchangés.
+
+\clearpage
+\section{Généralisation inductive — avis 4.2}
+
+\textbf{Modification.} Dans la section 3.3 des deux manuscrits et dans S2.1 des deux suppléments, la formulation générale sur les nouvelles entités est remplacée par :
+
+\begin{quote}
+Aucune capacité de généralisation inductive aux nœuds absents du dernier réajustement n'est évaluée séparément. Ces cas reçoivent le score de repli zéro; leur fréquence dans les observations évaluées est documentée en S10.
+\end{quote}
+
+La phrase distingue donc la présence effective de ces cas dans l'évaluation du pipeline et l'absence d'une mesure séparée de généralisation inductive apprise. Le protocole, les scores et la règle de repli ne changent pas.
+
+\section{Conservation des résultats et préparation éditoriale}
+
+Au stade historique R6/RC1, les fichiers numériques, intervalles, inventaires, instantanés préparés, figures et noyau logiciel hérités étaient conservés. Les deux corrections décrites ci-dessus ont été appliquées en R6; RC1 en constituait la première version candidate de diffusion, sans nouveau modèle ni acquisition FDA/CMS à cette étape. Les contrôles historiques RC1 restent dans \src{verification/rc1}; ceux des révisions mineures restent dans \src{verification/r6_minor}. RC2 ajoute maintenant les preuves C/D1 déjà achevées, sans relancer leurs entraînements, et distingue leur provenance de celle de cette réponse historique.
+
+L'avis R6 intégral est conservé sous \src{review_inputs/review_R6_minor.txt}. Ses levées A, C, D, B1 et B2 concernent le dossier historique examiné, pas une validation de RC2. Les résultats et interprétations C/D1, les références, les identités, affiliations, contributions, financements, conflits, position éthique, conditions d'usage et déclaration d'assistance restent à faire approuver par les auteurs. L'archivage pérenne du paquet manuscrit et le support éditorial restent à fixer. Le DOI du benchmark n'est pas celui du manuscrit; la maquette de lecture n'atteste pas une conformité finale de soumission.
+
+\end{document}
