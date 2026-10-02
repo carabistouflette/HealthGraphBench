@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - 'release/**'
+      - 'hotfix/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+      - 'release/**'
+      - 'hotfix/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Gitflow and tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Check pull-request direction
+        if: github.event_name == 'pull_request'
+        run: python scripts/check_gitflow.py --event "$GITHUB_EVENT_PATH"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Run regression suite
+        run: python -m unittest discover -s tests -v
+      - name: Exercise installed CLI
+        run: healthgraphbench --help

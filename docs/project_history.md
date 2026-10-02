@@ -59,3 +59,46 @@ the complete private working archive. The v0.1 release intentionally excludes:
 Official source URLs, frozen hashes, transformation code, task contracts, and
 rebuild commands are the reproducibility boundary. A reader can verify and
 rebuild the active tasks without relying on a disappearing project archive.
+
+## Post-RC1 organization — 2026-10-02
+
+The unpublished manuscript RC1 package remains distinct from benchmark v0.2.0.
+Its ZIP and four PDFs were copied read-only into the ignored local output area;
+their hashes and an inventory are prepared for version control. No historical
+result, published asset, benchmark tag or original manuscript file was replaced.
+
+Local `develop` and `chore/consolidation-post-rc1` branches now isolate the
+consolidation work. The [Gitflow guide](../CONTRIBUTING.md#gitflow), PR template
+and CI configuration define release/hotfix back-merges and PR boundaries.
+No commit, push, manuscript tag or server protection was created implicitly.
+
+The [imported roadmap](ROADMAP_HealthGraphBench.md) keeps the four-week scientific
+cycle proposed, not started. The [consolidation index](consolidation-post-RC1/README.md)
+records roles and resources still to decide, artifact availability and submission
+gates. The organization smoke passed, as did all 41 unit tests; this is not a new
+health-data training run, scientific replay, independent confirmation or author
+approval.
+
+## RC1 consolidation: verification of retained analyses
+
+At the user's request, technical A/B work proceeded on
+`feature/post-rc1-verification`, with separate replay and claims-audit subagents.
+A new Python 3.13.5 environment used the RC1 analysis requirements. Ten replay
+checks and 609 arithmetic/manifest checks passed; 66 archived metric keys agreed
+with the canonical summary at their declared precision. The evidence matrix
+records 42 claims and their populations, conventions, calculations and limits.
+
+Final verification passed 747 package checks, compared 16 vendored GraphSAGE
+definitions with the pinned source, and ran all 41 repository tests in the clean
+environment. These are retained-output and code/document checks, not new
+health-model training, raw-data reconstruction or independent confirmation.
+
+The [compact verification manifest](../results/consolidation_core_verification_20261002.json)
+persists the observed checks and provenance. The integration record covers the
+27-artifact inventory, the 42-claim evidence matrix and local documentation links;
+large execution records remain in the ignored local run directory.
+
+The MAUDE duration protocol and prepared-input feasibility are documented;
+no duration has been selected and the real-data diagnostic has not run.
+Author approvals, historical public availability, editorial target and final
+submission remain unresolved. Historical source packages and scores are intact.
