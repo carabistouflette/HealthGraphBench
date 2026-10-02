@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 import math
 from collections import Counter, defaultdict
-from collections.abc import Collection, Iterable, Mapping, Sequence
+from collections.abc import Callable, Collection, Iterable, Mapping, Sequence
 from dataclasses import dataclass, field
 
 from .data import QUARTER_INDEX, Edge, QuarterSnapshot
@@ -314,6 +314,38 @@ class GraphSageRanker:
             return 0.0
         return _dot(left, right)
 
+    @classmethod
+    def from_checkpoint(cls, checkpoint: Mapping[str, object]) -> GraphSageRanker:
+        """Rebuild an inference ranker from a serialized GraphSAGE checkpoint."""
+        if checkpoint.get("schema") != "healthgraphbench.graphsage-checkpoint.v1":
+            raise ValueError("Unsupported GraphSAGE checkpoint schema")
+        products = _checkpoint_strings(checkpoint.get("products"), "products")
+        problems = _checkpoint_strings(checkpoint.get("problems"), "problems")
+        product_neighbors = _checkpoint_neighbors(
+            checkpoint.get("product_neighbors"), "product_neighbors"
+        )
+        problem_neighbors = _checkpoint_neighbors(
+            checkpoint.get("problem_neighbors"), "problem_neighbors"
+        )
+        product_inputs = _checkpoint_vectors(checkpoint.get("product_inputs"), "product_inputs")
+        problem_inputs = _checkpoint_vectors(checkpoint.get("problem_inputs"), "problem_inputs")
+        self_weights = _checkpoint_matrix(checkpoint.get("self_weights"), "self_weights")
+        neighbor_weights = _checkpoint_matrix(
+            checkpoint.get("neighbor_weights"), "neighbor_weights"
+        )
+        configuration = _checkpoint_configuration(checkpoint.get("configuration"))
+        product_embeddings, problem_embeddings = _graphsage_embeddings(
+            products,
+            problems,
+            product_neighbors,
+            problem_neighbors,
+            product_inputs,
+            problem_inputs,
+            self_weights,
+            neighbor_weights,
+        )
+        return cls(product_embeddings, problem_embeddings, configuration)
+
 
 def _sample_graph_neighbors(
     values: Iterable[str],
@@ -423,6 +455,112 @@ def _apply_matrix_gradient(
             )
 
 
+def _checkpoint_strings(value: object, name: str) -> tuple[str, ...]:
+    if not isinstance(value, (list, tuple)) or not all(
+        isinstance(item, str) for item in value
+    ):
+        raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+    return tuple(value)
+
+
+def _checkpoint_vectors(value: object, name: str) -> dict[str, tuple[float, ...]]:
+    if not isinstance(value, Mapping):
+        raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+    vectors: dict[str, tuple[float, ...]] = {}
+    for key, raw_vector in value.items():
+        if (
+            not isinstance(key, str)
+            or not isinstance(raw_vector, (list, tuple))
+            or not all(
+                isinstance(component, (int, float)) and not isinstance(component, bool)
+                for component in raw_vector
+            )
+        ):
+            raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+        vectors[key] = tuple(float(component) for component in raw_vector)
+    return vectors
+
+
+def _checkpoint_neighbors(value: object, name: str) -> dict[str, tuple[str, ...]]:
+    if not isinstance(value, Mapping):
+        raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+    neighbors: dict[str, tuple[str, ...]] = {}
+    for key, raw_neighbors in value.items():
+        if (
+            not isinstance(key, str)
+            or not isinstance(raw_neighbors, (list, tuple))
+            or not all(isinstance(neighbor, str) for neighbor in raw_neighbors)
+        ):
+            raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+        neighbors[key] = tuple(raw_neighbors)
+    return neighbors
+
+
+def _checkpoint_matrix(value: object, name: str) -> list[list[float]]:
+    if not isinstance(value, (list, tuple)):
+        raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+    matrix: list[list[float]] = []
+    for raw_row in value:
+        if (
+            not isinstance(raw_row, (list, tuple))
+            or not all(
+                isinstance(component, (int, float)) and not isinstance(component, bool)
+                for component in raw_row
+            )
+        ):
+            raise ValueError(f"Invalid GraphSAGE checkpoint field: {name}")
+        matrix.append([float(component) for component in raw_row])
+    return matrix
+
+
+def _checkpoint_configuration(value: object) -> dict[str, int | float | str]:
+    if not isinstance(value, Mapping) or not all(
+        isinstance(key, str)
+        and isinstance(item, (int, float, str))
+        and not isinstance(item, bool)
+        for key, item in value.items()
+    ):
+        raise ValueError("Invalid GraphSAGE checkpoint field: configuration")
+    return dict(value)
+
+
+def _graphsage_embeddings(
+    products: Sequence[str],
+    problems: Sequence[str],
+    product_neighbors: Mapping[str, Sequence[str]],
+    problem_neighbors: Mapping[str, Sequence[str]],
+    product_inputs: Mapping[str, Sequence[float]],
+    problem_inputs: Mapping[str, Sequence[float]],
+    self_weights: Sequence[Sequence[float]],
+    neighbor_weights: Sequence[Sequence[float]],
+) -> tuple[dict[str, tuple[float, ...]], dict[str, tuple[float, ...]]]:
+    product_embeddings = {
+        product: _graph_message(
+            product_inputs[product],
+            [problem_inputs[item] for item in product_neighbors[product]],
+            self_weights,
+            neighbor_weights,
+        )[0]
+        for product in products
+    }
+    problem_embeddings = {
+        problem: _graph_message(
+            problem_inputs[problem],
+            [product_inputs[item] for item in problem_neighbors[problem]],
+            self_weights,
+            neighbor_weights,
+        )[0]
+        for problem in problems
+    }
+    return product_embeddings, problem_embeddings
+
+
+def _softplus_negative_margin(margin: float) -> float:
+    if margin >= 0:
+        return math.log1p(math.exp(-margin))
+    return -margin + math.log1p(math.exp(margin))
+
+
 def fit_graphsage(
     history: History,
     dimension: int = GRAPHSAGE_DIMENSION,
@@ -430,19 +568,55 @@ def fit_graphsage(
     neighbor_sample: int = GRAPHSAGE_NEIGHBOR_SAMPLE,
     learning_rate: float = GRAPHSAGE_LEARNING_RATE,
     regularization: float = GRAPHSAGE_REGULARIZATION,
+    *,
+    on_epoch: Callable[[dict[str, int | float | None]], None] | None = None,
+    on_checkpoint: Callable[[dict[str, object]], None] | None = None,
 ) -> GraphSageRanker:
     """Fit a one-layer GraphSAGE link predictor on the observed graph.
 
     Node inputs are trainable identity embeddings. Each score uses a shared
     self transform and a shared mean-neighbor transform, with deterministic
     fixed-fanout sampling. BPR negatives are sampled only from historically
-    known problem nodes that are absent for the target product.
+    known problem nodes that are absent for the target product. Optional
+    callbacks report optimization diagnostics and an inference checkpoint.
     """
 
     products = tuple(sorted(history.product_problems))
     problems = tuple(sorted(history.problem_products))
     if not products or not problems:
-        return GraphSageRanker({}, {}, {})
+        ranker = GraphSageRanker({}, {}, {})
+        if on_epoch is not None:
+            for epoch in range(epochs):
+                on_epoch(
+                    {
+                        "epoch": epoch + 1,
+                        "steps": 0,
+                        "positive_edges_skipped": 0,
+                        "mean_bpr_data_loss": None,
+                        "triplets_visited": 0,
+                    }
+                )
+        if on_checkpoint is not None:
+            on_checkpoint(
+                {
+                    "schema": "healthgraphbench.graphsage-checkpoint.v1",
+                    "configuration": {},
+                    "epochs_completed": max(0, epochs),
+                    "products": [],
+                    "problems": [],
+                    "product_neighbors": {},
+                    "problem_neighbors": {},
+                    "positive_by_product": {},
+                    "product_inputs": {},
+                    "problem_inputs": {},
+                    "self_weights": [],
+                    "neighbor_weights": [],
+                    "product_embeddings": {},
+                    "problem_embeddings": {},
+                    "resume_supported": False,
+                }
+            )
+        return ranker
     product_neighbors = {
         product: _sample_graph_neighbors(history.product_problems[product], f"p:{product}", neighbor_sample)
         for product in products
@@ -469,11 +643,18 @@ def fit_graphsage(
         product: tuple(sorted(history.product_problems[product])) for product in products
     }
     problem_count = len(problems)
+    epochs_completed = 0
     for epoch in range(epochs):
+        steps = 0
+        positive_edges_skipped = 0
+        data_loss_sum = 0.0
+        triplets_visited = 0
         for product in products:
             positives = positive_by_product[product]
             positive_set = set(positives)
             for problem in positives:
+                if on_epoch is not None:
+                    triplets_visited += 1
                 start = _stable_integer("graphsage-negative", str(epoch), product, problem) % problem_count
                 negative = None
                 for offset in range(problem_count):
@@ -482,6 +663,8 @@ def fit_graphsage(
                         negative = candidate
                         break
                 if negative is None:
+                    if on_epoch is not None:
+                        positive_edges_skipped += 1
                     continue
                 product_hidden, product_mean = _graph_message(
                     product_inputs[product],
@@ -502,6 +685,8 @@ def fit_graphsage(
                     neighbor_weights,
                 )
                 margin = _dot(product_hidden, positive_hidden) - _dot(product_hidden, negative_hidden)
+                if on_epoch is not None:
+                    data_loss_sum += _softplus_negative_margin(margin)
                 coefficient = 1.0 / (1.0 + math.exp(min(60.0, max(-60.0, margin))))
                 product_gradient, product_neighbor_gradient, product_self_gradient, product_neighbor_weight_gradient = _graph_message_gradients(
                     [coefficient * (positive_hidden[index] - negative_hidden[index]) for index in range(dimension)],
@@ -571,37 +756,61 @@ def fit_graphsage(
                 _apply_vector_gradients(
                     problem_inputs, problem_input_gradients, learning_rate, regularization
                 )
-    product_hidden = {
-        product: _graph_message(
-            product_inputs[product],
-            [problem_inputs[item] for item in product_neighbors[product]],
-            self_weights,
-            neighbor_weights,
-        )[0]
-        for product in products
-    }
-    problem_hidden = {
-        problem: _graph_message(
-            problem_inputs[problem],
-            [product_inputs[item] for item in problem_neighbors[problem]],
-            self_weights,
-            neighbor_weights,
-        )[0]
-        for problem in problems
-    }
-    return GraphSageRanker(
-        product_hidden,
-        problem_hidden,
-        {
-            "dimension": dimension,
-            "epochs": epochs,
-            "neighbor_sample": neighbor_sample,
-            "learning_rate": learning_rate,
-            "regularization": regularization,
-            "objective": "bpr",
-            "activation": "tanh",
-        },
+                if on_epoch is not None:
+                    steps += 1
+        epochs_completed = epoch + 1
+        if on_epoch is not None:
+            on_epoch(
+                {
+                    "epoch": epoch + 1,
+                    "steps": steps,
+                    "positive_edges_skipped": positive_edges_skipped,
+                    "mean_bpr_data_loss": data_loss_sum / steps if steps else None,
+                    "triplets_visited": triplets_visited,
+                }
+            )
+    product_hidden, problem_hidden = _graphsage_embeddings(
+        products,
+        problems,
+        product_neighbors,
+        problem_neighbors,
+        product_inputs,
+        problem_inputs,
+        self_weights,
+        neighbor_weights,
     )
+    configuration: dict[str, int | float | str] = {
+        "dimension": dimension,
+        "epochs": epochs,
+        "neighbor_sample": neighbor_sample,
+        "learning_rate": learning_rate,
+        "regularization": regularization,
+        "objective": "bpr",
+        "activation": "tanh",
+    }
+    ranker = GraphSageRanker(product_hidden, problem_hidden, configuration)
+    if on_checkpoint is not None:
+        on_checkpoint(
+            {
+                "schema": "healthgraphbench.graphsage-checkpoint.v1",
+                "configuration": dict(configuration),
+                "epochs_completed": epochs_completed,
+                "products": list(products),
+                "problems": list(problems),
+                "product_neighbors": product_neighbors,
+                "problem_neighbors": problem_neighbors,
+                "positive_by_product": positive_by_product,
+                "product_inputs": product_inputs,
+                "problem_inputs": problem_inputs,
+                "self_weights": self_weights,
+                "neighbor_weights": neighbor_weights,
+                "product_embeddings": dict(product_hidden),
+                "problem_embeddings": dict(problem_hidden),
+                "resume_supported": False,
+            }
+        )
+    return ranker
+
 
 
 def _sigmoid(value: float) -> float:
