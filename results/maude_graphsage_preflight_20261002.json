@@ -1,0 +1,67 @@
+{
+  "recorded_at_utc": "2026-10-02T17:16:14.395718+00:00",
+  "scope": "diagnostic implementation verification on non-health fixtures; no health-model training in preflight",
+  "regression": {
+    "tests_run": 53,
+    "returncode": 0,
+    "log": "results/generated/consolidation-post-RC1/maude-duration-preflight-20261002T171610Z/repository_unittest.log"
+  },
+  "historical_equivalence": {
+    "scope": "small deterministic non-health fixtures; frozen RC1 code comparison and inference checkpoint reconstruction",
+    "vendor_path": "results/generated/consolidation-post-RC1/core-verification-20261002/inputs/HealthGraphBench_RC1/vendor/graphsage_core.py",
+    "vendor_sha256": "8b705c69d2a78d193bdf92b220bbac71912f890d144abf0cc65b6a3d6704a615",
+    "instrumented_source_sha256": "5c5fdf3e15913804e33459c7afb899124f9bcfa0942ae14d54794e4bc7c81e50",
+    "cases": [
+      {
+        "case": "empty",
+        "score_pairs_checked": 0,
+        "three_epoch_legacy_equivalence": "exact",
+        "checkpoint_raw_state_reconstruction": "exact",
+        "epoch_events": 3
+      },
+      {
+        "case": "sparse",
+        "score_pairs_checked": 168,
+        "three_epoch_legacy_equivalence": "exact",
+        "checkpoint_raw_state_reconstruction": "exact",
+        "epoch_events": 3
+      },
+      {
+        "case": "sampled_dense",
+        "score_pairs_checked": 168,
+        "three_epoch_legacy_equivalence": "exact",
+        "checkpoint_raw_state_reconstruction": "exact",
+        "epoch_events": 3
+      },
+      {
+        "case": "saturated_and_sparse",
+        "score_pairs_checked": 28,
+        "three_epoch_legacy_equivalence": "exact",
+        "checkpoint_raw_state_reconstruction": "exact",
+        "epoch_events": 3
+      }
+    ],
+    "passed": true
+  },
+  "cli_help": {
+    "returncode": 0
+  },
+  "required_monitor_unavailable": {
+    "status": "passed",
+    "scenario": "required RSS monitor inaccessible",
+    "run_status": "incomplete",
+    "validation_status": "incomplete",
+    "selection_created": false,
+    "active_children": 0,
+    "health_models_trained": false
+  },
+  "monitor_failure_artifact_directory": "results/generated/consolidation-post-RC1/monitor-unavailable-smoke-20261002T171610Z",
+  "protocol_path": "docs/consolidation-post-RC1/experiment_protocol.md",
+  "protocol_sha256": "69cda4bbd4cd86c3ebbe2346346e2a6292ef69a89699d92e1b628bc504fcb94a",
+  "code_sha256": {
+    "healthgraphbench/tasks/maude/models.py": "5c5fdf3e15913804e33459c7afb899124f9bcfa0942ae14d54794e4bc7c81e50",
+    "healthgraphbench/tasks/maude/evaluate.py": "825cafb260dd2b8f8558224447a866cec9c7dba1cee5b5c5b05ad89a174145b7",
+    "healthgraphbench/tasks/maude/diagnostic.py": "6b6a38a42efe5e394fc3344ac07fcde4f7915436255bf699b33b237150abfca5",
+    "scripts/run_maude_duration_diagnostic.py": "7e2e3f4190abb9e6299b7bc4f1f9a60446248d0948a3f77f50b8d15c20f2a529"
+  }
+}

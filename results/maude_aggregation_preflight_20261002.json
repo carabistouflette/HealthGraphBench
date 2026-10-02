@@ -1,0 +1,104 @@
+{
+  "schema": "healthgraphbench.maude-aggregation-preflight.v1",
+  "recorded_at_utc": "2026-10-02T20:49:44.034871+00:00",
+  "scope": "D1 preflight, non-health fits only; real pinned C artifacts read and monitor failure exercised before any health worker",
+  "regression": {
+    "suite_before_runner_fixes": {
+      "tests_run": 60,
+      "returncode": 0,
+      "log": "results/generated/consolidation-post-RC1/maude-aggregation-preflight-20261002T204742Z/repository_unittest.log"
+    },
+    "runner_after_fixes": {
+      "tests_run": 6,
+      "returncode": 0,
+      "log": "results/generated/consolidation-post-RC1/maude-aggregation-preflight-20261002T204742Z/runner_regression.log"
+    }
+  },
+  "kernel": {
+    "scope": "deterministic non-health fixtures; no health training",
+    "mean_cases": [
+      {
+        "case": "empty",
+        "score_pairs_checked": 0,
+        "mean_rc1_scores": "exact",
+        "checkpoint_reconstruction": "exact",
+        "epoch_events": 3
+      },
+      {
+        "case": "sparse",
+        "score_pairs_checked": 168,
+        "mean_rc1_scores": "exact",
+        "checkpoint_reconstruction": "exact",
+        "epoch_events": 3
+      },
+      {
+        "case": "sampled_dense",
+        "score_pairs_checked": 168,
+        "mean_rc1_scores": "exact",
+        "checkpoint_reconstruction": "exact",
+        "epoch_events": 3
+      },
+      {
+        "case": "saturated_and_sparse",
+        "score_pairs_checked": 28,
+        "mean_rc1_scores": "exact",
+        "checkpoint_reconstruction": "exact",
+        "epoch_events": 3
+      }
+    ],
+    "mean_score_pairs_checked": 364,
+    "none": {
+      "epochs": 3,
+      "steps": 3,
+      "raw_checkpoint_scores": "exact",
+      "neighbor_operations": "not called",
+      "inactive_parameters": "zero",
+      "gradient_components_checked": 6,
+      "max_gradient_error": 1.3119255681814934e-11
+    },
+    "passed": true
+  },
+  "vendor_sha256": "8b705c69d2a78d193bdf92b220bbac71912f890d144abf0cc65b6a3d6704a615",
+  "cli_help": {
+    "returncode": 0
+  },
+  "runner_defects_fixed": [
+    {
+      "before": "retained checkpoint input/embedding maps rejected as positional lists",
+      "after": "raw input maps cover exact node ids; missing input regression retained"
+    },
+    {
+      "before": "NameError max_output_bytes before worker launch",
+      "after": "output cap derived from max_output_mib before manifest creation"
+    }
+  ],
+  "monitor_unavailable": {
+    "exception": "PermissionError",
+    "run_status": "incomplete",
+    "validation_status": "incomplete",
+    "selection_created": false,
+    "health_checkpoint_created": false,
+    "active_children": 0,
+    "artifact_directory": "results/generated/consolidation-post-RC1/maude-aggregation-monitor-unavailable-20261002T204742Z"
+  },
+  "protocol": {
+    "path": "docs/consolidation-post-RC1/aggregation_protocol.md",
+    "sha256": "78d1408a96da81fceb85b1f3f91034592b3b96dd95fbe4d508906e121c1efaca"
+  },
+  "baseline": {
+    "path": "results/maude_duration_diagnostic_20261002T172405Z.json",
+    "sha256": "0c8a610991e313d49a9fba03736d225897620cec86779989c8b243665942dff2"
+  },
+  "prepared_input": {
+    "path": "results/generated/consolidation-post-RC1/core-verification-20261002/inputs/HealthGraphBench_RC1/data/real_R6/maude_B/prepared_snapshots.json.gz",
+    "sha256": "1cba7f84ff24131715c68a985d9302c96c7bab4a4b2a27d906559a41104fbd36"
+  },
+  "code_sha256": {
+    "healthgraphbench/tasks/maude/models.py": "403f220c2269cbb7c1792477e3abaa73b0a9c75298b42c7b2265a9e2bb7295f0",
+    "healthgraphbench/tasks/maude/diagnostic.py": "c7316a2292a388c7004f4423abd00fe243f8cd8dfbf6422ccd728e3b402da4cf",
+    "healthgraphbench/tasks/maude/ablation.py": "eca360cfa636cf1b422afd63e917c68a679fd2366a223e9748d113052274e5b3",
+    "scripts/run_maude_aggregation_ablation.py": "74d4ea6e3cebffe4b889e6dc34dcccc323c285addcc197be92e481907d9c4988",
+    "healthgraphbench/tasks/maude/evaluate.py": "825cafb260dd2b8f8558224447a866cec9c7dba1cee5b5c5b05ad89a174145b7",
+    "healthgraphbench/tasks/maude/data.py": "019d8d4792115e83327e2d5e6c5aa10dc42355bc908b84093fde28dadf0ba9d0"
+  }
+}
