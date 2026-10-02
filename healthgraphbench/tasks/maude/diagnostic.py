@@ -362,6 +362,7 @@ def _fit_one(
     budget: _OutputBudget,
     fit_dir: str,
     trace: _GzipJsonl,
+    aggregation: str = "mean",
 ) -> tuple[GraphSageRanker, dict[str, object]]:
     fit_path = budget.root / fit_dir
     fit_path.mkdir(parents=True, exist_ok=True)
@@ -387,6 +388,7 @@ def _fit_one(
             neighbor_sample=GRAPHSAGE_NEIGHBOR_SAMPLE,
             learning_rate=GRAPHSAGE_LEARNING_RATE,
             regularization=GRAPHSAGE_REGULARIZATION,
+            aggregation=aggregation,
             on_epoch=on_epoch,
             on_checkpoint=on_checkpoint,
         )
@@ -397,6 +399,16 @@ def _fit_one(
     if checkpoint_calls != 1:
         raise RuntimeError("fit_graphsage did not emit its final checkpoint")
     epoch_records = _read_gzip_jsonl(budget.root / fit_dir / "epochs.jsonl.gz")
+    training_configuration: dict[str, object] = {
+        "dimension": GRAPHSAGE_DIMENSION,
+        "neighbor_sample": GRAPHSAGE_NEIGHBOR_SAMPLE if aggregation == "mean" else 0,
+        "learning_rate": GRAPHSAGE_LEARNING_RATE,
+        "regularization": GRAPHSAGE_REGULARIZATION,
+        "objective": "bpr",
+        "activation": "tanh",
+    }
+    if aggregation != "mean":
+        training_configuration["aggregation"] = aggregation
     fit_record: dict[str, object] = {
         "epochs_requested": epochs,
         "epochs_completed": len(epoch_records),
@@ -405,14 +417,7 @@ def _fit_one(
         "steps": sum(int(row["steps"]) for row in epoch_records),
         "positive_edges_skipped": sum(int(row["positive_edges_skipped"]) for row in epoch_records),
         "triplets_visited": sum(int(row["triplets_visited"]) for row in epoch_records),
-        "training_configuration": {
-            "dimension": GRAPHSAGE_DIMENSION,
-            "neighbor_sample": GRAPHSAGE_NEIGHBOR_SAMPLE,
-            "learning_rate": GRAPHSAGE_LEARNING_RATE,
-            "regularization": GRAPHSAGE_REGULARIZATION,
-            "objective": "bpr",
-            "activation": "tanh",
-        },
+        "training_configuration": training_configuration,
         "loss_semantics": "epoch mean softplus(-margin) before updates; regularization is separate and is not included in this data-loss value",
         "epoch_log": f"{fit_dir}/epochs.jsonl.gz",
         "checkpoint": f"{fit_dir}/checkpoint.json.gz",
@@ -549,7 +554,13 @@ def _merge_metric_sets(
         destination[1][key].merge(accumulator)
 
 
-def _validation_worker(input_path: str, phase_path: str, phase_limit_bytes: int) -> None:
+def _validation_worker(
+    input_path: str,
+    phase_path: str,
+    phase_limit_bytes: int,
+    validation_epochs: tuple[int, ...] = VALIDATION_EPOCHS,
+    aggregation: str = "mean",
+) -> None:
     root = Path(phase_path)
     budget = _OutputBudget(root, phase_limit_bytes)
     trace = _GzipJsonl(budget, "trace.jsonl.gz")
@@ -559,10 +570,10 @@ def _validation_worker(input_path: str, phase_path: str, phase_limit_bytes: int)
         first_by_quarter = _first_edges(snapshots)
         initial_history = _history_through(snapshots, "2023Q1")
         all_fit_results: dict[str, object] = {}
-        for epochs in VALIDATION_EPOCHS:
+        for epochs in validation_epochs:
             fit_dir = f"fit_epochs_{epochs:02d}"
             ranker, fit_record = _fit_one(
-                initial_history, epochs, budget, fit_dir, trace
+                initial_history, epochs, budget, fit_dir, trace, aggregation
             )
             history = _copy_history(initial_history)
             quarter_records: dict[str, object] = {}
@@ -604,14 +615,23 @@ def _validation_worker(input_path: str, phase_path: str, phase_limit_bytes: int)
             }
             budget.write_json(f"{fit_dir}/fit_result.json", validation_result)
             all_fit_results[str(epochs)] = validation_result
-        phase_result = {
-            "status": "complete",
-            "phase": "validation_2023",
-            "grid_epochs": list(VALIDATION_EPOCHS),
-            "selection_epochs": list(SELECTION_EPOCHS),
-            "fits": all_fit_results,
-            "population": VALIDATION_POPULATION,
-        }
+        if validation_epochs == VALIDATION_EPOCHS:
+            phase_result = {
+                "status": "complete",
+                "phase": "validation_2023",
+                "grid_epochs": list(VALIDATION_EPOCHS),
+                "selection_epochs": list(SELECTION_EPOCHS),
+                "fits": all_fit_results,
+                "population": VALIDATION_POPULATION,
+            }
+        else:
+            phase_result = {
+                "status": "complete",
+                "phase": "validation_2023",
+                "validation_epochs": list(validation_epochs),
+                "fits": all_fit_results,
+                "population": VALIDATION_POPULATION,
+            }
         budget.write_json("validation_summary.json", phase_result)
         trace.write({"event": "phase_completed", "phase": "validation_2023"})
         trace.flush()
@@ -625,6 +645,7 @@ def _test_worker(
     phase_limit_bytes: int,
     year: int,
     selected_epochs: int,
+    aggregation: str = "mean",
 ) -> None:
     root = Path(phase_path)
     budget = _OutputBudget(root, phase_limit_bytes)
@@ -636,7 +657,9 @@ def _test_worker(
         refit_quarter = f"{year}Q1"
         history = _history_through(snapshots, refit_quarter)
         fit_dir = f"fit_epochs_{selected_epochs:02d}"
-        ranker, fit_record = _fit_one(history, selected_epochs, budget, fit_dir, trace)
+        ranker, fit_record = _fit_one(
+            history, selected_epochs, budget, fit_dir, trace, aggregation
+        )
         annual_totals = _metric_accumulators()
         quarter_records: dict[str, object] = {}
         total_products = total_positives = total_candidates = 0
@@ -694,6 +717,8 @@ def _worker_entry(
     phase_limit_bytes: int,
     year: int | None = None,
     selected_epochs: int | None = None,
+    aggregation: str = "mean",
+    validation_epochs: tuple[int, ...] = VALIDATION_EPOCHS,
 ) -> None:
     phase_root = Path(phase_path)
     started = time.monotonic()
@@ -704,9 +729,13 @@ def _worker_entry(
     )
     try:
         if worker_kind == "validation":
-            _validation_worker(input_path, phase_path, phase_limit_bytes)
+            _validation_worker(
+                input_path, phase_path, phase_limit_bytes, validation_epochs, aggregation
+            )
         elif worker_kind == "test" and year is not None and selected_epochs is not None:
-            _test_worker(input_path, phase_path, phase_limit_bytes, year, selected_epochs)
+            _test_worker(
+                input_path, phase_path, phase_limit_bytes, year, selected_epochs, aggregation
+            )
         else:
             raise ValueError("invalid phase worker configuration")
     except BaseException as exc:

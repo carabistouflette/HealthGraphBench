@@ -110,6 +110,8 @@ Les négatifs historiques sont déterminés par hachage selon la description du 
 
 **Critère de fin :** la comparaison informe sur l'agrégation dans cette configuration, sans attribuer tous les écarts entre familles de modèles à ce seul facteur. L'absence d'une telle ablation est explicitement indiquée dans la version actuelle. *(M, §5.1, p. 12 ; S, §S2.1, p. 3.)*
 
+**Décision de poursuite : D1 engagée seule.** Le [protocole fixé avant calcul](consolidation-post-RC1/aggregation_protocol.md) conserve la durée commune30 issue de sélection C sur validation, les exemples/candidats/négatifs et les budgets. Le témoin C30 vérifié est réutilisé sans réentraînement ; seule la variante sans voisins est nouvelle. Capacité partagée active128→64 documentée ; comparaison limitée à ces variantes, sans nouveau tuning ou conclusion causale générale. D1 n'est pas encore exécutée ; D2 reste exclue.
+
 ### Option D2 — Performances et couverture des représentations
 
 À privilégier si les sorties détaillées et les inventaires peuvent être appariés sans nouvelle collecte importante.

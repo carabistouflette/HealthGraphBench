@@ -61,3 +61,20 @@ Le résultat reste exploratoire sur des périodes déjà consultées, conditionn
 `DurationNumericAudit` a contrôlé intégralement **24 trimestres-fit**, **20 302 listes candidates** et **9 449 508 lignes scores/rangs/labels**, scores recalculés depuis les six checkpoints bruts, sans échantillonnage. Les premières relations et règles d'éligibilité sont dérivées de l'entrée préparée ; 24 tables trimestrielles, six tables de phase et le pool test concordent. Aucun écart détecté ; entiers/listes/hash exacts, flottants à `1e-12`. Audit **71,072 s**, RSS **506 212 352 octets**, sous ses plafonds.
 
 Le contrôle d'ordre s'appuie sur les événements de trace et les dates locales de création des fichiers : verrouillage 17:32:26.207893, trace test2024 créée 17:32:26.211612 UTC. Les lignes de trace n'ont pas d'horodatage absolu ; ce n'est ni une attestation externe ni une preuve de non-exposition antérieure. Le [manifeste C](../../results/maude_duration_diagnostic_20261002T172405Z.json) conserve le périmètre de cette vérification, les empreintes et les limites, sans modifier le manifeste A/B.
+
+## 2 octobre 2026 — décision D1 avant nouveaux calculs
+
+- Demande de poursuivre : **D1** est choisie comme unique P2, recommandée après C techniquement achevé ; **D2 n'est pas engagée**. Le [protocole avec/sans agrégation](aggregation_protocol.md) est fixé avant tout entraînement `none`.
+- Les points C30 validation `0,205062` et test `0,210642` sont déjà connus. D1 conserve cette exposition ; ni verrouillage nouveau ni réutilisation des sorties C ne crée une confirmation indépendante.
+- Durée commune **30 époques**, issue de sélection C sur validation ; aucune grille/tuning supplémentaire. Réutiliser le témoin C `mean30` et ses empreintes, ne pas répéter les entraînements réussis. Entraîner seulement `none30`, avec les mêmes positifs/négatifs/graphes/candidats ; validation complète puis verrouillage avant ses tests.
+- `none` supprime le chemin voisin et ses gradients : transformation propre `tanh(W_self x)` et vecteurs d'identité entraînables. À dimension8, transformations partagées actives **128 → 64 scalaires** ; cette différence de capacité est déclarée, pas un effet causal pur isolé.
+- Budgets effectifs conservés à **900 s / 512 MiB RSS agrégée / 512 MiB sorties par phase**, un contrôleur + un worker. Arrêt/incomplet sans retry ou augmentation opportuniste.
+- Branche `feature/maude-aggregation-ablation` depuis `develop` avec merge de dépendance C. Noyau et runner confiés à deux subagents distincts ; vérification/exécution/publication par l'intégrateur. Aucun score `none`, nouvel IC, décision d'auteur, révision RC2 ou soumission n'est anticipé.
+
+### Prévol D1 avant entraînement de santé
+
+Le [prévol distinct](../../results/maude_aggregation_preflight_20261002.json) conserve les hashes du code et du protocole `78d1408a96da81fceb85b1f3f91034592b3b96dd95fbe4d508906e121c1efaca`. Sur quatre fixtures non médicales : **364 scores `mean` strictement égaux au noyau RC1**, configurations et reconstruction brutes concordantes. Smoke `none` : trois époques, aucune opération de voisinage appelée, paramètres inactifs nuls, reconstruction exacte ; six dérivées contrôlées par différences centrales, erreur maximale `1,32e-11`.
+
+La suite initiale passe **60/60**. Le lancement réel du runner avec moniteur volontairement inaccessible révèle d'abord le mauvais type attendu pour les vecteurs du checkpoint C (maps, pas listes), puis un plafond sorties non défini ; ces deux défauts sont corrigés avant tout worker de santé. Les **6/6 tests ciblés** passent ensuite, dont une régression sur les maps de paramètres bruts et un nœud manquant. Le smoke de moniteur termine désormais `incomplete`, sans checkpoint de santé, verrouillage ni enfant actif. La CLI `--help` réussit. Le sampler, les pertes et le SGD sont communs aux deux modes ; aucune duplication de leur boucle.
+
+Code/protocole/prévol à commiter avant l'unique exécution de santé `none30`. Ces vérifications techniques n'anticipent aucun résultat scientifique D1.

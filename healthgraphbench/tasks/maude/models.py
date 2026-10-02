@@ -301,7 +301,7 @@ GRAPHSAGE_REGULARIZATION = 0.0005
 
 @dataclass(frozen=True, slots=True)
 class GraphSageRanker:
-    """One-hop bipartite GraphSAGE link predictor trained with BPR."""
+    """BPR ranker with historical mean aggregation or self-only ``none``."""
 
     product_embeddings: Mapping[str, tuple[float, ...]]
     problem_embeddings: Mapping[str, tuple[float, ...]]
@@ -321,19 +321,27 @@ class GraphSageRanker:
             raise ValueError("Unsupported GraphSAGE checkpoint schema")
         products = _checkpoint_strings(checkpoint.get("products"), "products")
         problems = _checkpoint_strings(checkpoint.get("problems"), "problems")
-        product_neighbors = _checkpoint_neighbors(
-            checkpoint.get("product_neighbors"), "product_neighbors"
-        )
-        problem_neighbors = _checkpoint_neighbors(
-            checkpoint.get("problem_neighbors"), "problem_neighbors"
-        )
+        configuration = _checkpoint_configuration(checkpoint.get("configuration"))
+        aggregation = configuration.get("aggregation", "mean")
+        if aggregation not in ("mean", "none"):
+            raise ValueError("Invalid GraphSAGE checkpoint aggregation")
         product_inputs = _checkpoint_vectors(checkpoint.get("product_inputs"), "product_inputs")
         problem_inputs = _checkpoint_vectors(checkpoint.get("problem_inputs"), "problem_inputs")
         self_weights = _checkpoint_matrix(checkpoint.get("self_weights"), "self_weights")
-        neighbor_weights = _checkpoint_matrix(
-            checkpoint.get("neighbor_weights"), "neighbor_weights"
-        )
-        configuration = _checkpoint_configuration(checkpoint.get("configuration"))
+        if aggregation == "mean":
+            product_neighbors = _checkpoint_neighbors(
+                checkpoint.get("product_neighbors"), "product_neighbors"
+            )
+            problem_neighbors = _checkpoint_neighbors(
+                checkpoint.get("problem_neighbors"), "problem_neighbors"
+            )
+            neighbor_weights = _checkpoint_matrix(
+                checkpoint.get("neighbor_weights"), "neighbor_weights"
+            )
+        else:
+            product_neighbors = None
+            problem_neighbors = None
+            neighbor_weights = None
         product_embeddings, problem_embeddings = _graphsage_embeddings(
             products,
             problems,
@@ -343,6 +351,7 @@ class GraphSageRanker:
             problem_inputs,
             self_weights,
             neighbor_weights,
+            aggregation=aggregation,
         )
         return cls(product_embeddings, problem_embeddings, configuration)
 
@@ -384,6 +393,42 @@ def _graph_message(
         for row in range(dimension)
     )
     return hidden, mean
+
+
+def _self_message(
+    own: Sequence[float],
+    self_weights: Sequence[Sequence[float]],
+) -> tuple[float, ...]:
+    """Transform only a node's own identity input (no message passing)."""
+    dimension = len(own)
+    return tuple(
+        math.tanh(
+            sum(self_weights[row][column] * own[column] for column in range(dimension))
+        )
+        for row in range(dimension)
+    )
+
+
+def _self_message_gradients(
+    hidden_gradient: Sequence[float],
+    hidden: Sequence[float],
+    own: Sequence[float],
+    self_weights: Sequence[Sequence[float]],
+) -> tuple[list[float], list[list[float]]]:
+    dimension = len(own)
+    pre_gradient = [
+        hidden_gradient[index] * (1.0 - hidden[index] * hidden[index])
+        for index in range(dimension)
+    ]
+    own_gradient = [
+        sum(self_weights[row][column] * pre_gradient[row] for row in range(dimension))
+        for column in range(dimension)
+    ]
+    self_gradient = [
+        [pre_gradient[row] * own[column] for column in range(dimension)]
+        for row in range(dimension)
+    ]
+    return own_gradient, self_gradient
 
 
 def _graph_message_gradients(
@@ -527,13 +572,27 @@ def _checkpoint_configuration(value: object) -> dict[str, int | float | str]:
 def _graphsage_embeddings(
     products: Sequence[str],
     problems: Sequence[str],
-    product_neighbors: Mapping[str, Sequence[str]],
-    problem_neighbors: Mapping[str, Sequence[str]],
+    product_neighbors: Mapping[str, Sequence[str]] | None,
+    problem_neighbors: Mapping[str, Sequence[str]] | None,
     product_inputs: Mapping[str, Sequence[float]],
     problem_inputs: Mapping[str, Sequence[float]],
     self_weights: Sequence[Sequence[float]],
-    neighbor_weights: Sequence[Sequence[float]],
+    neighbor_weights: Sequence[Sequence[float]] | None,
+    aggregation: str = "mean",
 ) -> tuple[dict[str, tuple[float, ...]], dict[str, tuple[float, ...]]]:
+    if aggregation == "none":
+        product_embeddings = {
+            product: _self_message(product_inputs[product], self_weights)
+            for product in products
+        }
+        problem_embeddings = {
+            problem: _self_message(problem_inputs[problem], self_weights)
+            for problem in problems
+        }
+        return product_embeddings, problem_embeddings
+    assert product_neighbors is not None
+    assert problem_neighbors is not None
+    assert neighbor_weights is not None
     product_embeddings = {
         product: _graph_message(
             product_inputs[product],
@@ -569,22 +628,29 @@ def fit_graphsage(
     learning_rate: float = GRAPHSAGE_LEARNING_RATE,
     regularization: float = GRAPHSAGE_REGULARIZATION,
     *,
+    aggregation: str = "mean",
     on_epoch: Callable[[dict[str, int | float | None]], None] | None = None,
     on_checkpoint: Callable[[dict[str, object]], None] | None = None,
 ) -> GraphSageRanker:
-    """Fit a one-layer GraphSAGE link predictor on the observed graph.
+    """Fit a mean-aggregation GraphSAGE or self-only BPR ranker.
 
-    Node inputs are trainable identity embeddings. Each score uses a shared
-    self transform and a shared mean-neighbor transform, with deterministic
-    fixed-fanout sampling. BPR negatives are sampled only from historically
-    known problem nodes that are absent for the target product. Optional
-    callbacks report optimization diagnostics and an inference checkpoint.
+    Node inputs are trainable identity embeddings. ``mean`` uses the
+    historical one-hop self and mean-neighbor transforms; ``none`` uses only
+    ``tanh(W_self x)`` and is not a message-passing model. BPR negatives in
+    either mode are sampled only from historically known problem nodes absent
+    for the target product. Optional callbacks report optimization diagnostics
+    and an inference checkpoint.
     """
 
+    if aggregation not in ("mean", "none"):
+        raise ValueError("aggregation must be 'mean' or 'none'")
     products = tuple(sorted(history.product_problems))
     problems = tuple(sorted(history.problem_products))
     if not products or not problems:
-        ranker = GraphSageRanker({}, {}, {})
+        empty_configuration: dict[str, int | float | str] = (
+            {"aggregation": "none"} if aggregation == "none" else {}
+        )
+        ranker = GraphSageRanker({}, {}, empty_configuration)
         if on_epoch is not None:
             for epoch in range(epochs):
                 on_epoch(
@@ -600,7 +666,7 @@ def fit_graphsage(
             on_checkpoint(
                 {
                     "schema": "healthgraphbench.graphsage-checkpoint.v1",
-                    "configuration": {},
+                    "configuration": dict(empty_configuration),
                     "epochs_completed": max(0, epochs),
                     "products": [],
                     "problems": [],
@@ -617,14 +683,18 @@ def fit_graphsage(
                 }
             )
         return ranker
-    product_neighbors = {
-        product: _sample_graph_neighbors(history.product_problems[product], f"p:{product}", neighbor_sample)
-        for product in products
-    }
-    problem_neighbors = {
-        problem: _sample_graph_neighbors(history.problem_products[problem], f"d:{problem}", neighbor_sample)
-        for problem in problems
-    }
+    if aggregation == "mean":
+        product_neighbors = {
+            product: _sample_graph_neighbors(history.product_problems[product], f"p:{product}", neighbor_sample)
+            for product in products
+        }
+        problem_neighbors = {
+            problem: _sample_graph_neighbors(history.problem_products[problem], f"d:{problem}", neighbor_sample)
+            for problem in problems
+        }
+    else:
+        product_neighbors = None
+        problem_neighbors = None
     product_inputs = {
         product: _initial_embedding(index, dimension, 11) for index, product in enumerate(products)
     }
@@ -635,13 +705,15 @@ def fit_graphsage(
         [1.0 if row == column else 0.0 for column in range(dimension)]
         for row in range(dimension)
     ]
-    neighbor_weights = [
-        [0.25 if row == column else 0.0 for column in range(dimension)]
-        for row in range(dimension)
-    ]
     positive_by_product = {
         product: tuple(sorted(history.product_problems[product])) for product in products
     }
+    neighbor_weights: list[list[float]] | None = None
+    if aggregation == "mean":
+        neighbor_weights = [
+            [0.25 if row == column else 0.0 for column in range(dimension)]
+            for row in range(dimension)
+        ]
     problem_count = len(problems)
     epochs_completed = 0
     for epoch in range(epochs):
@@ -666,66 +738,105 @@ def fit_graphsage(
                     if on_epoch is not None:
                         positive_edges_skipped += 1
                     continue
-                product_hidden, product_mean = _graph_message(
-                    product_inputs[product],
-                    [problem_inputs[item] for item in product_neighbors[product]],
-                    self_weights,
-                    neighbor_weights,
-                )
-                positive_hidden, positive_mean = _graph_message(
-                    problem_inputs[problem],
-                    [product_inputs[item] for item in problem_neighbors[problem]],
-                    self_weights,
-                    neighbor_weights,
-                )
-                negative_hidden, negative_mean = _graph_message(
-                    problem_inputs[negative],
-                    [product_inputs[item] for item in problem_neighbors[negative]],
-                    self_weights,
-                    neighbor_weights,
-                )
+                if aggregation == "mean":
+                    assert product_neighbors is not None
+                    assert problem_neighbors is not None
+                    assert neighbor_weights is not None
+                    product_hidden, product_mean = _graph_message(
+                        product_inputs[product],
+                        [problem_inputs[item] for item in product_neighbors[product]],
+                        self_weights,
+                        neighbor_weights,
+                    )
+                    positive_hidden, positive_mean = _graph_message(
+                        problem_inputs[problem],
+                        [product_inputs[item] for item in problem_neighbors[problem]],
+                        self_weights,
+                        neighbor_weights,
+                    )
+                    negative_hidden, negative_mean = _graph_message(
+                        problem_inputs[negative],
+                        [product_inputs[item] for item in problem_neighbors[negative]],
+                        self_weights,
+                        neighbor_weights,
+                    )
+                else:
+                    product_hidden = _self_message(product_inputs[product], self_weights)
+                    positive_hidden = _self_message(problem_inputs[problem], self_weights)
+                    negative_hidden = _self_message(problem_inputs[negative], self_weights)
                 margin = _dot(product_hidden, positive_hidden) - _dot(product_hidden, negative_hidden)
                 if on_epoch is not None:
                     data_loss_sum += _softplus_negative_margin(margin)
                 coefficient = 1.0 / (1.0 + math.exp(min(60.0, max(-60.0, margin))))
-                product_gradient, product_neighbor_gradient, product_self_gradient, product_neighbor_weight_gradient = _graph_message_gradients(
-                    [coefficient * (positive_hidden[index] - negative_hidden[index]) for index in range(dimension)],
-                    product_hidden,
-                    product_inputs[product],
-                    product_mean,
-                    self_weights,
-                    neighbor_weights,
-                    len(product_neighbors[product]),
-                )
-                positive_gradient, positive_neighbor_gradient, positive_self_gradient, positive_neighbor_weight_gradient = _graph_message_gradients(
-                    [coefficient * product_hidden[index] for index in range(dimension)],
-                    positive_hidden,
-                    problem_inputs[problem],
-                    positive_mean,
-                    self_weights,
-                    neighbor_weights,
-                    len(problem_neighbors[problem]),
-                )
-                negative_gradient, negative_neighbor_gradient, negative_self_gradient, negative_neighbor_weight_gradient = _graph_message_gradients(
-                    [-coefficient * product_hidden[index] for index in range(dimension)],
-                    negative_hidden,
-                    problem_inputs[negative],
-                    negative_mean,
-                    self_weights,
-                    neighbor_weights,
-                    len(problem_neighbors[negative]),
-                )
-                product_input_gradients: dict[str, list[float]] = {}
-                problem_input_gradients: dict[str, list[float]] = {}
-                _add_vector_gradient(product_input_gradients, product, product_gradient)
-                for item in product_neighbors[product]:
-                    _add_vector_gradient(problem_input_gradients, item, product_neighbor_gradient)
-                _add_vector_gradient(problem_input_gradients, problem, positive_gradient)
-                for item in problem_neighbors[problem]:
-                    _add_vector_gradient(product_input_gradients, item, positive_neighbor_gradient)
-                _add_vector_gradient(problem_input_gradients, negative, negative_gradient)
-                for item in problem_neighbors[negative]:
-                    _add_vector_gradient(product_input_gradients, item, negative_neighbor_gradient)
+                if aggregation == "mean":
+                    assert product_neighbors is not None
+                    assert problem_neighbors is not None
+                    assert neighbor_weights is not None
+                    product_gradient, product_neighbor_gradient, product_self_gradient, product_neighbor_weight_gradient = _graph_message_gradients(
+                        [coefficient * (positive_hidden[index] - negative_hidden[index]) for index in range(dimension)],
+                        product_hidden,
+                        product_inputs[product],
+                        product_mean,
+                        self_weights,
+                        neighbor_weights,
+                        len(product_neighbors[product]),
+                    )
+                    positive_gradient, positive_neighbor_gradient, positive_self_gradient, positive_neighbor_weight_gradient = _graph_message_gradients(
+                        [coefficient * product_hidden[index] for index in range(dimension)],
+                        positive_hidden,
+                        problem_inputs[problem],
+                        positive_mean,
+                        self_weights,
+                        neighbor_weights,
+                        len(problem_neighbors[problem]),
+                    )
+                    negative_gradient, negative_neighbor_gradient, negative_self_gradient, negative_neighbor_weight_gradient = _graph_message_gradients(
+                        [-coefficient * product_hidden[index] for index in range(dimension)],
+                        negative_hidden,
+                        problem_inputs[negative],
+                        negative_mean,
+                        self_weights,
+                        neighbor_weights,
+                        len(problem_neighbors[negative]),
+                    )
+                    product_input_gradients: dict[str, list[float]] = {}
+                    problem_input_gradients: dict[str, list[float]] = {}
+                    _add_vector_gradient(product_input_gradients, product, product_gradient)
+                    for item in product_neighbors[product]:
+                        _add_vector_gradient(problem_input_gradients, item, product_neighbor_gradient)
+                    _add_vector_gradient(problem_input_gradients, problem, positive_gradient)
+                    for item in problem_neighbors[problem]:
+                        _add_vector_gradient(product_input_gradients, item, positive_neighbor_gradient)
+                    _add_vector_gradient(problem_input_gradients, negative, negative_gradient)
+                    for item in problem_neighbors[negative]:
+                        _add_vector_gradient(product_input_gradients, item, negative_neighbor_gradient)
+                else:
+                    product_gradient, product_self_gradient = _self_message_gradients(
+                        [
+                            coefficient * (positive_hidden[index] - negative_hidden[index])
+                            for index in range(dimension)
+                        ],
+                        product_hidden,
+                        product_inputs[product],
+                        self_weights,
+                    )
+                    positive_gradient, positive_self_gradient = _self_message_gradients(
+                        [coefficient * product_hidden[index] for index in range(dimension)],
+                        positive_hidden,
+                        problem_inputs[problem],
+                        self_weights,
+                    )
+                    negative_gradient, negative_self_gradient = _self_message_gradients(
+                        [-coefficient * product_hidden[index] for index in range(dimension)],
+                        negative_hidden,
+                        problem_inputs[negative],
+                        self_weights,
+                    )
+                    product_input_gradients: dict[str, list[float]] = {}
+                    problem_input_gradients: dict[str, list[float]] = {}
+                    _add_vector_gradient(product_input_gradients, product, product_gradient)
+                    _add_vector_gradient(problem_input_gradients, problem, positive_gradient)
+                    _add_vector_gradient(problem_input_gradients, negative, negative_gradient)
                 self_gradient = [
                     [
                         product_self_gradient[row][column]
@@ -735,21 +846,25 @@ def fit_graphsage(
                     ]
                     for row in range(dimension)
                 ]
-                neighbor_gradient = [
-                    [
-                        product_neighbor_weight_gradient[row][column]
-                        + positive_neighbor_weight_gradient[row][column]
-                        + negative_neighbor_weight_gradient[row][column]
-                        for column in range(dimension)
+                neighbor_gradient: list[list[float]] | None = None
+                if aggregation == "mean":
+                    neighbor_gradient = [
+                        [
+                            product_neighbor_weight_gradient[row][column]
+                            + positive_neighbor_weight_gradient[row][column]
+                            + negative_neighbor_weight_gradient[row][column]
+                            for column in range(dimension)
+                        ]
+                        for row in range(dimension)
                     ]
-                    for row in range(dimension)
-                ]
                 _apply_matrix_gradient(
                     self_weights, self_gradient, learning_rate, regularization
                 )
-                _apply_matrix_gradient(
-                    neighbor_weights, neighbor_gradient, learning_rate, regularization
-                )
+                if neighbor_gradient is not None:
+                    assert neighbor_weights is not None
+                    _apply_matrix_gradient(
+                        neighbor_weights, neighbor_gradient, learning_rate, regularization
+                    )
                 _apply_vector_gradients(
                     product_inputs, product_input_gradients, learning_rate, regularization
                 )
@@ -778,16 +893,19 @@ def fit_graphsage(
         problem_inputs,
         self_weights,
         neighbor_weights,
+        aggregation=aggregation,
     )
     configuration: dict[str, int | float | str] = {
         "dimension": dimension,
         "epochs": epochs,
-        "neighbor_sample": neighbor_sample,
+        "neighbor_sample": neighbor_sample if aggregation == "mean" else 0,
         "learning_rate": learning_rate,
         "regularization": regularization,
         "objective": "bpr",
         "activation": "tanh",
     }
+    if aggregation == "none":
+        configuration["aggregation"] = "none"
     ranker = GraphSageRanker(product_hidden, problem_hidden, configuration)
     if on_checkpoint is not None:
         on_checkpoint(
@@ -797,20 +915,27 @@ def fit_graphsage(
                 "epochs_completed": epochs_completed,
                 "products": list(products),
                 "problems": list(problems),
-                "product_neighbors": product_neighbors,
-                "problem_neighbors": problem_neighbors,
+                "product_neighbors": (
+                    product_neighbors if product_neighbors is not None else {}
+                ),
+                "problem_neighbors": (
+                    problem_neighbors if problem_neighbors is not None else {}
+                ),
                 "positive_by_product": positive_by_product,
                 "product_inputs": product_inputs,
                 "problem_inputs": problem_inputs,
                 "self_weights": self_weights,
-                "neighbor_weights": neighbor_weights,
+                "neighbor_weights": (
+                    neighbor_weights
+                    if neighbor_weights is not None
+                    else [[0.0 for _ in range(dimension)] for _ in range(dimension)]
+                ),
                 "product_embeddings": dict(product_hidden),
                 "problem_embeddings": dict(problem_hidden),
                 "resume_supported": False,
             }
         )
     return ranker
-
 
 
 def _sigmoid(value: float) -> float:

@@ -113,3 +113,13 @@ Le run `maude-duration-20261002T172405Z` est complet, exécuté avec le code com
 - Rapport et courbes : [diagnostic MAUDE](verification/maude_duration_diagnostic.md) ; [manifeste C distinct](../../results/maude_duration_diagnostic_20261002T172405Z.json). Les checkpoints permettent l'inférence, pas la reprise.
 
 **Décision scientifique à respecter en E :** conserver le résultat historique dans son périmètre de trois époques, mais ne plus l'étendre à toutes les durées. L'amélioration ponctuelle nouvelle ne vaut ni confirmation indépendante des périodes déjà consultées, ni preuve de robustesse ou d'un effet causal de l'agrégation. Pas de choix D1/D2, de nouvelle architecture, de bootstrap ou de tuning supplémentaire dans C. A/B humains, support éditorial, déclarations et approbations des auteurs, E/F et soumission restent ouverts.
+
+## Poursuite autorisée — D1 seule P2
+
+À la demande de continuer, choisir **D1 avec/sans agrégation**, l'option recommandée par la roadmap après une chaîne C fiable et instrumentée. **Ne pas engager D2** dans ce cycle. [Protocole D1](aggregation_protocol.md) fixé avant tout entraînement sans voisins ; informations déjà connues et réduction de capacité active y sont déclarées.
+
+Durée commune30 issue de la validation C ; pas de tuning D1 pour chercher une victoire. Le témoin `mean30` reprend les sorties C vérifiées et leurs coûts d'origine ; seul `none30` est nouvellement entraîné, avec validation complète puis choix commun verrouillé avant ses tests historiques 2024/2025. Contraste principal `mean30 − none30` au micro rappel@10 ; conserver les deux résultats quelle que soit leur direction.
+
+Branche `feature/maude-aggregation-ablation` créée depuis `develop`, merge de dépendance de `feature/maude-duration-diagnostic`, sans fusion de livraison. Responsabilités techniques : `SelfOnlyGraphKernel` pour le noyau/gradients/checkpoints et `AggregationAblationRunner` pour la réutilisation supervisée et les limites ; parent pour intégration, protocole, vérification et publication. Les protections/revues humaines ne sont pas supposées.
+
+C et ses manifestes restent historiques dans leur révision `5eb82ba` ; les empreintes documentaires C ne sont pas réécrites quand le pilotage évolue pour D1. RC1, `main`, tags, correction README et trois audits préexistants restent hors de ce changement. Les modèles `none` n'ont pas encore été entraînés lors de cette décision.

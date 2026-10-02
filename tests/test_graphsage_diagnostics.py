@@ -150,6 +150,68 @@ class GraphSageDiagnosticsTests(unittest.TestCase):
         self.assertEqual(3, epoch_events[0]['triplets_visited'])
         self.assertAlmostEqual(expected_loss, epoch_events[0]['mean_bpr_data_loss'])
 
+    def test_none_trains_self_only_and_rebuilds_from_raw_checkpoint_parameters(self) -> None:
+        history = _history((('A', '1'), ('B', '1'), ('B', '2')))
+        initial_checkpoints: list[dict[str, object]] = []
+        fit_graphsage(
+            history,
+            epochs=0,
+            aggregation='none',
+            on_checkpoint=initial_checkpoints.append,
+        )
+        epoch_events: list[dict[str, int | float | None]] = []
+        checkpoints: list[dict[str, object]] = []
+
+        ranker = fit_graphsage(
+            history,
+            epochs=1,
+            aggregation='none',
+            on_epoch=epoch_events.append,
+            on_checkpoint=checkpoints.append,
+        )
+
+        self.assertEqual([1], [event['steps'] for event in epoch_events])
+        before_inputs = initial_checkpoints[0]['product_inputs']
+        after_inputs = checkpoints[0]['product_inputs']
+        self.assertEqual(before_inputs['B'], after_inputs['B'])
+        self.assertNotEqual(before_inputs['A'], after_inputs['A'])
+
+        product_inputs = after_inputs
+        problem_inputs = checkpoints[0]['problem_inputs']
+        self_weights = checkpoints[0]['self_weights']
+        dimension = len(product_inputs['A'])
+        product_hidden = [
+            math.tanh(
+                sum(
+                    self_weights[row][column] * product_inputs['A'][column]
+                    for column in range(dimension)
+                )
+            )
+            for row in range(dimension)
+        ]
+        problem_hidden = [
+            math.tanh(
+                sum(
+                    self_weights[row][column] * problem_inputs['1'][column]
+                    for column in range(dimension)
+                )
+            )
+            for row in range(dimension)
+        ]
+        expected_score = sum(
+            left * right for left, right in zip(product_hidden, problem_hidden)
+        )
+        self.assertAlmostEqual(expected_score, ranker.score('A', '1'))
+
+        serialized = json.loads(json.dumps(checkpoints[0]))
+        serialized['product_embeddings']['A'] = [99.0] * dimension
+        serialized['problem_embeddings']['1'] = [99.0] * dimension
+        self.assertEqual(ranker, GraphSageRanker.from_checkpoint(serialized))
+
+    def test_invalid_graphsage_aggregation_is_rejected(self) -> None:
+        with self.assertRaisesRegex(ValueError, 'aggregation'):
+            fit_graphsage(History.empty(), aggregation='sum')
+
 
 if __name__ == '__main__':
     unittest.main()
