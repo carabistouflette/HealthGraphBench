@@ -59,7 +59,7 @@ Ce passage est une **nouvelle analyse exploratoire** des tests historiques, pas 
 
 ## Instrumentation minimale requise avant lancement
 
-Le code actuel accepte le nombre d'époques mais ne conserve ni pertes d'optimisation, ni état brut des vecteurs/transformations, ni checkpoint sur disque. Le lancement ne doit pas masquer cette absence :
+Le chemin historique du benchmark accepte le nombre d'époques mais ne conserve ni pertes d'optimisation, ni état brut des vecteurs/transformations, ni checkpoint sur disque. L'instrumentation nouvelle doit satisfaire les exigences suivantes avant le lancement ; sa seule présence ne prouve pas encore le diagnostic :
 
 - Instrumenter les triplets effectivement visités sans changer leur ordre ni les gradients. Enregistrer par époque le nombre d'étapes réellement effectuées, les positifs sautés et la moyenne de `softplus(-marge)` **avant mise à jour** sur ces triplets. Nommer ce terme « perte de données BPR » : ce n'est pas, à lui seul, l'objectif pénalisé complet ; garder la régularisation explicitement séparée.
 - Si une perte diagnostique est évaluée sur d'autres exemples, la nommer et la séparer de la perte d'optimisation. Pour zéro époque, il n'y a pas de perte d'optimisation observée.
@@ -69,11 +69,13 @@ Le code actuel accepte le nombre d'époques mais ne conserve ni pertes d'optimis
 
 ## Plafond opérationnel et arrêt
 
-Plafond technique conservateur pour un lancement local : **un processus, bibliothèques mono-thread, 900 secondes pour la grille validation, puis 900 secondes au maximum par réajustement test, 512 MiB RSS et 512 MiB de nouvelles sorties par phase**. Ce plafond n'est pas un temps d'exécution prédit ou une égalisation des budgets historiques. Vérifier les ressources disponibles au lancement ; la RAM disponible est faible et le swap était saturé pendant le cadrage.
+Plafond technique conservateur pour un lancement local : **un seul processus d'apprentissage à la fois sous un contrôleur léger, bibliothèques mono-thread, 900 secondes pour la grille validation, puis 900 secondes au maximum par réajustement test, 512 MiB RSS agrégée contrôleur + worker et 512 MiB de nouvelles sorties par phase**. Ce plafond n'est pas un temps d'exécution prédit ou une égalisation des budgets historiques. Vérifier les ressources disponibles au lancement ; le cadrage initial avait observé une RAM disponible faible et un swap saturé.
 
 Les ajustements indépendants de la grille impliquent **2 910 068 visites de triplets** sur ce graphe si toutes sont effectuées. Aucun temps d'entraînement n'a encore été mesuré. Lancer seulement avec un mécanisme effectif d'arrêt et de consignation des dépassements ; ne pas prétendre qu'une limite est appliquée parce qu'elle est écrite dans ce document.
 
 Au dépassement ou à une erreur : arrêter, conserver la configuration, les étapes terminées et l'erreur dans un nouvel identifiant de run. La grille incomplète reste incomplète ; pas de sélection opportuniste, pas de métrique d'une cohorte tronquée. Toute augmentation du plafond est une décision datée, pas l'attente d'un meilleur score.
+
+**Précision opérationnelle du 2 octobre 2026, avant le premier lancement C :** le contrôleur est réservé à la surveillance du délai, de la RSS et des sorties ainsi qu'à l'arrêt effectif du worker. Aucun entraînement, ajustement ou trimestre n'est parallélisé ; les quatre fits restent indépendants. La mesure de RSS inclut les deux processus, et les limites numériques ne sont pas augmentées. Cette précision rend l'arrêt indépendant de la coopération du code d'apprentissage, sans changer données, objectif, ordre des mises à jour ni règle de sélection.
 
 ## Sorties et critère de fin
 

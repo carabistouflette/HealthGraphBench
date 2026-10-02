@@ -93,3 +93,11 @@ Le démarrage technique des lots A/B est autorisé par la demande d'avancer la r
 - Décision : conserver les chiffres et conclusions historiques dans leur périmètre ; aucune anomalie centrale non expliquée détectée par ces contrôles. B reste ouvert pour revue humaine et disponibilité publique historique des champs. Le protocole C est daté, mais C n'est pas exécuté : les journaux d'optimisation et checkpoints doivent être instrumentés sans altérer la trajectoire historique avant lancement.
 
 Les pièces et empreintes sont rassemblées dans `results/consolidation_core_verification_20261002.json`. Les données et logs détaillés restent dans le nouveau run local ignoré. Aucune P2, confirmation indépendante, nouvelle version de manuscrit, publication distante, validation d'auteur ou soumission n'est effectuée.
+
+## Publication Git autorisée et poursuite C
+
+À la demande explicite de commiter, pousser et continuer, la consolidation A/B a été commitée sous `e7cc8a6` sur `feature/post-rc1-verification`, puis poussée avec `develop`. La [PR #1](https://github.com/carabistouflette/HealthGraphBench/pull/1) est en brouillon vers `develop` ; son check distant **Gitflow and tests** a réussi en 18 s. Aucune revue humaine ou fusion vers `develop`/`main` n'est déduite de ce succès.
+
+La branche `feature/maude-duration-diagnostic` a été créée depuis `develop`, puis a reçu un merge de dépendance de la consolidation A/B ; l'intégration protégée reste soumise à revue. Les tags et `main` ne sont pas déplacés. La correction README et les trois audits manuscrit préexistants restent hors des commits de cet incrément, sans modification de leur contenu.
+
+L'instrumentation du noyau et le runner sont répartis entre les subagents `GraphSageTrace` et `MaudeDurationRunner`, avec intégration et vérifications par l'assistant principal. Le protocole conserve la grille, les cohortes, le critère et les plafonds ; la supervision effective utilise un contrôleur léger et un seul worker, dont la RSS est comptée ensemble. Aucune nouvelle origine non consultée n'est annoncée.

@@ -35,19 +35,21 @@ l'origine d'une branche, ni une approbation scientifique, ni la reproductibilit�
 d'un entraînement. `main` → `develop` est aussi autorisé pour une resynchronisation
 explicite ; ce n'est pas une voie de développement vers `main`.
 
-### État local et première publication
+### Base d'intégration et publication
 
 `develop` a été créé depuis le `main` stable du benchmark v0.2.0. L'organisation
-post-RC1 est préparée sur `chore/consolidation-post-rc1`. Les modifications déjà
-présentes ont été conservées ; aucun commit, tag ou push n'est créé implicitement.
+initiale a été préparée sur `chore/consolidation-post-rc1`, puis la consolidation
+technique A/B a été commitée et publiée sur `feature/post-rc1-verification`.
+La PR correspondante cible `develop` et reste soumise à revue ; publication et
+CI réussie ne valent pas approbation scientifique ni fusion dans une version livrée.
 
-Avant de partager : sélectionner les fichiers et hunks concernés, faire un
-commit revu sur la branche de travail, puis publier les deux branches :
+Sélectionner les seuls fichiers et hunks du lot, faire un commit cohérent sur la
+branche de travail, puis publier `develop` et cette branche. Exemple A/B :
 
 ```bash
 git push -u origin develop
-git push -u origin chore/consolidation-post-rc1
-gh pr create --base develop --head chore/consolidation-post-rc1
+git push -u origin feature/post-rc1-verification
+gh pr create --draft --base develop --head feature/post-rc1-verification
 ```
 
 Les commandes `gh` sont facultatives : les mêmes PR peuvent être ouvertes dans
