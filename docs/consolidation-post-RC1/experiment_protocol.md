@@ -1,7 +1,7 @@
 # Protocole C — durée d'apprentissage GraphSAGE sur MAUDE
 
 **Fixé techniquement le 2 octobre 2026, avant tout nouvel entraînement de ce cycle.**
-Statut : protocole et faisabilité des entrées établis ; diagnostic **non exécuté**, aucune configuration sélectionnée. Ce document n'est pas une préinscription externe, une validation humaine des auteurs ou une preuve de confirmation indépendante. Toute modification ultérieure doit être datée et motivée avant l'exécution concernée.
+Statut actualisé après l'exécution : diagnostic **exécuté le 2 octobre 2026**, grille complète et 30 époques sélectionnées avant les nouveaux tests historiques. Le protocole effectivement lancé, SHA-256 `69cda4bbd4cd86c3ebbe2346346e2a6292ef69a89699d92e1b628bc504fcb94a`, reste conservé dans le run et au commit `4a22c2addc8203efd2b38a60c416270855c3bf3b` ; cette mise à jour documentaire ne change pas rétrospectivement sa règle. Voir le [rapport C](verification/maude_duration_diagnostic.md). Ce document n'est pas une préinscription externe, une validation humaine des auteurs ou une preuve de confirmation indépendante.
 
 ## Question et périmètre
 
@@ -71,7 +71,7 @@ Le chemin historique du benchmark accepte le nombre d'époques mais ne conserve 
 
 Plafond technique conservateur pour un lancement local : **un seul processus d'apprentissage à la fois sous un contrôleur léger, bibliothèques mono-thread, 900 secondes pour la grille validation, puis 900 secondes au maximum par réajustement test, 512 MiB RSS agrégée contrôleur + worker et 512 MiB de nouvelles sorties par phase**. Ce plafond n'est pas un temps d'exécution prédit ou une égalisation des budgets historiques. Vérifier les ressources disponibles au lancement ; le cadrage initial avait observé une RAM disponible faible et un swap saturé.
 
-Les ajustements indépendants de la grille impliquent **2 910 068 visites de triplets** sur ce graphe si toutes sont effectuées. Aucun temps d'entraînement n'a encore été mesuré. Lancer seulement avec un mécanisme effectif d'arrêt et de consignation des dépassements ; ne pas prétendre qu'une limite est appliquée parce qu'elle est écrite dans ce document.
+Les ajustements indépendants de la grille impliquent **2 910 068 visites de triplets** sur ce graphe si toutes sont effectuées. Cette charge était calculée avant lancement, pas mesurée. Les temps et pas désormais observés sont dans le rapport C. Tout nouveau lancement exige un mécanisme effectif d'arrêt et de consignation des dépassements ; une limite écrite seule ne constitue pas son application.
 
 Au dépassement ou à une erreur : arrêter, conserver la configuration, les étapes terminées et l'erreur dans un nouvel identifiant de run. La grille incomplète reste incomplète ; pas de sélection opportuniste, pas de métrique d'une cohorte tronquée. Toute augmentation du plafond est une décision datée, pas l'attente d'un meilleur score.
 
@@ -81,4 +81,4 @@ Au dépassement ou à une erreur : arrêter, conserver la configuration, les ét
 
 Nouvelle destination : `results/generated/consolidation-post-RC1/<run-id>/`, jamais RC1 ni un ancien run. Petits manifestes, protocole, rapport et limites destinés à Git ; gros états et scores restent ignorés et sont publiés séparément si une nouvelle version est approuvée.
 
-C est clos seulement lorsque la grille, ses courbes et ses limites sont documentées, la sélection est verrouillée et le passage test historique prévu est terminé, ou lorsque son non-achèvement est explicitement décidé avec conclusions restreintes. Une hausse de score ou une convergence démontrée n'est pas requise. **À ce stade : aucun entraînement, aucun score nouveau et aucune sélection ; C n'est pas clos.**
+C est clos seulement lorsque la grille, ses courbes et ses limites sont documentées, la sélection est verrouillée et le passage test historique prévu est terminé, ou lorsque son non-achèvement est explicitement décidé avec conclusions restreintes. Une hausse de score ou une convergence démontrée n'est pas requise. **Exécution observée : grille 0/3/10/30 complète ; 30 époques verrouillées à 17:32:26 UTC avant les tests 2024 puis 2025, tous deux complets.** Les conclusions restent exploratoires, attachées aux entrées préparées et à la grille fixée.

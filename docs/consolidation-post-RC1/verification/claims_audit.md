@@ -1,6 +1,6 @@
 # Audit des affirmations numériques centrales — RC1
 
-Périmètre : résumé français, tableaux principaux et analyses complémentaires des trois tâches; aucune modification des sources RC1. La matrice détaillée de **42 affirmations**, avec une ligne par conclusion contrôlée, est dans [`../claims_evidence.csv`](../claims_evidence.csv). Les mentions **analyse rejouée** signifient un recalcul à partir de contributions, prédictions compactes ou snapshots préparés déjà conservés; elles ne signifient ni nouvel entraînement, ni reconstruction brute, ni réplication indépendante.
+Périmètre A/B : résumé français, tableaux principaux et analyses complémentaires des trois tâches ; aucune modification des sources RC1. L'audit initial couvre **42 affirmations historiques** ; la [matrice actuelle](../claims_evidence.csv) distingue désormais aussi les nouvelles lignes C et leurs preuves séparées. Ici, **analyse rejouée** signifie un recalcul à partir de contributions, prédictions compactes ou snapshots préparés conservés, ni nouvel entraînement, ni reconstruction brute, ni réplication indépendante. Le [nouvel entraînement C](maude_duration_diagnostic.md) n'est pas un résultat de cet audit A/B.
 
 ## Audit arithmétique exécuté
 

@@ -101,3 +101,15 @@ Les pièces et empreintes sont rassemblées dans `results/consolidation_core_ver
 La branche `feature/maude-duration-diagnostic` a été créée depuis `develop`, puis a reçu un merge de dépendance de la consolidation A/B ; l'intégration protégée reste soumise à revue. Les tags et `main` ne sont pas déplacés. La correction README et les trois audits manuscrit préexistants restent hors des commits de cet incrément, sans modification de leur contenu.
 
 L'instrumentation du noyau et le runner sont répartis entre les subagents `GraphSageTrace` et `MaudeDurationRunner`, avec intégration et vérifications par l'assistant principal. Le protocole conserve la grille, les cohortes, le critère et les plafonds ; la supervision effective utilise un contrôleur léger et un seul worker, dont la RSS est comptée ensemble. Aucune nouvelle origine non consultée n'est annoncée.
+
+## Diagnostic C exécuté — décision après observation
+
+Le run `maude-duration-20261002T172405Z` est complet, exécuté avec le code commité `4a22c2addc8203efd2b38a60c416270855c3bf3b` et le protocole antérieur SHA-256 `69cda4bbd4cd86c3ebbe2346346e2a6292ef69a89699d92e1b628bc504fcb94a`. Son snapshot exact reste local ; le document de protocole courant ne fait qu'actualiser le statut après exécution.
+
+- Grille indépendante 0/3/10/30 achevée sur les mêmes entrées ; R@10 validation `0,022193 / 0,171577 / 0,166905 / 0,205062`. Zéro reste exclu de la sélection.
+- Décision verrouillée à 17:32:26 UTC : **30 époques**, avant lancement des tests 2024 puis 2025. Aucun critère ou plafond modifié après lecture des résultats.
+- Test groupé : **2 775 hits / 13 174 liens = 0,210642**, 6 370 observations positives. Comparaisons descriptives avec GraphSAGE historique à trois époques `0,172840` et voisins historiques `0,192045` ; pas de nouvel IC ou d'entraînement des références.
+- Phases validation/2024/2025 : **482,36 / 329,32 / 356,21 s**, sous 900 s chacune ; RSS agrégée maximale **237,85 MiB**, sous 512 MiB ; chaque phase sous 512 MiB de sorties. Le total d'environ 1 168 s n'est pas un dépassement du plafond par phase.
+- Rapport et courbes : [diagnostic MAUDE](verification/maude_duration_diagnostic.md) ; [manifeste C distinct](../../results/maude_duration_diagnostic_20261002T172405Z.json). Les checkpoints permettent l'inférence, pas la reprise.
+
+**Décision scientifique à respecter en E :** conserver le résultat historique dans son périmètre de trois époques, mais ne plus l'étendre à toutes les durées. L'amélioration ponctuelle nouvelle ne vaut ni confirmation indépendante des périodes déjà consultées, ni preuve de robustesse ou d'un effet causal de l'agrégation. Pas de choix D1/D2, de nouvelle architecture, de bootstrap ou de tuning supplémentaire dans C. A/B humains, support éditorial, déclarations et approbations des auteurs, E/F et soumission restent ouverts.

@@ -67,7 +67,7 @@ Le supplément documente déjà des rejeux des compacts MAUDE, Part D et CMS. Ce
 
 **Statuts à employer :** résultat historique rapporté ; analyse rejouée sur sorties conservées ; entrées reconstruites ; entraînement réexécuté ; confirmation sur données non consultées. Ne pas utiliser un statut pour en suggérer un autre.
 
-**Avancement technique A/B :** dix contrôles de rejeu réussis dans un environnement propre, 609/609 contrôles arithmétiques/manifeste et une matrice de 42 affirmations. Les cases qui incluent validation humaine, contrôle des sources primaires ou disponibilité publique historique restent ouvertes. Voir le [pilotage et ses preuves](consolidation-post-RC1/README.md) ; aucun nouvel entraînement ni confirmation indépendante n'est revendiqué.
+**Avancement technique A/B :** dix contrôles de rejeu réussis dans un environnement propre, 609/609 contrôles arithmétiques/manifeste et 42 affirmations initiales. Les cases qui incluent validation humaine, contrôle des sources primaires ou disponibilité publique historique restent ouvertes. Voir le [pilotage et ses preuves](consolidation-post-RC1/README.md) ; A/B ne revendiquent ni nouvel entraînement ni confirmation indépendante. Le nouvel entraînement C est distingué ci-dessous.
 
 **Critère de fin :** aucune incohérence numérique centrale n'est laissée inexpliquée, et chaque affirmation conservée peut être reliée à sa preuve et à ses limites. Un contrôle non réalisable est déclaré comme tel, pas marqué « réussi ».
 
@@ -79,11 +79,11 @@ Dans le diagnostic **synthétique** du tableau 10, page 12 du supplément, le ra
 
 ### Protocole minimal proposé
 
-- [ ] Dater le protocole avant les nouvelles exécutions. Conserver les cibles, les candidats, les règles d'éligibilité et de départage historiques. Déclarer que les périodes ont déjà été consultées.
-- [ ] Commencer sur l'historique d'entraînement antérieur à 2023 et la validation 2023. Tester une petite grille de durées, **proposée ici** : `0, 3, 10, 30` époques. Conserver les autres paramètres de la configuration gelée pour cette première sensibilité. Zéro époque est un témoin, pas une configuration à sélectionner.
-- [ ] Choisir à l'avance le critère de sélection parmi les configurations entraînées, par exemple le rappel micro à 10 sur validation, avec préférence à la durée la plus courte en cas d'égalité. Ne pas choisir les paramètres d'après les nouveaux scores de test.
-- [ ] Enregistrer les pertes réellement calculées, les scores, les rangs, les checkpoints, les clés des nœuds représentés, les paramètres, le nombre d'étapes, le temps et la mémoire mesurés. Distinguer la perte d'optimisation d'une éventuelle perte diagnostique calculée sur d'autres exemples.
-- [ ] Une fois la configuration choisie sur validation, effectuer un passage d'évaluation sur les périodes historiques de test selon les réajustements prévus. Présenter ce résultat comme une nouvelle analyse exploratoire, à côté des résultats historiques, sans les écraser.
+- [x] Dater le protocole avant les nouvelles exécutions. Conserver les cibles, les candidats, les règles d'éligibilité et de départage historiques. Déclarer que les périodes ont déjà été consultées.
+- [x] Commencer sur l'historique d'entraînement antérieur à 2023 et la validation 2023. Tester une petite grille de durées, **fixée avant lancement** : `0, 3, 10, 30` époques. Conserver les autres paramètres de la configuration gelée pour cette première sensibilité. Zéro époque est un témoin, pas une configuration à sélectionner.
+- [x] Choisir à l'avance le critère de sélection parmi les configurations entraînées : rappel micro à 10 sur validation, avec préférence à la durée la plus courte en cas d'égalité. Ne pas choisir les paramètres d'après les nouveaux scores de test.
+- [x] Enregistrer les pertes réellement calculées, les scores, les rangs, les checkpoints d'inférence, les clés des nœuds représentés, les paramètres, le nombre d'étapes, le temps et la mémoire mesurés. La perte de données BPR avant mise à jour n'inclut pas la régularisation ; la reprise d'entraînement n'est pas implémentée.
+- [x] Une fois la configuration choisie sur validation, effectuer un passage d'évaluation sur les périodes historiques de test selon les réajustements prévus. Présenter ce résultat comme une nouvelle analyse exploratoire, à côté des résultats historiques, sans les écraser.
 
 Les négatifs historiques sont déterminés par hachage selon la description du supplément. Répéter exactement la même exécution renseigne sur son déterminisme, pas sur sa robustesse à d'autres initialisations ou échantillonnages. Une telle sensibilité demanderait une variante explicitement définie et versionnée ; elle n'est pas nécessaire au diagnostic minimal. *(S, §S2.1, p. 3.)*
 
@@ -92,6 +92,10 @@ Les négatifs historiques sont déterminés par hachage selon la description du 
 **Critère de fin :** on peut décrire l'effet des durées testées et les limites du diagnostic. Ni une hausse de score ni une convergence démontrée ne sont requises pour clore le lot. Une amélioration à trente époques ne démontre pas davantage l'optimalité de cette durée.
 
 **Décision associée :** si les résultats changent substantiellement, modifier le message de l'article. Si un défaut d'implémentation affecte une conclusion centrale, corriger et réévaluer avant soumission. Si le calcul est inaccessible ou dépasse le budget, conserver une conclusion limitée à la configuration historique et documenter le contrôle non réalisé.
+
+**Résultat C réellement exécuté :** validation R@10 `0/3/10/30 = 0,022193 / 0,171577 / 0,166905 / 0,205062` ; 30 époques verrouillées avant les tests. Test agrégé 2024–2025 : **2 775 / 13 174 = 0,210642**, sur 6 370 observations avec positif. GraphSAGE historique à trois époques reste `0,172840` et les voisins historiques `0,192045` ; les écarts nouveaux sont descriptifs, sans nouvel intervalle ni comparaison de budgets égaux. Le [rapport, les courbes et les preuves C](consolidation-post-RC1/verification/maude_duration_diagnostic.md) détaillent les 900 s / 512 MiB respectés par chaque phase.
+
+**Message à intégrer en E :** la contre-performance du GraphSAGE historique à trois époques ne caractérise pas toutes les durées. La configuration 30 époques sélectionnée sur validation donne une valeur ponctuelle test supérieure aux références historiques citées. Cela ne démontre ni supériorité statistique, ni effet causal de l'agrégation, ni optimum à trente époques. RC1 est conservée ; aucun manuscrit révisé ou accord d'auteur n'est anticipé.
 
 ## 6. Lot D — Choisir une seule analyse complémentaire
 
@@ -166,7 +170,7 @@ Le manuscrit identifie trois conditions : une origine non consultée, des choix 
 
 ## 10. Organisation proposée des livrables
 
-L'organisation ci-dessous est désormais en place pour le pilotage et les preuves techniques A/B. Le protocole C est daté mais le diagnostic n'est pas exécuté. La présence des documents ne clôt pas les validations scientifiques humaines ni les livrables de soumission.
+L'organisation ci-dessous est en place pour les preuves techniques A/B et le diagnostic C réellement exécuté. La grille, la sélection et les tests historiques C sont complets ; les conclusions restent exploratoires. La présence des documents ne clôt pas les validations scientifiques humaines ni les livrables de soumission.
 
 ```text
 docs/
@@ -175,22 +179,25 @@ docs/
     ├── README.md                       # Index des lots, de l'état et des preuves
     ├── scope_and_decisions.md          # Décisions d'organisation et prérequis à obtenir
     ├── inventory.csv                   # Inventaire réel des pièces disponibles/manquantes
-    ├── claims_evidence.csv              # 42 affirmations, fichiers/calculs, statuts et limites
-    ├── experiment_protocol.md           # C daté ; entraînement et sélection non exécutés
-    ├── verification/                    # Rejeux, audit, frontières temporelles et faisabilité
+    ├── claims_evidence.csv              # Affirmations historiques et nouvelles C, statuts et limites
+    ├── experiment_protocol.md           # C fixé avant lancement ; statut après exécution
+    ├── verification/                    # Rejeux, audits, rapport et courbes C
     ├── scientific_changes.md            # Évolution des preuves ; chiffres historiques conservés
     └── submission_checklist.md          # Contrôles E/F et décision de soumission
 
 results/
 ├── SHA256SUMS_manuscript_rc1            # Empreintes des copies RC1, sans rendre la version mutable
 ├── consolidation_core_verification_20261002.json # Manifeste compact des vérifications A/B
-├── SHA256SUMS_consolidation_20261002     # Empreintes des preuves nouvelles
+├── SHA256SUMS_consolidation_20261002     # Empreintes A/B conservées, non réécrites par C
+├── maude_duration_diagnostic_20261002T172405Z.json # Manifeste compact du nouvel entraînement C
+├── maude_duration_epochs_20261002T172405Z.csv      # Pertes observées, témoin zéro explicite
+├── SHA256SUMS_maude_duration_20261002T172405Z      # Empreintes du nouvel incrément C
 └── generated/
     ├── manuscript-rc1/                  # Copies locales RC1 en lecture seule
     └── consolidation-post-RC1/<run-id>/ # Nouvelles sorties locales par exécution
 ```
 
-Les documents de pilotage, manifestes/CSV et petites empreintes sont destinés au versionnement dans Git. `results/generated/` contient les copies locales RC1 en lecture seule et les sorties nouvelles ; les gros fichiers et données brutes restent locaux ou externes selon leur nature. Les versions publiées sont immuables : une correction exige une nouvelle version et une provenance explicite. Les sources locales d'origine ne sont ni déplacées ni modifiées. Les preuves A/B disponibles ne valent ni entraînement MAUDE nouveau, ni confirmation indépendante, ni approbation des auteurs.
+Les documents de pilotage, manifestes/CSV et petites empreintes sont destinés au versionnement dans Git. `results/generated/` contient les copies locales RC1 en lecture seule et les sorties nouvelles ; les gros fichiers et données brutes restent locaux ou externes selon leur nature. Les versions publiées sont immuables : une correction exige une nouvelle version et une provenance explicite. Les sources locales d'origine ne sont ni déplacées ni modifiées. A/B portent sur des sorties conservées ; C est un nouvel entraînement depuis les entrées préparées, pas une réacquisition brute, une confirmation indépendante ou une approbation des auteurs.
 
 **À réserver à une suite distincte :** nouvelles architectures, multiplication des tâches, extension systématique des cohortes, plan factoriel complet, étude d'utilité clinique ou recherche exhaustive de réglages. Ces directions peuvent être utiles, mais ne font pas partie du minimum retenu pour ce cycle.
 
