@@ -105,12 +105,12 @@ Les négatifs historiques sont déterminés par hachage selon la description du 
 
 À privilégier si le lot C a fourni une chaîne d'entraînement fiable et instrumentée.
 
-- [ ] Définir une variante avec agrégation et une variante sans agrégation, sur le même graphe historique, les mêmes exemples, candidats, négatifs, dimensions et règles d'évaluation autant que possible. Documenter ce qui change réellement, y compris la capacité du modèle.
-- [ ] Fixer les budgets et la sélection sur validation avant consultation des nouveaux tests. Publier les deux résultats, quelle que soit leur direction, avec une interprétation limitée à cette comparaison.
+- [x] Définir une variante avec agrégation et une variante sans agrégation, sur le même graphe historique, les mêmes exemples, candidats, négatifs, dimensions et règles d'évaluation autant que possible. Documenter ce qui change réellement, y compris la capacité du modèle.
+- [x] Fixer les budgets et la sélection sur validation avant consultation des nouveaux tests. Publier les deux résultats, quelle que soit leur direction, avec une interprétation limitée à cette comparaison.
 
 **Critère de fin :** la comparaison informe sur l'agrégation dans cette configuration, sans attribuer tous les écarts entre familles de modèles à ce seul facteur. L'absence d'une telle ablation est explicitement indiquée dans la version actuelle. *(M, §5.1, p. 12 ; S, §S2.1, p. 3.)*
 
-**Décision de poursuite : D1 engagée seule.** Le [protocole fixé avant calcul](consolidation-post-RC1/aggregation_protocol.md) conserve la durée commune30 issue de sélection C sur validation, les exemples/candidats/négatifs et les budgets. Le témoin C30 vérifié est réutilisé sans réentraînement ; seule la variante sans voisins est nouvelle. Capacité partagée active128→64 documentée ; comparaison limitée à ces variantes, sans nouveau tuning ou conclusion causale générale. D1 n'est pas encore exécutée ; D2 reste exclue.
+**D1 seule P2, techniquement close.** Le [protocole fixé avant calcul](consolidation-post-RC1/aggregation_protocol.md) conserve la durée commune30 issue de validation C. Témoin `mean30` réutilisé, sans réentraînement : R@10 groupé **0,210642** ; nouveau `none30` **0,035600** (`469/13 174`), contraste `mean30 − none30` **+0,175042**. [Rapport et courbes](consolidation-post-RC1/verification/maude_aggregation_ablation.md) : 4 593 744 nouveaux scores contrôlés, zéro écart à1e-12, cohortes appariées ; trois phases sous900s/512MiB/512MiB. Capacité128→64 et perte `none` proche de ln(2) déclarées ; pas de tuning, causalité générale ou confirmation. Réserve RSS de l'audit post-hoc exposée, sans certification globale. **D2 reste exclue** ; A/B humains et E/F restent ouverts, pas clôture du cycle.
 
 ### Option D2 — Performances et couverture des représentations
 

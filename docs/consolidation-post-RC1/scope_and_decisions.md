@@ -123,3 +123,11 @@ Durée commune30 issue de la validation C ; pas de tuning D1 pour chercher une v
 Branche `feature/maude-aggregation-ablation` créée depuis `develop`, merge de dépendance de `feature/maude-duration-diagnostic`, sans fusion de livraison. Responsabilités techniques : `SelfOnlyGraphKernel` pour le noyau/gradients/checkpoints et `AggregationAblationRunner` pour la réutilisation supervisée et les limites ; parent pour intégration, protocole, vérification et publication. Les protections/revues humaines ne sont pas supposées.
 
 C et ses manifestes restent historiques dans leur révision `5eb82ba` ; les empreintes documentaires C ne sont pas réécrites quand le pilotage évolue pour D1. RC1, `main`, tags, correction README et trois audits préexistants restent hors de ce changement. Les modèles `none` n'ont pas encore été entraînés lors de cette décision.
+
+## Décision après D1 exécutée
+
+D1 est **techniquement close**, seule P2 retenue ; **ne pas ouvrir D2 ni retuner `none`**. Code/protocole/prévol commités et poussés avant les fits de santé sous `b14d878`, PR #3 en brouillon dépendante de #2. Témoin C30 réutilisé ; validation `none30 = 240/7705 = 0,031149`, choix commun30 verrouillé à20:53:30.842192 UTC avant ses deux réajustements/tests. Groupé `mean30=2775/13174=0,210642` contre `none30=469/13174=0,035600`, contraste+0,175042.
+
+[Rapport/courbes et réserves](verification/maude_aggregation_ablation.md) : les 4 593 744 nouveaux scores reconstruits depuis trois checkpoints et appariés au témoin, zéro écart ; trois phases sous leurs plafonds inchangés, 6 756 720 pas/90 époques nouvelles. La RSS post-hoc de l'audit a deux lectures discordantes : aucune certification globale ni origine certaine, sans confusion avec la supervision des fits.
+
+L'écart est propre à ces variantes/durée/paramètres communs : `none` non-GNN, capacité partagée128→64 et pertes quasi ln(2) ; pas isolement causal, optimum ou validation indépendante. Responsabilités finales : `D1NumericAudit` et `D1ScientificReport` pour preuves/rendu indépendants, parent pour intégration et Git. Les approbations humaines ne sont pas inférées. A/B humains, disponibilité publique historique, support/déclarations/auteurs, E/F et soumission restent ouverts ; le cycle complet n'est pas déclaré achevé.

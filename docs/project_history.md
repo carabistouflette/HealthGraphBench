@@ -135,3 +135,40 @@ the exact pre-run protocol is retained separately from its later status update.
 Historical outputs, RC1, tags and `main` remain unchanged. A/B human gates,
 the optional single D analysis, authors' declarations, editorial choice,
 E/F and submission remain open.
+
+## Fixed-duration MAUDE aggregation comparison (D1)
+
+D1 was chosen as the sole P2 after C; D2 remains excluded. Code, the pinned
+protocol and preflight were committed and pushed as
+`b14d878a78f559b65c70fc872a51a59af4c5ae85` before new health-data fits.
+Draft [PR #3](https://github.com/carabistouflette/HealthGraphBench/pull/3)
+targets `develop` and depends on #2; initial technical CI passed in 18 seconds.
+The default mean path exactly matched 364 RC1 fixture scores. Only the
+self-only, non-message-passing `none30` variant was newly trained; mean30 C
+outputs and costs were reused without repeating its fits.
+
+The complete run `maude-aggregation-20261002T205122Z` used the common duration
+30 selected by C. Validation recall@10 was mean `0.205062` versus none
+`0.031149`; the duration was locked at 20:53:30.842192 UTC before none's tests.
+Pooled test recall@10 was `2775/13174 = 0.210642` versus
+`469/13174 = 0.035600`, signed mean-minus-none `+0.175042`.
+All three training/evaluation phases stayed under 900 seconds, 512 MiB
+aggregate RSS and 512 MiB outputs, without retries.
+
+All 4,593,744 new none scores were reconstructed from three raw checkpoints
+and paired with C cohorts; 51,260,776 numeric checks found no discrepancy at
+1e-12. The audit's final RSS readings disagree: VmHWM 118,292,480 bytes versus
+ru_maxrss 571,580,416 bytes. No startup readings or global audit-RSS certification
+are claimed. A non-health telemetry probe demonstrates distinct exec scopes,
+not the certain source of the audit's historical peak; training supervision
+remains a separate observation.
+
+The [D1 report and inspected curves](consolidation-post-RC1/verification/maude_aggregation_ablation.md)
+and [separate manifest](../results/maude_aggregation_ablation_20261002T205122Z.json)
+retain both results and origins. Shared active transforms differ (128 versus
+64 scalars); none losses remain near ln(2) under these common settings.
+This is a specific exploratory contrast, not isolated aggregation causality,
+general superiority, optimum or independent confirmation. No tuning,
+additional seeds, bootstrap or interval was added. A/B human review, public
+availability, author declarations/editorial choice, manuscript E and decision F
+remain open; C/D1 do not complete the four-week cycle.
