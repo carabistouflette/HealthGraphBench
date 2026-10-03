@@ -8,10 +8,10 @@ Provenance files comprise the manifests, preflights, epoch series, and metrics i
 
 \subsection{C: exploratory duration selection}
 
-The validation fit uses history through 2022Q4 and evaluates 2023; scores under the protocol use the same 3,483 positive-containing product--quarters, 7,705 positive links, and 1,618,588 candidate pairs. Four independent fits without initialization from a preceding fit were compared, using the same dimension 8, eight sampled neighbors, learning rate 0.02, regularization 0.0005, BPR objective, $\tanh$ activation, and fixed negative-sampling and ranking rules. At zero epochs, no triplet is optimized; loss is not defined as an observed zero loss.
+The validation training run uses history through 2022Q4 and evaluates 2023; scores under the protocol use the same 3,483 positive-containing product--quarters, 7,705 positive links, and 1,618,588 candidate pairs. Four separate training runs, deterministically reinitialized without resuming the state of a preceding run, were compared, using the same dimension 8, eight sampled neighbors, learning rate 0.02, regularization 0.0005, BPR objective, $\tanh$ activation, and fixed negative-sampling and ranking rules. These are neither independent random repetitions nor external validation. At zero epochs, no triplet is optimized; loss is not defined as an observed zero loss.
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{C: 2023 validation grid. BPR data loss is measured before updates and excludes regularization; no loss is observed at zero epochs. Fits are independent, and only the selected duration is evaluated on the C test periods.}
+\caption{C: 2023 validation grid. BPR data loss is measured before updates and excludes regularization; no loss is observed at zero epochs. Training runs are separate and deterministically reinitialized; only the selected duration is evaluated on the C test periods.}
 \label{tab:duration-rc2}
 \input{tables/maude_duration_RC2_en.tex}
 \end{table}

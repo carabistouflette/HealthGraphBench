@@ -44,3 +44,9 @@ The received opinion favors the exploratory resource-article positioning subject
 
 At the user's request, this correction is identified as **RC2.1** in metadata, PDF titles/footers, checker, and distinct ZIP `HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip`. Audited RC2 is preserved. Original bibliography archived byte-identically with its original hash; active bibliography modified only in one note. Incremental concordance: four modified pairs, 23 retained; earlier dated evidence preserved. The received audit's 61 tests are distinguished from the 64 upstream repository tests.
 
+## 3 October 2026 — RC2.2, targeted editorial closure
+
+The received RC2.1 roadmap is retained as a documentary review based on PDFs and some fractions, distinct from the earlier executable audit. Separate C training runs are deterministically reinitialized without warm start; they are not independent random repetitions. Historical three-epoch GraphSAGE and GraphSAGE30 are made explicit in relevant captions and labels; protected originals are retained and `historical3` derivatives identified. Plotted points and intervals are identical; only historical labels and C titles change.
+
+Canonical French, then English. Executed-evidence matrix and author checklist in `submission/`. Exact venue, identities/declarations, approvals, license and archiving remain unresolved; historical FAIA names do not select a venue. New archive `HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip`, never a replacement of RC2.1. No fit, score, tuning, bootstrap, D2 or successful scientific audit rerun; no tag, DOI, Zenodo deposit or submission.
+

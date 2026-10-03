@@ -1,10 +1,10 @@
-# HealthGraphBench — révision documentaire RC2.1
+# HealthGraphBench — RC2.2, clôture éditoriale ciblée
 
-**3 octobre 2026 • `manuscript-rc2.1` • non soumise, non approuvée par les auteurs.**
-Archive : `HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip`; racine : `HealthGraphBench_RC2_1`.
+**3 octobre 2026 • `manuscript-rc2.2` • non soumise, non approuvée par les auteurs.**
+Archive : `HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip`; racine : `HealthGraphBench_RC2_2`.
 RC1 fournie est conservée intacte (SHA-256 `2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be`).
 
-**RC2.1 : corrections documentaires après audit reçu.** C reste principal et D1 secondaire complet. Seules la légende de la figure 2 (rappel en validation ; pertes en S11), la note bibliographique de carte des preuves (S2) et les mentions de version changent. Français corrigé avant traduction anglaise. La concordance antérieure de 27 paires reste datée ; les quatre paires modifiées et les 23 conservées sont documentées dans `verification/rc2_minor/language_delta.json`. Tous les ZIP antérieurs, dont RC2 auditée, sont conservés.
+**RC2.2 : clôture ciblée après la roadmap RC2.1.** C reste principal et D1 secondaire complet. Les entraînements séparés sont réinitialisés de manière déterministe, sans reprise d'un entraînement précédent ; ce ne sont pas des répétitions aléatoires indépendantes. Les légendes distinguent GraphSAGE historique à trois époques de GraphSAGE30. Les quatre figures historiques protégées restent inchangées ; les dérivés `maude_cutoffs_historical3_*` modifient leurs libellés seulement, et les deux titres de courbe C sont précisés. Français corrigé avant traduction anglaise. Les rapports de concordance antérieurs restent datés ; le delta courant est dans `verification/rc2_closure/language_delta.json`. Tous les ZIP antérieurs sont conservés.
 
 ## Contenu et portée
 
@@ -22,7 +22,7 @@ Toutes ces périodes étaient déjà consultées : résultats exploratoires, san
 
 Le rapport reçu `verification/rc2_minor/external_audit_received.md` donne un avis favorable au positionnement exploratoire, sous les deux corrections. Il rapporte un recalcul distinct depuis les instantanés/checkpoints, sans acquisition FDA ni entraînement ; ce n'est ni notre nouvelle exécution ni une approbation des auteurs ou une décision éditoriale. Les 61 tests exécutés par cet audit dans le ZIP sont distincts des 64 tests amont du dépôt documentés dans `verification/rc2_paired/repository_tests.json`. Les anciens rapports de compilation, lecture et rejeu restent des preuves datées.
 
-RC2.1 : cinq PDF recompilés, paginations inchangées (principaux FR/EN 17/16, suppléments 23/22, réponse historique 2). Les pages de légende, de référence et de version ont été examinées ; aucun avertissement dans les quatre logs scientifiques. Preuve actuelle : `verification/rc2_minor/visual_review.json`. Les résultats/figures/checkpoints et le runner de rejeu restent byte-identiques à RC2 auditée.
+La RC2.1 antérieure a recompilé cinq PDF (principaux FR/EN 17/16, suppléments 23/22, réponse historique 2) ; ses preuves restent dans `verification/rc2_minor/visual_review.json`. La présente révision possède ses propres preuves de compilation et de lecture ciblée dans `verification/rc2_closure/visual_review.json`. La dernière roadmap reçue repose sur les PDF et quelques fractions, non sur une exécution du paquet. `submission/verification_cloture.md` distingue ces attributions ; `submission/submission_checklist_RC2_1.md` liste les décisions auteurs/support encore ouvertes. Données, checkpoints, résultats et code de rejeu restent inchangés.
 
 ## Vérifier la livraison
 
@@ -34,6 +34,8 @@ python scripts/check_review_package.py
 ```
 
 Le contrôle vérifie l'identité, les bytes historiques protégés, les ratios et contrastes conservés, les checkpoints et les PDF. Il ne relance ni fit ni audit scientifique réussi. `release/protected_payload.json` conserve 105 fichiers protégés à leurs chemins historiques et la bibliographie originale archivée sous `history/RC1/references.bib`, sans réécrire son empreinte. La bibliographie active corrige seulement S1 en S2 dans une note.
+
+Les générateurs inclus permettent de refaire les figures dans une copie, avec Matplotlib et NumPy : `python scripts/render_historical_figure.py --root .` crée seulement les dérivés historiques ; `python scripts/render_figures.py --root . --duration-only` rend seulement les deux courbes C, sans lire D1. Les chiffres tracés et bornes d'intervalles concordent avec le générateur historique conservé, selon `verification/rc2_closure/figure_numeric_identity.json`. Ces commandes ne réentraînent aucun modèle.
 
 ## Compiler dans une copie
 

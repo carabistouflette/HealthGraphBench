@@ -1,6 +1,6 @@
-# Manuscript RC2.1 source overlay
+# Manuscript RC2.2 source overlay
 
-RC2.1 is the documentary correction of audited RC2: Figure 2 caption describes validation recall only, with losses in S11; the common bibliography's evidence map points to S2. The French caption is canonical, then translated. No new scientific calculation. RC1, earlier RC2 archives and historical results are immutable. RC2.1 is not author-approved or submitted; no manuscript DOI, tag or editorial acceptance is claimed.
+RC2.2 closes the editorial delta after the RC2.1 roadmap: separate, deterministically reset training runs; historical three-epoch GraphSAGE distinct from GraphSAGE30; evidence reconciliation and unresolved author/venue gates. French is canonical, then translated. No new scientific calculation. RC1 and all earlier RC2 archives remain immutable. Protected historical figures are retained; explicitly named derivatives change labels only. No submission, approval, manuscript DOI, tag or editorial acceptance is claimed.
 
 ## Sources and assembly
 
@@ -9,13 +9,13 @@ RC2.1 is the documentary correction of audited RC2: Figure 2 caption describes v
 ```bash
 python scripts/build_manuscript_rc2.py \
   --source-zip "$HOME/Downloads/HealthGraphBench_FAIA_LaTeX_RC1.zip" \
-  --output-dir /tmp/hgb-rc2-1-rebuild/HealthGraphBench_RC2_1 \
-  --archive-path /tmp/HealthGraphBench_FAIA_LaTeX_RC2_1_rebuilt.zip
+  --output-dir /tmp/hgb-rc2-2-rebuild/HealthGraphBench_RC2_2 \
+  --archive-path /tmp/HealthGraphBench_FAIA_LaTeX_RC2_2_rebuilt.zip
 ```
 
 Both output paths must be new. A clone alone lacks the original ZIP and local checkpoints; missing or changed evidence causes failure rather than fabrication. `--evidence-root` may point to another root retaining the indexed repository-relative paths. The assembler checks the source digest, applies the overlay, adds pinned checkpoints, compiles all five reading-layout PDFs, checks retained bytes and numerical identities, and creates a fresh integrity manifest and ZIP. Rebuilt PDF/archive hashes may differ due to compiler metadata; they do not replace a delivered candidate.
 
-LaTeX, `latexmk`, BibTeX and Poppler are required. `render_figures.py --root <assembled-root>` uses Matplotlib/NumPy to render four bilingual figures from completed metrics/epoch CSVs; no fits or score recomputation. Delivered figures are included in the overlay, so plotting is not required for compilation.
+LaTeX, `latexmk`, BibTeX and Poppler are required. `render_figures.py --root <assembled-root> --duration-only` renders only the two C curves from completed metrics, without D1 inputs. `render_historical_figure.py --root <assembled-root>` creates separately named historical3 cutoff derivatives using the retained numerical plotting path. Both require Matplotlib/NumPy; neither trains or recomputes scores. Exact source copies are included under package `scripts/`; delivered figures are in the overlay, so plotting is not required for compilation.
 
 ## Scientific and editorial contract
 
@@ -29,7 +29,7 @@ The preceding translation candidate, requested on 3 October 2026, preserved all 
 
 ## Targeted MAUDE consolidation — 3 October 2026
 
-The current candidate is `HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip`; both preceding RC2 candidates remain immutable. French scientific text is revised first, then translated into English. The 27-pair current concordance report is `overlay/verification/rc2_paired/language_concordance.json`; the earlier translation report is dated evidence, not a claim about these newly revised French sources.
+The targeted consolidation candidate was `HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip`; it and both preceding RC2 candidates remain immutable. French scientific text was revised first, then translated into English. Its 27-pair report is `overlay/verification/rc2_paired/language_concordance.json`; the earlier translation report remains dated evidence, not a claim about later French revisions.
 
 The main manuscript shows the validation-duration curve and a separate paired-results table. The supplement starts with methods (S1) and the evidence map (S2), keeps a short chronology in S4 and the detailed version registry in provenance. S11 separates calculation-path comparison, the newly authorized paired interval, and complete secondary D1 results.
 
@@ -49,7 +49,13 @@ Use a new output directory. Compact replay does not recheck original candidate i
 
 ## RC2.1 — two documentary corrections after the received audit
 
-Current archive: `HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip`; audited RC2 remains unchanged. `overlay/verification/rc2_minor/external_audit_received.md` is the user-transmitted report, not a new assistant execution, prospective validation, author approval or editorial decision. Its 61 packaged tests are distinct from the upstream 64-test repository run. No fits, scores, bootstrap or successful scientific audits are repeated in this pass.
+RC2.1 archive: `HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip`; audited RC2 remains unchanged. `overlay/verification/rc2_minor/external_audit_received.md` is the user-transmitted report, not a new assistant execution, prospective validation, author approval or editorial decision. Its 61 packaged tests are distinct from the upstream 64-test repository run. No fits, scores, bootstrap or successful scientific audits were repeated in that pass.
 
 The original bibliography is retained at `history/RC1/references.bib` with its original pinned hash; the active common bibliography changes only the S1-to-S2 source-map note. The protected registry therefore retains 105 original paths and one archived bibliography. `language_delta.json` checks four modified bilingual pairs (caption/version labels) and records the 23 unchanged pairs; the earlier 27-pair report remains dated evidence.
+
+## RC2.2 — targeted closure after the RC2.1 roadmap
+
+Current archive: `HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip`; delivery manifest: `results/manuscript_rc2_2_20261003.json`. The roadmap itself is preserved under `docs/ROADMAP_HealthGraphBench_RC2_1.md` and package `verification/rc2_closure/roadmap_received.md`. Its PDF/arithmetic review is distinct from the earlier executable audit and the assistant's prior compact replay. Current delta reports are under `overlay/verification/rc2_closure/`; earlier evidence remains dated and intact.
+
+`docs/consolidation-post-RC1/verification_cloture.md` reconciles completed checks with available evidence. `submission_checklist_RC2_1.md` is the roadmap's requested author gate, not a claim that RC2.1 is still the current candidate. Portable copies are bundled under package `submission/`. Venue, authors, declarations, bibliographic approval, license and archiving remain open. The 5–10-working-day window is conditional planning, not a delivery or submission promise.
 

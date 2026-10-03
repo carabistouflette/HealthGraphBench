@@ -1,10 +1,10 @@
-# HealthGraphBench — RC2.1 documentary revision
+# HealthGraphBench — RC2.2, targeted editorial closure
 
-**3 October 2026 • `manuscript-rc2.1` • not submitted or author-approved.**
-Archive: `HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip`; root: `HealthGraphBench_RC2_1`.
+**3 October 2026 • `manuscript-rc2.2` • not submitted or author-approved.**
+Archive: `HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip`; root: `HealthGraphBench_RC2_2`.
 The supplied RC1 remains unchanged (SHA-256 `2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be`).
 
-**RC2.1: documentary corrections after the received audit.** C remains primary and D1 a complete secondary diagnostic. Only the Figure 2 caption (validation recall; losses in S11), the bibliography's evidence-map note (S2), and version labels change. French is corrected before English translation. The earlier 27-pair concordance remains dated; the four modified pairs and 23 retained pairs are documented in `verification/rc2_minor/language_delta.json`. All preceding ZIPs, including audited RC2, are preserved.
+**RC2.2: targeted closure after the RC2.1 roadmap.** C remains primary and D1 a complete secondary diagnostic. Separate training runs are deterministically reinitialized without resuming a preceding run; these are not independent random repetitions. Captions distinguish historical three-epoch GraphSAGE from GraphSAGE30. The four protected historical figures remain unchanged; `maude_cutoffs_historical3_*` derivatives change their labels only, and the two C-curve titles are clarified. French is corrected before English translation. Earlier concordance reports remain dated; the current delta is in `verification/rc2_closure/language_delta.json`. All preceding ZIPs are preserved.
 
 ## Contents and scope
 
@@ -22,7 +22,7 @@ All periods had been consulted previously: exploratory results, without independ
 
 The received report `verification/rc2_minor/external_audit_received.md` gives a favorable opinion on the exploratory positioning, subject to the two corrections. It reports a distinct recalculation from snapshots/checkpoints, without FDA acquisition or training; this is neither our new execution, author approval, nor an editorial decision. The 61 tests run by that audit inside the ZIP are distinct from the 64 upstream repository tests documented in `verification/rc2_paired/repository_tests.json`. Earlier compilation, reading, and replay reports remain dated evidence.
 
-RC2.1: five PDFs recompiled, unchanged pagination (FR/EN main PDFs 17/16, supplements 23/22, historical response 2). Caption, reference, and version pages were inspected; no warnings in the four scientific logs. Current evidence: `verification/rc2_minor/visual_review.json`. Results/figures/checkpoints and the replay runner remain byte-identical to audited RC2.
+The preceding RC2.1 recompiled five PDFs (FR/EN main PDFs 17/16, supplements 23/22, historical response 2); its evidence remains in `verification/rc2_minor/visual_review.json`. This revision has its own compilation and focused reading evidence in `verification/rc2_closure/visual_review.json`. The latest received roadmap is based on PDFs and some fractions, not on package execution. `submission/verification_cloture.md` distinguishes these attributions; `submission/submission_checklist_RC2_1.md` lists unresolved author/venue decisions. Data, checkpoints, results, and replay code remain unchanged.
 
 ## Verify delivery
 
@@ -34,6 +34,8 @@ python scripts/check_review_package.py
 ```
 
 The checker verifies identity, protected historical bytes, retained ratios/contrasts, checkpoints, and PDFs. It runs no fits or successful scientific audits. `release/protected_payload.json` retains 105 protected files at their historical paths and the original bibliography archived at `history/RC1/references.bib`, without repinning its hash. The active bibliography changes only S1 to S2 in one note.
+
+Included generators can rebuild figures in a copy, using Matplotlib and NumPy: `python scripts/render_historical_figure.py --root .` creates only the historical derivatives; `python scripts/render_figures.py --root . --duration-only` renders only the two C curves, without reading D1. Plotted values and interval bounds agree with the retained historical generator, as recorded in `verification/rc2_closure/figure_numeric_identity.json`. These commands do not retrain any model.
 
 ## Build in a copy
 

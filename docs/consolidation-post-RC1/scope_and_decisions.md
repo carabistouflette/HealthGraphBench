@@ -162,3 +162,17 @@ Avis utilisateur favorable au positionnement exploratoire, sous correction de la
 
 Numérotation **RC2.1** demandée par l'utilisateur. Livraison distincte, RC2 auditée et tous les ledgers antérieurs conservés. Exception documentaire de conservation explicitée : bibliographie active corrigée dans une note ; original archivé à la même empreinte, 105 autres chemins protégés inchangés. Nouvelle review après corrections ; auteurs, déclarations, revue, archivage pérenne et autorisation de soumission restent ouverts.
 
+
+
+## 3 octobre 2026 — clôture documentaire après réception de la roadmap RC2.1
+
+La roadmap reçue le 3 octobre propose une phase ciblée de vérification documentaire et de préparation des auteurs vers soumission, avec une fenêtre **indicative** de 5 à 10 jours ouvrés. Cette estimation dépend de l'accès exact aux pièces et de la disponibilité des auteurs ; elle ne lance pas un calendrier garanti et ne remet pas en route le cycle RC1 de quatre semaines. Le [fichier reçu et intégré au pilotage](../ROADMAP_HealthGraphBench_RC2_1.md) reste une roadmap distincte de l'ancienne [roadmap RC1](../ROADMAP_HealthGraphBench.md).
+
+### Périmètre retenu
+
+- S'appuyer sur les preuves déjà exécutées et leurs rapports ; ne pas relancer les rejeux ou audits scientifiques réussis, ni fit, score, tuning, bootstrap, D2 ou recompilation des PDF RC2.1 pour ce bilan. Une compilation/relecture du dossier final selon les consignes du support choisi demeure un gate éditorial futur. Le rapport de clôture distingue la portée de chaque preuve et les fichiers inclus des flux originaux externes.
+- Garder C comme résultat principal, D1 comme diagnostic secondaire sous réglages fixes ; ne pas transformer son contraste en preuve causale. Ni D2 ni un nouveau réglage de `none30` ne sont des conditions de soumission.
+- Pour les seules retouches éditoriales RC2.2, expliciter « entraînements séparés, réinitialisés de manière déterministe » et la distinction GraphSAGE historique à trois époques / GraphSAGE30. Les résultats, données, checkpoints et ledgers scientifiques antérieurs ne changent pas.
+- Traiter les PDF actuels comme prêts pour relecture/maquette de lecture, non comme un format final de revue. Le support, l'approbation des auteurs et leurs déclarations sont encore à obtenir.
+
+Les rôles indiqués dans la checklist RC2.1 sont des responsabilités proposées, non attribuées. Restent à obtenir les décisions et preuves listées dans [le guichet des auteurs](consolidation-post-RC1/submission_checklist_RC2_1.md) : support et consignes, noms/affiliations/correspondant, contributions CRediT, financement, conflits, éthique et usage des données, déclaration IA, références, approbation, licence et archivage distinct. Le DOI `10.5281/zenodo.22796551` demeure exclusivement celui du benchmark v0.2.0 ; aucun dépôt automatique du manuscrit n'est autorisé ou annoncé.

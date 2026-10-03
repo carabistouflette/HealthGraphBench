@@ -139,7 +139,7 @@ Les intervalles historiques au v0.1 sont signalés comme tels au tableau~\ref{ta
 
 \begin{table}[!htbp]
 \centering\small
-\caption{Résultats historiques MAUDE v0.1, test 2024T1--2025T4, soutien historique du produit $\geq1$. R@K : rappel micro. Le gras indique le meilleur point parmi les modèles historiques de chaque colonne, sans test supplémentaire de supériorité. Source : tableau unifié\cite{hgbresults}.}
+\caption{Résultats historiques MAUDE v0.1, test 2024T1--2025T4, soutien historique du produit $\geq1$. GraphSAGE désigne ici la configuration historique à trois époques, non GraphSAGE30. R@K : rappel micro. Le gras indique le meilleur point parmi les modèles historiques de chaque colonne, sans test supplémentaire de supériorité. Source : tableau unifié\cite{hgbresults}.}
 \label{tab:maude}
 \input{tables/maude_fr.tex}
 \end{table}
@@ -150,8 +150,8 @@ L'heuristique ne domine cependant pas toutes les métriques. À $K=20$, la facto
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=\linewidth]{figures/maude_cutoffs_fr.pdf}
-\caption{Différences de rappel MAUDE par rapport aux voisins. À $K=10$, l'IC historique de GraphSAGE--voisins et l'IC complémentaire de global--voisins sont distingués dans la légende. Ce dernier vaut $[-0,009820;-0,005497]$ : son signe et l'ordre de ses bornes sont inversés par rapport à voisins--global (tableau~\ref{tab:ci}). La quasi-égalité à $K=20$ concerne factorisation spectrale et voisins.}
+\includegraphics[width=\linewidth]{figures/maude_cutoffs_historical3_fr.pdf}
+\caption{Différences de rappel MAUDE par rapport aux voisins. À $K=10$, l'IC de GraphSAGE historique à trois époques moins voisins et l'IC complémentaire de global moins voisins sont distingués dans la légende ; aucun ne concerne GraphSAGE30. L'IC global moins voisins vaut $[-0,009820;-0,005497]$ : son signe et l'ordre de ses bornes sont inversés par rapport à voisins--global (tableau~\ref{tab:ci}). La quasi-égalité à $K=20$ concerne factorisation spectrale et voisins.}
 \label{fig:cutoffs}
 \end{figure}
 
@@ -164,12 +164,12 @@ Le contraste apparié GraphSAGE30 moins voisins vaut $+0,018597$, soit environ $
 
 \begin{figure}[!htbp]\centering
 \includegraphics[width=\linewidth]{figures/maude_duration_RC2_fr.png}
-\caption{Exploration complémentaire MAUDE, distincte du benchmark historique : rappel micro à 10 en validation selon la durée de fits indépendants à 0, 3, 10 et 30 époques. La relation observée n'est pas monotone ; seule la durée retenue sur validation est évaluée dans les tests C. Les pertes d'entraînement sont rapportées en S11.}
+\caption{Exploration de durée MAUDE (C), distincte du benchmark historique : rappel micro à 10 en validation selon des entraînements séparés à 0, 3, 10 et 30 époques, réinitialisés de manière déterministe et sans reprise de l'état d'un entraînement précédent. Il ne s'agit pas de répétitions aléatoires indépendantes. La relation observée n'est pas monotone ; seule la durée retenue sur validation est évaluée dans les tests C. Les pertes d'entraînement sont rapportées en S11.}
 \label{fig:duration-main}
 \end{figure}
 
 \begin{table}[!htbp]\centering\small
-\caption{Rapprochement apparié du modèle GraphSAGE retenu et des voisins historiques, test 2024--2025. L'IC est nouveau et conditionnel ; les intervalles du benchmark historique ne sont pas transférés.}
+\caption{Rapprochement apparié de GraphSAGE30 sélectionné sur validation et des voisins historiques, test 2024--2025. L'IC est conditionnel à ces prédictions ; les intervalles du GraphSAGE historique à trois époques ne sont pas transférés.}
 \label{tab:paired-maude}
 \input{tables/maude_paired_RC2_fr.tex}
 \end{table}

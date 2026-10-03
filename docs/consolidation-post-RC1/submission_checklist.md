@@ -33,3 +33,7 @@ Cocher un item seulement après examen de la preuve correspondante par le rôle 
 | [ ] La décision finale est signée/validée par les auteurs responsables, et le choix « soumettre », « réduire » ou « corriger » est archivé avec sa justification. | Approbation explicite de l'ensemble des auteurs, date, décision et référence du paquet réellement soumis ou corrigé. | Aucune décision n'est supposée par défaut ; la soumission relève des auteurs et ne garantit pas l'acceptation. | Non vérifié |
 
 **Règle d'arrêt :** une limite explicitement assumée peut rester dans un article exploratoire ; une contradiction non résolue entre les preuves et la conclusion ne peut pas rester. Une prolongation ne se justifie pas par le seul objectif d'un score plus favorable ou d'un quartile supérieur.
+
+## Mise à jour de pilotage — RC2.1, 3 octobre 2026
+
+Cette checklist décrit l'état précédent de préparation et ne vaut pas approbation RC2.1. Pour la clôture actuelle, utiliser la [checklist dédiée RC2.1](submission_checklist_RC2_1.md), qui détaille les guichets à remplir par les auteurs, et la [matrice de vérification de clôture](verification_cloture.md), qui attribue les preuves déjà disponibles sans les rejouer. La livraison RC2.1 reste non soumise ; les approbations, le support et les déclarations demeurent ouverts.

@@ -1,6 +1,6 @@
 {
-  "revision": "RC2.1",
-  "package_id": "manuscript-rc2.1",
+  "revision": "RC2.2",
+  "package_id": "manuscript-rc2.2",
   "prepared_on": "2026-10-03",
   "packaging_started_at_utc": "2026-10-02T21:43:32+00:00",
   "translation_revision": {
@@ -38,7 +38,7 @@
     "latex_scientific_text_revised": true,
     "completed_C_D1_results_incorporated": true,
     "historical_numeric_payload_modified": false,
-    "new_figures_from_completed_outputs": false,
+    "new_figures_from_completed_outputs": true,
     "health_model_training_executed_during_RC2_preparation": false,
     "raw_archives_reacquired": false,
     "new_predictions_computed_during_RC2_preparation": false,
@@ -108,5 +108,18 @@
     "historical_bibliography": "Original bytes and original hash retained at history/RC1/references.bib; active bibliography differs only by S1 to S2 in one note.",
     "revision_label": "RC2.1",
     "version_numbering_requested_by_user": true
+  },
+  "closure_revision": {
+    "revision_label": "RC2.2",
+    "previous_commit": "ef7082af8e26be9d659e7bf18a986444770fc1bc",
+    "previous_archive": "HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip",
+    "previous_archive_sha256": "fb00dd2add37b8f84f92f14e3657cf6416076674e802e30d40d1fde2a71492c6",
+    "received_roadmap": "verification/rc2_closure/roadmap_received.md",
+    "received_review_scope": "PDF reading and some arithmetic fractions; not a new execution of the package, distinct from the preceding transmitted executable audit",
+    "training_wording": "Separate training runs, deterministically reinitialized without warm start; not independent random repetitions or independent data",
+    "figure_changes": "New historical3 cutoff derivatives clarify the original three-epoch model; original figures retained; C titles clarify separate runs; all plotted numbers retained",
+    "new_training_scores_tuning_bootstrap_audit": false,
+    "French_canonical_before_English": true,
+    "human_gates_still_open": true
   }
 }

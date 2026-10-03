@@ -93,3 +93,15 @@ Livraison distincte `_RC2_consolidation_MAUDE.zip` : 694 contrôles, 525 emprein
 
 Rapport externe transmis favorable au positionnement exploratoire, sous deux corrections désormais appliquées : légende du rappel de validation, pertes en S11 ; bibliographie commune vers S2. RC2.1 demandée par l'utilisateur. [Livraison distincte](../../results/manuscript_rc2_1_20261003.json) : 706 contrôles, 537 empreintes, 538 membres ZIP ; cinq PDF recompilés à paginations inchangées. Aucun nouveau fit/score/tuning/bootstrap/D2 ni audit acquis relancé. Original bibliographique archivé à empreinte inchangée ; 105 autres chemins protégés inchangés. Avis reçu, exécutions amont et vérifications de cette passe sont distingués ; nouvelle review et gates de soumission ouverts.
 
+## État de clôture RC2.1 — 3 octobre 2026
+
+La [roadmap utilisateur RC2.1](../ROADMAP_HealthGraphBench_RC2_1.md) remplace l'élan de campagne par une clôture bornée vers soumission : fenêtre indicative de 5 à 10 jours ouvrés après accès aux pièces et disponibilité des auteurs, sans garantie de délai et sans recommencer RC1. La roadmap RC1 de quatre semaines et les journaux antérieurs restent conservés tels qu'ils étaient datés.
+
+La livraison RC2.1 demeure une révision documentaire non soumise et non approuvée. Son [manifeste de livraison](../../results/manuscript_rc2_1_20261003.json) consigne 706 contrôles, 537 entrées d'empreintes et 538 membres ; aucun contrôle, rejeu, calcul ou compilation n'est relancé pour cette mise à jour de pilotage. La [matrice de clôture](verification_cloture.md) attribue chaque preuve déjà exécutée et expose ce que le paquet n'inclut pas. Le [guichet auteur RC2.1](submission_checklist_RC2_1.md) réunit les informations et décisions restant à fournir.
+
+Retouches RC2.2 appliquées : « entraînements séparés, réinitialisés de manière déterministe », GraphSAGE historique à trois époques distinct de GraphSAGE30. C reste principal, D1 secondaire et les résultats inchangés. **D2 et un nouveau réglage de `none30` ne sont pas des prérequis**. Statut éditorial : prêt pour relecture/maquette de lecture, approbations des auteurs, support et déclarations encore ouverts ; aucun format final de revue n'est revendiqué.
+
+## RC2.2 — clôture éditoriale techniquement vérifiée
+
+Cinq PDF compilés (17/16/23/22/2 pages), treize pages ciblées et quatre figures bilingues examinées. Sept paires de sources modifiées et vingt conservées ; 82 fichiers scientifiques byte-identiques à RC2.1, deux titres C précisés, figures historiques conservées et dérivés `historical3` identifiés. Aucun nouveau fit, score, bootstrap ou audit scientifique réussi. [Matrice et preuves](verification_cloture.md) ; [guichet auteurs](submission_checklist_RC2_1.md). Archive distincte `HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip` ; manifeste `results/manuscript_rc2_2_20261003.json`. PR #4 reste brouillon vers `develop`, dépendante de #3 ; aucune fusion, aucun tag ou dépôt Zenodo.
+

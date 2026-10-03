@@ -17,17 +17,17 @@
 \renewcommand{\arraystretch}{1.15}\renewcommand{\bibfont}{\footnotesize}
 \renewcommand{\thesection}{S\arabic{section}}
 \setcounter{secnumdepth}{2}
-\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small HealthGraphBench | RC2.1}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small HealthGraphBench | RC2.2}
 \fancyhead[R]{\small Supplément scientifique}\fancyfoot[C]{\small\thepage}
 \renewcommand{\headrulewidth}{0pt}\raggedbottom
 \clubpenalty=10000\widowpenalty=10000
 \newcommand{\src}[1]{{\small\nolinkurl{#1}}}
-\hypersetup{pdftitle={HealthGraphBench RC2.1 — Supplément scientifique},pdfauthor={},pdfsubject={Version de travail RC2.1; validation des auteurs requise}}
+\hypersetup{pdftitle={HealthGraphBench RC2.2 — Supplément scientifique},pdfauthor={},pdfsubject={Version de travail RC2.2; validation des auteurs requise}}
 \begin{document}
 
 \begin{center}
-{\small SUPPLÉMENT SCIENTIFIQUE • VERSION DE TRAVAIL RC2.1 — non approuvée par les auteurs}\par\vspace{7pt}
-{\LARGE\bfseries HealthGraphBench — RC2.1}\par\vspace{6pt}
+{\small SUPPLÉMENT SCIENTIFIQUE • VERSION DE TRAVAIL RC2.2 — non approuvée par les auteurs}\par\vspace{7pt}
+{\LARGE\bfseries HealthGraphBench — RC2.2}\par\vspace{6pt}
 {\large Méthodes, traçabilité et analyses complémentaires}
 \end{center}
 
@@ -51,8 +51,8 @@ Logistique MAUDE & 40 époques ; taux d'apprentissage 0,15 ; $L_2=0,01$ ; standa
 Arbres boostés & Arbres à un niveau ; 12 tours ; taux d'apprentissage 0,08.\\
 Factorisation spectrale & Rang 8 ; 18 itérations.\\
 BPR + moyenne fixe à un saut & Dimension 8 ; 4 époques ; combinaison après apprentissage : 0,5 vecteur de la cible et 0,5 moyenne des vecteurs voisins. Il n'y a pas de propagation apprise de bout en bout.\\
-GraphSAGE à un saut & Dimension 8 ; 3 époques ; 8 voisins ; taux d'apprentissage 0,02 ; régularisation 0,0005 ; perte BPR ; activation $\tanh$ ; vecteurs de nœuds entraînables et transformations partagées.\\
-Exploration de durée C & Même configuration GraphSAGE ; fits indépendants 0/3/10/30 sur validation, puis 30 sélectionné. Rapprochement apparié avec les voisins conservés et IC conditionnel par produit en S11.\\
+{\raggedright \mbox{GraphSAGE} historique à un saut\par} & Dimension 8 ; 3 époques ; 8 voisins ; taux d'apprentissage 0,02 ; régularisation 0,0005 ; perte BPR ; activation $\tanh$ ; vecteurs de nœuds entraînables et transformations partagées.\\
+Exploration de durée C & Même configuration GraphSAGE ; entraînements séparés 0/3/10/30 comparés sur validation, réinitialisés de manière déterministe ; GraphSAGE30 sélectionné. Rapprochement apparié avec les voisins conservés et IC conditionnel par produit en S11.\\
 Diagnostic secondaire D1 & Mean30 conservé de C ; none30 self-only non-GNN, appris par BPR sur les mêmes arêtes. Durée imposée depuis mean, perte presque plate ; pas d'effet causal isolé.\\
 \bottomrule
 \end{tabularx}

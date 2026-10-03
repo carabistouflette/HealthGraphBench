@@ -33,8 +33,8 @@ def main():
     release = json.loads((ROOT / 'release.json').read_text())
     provenance = json.loads((ROOT / 'provenance.json').read_text())
     status = json.loads((ROOT / release['current_scientific_status']).read_text())
-    check('package_identity', release['package_id'] == 'manuscript-rc2.1'
-          and release['release_candidate'] == provenance['revision'] == status['revision'] == 'RC2.1'
+    check('package_identity', release['package_id'] == 'manuscript-rc2.2'
+          and release['release_candidate'] == provenance['revision'] == status['revision'] == 'RC2.2'
           and (ROOT / 'VERSION').read_text().strip() == release['package_id'])
     check('parent_preserved', release['parent_archive'] == provenance['parent_archive']
           and provenance['parent_archive']['modified'] is False)

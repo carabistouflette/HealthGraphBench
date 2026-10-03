@@ -44,3 +44,9 @@ Avis reçu favorable au positionnement d'article de ressource exploratoire, sous
 
 À la demande de l'utilisateur, ce correctif est identifié **RC2.1** dans les métadonnées, titres/pieds des PDF, contrôleur et ZIP distinct `HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip`. RC2 auditée est conservée. Bibliographie originale archivée byte-identique avec son empreinte initiale, bibliographie active modifiée uniquement dans une note. Concordance incrémentale : quatre paires modifiées, 23 conservées ; preuves antérieures datées préservées. Les 61 tests de l'audit reçu sont distingués des 64 tests amont du dépôt.
 
+## 3 octobre 2026 — RC2.2, clôture éditoriale ciblée
+
+Roadmap RC2.1 reçue conservée comme pièce documentaire fondée sur les PDF et quelques fractions, distincte de l'audit exécutable antérieur. Entraînements C séparés, réinitialisés de manière déterministe sans warm start ; pas de répétitions aléatoires indépendantes. GraphSAGE historique à trois époques et GraphSAGE30 explicités dans les légendes et libellés pertinents ; originaux protégés conservés et dérivés `historical3` identifiés. Les points et intervalles tracés sont identiques ; seuls les libellés historiques et titres C changent.
+
+Français canonique puis anglais. Matrice des preuves exécutées et checklist auteurs dans `submission/`. Support exact, identités/déclarations, approbations, licence et archivage restent ouverts ; noms FAIA historiques sans valeur de choix éditorial. Nouvelle archive `HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip`, jamais un remplacement de RC2.1. Aucun fit, score, tuning, bootstrap, D2 ou audit scientifique réussi relancé ; aucun tag, DOI, dépôt Zenodo ou envoi.
+

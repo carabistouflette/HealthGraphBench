@@ -139,7 +139,7 @@ Historical v0.1 intervals are identified as such in Table~\ref{tab:ci}. Two post
 
 \begin{table}[!htbp]
 \centering\small
-\caption{Historical MAUDE v0.1 results, test 2024Q1--2025Q4, prior product-report support $\geq1$. R@K: micro recall. Bold indicates the highest point estimate among historical models in each column, without an additional superiority test. Source: unified table\cite{hgbresults}.}
+\caption{Historical MAUDE v0.1 results, test 2024Q1--2025Q4, prior product-report support $\geq1$. GraphSAGE here denotes the historical three-epoch configuration, not GraphSAGE30. R@K: micro recall. Bold indicates the highest point estimate among historical models in each column, without an additional superiority test. Source: unified table\cite{hgbresults}.}
 \label{tab:maude}
 \input{tables/maude_en.tex}
 \end{table}
@@ -150,8 +150,8 @@ The heuristic does not, however, dominate every metric. At $K=20$, spectral fact
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=\linewidth]{figures/maude_cutoffs_en.pdf}
-\caption{MAUDE recall differences relative to neighbors. At $K=10$, the historical GraphSAGE--neighbors CI and the complementary global--neighbors CI are distinguished in the legend. The latter is $[-0.009820;-0.005497]$: its sign and the order of its bounds are reversed relative to neighbors--global (Table~\ref{tab:ci}). The near-tie at $K=20$ concerns spectral factorization and neighbors.}
+\includegraphics[width=\linewidth]{figures/maude_cutoffs_historical3_en.pdf}
+\caption{MAUDE recall differences relative to neighbors. At $K=10$, the CI for historical three-epoch GraphSAGE minus neighbors and the complementary global-minus-neighbors CI are distinguished in the legend; neither concerns GraphSAGE30. The global-minus-neighbors CI is $[-0.009820;-0.005497]$: its sign and the order of its bounds are reversed relative to neighbors--global (Table~\ref{tab:ci}). The near-tie at $K=20$ concerns spectral factorization and neighbors.}
 \label{fig:cutoffs}
 \end{figure}
 
@@ -164,12 +164,12 @@ The paired GraphSAGE30-minus-neighbors contrast is $+0.018597$, or about $+1.86$
 
 \begin{figure}[!htbp]\centering
 \includegraphics[width=\linewidth]{figures/maude_duration_RC2_en.png}
-\caption{Complementary MAUDE exploration, separate from the historical benchmark: validation micro recall at 10 for independent fits at 0, 3, 10, and 30 epochs. The observed relationship is non-monotonic; only the validation-selected duration is evaluated in the C tests. Training losses are reported in S11.}
+\caption{MAUDE duration exploration (C), separate from the historical benchmark: validation micro recall at 10 for separate training runs at 0, 3, 10, and 30 epochs, deterministically reinitialized without resuming the state of a preceding run. These are not independent random repetitions. The observed relationship is non-monotonic; only the validation-selected duration is evaluated in the C tests. Training losses are reported in S11.}
 \label{fig:duration-main}
 \end{figure}
 
 \begin{table}[!htbp]\centering\small
-\caption{Paired comparison of selected GraphSAGE and historical neighbor predictions, 2024--2025 test. The CI is new and conditional; historical benchmark intervals are not transferred.}
+\caption{Paired comparison of validation-selected GraphSAGE30 and historical neighbor predictions, 2024--2025 test. The CI is conditional on these predictions; intervals for historical three-epoch GraphSAGE are not transferred.}
 \label{tab:paired-maude}
 \input{tables/maude_paired_RC2_en.tex}
 \end{table}

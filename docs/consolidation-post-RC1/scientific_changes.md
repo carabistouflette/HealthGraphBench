@@ -135,3 +135,15 @@ Corrections françaises puis anglaises : légende de la figure 2 limitée au rap
 
 Cinq PDF recompilés, paginations 17/16/23/22/2 ; pages des corrections et mentions de version examinées, quatre logs scientifiques sans avertissement. Concordance incrémentale : quatre paires modifiées, 23 conservées ; résultats, figures, checkpoints et code de rejeu identiques aux bytes audités. [Manifeste RC2.1](../../results/manuscript_rc2_1_20261003.json). Nouvelle review attendue ; cet avis favorable n'est ni approbation des auteurs ni acceptation éditoriale, et les gates de soumission restent ouverts.
 
+
+
+## 3 octobre 2026 — clôture éditoriale ciblée après RC2.1
+
+Cette entrée ajoute l'état de préparation à la soumission ; elle ne modifie pas rétroactivement les comptes ou ledgers antérieurs et ne produit aucun résultat scientifique nouveau. La roadmap reçue le 3 octobre propose une finalisation bornée de 5 à 10 jours ouvrés indicatifs, après accès aux pièces et disponibilité des auteurs. Ce n'est ni une échéance garantie, ni une reprise de RC1 ou une nouvelle campagne.
+
+- La [matrice de clôture](verification_cloture.md) distingue les preuves techniques antérieures, le rejeu compact autonome déjà consigné, l'audit utilisateur reçu exécuté sans import du projet et la revue ciblée des PDF RC2.1. Elle expose aussi l'absence des flux FDA/CMS bruts et des flux volumineux de scores C/D1 dans le paquet.
+- Le manifeste [RC2.1](../../results/manuscript_rc2_1_20261003.json) rapporte la conservation binaire des éléments scientifiques protégés, les contrôles de livraison et l'état non soumis/non approuvé. Les chiffres et résultats de C, D1 et du contraste apparié sont inchangés ; aucun nouveau fit, score, tuning, bootstrap, D2, audit réussi, test ou compilation n'est lancé pour cette entrée.
+- Les prochaines retouches de texte RC2.2 doivent préciser « entraînements séparés, réinitialisés de manière déterministe », distinguer GraphSAGE historique à trois époques de GraphSAGE30, et garder C principal et D1 secondaire. Elles sont éditoriales ; D2 ou un réglage supplémentaire de `none30` ne sont pas requis.
+- État destiné aux auteurs : prêt pour relecture/maquette de lecture, approbations ouvertes. Le [guichet RC2.1](submission_checklist_RC2_1.md) laisse à compléter les noms, rôles, support et déclarations ; aucune information négative ou approbation n'est présumée.
+
+Le DOI `10.5281/zenodo.22796551` reste celui du benchmark v0.2.0 seulement ; il n'identifie pas le manuscrit.

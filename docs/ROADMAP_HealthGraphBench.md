@@ -206,3 +206,8 @@ Les documents de pilotage, manifestes/CSV et petites empreintes sont destinés a
 **À réserver à une suite distincte :** nouvelles architectures, multiplication des tâches, extension systématique des cohortes, plan factoriel complet, étude d'utilité clinique ou recherche exhaustive de réglages. Ces directions peuvent être utiles, mais ne font pas partie du minimum retenu pour ce cycle.
 
 > Trajectoire recommandée : vérifier le socle → réaliser un diagnostic GraphSAGE borné → ajouter au maximum une analyse ciblée → finaliser → décider de la soumission à date fixe.
+
+
+## Référence de clôture RC2.1 — 3 octobre 2026
+
+Cette roadmap RC1 de quatre semaines et ses comptes datés restent conservés ; ils ne sont ni réécrits ni relancés par la [roadmap utilisateur RC2.1 reçue](ROADMAP_HealthGraphBench_RC2_1.md). Celle-ci propose une clôture documentaire indicative de 5 à 10 jours ouvrés vers soumission, sans garantie de délai, sans campagne scientifique nouvelle et sans obligation d'ouvrir D2 ou de retuner `none30`. L'état, l'attribution des preuves et les guichets humains se trouvent dans l'[index courant](consolidation-post-RC1/README.md), la [matrice de clôture](consolidation-post-RC1/verification_cloture.md) et la [checklist auteurs RC2.1](consolidation-post-RC1/submission_checklist_RC2_1.md).

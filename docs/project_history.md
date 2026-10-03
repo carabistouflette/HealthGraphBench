@@ -272,3 +272,20 @@ visually inspected and four scientific logs without warnings. Author,
 declaration, venue, permanent archive, submission, and new-review gates
 remain open. Manifest: `results/manuscript_rc2_1_20261003.json`.
 
+
+## RC2.1 close-out toward submission — 2026-10-03
+
+The user-provided RC2.1 roadmap proposes a bounded, indicative five-to-ten-working-day editorial close-out, conditional on access to the exact package and author availability. It does not restart the earlier RC1 cycle, guarantee a submission date, or require a new scientific campaign. The [received roadmap](ROADMAP_HealthGraphBench_RC2_1.md) and earlier [RC1 roadmap](ROADMAP_HealthGraphBench.md) remain separate records.
+
+The [close-out evidence matrix](consolidation-post-RC1/verification_cloture.md) distinguishes prior technical checks, the already recorded standalone compact replay, the received user audit performed without importing project modules, and the assistant's focused RC2.1 PDF review. The replay matches the delivered conditional interval and bootstrap draws but does not reverify original candidate identities. The received audit is reported evidence, not a new assistant execution or prospective validation. The RC2.1 delivery manifest records package integrity and preservation; no scientific result, checkpoint, source ledger, or historical account was rewritten for this close-out.
+
+RC2.1 remains not author-approved and not submitted. The PDFs are for review/reading layout, not a chosen journal's final format. Support selection, author identities and roles, CRediT contributions, funding, conflicts, ethics/data-use position, AI declaration, reference approval, license, archive decision and author approval remain open in the [author checklist](consolidation-post-RC1/submission_checklist_RC2_1.md). Proposed RC2.2 edits preserve results and distinguish deterministic separate training resets from independent random replications, and historical three-epoch GraphSAGE from GraphSAGE30. D2 and further `none30` tuning are not requirements. DOI `10.5281/zenodo.22796551` identifies benchmark v0.2.0 only, not a manuscript deposit.
+
+## RC2.2 targeted editorial closure — 2026-10-03
+
+Canonical French revised before English: separate deterministic resets without warm start, not independent random replications; historical three-epoch GraphSAGE distinct from GraphSAGE30. Protected cutoff figures are unchanged; separately named historical3 derivatives preserve every plotted point/interval/axis limit. Only C curve titles change among the prior 84 tracked scientific paths; 82 retain identical bytes.
+
+Five PDFs compiled, 17/16/23/22/2 pages; 13 selected pages and four relevant bilingual figures inspected. Final method-name cells corrected and reinspected. Seven bilingual source pairs modified, 20 retained; mathematical units and references unchanged. Four scientific logs have no LaTeX warning, overfull box or unresolved reference; supplements retain 13/12 underfull diagnostics. No new medical training, score, tuning, bootstrap, D2 or previously successful scientific audit. The latest PDF-only roadmap remains distinct from the earlier executable audit received.
+
+Portable evidence matrix and author checklist bundled under `submission/`. Archive: `HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip`; manifest: `results/manuscript_rc2_2_20261003.json`. Earlier deliveries and ledgers remain immutable. PR #4 stays draft/develop, dependent on #3; no merge/tag. Author/venue/declaration/license/archive/submission gates remain open; no manuscript Zenodo deposit or benchmark republication.
+

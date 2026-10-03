@@ -8,10 +8,10 @@ Les fichiers de provenance comprennent les manifestes, prévols, séries d'époq
 
 \subsection{C : sélection exploratoire de la durée}
 
-Le fit de validation s'appuie sur l'historique jusqu'à 2022T4 et évalue 2023 ; les scores retenus par le protocole utilisent les mêmes 3\,483 produit--trimestres avec positif, 7\,705 liens positifs et 1\,618\,588 paires candidates. Quatre fits indépendants sans initialisation à partir d'un fit précédent ont été comparés, avec la même dimension 8, huit voisins échantillonnés, le taux d'apprentissage 0,02, la régularisation 0,0005, l'objectif BPR, l'activation $\tanh$ et les règles de négatifs et de classement fixées. À zéro époque, aucun triplet n'est optimisé ; la perte n'est pas définie comme une perte mesurée nulle.
+L'entraînement de validation s'appuie sur l'historique jusqu'à 2022T4 et évalue 2023 ; les scores retenus par le protocole utilisent les mêmes 3\,483 produit--trimestres avec positif, 7\,705 liens positifs et 1\,618\,588 paires candidates. Quatre entraînements séparés, réinitialisés de manière déterministe et sans reprise de l'état d'un entraînement précédent, ont été comparés, avec la même dimension 8, huit voisins échantillonnés, le taux d'apprentissage 0,02, la régularisation 0,0005, l'objectif BPR, l'activation $\tanh$ et les règles de négatifs et de classement fixées. Il ne s'agit pas de répétitions aléatoires indépendantes ni d'une validation externe. À zéro époque, aucun triplet n'est optimisé ; la perte n'est pas définie comme une perte mesurée nulle.
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{C : grille de validation 2023. La perte de données BPR est mesurée avant mise à jour, hors régularisation ; aucune perte n'est observée à zéro époque. Les fits sont indépendants et seule la durée sélectionnée est évaluée dans les tests C.}
+\caption{C : grille de validation 2023. La perte de données BPR est mesurée avant mise à jour, hors régularisation ; aucune perte n'est observée à zéro époque. Les entraînements sont séparés et réinitialisés de manière déterministe ; seule la durée sélectionnée est évaluée dans les tests C.}
 \label{tab:duration-rc2}
 \input{tables/maude_duration_RC2_fr.tex}
 \end{table}

@@ -1,5 +1,5 @@
 {
-  "revision": "RC2.1",
+  "revision": "RC2.2",
   "scientific_revision": "Historical RC1 plus exploratory C/D1",
   "ready_for_review": true,
   "ready_for_submission": false,
@@ -9,7 +9,7 @@
     "latex_scientific_text_revised": true,
     "completed_C_D1_results_incorporated": true,
     "historical_numeric_payload_modified": false,
-    "new_figures_from_completed_outputs": false,
+    "new_figures_from_completed_outputs": true,
     "health_model_training_executed_during_RC2_preparation": false,
     "raw_archives_reacquired": false,
     "new_predictions_computed_during_RC2_preparation": false,
@@ -26,7 +26,7 @@
     "Author identities, affiliations and corresponding author",
     "Approval of scientific/bibliographic content and response",
     "CRediT contributions, funding, competing interests, ethical position, data-use conditions and actual AI assistance",
-    "Exact volume/conference, language, anonymization and final template",
+    "Exact journal, conference or volume, language, anonymization and final template",
     "Permanent archive and publication-package identifier"
   ],
   "source_results": "post_rc1/post_rc1_metrics.json",

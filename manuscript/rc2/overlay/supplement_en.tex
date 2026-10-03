@@ -17,17 +17,17 @@
 \renewcommand{\arraystretch}{1.15}\renewcommand{\bibfont}{\footnotesize}
 \renewcommand{\thesection}{S\arabic{section}}
 \setcounter{secnumdepth}{2}
-\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small HealthGraphBench | RC2.1}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small HealthGraphBench | RC2.2}
 \fancyhead[R]{\small Scientific supplement}\fancyfoot[C]{\small\thepage}
 \renewcommand{\headrulewidth}{0pt}\raggedbottom
 \clubpenalty=10000\widowpenalty=10000
 \newcommand{\src}[1]{{\small\nolinkurl{#1}}}
-\hypersetup{pdftitle={HealthGraphBench RC2.1 — Scientific supplement},pdfauthor={},pdfsubject={RC2.1 working revision; author approval required}}
+\hypersetup{pdftitle={HealthGraphBench RC2.2 — Scientific supplement},pdfauthor={},pdfsubject={RC2.2 working revision; author approval required}}
 \begin{document}
 
 \begin{center}
-{\small SCIENTIFIC SUPPLEMENT • RC2.1 WORKING VERSION — not author-approved}\par\vspace{7pt}
-{\LARGE\bfseries HealthGraphBench — RC2.1}\par\vspace{6pt}
+{\small SCIENTIFIC SUPPLEMENT • RC2.2 WORKING VERSION — not author-approved}\par\vspace{7pt}
+{\LARGE\bfseries HealthGraphBench — RC2.2}\par\vspace{6pt}
 {\large Methods, traceability, and complementary analyses}
 \end{center}
 
@@ -51,8 +51,8 @@ MAUDE logistic & 40 epochs; learning rate 0.15; $L_2=0.01$; standardization on t
 Boosted stumps & One-level trees; 12 rounds; learning rate 0.08.\\
 Spectral factorization & Rank 8; 18 iterations.\\
 BPR + fixed one-hop averaging & Dimension 8; 4 epochs; post-training combination of 0.5 target vector and 0.5 mean neighbor vector. No end-to-end learned message passing.\\
-One-hop GraphSAGE & Dimension 8; 3 epochs; 8 neighbors; learning rate 0.02; regularization 0.0005; BPR loss; $\tanh$ activation; trainable node vectors and shared transformations.\\
-C duration exploration & Same GraphSAGE configuration; independent 0/3/10/30 validation fits, then 30 selected. Paired comparison with retained neighbor predictions and conditional product-level CI in S11.\\
+{\raggedright Historical one-hop \mbox{GraphSAGE}\par} & Dimension 8; 3 epochs; 8 neighbors; learning rate 0.02; regularization 0.0005; BPR loss; $\tanh$ activation; trainable node vectors and shared transformations.\\
+C duration exploration & Same GraphSAGE configuration; separate 0/3/10/30 training runs compared on validation, deterministically reinitialized; GraphSAGE30 selected. Paired comparison with retained neighbor predictions and conditional product-level CI in S11.\\
 Secondary D1 diagnostic & Mean30 retained from C; self-only, non-GNN none30, learned by BPR on the same edges. Duration imposed from mean, nearly flat loss; no isolated causal effect.\\
 \bottomrule
 \end{tabularx}

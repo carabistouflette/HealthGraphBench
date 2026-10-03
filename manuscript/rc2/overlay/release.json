@@ -1,13 +1,13 @@
 {
   "schema_version": 2,
   "artifact": "HealthGraphBench manuscript working revision",
-  "release_candidate": "RC2.1",
-  "package_id": "manuscript-rc2.1",
+  "release_candidate": "RC2.2",
+  "package_id": "manuscript-rc2.2",
   "scientific_baseline": "Historical RC1, completed C/D1, and authorized conditional paired C30–neighbors analysis",
   "prepared_on": "2026-10-03",
   "distribution_status": "local_working_revision_not_submitted",
-  "archive_name": "HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip",
-  "archive_root": "HealthGraphBench_RC2_1",
+  "archive_name": "HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip",
+  "archive_root": "HealthGraphBench_RC2_2",
   "language_policy": {
     "canonical_language": "fr",
     "english_role": "faithful_translation_of_french",
@@ -72,12 +72,12 @@
     "ready_for_submission": false,
     "editorial_acceptance_claimed": false
   },
-  "retention": "Historical numeric data, tables, figures and scientific replay code unchanged. Original bibliography preserved byte for byte under history/RC1; active bibliography changes only the requested source-map section S1 to S2. Inherited RC1 packaging metadata under history/RC1. Prior C/D1 and paired-analysis evidence retained; no original ZIP changed.",
+  "retention": "Historical numeric data, tables, four original cutoff figures and scientific replay code unchanged. New historical3 cutoff derivatives change labels only; C duration figure titles clarify separate training runs. Original bibliography preserved byte for byte under history/RC1; active bibliography retains the RC2.1 S1-to-S2 correction. Inherited metadata and prior C/D1 and paired-analysis evidence retained; no original ZIP changed.",
   "outstanding_author_decisions": [
     "Author identities, affiliations and corresponding author",
     "Approval of scientific/bibliographic content and response",
     "CRediT contributions, funding, competing interests, ethical position, data-use conditions and actual AI assistance",
-    "Exact volume/conference, language, anonymization and final template",
+    "Exact journal, conference or volume, language, anonymization and final template",
     "Permanent archive and publication-package identifier"
   ],
   "distribution_limit": "Nine inference checkpoints and prepared MAUDE snapshots included. Full C/D1 candidate prediction streams and FDA/CMS raw archives are not included. Manifests retain original run paths as provenance, not paths promised inside this package. Paired contribution CSV, protocol, bootstrap draws and replay code included; compact replay does not recheck original candidate identities."
