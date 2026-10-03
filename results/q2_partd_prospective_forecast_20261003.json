@@ -1,0 +1,983 @@
+{
+  "availability_claim": "verified_public_recapture_before_prediction; not_first_publication_or_first_prescription",
+  "boosted_seeds": [
+    103,
+    211,
+    307
+  ],
+  "fits": {
+    "boosted": [
+      {
+        "candidate_layout_sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc",
+        "candidate_score_count": 2112688,
+        "candidate_scores_file": "candidate_scores.npz",
+        "candidate_scores_path": "phases/forecast_fits/boosted/seed-103/candidate_scores.npz",
+        "candidate_scores_sha256": "df04fcabcc5874ebdf81e200b8e9da442f0ae24593f164d314f978ef2cde23ad",
+        "configuration": {
+          "l2_regularization": 0,
+          "learning_rate": 0.1,
+          "max_iter": 100,
+          "max_leaf_nodes": 15
+        },
+        "configuration_index": 2,
+        "family": "boosted",
+        "fit": {
+          "binning_subsample_threshold": 200000,
+          "checkpoint": "phases/forecast_fits/boosted/seed-103/model/checkpoint.pkl",
+          "checkpoint_sha256": "8bc706d9bb6003bde338ccf9f5d5c6d48aa2bfe6365463f13674d374addc91e5",
+          "early_stopping": false,
+          "fit_iterations": 100,
+          "loss_after": {
+            "name": "unweighted logistic loss on the same sampled training rows",
+            "value": 0.1949754390294003
+          },
+          "loss_before": {
+            "name": "unweighted logistic loss on the sampled training rows",
+            "value": 0.6931471805599455
+          },
+          "max_bins": 255,
+          "max_features": 1.0,
+          "min_samples_leaf": 20,
+          "negative_sampling_ratio": 5,
+          "negative_training_rows": 297988,
+          "positive_training_rows": 61312,
+          "random_state": 103,
+          "sample_weight_policy": "unit weights; no class reweighting",
+          "seed": 103,
+          "seed_repetition_condition": "three seeds only when training_rows > 200000",
+          "sklearn_version": "1.8.0",
+          "stochastic_binning": true,
+          "training_rows": 359300
+        },
+        "prediction_file": "predictions.jsonl",
+        "prediction_file_sha256": "852a488797099cf85a2b63f58b9955ef52f09258154e67701cd1a058174c4655",
+        "prediction_path": "phases/forecast_fits/boosted/seed-103/predictions.jsonl",
+        "scoring_policy": "all candidates scored; no target labels or metrics used",
+        "seed": 103,
+        "supervision": {
+          "exit_code": 0,
+          "limits": {
+            "aggregate_rss_bytes": 4294967296,
+            "output_bytes": 1073741824,
+            "timeout_seconds": 1800.0
+          },
+          "peak_aggregate_rss_bytes": 624611328,
+          "phase_output_bytes": 10633136,
+          "pid": 2793706,
+          "reason": null,
+          "status": "complete",
+          "wall_seconds": 18.26813054300146,
+          "worker_cpu_seconds": 18.636700413
+        },
+        "target_provider_count": 2000
+      },
+      {
+        "candidate_layout_sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc",
+        "candidate_score_count": 2112688,
+        "candidate_scores_file": "candidate_scores.npz",
+        "candidate_scores_path": "phases/forecast_fits/boosted/seed-211/candidate_scores.npz",
+        "candidate_scores_sha256": "3376c67bcb7732a80c24f1083d760f31dfba0b59f373961027bef378bf0f91b4",
+        "configuration": {
+          "l2_regularization": 0,
+          "learning_rate": 0.1,
+          "max_iter": 100,
+          "max_leaf_nodes": 15
+        },
+        "configuration_index": 2,
+        "family": "boosted",
+        "fit": {
+          "binning_subsample_threshold": 200000,
+          "checkpoint": "phases/forecast_fits/boosted/seed-211/model/checkpoint.pkl",
+          "checkpoint_sha256": "5ab2312498e5f56624b64c561781108823b0071c7276bcf120ee23f8a3c8cf9d",
+          "early_stopping": false,
+          "fit_iterations": 100,
+          "loss_after": {
+            "name": "unweighted logistic loss on the same sampled training rows",
+            "value": 0.1951669872571675
+          },
+          "loss_before": {
+            "name": "unweighted logistic loss on the sampled training rows",
+            "value": 0.6931471805599455
+          },
+          "max_bins": 255,
+          "max_features": 1.0,
+          "min_samples_leaf": 20,
+          "negative_sampling_ratio": 5,
+          "negative_training_rows": 297988,
+          "positive_training_rows": 61312,
+          "random_state": 211,
+          "sample_weight_policy": "unit weights; no class reweighting",
+          "seed": 211,
+          "seed_repetition_condition": "three seeds only when training_rows > 200000",
+          "sklearn_version": "1.8.0",
+          "stochastic_binning": true,
+          "training_rows": 359300
+        },
+        "prediction_file": "predictions.jsonl",
+        "prediction_file_sha256": "936e951ebe573a7f7dd590e80d78ef0b6d3bad6b4cb30080854380d0d2d278e7",
+        "prediction_path": "phases/forecast_fits/boosted/seed-211/predictions.jsonl",
+        "scoring_policy": "all candidates scored; no target labels or metrics used",
+        "seed": 211,
+        "supervision": {
+          "exit_code": 0,
+          "limits": {
+            "aggregate_rss_bytes": 4294967296,
+            "output_bytes": 1073741824,
+            "timeout_seconds": 1800.0
+          },
+          "peak_aggregate_rss_bytes": 625033216,
+          "phase_output_bytes": 10688259,
+          "pid": 2796012,
+          "reason": null,
+          "status": "complete",
+          "wall_seconds": 18.374181355000474,
+          "worker_cpu_seconds": 18.778917731
+        },
+        "target_provider_count": 2000
+      },
+      {
+        "candidate_layout_sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc",
+        "candidate_score_count": 2112688,
+        "candidate_scores_file": "candidate_scores.npz",
+        "candidate_scores_path": "phases/forecast_fits/boosted/seed-307/candidate_scores.npz",
+        "candidate_scores_sha256": "469a379e931e8a8603df3d6266b8bf9a58805ad5934919be6a63d0d49d62932b",
+        "configuration": {
+          "l2_regularization": 0,
+          "learning_rate": 0.1,
+          "max_iter": 100,
+          "max_leaf_nodes": 15
+        },
+        "configuration_index": 2,
+        "family": "boosted",
+        "fit": {
+          "binning_subsample_threshold": 200000,
+          "checkpoint": "phases/forecast_fits/boosted/seed-307/model/checkpoint.pkl",
+          "checkpoint_sha256": "68c3794204f0ff6fbfb0c800652e31a06964f658d25a0cb740498ec0f387e2bc",
+          "early_stopping": false,
+          "fit_iterations": 100,
+          "loss_after": {
+            "name": "unweighted logistic loss on the same sampled training rows",
+            "value": 0.19377117486945175
+          },
+          "loss_before": {
+            "name": "unweighted logistic loss on the sampled training rows",
+            "value": 0.6931471805599455
+          },
+          "max_bins": 255,
+          "max_features": 1.0,
+          "min_samples_leaf": 20,
+          "negative_sampling_ratio": 5,
+          "negative_training_rows": 297988,
+          "positive_training_rows": 61312,
+          "random_state": 307,
+          "sample_weight_policy": "unit weights; no class reweighting",
+          "seed": 307,
+          "seed_repetition_condition": "three seeds only when training_rows > 200000",
+          "sklearn_version": "1.8.0",
+          "stochastic_binning": true,
+          "training_rows": 359300
+        },
+        "prediction_file": "predictions.jsonl",
+        "prediction_file_sha256": "cfefce80840ee59c6fd0d7435218cdf4eb0e51cd4ddc19dbd9ecf9e15b697256",
+        "prediction_path": "phases/forecast_fits/boosted/seed-307/predictions.jsonl",
+        "scoring_policy": "all candidates scored; no target labels or metrics used",
+        "seed": 307,
+        "supervision": {
+          "exit_code": 0,
+          "limits": {
+            "aggregate_rss_bytes": 4294967296,
+            "output_bytes": 1073741824,
+            "timeout_seconds": 1800.0
+          },
+          "peak_aggregate_rss_bytes": 624685056,
+          "phase_output_bytes": 10784091,
+          "pid": 2798358,
+          "reason": null,
+          "status": "complete",
+          "wall_seconds": 18.380923275995883,
+          "worker_cpu_seconds": 18.816728291
+        },
+        "target_provider_count": 2000
+      }
+    ],
+    "bpr": [
+      {
+        "candidate_layout_sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc",
+        "candidate_score_count": 2112688,
+        "candidate_scores_file": "candidate_scores.npz",
+        "candidate_scores_path": "phases/forecast_fits/bpr/seed-103/candidate_scores.npz",
+        "candidate_scores_sha256": "e70e63c9bd6f68f1a01b4783716b6e970b80465618651130302e5a9a04cef8d4",
+        "configuration": {
+          "dimension": 32,
+          "learning_rate": 0.03,
+          "negative_samples": 5,
+          "regularization": 0.001
+        },
+        "configuration_index": 5,
+        "family": "bpr",
+        "fit": {
+          "checkpoint": "phases/forecast_fits/bpr/seed-103/model/checkpoint.npz",
+          "checkpoint_sha256": "e516c716b6968b9cc814210088ac2cd42b6940ad39972d74b57c695134c15d50",
+          "compiled_with_numba": true,
+          "diagnostic_sample_pair_count": 306560,
+          "dimension": 32,
+          "drug_nodes": 1087,
+          "epochs": 30,
+          "initialization": "seeded Gaussian embeddings with standard deviation 1/sqrt(dimension)",
+          "learning_rate": 0.03,
+          "loss_after": {
+            "sampled_l2_penalty": 0.018310872019598603,
+            "sampled_objective": 0.043001074011330576,
+            "sampled_pairwise_logistic_loss": 0.024690201991731976
+          },
+          "loss_before": {
+            "sampled_l2_penalty": 0.0019797046007187583,
+            "sampled_objective": 0.7045089023575366,
+            "sampled_pairwise_logistic_loss": 0.7025291977568179
+          },
+          "negative_samples_per_positive": 5,
+          "negative_sampling": "uniform with replacement from each provider's all-history global-drug complement, training only",
+          "objective": "sampled Bayesian personalized ranking logistic loss plus sampled L2 penalty",
+          "observed_provider_drug_edges": 61312,
+          "parameter_updates": 9196800,
+          "provider_nodes": 2000,
+          "regularization": 0.001,
+          "seed": 103,
+          "specialty_nodes": 75,
+          "specialty_weight": 0.35
+        },
+        "prediction_file": "predictions.jsonl",
+        "prediction_file_sha256": "ccacc0f71453811b67ce83019ceb836bd298d8fa20e797aaea0eca79ea0bbe15",
+        "prediction_path": "phases/forecast_fits/bpr/seed-103/predictions.jsonl",
+        "scoring_policy": "all candidates scored; no target labels or metrics used",
+        "seed": 103,
+        "supervision": {
+          "exit_code": 0,
+          "limits": {
+            "aggregate_rss_bytes": 4294967296,
+            "output_bytes": 1073741824,
+            "timeout_seconds": 1800.0
+          },
+          "peak_aggregate_rss_bytes": 525946880,
+          "phase_output_bytes": 19856299,
+          "pid": 2800677,
+          "reason": null,
+          "status": "complete",
+          "wall_seconds": 11.029782220000925,
+          "worker_cpu_seconds": 11.496682643
+        },
+        "target_provider_count": 2000
+      },
+      {
+        "candidate_layout_sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc",
+        "candidate_score_count": 2112688,
+        "candidate_scores_file": "candidate_scores.npz",
+        "candidate_scores_path": "phases/forecast_fits/bpr/seed-211/candidate_scores.npz",
+        "candidate_scores_sha256": "2e7080db9e097438276689d28485a6c589945d6bdfe68689ad71dcf255037863",
+        "configuration": {
+          "dimension": 32,
+          "learning_rate": 0.03,
+          "negative_samples": 5,
+          "regularization": 0.001
+        },
+        "configuration_index": 5,
+        "family": "bpr",
+        "fit": {
+          "checkpoint": "phases/forecast_fits/bpr/seed-211/model/checkpoint.npz",
+          "checkpoint_sha256": "fa9fccfab2d2a901c3def6027f3452029eb5db3954b8293e7cec03dba9af7c4a",
+          "compiled_with_numba": true,
+          "diagnostic_sample_pair_count": 306560,
+          "dimension": 32,
+          "drug_nodes": 1087,
+          "epochs": 30,
+          "initialization": "seeded Gaussian embeddings with standard deviation 1/sqrt(dimension)",
+          "learning_rate": 0.03,
+          "loss_after": {
+            "sampled_l2_penalty": 0.018219211080000488,
+            "sampled_objective": 0.044346450724300615,
+            "sampled_pairwise_logistic_loss": 0.026127239644300124
+          },
+          "loss_before": {
+            "sampled_l2_penalty": 0.001997981754966983,
+            "sampled_objective": 0.7033164938109977,
+            "sampled_pairwise_logistic_loss": 0.7013185120560307
+          },
+          "negative_samples_per_positive": 5,
+          "negative_sampling": "uniform with replacement from each provider's all-history global-drug complement, training only",
+          "objective": "sampled Bayesian personalized ranking logistic loss plus sampled L2 penalty",
+          "observed_provider_drug_edges": 61312,
+          "parameter_updates": 9196800,
+          "provider_nodes": 2000,
+          "regularization": 0.001,
+          "seed": 211,
+          "specialty_nodes": 75,
+          "specialty_weight": 0.35
+        },
+        "prediction_file": "predictions.jsonl",
+        "prediction_file_sha256": "7e7874cd2dda035c46ff17e4583e11ae0cb60a994d05077b744339305af67439",
+        "prediction_path": "phases/forecast_fits/bpr/seed-211/predictions.jsonl",
+        "scoring_policy": "all candidates scored; no target labels or metrics used",
+        "seed": 211,
+        "supervision": {
+          "exit_code": 0,
+          "limits": {
+            "aggregate_rss_bytes": 4294967296,
+            "output_bytes": 1073741824,
+            "timeout_seconds": 1800.0
+          },
+          "peak_aggregate_rss_bytes": 525488128,
+          "phase_output_bytes": 19865720,
+          "pid": 2802083,
+          "reason": null,
+          "status": "complete",
+          "wall_seconds": 10.929893859000003,
+          "worker_cpu_seconds": 11.402174818999999
+        },
+        "target_provider_count": 2000
+      },
+      {
+        "candidate_layout_sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc",
+        "candidate_score_count": 2112688,
+        "candidate_scores_file": "candidate_scores.npz",
+        "candidate_scores_path": "phases/forecast_fits/bpr/seed-307/candidate_scores.npz",
+        "candidate_scores_sha256": "651ccc5075e382b6400e1d09401a629d450f375002c3c6b5ecdcbe4f5f7fe69c",
+        "configuration": {
+          "dimension": 32,
+          "learning_rate": 0.03,
+          "negative_samples": 5,
+          "regularization": 0.001
+        },
+        "configuration_index": 5,
+        "family": "bpr",
+        "fit": {
+          "checkpoint": "phases/forecast_fits/bpr/seed-307/model/checkpoint.npz",
+          "checkpoint_sha256": "618ed4609b3c23e294051dd3eeeb94f4490603ea6aba17e83765616b167f24aa",
+          "compiled_with_numba": true,
+          "diagnostic_sample_pair_count": 306560,
+          "dimension": 32,
+          "drug_nodes": 1087,
+          "epochs": 30,
+          "initialization": "seeded Gaussian embeddings with standard deviation 1/sqrt(dimension)",
+          "learning_rate": 0.03,
+          "loss_after": {
+            "sampled_l2_penalty": 0.018190750817241433,
+            "sampled_objective": 0.04451083804071383,
+            "sampled_pairwise_logistic_loss": 0.026320087223472403
+          },
+          "loss_before": {
+            "sampled_l2_penalty": 0.0019084186207304335,
+            "sampled_objective": 0.7044621082916213,
+            "sampled_pairwise_logistic_loss": 0.7025536896708908
+          },
+          "negative_samples_per_positive": 5,
+          "negative_sampling": "uniform with replacement from each provider's all-history global-drug complement, training only",
+          "objective": "sampled Bayesian personalized ranking logistic loss plus sampled L2 penalty",
+          "observed_provider_drug_edges": 61312,
+          "parameter_updates": 9196800,
+          "provider_nodes": 2000,
+          "regularization": 0.001,
+          "seed": 307,
+          "specialty_nodes": 75,
+          "specialty_weight": 0.35
+        },
+        "prediction_file": "predictions.jsonl",
+        "prediction_file_sha256": "fbe310378db0b46e1e58370308f3fd477b8f374f83a08e7ead02f8f039b74fdf",
+        "prediction_path": "phases/forecast_fits/bpr/seed-307/predictions.jsonl",
+        "scoring_policy": "all candidates scored; no target labels or metrics used",
+        "seed": 307,
+        "supervision": {
+          "exit_code": 0,
+          "limits": {
+            "aggregate_rss_bytes": 4294967296,
+            "output_bytes": 1073741824,
+            "timeout_seconds": 1800.0
+          },
+          "peak_aggregate_rss_bytes": 525545472,
+          "phase_output_bytes": 19867399,
+          "pid": 2803456,
+          "reason": null,
+          "status": "complete",
+          "wall_seconds": 11.00421520799864,
+          "worker_cpu_seconds": 11.453863327
+        },
+        "target_provider_count": 2000
+      }
+    ],
+    "history_overlap": [
+      {
+        "candidate_layout_sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc",
+        "candidate_score_count": 2112688,
+        "candidate_scores_file": "candidate_scores.npz",
+        "candidate_scores_path": "phases/forecast_fits/history_overlap/deterministic/candidate_scores.npz",
+        "candidate_scores_sha256": "c49890a26af7d6b35cbd707781697a27790a3f9483300965c1dc4a961c8915a2",
+        "configuration": null,
+        "configuration_index": null,
+        "family": "history_overlap",
+        "fit": {
+          "fit": "none; deterministic history-only baseline"
+        },
+        "prediction_file": "predictions.jsonl",
+        "prediction_file_sha256": "b355ed24a997ac7df5b953f0a635c838b5ed75f4def9b723b204ee5e4d4335e8",
+        "prediction_path": "phases/forecast_fits/history_overlap/deterministic/predictions.jsonl",
+        "scoring_policy": "all candidates scored; no target labels or metrics used",
+        "seed": null,
+        "supervision": {
+          "exit_code": 0,
+          "limits": {
+            "aggregate_rss_bytes": 4294967296,
+            "output_bytes": 1073741824,
+            "timeout_seconds": 1800.0
+          },
+          "peak_aggregate_rss_bytes": 356102144,
+          "phase_output_bytes": 15595839,
+          "pid": 2790220,
+          "reason": null,
+          "status": "complete",
+          "wall_seconds": 15.385983234002197,
+          "worker_cpu_seconds": 15.84967284
+        },
+        "target_provider_count": 2000
+      }
+    ],
+    "logistic": [
+      {
+        "candidate_layout_sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc",
+        "candidate_score_count": 2112688,
+        "candidate_scores_file": "candidate_scores.npz",
+        "candidate_scores_path": "phases/forecast_fits/logistic/deterministic/candidate_scores.npz",
+        "candidate_scores_sha256": "9e83095e4abd2aeb7b008f58f951f24885532796945bfeba1a566832a01041e3",
+        "configuration": {
+          "C": 0.1,
+          "class_weight": "balanced"
+        },
+        "configuration_index": 3,
+        "family": "logistic",
+        "fit": {
+          "checkpoint": "phases/forecast_fits/logistic/deterministic/model/checkpoint.npz",
+          "checkpoint_sha256": "1d4be61c47bc46a04f45ed1ff50de2906ae947cecec842ac2242b8244f5ac315",
+          "class_weight": "balanced",
+          "class_weight_effect": "inverse observed class frequencies, each class contributes equal total weight",
+          "loss_after": {
+            "name": "weighted logistic loss on the same sampled training rows, no L2 term",
+            "value": 0.33490094968217987
+          },
+          "loss_before": {
+            "name": "weighted logistic loss on the sampled training rows, no L2 term",
+            "value": 0.6931471805599453
+          },
+          "n_iter": [
+            48
+          ],
+          "negative_sampling_ratio": 5,
+          "negative_training_rows": 297988,
+          "positive_training_rows": 61312,
+          "scaler_fit_on": "sampled training rows only",
+          "training_rows": 359300
+        },
+        "prediction_file": "predictions.jsonl",
+        "prediction_file_sha256": "777eb5f885b8ab4bd2fb14bdb089147f244232f81951b4c8b370884802130eca",
+        "prediction_path": "phases/forecast_fits/logistic/deterministic/predictions.jsonl",
+        "scoring_policy": "all candidates scored; no target labels or metrics used",
+        "seed": null,
+        "supervision": {
+          "exit_code": 0,
+          "limits": {
+            "aggregate_rss_bytes": 4294967296,
+            "output_bytes": 1073741824,
+            "timeout_seconds": 1800.0
+          },
+          "peak_aggregate_rss_bytes": 620011520,
+          "phase_output_bytes": 17841856,
+          "pid": 2792156,
+          "reason": null,
+          "status": "complete",
+          "wall_seconds": 12.143784280000546,
+          "worker_cpu_seconds": 12.514270747000001
+        },
+        "target_provider_count": 2000
+      }
+    ],
+    "specialty_popularity": [
+      {
+        "candidate_layout_sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc",
+        "candidate_score_count": 2112688,
+        "candidate_scores_file": "candidate_scores.npz",
+        "candidate_scores_path": "phases/forecast_fits/specialty_popularity/deterministic/candidate_scores.npz",
+        "candidate_scores_sha256": "26c79bb9c5b9d576016f0314a9c08c71dd94313f3c1ad323ee897b31f988f800",
+        "configuration": null,
+        "configuration_index": null,
+        "family": "specialty_popularity",
+        "fit": {
+          "fit": "none; deterministic history-only baseline"
+        },
+        "prediction_file": "predictions.jsonl",
+        "prediction_file_sha256": "33eee6327858f147a897f0dd0c67a80be726d53bddf45d23f0921cb22b5a21d0",
+        "prediction_path": "phases/forecast_fits/specialty_popularity/deterministic/predictions.jsonl",
+        "scoring_policy": "all candidates scored; no target labels or metrics used",
+        "seed": null,
+        "supervision": {
+          "exit_code": 0,
+          "limits": {
+            "aggregate_rss_bytes": 4294967296,
+            "output_bytes": 1073741824,
+            "timeout_seconds": 1800.0
+          },
+          "peak_aggregate_rss_bytes": 332570624,
+          "phase_output_bytes": 3111961,
+          "pid": 2789815,
+          "reason": null,
+          "status": "complete",
+          "wall_seconds": 3.087986443999398,
+          "worker_cpu_seconds": 3.458035319
+        },
+        "target_provider_count": 2000
+      }
+    ]
+  },
+  "fixed_settings": {
+    "boosted": {
+      "early_stopping": false,
+      "max_bins": 255,
+      "max_features": 1,
+      "min_samples_leaf": 20,
+      "seed_repetition_condition": "training_rows_gt_200000"
+    },
+    "bpr": {
+      "epochs": 30,
+      "specialty_weight": 0.35
+    },
+    "logistic": {
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "tol": 1e-08
+    }
+  },
+  "forecast_sealed_at_utc": "2026-10-03T22:28:54.610343Z",
+  "human_nonconsultation_gate": "unknown; external human attestation required",
+  "independent_evaluation": {
+    "passed": false,
+    "status": "awaiting_official_target_publication",
+    "target_metrics_computed": false
+  },
+  "limits": {
+    "family_validation_wall_seconds": 21600,
+    "max_output_bytes": 1073741824,
+    "max_rss_bytes": 4294967296,
+    "run_wall_seconds": 86400,
+    "timeout_seconds": 1800,
+    "total_output_bytes": 17179869184
+  },
+  "official_target_publication_found_at_origin": false,
+  "origin_dir": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/partd-prospective-001/sealed_origin",
+  "origin_sealed_at_utc": "2026-10-03T22:10:50.231060Z",
+  "origin_sha256": "ff6641fd17742aad670ed41748cd104e3bed058a65348459c390a716bda44fe3",
+  "protocol_path": "/home/arobin/Work/Repos/HealthGraphBench/configs/q2_scientific_protocol_20261003.json",
+  "protocol_sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7",
+  "record_kind": "partd_q2_prospective_forecast",
+  "resources": {
+    "output_bytes_before_final_report": 199775083,
+    "phases": [
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 168267776,
+        "phase": "phases/capture_catalog",
+        "phase_output_bytes": 280819,
+        "pid": 2521247,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 1.3721783820001292,
+        "worker_cpu_seconds": 0.525436264
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 171757568,
+        "phase": "phases/capture_sources/service-year-2019",
+        "phase_output_bytes": 3814,
+        "pid": 2521436,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 189.60412141899724,
+        "worker_cpu_seconds": 8.344146097000001
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 176926720,
+        "phase": "phases/capture_sources/service-year-2020",
+        "phase_output_bytes": 3808,
+        "pid": 2545499,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 191.46659252599784,
+        "worker_cpu_seconds": 9.459039552
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 176971776,
+        "phase": "phases/capture_sources/service-year-2021",
+        "phase_output_bytes": 3810,
+        "pid": 2569794,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 191.2392134719994,
+        "worker_cpu_seconds": 12.173976985
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 176988160,
+        "phase": "phases/capture_sources/service-year-2022",
+        "phase_output_bytes": 3810,
+        "pid": 2594030,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 195.4927848389998,
+        "worker_cpu_seconds": 12.961885576
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 177012736,
+        "phase": "phases/capture_sources/service-year-2023",
+        "phase_output_bytes": 3815,
+        "pid": 2618736,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 190.21240175900311,
+        "worker_cpu_seconds": 12.914949484000001
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 177012736,
+        "phase": "phases/capture_sources/service-year-2024",
+        "phase_output_bytes": 3808,
+        "pid": 2642788,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 196.612737276002,
+        "worker_cpu_seconds": 13.30445861
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 174501888,
+        "phase": "phases/catalog_after_source_captures",
+        "phase_output_bytes": 280821,
+        "pid": 2667783,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 1.08733240699803,
+        "worker_cpu_seconds": 0.53291751
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 834887680,
+        "phase": "phases/prepare_origin",
+        "phase_output_bytes": 677,
+        "pid": 2667931,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 964.8984234739983,
+        "worker_cpu_seconds": 942.688686396
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 332570624,
+        "phase": "phases/forecast_fits/specialty_popularity/deterministic",
+        "phase_output_bytes": 3111961,
+        "pid": 2789815,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 3.087986443999398,
+        "worker_cpu_seconds": 3.458035319
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 356102144,
+        "phase": "phases/forecast_fits/history_overlap/deterministic",
+        "phase_output_bytes": 15595839,
+        "pid": 2790220,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 15.385983234002197,
+        "worker_cpu_seconds": 15.84967284
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 620011520,
+        "phase": "phases/forecast_fits/logistic/deterministic",
+        "phase_output_bytes": 17841856,
+        "pid": 2792156,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 12.143784280000546,
+        "worker_cpu_seconds": 12.514270747000001
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 624611328,
+        "phase": "phases/forecast_fits/boosted/seed-103",
+        "phase_output_bytes": 10633136,
+        "pid": 2793706,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 18.26813054300146,
+        "worker_cpu_seconds": 18.636700413
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 625033216,
+        "phase": "phases/forecast_fits/boosted/seed-211",
+        "phase_output_bytes": 10688259,
+        "pid": 2796012,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 18.374181355000474,
+        "worker_cpu_seconds": 18.778917731
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 624685056,
+        "phase": "phases/forecast_fits/boosted/seed-307",
+        "phase_output_bytes": 10784091,
+        "pid": 2798358,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 18.380923275995883,
+        "worker_cpu_seconds": 18.816728291
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 525946880,
+        "phase": "phases/forecast_fits/bpr/seed-103",
+        "phase_output_bytes": 19856299,
+        "pid": 2800677,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 11.029782220000925,
+        "worker_cpu_seconds": 11.496682643
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 525488128,
+        "phase": "phases/forecast_fits/bpr/seed-211",
+        "phase_output_bytes": 19865720,
+        "pid": 2802083,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 10.929893859000003,
+        "worker_cpu_seconds": 11.402174818999999
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 525545472,
+        "phase": "phases/forecast_fits/bpr/seed-307",
+        "phase_output_bytes": 19867399,
+        "pid": 2803456,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 11.00421520799864,
+        "worker_cpu_seconds": 11.453863327
+      },
+      {
+        "exit_code": 0,
+        "family": null,
+        "limits": {
+          "aggregate_rss_bytes": 4294967296,
+          "output_bytes": 1073741824,
+          "timeout_seconds": 1800.0
+        },
+        "peak_aggregate_rss_bytes": 172916736,
+        "phase": "phases/catalog_before_forecast_seal",
+        "phase_output_bytes": 280855,
+        "pid": 2804865,
+        "reason": null,
+        "status": "complete",
+        "wall_seconds": 0.846361841999169,
+        "worker_cpu_seconds": 0.5745145269999999
+      }
+    ],
+    "run_wall_seconds": 2241.490268074005
+  },
+  "seal_catalog_capture": {
+    "captured_at_utc": "2026-10-03T22:28:54.599259Z",
+    "final_url": "https://data.cms.gov/jsonapi/node/dataset?include=field_ref_primary_data_file&fields%5Bnode--dataset%5D=field_dataset_version,field_ref_primary_data_file,field_last_updated_date,field_re_release_select,field_re_release_version&fields%5Bmedia--primary_dataset_file%5D=field_csv_metadata,field_num_rows,field_num_columns&filter%5Bfield_dataset_type.name%5D=Medicare+Part+D+Prescribers+-+by+Provider+and+Drug&sort=-field_dataset_version,-field_re_release_version",
+    "headers": {
+      "Akamai-GRN": "0.0f933617.1791066534.9501caa",
+      "Cache-Control": "max-age=0, no-cache, no-store",
+      "Connection": "Transfer-Encoding",
+      "Content-Language": "en",
+      "Content-Security-Policy": "report-uri /report-csp-violation",
+      "Content-Type": "application/vnd.api+json",
+      "Date": "Sat, 03 Oct 2026 22:28:54 GMT",
+      "ETag": "\"1791066477\"",
+      "Expires": "Sat, 03 Oct 2026 22:28:54 GMT",
+      "Last-Modified": "Sat, 03 Oct 2026 22:27:57 GMT",
+      "Pragma": "no-cache",
+      "Referrer-Policy": "no-referrer-when-downgrade",
+      "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains ; preload",
+      "Transfer-Encoding": "chunked",
+      "Vary": "Accept-Encoding",
+      "X-AH-Environment": "prod",
+      "X-Age": "56",
+      "X-Cache-Hits": "1",
+      "X-Consumer-ID": "07eafadc-1bac-4607-8441-20c35fa46f17",
+      "X-Content-Type-Options": "nosniff",
+      "X-Drupal-Dynamic-Cache": "MISS",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Generator": "Drupal 10 (https://www.drupal.org)",
+      "X-Request-ID": "v-af31b614-bf79-11f1-937f-0311ddd6000c",
+      "X-XSS-Protection": "1; mode=block",
+      "x-akamai-original-url": "08ff4c8072129a48657f3e6043a1820662e60637"
+    },
+    "matching_dataset_nodes": [],
+    "metadata_only": true,
+    "request_authentication": "none",
+    "request_started_at_utc": "2026-10-03T22:28:53.764434Z",
+    "response_bytes": 278033,
+    "response_file": "catalog_response.json",
+    "response_file_sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa",
+    "response_path": "phases/catalog_before_forecast_seal/catalog_response.json",
+    "response_sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa",
+    "service_2025_officially_listed": false,
+    "status": 200,
+    "url": "https://data.cms.gov/jsonapi/node/dataset?include=field_ref_primary_data_file&fields%5Bnode--dataset%5D=field_dataset_version,field_ref_primary_data_file,field_last_updated_date,field_re_release_select,field_re_release_version&fields%5Bmedia--primary_dataset_file%5D=field_csv_metadata,field_num_rows,field_num_columns&filter%5Bfield_dataset_type.name%5D=Medicare+Part+D+Prescribers+-+by+Provider+and+Drug&sort=-field_dataset_version,-field_re_release_version"
+  },
+  "selected_configurations": {
+    "boosted": {
+      "configuration": {
+        "l2_regularization": 0,
+        "learning_rate": 0.1,
+        "max_iter": 100,
+        "max_leaf_nodes": 15
+      },
+      "configuration_index": 2
+    },
+    "bpr": {
+      "configuration": {
+        "dimension": 32,
+        "learning_rate": 0.03,
+        "negative_samples": 5,
+        "regularization": 0.001
+      },
+      "configuration_index": 5
+    },
+    "logistic": {
+      "configuration": {
+        "C": 0.1,
+        "class_weight": "balanced"
+      },
+      "configuration_index": 3
+    }
+  },
+  "selection_path": "results/generated/q2-cycle-20261003/partd-prospective-001/selection.json",
+  "selection_sha256": "e532f030b3bbe2509916dbc401efdacdad77fe24638658b904a16709bf2372f6",
+  "status": "sealed_awaiting_official_target_publication",
+  "target_year": 2025,
+  "task": "partd_prescriber_drug",
+  "training_rows_for_boosted_seed_policy": 359300
+}

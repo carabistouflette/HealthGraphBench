@@ -40,3 +40,11 @@ La publication future n’a pas de date garantie. Le catalogue principal interro
 - **Indépendance des observations:** non garantie par des NPIs disjoints ou un target futur; les drugs et les dépendances de réseau peuvent être partagés.
 
 Une source absente ou une attestation manquante ne sont remplacées ni par une simulation médicale, ni par une métrique zéro, ni par un certificat d’assistant. Les fixtures synthétiques servent uniquement à exercer le logiciel d’évaluation différée. Les anciennes périodes/cohortes ne sont pas requalifiées à partir de ces fixtures.
+
+## Exécution réelle et scellement conservé
+
+`partd-prospective-001` a recapturé intégralement les sixCSV publics2019–24, dont les bytes/hashes concordent avec les sources conservées. Les trois catalogues à21:51:34,22:10:50 et22:28:54UTC le3octobre2026 ne listent aucun node annuel2025. Origine scellée22:10:50.231060UTC; forecast scellé22:28:54.610343UTC. Cette disponibilité est établie à ces instants réels, pas rétrospectivement à l’année de service.
+
+La cohorte contient2000 NPIs disjoints des2518 NPIs de développement et des2288 NPIs du nouveau run de comparaison (ces derniers sont tous dans l’ancienne union). Sélection inchangée sur validation2023; sept vrais fits appris et deux heuristiques scorent2 112 688 candidats chacun, sans labels cibles ni tuning supplémentaire. Les états, neuf fichiers de scores, histoire/layout et reçus sont conservés.
+
+`results/q2_partd_prospective_forecast_20261003.json` et `results/q2_partd_prospective_origin_20261003.json` sont les copies exactes des records scellés; le premier expose les empreintes individuelles des scores/checkpoints. Leur publication Git est l’ancrage externe, distinct des timestamps locaux de calcul. La source officielle2025 reste absente dans les catalogues capturés, aucune métrique cible n’est calculée et la gate humaine de non-consultation demeure `unknown`. Le statut reste `sealed_awaiting_official_target_publication`, **pas** une évaluation indépendante passée.
