@@ -877,6 +877,110 @@ def _write_edges(path: Path, rows_by_year: dict[int, list[_PartDRow]]) -> None:
         writer.writerows(_rows_to_edge_values(rows_by_year))
 
 
+
+def prepare_execution(
+    source_root: Path,
+    manifest_path: Path,
+    output_dir: Path,
+    *,
+    cohort_size: int = 2000,
+) -> dict[str, object]:
+    """Prepare raw Part D inputs for direct model execution without fitting models."""
+    source_root = Path(source_root)
+    manifest_path = Path(manifest_path)
+    output_dir = Path(output_dir)
+    if output_dir.exists():
+        raise FileExistsError(f"refusing to overwrite Part D preparation: {output_dir}")
+    if isinstance(cohort_size, bool) or not isinstance(cohort_size, int) or cohort_size <= 0:
+        raise ValueError(f"cohort_size must be a positive integer: {cohort_size!r}")
+
+    manifest, entries = _validate_manifest(manifest_path, source_root)
+    years = [int(entry["year"]) for entry in entries]
+    if years != [2019, 2020, 2021, 2022, 2023, 2024]:
+        raise ValueError(
+            "Part D execution requires the frozen 2019-2024 raw source; "
+            f"got years={years!r}"
+        )
+    verified_entries = verify_files(source_root, entries)
+    score_years = years[-3:]
+    first_seen_year = _first_seen_years(
+        source_root,
+        entries,
+        before_year=max(score_years),
+    )
+    cohorts_by_year = _dynamic_cohorts(first_seen_year, score_years, cohort_size)
+    cohort = set().union(*cohorts_by_year.values())
+    if not cohort:
+        raise ValueError("Part D execution cohort is empty")
+
+    rows_by_year: dict[int, list[_PartDRow]] = {}
+    for entry in entries:
+        path = _safe_source_path(source_root, entry["path"])
+        rows_by_year[int(entry["year"])] = _iter_selected_rows(path, entry, cohort)
+
+    configuration: dict[str, object] = {
+        "years": years,
+        "score_years": score_years,
+        "evaluation_roles": {
+            "2022": "train_target",
+            "2023": "validation",
+            "2024": "held_out_test",
+        },
+        "cohort_size": cohort_size,
+        "cohort_selection": (
+            "for each target year, up to cohort_size providers first observed strictly "
+            "before that year, ordered by (SHA-256 NPI, NPI)"
+        ),
+        "drug_identity": "exact trimmed generic_name; blank generic names excluded",
+        "candidate_rule": (
+            "all generic drugs observed globally in strictly prior cohort history "
+            "minus the provider's entire strictly prior generic history"
+        ),
+        "target_rule": (
+            "first observed generic provider-drug relationship in the target year, "
+            "excluding drugs absent from global prior history"
+        ),
+        "edge_transformation": TRANSFORMATION,
+    }
+    configuration_sha256 = hashlib.sha256(
+        _canonical_json(configuration).encode("utf-8")
+    ).hexdigest()
+    source_provenance = _source_provenance(Path(__file__).resolve().parents[2])
+    report: dict[str, object] = {
+        "record_kind": "partd_execution_preparation",
+        "status": "prepared",
+        "source_commit": source_provenance["commit"],
+        "dirty_state": source_provenance,
+        "configuration": configuration,
+        "configuration_sha256": configuration_sha256,
+        "cohort": {
+            "size": len(cohort),
+            "requested_size_per_target": cohort_size,
+            "by_target_year": {
+                str(year): sorted(cohorts_by_year[year]) for year in score_years
+            },
+        },
+        "sources": {
+            "source_root": str(source_root),
+            "manifest_path": str(manifest_path),
+            "manifest_sha256": sha256_file(manifest_path),
+            "landing_url": manifest["landing_url"],
+            "dictionary_url": manifest["dictionary_url"],
+            "methodology_url": manifest["methodology_url"],
+            "files": verified_entries,
+        },
+        "audits": {"total_retained_edges": sum(map(len, rows_by_year.values()))},
+    }
+
+    output_dir.parent.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir()
+    edges_path = output_dir / "edges.csv"
+    _write_edges(edges_path, rows_by_year)
+    report["artifact_hashes"] = {"edges.csv": sha256_file(edges_path)}
+    with (output_dir / "report.json").open("w", encoding="utf-8", newline="") as handle:
+        handle.write(json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + "\n")
+    return report
+
 def _write_rankings(path: Path, rankings: list[dict[str, object]]) -> None:
     with path.open("w", encoding="utf-8", newline="") as handle:
         for row in rankings:

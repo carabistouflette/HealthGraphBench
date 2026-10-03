@@ -1,5 +1,5 @@
-"""CMS Medicare Part D prescriber-drug replication task."""
+"""CMS Medicare Part D task and immutable history-view API."""
 
-from .task import PartDTask
+from .task import PartDHistoryView, PartDTask
 
-__all__ = ["PartDTask"]
+__all__ = ["PartDHistoryView", "PartDTask"]

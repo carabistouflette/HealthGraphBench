@@ -1,0 +1,532 @@
+{
+  "schema": "healthgraphbench.q2-protocol.v1",
+  "status": "locked_before_health_training",
+  "base_commit": "6130e9cd35dd66ba9edab2dc69d1b24c2d8f3d91",
+  "base_pr": 4,
+  "evidence_level": "exploratory_on_previously_consulted_2023_2025",
+  "seeds": [
+    103,
+    211,
+    307
+  ],
+  "limits": {
+    "timeout_seconds": 1800,
+    "max_rss_bytes": 4294967296,
+    "max_output_bytes": 1073741824,
+    "family_validation_wall_seconds": 21600,
+    "run_wall_seconds": 86400,
+    "total_output_bytes": 17179869184
+  },
+  "selection": {
+    "complete_grid_required": true,
+    "seed_selection_forbidden": true,
+    "exact_tie_break": "published_grid_order",
+    "deterministic_models": "one_real_fit_no_pseudo_replicates"
+  },
+  "learning_gate": {
+    "variants": [
+      "mean",
+      "none"
+    ],
+    "fixed_historical_probe_max_triplets": 20000,
+    "minimum_relative_bpr_data_loss_reduction": 0.01,
+    "required_for_every_seed": true,
+    "changed_checkpoint_required": true,
+    "capacity_equal_causal_claim": false,
+    "selection_requires_all_seed_learning_gates": true
+  },
+  "independent_evaluation": {
+    "status": "gated_pending_availability_and_independence_evidence",
+    "previously_consulted_periods_remain_exploratory": true,
+    "unavailable_data_or_missing_human_attestation_is_not_a_pass": true
+  },
+  "external_reuse": {
+    "technical_assistant_run_is_not_external_human_validation": true,
+    "human_participant_required": true,
+    "neighbor_cosine_top50": {
+      "model_name": "neighbor_cosine_top50",
+      "neighbor_count": 50,
+      "fit_representation": "binary_provider_by_generic_drug_incidence",
+      "tuning": "none",
+      "fit_scope": {
+        "validation_target_year": 2023,
+        "validation_prior_years": [2019, 2020, 2021, 2022],
+        "test_target_year": 2024,
+        "test_prior_years": [2019, 2020, 2021, 2022, 2023]
+      },
+      "loss": "none_unsupervised"
+    }
+  },
+  "locked_sources": [
+    "pyproject.toml",
+    "configs/task_contract_v0_1.json",
+    "configs/task_contract_v0_2.json",
+    "data/manifests/v0.1.json",
+    "data/manifests/partd_feasibility_v0_2_lookback.json",
+    "results/q2_partd_development_population_20261003.json",
+    "healthgraphbench/__init__.py",
+    "healthgraphbench/core.py",
+    "healthgraphbench/cli.py",
+    "healthgraphbench/data.py",
+    "healthgraphbench/q2/__init__.py",
+    "healthgraphbench/q2/common.py",
+    "healthgraphbench/q2/maude.py",
+    "healthgraphbench/q2/maude_backend.py",
+    "healthgraphbench/q2/partd.py",
+    "healthgraphbench/q2/cms.py",
+    "healthgraphbench/q2/prospective_partd.py",
+    "healthgraphbench/q2/reuse.py",
+    "healthgraphbench/tasks/__init__.py",
+    "healthgraphbench/tasks/partd/__init__.py",
+    "healthgraphbench/tasks/partd/task.py",
+    "healthgraphbench/tasks/partd/task_contract_v0_2.json",
+    "healthgraphbench/tasks/maude/__init__.py",
+    "healthgraphbench/tasks/maude/data.py",
+    "healthgraphbench/tasks/maude/task.py",
+    "healthgraphbench/tasks/maude/models.py",
+    "healthgraphbench/tasks/maude/evaluate.py",
+    "healthgraphbench/tasks/maude/diagnostic.py",
+    "healthgraphbench/tasks/maude/ablation.py",
+    "healthgraphbench/tasks/cms_nursing/__init__.py",
+    "healthgraphbench/tasks/cms_nursing/task.py",
+    "healthgraphbench/tasks/cms_nursing/prepare.py",
+    "healthgraphbench/tasks/cms_nursing/models.py",
+    "healthgraphbench/candidates/__init__.py",
+    "healthgraphbench/candidates/partd.py",
+    "healthgraphbench/candidates/partd_model.py",
+    "healthgraphbench/candidates/clinical_trials.py",
+    "healthgraphbench/candidates/clinical_trials_stability.py",
+    "healthgraphbench/models/__init__.py",
+    "healthgraphbench/models/baselines.py",
+    "healthgraphbench/evaluation/__init__.py",
+    "healthgraphbench/evaluation/metrics.py",
+    "healthgraphbench/evaluation/numpy_metrics.py",
+    "healthgraphbench/evaluation/bootstrap.py",
+    "healthgraphbench/controls/__init__.py",
+    "healthgraphbench/controls/synthetic.py",
+    "scripts/run_q2_maude.py",
+    "scripts/run_q2_cms.py",
+    "scripts/run_q2_partd.py",
+    "scripts/run_q2_prospective_partd.py",
+    "scripts/run_q2_reuse.py",
+    "scripts/build_partd_execution_v0_2.py",
+    "scripts/download_cms.py",
+    "examples/q2_external_reuse/neighbor_cosine.py"
+  ],
+  "tasks": {
+    "maude": {
+      "name": "maude",
+      "source_manifest": "data/manifests/v0.1.json",
+      "manifest_task": "maude",
+      "primary_metric": "micro_recall_at_10",
+      "selection": "mean_validation_2023_micro_recall_at_10",
+      "train_through": "2022Q4",
+      "validation_year": 2023,
+      "test_years": [
+        2024,
+        2025
+      ],
+      "seeds": [
+        103,
+        211,
+        307
+      ],
+      "grids": {
+        "logistic": [
+          {
+            "C": 0.01
+          },
+          {
+            "C": 0.1
+          },
+          {
+            "C": 1
+          },
+          {
+            "C": 10
+          },
+          {
+            "C": 100
+          },
+          {
+            "C": 1000
+          }
+        ],
+        "boosted": [
+          {
+            "max_iter": 100,
+            "max_leaf_nodes": 7,
+            "l2_regularization": 0
+          },
+          {
+            "max_iter": 100,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0
+          },
+          {
+            "max_iter": 300,
+            "max_leaf_nodes": 7,
+            "l2_regularization": 0
+          },
+          {
+            "max_iter": 300,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0
+          },
+          {
+            "max_iter": 600,
+            "max_leaf_nodes": 7,
+            "l2_regularization": 0.1
+          },
+          {
+            "max_iter": 600,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0.1
+          }
+        ],
+        "spectral": [
+          {
+            "rank": 8,
+            "power_iterations": 12
+          },
+          {
+            "rank": 8,
+            "power_iterations": 18
+          },
+          {
+            "rank": 8,
+            "power_iterations": 24
+          },
+          {
+            "rank": 16,
+            "power_iterations": 12
+          },
+          {
+            "rank": 16,
+            "power_iterations": 18
+          },
+          {
+            "rank": 16,
+            "power_iterations": 24
+          }
+        ],
+        "bpr": [
+          {
+            "dimension": 8,
+            "regularization": 0.001
+          },
+          {
+            "dimension": 8,
+            "regularization": 0.0001
+          },
+          {
+            "dimension": 8,
+            "regularization": 0
+          },
+          {
+            "dimension": 16,
+            "regularization": 0.001
+          },
+          {
+            "dimension": 16,
+            "regularization": 0.0001
+          },
+          {
+            "dimension": 16,
+            "regularization": 0
+          }
+        ]
+      },
+      "fixed": {
+        "logistic": {
+          "solver": "lbfgs",
+          "class_weight": "balanced",
+          "max_iter": 1000,
+          "tol": 1e-08
+        },
+        "boosted": {
+          "learning_rate": 0.1,
+          "early_stopping": false,
+          "max_features": 1,
+          "max_bins": 255,
+          "min_samples_leaf": 20,
+          "seed_repetition_condition": "training_rows_gt_200000"
+        },
+        "bpr": {
+          "epochs": 30,
+          "learning_rate": 0.03
+        },
+        "spectral": {
+          "seeded_initialization": true
+        }
+      },
+      "graphsage": {
+        "dimension": [
+          8,
+          16
+        ],
+        "regularization": [
+          0.0005,
+          5e-06,
+          0
+        ],
+        "epochs": 30,
+        "learning_rate": 0.02,
+        "fanout": 8,
+        "seeds": [
+          103,
+          211,
+          307
+        ],
+        "initialization": {
+          "distribution": "normal",
+          "sigma": 0.05
+        }
+      }
+    },
+    "partd": {
+      "name": "partd_prescriber_drug",
+      "source_manifest": "data/manifests/partd_feasibility_v0_2_lookback.json",
+      "cohort_size": 2000,
+      "primary_metric": "micro_recall_at_10",
+      "validation_year": 2023,
+      "test_years": [
+        2024
+      ],
+      "seeds": [
+        103,
+        211,
+        307
+      ],
+      "grids": {
+        "logistic": [
+          {
+            "C": 0.1,
+            "class_weight": null
+          },
+          {
+            "C": 1,
+            "class_weight": null
+          },
+          {
+            "C": 10,
+            "class_weight": null
+          },
+          {
+            "C": 0.1,
+            "class_weight": "balanced"
+          },
+          {
+            "C": 1,
+            "class_weight": "balanced"
+          },
+          {
+            "C": 10,
+            "class_weight": "balanced"
+          }
+        ],
+        "bpr": [
+          {
+            "dimension": 16,
+            "learning_rate": 0.01,
+            "regularization": 0.001,
+            "negative_samples": 3
+          },
+          {
+            "dimension": 16,
+            "learning_rate": 0.03,
+            "regularization": 0.001,
+            "negative_samples": 3
+          },
+          {
+            "dimension": 16,
+            "learning_rate": 0.03,
+            "regularization": 0.01,
+            "negative_samples": 3
+          },
+          {
+            "dimension": 32,
+            "learning_rate": 0.01,
+            "regularization": 0.001,
+            "negative_samples": 3
+          },
+          {
+            "dimension": 32,
+            "learning_rate": 0.03,
+            "regularization": 0.001,
+            "negative_samples": 3
+          },
+          {
+            "dimension": 32,
+            "learning_rate": 0.03,
+            "regularization": 0.001,
+            "negative_samples": 5
+          }
+        ],
+        "boosted": [
+          {
+            "learning_rate": 0.03,
+            "max_iter": 100,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 100,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0
+          },
+          {
+            "learning_rate": 0.1,
+            "max_iter": 100,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 200,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 100,
+            "max_leaf_nodes": 31,
+            "l2_regularization": 0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 100,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 1
+          }
+        ]
+      },
+      "fixed": {
+        "logistic": {
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "tol": 1e-08
+        },
+        "bpr": {
+          "epochs": 30,
+          "specialty_weight": 0.35
+        },
+        "boosted": {
+          "early_stopping": false,
+          "max_features": 1,
+          "max_bins": 255,
+          "min_samples_leaf": 20,
+          "seed_repetition_condition": "training_rows_gt_200000"
+        }
+      },
+      "prospective": {
+        "target_year": 2025,
+        "source_manifest": "data/manifests/partd_feasibility_v0_2_lookback.json",
+        "catalog_url": "https://data.cms.gov/jsonapi/node/dataset?include=field_ref_primary_data_file&fields%5Bnode--dataset%5D=field_dataset_version,field_ref_primary_data_file,field_last_updated_date,field_re_release_select,field_re_release_version&fields%5Bmedia--primary_dataset_file%5D=field_csv_metadata,field_num_rows,field_num_columns&filter%5Bfield_dataset_type.name%5D=Medicare+Part+D+Prescribers+-+by+Provider+and+Drug&sort=-field_dataset_version,-field_re_release_version",
+        "cohort_size": 2000,
+        "cohort_salt": "q2-prospective-20261003",
+        "cohort_hash": "sha256((salt + NUL + NPI).ascii), ascending (lowercase_hex_digest, NPI)",
+        "development_population": "results/q2_partd_development_population_20261003.json",
+        "comparison_prepared_relative": "phases/prepare_raw/prepared",
+        "availability_claim": "verified_public_recapture_before_prediction; not_first_publication_or_first_prescription"
+      }
+    },
+    "cms": {
+      "name": "cms_nursing",
+      "source_manifest": "data/manifests/v0.1.json",
+      "manifest_task": "cms",
+      "primary_metric": "roc_auc",
+      "validation_year": 2023,
+      "test_years": [
+        2024,
+        2025
+      ],
+      "seeds": [
+        103,
+        211,
+        307
+      ],
+      "feature_sets": [
+        "facility_history",
+        "facility_plus_combined_ownership"
+      ],
+      "grids": {
+        "logistic": [
+          {
+            "C": 0.01
+          },
+          {
+            "C": 0.1
+          },
+          {
+            "C": 1
+          },
+          {
+            "C": 10
+          },
+          {
+            "C": 100
+          },
+          {
+            "C": 1000
+          }
+        ],
+        "boosted": [
+          {
+            "learning_rate": 0.03,
+            "max_iter": 100,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 100,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0
+          },
+          {
+            "learning_rate": 0.1,
+            "max_iter": 100,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 200,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 100,
+            "max_leaf_nodes": 31,
+            "l2_regularization": 0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 100,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 1
+          }
+        ]
+      },
+      "fixed": {
+        "logistic": {
+          "solver": "lbfgs",
+          "class_weight": null,
+          "max_iter": 1000,
+          "tol": 1e-08
+        },
+        "boosted": {
+          "early_stopping": false,
+          "max_features": 1,
+          "max_bins": 255,
+          "min_samples_leaf": 20,
+          "seed_repetition_condition": "training_rows_gt_200000"
+        }
+      },
+      "availability_limit": "August2026 retrospective snapshot; no origin-valid availability asserted"
+    }
+  }
+}

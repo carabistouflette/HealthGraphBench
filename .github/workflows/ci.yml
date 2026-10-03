@@ -38,7 +38,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: python scripts/check_gitflow.py --event "$GITHUB_EVENT_PATH"
       - name: Install package
-        run: python -m pip install -e .
+        run: python -m pip install -e '.[q2]'
       - name: Run regression suite
         run: python -m unittest discover -s tests -v
       - name: Exercise installed CLI
