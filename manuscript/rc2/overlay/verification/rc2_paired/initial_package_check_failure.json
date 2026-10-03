@@ -1,0 +1,879 @@
+{
+  "cause": "CSV text copy normalized CRLF to LF; restored original bytes, without repinning expected hashes or changing statistical output",
+  "original_report": {
+    "revision": "RC2",
+    "passed": false,
+    "ready_for_submission": false,
+    "manifest_skipped": true,
+    "scope": "Delivery integrity and arithmetic on retained results; no fits or scientific audits rerun",
+    "checks": [
+      {
+        "check": "package_identity",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "parent_preserved",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "no_approval_invented",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "no_manuscript_doi_or_tag",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "benchmark_identity",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "operations_consistent",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retention_parent",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/README.md",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/available_descriptors_R2.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/cms_annual_metrics_R2.csv",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/cms_annual_predictions_R2.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/cms_ap_identifiability_R4.csv",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/cms_summary_identities_R4.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/cms_year_decomposition_R2.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/descriptive_checks.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/graphsage_control_R4.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/maude_coverage_periods_R6.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/maude_cutoff_differences_R2.csv",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/maude_neighbors_vs_global_R2.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/partd_bpr_vs_specialty_R2.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/published_intervals.csv",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R4/cms.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R4/cms_replayed.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R4/cms_ties_exact.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R4/graphsage_control_verified.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R4/maude.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R4/maude_descriptors.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R4/maude_replayed.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R4/partd.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R4/partd_interface_R4.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R4/partd_replayed.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R6/maude_B/SHA256SUMS",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R6/maude_B/coverage_quarterly.csv",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R6/maude_B/descriptors.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R6/maude_B/prepared_snapshots.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R6/maude_B/provenance.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R6/maude_B/training_graph.csv",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/real_R6/maude_B/training_tabular.csv",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/retained_numeric_manifest_R4.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/revision_status_R4.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/revision_status_R5.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/revision_status_R6.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/source_map_R2.csv",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/source_map_R3.csv",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/source_map_R4.csv",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/unit_tests_R2.log",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:data/verified_metrics_subset.csv",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:figures/maude_cutoffs_en.pdf",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:figures/maude_cutoffs_en.png",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:figures/maude_cutoffs_fr.pdf",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:figures/maude_cutoffs_fr.png",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:references.bib",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/acquire_inputs.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/audit_maude_B.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/audit_numeric_consistency.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/build_assets.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/cms_ties_analysis.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/compact_replay.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/compile_pdfs.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/demo_benchmark_interface.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/extract_available_descriptors.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/extract_descriptors_R4.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/graphsage_control.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/install_ios_template.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/paired_revision_analysis.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/plot_revision.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/render_cms_exact_tables_R4.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/render_r4_tables.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/revision_assets.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/summarize_maude_coverage.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/summary_identities_R4.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/verify_against_repository.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/verify_core_source.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:scripts/verify_rc1_replays.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_annual_all_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_annual_all_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_annual_test_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_annual_test_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_ap_bounds_R4_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_ap_bounds_R4_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_ap_exact_R4_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_ap_exact_R4_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_ap_identity_R4_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_ap_identity_R4_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_decile_exact_R4_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_decile_exact_R4_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_decomposition_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_decomposition_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_training_R4_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/cms_training_R4_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/graphsage_control_R4_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/graphsage_control_R4_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/maude_B1_graph_R6_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/maude_B1_graph_R6_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/maude_B1_tabular_R6_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/maude_B1_tabular_R6_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/maude_B2_coverage_R6_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/maude_B2_coverage_R6_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/maude_B2_missing_pairs_R6_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/maude_B2_missing_pairs_R6_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/maude_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/maude_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/partd_en.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tables/partd_fr.tex",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tests/test_coverage_periods.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tests/test_maude_B.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tests/test_r4.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:tests/test_revision.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:vendor/LICENSE",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:vendor/NOTICE",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained:vendor/graphsage_core.py",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "source_manifest:C",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "source_manifest:D1",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "hits_ratio:validation2023:mean",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "hits_ratio:validation2023:none",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "signed_contrast:validation2023",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "hits_ratio:2024:mean",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "hits_ratio:2024:none",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "signed_contrast:2024",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "hits_ratio:2025:mean",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "hits_ratio:2025:none",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "signed_contrast:2025",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "hits_ratio:pooled2024_2025:mean",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "hits_ratio:pooled2024_2025:none",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "signed_contrast:pooled2024_2025",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "pooled_counts:positive_edges",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "pooled_counts:products",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "pooled_counts:mean_hits10",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "pooled_counts:none_hits10",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "retained_audit_zero_discrepancy:C",
+        "passed": true,
+        "detail": "Received completed audit; not rerun"
+      },
+      {
+        "check": "retained_audit_zero_discrepancy:D1",
+        "passed": true,
+        "detail": "Received completed audit; not rerun"
+      },
+      {
+        "check": "audit_rss_reserve",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_bytes:data/post_rc1/checkpoints/C_test_2024_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_inference_only:data/post_rc1/checkpoints/C_test_2024_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_bytes:data/post_rc1/checkpoints/C_test_2025_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_inference_only:data/post_rc1/checkpoints/C_test_2025_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_bytes:data/post_rc1/checkpoints/C_validation_2023_fit_epochs_00.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_inference_only:data/post_rc1/checkpoints/C_validation_2023_fit_epochs_00.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_bytes:data/post_rc1/checkpoints/C_validation_2023_fit_epochs_03.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_inference_only:data/post_rc1/checkpoints/C_validation_2023_fit_epochs_03.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_bytes:data/post_rc1/checkpoints/C_validation_2023_fit_epochs_10.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_inference_only:data/post_rc1/checkpoints/C_validation_2023_fit_epochs_10.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_bytes:data/post_rc1/checkpoints/C_validation_2023_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_inference_only:data/post_rc1/checkpoints/C_validation_2023_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_bytes:data/post_rc1/checkpoints/D1_test_2024_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_inference_only:data/post_rc1/checkpoints/D1_test_2024_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_bytes:data/post_rc1/checkpoints/D1_test_2025_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_inference_only:data/post_rc1/checkpoints/D1_test_2025_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_bytes:data/post_rc1/checkpoints/D1_validation_2023_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "checkpoint_inference_only:data/post_rc1/checkpoints/D1_validation_2023_fit_epochs_30.json.gz",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "paired_executed_source",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "paired_protocol_pin",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "paired_payload:paired_contributions.csv",
+        "passed": false,
+        "detail": null
+      },
+      {
+        "check": "paired_payload:paired_bootstrap_draws.json",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "paired_unique_keys",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "paired_denominators",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "paired_hits:C30_hits",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "paired_hits:neighbors_hits",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "paired_signed_contrast",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "paired_conditional_scope",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "paired_successful_draws",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "pdf_resolved:main_fr.pdf",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "pdf_resolved:main_en.pdf",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "pdf_resolved:supplement_fr.pdf",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "pdf_resolved:supplement_en.pdf",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "check": "pdf_resolved:response_reviewers_fr.pdf",
+        "passed": true,
+        "detail": null
+      }
+    ],
+    "pdfs": [
+      {
+        "file": "main_fr.pdf",
+        "pages": 17,
+        "sha256": "9904761988c2019427b4a91d33b974561604241b38923b34bc5c386f719ad4b5"
+      },
+      {
+        "file": "main_en.pdf",
+        "pages": 16,
+        "sha256": "3b7fab82cc017c9bb3fd96533127e08cb0e3cafb02361c5467cab5cc657b0fc3"
+      },
+      {
+        "file": "supplement_fr.pdf",
+        "pages": 23,
+        "sha256": "b5863ba1c2a5cf6f04f260db9789028718d312c53ef6a2ffbe452190e24aeee4"
+      },
+      {
+        "file": "supplement_en.pdf",
+        "pages": 22,
+        "sha256": "10d6809838c9b7fffb3f181fc7a6511b3a163d41e14b2ee87c72cbef6aa49c6e"
+      },
+      {
+        "file": "response_reviewers_fr.pdf",
+        "pages": 2,
+        "sha256": "8bf7bae06d778629e4746445a8c7f07c7207dcbf6e135f7e7bf22bea163847c6"
+      }
+    ]
+  }
+}

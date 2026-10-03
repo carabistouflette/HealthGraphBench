@@ -40,7 +40,7 @@ Correct chronology is necessary but insufficient. It guarantees neither the hist
 
 The historical MAUDE and CMS analyses come from the v0.1 baseline; Part D was added in version v0.2. We retain their results and add two exploratory analyses on MAUDE: the first compares several training durations for one-hop GraphSAGE, then evaluates the selected duration on the test periods; the second compares mean aggregation with a variant without message passing. The latter reuses predictions from the first model and trains only the control without aggregation, using the same candidates, labels, and ranking rules.
 
-Both models retain trainable identity vectors; however, the variant without aggregation has fewer transformation parameters. The comparison therefore does not separate the effect of aggregation from that of this capacity difference.
+The diagnostic without aggregation retains trainable identity vectors learned from historical edges and the BPR objective: removing message passing does not remove relational information from learning. The duration selected for the mean-aggregation model is imposed on the control, without establishing an effective setting for it. The transformations have different active capacities, but this difference does not demonstrate the cause of the gap.
 
 The historical experiments are described in the reports and benchmark repository\cite{hgb2026,hgbcontract,hgbresults,hgbpartd,hgbanalysis,hgbcode}. DOI \nolinkurl{10.5281/zenodo.22796551} identifies version 0.2 of the benchmark. Code, manifests, and checks for the new fits are referenced in S11.
 
@@ -51,7 +51,7 @@ The validation and test periods had already been examined during earlier develop
 
 \paragraph{MAUDE.} For a product code, predict relationships with problem codes first observed in the retained window. The clock is \texttt{DATE\_RECEIVED}, not a verified publication date for every field. A product must have at least one earlier report; a problem must already exist globally; and the relationship must be absent from the product's history. Thus, “threshold 1” is a threshold for the product's historical support in number of reports, not a severity threshold. All eligible problems are ranked. Novel problems outside the prior vocabulary are outside this ranking task\cite{hgbcontract,hgbcode}.
 
-\paragraph{CMS nursing homes.} For retained Health Standard inspections of US nursing homes, predict whether a standard G--L deficiency is found at the target inspection, using information from before that inspection. The unit is an episode (CCN, date) with at least one earlier inspection. The score is reconstructed retrospectively just before that episode: the task is conditional on the inspection taking place. It predicts neither whether nor when an inspection occurs, and is not a start-of-year ranking of all facilities. Current-provider extracts and the small number of retained cycles induce selection and historical truncation\cite{cmsnursing,hgbcontract,hgbcode}.
+\paragraph{CMS nursing homes.} For retained Health Standard inspections of US nursing homes, predict whether a standard G--L deficiency is found at the target inspection, using records dated before that inspection. This date filter does not establish their historical public availability. The unit is an episode (CCN, date) with at least one earlier inspection. The score is reconstructed retrospectively just before that episode: the task is conditional on the inspection taking place. It predicts neither whether nor when an inspection occurs, and is not a start-of-year ranking of all facilities. Current-provider extracts and the small number of retained cycles induce selection and historical truncation\cite{cmsnursing,hgbcontract,hgbcode}.
 
 \paragraph{Medicare Part D.} Drug identity is the exact generic name after trimming surrounding spaces; it is not normalized to an RxNorm concept. Each target cohort contains at most 2,000 previously observed prescribers, selected by the ordering (SHA-256 of NPI, NPI). All drugs present in the cohort's prior history are ranked, except those already associated with the target prescriber. A positive is a newly \emph{published and observed} link, not a first prescription. The contract notes CMS suppression of combinations with at most ten claims: an absence is not a clinical negative\cite{cmspartd,hgbpartd}.
 
@@ -131,7 +131,7 @@ CMS reports ROC AUC, Brier score, precision and recall at the decile, and two di
 \end{equation}
 This convention is a non-interpolated average of precision at the thresholds\cite{sklearnap}. AUC handles ties using average ranks; the decile selects the first $\lceil0.1n\rceil$ rows. Historical AP results and intervals concern only $\mathrm{AP}_{\mathrm{rank}}$; no interval is associated with the new threshold-based AP (details in S7).
 
-Historical v0.1 intervals are identified as such in Table~\ref{tab:ci}. Two post-hoc paired bootstraps on retained predictions complement these results: resampling is by product for MAUDE and by prescriber for Part D. These intervals are conditional on the observed predictions and population; they do not cover selection or training. No interval is associated with the new MAUDE analyses. The bootstrap protocol is described in S6.
+Historical v0.1 intervals are identified as such in Table~\ref{tab:ci}. Two post-hoc paired bootstraps complement these results on retained predictions: by product for MAUDE and by prescriber for Part D (S6). A new GraphSAGE30--neighbors comparison pairs product--quarter contributions and resamples 2,026 products, keeping their quarters together: 1,000 draws, seed 20261003, a percentile 95\,\% CI with linear interpolation and the pooled ratio recalculated in each draw (S11). These intervals are conditional on the observed predictions and population; they cover neither selection, training, nor all dependence between products. No new CI is calculated for duration itself or D1.
 
 \section{Results}
 
@@ -155,14 +155,26 @@ The heuristic does not, however, dominate every metric. At $K=20$, spectral fact
 \label{fig:cutoffs}
 \end{figure}
 
-\subsection{MAUDE: training duration and aggregation}
+\subsection{MAUDE: complementary duration exploration}
 \label{sec:maude-post-rc1}
 
-The duration analysis selects 30 epochs on 2023 validation (0.205062); on the pooled 2024--2025 test, Recall@10 is 0.210642 (2,775/13,174). This point estimate exceeds the historical results for neighbor frequency (0.192045) and three-epoch GraphSAGE (0.172840). Only the selected model was reevaluated on the test: the comparison with the historical three-epoch model is therefore not a matched duration comparison.
+The 0/3/10/30 validation grid selects 30 epochs on 2023 (0.205062). Its sensitivity is non-monotonic: ten epochs perform worse than three (Figure~\ref{fig:duration-main}). On the pooled 2024--2025 test, the selected model reaches 0.210642 (2,775/13,174), compared with 0.192045 (2,530/13,174) for retained neighbor predictions. The comparison verifies product--quarter keys, support, and positive identities; C candidates agree with the same prepared history and historical cardinalities. Because full historical lists were not exported, the latter verification combines reconstruction and retained records, rather than directly comparing two complete exports.
 
-A separate comparison reuses this mean-aggregation model and trains a variant without aggregation for the same cohorts and duration. On the pooled test, Recall@10 is 0.210642 for the mean model and 0.035600 for the control, a descriptive difference of $+0.175042$.
+The paired GraphSAGE30-minus-neighbors contrast is $+0.018597$, or about $+1.86$ recall percentage points (Table~\ref{tab:paired-maude}). The conditional product-level CI is $[+0.011975;+0.025570]$. It describes uncertainty in the observed contrast under fixed predictions and population, without correcting prior exposure to the tests or duration selection. This comparison does not measure the causal effect of moving from three to thirty epochs.
 
-The variant without aggregation does not pass messages and is not a GNN. The number of trainable node-vector parameters is identical in the two models; however, their shared transformations have 128 active parameters for the mean model and 64 for the control. In all three fits of the latter, loss remained close to $\ln(2)$. The contrast therefore depends on the configurations studied: it does not isolate the effect of aggregation and does not show that this variant would be unable to learn under other configurations.
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{figures/maude_duration_RC2_en.png}
+\caption{Complementary MAUDE exploration, separate from the historical benchmark: BPR data loss in independent fits and validation micro recall@10 over the 0/3/10/30 grid. Recall sensitivity is non-monotonic; only the selected duration is evaluated in the C tests. At zero epochs, no training loss is observed.}
+\label{fig:duration-main}
+\end{figure}
+
+\begin{table}[!htbp]\centering\small
+\caption{Paired comparison of selected GraphSAGE and historical neighbor predictions, 2024--2025 test. The CI is new and conditional; historical benchmark intervals are not transferred.}
+\label{tab:paired-maude}
+\input{tables/maude_paired_RC2_en.tex}
+\end{table}
+
+\paragraph{Secondary neighborhood-removal diagnostic.} D1 retains the mean model and fits a control without message passing on the same cohorts. This control's identity vectors still learn from historical edges and BPR; this is not learning without relational information. The duration selected for the mean model is imposed on it, and its loss remains nearly flat, close to $\ln(2)$. The comparison therefore does not demonstrate that the control learns effectively under this setting. Transformation capacities also differ, without establishing an explanation for the gap. Complete results, losses, and reservations remain in S11; this diagnostic does not demonstrate the mechanism behind the change in ordering.
 
 The evaluated cohorts include only product--quarters with at least one positive link; precision and burden over all observations are not estimated. Annual results, denominators, and loss curves are given in S11.
 
@@ -233,7 +245,7 @@ The test cohort has 5,476 positive links, spread across 1,019 of the 2,000 presc
 \Needspace{10\baselineskip}
 \subsection{Uncertainty summary}
 
-Table~\ref{tab:ci} brings together the historical contrasts without combining different tasks or metrics. The intervals for recall at ten recommendations are negative for three-epoch GraphSAGE minus neighbors on MAUDE and BPR minus specialty on Part~D, and positive for neighbors minus global on MAUDE. The three CMS intervals include zero. These intervals remain conditional on retained predictions; they cover neither the new MAUDE contrasts nor training or selection variability.
+Table~\ref{tab:ci} retains the historical contrasts without combining different tasks or metrics. The intervals for recall at ten recommendations are negative for three-epoch GraphSAGE minus neighbors on MAUDE and BPR minus specialty on Part~D, and positive for neighbors minus global on MAUDE. The three CMS intervals include zero. None of these intervals describes the new fits; the new GraphSAGE30--neighbors CI is separate in Table~\ref{tab:paired-maude}. All remain conditional and cover neither training variability nor selection.
 
 \begin{table}[!htbp]
 \centering\small
@@ -257,7 +269,7 @@ Part D (complementary): BPR -- specialty, R@10 & $-0.037071$ & $[-0.047179;-0.02
 
 \subsection{Synthetic controls and deferred task}
 
-A synthetic control applies a neighborhood rule to an ownership graph: the labels themselves depend on this score. The AUC of the relational score is 0.503087 for $\beta=0$ and 0.817456 for $\beta=2.5$ (mean over three seeds)\cite{hgbcontrols}. This construction checks for a relational signal in synthetic data; it does not evaluate the health models or a causal effect. The mechanism is detailed in S2.4.
+A synthetic control applies a neighborhood rule to an ownership graph: the labels themselves depend on this score. The AUC of the relational score is 0.503087 for $\beta=0$ and 0.817456 for $\beta=2.5$ (mean over three seeds)\cite{hgbcontrols}. This construction checks for a relational signal in synthetic data; it does not evaluate the health models or a causal effect. The mechanism is detailed in S1.4.
 
 A second control exercises the GraphSAGE kernel on a synthetic two-block graph (24 products, 12 problems, 120 training edges, and 24 masked edges; all target nodes are known)\cite{hgbcode}. Recall@1 on masked edges is 0.125000 without training, 0.083333 after three epochs, and 1.000000 after thirty. This example shows that the kernel can learn the constructed signal; it does not prejudge performance on MAUDE or the specific effect of aggregation. Details and gradient checks are in S8.
 
@@ -269,7 +281,7 @@ The decision history indicates that unstable gains contributed to deferring Clin
 
 \subsection{Interpretation of the results}
 
-The historical three-epoch result alone does not describe the performance of a model trained longer: the duration analysis selects 30 epochs on validation and achieves higher recall on the test. However, this difference between runs does not measure the causal effect of duration, because historical three-epoch GraphSAGE was not reevaluated under the new protocol. Likewise, the contrast with the control without aggregation confounds aggregation with transformation capacity.
+The historical three-epoch result describes a configuration, not a model family: C selects 30 epochs on validation and achieves higher test recall. Sensitivity is non-monotonic, since ten epochs perform worse than three on validation. Pairing retained predictions with new predictions does not require new historical training; it requires matching keys, labels, and candidates. This pairing is distinct from experimental control of duration: by itself, it does not demonstrate that all relevant differences between training runs are controlled. The calculation-path comparison and its limited evidence are detailed in S11. D1 has a secondary diagnostic role: neither the control's nearly flat loss under the imposed setting nor the capacity difference identifies the cause of its performance.
 
 The underlying mechanisms remain unknown. Simple aggregates may capture some relational information, while a given architecture may fail to exploit it effectively; these explanations remain hypotheses. The CMS comparison more directly concerns adding owner aggregates to the same baseline history, whereas the MAUDE and Part D methods also differ in their representations and objectives. RelBench results remind us that these local conclusions do not apply to all relational tasks\cite{robinson2024relbench,gu2026relbench}.
 
@@ -283,7 +295,7 @@ The underlying mechanisms remain unknown. Simple aggregates may capture some rel
 
 \subsection{Summary}
 
-Taken together, the results show that performance depends on the task, comparator, and, for MAUDE, training duration. Neighbor frequency remains competitive in the historical benchmark; the 30-epoch mean-aggregation model achieves higher recall in the new exploration. The control without aggregation has lower recall in the positive cohorts studied, without allowing the cause to be isolated or precision or burden across all observations to be estimated. On CMS, the owner increment is small; on Part D, heuristic baselines occasionally outperform the learned models.
+Taken together, the results show that observed orderings depend on the task, comparator, and training configuration. On MAUDE, the C exploration enriches the benchmark by showing that the historical three-epoch ordering cannot be extended to the entire GraphSAGE family. D1 mainly enriches the diagnostic under fixed settings; it does not explain this change in ordering. On CMS, the owner increment is small; on Part D, heuristic baselines outperform the compared learned models in point estimates.
 
 These observations do not demonstrate the general superiority of graphs or heuristics. A more informative comparison would require precisely defined comparators and periods that were not used in development.
 
@@ -294,10 +306,10 @@ HealthGraphBench provides a common interface \texttt{load\_task}, \texttt{Split}
 
 The candidate universe is defined at the task level, not by a universal interface method. For MAUDE, \texttt{History.candidate\_problems} subtracts the product history from the prior vocabulary; Part D applies the analogous subtraction in its generic representation. Adding a model requires an adapter that respects periods, candidates, denominators, and prediction format, as well as the task's eligibility checks. The package provides a usage example and a workflow for acquisition, validation, and compact export in S9.
 
-Compact replays of historical results are conditional on retained outputs. Separately, the two MAUDE analyses include new training runs on prepared snapshots; their manifests, checkpoints, and audits are described in S11. The nine audited inference checkpoints are included in the package, but the full candidate-score streams are not. These checks establish the consistency of the reported calculations, not independent replication or historical public availability of every field.
+Historical compact replays are conditional on retained outputs. C and D1 include distinct earlier training runs on prepared snapshots; none is rerun for this comparison. The package includes their nine audited inference checkpoints, together with the protocol, paired contributions, and draws for the new GraphSAGE30--neighbors CI. These contributions permit CI replay without training; they do not replace the original candidate verification. Full C/D1 score streams are not included. S11 distinguishes original-calculation and compact-replay commands. These checks are neither independent replication nor proof of historical public availability.
 
 A confirmatory evaluation would require unexamined periods, choices documented before they are opened, and verified historical availability of fields. Decision utility and comparable resources across models also remain to be studied.
 
 \section{Conclusion}
 
-HealthGraphBench documents three heterogeneous tasks without estimating a universal value for graphs. On MAUDE, historical three-epoch GraphSAGE is below neighbor frequency in Recall@10. A new analysis selects 30 epochs on validation and reaches 0.210642 on the pooled test; this result is not a matched contrast with the historical three-epoch test. The control without aggregation reaches 0.035600, but the difference in transformation capacity does not allow the effect of neighborhood information to be isolated. On CMS, the owner increment is small and uncertain; on Part D, heuristics obtain better point estimates than the learned models compared. These retrospective results, obtained on periods already examined, describe local comparisons, not general superiority or clinical utility.
+HealthGraphBench documents three heterogeneous tasks without estimating a universal value for graphs. On MAUDE, C genuinely enriches the benchmark: non-monotonic validation sensitivity and the thirty-epoch result show that the historical three-epoch ordering concerns a configuration, not a family. GraphSAGE30 reaches 0.210642 versus 0.192045 for paired neighbor predictions; the difference of $+0.018597$ has a conditional CI of $[+0.011975;+0.025570]$. D1 mainly enriches the diagnostic under fixed settings, without explaining this change or isolating an aggregation effect. On CMS, the owner increment is small and uncertain; on Part D, heuristics exceed the compared learned models in point estimates. Prior exposure to the periods and uncovered selection/training uncertainty maintain an exploratory scope, without demonstrated general superiority or clinical utility.

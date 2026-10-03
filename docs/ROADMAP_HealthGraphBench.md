@@ -93,9 +93,9 @@ Les négatifs historiques sont déterminés par hachage selon la description du 
 
 **Décision associée :** si les résultats changent substantiellement, modifier le message de l'article. Si un défaut d'implémentation affecte une conclusion centrale, corriger et réévaluer avant soumission. Si le calcul est inaccessible ou dépasse le budget, conserver une conclusion limitée à la configuration historique et documenter le contrôle non réalisé.
 
-**Résultat C réellement exécuté :** validation R@10 `0/3/10/30 = 0,022193 / 0,171577 / 0,166905 / 0,205062` ; 30 époques verrouillées avant les tests. Test agrégé 2024–2025 : **2 775 / 13 174 = 0,210642**, sur 6 370 observations avec positif. GraphSAGE historique à trois époques reste `0,172840` et les voisins historiques `0,192045` ; les écarts nouveaux sont descriptifs, sans nouvel intervalle ni comparaison de budgets égaux. Le [rapport, les courbes et les preuves C](consolidation-post-RC1/verification/maude_duration_diagnostic.md) détaillent les 900 s / 512 MiB respectés par chaque phase.
+**Résultat C réellement exécuté :** validation R@10 `0/3/10/30 = 0,022193 / 0,171577 / 0,166905 / 0,205062` ; 30 époques verrouillées avant les tests. Test agrégé 2024–2025 : **2 775 / 13 174 = 0,210642**, 6 370 observations positives. GraphSAGE historique à trois époques `0,172840`, voisins `0,192045` ; C initial n'avait pas de nouvel IC ni budgets égaux. Le rapprochement autorisé le 3 octobre apporte un IC conditionnel distinct, sans réentraînement. [Rapport C original](consolidation-post-RC1/verification/maude_duration_diagnostic.md) et [nouveau résultat](../results/maude_C30_neighbors_paired_20261003.json).
 
-**Message à intégrer en E :** la contre-performance du GraphSAGE historique à trois époques ne caractérise pas toutes les durées. La configuration 30 époques sélectionnée sur validation donne une valeur ponctuelle test supérieure aux références historiques citées. Cela ne démontre ni supériorité statistique, ni effet causal de l'agrégation, ni optimum à trente époques. RC1 est conservée ; aucun manuscrit révisé ou accord d'auteur n'est anticipé.
+**Message intégré en E :** le classement historique à trois époques ne caractérise pas toutes les durées ; la grille est non monotone. C30 sélectionné donne un écart apparié +0,018597 sur voisins, IC95 conditionnel [ +0,011975 ; +0,025570 ]. Cet IC ne constitue pas une confirmation indépendante et ne couvre pas sélection/entraînement ou toutes les dépendances réseau. Ni effet causal d'agrégation/durée ni optimum à trente époques démontré. RC1 conservée, D1 secondaire complet ; accords auteurs ouverts.
 
 ## 6. Lot D — Choisir une seule analyse complémentaire
 
@@ -135,7 +135,7 @@ Le manuscrit identifie trois conditions : une origine non consultée, des choix 
 
 ## 8. Lot E — Finaliser le manuscrit et le dossier
 
-**Avancement technique RC2 :** le français est canonique et l'anglais en est une traduction fidèle. Cinq PDF compilés/examinés, 648 contrôles de livraison et 26 paires de fichiers concordantes ; sources françaises inchangées. Voir le [manifeste de traduction RC2](../results/manuscript_rc2_translation_20261002T233250Z.json) et les [sources versionnées](../manuscript/rc2/README.md). C/D1 restent exploratoires ; aucune nouvelle expérience n'est engagée. L'exigence rédactionnelle Q1/Q2 ne certifie ni l'acceptation ni le format d'une revue non choisie. Les cases ci-dessous conservent les gates humains/éditoriaux ouverts.
+**Avancement technique RC2 :** français scientifique révisé puis traduit fidèlement ; C principal et D1 secondaire conservé. Nouvel IC conditionnel C30–voisins explicitement autorisé, sans nouveau fit/tuning/D2. Cinq PDF compilés, quatre scientifiques examinés, 694 contrôles de livraison, 27 paires concordantes, 64 tests et rejeu compact autonome exact. [Manifeste distinct](../results/manuscript_rc2_consolidation_20261003.json) et [sources](../manuscript/rc2/README.md) ; deux précédents ZIP conservés. Analyses exploratoires, gates auteurs/revue/soumission ouverts ; aucune garantie Q1/Q2 ni conformité à une revue non choisie.
 
 ### Cohérence scientifique
 

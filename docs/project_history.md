@@ -221,3 +221,35 @@ Four translated-header tables retain the protected historical originals.
 The new translation ZIP is a separate candidate; the previous delivery,
 scientific evidence and human approval gates remain unchanged.
 
+
+## Targeted RC2 MAUDE consolidation after scientific feedback
+
+On 3 October 2026, the user explicitly authorized revision, retained-prediction
+pairing, and one conditional GraphSAGE C30–historical-neighbors interval.
+No new medical fit, score, tuning, training seed, D2, or previously successful
+scientific audit was run. The protocol was fixed before the new calculation,
+not before prior result exposure or duration selection.
+
+French scientific text was revised first, then translated. C is the main
+addition; D1 remains a complete secondary fixed-setting diagnostic.
+The main PDFs include the duration curve and a separate paired table.
+Methods and the evidence map open the supplement; the version registry is
+kept in provenance. Pairing is distinguished from causal duration control.
+Historical full candidate lists were not exported; comparison relies on
+reconstruction from pinned history, historical cardinalities and positive IDs.
+
+Across 6,370 product–quarters and 2,026 products, C30 retrieves 2,775/13,174
+links and neighbors 2,530/13,174. Delta is +0.018597236982; conditional 95%
+CI [+0.011975077183; +0.025570110820], 1,000 product-level draws, seed
+20261003. Selection/training uncertainty and all network dependence are
+not covered. Compact replay outside the repository matches CI/draws exactly;
+original candidate identities are not rechecked in that replay.
+
+Concordance: 27 source pairs. Repository suite: 64 tests passed. Five PDFs
+compiled; four scientific PDFs visually examined, main FR/EN 17/16 pages,
+supplements 23/22. Both preceding RC2 archives and older scientific ledgers
+remain preserved. New archive:
+`HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip`.
+PR #4 remains draft toward develop, dependent on #3; human approval,
+declarations, venue, and submission remain open.
+

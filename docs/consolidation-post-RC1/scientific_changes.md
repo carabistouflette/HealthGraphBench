@@ -115,3 +115,14 @@ Les 26 paires de sources et tables concordent pour les valeurs, formules, struct
 
 Nouvelle livraison `HealthGraphBench_FAIA_LaTeX_RC2_traduction_FR.zip`, avec empreintes et manifeste distincts ; le candidat précédent reste conservé. Publication sur la même branche et PR #4 en brouillon, pas de merge/tag. Les gates auteurs/revue/soumission restent ouverts ; aucune nouvelle expérience ni réécriture des ledgers scientifiques antérieurs.
 
+
+## 3 octobre 2026 — consolidation ciblée C30–voisins après retour scientifique
+
+Autorisation explicite « Révision + comparaison appariée + IC ». Protocole gelé : `results/maude_paired_protocol_20261003.json`, SHA256 `3b83a0b38cd217617e2b7acbc1166bdf98ed9b5b9e31f9a7bf6c942b70a6d6ad`. Aucun réentraînement ni re-score : rangs C et contributions historiques conservés, rapprochement des clés/soutiens/positifs/cardinalités et reconstruction des candidats historiques. Les listes historiques complètes n'étaient pas exportées ; aucune preuve de deux exports candidats complets n'est revendiquée.
+
+6 370 produit–trimestres, 2 026 produits, 13 174 positifs et 2 975 156 candidats ; aucune discordance. C30 retrouve 2 775 liens, voisins 2 530 : R@10 0,210642 contre 0,192045, différence +0,018597236982. IC95 conditionnel [ +0,011975077183 ; +0,025570110820 ], 1 000 tirages de produits avec tous leurs trimestres, graine 20261003, rapport des sommes et quantiles linéaires ; aucun tirage indéfini. Résultat : `results/maude_C30_neighbors_paired_20261003.json`.
+
+Exécution réussie : 7,969 s, RSS 488 841 216 B ; première allocation échouée avant tirages conservée, confusion espace d'adressage/RSS corrigée sans relever les limites. Source exécutée exactement conservée ; adaptation ultérieure du runner pour le helper vendorizé, sans changer l'estimateur. Le rejeu compact hors dépôt reproduit exactement IC et tirages ; il ne revérifie pas les identités originales. 64 tests du dépôt passent, dont trois nouvelles régressions d'unités/statistique et d'identités.
+
+Révision française puis traduction : C principal avec courbe et tableau séparé ; D1 secondaire, preuves intégrales et perte presque plate conservées ; appariement distinct du contrôle de durée ; CMS limité aux enregistrements datés avant inspection, disponibilité publique non prouvée. Méthodes S1, carte des preuves S2, historique court S4, registre détaillé dans provenance, comparaison de code et nouvel IC en S11. 27 paires concordantes ; cinq PDF compilés, quatre scientifiques examinés : principaux FR/EN 17/16 pages, suppléments 23/22. Nouvelle livraison distincte `HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip` ; approbations, déclarations, revue et soumission restent ouvertes.
+

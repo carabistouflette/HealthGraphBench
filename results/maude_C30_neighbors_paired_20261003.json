@@ -1,0 +1,161 @@
+{
+  "analysis": "MAUDE retained C30 versus historical neighbor_frequency",
+  "status": "completed",
+  "protocol_sha256": "3b83a0b38cd217617e2b7acbc1166bdf98ed9b5b9e31f9a7bf6c942b70a6d6ad",
+  "code_sha256": "73b4e8b874fbfeba6b4f973ca91d12839cc4d02c88c91b1abe794c7e1fa1dcaa",
+  "bootstrap_helper_sha256": "13e7b9145a717a4ea18bac5b2387e47870d8530a95887c50e60ddc65b30328d5",
+  "executed_at_utc": "2026-10-03T13:10:14.976663+00:00",
+  "inputs": [
+    {
+      "role": "historical_execution",
+      "path": "results/maude_execution_v0_1_20260915.json",
+      "sha256": "cab43cf672ba81fc90a1ab36ce902fadb4251200ddb126bb4490c4b77df113f6"
+    },
+    {
+      "role": "prepared_snapshots",
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/inputs/HealthGraphBench_RC1/data/real_R6/maude_B/prepared_snapshots.json.gz",
+      "sha256": "1cba7f84ff24131715c68a985d9302c96c7bab4a4b2a27d906559a41104fbd36"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2024Q1",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q1/candidate_predictions.jsonl.gz",
+      "sha256": "dc5fb5ee3f39f29c0898e9a3f2911fff5c8edb402bfa5e812d61382687f7e807"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2024Q1",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q1/candidate_sets.jsonl.gz",
+      "sha256": "900f5908a6f3481440e3f927c6b55eace69dcdea1feb446a05b3921d1221fb4a"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2024Q2",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q2/candidate_predictions.jsonl.gz",
+      "sha256": "ff251ad75b1e85e5f96b24a9b4706d443acd72cb9cf92d171cc55b3d191992f9"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2024Q2",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q2/candidate_sets.jsonl.gz",
+      "sha256": "bac7c0368662617a3816617f61f37e9f3be822d8873f62c8834eeaf47d5d8c3e"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2024Q3",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q3/candidate_predictions.jsonl.gz",
+      "sha256": "586482dbe8e122908550336b8bc238c2bf560c1111ac95d3b77b575eefac35da"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2024Q3",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q3/candidate_sets.jsonl.gz",
+      "sha256": "0fae41a046b2e5db8dce2e1b87f13f778eba2c682fd23e63915db3198d69836e"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2024Q4",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q4/candidate_predictions.jsonl.gz",
+      "sha256": "5ab8e77c696c4f44e5395bc191f230a8c46f02b7313096ac7b205fe695af3c2a"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2024Q4",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q4/candidate_sets.jsonl.gz",
+      "sha256": "4ba20be6892490f62c0a961f8eb4a56586d3d02e140eb07c250a334c5500d9bb"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2025Q1",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q1/candidate_predictions.jsonl.gz",
+      "sha256": "9f9166a4e2002efccc914db09d632805170ccd367d7a41a7786bc601070d5689"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2025Q1",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q1/candidate_sets.jsonl.gz",
+      "sha256": "f097867ec47f53fa96c0e9ccff8bc51bb17e034fb32d46cecb0b2f0e491e6e5e"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2025Q2",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q2/candidate_predictions.jsonl.gz",
+      "sha256": "ec241572d0bf5b892939354b08a3abed199dce57599abe3cc18b70ef15680dd9"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2025Q2",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q2/candidate_sets.jsonl.gz",
+      "sha256": "bed8e2bcb3b33d6a235a79ec23be88ec4ac9aea8fa2b75e243e98a7fa1f9785c"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2025Q3",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q3/candidate_predictions.jsonl.gz",
+      "sha256": "ea34c08015d80638f55f900f65c58a599a4d8b087c8c83c42c6413fa8b4669fb"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2025Q3",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q3/candidate_sets.jsonl.gz",
+      "sha256": "ffcf51ef018bd4fdf1b518d9eefcddad651aa9372837a73de963ef081a7d09d1"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2025Q4",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q4/candidate_predictions.jsonl.gz",
+      "sha256": "76c868844be14ef5bb5f9651f762545ad55b48e279507a98c6ce2b5d2834e28b"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2025Q4",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q4/candidate_sets.jsonl.gz",
+      "sha256": "d8e7eb9e2faa823ae7a9b5f1bba75c41ee6a7d4cbae0076199d9ea16114c2565"
+    }
+  ],
+  "pairing": {
+    "scope": "C full candidate IDs against lists reconstructed from the fixed prepared history using the unchanged historical candidate rule; historical export retains candidate_count and sampled predictions, not full historical candidate IDs",
+    "observations": 6370,
+    "positive_edges": 13174,
+    "candidate_pairs": 2975156,
+    "products": 2026,
+    "mismatches": 0
+  },
+  "point": {
+    "C30_hits": 2775,
+    "neighbors_hits": 2530,
+    "positive_edges": 13174,
+    "C30_r10": 0.21064217397904964,
+    "neighbors_r10": 0.19204493699711553
+  },
+  "interval": {
+    "estimate": 0.018597236981934114,
+    "ci95": [
+      0.011975077183345641,
+      0.025570110819776913
+    ],
+    "resamples": 1000,
+    "seed": 20261003,
+    "clusters": 2026,
+    "valid_resamples": 1000,
+    "undefined_resamples": 0
+  },
+  "scope": {
+    "conditional_on_retained_predictions_and_observed_population": true,
+    "model_selection_or_training_uncertainty_included": false,
+    "all_network_dependence_removed": false,
+    "independent_confirmation": false,
+    "duration_causal_effect": false,
+    "new_fits_tuning_seeds_D2_or_historical_audits": false
+  },
+  "cost": {
+    "wall_seconds": 7.968702495999878,
+    "peak_rss_bytes": 488841216
+  },
+  "environment": {
+    "python": "3.13.5 (main, Jul 23 2025, 00:37:22) [Clang 20.1.4 ]",
+    "numpy": "2.3.5"
+  },
+  "contributions_sha256": "169ce34365fef1011272066be759b6b1e172d4eed92cf59334f7699674e82c93",
+  "draws_sha256": "bfbf0ed5d277fceec1a44fbd624f6a4e9ae2fa955e0fa6eafc99e274161df164"
+}

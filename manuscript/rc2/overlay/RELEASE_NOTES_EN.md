@@ -26,3 +26,14 @@ At the user's request, French becomes the canonical source. English is retransla
 
 Concordance was verified across 26 file pairs: values, formulas, structure, and references. The 53 retained French LaTeX sources have not changed; text extracted from the three French PDFs is identical to that of the preceding delivery. The new English PDFs, compiled and examined, have 15 pages for the manuscript and 20 for the supplement. No scientific result or human gate changes. The new ZIP `HealthGraphBench_FAIA_LaTeX_RC2_traduction_FR.zip` is distinct from the preceding delivery.
 
+
+## 3 October 2026 — targeted consolidation after scientific feedback
+
+Canonical French is revised, then translated into English. C becomes the main addition: a non-monotonic grid, validation curve in the manuscript, and a new table explicitly separated from the historical benchmark. D1 remains complete in the supplement but secondary: no message passing ≠ no relational learning, duration selected for mean then imposed on none, nearly flat loss, and capacity not demonstrated to be the cause.
+
+The code comparison distinguishes historical execution commit, benchmark source state, and C; instrumentation and extraction of the final calculation are described, with the limited scope of retained fixtures. Prediction pairing is no longer confused with causal control of duration.
+
+Following the user's explicit choice, a new conditional GraphSAGE30–neighbors CI is calculated on retained outputs: 6,370 product–quarters, 2,026 products, 13,174 positives; 2,775 versus 2,530 retrieved links; delta +0.018597, CI95 [ +0.011975; +0.025570 ], 1,000 draws, seed 20261003. The protocol precedes this calculation, not examination of the results or selection. Limits from unexported historical lists and between-product dependence are declared. The initial pre-draw allocation failure is preserved, followed by correction of the address-space/RSS confusion without changing the protocol.
+
+Methods in S1, evidence map in S2, short history in S4, detailed registry in provenance. CMS: records dated before the inspection, without proof of public availability. Concordance of 27 pairs; new ZIP `HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip`. No new fit, tuning, D2, previously completed historical audit, or approval; old evidence and both RC2 candidates preserved.
+

@@ -31,34 +31,7 @@
 {\large Methods, traceability, and complementary analyses}
 \end{center}
 
-\textbf{Historical R5/R6 scope.} Earlier deliveries retain historical health results, the two R2 bootstraps, additions verified in R4, and the R6 MAUDE B1/B2 reconstructions. R5 harmonized the package without a new experiment; the R6 MAUDE collection reproduced prepared inputs without retraining the models or recalculating their scores. These findings describe those historical stages, not the present RC2.
-
-\textbf{RC2 additions.} C trains new MAUDE GraphSAGE fits for 0, 3, 10, and 30 epochs on validation, selects 30 using validation R@10, then evaluates the selected duration on the historical tests. D1 reuses C's mean30 fit and trains a none30 variant without aggregation. Sources, metrics, audit evidence, and limitations are detailed in S11. Historical results and S7--S10 tables remain unchanged.
-
-\section{Evidence scope and package inventory}
-\label{supp:evidence}
-Commit \nolinkurl{b010d5a49eae56837a920b2e30dece41c42c0c44} identifies the benchmark's source state\cite{hgb2026,hgbresults}. DOI \nolinkurl{10.5281/zenodo.22796551} identifies v0.2: its resolution and the public Zenodo record were checked online in R4. This DOI does not identify the manuscript package. The additions modify neither the frozen experimental artifacts nor a remote repository.
-
-\begin{tabularx}{\linewidth}{@{}p{31mm}Xp{39mm}@{}}
-\toprule
-Evidence & Use in the study & Verification level\\
-\midrule
-Task definitions, v0.1/v0.2 reports, and unified summary & Targets, periods, results, and existing intervals & Targeted reading documented in R2; transcriptions retained in R3\\
-v0.1 analysis & Annual AUC/AP/Brier, counts, and history depth & Compact-summary values; top-decile P/R separately extracted in R2 from frozen predictions\\
-Code for the three tasks & Heuristics, conventions, training constants, and ties & Targeted R2 reading, not an exhaustive audit; description retained\\
-Project history and ClinicalTrials memo & Task selection and reasons for deferral & Available records, not a complete log of human decisions\\
-Individual MAUDE files, Part D rankings, and CMS predictions & Inputs for complementary analyses & Fingerprints rechecked, network downloads and three real replays executed in R4\\
-Post-RC1 C/D1 results and corresponding raw checkpoints & Metric files, manifests, preflights, epoch series, and numerical audits; C/D1 sources pinned & New fits verified; exposure and memory-metric limits detailed in S11\\
-Synthetic-control code & Scope of direct AUC & Source reread at the pinned commit for R3; not executed\\
-Raw FDA/CMS archives & Ingestion and historical reconstruction & Nine official MAUDE archives ingested for B1/B2; CMS and comprehensive FDA/CMS reconstruction remain outside scope\\
-\bottomrule
-\end{tabularx}
-
-\textbf{Versions and evidence.} R2 added available descriptors, the CMS decomposition, the differences plot, the two bootstraps, and annual deciles. R3 preserves numerical files byte-for-byte and corrects the synthetic-control scope, provenance declarations, and printed commands. Historical status is in \src{history/R3/data/revision_status_R3.json}; inherited declarations are archived under \src{history/R2}. \src{data/source_map_R3.csv} distinguishes reread sources from supplied files. Analyses and external fingerprints documented in R2 are not presented as independently reproduced in R3.
-
-\textbf{Historical R4/R5 evidence and R6 collection; RC2 C/D1 additions.} AP identities and the reconstruction of CMS counts remain summary-based checks. Exact calculations, candidate distributions, and historical compact exports are kept under \src{data/real_R4}. The GraphSAGE core in S8 is checked on the synthetic instance. Historical R5 statuses remain under \src{data/revision_status_R5.json}; MAUDE B1/B2 tables and prepared snapshots remain under \src{data/real_R6/maude_B}. These historical items did not concern the new C/D1 fits or their checkpoints. The new C/D1 fits, checkpoints, and audits are documented under \src{data/post_rc1} and in S11. R5 packaging checks and other inherited evidence retain their historical paths.
-
-\textbf{Inherited content.} The RC1 archive and its sources remain historical items, not the RC2 package ready for submission. The \src{data}, \src{scripts}, \src{tests}, and \src{figures} directories describe the RC1 content; new RC2 files and evidence are identified separately in S11. The status of the RC2 working package, which is neither a submission nor an approved version, is summarized in S12.
+\textbf{Current organization.} The supplement begins with method definitions and configurations (S1), followed by the evidence map (S2). Populations are in S3 and the short scientific chronology in S4. Historical results and checks in S5--S10 remain separate from the MAUDE duration exploration, paired comparison, and secondary D1 diagnostic in S11. The detailed version registry and its statuses are retained in provenance, not presented as a series of new experiments.
 
 \par\Needspace{8\baselineskip}
 \section{Method definitions and retained configurations}
@@ -79,6 +52,8 @@ Boosted stumps & One-level trees; 12 rounds; learning rate 0.08.\\
 Spectral factorization & Rank 8; 18 iterations.\\
 BPR + fixed one-hop averaging & Dimension 8; 4 epochs; post-training combination of 0.5 target vector and 0.5 mean neighbor vector. No end-to-end learned message passing.\\
 One-hop GraphSAGE & Dimension 8; 3 epochs; 8 neighbors; learning rate 0.02; regularization 0.0005; BPR loss; $\tanh$ activation; trainable node vectors and shared transformations.\\
+C duration exploration & Same GraphSAGE configuration; independent 0/3/10/30 validation fits, then 30 selected. Paired comparison with retained neighbor predictions and conditional product-level CI in S11.\\
+Secondary D1 diagnostic & Mean30 retained from C; self-only, non-GNN none30, learned by BPR on the same edges. Duration imposed from mean, nearly flat loss; no isolated causal effect.\\
 \bottomrule
 \end{tabularx}
 
@@ -115,6 +90,27 @@ Y_i\sim\mathrm{Bernoulli}\!\left(\sigma(-1+0.5x_i+\beta z_i)\right),
 \qquad \sigma(a)=(1+e^{-a})^{-1}.
 \]
 The code directly measures the AUC of $z_i$ and of $x_i$ on test nodes. The training subset is used for standardization, not for fitting the CMS logistic models. At $\beta=0$, the relational signal does not enter the labels, but the local term $0.5x_i$ remains. Retained values for seeds 301, 302, and 303 are a signal-construction and measurement diagnostic; they validate neither the CMS models nor MAUDE GraphSAGE\cite{hgbcontrols}. R3 corrects this interpretation without rerunning the control.
+
+
+\section{Evidence map and verification scope}
+\label{supp:evidence}
+Commit \nolinkurl{b010d5a49eae56837a920b2e30dece41c42c0c44} identifies the benchmark's source state\cite{hgb2026,hgbresults}. DOI \nolinkurl{10.5281/zenodo.22796551} identifies v0.2: its resolution and the public Zenodo record were checked online in R4. This DOI does not identify the manuscript package. The additions modify neither the frozen experimental artifacts nor a remote repository.
+
+\begin{tabularx}{\linewidth}{@{}p{31mm}Xp{39mm}@{}}
+\toprule
+Evidence & Use in the study & Verification level\\
+\midrule
+Task definitions, v0.1/v0.2 reports, and unified summary & Targets, periods, results, and existing intervals & Targeted reading documented in R2; transcriptions retained in R3\\
+v0.1 analysis & Annual AUC/AP/Brier, counts, and history depth & Compact-summary values; top-decile P/R separately extracted in R2 from frozen predictions\\
+Code for the three tasks & Heuristics, conventions, training constants, and ties & Targeted R2 reading, not an exhaustive audit; description retained\\
+Project history and ClinicalTrials memo & Task selection and reasons for deferral & Available records, not a complete log of human decisions\\
+Individual MAUDE files, Part D rankings, and CMS predictions & Inputs for complementary analyses & Fingerprints rechecked, network downloads and three real replays executed in R4\\
+Post-RC1 C/D1 results and corresponding raw checkpoints & Metric files, manifests, preflights, epoch series, and numerical audits; C/D1 sources pinned & New fits verified; exposure and memory-metric limits detailed in S11\\
+GraphSAGE30--neighbors comparison & Aligned product--quarter contributions, protocol, and draws for the conditional CI & Targeted calculation on 3 October 2026, without fitting; pairing and uncertainty limits in S11\\
+Synthetic-control code & Scope of direct AUC & Source reread at the pinned commit for R3; not executed\\
+Raw FDA/CMS archives & Ingestion and historical reconstruction & Nine official MAUDE archives ingested for B1/B2; CMS and comprehensive FDA/CMS reconstruction remain outside scope\\
+\bottomrule
+\end{tabularx}
 
 
 
@@ -196,6 +192,7 @@ Means are 464.710881 and 467.057457. These observations contain 7,705 and 13,174
 
 \section{Chronology and task selection}
 \label{supp:chronology}
+\textbf{Short evidence history.} Historical analyses, their checks, and their packaging stages precede the new C/D1 fits and the targeted CI of 3 October. The R2--R6/RC1 registry, transcriptions, and dated statuses are retained in \src{provenance.json}, \src{history}, \src{data/revision_status_*}, and \src{data/source_map_*} files. These records distinguish summary checks, contribution replays, and new training runs; they are not an exhaustive human log or a preregistration. RC2's unapproved status is summarized in S12.
 \begin{tabularx}{\linewidth}{@{}p{30mm}Xp{39mm}@{}}
 \toprule
 Record & What is established & What the record does not establish\\
@@ -207,6 +204,7 @@ Part D extension & Bounded v0.2 cohort and task definition; previously run metho
 ClinicalTrials memo & Deferral explicitly motivated by relational instability & Performance-independent exclusion\\
 29 September 2026 & R2: documented analyses; R3: package corrections and checks & Reopening an unconsulted test period\\
 2 October 2026 & C: validation duration grid, lock at 30, then tests; D1: none30 locked on validation before its tests & Test periods already consulted earlier; no independent confirmation\\
+3 October 2026 & Comparison of retained GraphSAGE30 and neighbor predictions; conditional product-level CI authorized and specified before calculation & Post-hoc analysis on previously examined periods; no selection or training uncertainty\\
 \bottomrule
 \end{tabularx}
 

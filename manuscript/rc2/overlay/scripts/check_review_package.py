@@ -6,6 +6,7 @@ A pass is not author approval, independent confirmation or submission readiness.
 """
 from pathlib import Path
 import argparse
+import csv
 import gzip
 import hashlib
 import json
@@ -80,6 +81,30 @@ def main():
         check('checkpoint_bytes:' + row['path'], digest(path) == row['sha256'])
         checkpoint = json.loads(gzip.decompress(path.read_bytes()))
         check('checkpoint_inference_only:' + row['path'], checkpoint['resume_supported'] is False)
+    paired = json.loads((ROOT / 'data/post_rc1/paired_C30_neighbors.json').read_text())
+    check('paired_executed_source', digest(ROOT / 'verification/rc2_paired/original_analysis_code.py')
+          == paired['code_sha256'])
+    check('paired_protocol_pin', digest(ROOT / 'data/post_rc1/paired_protocol.json') == paired['protocol_sha256'])
+    for filename, field in (('paired_contributions.csv', 'contributions_sha256'),
+                            ('paired_bootstrap_draws.json', 'draws_sha256')):
+        check('paired_payload:' + filename, digest(ROOT / 'data/post_rc1' / filename) == paired[field])
+    with (ROOT / 'data/post_rc1/paired_contributions.csv').open(newline='') as source:
+        contributions = list(csv.DictReader(source))
+    point = paired['point']
+    check('paired_unique_keys', len({(r['product'], r['quarter']) for r in contributions}) == len(contributions)
+          == paired['pairing']['observations'])
+    check('paired_denominators', sum(int(r['positive_edges']) for r in contributions) == point['positive_edges']
+          and len({r['product'] for r in contributions}) == paired['interval']['clusters'])
+    for field, column in (('C30_hits', 'hits_C30_at_10'), ('neighbors_hits', 'hits_neighbors_at_10')):
+        check('paired_hits:' + field, sum(int(r[column]) for r in contributions) == point[field])
+    check('paired_signed_contrast', math.isclose(
+          paired['interval']['estimate'], (point['C30_hits'] - point['neighbors_hits']) / point['positive_edges'],
+          rel_tol=0, abs_tol=1e-12))
+    check('paired_conditional_scope', paired['scope']['conditional_on_retained_predictions_and_observed_population']
+          and not paired['scope']['model_selection_or_training_uncertainty_included']
+          and not paired['scope']['independent_confirmation'])
+    check('paired_successful_draws', paired['interval']['valid_resamples'] == paired['interval']['resamples']
+          and paired['interval']['undefined_resamples'] == 0 and paired['pairing']['mismatches'] == 0)
     pdfs = []
     for document in release['documents']:
         path = ROOT / document['pdf']

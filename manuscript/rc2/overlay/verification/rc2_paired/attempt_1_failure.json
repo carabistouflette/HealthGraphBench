@@ -1,0 +1,11 @@
+{
+  "attempt": 1,
+  "status": "failed_before_bootstrap_draws_or_output",
+  "protocol_sha256": "3b83a0b38cd217617e2b7acbc1166bdf98ed9b5b9e31f9a7bf6c942b70a6d6ad",
+  "code_sha256": "b53f9a6cb03725d541e2088bbc8af2a59b23df0c85eee70d54f4c70c7b47ef1c",
+  "observed_error": "numpy._core._exceptions._ArrayMemoryError: Unable to allocate 15.5 MiB for an array with shape (1000, 2026) and data type int64",
+  "wall_seconds": 8.37,
+  "cause_in_code": "An extra RLIMIT_AS was incorrectly set to the RSS ceiling. Address space is not resident memory.",
+  "protocol_limits_changed": false,
+  "correction": "Remove unintended address-space restriction; retain protocol wall/RSS/output limits and release unused parsed inputs before resampling."
+}

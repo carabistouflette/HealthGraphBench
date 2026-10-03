@@ -13,13 +13,14 @@
     "health_model_training_executed_during_RC2_preparation": false,
     "raw_archives_reacquired": false,
     "new_predictions_computed_during_RC2_preparation": false,
-    "new_tuning_bootstrap_or_intervals": false,
+    "new_tuning_bootstrap_or_intervals": true,
     "pdfs_recompiled": false,
     "package_checks_executed": false,
     "submission_sent": false,
     "github_release_published": false,
     "new_DOI_created": false,
-    "new_tag_created": false
+    "new_tag_created": false,
+    "new_bootstrap_interval_only": true
   },
   "human_gates": [
     "Author identities, affiliations and corresponding author",
@@ -28,5 +29,18 @@
     "Exact volume/conference, language, anonymization and final template",
     "Permanent archive and publication-package identifier"
   ],
-  "source_results": "post_rc1/post_rc1_metrics.json"
+  "source_results": "post_rc1/post_rc1_metrics.json",
+  "targeted_revision": {
+    "requested_on": "2026-10-03",
+    "previous_commit": "b2b9f3381506332b7a1c1195913f413c2f7ce49d",
+    "previous_archive_sha256": "7d444c7e88a671aba86ff0e0bfa18f48158be7ee1b790e416162ad29d409cdcd",
+    "French_canonical_revised_before_English_translation": true,
+    "C_primary_D1_secondary": true,
+    "new_paired_analysis_authorized": true,
+    "paired_result": "data/post_rc1/paired_C30_neighbors.json",
+    "protocol": "data/post_rc1/paired_protocol.json",
+    "protocol_sha256": "3b83a0b38cd217617e2b7acbc1166bdf98ed9b5b9e31f9a7bf6c942b70a6d6ad",
+    "historical_C_D1_payloads_unchanged": true,
+    "no_new_fits_D2_or_historical_audits": true
+  }
 }

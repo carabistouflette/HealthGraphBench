@@ -26,3 +26,14 @@ RC2 est une révision à relire, pas une soumission ni une version validée par 
 
 Concordance vérifiée sur 26 paires de fichiers : valeurs, formules, structure et références. Les 53 sources françaises LaTeX conservées n'ont pas changé ; le texte extrait des trois PDF français est identique à celui de la livraison précédente. Les nouveaux PDF anglais, compilés et examinés, ont 15 pages pour le manuscrit et 20 pour le supplément. Aucun résultat scientifique ni gate humain ne change. Le nouveau ZIP `HealthGraphBench_FAIA_LaTeX_RC2_traduction_FR.zip` est distinct de la précédente livraison.
 
+
+## 3 octobre 2026 — consolidation ciblée après retour scientifique
+
+Le français canonique est révisé puis traduit en anglais. C devient l'apport principal : grille non monotone, courbe de validation dans le manuscrit et tableau nouveau explicitement séparé du benchmark historique. D1 demeure complet en supplément, mais secondaire : absence de propagation ≠ absence d'apprentissage relationnel, durée choisie pour mean puis imposée à none, perte presque plate et capacité non démontrée comme cause.
+
+Le rapprochement du code distingue commit d'exécution historique, état source du benchmark et C ; instrumentation et extraction du calcul final sont décrites, avec la portée limitée des fixtures conservées. L'appariement des prédictions n'est plus confondu avec le contrôle causal de durée.
+
+Après choix explicite de l'utilisateur, un nouvel IC conditionnel GraphSAGE30–voisins est calculé sur les sorties conservées : 6 370 produit–trimestres, 2 026 produits, 13 174 positifs ; 2 775 contre 2 530 liens retrouvés ; delta +0,018597, IC95 [ +0,011975 ; +0,025570 ], 1 000 tirages, graine 20261003. Le protocole précède ce calcul, pas la consultation des résultats ni la sélection. Les limites des listes historiques non exportées et des dépendances inter-produits sont déclarées. Échec initial d'allocation avant tirages conservé, puis correction de la confusion espace d'adressage/RSS sans changement du protocole.
+
+Méthodes en S1, carte des preuves en S2, historique court en S4, registre détaillé dans la provenance. CMS : enregistrements datés d'avant l'inspection, sans preuve de disponibilité publique. Concordance de 27 paires ; nouveau ZIP `HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip`. Aucun nouveau fit, tuning, D2, audit historique acquis ou approbation ; anciennes preuves et deux candidats RC2 conservés.
+

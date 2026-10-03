@@ -146,3 +146,12 @@ Le français est la référence exclusive de contenu. L'anglais est une traducti
 
 La traduction et ses PDF compilés/examinés sont identifiés par le [manifeste distinct](../../results/manuscript_rc2_translation_20261002T233250Z.json) : 26 paires concordantes et 648 contrôles du paquet. Le candidat précédent et les preuves scientifiques sont conservés ; publication sur la PR #4 en brouillon, sans nouveau fit, tag, fusion ou approbation déduite.
 
+
+## 3 octobre 2026 — extension ciblée explicitement autorisée
+
+Après retour scientifique, l'utilisateur choisit « Révision + comparaison appariée + IC ». Cette autorisation remplace la réserve sans nouvel IC uniquement pour GraphSAGE C30 moins voisins historiques, non pour D1, une durée causale ou D2. Le protocole est fixé avant le nouveau calcul, après connaissance des périodes et sélection : post hoc et exploratoire, pas préenregistrement externe.
+
+C devient principal ; D1 reste complet mais secondaire, sous réglages fixes, sans attribution causale à la capacité. L'appariement contrôle identités/soutiens/positifs/cardinalités, pas toutes les différences d'entraînement. Les listes historiques complètes n'ont pas été exportées ; celles de C sont comparées à leur reconstruction depuis l'historique préparé et aux traces historiques conservées.
+
+Le nouvel IC par produit est conditionnel aux prédictions et à la population observée, hors incertitude de sélection/entraînement et sans retrait de toutes les dépendances réseau. Aucun nouveau fit, score, tuning, graine d'entraînement, D2 ou audit historique réussi ; seule la graine bootstrap 20261003 est nouvelle. Français révisé d'abord, puis traduction ; nouvelles preuves distinctes, anciens ZIP/ledgers/checkpoints conservés. Les gates humains, E/F et la revue cible restent ouverts.
+
