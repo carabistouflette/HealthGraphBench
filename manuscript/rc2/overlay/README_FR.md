@@ -1,0 +1,76 @@
+# HealthGraphBench — RC2.2, clôture éditoriale ciblée
+
+**3 octobre 2026 • `manuscript-rc2.2` • non soumise, non approuvée par les auteurs.**
+Archive : `HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip`; racine : `HealthGraphBench_RC2_2`.
+RC1 fournie est conservée intacte (SHA-256 `2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be`).
+
+**RC2.2 : clôture ciblée après la roadmap RC2.1.** C reste principal et D1 secondaire complet. Les entraînements séparés sont réinitialisés de manière déterministe, sans reprise d'un entraînement précédent ; ce ne sont pas des répétitions aléatoires indépendantes. Les légendes distinguent GraphSAGE historique à trois époques de GraphSAGE30. Les quatre figures historiques protégées restent inchangées ; les dérivés `maude_cutoffs_historical3_*` modifient leurs libellés seulement, et les deux titres de courbe C sont précisés. Français corrigé avant traduction anglaise. Les rapports de concordance antérieurs restent datés ; le delta courant est dans `verification/rc2_closure/language_delta.json`. Tous les ZIP antérieurs sont conservés.
+
+## Contenu et portée
+
+- `main_fr.pdf`, `main_en.pdf` : benchmark historique et exploration C séparés, courbe de validation et tableau apparié GraphSAGE30–voisins.
+- `supplement_fr.pdf`, `supplement_en.pdf` : méthodes en S1, carte des preuves en S2, historique court en S4 ; S11 documente le rapprochement du code, le nouvel IC conditionnel, D1 complet et sa réserve RSS ; éléments ouverts en S12.
+- `response_reviewers_fr.pdf` : réponse **historique** à l'avis R6, annotée comme telle ; pas une réponse au présent retour scientifique, une approbation RC2 ou un envoi.
+- Sources LaTeX, tableaux, figures et bibliographie; auteurs/affiliations encore à renseigner dans les fichiers `metadata_*.tex`.
+- `data/post_rc1/` : manifestes A/B/C/D1, CSV, métriques exactes et neuf checkpoints d'inférence. `verification/post_rc1/` garde protocoles, audits et rapports datés.
+- `vendor/post_rc1/` : sources du noyau et des contrôleurs pour inspection; ce n'est pas une distribution autonome d'entraînement.
+- `history/RC1/` : métadonnées et contrôle de conditionnement hérités; leurs statuts restent historiques.
+
+C sélectionne 30 époques sur validation 2023 avant ses tests; R@10 groupé 2024–2025 : 2775/13174 = 0,210642. Le test historique à trois époques n'est pas réentraîné dans C. D1 réutilise `mean30` C et ajoute seulement `none30` : 469/13174 = 0,035600, contraste +0,175042. `none` est self-only non-GNN, avec 64 contre 128 coefficients actifs de transformations partagées et perte proche de ln(2). Ce n'est pas un effet causal pur de l'agrégation.
+
+Toutes ces périodes étaient déjà consultées : résultats exploratoires, sans validation prospective indépendante. Le contraste et son IC conditionnel restent inchangés : +0,018597, IC95 [ +0,011975 ; +0,025570 ], 1 000 tirages par produit, graine 20261003. Aucune analyse, aucun fit, score, tuning, bootstrap, D2 ou audit scientifique réussi n'est relancé dans cette correction.
+
+Le rapport reçu `verification/rc2_minor/external_audit_received.md` donne un avis favorable au positionnement exploratoire, sous les deux corrections. Il rapporte un recalcul distinct depuis les instantanés/checkpoints, sans acquisition FDA ni entraînement ; ce n'est ni notre nouvelle exécution ni une approbation des auteurs ou une décision éditoriale. Les 61 tests exécutés par cet audit dans le ZIP sont distincts des 64 tests amont du dépôt documentés dans `verification/rc2_paired/repository_tests.json`. Les anciens rapports de compilation, lecture et rejeu restent des preuves datées.
+
+La RC2.1 antérieure a recompilé cinq PDF (principaux FR/EN 17/16, suppléments 23/22, réponse historique 2) ; ses preuves restent dans `verification/rc2_minor/visual_review.json`. La présente révision possède ses propres preuves de compilation et de lecture ciblée dans `verification/rc2_closure/visual_review.json`. La dernière roadmap reçue repose sur les PDF et quelques fractions, non sur une exécution du paquet. `submission/verification_cloture.md` distingue ces attributions ; `submission/submission_checklist_RC2_1.md` liste les décisions auteurs/support encore ouvertes. Données, checkpoints, résultats et code de rejeu restent inchangés.
+
+## Vérifier la livraison
+
+Depuis la racine extraite, avant toute modification :
+
+```bash
+sha256sum -c SHA256SUMS
+python scripts/check_review_package.py
+```
+
+Le contrôle vérifie l'identité, les bytes historiques protégés, les ratios et contrastes conservés, les checkpoints et les PDF. Il ne relance ni fit ni audit scientifique réussi. `release/protected_payload.json` conserve 105 fichiers protégés à leurs chemins historiques et la bibliographie originale archivée sous `history/RC1/references.bib`, sans réécrire son empreinte. La bibliographie active corrige seulement S1 en S2 dans une note.
+
+Les générateurs inclus permettent de refaire les figures dans une copie, avec Matplotlib et NumPy : `python scripts/render_historical_figure.py --root .` crée seulement les dérivés historiques ; `python scripts/render_figures.py --root . --duration-only` rend seulement les deux courbes C, sans lire D1. Les chiffres tracés et bornes d'intervalles concordent avec le générateur historique conservé, selon `verification/rc2_closure/figure_numeric_identity.json`. Ces commandes ne réentraînent aucun modèle.
+
+## Compiler dans une copie
+
+Avec LaTeX, `latexmk`, BibTeX et Poppler :
+
+```bash
+BUILD="/tmp/hgb-manuscript-rc2-build"
+test ! -e "$BUILD" || exit 1
+cp -a . "$BUILD"
+cd "$BUILD"
+python scripts/compile_pdfs.py
+python scripts/check_review_package.py --skip-manifest
+```
+
+Les cinq PDF utilisent la **maquette de lecture**, pas un format de soumission approuvé. Les entrées `submission_ios_*.tex` sont préparées mais non compilées/validées pour un support final. Une recompilation change potentiellement les octets des PDF; ne pas lui appliquer les anciennes sommes de livraison.
+
+## Reproductibilité et limites
+
+Les compacts historiques et instantanés MAUDE préparés restent inclus. Les gros flux de prédictions candidates C/D1 et les archives FDA/CMS brutes **ne sont pas inclus**. Les chemins dans les manifestes C/D1 désignent les exécutions d'origine dans le dépôt, pas des fichiers tous présents dans ce ZIP. Les neuf checkpoints servent à l'inférence, sans reprise d'entraînement; les analyses C/D1 ne deviennent pas des réacquisitions brutes.
+
+Le protocole, le CSV apparié et les tirages `data/post_rc1/paired_*` permettent le rejeu du nouvel IC. Depuis la racine du paquet, avec NumPy et une destination nouvelle :
+
+```bash
+PYTHONPATH=vendor/post_rc1 python scripts/analyze_maude_paired_comparison.py \
+  --protocol data/post_rc1/paired_protocol.json \
+  --replay-contributions data/post_rc1/paired_contributions.csv \
+  --output-dir /tmp/hgb-new-paired-replay
+```
+
+Ce rejeu ne revérifie pas les candidats originaux. Le calcul initial compare les listes C à l'historique préparé et aux cardinalités/positifs historiques ; les listes historiques complètes n'étaient pas exportées. Les traces incluent l'échec initial avant tirages, corrigé sans changer le protocole statistique.
+
+L'audit D1 conserve deux mesures RSS discordantes : VmHWM 118292480 B et ru_maxrss 571580416 B, sans lecture initiale. Les trois phases scientifiques respectent séparément leurs plafonds; aucun plafond RSS global de l'audit n'est certifié. Le probe non médical `exec` montre une différence possible de portée, pas la cause certaine du pic.
+
+Les rejeux historiques restent accessibles via `scripts/verify_rc1_replays.py`; le nom indique leur périmètre RC1, pas la version du paquet courant. Ils ne sont pas relancés pour confirmer des résultats déjà vérifiés.
+
+## Avant soumission
+
+Validation humaine des résultats/références, identités, affiliations, correspondant, contributions, financement, conflits, éthique, conditions d'usage, déclaration d'assistance par IA, support et consignes officielles restent à obtenir. Aucune déclaration négative ni acceptation n'est présumée. Le DOI `10.5281/zenodo.22796551` identifie le **benchmark v0.2.0**, pas RC2. Aucun nouveau tag, DOI ou dépôt de publication n'est créé. Conserver RC1 et RC2 distinctes; une correction ultérieure exige une nouvelle révision et provenance.

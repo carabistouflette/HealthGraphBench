@@ -1,0 +1,233 @@
+{
+  "revision": "RC2.2",
+  "scope": "Incremental editorial reading of canonical French then English; numeric localization and TeX en-dash ranges normalized. Math units, structure and citations unchanged from their attested RC2.1 versions. Not semantic certification or author approval.",
+  "prior_delivery": "verification/rc2_closure/prior_delivery_manifest_RC2_1.json",
+  "prior_concordance": "verification/rc2_minor/language_delta.json",
+  "pair_count": 27,
+  "modified_pair_count": 7,
+  "unchanged_pair_count": 20,
+  "all_checks_passed": true,
+  "author_approval": false,
+  "modified_pairs": [
+    {
+      "fr": "sections/abstract_fr.tex",
+      "en": "sections/abstract_en.tex",
+      "fr_sha256": "b5b7bd78851a9406cc8c5194256ee0bd40d0450e9a3e27359190fdbfbf9a9604",
+      "en_sha256": "a283925a8fb3804cd77032b1e605a64a52b6b10827ce3b7bedb3adcea28958cc",
+      "numeric_values_match": true,
+      "French_math_units_unchanged_from_RC2_1": true,
+      "English_math_units_unchanged_from_RC2_1": true,
+      "French_structure_unchanged_from_RC2_1": true,
+      "English_structure_unchanged_from_RC2_1": true,
+      "French_citations_references_labels_unchanged": true,
+      "English_citations_references_labels_unchanged": true,
+      "canonical_French_then_English_editorial_reading": true
+    },
+    {
+      "fr": "sections/body_fr.tex",
+      "en": "sections/body_en.tex",
+      "fr_sha256": "cb540ffd02a499b127654adb2dbfe6d295601d35a3a9ccaedfebd59dfaf12090",
+      "en_sha256": "be5ef04555a5ae252eef7d0776af997cc14a0c4fd47da5658c2bbb392234449d",
+      "numeric_values_match": true,
+      "French_math_units_unchanged_from_RC2_1": true,
+      "English_math_units_unchanged_from_RC2_1": true,
+      "French_structure_unchanged_from_RC2_1": true,
+      "English_structure_unchanged_from_RC2_1": true,
+      "French_citations_references_labels_unchanged": true,
+      "English_citations_references_labels_unchanged": true,
+      "canonical_French_then_English_editorial_reading": true
+    },
+    {
+      "fr": "sections/post_rc1_fr.tex",
+      "en": "sections/post_rc1_en.tex",
+      "fr_sha256": "f4e3f6bef9a79b0bdfa84876cee6221b9c1b342e134bdb1f1055f07573bce9e3",
+      "en_sha256": "1577f4e279f93f2f83c7ecb445a802749ef810ac86046e4398d21a0d18342c5c",
+      "numeric_values_match": true,
+      "French_math_units_unchanged_from_RC2_1": true,
+      "English_math_units_unchanged_from_RC2_1": true,
+      "French_structure_unchanged_from_RC2_1": true,
+      "English_structure_unchanged_from_RC2_1": true,
+      "French_citations_references_labels_unchanged": true,
+      "English_citations_references_labels_unchanged": true,
+      "canonical_French_then_English_editorial_reading": true
+    },
+    {
+      "fr": "supplement_fr.tex",
+      "en": "supplement_en.tex",
+      "fr_sha256": "4fd34e895e1211befa591f8c100e4742c6561f2716c4863fc9246fc7e750db10",
+      "en_sha256": "fc92c71adb3b23427fd24d0d809014bdc109c8d889a1f6a3bb0da1cccb1886ca",
+      "numeric_values_match": true,
+      "French_math_units_unchanged_from_RC2_1": true,
+      "English_math_units_unchanged_from_RC2_1": true,
+      "French_structure_unchanged_from_RC2_1": true,
+      "English_structure_unchanged_from_RC2_1": true,
+      "French_citations_references_labels_unchanged": true,
+      "English_citations_references_labels_unchanged": true,
+      "canonical_French_then_English_editorial_reading": true
+    },
+    {
+      "fr": "main_fr.tex",
+      "en": "main_en.tex",
+      "fr_sha256": "e3792615744ca5c2057f38187aaca7880e8aca5b4a3ab397fd45224ce2ccde04",
+      "en_sha256": "4a2e39d2815a5d67ff0855690c1972d2d12498fa0ba83bbcbffc1e8202b103c3",
+      "numeric_values_match": true,
+      "French_math_units_unchanged_from_RC2_1": true,
+      "English_math_units_unchanged_from_RC2_1": true,
+      "French_structure_unchanged_from_RC2_1": true,
+      "English_structure_unchanged_from_RC2_1": true,
+      "French_citations_references_labels_unchanged": true,
+      "English_citations_references_labels_unchanged": true,
+      "canonical_French_then_English_editorial_reading": true
+    },
+    {
+      "fr": "metadata_fr.tex",
+      "en": "metadata_en.tex",
+      "fr_sha256": "4a2bb764a20753529198603646404ea2622b787e32e61656ea621aa6fdce6a98",
+      "en_sha256": "57bf7d8e212ebbba137eca1ccb185657a930b02e03b7b2cc0d85f1f607b94964",
+      "numeric_values_match": true,
+      "French_math_units_unchanged_from_RC2_1": true,
+      "English_math_units_unchanged_from_RC2_1": true,
+      "French_structure_unchanged_from_RC2_1": true,
+      "English_structure_unchanged_from_RC2_1": true,
+      "French_citations_references_labels_unchanged": true,
+      "English_citations_references_labels_unchanged": true,
+      "canonical_French_then_English_editorial_reading": true
+    },
+    {
+      "fr": "tables/maude_paired_RC2_fr.tex",
+      "en": "tables/maude_paired_RC2_en.tex",
+      "fr_sha256": "d981b8f95a181207632eb6e44fc5f6cc40629f0c0c35b28f1eaa1d166a3101d3",
+      "en_sha256": "ed0f95e4ad406544bb9dbbe27c049a749c70b6b8678e125677ed9593bf625586",
+      "numeric_values_match": true,
+      "French_math_units_unchanged_from_RC2_1": true,
+      "English_math_units_unchanged_from_RC2_1": true,
+      "French_structure_unchanged_from_RC2_1": true,
+      "English_structure_unchanged_from_RC2_1": true,
+      "French_citations_references_labels_unchanged": true,
+      "English_citations_references_labels_unchanged": true,
+      "canonical_French_then_English_editorial_reading": true
+    }
+  ],
+  "unchanged_pairs": [
+    {
+      "fr": "sections/supp_additions_fr.tex",
+      "en": "sections/supp_additions_en.tex",
+      "fr_sha256": "b8929275acccddb720b21a476d45ffbdb64b93151356e13b7b16f94efbce3840",
+      "en_sha256": "23ab90f8aed9abcedf0601797c3882445a1edbbb377aa833890763387b2e7d8e"
+    },
+    {
+      "fr": "submission_ios_fr.tex",
+      "en": "submission_ios_en.tex",
+      "fr_sha256": "d06bc50e52aabff7f44b02bd88e6f40e31193bd2a11e379929ee2d918672cede",
+      "en_sha256": "b15242cba2b2b02f46f8979ecae8d3c7afbeac6abe75094a599ea0d650e661eb"
+    },
+    {
+      "fr": "tables/cms_annual_all_fr.tex",
+      "en": "tables/cms_annual_all_en.tex",
+      "fr_sha256": "61a16daf0b1caf4d344ebaf726423493d36516578176ed55aebcc33b8e7a4a4c",
+      "en_sha256": "31923bf98b538378acd7150d9e51405868ab9cfbc088ef9da68c25120736dce5"
+    },
+    {
+      "fr": "tables/cms_annual_test_fr.tex",
+      "en": "tables/cms_annual_test_en.tex",
+      "fr_sha256": "4cc9cec478535e16c4e266f03d481590f8e30f15cf7cc5ca1082bb3c38e2e335",
+      "en_sha256": "34e4f7aca9d1ff7f140a6150d46ed1b467585bb7973ccf5dbe61298661a06c07"
+    },
+    {
+      "fr": "tables/cms_ap_bounds_R4_fr.tex",
+      "en": "tables/cms_ap_bounds_R4_translated_en.tex",
+      "fr_sha256": "955a9457dda689a5127f30be2083208498ddf93eca3f238f01c110f98e393429",
+      "en_sha256": "f5130941bda713bfb027475edff197f576665b03bd34b755cf29aa30593f6bab"
+    },
+    {
+      "fr": "tables/cms_ap_exact_R4_fr.tex",
+      "en": "tables/cms_ap_exact_R4_translated_en.tex",
+      "fr_sha256": "9d367a79a2baf908743bc4d3ca39a2440bfa0e2a8442ecb6221376ffb2ee6d7a",
+      "en_sha256": "93434c94c2eb2256fa2add5cd2f1c13fb087e791968e3d1eb992ce1a7f469b08"
+    },
+    {
+      "fr": "tables/cms_ap_identity_R4_fr.tex",
+      "en": "tables/cms_ap_identity_R4_translated_en.tex",
+      "fr_sha256": "3196e9636a41b3280a363702dbc8c1b3d99b86052a2bdd005beb631d7d8a2cd7",
+      "en_sha256": "648b4ce2b4835ff8af43678c10b59df1397088313a041db7941ab9fa73d2aa14"
+    },
+    {
+      "fr": "tables/cms_decile_exact_R4_fr.tex",
+      "en": "tables/cms_decile_exact_R4_translated_en.tex",
+      "fr_sha256": "6b3c6fb1f540abf62f87b9c8c11dbd8ac8f5e662b9d136cd8200fc8ede03cbce",
+      "en_sha256": "05ac7d5551d56e8efb406dc300e4a40429be188fbd4a9e0d2988e7c1dd47d9cf"
+    },
+    {
+      "fr": "tables/cms_decomposition_fr.tex",
+      "en": "tables/cms_decomposition_en.tex",
+      "fr_sha256": "ef79433ae89506ae24e754d9483742df02b66540056b7009095c0474b62cfcfc",
+      "en_sha256": "a300c154ae31a465608312694146b0c52e08ecd5225efc5c4e4b6c3eced73e07"
+    },
+    {
+      "fr": "tables/cms_fr.tex",
+      "en": "tables/cms_en.tex",
+      "fr_sha256": "e3896e03859283e561d81fccbd2104b6ed1562c547184a4c27e80f191e74acc3",
+      "en_sha256": "2b3dab93225885ebbab484ee0c2ab598e5059df296ad5ea0f2571ec3339d71af"
+    },
+    {
+      "fr": "tables/cms_training_R4_fr.tex",
+      "en": "tables/cms_training_R4_en.tex",
+      "fr_sha256": "2f0bcbaa8930359b0ea3cbeb9fd4947a8f76be8fef1220a5b06e623e3bfe7e5b",
+      "en_sha256": "0537e4360d8cf873f2f1305b72d2b7f5115e9ee4a6b5c4692c15d804393b315a"
+    },
+    {
+      "fr": "tables/graphsage_control_R4_fr.tex",
+      "en": "tables/graphsage_control_R4_en.tex",
+      "fr_sha256": "9c5505a22d9176a057a527c5958cd6dea9ca06a41379cc0650b1aea995d36fae",
+      "en_sha256": "fb2591af12ea9ce527133c4e683d27ce4422c1f031e3f6081145340c1ab24d3d"
+    },
+    {
+      "fr": "tables/maude_B1_graph_R6_fr.tex",
+      "en": "tables/maude_B1_graph_R6_en.tex",
+      "fr_sha256": "2af215c8e3e076885f508d94cfeb67c769516f34f2c907b9246dafef5af4a5a6",
+      "en_sha256": "3cabf0c56d711acffcb6283c52e25d426035d48a283cde1669d946764f78325c"
+    },
+    {
+      "fr": "tables/maude_B1_tabular_R6_fr.tex",
+      "en": "tables/maude_B1_tabular_R6_en.tex",
+      "fr_sha256": "90cd892fe4be0649627a93a95ba7a3a3f1ffea2b0d7919272ed751f7e6fdc9ab",
+      "en_sha256": "224a5ccafcb25caf45eb739438f0a95057771851776847d7ae94ad95e9db5d2c"
+    },
+    {
+      "fr": "tables/maude_B2_coverage_R6_fr.tex",
+      "en": "tables/maude_B2_coverage_R6_en.tex",
+      "fr_sha256": "9d10068f2ff769e1afb9d80ac9bd785055de1fd6ead85c364d779c036cbc1d92",
+      "en_sha256": "5bf2efbb7c833e673b7a3ae93b609d74675423f7c6d782201e8ffe6d33e05e5f"
+    },
+    {
+      "fr": "tables/maude_B2_missing_pairs_R6_fr.tex",
+      "en": "tables/maude_B2_missing_pairs_R6_en.tex",
+      "fr_sha256": "a00480518c25605e6633eee3775677711dbd359277de52aeeec0f9fdd914219d",
+      "en_sha256": "d40f09fd162dd21184a3cf30c2b69371ad80c2c63dd0a1a12b7570a1d23e1346"
+    },
+    {
+      "fr": "tables/maude_aggregation_RC2_fr.tex",
+      "en": "tables/maude_aggregation_RC2_en.tex",
+      "fr_sha256": "03198c0ea074cd6dc9f958d9d3a5e6e3a8652a315aadcc520a19547fc011422b",
+      "en_sha256": "086f21d89f21cb8b5c8f66cf0f7ade664845f846fec92a8dbdee820a451ad1bf"
+    },
+    {
+      "fr": "tables/maude_duration_RC2_fr.tex",
+      "en": "tables/maude_duration_RC2_en.tex",
+      "fr_sha256": "1531b5064fcd90dbe441d9674ab90dccea1a7ba0b0910b1c492e77c5130874a1",
+      "en_sha256": "87f426ed2ffaaca6d220932861148289988106f0501415a69ea38eb9c291995d"
+    },
+    {
+      "fr": "tables/maude_fr.tex",
+      "en": "tables/maude_en.tex",
+      "fr_sha256": "880619ce3816081d98d86a0f4d24afb722fd934e66849af5afffb9dae15eb659",
+      "en_sha256": "764d3959b9839c6a573f97b9110cd2b26ec4b4d0922527236f8ad3c4527728e9"
+    },
+    {
+      "fr": "tables/partd_fr.tex",
+      "en": "tables/partd_en.tex",
+      "fr_sha256": "8f38573ce7d53d5ab080b61964966a5012f0bb00ca80f59185d113115af6f014",
+      "en_sha256": "572e13a7c3f2e2d2810ef5c125fc1ebff790441681a67dcf1b46f4225dbaf00e"
+    }
+  ]
+}

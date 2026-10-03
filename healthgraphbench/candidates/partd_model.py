@@ -280,6 +280,8 @@ def _validate_npi(value: object, *, path: Path, row_number: int) -> str:
 
 def _load_input(
     feasibility_dir: Path,
+    *,
+    allow_execution_preparation: bool = False,
 ) -> tuple[
     dict[str, Any],
     dict[int, list[_InputEdge]],
@@ -295,18 +297,24 @@ def _load_input(
     try:
         report = json.loads(report_path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:
-        raise ValueError(f"unable to load feasibility report {report_path}: {exc}") from exc
-    if not isinstance(report, dict) or report.get("record_kind") != "partd_feasibility":
-        raise ValueError("model input report must be a partd_feasibility record")
+        raise ValueError(f"unable to load Part D model input report {report_path}: {exc}") from exc
+    accepted_kinds = {"partd_feasibility"}
+    if allow_execution_preparation:
+        accepted_kinds.add("partd_execution_preparation")
+    if not isinstance(report, dict) or report.get("record_kind") not in accepted_kinds:
+        raise ValueError(
+            "model input report must be a partd_feasibility record"
+            + (" or partd_execution_preparation record" if allow_execution_preparation else "")
+        )
     configuration = report.get("configuration")
     if not isinstance(configuration, dict):
-        raise ValueError("feasibility report is missing configuration")
+        raise ValueError("Part D model input report is missing configuration")
     years = configuration.get("years")
     score_years = configuration.get("score_years")
     roles = configuration.get("evaluation_roles")
     if years != [2019, 2020, 2021, 2022, 2023, 2024]:
         raise ValueError(
-            "Part D model gate requires the frozen 2019-2024 feasibility input; "
+            "Part D model input requires the frozen 2019-2024 source; "
             f"got years={years!r}"
         )
     if score_years != [2022, 2023, 2024] or roles != {
@@ -315,14 +323,14 @@ def _load_input(
         "2024": "held_out_test",
     }:
         raise ValueError(
-            "Part D model gate requires 2022 train_target, 2023 validation, and "
+            "Part D model input requires 2022 train_target, 2023 validation, and "
             f"2024 held_out_test; got score_years={score_years!r}, roles={roles!r}"
         )
     cohort_value = report.get("cohort")
     if not isinstance(cohort_value, dict) or not isinstance(
         cohort_value.get("by_target_year"), dict
     ):
-        raise ValueError("feasibility report is missing target-year cohorts")
+        raise ValueError("Part D model input report is missing target-year cohorts")
     cohorts: dict[int, set[str]] = {}
     for year in (2022, 2023, 2024):
         values = cohort_value["by_target_year"].get(str(year))
@@ -398,17 +406,28 @@ def _load_input(
     }
     if unknown_providers:
         raise ValueError(
-            f"model input contains providers outside feasibility cohort: {sorted(unknown_providers)[:3]}"
+            f"model input contains providers outside target cohorts: {sorted(unknown_providers)[:3]}"
         )
-    provenance = {
-        "feasibility_dir": str(feasibility_dir),
-        "feasibility_report": str(report_path),
-        "feasibility_report_sha256": sha256_file(report_path),
-        "feasibility_edges": str(edges_path),
-        "feasibility_edges_sha256": actual_edge_hash,
-        "source_manifest_sha256": report.get("sources", {}).get("manifest_sha256"),
-        "source_commit": report.get("source_commit"),
-    }
+    if report.get("record_kind") == "partd_feasibility":
+        provenance = {
+            "feasibility_dir": str(feasibility_dir),
+            "feasibility_report": str(report_path),
+            "feasibility_report_sha256": sha256_file(report_path),
+            "feasibility_edges": str(edges_path),
+            "feasibility_edges_sha256": actual_edge_hash,
+            "source_manifest_sha256": report.get("sources", {}).get("manifest_sha256"),
+            "source_commit": report.get("source_commit"),
+        }
+    else:
+        provenance = {
+            "prepared_dir": str(feasibility_dir),
+            "prepared_report": str(report_path),
+            "prepared_report_sha256": sha256_file(report_path),
+            "prepared_edges": str(edges_path),
+            "prepared_edges_sha256": actual_edge_hash,
+            "source_manifest_sha256": report.get("sources", {}).get("manifest_sha256"),
+            "source_commit": report.get("source_commit"),
+        }
     return report, rows_by_year, cohorts, provenance
 
 

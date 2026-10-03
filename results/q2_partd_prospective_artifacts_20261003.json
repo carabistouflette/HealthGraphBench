@@ -1,0 +1,36 @@
+{
+  "schema": "healthgraphbench.q2-artifact-inventory.v1",
+  "run_root": "results/generated/q2-cycle-20261003/partd-prospective-001",
+  "status": "sealed_awaiting_official_target_publication",
+  "inventory_scope": "primary sealed records and cohort-derived inputs; forecast.json contains the complete per-fit checkpoint, candidate-score, and prediction paths and hashes",
+  "files": {
+    "forecast.json": {"bytes": 38186, "sha256": "382e111529f4009c0790267d1518dab050f66d72badc2cb28c8acf2bc120ff9e"},
+    "resource_ledger.json": {"bytes": 9601, "sha256": "052ad0d9dc5b17f73efd1732604bef331224038561331b38ce4718f191f61e34"},
+    "source_provenance.json": {"bytes": 7414, "sha256": "74364fef735725517da7c557b175da0966de8a031e1958555540e91f21931b30"},
+    "protocol_executed.json": {"bytes": 14565, "sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7"},
+    "selection.json": {"bytes": 2429, "sha256": "e532f030b3bbe2509916dbc401efdacdad77fe24638658b904a16709bf2372f6"},
+    "sealed_origin/origin.json": {"bytes": 21376, "sha256": "ff6641fd17742aad670ed41748cd104e3bed058a65348459c390a716bda44fe3"},
+    "sealed_origin/cohort.json": {"bytes": 304495, "sha256": "2ec15e00cb4e90a390b6f668a0637cf250953ceb1ee7adb40334f7e626790319"},
+    "sealed_origin/history_rows.jsonl": {"bytes": 21432950, "sha256": "d57026f60072fa00e2595cc3874ea4dd75c00e9c07953856debc48bc7de794a9"},
+    "sealed_origin/candidate_layout.npz": {"bytes": 322600, "sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc"},
+    "sealed_origin/edges.csv": {"bytes": 48539963, "sha256": "a44b6f5035dceaaeb244e82cad7898fc1ee6aa03e194c35e3cbfec7ac1f48f52"}
+  },
+  "supporting_input_sha256": {
+    "configs/q2_scientific_protocol_20261003.json": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7",
+    "data/manifests/partd_feasibility_v0_2_lookback.json": "1821460f2ad68e988bd7cb63afef79d671544e6edcd1ca1de5e35335ad638ec0",
+    "results/q2_partd_development_population_20261003.json": "46df7b0881edb0e03716a00eb7af5c7e43f02ccd55e96bf215836141d3e8f030",
+    "results/generated/q2-cycle-20261003/partd-comparison-001/selection.json": "e532f030b3bbe2509916dbc401efdacdad77fe24638658b904a16709bf2372f6"
+  },
+  "catalog_response": {"bytes": 278033, "sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa", "all_three_captures_match": true},
+  "source_capture_receipt_sha256": {
+    "2019": "f20962b360e83d0f1a5ad4de8e5b62bba6a669046fa5f0df0acd31d68c41ce47",
+    "2020": "0fcee99a6c82b456da008a0ab371878bd963d42aef7f12a63006d4a367e4569b",
+    "2021": "a51c7846a792975e7388947a7a15c29e78999119ffca77f04436c6a5fe470c54",
+    "2022": "1c67c1dc991f4c390cc8ddca8c228ab3ea6e8aac32426e31f6dfd46e9a150e74",
+    "2023": "68cc6c4c950f6fe31838a906c5fe3ac1e24a73589d6c5e84cd75f0dbd7258d8c",
+    "2024": "e0724afa83e56e92674b09b87acc16d4df03ccb3435c7539203e1a7ab15b1209"
+  },
+  "fit_family_counts": {"specialty_popularity": 1, "history_overlap": 1, "logistic": 1, "boosted": 3, "bpr": 3},
+  "raw_original_2019_2024_csvs_included": false,
+  "derived_cohort_edges_included": true
+}

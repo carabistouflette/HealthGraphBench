@@ -1,0 +1,10 @@
+\begin{tabularx}{\linewidth}{@{}rXXr@{}}
+\toprule
+Epochs & Micro R@10 (hits / 7,705 positives) & BPR loss, epoch 1 $\rightarrow$ last & Triplet steps\\
+\midrule
+0 & 0.022193381 (171 / 7,705) & Not observed (no optimization) & 0\\
+3 & 0.171576898 (1,322 / 7,705) & 0.692751769 $\rightarrow$ 0.315404017 & 203,028\\
+10 & 0.166904607 (1,286 / 7,705) & 0.692751769 $\rightarrow$ 0.303309621 & 676,760\\
+30 & 0.205061648 (1,580 / 7,705) & 0.692751769 $\rightarrow$ 0.210208402 & 2,030,280\\
+\bottomrule
+\end{tabularx}

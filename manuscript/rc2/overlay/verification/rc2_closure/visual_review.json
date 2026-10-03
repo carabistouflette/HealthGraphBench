@@ -1,0 +1,271 @@
+{
+  "revision": "RC2.2",
+  "scope": "Focused assistant inspection of version, captions, plots, method cells and C-grid pages, not a new scientific audit or author approval. Final two method-cell pages re-inspected after local typography fixes; other selected supplement pages byte-identical as rasters.",
+  "five_pdfs_compiled": true,
+  "pdf_pages": {
+    "main_fr.pdf": 17,
+    "main_en.pdf": 16,
+    "supplement_fr.pdf": 23,
+    "supplement_en.pdf": 22,
+    "response_reviewers_fr.pdf": 2
+  },
+  "selected_pages_examined": {
+    "main_fr.pdf": [
+      1,
+      8,
+      9
+    ],
+    "main_en.pdf": [
+      1,
+      7,
+      8
+    ],
+    "supplement_fr.pdf": [
+      1,
+      2,
+      17,
+      18
+    ],
+    "supplement_en.pdf": [
+      1,
+      16,
+      17
+    ]
+  },
+  "four_standalone_bilingual_figures_examined": true,
+  "final_method_name_cells_reinspected": true,
+  "unchanged_selected_final_rasters": [
+    {
+      "pdf": "supplement_fr.pdf",
+      "page": 1,
+      "raster_byte_identical_after_typographic_rebuild": true
+    },
+    {
+      "pdf": "supplement_fr.pdf",
+      "page": 17,
+      "raster_byte_identical_after_typographic_rebuild": true
+    },
+    {
+      "pdf": "supplement_fr.pdf",
+      "page": 18,
+      "raster_byte_identical_after_typographic_rebuild": true
+    },
+    {
+      "pdf": "supplement_en.pdf",
+      "page": 16,
+      "raster_byte_identical_after_typographic_rebuild": true
+    },
+    {
+      "pdf": "supplement_en.pdf",
+      "page": 17,
+      "raster_byte_identical_after_typographic_rebuild": true
+    }
+  ],
+  "no_clipping_observed_on_selected_pages": true,
+  "separate_deterministic_runs_and_historical3_vs_GraphSAGE30_labels_visible": true,
+  "log_diagnostics": {
+    "main_fr": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 0,
+      "undefined": 0,
+      "lines": []
+    },
+    "main_en": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 0,
+      "undefined": 0,
+      "lines": []
+    },
+    "supplement_fr": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 13,
+      "undefined": 0,
+      "lines": [
+        "Underfull \\hbox (badness 1019) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 5924) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 1194) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 10000) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 10000) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 10000) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 3148) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 7221) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 2799) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 10000) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 7981) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 4846) in paragraph at lines 208--208",
+        "Underfull \\hbox (badness 1189) in paragraph at lines 66--75"
+      ]
+    },
+    "supplement_en": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 12,
+      "undefined": 0,
+      "lines": [
+        "Underfull \\hbox (badness 10000) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 10000) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 1502) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 2189) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 4242) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 10000) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 10000) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 10000) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 2617) in paragraph at lines 113--113",
+        "Underfull \\hbox (badness 10000) in paragraph at lines 209--209",
+        "Underfull \\hbox (badness 2384) in paragraph at lines 49--49",
+        "Underfull \\hbox (badness 1281) in paragraph at lines 66--75"
+      ]
+    }
+  },
+  "additional_supplement_rebuilds": [
+    {
+      "document": "supplement_fr",
+      "command": [
+        "/usr/bin/latexmk",
+        "-pdf",
+        "-e",
+        "$bibtex=\"/usr/bin/bibtex %O %B\";",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "supplement_fr.tex"
+      ],
+      "returncode": 0,
+      "reason": "Prevent the proper model name GraphSAGE from breaking as Graph-SAGE in the method table; French then English."
+    },
+    {
+      "document": "supplement_en",
+      "command": [
+        "/usr/bin/latexmk",
+        "-pdf",
+        "-e",
+        "$bibtex=\"/usr/bin/bibtex %O %B\";",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "supplement_en.tex"
+      ],
+      "returncode": 0,
+      "reason": "Prevent the proper model name GraphSAGE from breaking as Graph-SAGE in the method table; French then English."
+    },
+    {
+      "document": "supplement_fr",
+      "command": [
+        "/usr/bin/latexmk",
+        "-pdf",
+        "-e",
+        "$bibtex=\"/usr/bin/bibtex %O %B\";",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "supplement_fr.tex"
+      ],
+      "returncode": 0,
+      "reason": "Local ragged-right method-name cell avoids stretched spacing introduced by the unbreakable model name."
+    },
+    {
+      "document": "supplement_en",
+      "command": [
+        "/usr/bin/latexmk",
+        "-pdf",
+        "-e",
+        "$bibtex=\"/usr/bin/bibtex %O %B\";",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "supplement_en.tex"
+      ],
+      "returncode": 0,
+      "reason": "Local ragged-right method-name cell avoids stretched spacing introduced by the unbreakable model name."
+    }
+  ],
+  "scientific_bytes_retained_from_RC2_1": [
+    "data/README.md",
+    "data/available_descriptors_R2.json",
+    "data/cms_annual_metrics_R2.csv",
+    "data/cms_annual_predictions_R2.json",
+    "data/cms_ap_identifiability_R4.csv",
+    "data/cms_summary_identities_R4.json",
+    "data/cms_year_decomposition_R2.json",
+    "data/descriptive_checks.json",
+    "data/graphsage_control_R4.json",
+    "data/maude_coverage_periods_R6.json",
+    "data/maude_cutoff_differences_R2.csv",
+    "data/maude_neighbors_vs_global_R2.json",
+    "data/partd_bpr_vs_specialty_R2.json",
+    "data/post_rc1/AB_manifest.json",
+    "data/post_rc1/C_epochs.csv",
+    "data/post_rc1/C_manifest.json",
+    "data/post_rc1/C_preflight.json",
+    "data/post_rc1/D1_epochs.csv",
+    "data/post_rc1/D1_manifest.json",
+    "data/post_rc1/D1_preflight.json",
+    "data/post_rc1/checkpoint_index.json",
+    "data/post_rc1/checkpoints/C_test_2024_fit_epochs_30.json.gz",
+    "data/post_rc1/checkpoints/C_test_2025_fit_epochs_30.json.gz",
+    "data/post_rc1/checkpoints/C_validation_2023_fit_epochs_00.json.gz",
+    "data/post_rc1/checkpoints/C_validation_2023_fit_epochs_03.json.gz",
+    "data/post_rc1/checkpoints/C_validation_2023_fit_epochs_10.json.gz",
+    "data/post_rc1/checkpoints/C_validation_2023_fit_epochs_30.json.gz",
+    "data/post_rc1/checkpoints/D1_test_2024_fit_epochs_30.json.gz",
+    "data/post_rc1/checkpoints/D1_test_2025_fit_epochs_30.json.gz",
+    "data/post_rc1/checkpoints/D1_validation_2023_fit_epochs_30.json.gz",
+    "data/post_rc1/claims_evidence.csv",
+    "data/post_rc1/paired_C30_neighbors.json",
+    "data/post_rc1/paired_bootstrap_draws.json",
+    "data/post_rc1/paired_contributions.csv",
+    "data/post_rc1/paired_protocol.json",
+    "data/post_rc1/post_rc1_metrics.json",
+    "data/published_intervals.csv",
+    "data/real_R4/cms.json.gz",
+    "data/real_R4/cms_replayed.json",
+    "data/real_R4/cms_ties_exact.json",
+    "data/real_R4/graphsage_control_verified.json",
+    "data/real_R4/maude.json.gz",
+    "data/real_R4/maude_descriptors.json",
+    "data/real_R4/maude_replayed.json",
+    "data/real_R4/partd.json.gz",
+    "data/real_R4/partd_interface_R4.json",
+    "data/real_R4/partd_replayed.json",
+    "data/real_R6/maude_B/SHA256SUMS",
+    "data/real_R6/maude_B/coverage_quarterly.csv",
+    "data/real_R6/maude_B/descriptors.json",
+    "data/real_R6/maude_B/prepared_snapshots.json.gz",
+    "data/real_R6/maude_B/provenance.json",
+    "data/real_R6/maude_B/training_graph.csv",
+    "data/real_R6/maude_B/training_tabular.csv",
+    "data/retained_numeric_manifest_R4.json",
+    "data/revision_status_R4.json",
+    "data/revision_status_R5.json",
+    "data/revision_status_R6.json",
+    "data/source_map_R2.csv",
+    "data/source_map_R3.csv",
+    "data/source_map_R4.csv",
+    "data/unit_tests_R2.log",
+    "data/verified_metrics_subset.csv",
+    "figures/maude_aggregation_RC2_en.png",
+    "figures/maude_aggregation_RC2_fr.png",
+    "figures/maude_cutoffs_en.pdf",
+    "figures/maude_cutoffs_en.png",
+    "figures/maude_cutoffs_fr.pdf",
+    "figures/maude_cutoffs_fr.png",
+    "scripts/analyze_maude_paired_comparison.py",
+    "vendor/LICENSE",
+    "vendor/NOTICE",
+    "vendor/graphsage_core.py",
+    "vendor/post_rc1/healthgraphbench/__init__.py",
+    "vendor/post_rc1/healthgraphbench/evaluation/bootstrap.py",
+    "vendor/post_rc1/healthgraphbench/tasks/__init__.py",
+    "vendor/post_rc1/healthgraphbench/tasks/maude/__init__.py",
+    "vendor/post_rc1/healthgraphbench/tasks/maude/ablation.py",
+    "vendor/post_rc1/healthgraphbench/tasks/maude/data.py",
+    "vendor/post_rc1/healthgraphbench/tasks/maude/diagnostic.py",
+    "vendor/post_rc1/healthgraphbench/tasks/maude/evaluate.py",
+    "vendor/post_rc1/healthgraphbench/tasks/maude/models.py"
+  ],
+  "changed_files_from_prior_84_scientific_paths": [
+    "figures/maude_duration_RC2_en.png",
+    "figures/maude_duration_RC2_fr.png"
+  ],
+  "plotted_numbers_unchanged": "verification/rc2_closure/figure_numeric_identity.json",
+  "no_new_fits_scores_bootstrap_or_successful_scientific_audits": true
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "healthgraphbench.q2-failed-run.v1",
+  "status": "incomplete_preserved_without_selection",
+  "run": "results/generated/q2-cycle-20261003/cms-comparison-001",
+  "background_job": "bg_23",
+  "wall_seconds": 12.36,
+  "protocol_sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7",
+  "failed_phase": "validation/facility_history__boosted/config00/seedNone",
+  "completed_validation_fits_before_failure": 6,
+  "exception": "sklearn.utils._param_validation.InvalidParameterError: max_features must be a float in (0.0,1.0]; got integer1",
+  "failure_before_first_boosted_fit": true,
+  "selection_performed": false,
+  "change": "CMS adapter float conversion of fixed max_features; same parameter value, grids, seeds and budgets",
+  "restart_policy": "new full run cms-comparison-002 after correction/code/preflight publication; do not select or overwrite this partial grid",
+  "other_runs": "MAUDE, Part D and external wheel reuse continue with their original immutable source provenance; none consumes the changed CMS adapter"
+}

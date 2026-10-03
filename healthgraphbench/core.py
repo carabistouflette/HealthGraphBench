@@ -60,11 +60,11 @@ def load_task(
     source_root: str | Path | None = None,
     **kwargs: Any,
 ) -> BenchmarkTask:
-    """Load a task from its source root or verified result artifact.
+    """Load a task from its source root.
 
     When omitted, ``source_root`` defaults to ``$HEALTHGRAPHBENCH_DATA_ROOT``
     or ``./data``. Raw snapshots remain external to the repository; Part D
-    consumes a verified model-gate artifact directory.
+    verifies manifest-listed snapshots and prepares its own execution edges.
     """
 
     import os
