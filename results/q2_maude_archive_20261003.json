@@ -1,0 +1,6 @@
+{
+  "path": "/home/arobin/Downloads/HealthGraphBench_Q2_MAUDE_20261003.tar.gz",
+  "bytes": 141798509,
+  "sha256": "dbce2d88f335b0b718d2decc750dae2638f6de877e8542fb93857a6691a0d637",
+  "contents": "complete original MAUDE validation and preserved serialization failure, completed new test run, derived preparation, 112 checkpoints, predictions, protocol/provenance and both resource ledgers; no raw FDA ZIP sources"
+}

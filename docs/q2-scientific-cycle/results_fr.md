@@ -55,6 +55,45 @@ Inventaire complet du witness et de son wheel:31 fichiers, dont deux checkpoints
 
 Les six configurations `mean` passent les trois gates de validation; `none01` n’est pas admissible, les cinq autres le sont. Le contrôle `none04` est réellement apprenant sur validation, sans voisin; cela ne prouve ni généralisation ni effet causal à capacité égale. Le premier run s’est arrêté sur sérialisation avant les fits test, et reste incomplet conservé. Les nouveaux refits doivent passer à nouveau leurs gates avant toute interprétation de leurs métriques.
 
+### MAUDE — refits et scoring test achevés
+
+`maude-comparison-002` est `COMPLETE`:28 refits test et deux phases heuristiques, sans réentraînement des84 fits de validation. Les douze refits GraphSAGE sélectionnés passent les gates avant scoring; leur plus petite baisse relative de probe est49.689%, largement au-dessus du seuil fixé1%. Les états/checkpoints et les30 époques de pertes sont conservés, sans remplacer les diagnostics historiques C/D1.
+
+| Famille, configuration choisie sur2023 | Recall micro@10 test2024 | Recall micro@10 test2025 |
+|---|---:|---:|
+| Popularité globale, sans tuning | .182242 | .186306 |
+| Fréquence des voisins, sans tuning | .189239 | .194394 |
+| Logistique C.01 | .189738 | .187003 |
+| HGB100/7/L2=0 | .188739 | .185051 |
+| Spectral rang16/power24 | .188350 | .181286 |
+| BPR d16/L2=0 | .230551 | .239437 |
+| GraphSAGE `mean` d8/L2=.0005 | .204065 | .211825 |
+| GraphSAGE `none` d16/L2=.0005 | .193403 | .165388 |
+
+Les lignes latentes rapportent la moyenne des trois seeds103/211/307, jamais le meilleur seed. `none` varie de.179910 à.209229 en2024 et de.145447 à.177381 en2025; cette sensibilité est conservée, pas masquée par une répétition favorable. Dénominateurs:6003 relations positives en2024 et7171 en2025. HGB reste déterministe aux trois cutoffs96906/112316/124322 lignes. Les configurations/capacités séparées interdisent une interprétation causale d’agrégation.
+
+Ressources des deux roots, phase échouée incluse:2158.507s supervisées cumulées,2181.950s CPU worker rapportées, RSS agrégée maximale1 399 336 960B. Les autres processus/captures ont partagé la machine; pas de chronométrage dédié ni de coût égal revendiqué. Inventaire612 fichiers/112 checkpoints/614 538 068B. Archive distincte `HealthGraphBench_Q2_MAUDE_20261003.tar.gz`:141 798 509B, SHA256 `dbce2d88f335b0b718d2decc750dae2638f6de877e8542fb93857a6691a0d637`, sans ZIP raw. Preuves: `results/q2_maude_comparison_20261003.json`, `results/q2_maude_artifacts_20261003.json`, `results/q2_maude_archive_20261003.json`, `results/SHA256SUMS_q2_maude_20261003`.
+
+## Part D — comparaison réglée complète
+
+`partd-comparison-001` est `complete`,54/54 phases terminées:42 fits de validation et sept refits test, plus préparation et heuristiques. Toutes les familles réglées ont six configurations; la sélection utilise toute la moyenne requise sur validation2023, puis seulement le test2024. BPR et HGB utilisent les trois seeds103/211/307; la logistique est déterministe. Aucun seed n’est choisi.
+
+| Famille | Configuration choisie | Recall micro@10 validation2023 | Recall micro@10 test2024 |
+|---|---|---:|---:|
+| Popularité par spécialité | Sans tuning | .2202 | .2179 |
+| Recouvrement historique | Sans tuning | .2220 | .2104 |
+| Logistique | C.1, balanced | .1947 | .1844 |
+| HGB | LR.1/100/15/L2=0 | .1950 | .1971 |
+| BPR | d32/LR.03/L2=.001/5 négatifs | .2355 | .2362 |
+
+BPR test varie de.231738 à.242148 entre seeds; HGB de.1958 à.1980. Les deux cutoffs HGB comportent337 702 et349 460 lignes, donc dépassent le seuil200 000 et justifient les trois répétitions. BPR baisse sa perte pairwise échantillonnée d’environ.7020–.7026 à.0264–.0265, sur30 époques, avec états/checkpoints conservés. Cette baisse ne prouve pas une généralisation indépendante.
+
+Dénominateurs:2000 providers par target,5794 positifs en validation et5476 au test;965 puis981 providers sans positif inclus dans la charge de recommandation. Tous les1 955 528/2 023 800 candidats sont scorés, sans échantillonnage d’évaluation. Part D2023/2024 ont déjà été consultées et restent exploratoires; aucune cible officielle2025 ne fait partie de cette comparaison.
+
+Wall observée2013.026s, CPU worker cumulée1999.932s, RSS agrégée maximale850 653 184B. Six opportunités de sélection par famille, mais validation logistique86.3s/BPR200.3s/HGB389.9s: coûts différents, machine partagée. Le snapshot consommé est `abf13e3bbb279909c4633fd0dd7ed95231980129`, sans attribution rétroactive des corrections CMS/MAUDE.
+
+L’archive conserve les324 fichiers du run, **y compris `edges.csv` de préparation dérivée**, et49 checkpoints, sans les sixCSV sources CMS. `HealthGraphBench_Q2_PartD_20261003.tar.gz`:630 693 314B, SHA256 `abaf9d40356dc6a8dc02cdddc5fa70328f9e18d082f7f2fabc0989328de3fca4`. Preuves: `results/q2_partd_comparison_20261003.json`, `results/q2_partd_artifacts_20261003.json`, `results/q2_partd_archive_20261003.json`, `results/SHA256SUMS_q2_partd_20261003`.
+
 ## Limites de preuve
 
 Le prévol4000→2000 providers, Recall@10=.5/Recall@20=1, est **synthétique et logiciel**; il ne s’ajoute pas à ce tableau médical. Son transport CMS simulé ne prouve pas une source officielle publique. L’évaluation réellement indépendante requiert la source cible future et les conditions/attestations de non-consultation; l’étude d’utilisateur extérieur humain requiert un participant réel. Un forecast scellé ou une exécution d’assistant ne satisfait pas ces gates.
