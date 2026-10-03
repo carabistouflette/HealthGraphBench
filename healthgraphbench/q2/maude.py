@@ -408,7 +408,7 @@ def _evaluate_quarter(
     prediction_file = None
     if predictions_path is not None:
         predictions_path.parent.mkdir(parents=True, exist_ok=True)
-        prediction_file = gzip.open(predictions_path, "wt", encoding="utf-8", newline="\\n")
+        prediction_file = gzip.open(predictions_path, "wt", encoding="utf-8", newline="\n")
     try:
         for product in sorted(positives_by_product):
             positives = positives_by_product[product]
@@ -456,7 +456,7 @@ def _evaluate_quarter(
                 }
                 prediction_file.write(
                     json.dumps(record, ensure_ascii=False, separators=(",", ":"), allow_nan=False)
-                    + "\\n"
+                    + "\n"
                 )
     finally:
         if prediction_file is not None:
