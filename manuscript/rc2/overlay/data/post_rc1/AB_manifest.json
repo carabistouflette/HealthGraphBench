@@ -1,0 +1,490 @@
+{
+  "schema": "healthgraphbench.consolidation_core_verification.v1",
+  "recorded_at_utc": "2026-10-02T14:22:36.428851+00:00",
+  "scope": "Lot A/B verification of retained outputs and preparation/feasibility of C; no health-model training or new predictions",
+  "working_branch": "feature/post-rc1-verification",
+  "baseline_benchmark_commit": "b010d5a49eae56837a920b2e30dece41c42c0c44",
+  "changes_committed": false,
+  "remote_publication_executed": false,
+  "manuscript_source_package": {
+    "id": "manuscript-rc1",
+    "path": "results/generated/manuscript-rc1/HealthGraphBench_FAIA_LaTeX_RC1.zip",
+    "sha256": "2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be",
+    "modified": false,
+    "manuscript_doi": null
+  },
+  "environment": {
+    "created_for": "post-RC1 lot B offline verification",
+    "recorded_at_utc": "2026-10-02T14:01:48.073460+00:00",
+    "python": "Python 3.13.5",
+    "python_executable": "results/generated/consolidation-post-RC1/core-verification-20261002/analysis-env/bin/python",
+    "requirements_archive_member": "HealthGraphBench_RC1/requirements-review.txt",
+    "requirements_sha256": "b118afc3e5fa1fc05de103ad3336d12a26095a2bccb632f7c847c7ffa3e27bc0",
+    "installed_packages": [
+      "cloudpickle==3.1.2",
+      "contourpy==1.4.0",
+      "cycler==0.12.1",
+      "fonttools==4.66.1",
+      "joblib==1.6.0",
+      "kiwisolver==1.5.1",
+      "matplotlib==3.10.8",
+      "numpy==2.3.5",
+      "packaging==26.3",
+      "pillow==12.3.0",
+      "pyparsing==3.3.3",
+      "python-dateutil==2.9.0.post0",
+      "scikit-learn==1.8.0",
+      "scipy==1.18.1",
+      "six==1.17.0",
+      "threadpoolctl==3.7.0"
+    ],
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "source_archive_sha256": "2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be",
+    "source_inputs_read_only": true
+  },
+  "verification": {
+    "core_replays": {
+      "checks_total": 10,
+      "checks_passed": 10,
+      "checks_failed": 0,
+      "bootstrap": {
+        "maude_metric_fields": 49,
+        "partd_metric_fields": 91,
+        "absolute_tolerance": 1e-12,
+        "resamples": 1000,
+        "seed": 20260929,
+        "maude_clusters": 2026,
+        "maude_product_quarters": 6370,
+        "maude_positive_edges": 13174,
+        "partd_prescribers": 2000,
+        "partd_eligible_observations": 2000,
+        "partd_positive_observations": 1019,
+        "partd_positive_count": 5476,
+        "conditional_on_frozen_predictions": true
+      },
+      "cms": {
+        "reference_comparisons": 2,
+        "numeric_fields_per_comparison": 284,
+        "absolute_tolerance": 1e-12,
+        "exact_tree_equality_for_both": true,
+        "references": [
+          "data/real_R4/cms_replayed.json",
+          "data/real_R4/cms_ties_exact.json"
+        ]
+      },
+      "maude_B": {
+        "deterministic_outputs_byte_identical": 5,
+        "files": [
+          "prepared_snapshots.json.gz",
+          "descriptors.json",
+          "training_tabular.csv",
+          "training_graph.csv",
+          "coverage_quarterly.csv"
+        ]
+      },
+      "coverage": {
+        "byte_identical_to_reference": true,
+        "quarters_checked": 12,
+        "detailed_product_quarters_checked": 9853
+      }
+    },
+    "replay_resource_usage": {
+      "measurement": "50 ms polling of the orchestrator process tree via /proc; aggregate RSS sums process VmRSS and does not deduplicate shared pages",
+      "samples": 90,
+      "peak_aggregate_tree_rss_kib": 182068,
+      "peak_aggregate_tree_rss_mib": 177.80078125,
+      "largest_observed_single_process_VmHWM_kib": 162372,
+      "wait4_maxrss_kib": 162372,
+      "wait4_user_cpu_seconds": 4.376125,
+      "wait4_system_cpu_seconds": 0.11719399999999999,
+      "wait4_total_cpu_seconds": 4.493319,
+      "sampled_tree_user_cpu_seconds": 4.35,
+      "sampled_tree_system_cpu_seconds": 0.09,
+      "wall_limit_seconds": 900,
+      "rss_limit_kib": 786432,
+      "aggregate_rss_limit_mib": 768,
+      "output_limit_bytes": 536870912
+    },
+    "replay_execution": {
+      "started_at_utc": "2026-10-02T13:53:46.027262+00:00",
+      "finished_at_utc": "2026-10-02T13:53:50.566604+00:00",
+      "elapsed_wall_seconds": 4.539362379000522,
+      "orchestrator_reported_at_utc": "2026-10-02T13:53:50.532512+00:00"
+    },
+    "arithmetic_and_manifest_audit": {
+      "passed": 609,
+      "total": 609,
+      "manifest_entries": 419,
+      "failures": []
+    },
+    "canonical_metric_concordance": {
+      "comparison": "canonical benchmark_summary_v0_2.csv versus archived data/verified_metrics_subset.csv",
+      "canonical_source": "results/benchmark_summary_v0_2.csv",
+      "archived_subset": "results/generated/consolidation-post-RC1/core-verification-20261002/inputs/HealthGraphBench_RC1/data/verified_metrics_subset.csv",
+      "canonical_rows": 116,
+      "subset_rows": 66,
+      "matched_keys": 66,
+      "missing_keys": [],
+      "conflicts_at_source_precision": 0,
+      "float_exact_matches": 64,
+      "reported_6_decimal_matches": 2,
+      "rounded_rows": [
+        {
+          "key": "partd_prescriber_drug/graph_bpr/test/provider_macro_recall_at_10",
+          "archive_value": 0.19959,
+          "canonical_value": 0.19958981230973738,
+          "archive_precision": "report_6_decimals",
+          "source_report_value": 0.19959,
+          "difference_from_full_precision": 1.8769026260967436e-07,
+          "source": "docs/benchmark_report_v0_2.md"
+        },
+        {
+          "key": "partd_prescriber_drug/graph_bpr/test/mrr",
+          "archive_value": 0.264137,
+          "canonical_value": 0.2641371477690927,
+          "archive_precision": "report_6_decimals",
+          "source_report_value": 0.264137,
+          "difference_from_full_precision": -1.4776909268432448e-07,
+          "source": "docs/benchmark_report_v0_2.md"
+        }
+      ],
+      "key_fields": [
+        "task",
+        "method",
+        "split",
+        "metric"
+      ],
+      "numeric_comparison": "exact binary-float equality where source_float; round source values to six decimal places where archive precision is report_6_decimals",
+      "interpretation": "The two differences are documented display precision, not substantive discrepancies; all 66 archived rows map to the current canonical summary."
+    },
+    "final_checks": [
+      {
+        "check": "frozen_package_integrity_and_document_checks",
+        "returncode": 0,
+        "checks_passed": 747,
+        "checks_total": 747,
+        "elapsed_seconds": 1.552483334991848,
+        "stderr": "",
+        "ready_for_submission": false
+      },
+      {
+        "check": "vendored_graphsage_source_ast",
+        "returncode": 0,
+        "definitions_compared": 16,
+        "differences": [],
+        "upstream_git_blob": "8f597390fb09bb7cb971cec92abd4742a8a9e718"
+      },
+      {
+        "check": "repository_regression_suite",
+        "command": "results/generated/consolidation-post-RC1/core-verification-20261002/analysis-env/bin/python -m unittest discover -s tests -v",
+        "returncode": 0,
+        "tests_run": 41,
+        "elapsed_seconds": 1.1762355850078166,
+        "python": "3.13.5",
+        "numpy": "2.3.5"
+      }
+    ],
+    "claims_evidence_rows": 42,
+    "inventory_rows": 27,
+    "claim_source_references_resolved": 124,
+    "original_production_input_identity": {
+      "benchmark_v0_2_partd_rankings": {
+        "path": "results/generated/partd-v0_2-model-gate-run-003/rankings.jsonl",
+        "sha256": "a3488f80d42784663e9036b355664394384e821b7455e7cd652e98217d591cf4",
+        "matched_frozen_rc1_expected_sha256": true
+      },
+      "original_maude_execution": {
+        "path": "results/maude_execution_v0_1_20260915.json",
+        "sha256": "cab43cf672ba81fc90a1ab36ce902fadb4251200ddb126bb4490c4b77df113f6",
+        "matched_frozen_rc1_expected_sha256": true
+      },
+      "original_cms_execution": {
+        "path": "results/cms_execution_v0_1_20260915.json",
+        "sha256": "f3794fef2db35f3f6670a9a912d3cc35126f503e5569cb38b9ce96a388edfaf4",
+        "matched_frozen_rc1_expected_sha256": true
+      }
+    }
+  },
+  "maude_diagnostic_preparation": {
+    "prepared_input_sha256": "1cba7f84ff24131715c68a985d9302c96c7bab4a4b2a27d906559a41104fbd36",
+    "snapshot_fields": [
+      "edges",
+      "product_reports",
+      "quarter"
+    ],
+    "refits": {
+      "2023Q1": {
+        "history_end": "2022Q4",
+        "product_nodes": 2878,
+        "problem_nodes": 516,
+        "historical_edges": 67676,
+        "triplets_per_epoch_implied_by_loop": 67676
+      }
+    },
+    "validation_quarters": [
+      {
+        "quarter": "2023Q1",
+        "observations_with_positive": 914,
+        "positive_edges": 2007,
+        "candidate_pairs_for_these_observations": 425657,
+        "candidate_min": 169,
+        "candidate_max": 515
+      },
+      {
+        "quarter": "2023Q2",
+        "observations_with_positive": 943,
+        "positive_edges": 2133,
+        "candidate_pairs_for_these_observations": 441235,
+        "candidate_min": 218,
+        "candidate_max": 516
+      },
+      {
+        "quarter": "2023Q3",
+        "observations_with_positive": 893,
+        "positive_edges": 2136,
+        "candidate_pairs_for_these_observations": 415234,
+        "candidate_min": 168,
+        "candidate_max": 516
+      },
+      {
+        "quarter": "2023Q4",
+        "observations_with_positive": 733,
+        "positive_edges": 1429,
+        "candidate_pairs_for_these_observations": 336462,
+        "candidate_min": 165,
+        "candidate_max": 516
+      }
+    ],
+    "validation_observations_with_positive": 3483,
+    "validation_positive_edges": 7705,
+    "validation_candidate_pairs": 1618588,
+    "grid": [
+      0,
+      3,
+      10,
+      30
+    ],
+    "independent_grid_triplets_implied_by_loop": 2910068,
+    "parameters": {
+      "dimension": 8,
+      "neighbor_sample": 8,
+      "learning_rate": 0.02,
+      "regularization": 0.0005,
+      "objective": "bpr",
+      "activation": "tanh"
+    },
+    "code_sha256": {
+      "healthgraphbench/tasks/maude/models.py": "07ae3cbc1f21b9e8018e02a77b3825bd84a65577146ee13d3d0b4518539c9bfb",
+      "healthgraphbench/tasks/maude/evaluate.py": "825cafb260dd2b8f8558224447a866cec9c7dba1cee5b5c5b05ad89a174145b7"
+    },
+    "new_models_trained": false,
+    "fit_runtime_measured": false,
+    "instrumentation_available": {
+      "epoch_parameter": true,
+      "optimization_loss_log": false,
+      "raw_embedding_and_transform_checkpoint": false,
+      "saved_inference_model": false
+    }
+  },
+  "documents": {
+    "index": "docs/consolidation-post-RC1/README.md",
+    "claims": "docs/consolidation-post-RC1/claims_evidence.csv",
+    "protocol": "docs/consolidation-post-RC1/experiment_protocol.md",
+    "scientific_changes": "docs/consolidation-post-RC1/scientific_changes.md",
+    "reports": [
+      "docs/consolidation-post-RC1/verification/core_replays.md",
+      "docs/consolidation-post-RC1/verification/claims_audit.md",
+      "docs/consolidation-post-RC1/verification/temporal_controls.md",
+      "docs/consolidation-post-RC1/verification/maude_diagnostic_feasibility.md"
+    ]
+  },
+  "generated_outputs": [
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/analysis_environment.json",
+      "bytes": 1141,
+      "sha256": "003e96fda56aeb5e6f98056f58b1d3b4df9a26cab981e48b42fe7464a24bd132"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/final-checks/graphsage_source_ast.json",
+      "bytes": 757,
+      "sha256": "742bcb2f459f2110099f54076ee49ff06d1e4b8f5fa78c32e6067ba7f5264c8d"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/final-checks/package_checks.json",
+      "bytes": 88875,
+      "sha256": "116fbffed8b5485c0e8f2ecab55e6e0f9297d9f802e776656852b68b04348a98"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/final-checks/repository_unittest.log",
+      "bytes": 6750,
+      "sha256": "7deebf1771771211ecc8e33e8278b5200fa308c5e6408a68833a4f74b46dad2f"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/maude_diagnostic_feasibility.json",
+      "bytes": 7751,
+      "sha256": "5ec38a7a458faa03047fcdf8e5bcf62cc6890fc838df05a19b16e7303e4b942a"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/numeric-checks/audit_numeric_consistency.json",
+      "bytes": 73295,
+      "sha256": "119caf77c4b4df924ee671caf248105e112c7cb5fb0071ee84af2c57ed41619b"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/numeric-checks/source_concordance.json",
+      "bytes": 1638,
+      "sha256": "84a59b6e6c5062082fb4408966eccde396b1b8d3e7b4b4eaebb4e8e2a3099fc5"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/numeric-checks/source_hashes.txt",
+      "bytes": 3004,
+      "sha256": "8a83d14411950517db3d8eeb14d92df650a418dcb9a1f7f31d22a61c070bcb5b"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replay_execution.json",
+      "bytes": 11987,
+      "sha256": "b6003f333457ad57187d305738c5ea53141ae78b33d6f1a1a00bd9d7400125dc"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/checks.json",
+      "bytes": 2316,
+      "sha256": "26e72306af6239343acc903ad744e2071f6f41594eba87272547d8d102b031a4"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/cms.log",
+      "bytes": 135,
+      "sha256": "141470698377a1e267e9f9dd905e1d9e22e4769ed00a503ce91b2309d3883b27"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/cms_replayed.json",
+      "bytes": 11830,
+      "sha256": "9c493d9c7a4cf5ba5b400fa558c9157bae9f1830c9b19ef7a6a47219860e1aa5"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/coverage.log",
+      "bytes": 178,
+      "sha256": "07eaf69d4b245c4e14501ce528c79d7bfe0dafb476aa37600cba3ad96913026f"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/maude.log",
+      "bytes": 137,
+      "sha256": "8b7339e399741381f164998d835b150bae9e973f7908bcd63ed1f27f0cce91dc"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/maude_B/SHA256SUMS",
+      "bytes": 519,
+      "sha256": "95a87eca3829e388f791ab576b3b7191b49fcda48cdf780eb635a67d48e40c40"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/maude_B/coverage_quarterly.csv",
+      "bytes": 2055,
+      "sha256": "eb60128a0bdad90a79da7eba7cb1b9fbb6cd0d3da87763375a27c8328b66907f"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/maude_B/descriptors.json",
+      "bytes": 5934228,
+      "sha256": "ce6d9ffeeb13bbd8004296f391d3ef058a40300e236a62cefbf82509335031dd"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/maude_B/prepared_snapshots.json.gz",
+      "bytes": 1643541,
+      "sha256": "1cba7f84ff24131715c68a985d9302c96c7bab4a4b2a27d906559a41104fbd36"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/maude_B/provenance.json",
+      "bytes": 9732,
+      "sha256": "c5a7588b720714914d98091fc11759567c1ab6fe4833273c76d7b52d677323fc"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/maude_B/training_graph.csv",
+      "bytes": 818,
+      "sha256": "df044455bb22d5fc11844ae4a8379b8b576a1205286405a0db591b7d887a5096"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/maude_B/training_tabular.csv",
+      "bytes": 221,
+      "sha256": "4456ec688867ab08821c735fdb5c267a87e35b31f21e9b37dc4c27f863d623ce"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/maude_B.log",
+      "bytes": 191,
+      "sha256": "240ad696de11aeb43ae155e9ca9bd3b09185fe797918e50714b79c5f0bc65484"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/maude_coverage_periods.json",
+      "bytes": 5431,
+      "sha256": "e5c317ae42cf3168b06d5d585f57af64ddb4208fe267ff5daaaebcbdafeaaf2b"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/maude_replayed.json",
+      "bytes": 2223,
+      "sha256": "ef1b778f3a6dfa8e04b436445b8b95433b2bac210ee3c3cd1290f206d54c5668"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/orchestrator.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/orchestrator.stdout.log",
+      "bytes": 2316,
+      "sha256": "26e72306af6239343acc903ad744e2071f6f41594eba87272547d8d102b031a4"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/partd.log",
+      "bytes": 137,
+      "sha256": "d4ac9ff59ae6a45c9f9120d00c3df3aa414c5a56f8d338f9391d298b24e533b6"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/replays/partd_replayed.json",
+      "bytes": 3106,
+      "sha256": "3085f570469ed7b585642652eca192358b2e63ca00f2c886e190366b5b362bad"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/final-checks/integration_smoke.json",
+      "bytes": 8129,
+      "sha256": "0604f78707a116f677a8317e877293cdc066bb0a40085779e4e4ce584a484c6c"
+    }
+  ],
+  "integration_smoke": {
+    "recorded_at_utc": "2026-10-02T14:40:47.643185+00:00",
+    "report_path": "results/generated/consolidation-post-RC1/core-verification-20261002/final-checks/integration_smoke.json",
+    "passed": true,
+    "inventory_sizes_and_sha256_verified": 27,
+    "claims_rows": 42,
+    "claims_columns": 11,
+    "claim_source_references_resolved": 124,
+    "unique_source_paths": 37,
+    "source_directory_paths": 1,
+    "local_documentation_links_resolved": 41,
+    "control_document_hashes_recorded": 13
+  },
+  "supplementary_resource_measurements": {
+    "arithmetic_audit": {
+      "elapsed_seconds_reported": 0.10734,
+      "peak_child_rss_kib": 44840,
+      "measurement": "time.monotonic and resource.getrusage(RUSAGE_CHILDREN) under Linux",
+      "source_report": "docs/consolidation-post-RC1/verification/claims_audit.md"
+    },
+    "maude_graph_and_eligibility_only": {
+      "elapsed_seconds": 0.5386306399886962,
+      "max_rss_kib": 144712,
+      "training_runtime_measured": false,
+      "source_report": "results/generated/consolidation-post-RC1/core-verification-20261002/maude_diagnostic_feasibility.json"
+    }
+  },
+  "limitations": {
+    "health_models_trained": false,
+    "new_health_predictions_computed": false,
+    "raw_data_reacquired_or_reconstructed": false,
+    "historical_checkpoints_recovered": false,
+    "independent_confirmation_established": false,
+    "human_author_approval_obtained": false,
+    "ready_for_submission": false,
+    "note": "Arithmetic, code/AST and document checks do not independently validate scientific conclusions; source SHA-256 identity does not by itself prove compact derivation."
+  }
+}

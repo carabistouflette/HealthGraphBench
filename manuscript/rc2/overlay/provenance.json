@@ -1,0 +1,125 @@
+{
+  "revision": "RC2.2",
+  "package_id": "manuscript-rc2.2",
+  "prepared_on": "2026-10-03",
+  "packaging_started_at_utc": "2026-10-02T21:43:32+00:00",
+  "translation_revision": {
+    "requested_on": "2026-10-03",
+    "canonical_language": "fr",
+    "english_role": "translation_not_independent_redrafting",
+    "previous_RC2_source_commit": "ed94a0c24d4e5813dcdd3b23ee9529d672da9152",
+    "previous_RC2_archive_sha256": "6e596ec0953581429bcee9c292e9443da30f52e92fe6132379e8579169de81f3",
+    "french_scientific_sources_modified": false,
+    "historical_english_tables": "Original protected tables retained; translated headers in separate *_translated_en.tex inputs."
+  },
+  "parent_archive": {
+    "name": "HealthGraphBench_FAIA_LaTeX_RC1.zip",
+    "sha256": "2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be",
+    "modified": false
+  },
+  "historical_provenance": "history/RC1/provenance.json",
+  "current_status_file": "data/revision_status_RC2.json",
+  "historical_benchmark_commit": "b010d5a49eae56837a920b2e30dece41c42c0c44",
+  "post_rc1_code_and_evidence": {
+    "C": {
+      "code_before_fits": "4a22c2addc8203efd2b38a60c416270855c3bf3b",
+      "evidence_commit": "5eb82ba534169b48cf3b926aa2aadaae04c38dba",
+      "manifest": "data/post_rc1/C_manifest.json",
+      "manifest_sha256": "0c8a610991e313d49a9fba03736d225897620cec86779989c8b243665942dff2"
+    },
+    "D1": {
+      "code_before_fits": "b14d878a78f559b65c70fc872a51a59af4c5ae85",
+      "evidence_commit": "55b2644e620dcd95fbbc1b3461a630f140c5e338",
+      "manifest": "data/post_rc1/D1_manifest.json",
+      "manifest_sha256": "8b78d8972004a4e3818c529f030e63b91340cff2bb1466248f6961c92699da12"
+    }
+  },
+  "current_operations": {
+    "latex_scientific_text_revised": true,
+    "completed_C_D1_results_incorporated": true,
+    "historical_numeric_payload_modified": false,
+    "new_figures_from_completed_outputs": true,
+    "health_model_training_executed_during_RC2_preparation": false,
+    "raw_archives_reacquired": false,
+    "new_predictions_computed_during_RC2_preparation": false,
+    "new_tuning_bootstrap_or_intervals": false,
+    "pdfs_recompiled": false,
+    "package_checks_executed": false,
+    "submission_sent": false,
+    "github_release_published": false,
+    "new_DOI_created": false,
+    "new_tag_created": false,
+    "new_bootstrap_interval_only": false
+  },
+  "current_verification_directory": "verification/rc2",
+  "retention_manifest": "release/protected_payload.json",
+  "current_change_log": "RELEASE_NOTES_FR.md",
+  "ready_for_review": true,
+  "submission_ready_claimed": false,
+  "DOI": {
+    "benchmark_declared": "10.5281/zenodo.22796551",
+    "manuscript_package_DOI": null,
+    "new_publication_or_DOI_claimed": false
+  },
+  "scientific_scope": "C and D1 are prior completed new trainings on prepared MAUDE snapshots, not performed again for RC2. C mean30 retained in D1; only none30 trained for D1. All consulted origins remain exploratory. Historical IC applies only to original contrast. D2 excluded. New authorized post-hoc paired C30–historical-neighbors interval, conditional on retained predictions, added on 2026-10-03; no new training or tuning.",
+  "rss_audit_reserve": {
+    "VmHWM_bytes": 118292480,
+    "ru_maxrss_bytes": 571580416,
+    "startup_metrics_recorded": false,
+    "global_audit_RSS_below_512MiB_certified": false,
+    "certain_peak_cause_claimed": false,
+    "note": "Scientific phase budgets separately passed; post-audit RSS measures have different scope. The non-health exec probe does not establish the audit peak cause."
+  },
+  "review_scope": "Inherited R6 review and response are historical attachments, not approval of C/D1 or RC2. No author declarations or editorial approval inferred.",
+  "historical_registry_notes_fr": [
+    "\\textbf{Versions et preuves.} R2 a ajouté les descripteurs disponibles, la décomposition CMS, la figure en différences, les deux bootstraps et les déciles annuels. R3 conserve les fichiers numériques octet pour octet, corrige la portée du contrôle synthétique, les déclarations de provenance et les commandes imprimées. Les statuts historiques sont dans \\src{history/R3/data/revision_status_R3.json}; les déclarations héritées sont archivées sous \\src{history/R2}. \\src{data/source_map_R3.csv} distingue les sources relues des pièces reçues. Les analyses et empreintes externes documentées en R2 ne sont pas présentées comme indépendamment reproduites en R3.",
+    "",
+    "\\textbf{Preuves historiques R4/R5 et collecte R6 ; ajouts C/D1 RC2.} Les identités d'AP et la reconstitution des effectifs CMS restent des contrôles sur résumés. Les calculs exacts, distributions candidates et compacts historiques sont séparés sous \\src{data/real_R4}. Le noyau GraphSAGE de S8 est vérifié sur l'instance synthétique. Les statuts historiques R5 restent sous \\src{data/revision_status_R5.json}; les tableaux MAUDE B1/B2 et instantanés préparés restent sous \\src{data/real_R6/maude_B}. Ces éléments historiques ne portaient ni sur les nouveaux fits C/D1 ni sur leurs checkpoints. Les nouveaux fits, checkpoints et audits C/D1 sont documentés sous \\src{data/post_rc1} et en S11. Les contrôles de conditionnement R5 et autres preuves héritées conservent leurs chemins historiques.",
+    "",
+    "\\textbf{Contenu hérité.} L'archive RC1 et ses sources restent des pièces historiques, non le paquet RC2 prêt à soumettre. Les répertoires \\src{data}, \\src{scripts}, \\src{tests} et \\src{figures} décrivent le contenu RC1 ; les nouveaux fichiers et preuves RC2 sont identifiés séparément en S11. Le statut du paquet de travail RC2, qui n'est ni une soumission ni une version approuvée, est récapitulé en S12."
+  ],
+  "targeted_revision": {
+    "requested_on": "2026-10-03",
+    "previous_commit": "b2b9f3381506332b7a1c1195913f413c2f7ce49d",
+    "previous_archive_sha256": "7d444c7e88a671aba86ff0e0bfa18f48158be7ee1b790e416162ad29d409cdcd",
+    "French_canonical_revised_before_English_translation": true,
+    "C_primary_D1_secondary": true,
+    "new_paired_analysis_authorized": true,
+    "paired_result": "data/post_rc1/paired_C30_neighbors.json",
+    "protocol": "data/post_rc1/paired_protocol.json",
+    "protocol_sha256": "3b83a0b38cd217617e2b7acbc1166bdf98ed9b5b9e31f9a7bf6c942b70a6d6ad",
+    "historical_C_D1_payloads_unchanged": true,
+    "no_new_fits_D2_or_historical_audits": true
+  },
+  "minor_documentary_revision": {
+    "requested_on": "2026-10-03",
+    "previous_commit": "2195bc3a096ff1fcd0d30d30e4a5c7f9fb177011",
+    "audited_archive": "HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip",
+    "audited_archive_sha256": "0dabeab0a95cbe956315866ebcb97ce1b6ad780dfeb2e304648e72359910726a",
+    "received_report": "verification/rc2_minor/external_audit_received.md",
+    "received_report_sha256": "645fecc09b9f14b986b655a1306a0fc311f59ebacfa77eeb010ae751af50fc74",
+    "changes": [
+      "Figure 2 caption describes validation recall only, losses referred to S11; French then English",
+      "Common hgbcode bibliography note points to evidence map S2, not methods S1"
+    ],
+    "new_analysis_training_tuning_bootstrap_or_score": false,
+    "external_audit_attribution": "User-transmitted audit reports independent inference/checkpoint/bootstrap reconstruction; not rerun in this documentary pass. Upstream acquisition and training remain outside that audit.",
+    "author_or_editorial_approval": false,
+    "historical_bibliography": "Original bytes and original hash retained at history/RC1/references.bib; active bibliography differs only by S1 to S2 in one note.",
+    "revision_label": "RC2.1",
+    "version_numbering_requested_by_user": true
+  },
+  "closure_revision": {
+    "revision_label": "RC2.2",
+    "previous_commit": "ef7082af8e26be9d659e7bf18a986444770fc1bc",
+    "previous_archive": "HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip",
+    "previous_archive_sha256": "fb00dd2add37b8f84f92f14e3657cf6416076674e802e30d40d1fde2a71492c6",
+    "received_roadmap": "verification/rc2_closure/roadmap_received.md",
+    "received_review_scope": "PDF reading and some arithmetic fractions; not a new execution of the package, distinct from the preceding transmitted executable audit",
+    "training_wording": "Separate training runs, deterministically reinitialized without warm start; not independent random repetitions or independent data",
+    "figure_changes": "New historical3 cutoff derivatives clarify the original three-epoch model; original figures retained; C titles clarify separate runs; all plotted numbers retained",
+    "new_training_scores_tuning_bootstrap_audit": false,
+    "French_canonical_before_English": true,
+    "human_gates_still_open": true
+  }
+}

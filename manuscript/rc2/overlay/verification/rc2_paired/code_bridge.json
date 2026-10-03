@@ -1,0 +1,26 @@
+{
+  "historical_execution_commit": "ca0d64b2738c3f36637196cfb14d2fe4115a7c37",
+  "historical_benchmark_commit": "b010d5a49eae56837a920b2e30dece41c42c0c44",
+  "C_code_commit": "4a22c2addc8203efd2b38a60c416270855c3bf3b",
+  "source_comparison_command": "git diff ca0d64b2738c3f36637196cfb14d2fe4115a7c37 4a22c2addc8203efd2b38a60c416270855c3bf3b -- healthgraphbench/tasks/maude/models.py healthgraphbench/tasks/maude/evaluate.py",
+  "evaluation_source_changed": false,
+  "models_source_changes": [
+    "optional on_epoch/on_checkpoint callbacks",
+    "counters and pre-update softplus data loss",
+    "raw checkpoint serialization and inference reconstruction",
+    "final representation calculation extracted into _graphsage_embeddings"
+  ],
+  "unchanged_calculation_elements": [
+    "sorted products and positive problems",
+    "sinusoidal identity initialization salts11/17",
+    "identity self and .25 diagonal neighbor initial transforms",
+    "hashed neighbor sampling",
+    "epoch/product/problem hashed negatives excluding positives",
+    "BPR coefficient, message gradients, regularized SGD updates",
+    "mean/tanh/dot scoring and zero fallback"
+  ],
+  "evidence_limit": "Source comparison plus retained non-health fixtures, not a rerun of historical health fits or a proof over all possible inputs",
+  "retained_preflight": "data/post_rc1/C_preflight.json",
+  "retained_exact_score_pairs": 364,
+  "new_fits": false
+}

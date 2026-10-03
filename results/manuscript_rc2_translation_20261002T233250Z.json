@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "package_id": "manuscript-rc2",
+  "revision_kind": "english_translation_from_canonical_french",
+  "requested_on": "2026-10-03",
+  "completed_at_utc": "2026-10-02T23:50:41.179552+00:00",
+  "previous_source_commit": "ed94a0c24d4e5813dcdd3b23ee9529d672da9152",
+  "previous_archive_sha256": "6e596ec0953581429bcee9c292e9443da30f52e92fe6132379e8579169de81f3",
+  "previous_delivery_preserved": true,
+  "archive": {
+    "path": "/home/arobin/Downloads/HealthGraphBench_FAIA_LaTeX_RC2_traduction_FR.zip",
+    "sha256": "7d444c7e88a671aba86ff0e0bfa18f48158be7ee1b790e416162ad29d409cdcd",
+    "size_bytes": 12344859,
+    "member_files": 491,
+    "manifest_entries": 490,
+    "crc_and_member_bytes_verified": true
+  },
+  "canonical_language": "fr",
+  "english_is_translation_not_independent_redraft": true,
+  "translation_concordance": {
+    "file_pairs": 26,
+    "all_passed": true,
+    "report": "manuscript/rc2/overlay/verification/rc2_translation/language_concordance.json"
+  },
+  "french_tex_files_unchanged": 53,
+  "french_pdf_text_unchanged": true,
+  "pdfs": [
+    {
+      "file": "main_fr.pdf",
+      "pages": 16,
+      "sha256": "00af5d9e01b82677e42727e9976ee8d18bed9ef1f5a536c6c17b801239e1744a"
+    },
+    {
+      "file": "main_en.pdf",
+      "pages": 15,
+      "sha256": "ca869d053e22c84d51fd4ccfcb89e53b935776f14b160fa896aa2e7f64387b52"
+    },
+    {
+      "file": "supplement_fr.pdf",
+      "pages": 21,
+      "sha256": "397613ea95f44a82fd9dbcae7f1b7dd40f610228ecd81d957c33ecb118b83e6d"
+    },
+    {
+      "file": "supplement_en.pdf",
+      "pages": 20,
+      "sha256": "5ecfc57bf1c4eef50ce83fa784f00f35e6651ccd68f8ca28833355fe30e7c590"
+    },
+    {
+      "file": "response_reviewers_fr.pdf",
+      "pages": 2,
+      "sha256": "06d339842870876f8226fb6269b13371fee9d3389b49904f9165d18ff722686b"
+    }
+  ],
+  "standalone_english_exports": [
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_manuscript_en_RC2_traduction_FR.pdf",
+      "sha256": "ca869d053e22c84d51fd4ccfcb89e53b935776f14b160fa896aa2e7f64387b52"
+    },
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_supplement_en_RC2_traduction_FR.pdf",
+      "sha256": "5ecfc57bf1c4eef50ce83fa784f00f35e6651ccd68f8ca28833355fe30e7c590"
+    }
+  ],
+  "package_check": {
+    "passed": true,
+    "checks": 648,
+    "report": "results/generated/manuscript-rc2-translation-20261002T233250Z/ready/RC2_delivery_check.json"
+  },
+  "visual_review": {
+    "scope": "Assistant technical inspection, not human author approval or venue-format certification",
+    "english_pdfs": {
+      "main_en.pdf": 15,
+      "supplement_en.pdf": 20
+    },
+    "all_english_page_contact_sheets_examined": true,
+    "enlarged_pages_examined": {
+      "main_en.pdf": [
+        1
+      ],
+      "supplement_en.pdf": [
+        1,
+        18
+      ]
+    },
+    "english_figures_examined": true,
+    "english_critical_latex_warnings": [],
+    "clipping_observed": false,
+    "french_pdf_extracted_text_unchanged": [
+      "main_fr.pdf",
+      "supplement_fr.pdf",
+      "response_reviewers_fr.pdf"
+    ],
+    "canonical_french_tex_files_unchanged": 53,
+    "contact_sheets_directory": "results/generated/manuscript-rc2-translation-20261002T233250Z/visual-review"
+  },
+  "new_fits_scores_tuning_intervals_or_scientific_audits": false,
+  "local_unit_suite_rerun_for_translation": false,
+  "author_approval": false,
+  "ready_for_submission": false
+}

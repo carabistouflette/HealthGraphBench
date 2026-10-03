@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "analysis": "MAUDE retained C30 versus historical neighbor_frequency",
+  "locked_at_utc": "2026-10-03T13:02:49.137986+00:00",
+  "authorization": "User selected revision + paired comparison + conditional CI, 2026-10-03",
+  "prior_predictions_already_observed": true,
+  "external_preregistration": false,
+  "population": {
+    "quarters": [
+      "2024Q1",
+      "2024Q2",
+      "2024Q3",
+      "2024Q4",
+      "2025Q1",
+      "2025Q2",
+      "2025Q3",
+      "2025Q4"
+    ],
+    "historical_product_support_min": 1,
+    "positive_product_quarters_only": true,
+    "expected_observations": 6370,
+    "expected_positive_edges": 13174,
+    "expected_products": 2026,
+    "expected_candidate_pairs": 2975156
+  },
+  "contrast": {
+    "A": "C GraphSAGE mean, 30 epochs selected on 2023 validation",
+    "B": "historical neighbor_frequency",
+    "statistic": "(sum hits_A_at_10 - sum hits_B_at_10) / sum positive_edges",
+    "direction": "A minus B",
+    "primary_K": 10,
+    "no_secondary_hypothesis_tests": true
+  },
+  "pairing": {
+    "key": [
+      "product",
+      "quarter"
+    ],
+    "require_same_keys_support_positive_ids_and_counts": true,
+    "candidate_check": "C full candidate IDs against lists reconstructed from the fixed prepared history using the unchanged historical candidate rule; historical export retains candidate_count and sampled predictions, not full historical candidate IDs",
+    "historical_hits": "read entity_metrics, not re-score neighbor_frequency",
+    "C_hits": "read positive labels and retained ranks, not re-score or reload checkpoints",
+    "mismatches": "fail; no intersection-only cohort or imputation"
+  },
+  "bootstrap": {
+    "cluster": "product",
+    "keep_all_quarters_together": true,
+    "products_sorted_lexically": true,
+    "resamples": 1000,
+    "seed": 20261003,
+    "generator": "numpy.random.default_rng / cluster_bootstrap_indices",
+    "interval": "percentile 2.5%, 97.5%; linear interpolation",
+    "recompute_pooled_ratio_each_resample": true,
+    "undefined_samples": "fail, do not discard or redraw"
+  },
+  "scope": {
+    "conditional_on_retained_predictions_and_observed_population": true,
+    "model_selection_or_training_uncertainty_included": false,
+    "all_network_dependence_removed": false,
+    "independent_confirmation": false,
+    "duration_causal_effect": false,
+    "new_fits_tuning_seeds_D2_or_historical_audits": false
+  },
+  "limits": {
+    "wall_seconds": 900,
+    "rss_bytes": 536870912,
+    "output_bytes": 536870912
+  },
+  "inputs": [
+    {
+      "role": "historical_execution",
+      "path": "results/maude_execution_v0_1_20260915.json",
+      "sha256": "cab43cf672ba81fc90a1ab36ce902fadb4251200ddb126bb4490c4b77df113f6"
+    },
+    {
+      "role": "prepared_snapshots",
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/inputs/HealthGraphBench_RC1/data/real_R6/maude_B/prepared_snapshots.json.gz",
+      "sha256": "1cba7f84ff24131715c68a985d9302c96c7bab4a4b2a27d906559a41104fbd36"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2024Q1",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q1/candidate_predictions.jsonl.gz",
+      "sha256": "dc5fb5ee3f39f29c0898e9a3f2911fff5c8edb402bfa5e812d61382687f7e807"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2024Q1",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q1/candidate_sets.jsonl.gz",
+      "sha256": "900f5908a6f3481440e3f927c6b55eace69dcdea1feb446a05b3921d1221fb4a"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2024Q2",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q2/candidate_predictions.jsonl.gz",
+      "sha256": "ff251ad75b1e85e5f96b24a9b4706d443acd72cb9cf92d171cc55b3d191992f9"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2024Q2",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q2/candidate_sets.jsonl.gz",
+      "sha256": "bac7c0368662617a3816617f61f37e9f3be822d8873f62c8834eeaf47d5d8c3e"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2024Q3",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q3/candidate_predictions.jsonl.gz",
+      "sha256": "586482dbe8e122908550336b8bc238c2bf560c1111ac95d3b77b575eefac35da"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2024Q3",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q3/candidate_sets.jsonl.gz",
+      "sha256": "0fae41a046b2e5db8dce2e1b87f13f778eba2c682fd23e63915db3198d69836e"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2024Q4",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q4/candidate_predictions.jsonl.gz",
+      "sha256": "5ab8e77c696c4f44e5395bc191f230a8c46f02b7313096ac7b205fe695af3c2a"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2024Q4",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q4/candidate_sets.jsonl.gz",
+      "sha256": "4ba20be6892490f62c0a961f8eb4a56586d3d02e140eb07c250a334c5500d9bb"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2025Q1",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q1/candidate_predictions.jsonl.gz",
+      "sha256": "9f9166a4e2002efccc914db09d632805170ccd367d7a41a7786bc601070d5689"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2025Q1",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q1/candidate_sets.jsonl.gz",
+      "sha256": "f097867ec47f53fa96c0e9ccff8bc51bb17e034fb32d46cecb0b2f0e491e6e5e"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2025Q2",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q2/candidate_predictions.jsonl.gz",
+      "sha256": "ec241572d0bf5b892939354b08a3abed199dce57599abe3cc18b70ef15680dd9"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2025Q2",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q2/candidate_sets.jsonl.gz",
+      "sha256": "bed8e2bcb3b33d6a235a79ec23be88ec4ac9aea8fa2b75e243e98a7fa1f9785c"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2025Q3",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q3/candidate_predictions.jsonl.gz",
+      "sha256": "ea34c08015d80638f55f900f65c58a599a4d8b087c8c83c42c6413fa8b4669fb"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2025Q3",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q3/candidate_sets.jsonl.gz",
+      "sha256": "ffcf51ef018bd4fdf1b518d9eefcddad651aa9372837a73de963ef081a7d09d1"
+    },
+    {
+      "role": "C_predictions",
+      "quarter": "2025Q4",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q4/candidate_predictions.jsonl.gz",
+      "sha256": "76c868844be14ef5bb5f9651f762545ad55b48e279507a98c6ce2b5d2834e28b"
+    },
+    {
+      "role": "C_sets",
+      "quarter": "2025Q4",
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q4/candidate_sets.jsonl.gz",
+      "sha256": "d8e7eb9e2faa823ae7a9b5f1bba75c41ee6a7d4cbae0076199d9ea16114c2565"
+    }
+  ]
+}
