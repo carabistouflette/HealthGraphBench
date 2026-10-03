@@ -22,6 +22,21 @@ Ressources mesurées du run complet:33 phases, somme des durées supervisées31.
 ### Erreur conservée
 
 `cms-comparison-001` s’est arrêté après les six fits logistiques facility-history de validation: `max_features=1` JSON entier refusé par scikit-learn avant le premier fit HGB. Ce run est conservé, sans sélection. Conversion en float dans le seul adapter CMS, mêmes valeurs/grilles/seeds/plafonds, smoke et régression publiés **avant** le nouveau run complet. Preuves: `results/q2_cms_first_run_failure_20261003.json` et `results/q2_cms_compatibility_preflight_20261003.json`. Les autres runs gardent leur propre snapshot de sources; la correction CMS n’est pas rétrospectivement attribuée à leur code.
+## Réutilisation Part D — preuve technique réalisée
+
+`results/q2_external_reuse_20261003.json` conserve le witness `external-reuse-001`: les sixCSV bruts vérifiés, une préparation fraîche, deux fits cosine aux cutoffs2023/2024, les vrais fits du logistique SDK demandé, de nouveaux scores et une évaluation recalculée par `PartDTask.evaluate`. Le driver hors repo importe les40 fichiers de package vérifiés depuis `site-packages`, sous Python isolé `-I`, sans editable/PYTHONPATH ni patch de whitelist. Les checkpoints cosine sont rechargés et l’identité des scores est vérifiée.
+
+| Modèle du witness | Recall micro@10 validation2023 | Recall micro@10 test2024 |
+|---|---:|---:|
+| Cosine top50 hors paquet, non supervisé, sans tuning | .260960 | .258583 |
+| Logistique SDK public, algorithme historique18 époques | .178460 | .168188 |
+
+Chaque target a2000 providers;2024 compte5476 relations positives réparties sur1019 providers et981 providers sans positif. Le logistique SDK n’est **pas** le comparator LBFGS choisi par la nouvelle grille Q2. Ces métriques de witness sont exploratoires; le but ici est la réutilisation observable, pas une comparaison réglée supplémentaire ou une validation humaine.
+
+Phase raw→fits→évaluation:1362.134s supervisées,1340.519s CPU rapportées,595 460 096B de RSS agrégée maximale. Le PID après `execve` est bien celui supervisé. Le wheel vient du clone propre `f8ea41c4d8f090560fbdbc698db2300821b9cfef`, SHA256 `b5c776556ef64686804c4dec6e354127c59c3db441710519da793ffee6117428`; versionSDK0.2.0 de développement, pas nouvelle publication du benchmarkDOI.
+
+Paquet `HealthGraphBench_Q2_Reuse_20261003.tar.gz`:13 086 403B, SHA256 `b0b2cddc54be88120dc6933f544cfa5d4be3811b77d1b65bb15a5e403c66315a`. Wheel, logs, provenance, préparations dérivées, checkpoints et prédictions conservés, sans lesCSV raw. L’étude d’un participant humain extérieur demeure **pending**; cette exécution est assistant-authored.
+
 
 ## Limites de preuve
 
