@@ -86,6 +86,7 @@ def _fit_phase(
     elif family == "boosted":
         parameters = {key: value for key, value in fixed.items() if key != "seed_repetition_condition"}
         parameters.update(configuration)
+        parameters["max_features"] = float(parameters["max_features"])
         model = HistGradientBoostingClassifier(random_state=0 if seed is None else seed, **parameters)
     else:
         raise ValueError(f"unknown CMS family {family!r}")

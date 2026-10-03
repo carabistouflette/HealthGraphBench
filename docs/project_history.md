@@ -299,3 +299,7 @@ The nonmedical preflight found and corrected missing Numba helper registration a
 
 The integrated repository suite passed78 tests. No new medical fit had run at this preflight boundary. Prospective Part D requires fresh complete public recaptures and catalogue gates both after input capture and after fits; official target bytes must match their2025 node/primary-file metadata. Local timestamps alone are not an external prepublication anchor. Real2025 data and human nonconsultation/reuse evidence remain separate unmet prerequisites. RC2.2, C/D1, their environments and ledgers, and the four user documents remain outside this cutover; no merge, tag, manuscript submission or Zenodo publication is implied.
 
+### CMS first-run compatibility correction
+
+The first medical CMS run was retained incomplete: six facility-history logistic validation fits completed, but HGB rejected the JSON integer `max_features=1` before its first fit. The CMS adapter now converts that fixed value to float, as the other Q2 adapters already do; protocol bytes, grids, seeds and budgets are unchanged. A supervised synthetic fit learned the strictly prior relation and scored the deliberately inverted target labels without target fitting. Its preflight and regression are published before restarting the full CMS comparison in a new output root; no incomplete-grid selection or overwriting is permitted. Other active runs retain their original source snapshots.
+
