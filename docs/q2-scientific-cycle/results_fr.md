@@ -94,6 +94,18 @@ Wall observée2013.026s, CPU worker cumulée1999.932s, RSS agrégée maximale850
 
 L’archive conserve les324 fichiers du run, **y compris `edges.csv` de préparation dérivée**, et49 checkpoints, sans les sixCSV sources CMS. `HealthGraphBench_Q2_PartD_20261003.tar.gz`:630 693 314B, SHA256 `abaf9d40356dc6a8dc02cdddc5fa70328f9e18d082f7f2fabc0989328de3fca4`. Preuves: `results/q2_partd_comparison_20261003.json`, `results/q2_partd_artifacts_20261003.json`, `results/q2_partd_archive_20261003.json`, `results/SHA256SUMS_q2_partd_20261003`.
 
+## Part D — forecast prospectif réellement scellé
+
+`partd-prospective-001` conserve les captures HTTP200 intégrales des sixCSV2019–24, soit22 609 355 460B, avec leurs empreintes exactes. Les trois catalogues officiels avant/après captures et après fits ne listent pas le service2025. OrigineUTC `2026-10-03T22:10:50.231060Z`; scellement final `2026-10-03T22:28:54.610343Z`.
+
+La cohorte2000 NPIs exclut tous les2518 NPIs de développement et les2288 du nouveau run de comparaison. Les configurations sont reprises sans tuning/choix de seed; sept modèles appris et deux heuristiques produisent chacun2 112 688 scores. HGB359 300 lignes nécessite trois seeds.19/19 phases terminées, wall2241.490s, RSS maximale834 887 680B. Le forecast ne contient aucun label ou résultat métrique2025.
+
+Les records exacts, incluant les neuf empreintes de fichiers de scores et les sept checkpoints appris, ont été publiés au commit [`2a59324003fe8b9c89a5f1e9ff6464f2a76f6ab2`](https://github.com/carabistouflette/HealthGraphBench/commit/2a59324003fe8b9c89a5f1e9ff6464f2a76f6ab2). Le dépôt GitHub a été observé **public**. Un nouveau contrôle du catalogue après cette visibilité externe, à22:43:54.412446UTC, ne liste toujours pas le service2025; son corps exact est conservé. L’ancrage externe est distinct des timestamps locaux, sans prétendre démontrer une absence universelle de données privées.
+
+Archive `HealthGraphBench_Q2_PartD_Prospective_20261003.tar.gz`:115 004 400B, SHA256 `ced58e93d6168e6767bbbf34d6eb9a5785b4e8279ea59f012749c1aba474d35c`, sans lesCSV sources, avec histoire/cohorte dérivées, scores et checkpoints. Inventaire complet du run et du contrôle après publication:106 fichiers/200 094 439B. Preuves `results/q2_partd_prospective_20261003.json`, `results/q2_partd_prospective_forecast_20261003.json`, `results/q2_partd_prospective_publication_20261003.json` et `results/q2_partd_prospective_full_artifacts_20261003.json`.
+
+**L’évaluation indépendante n’a pas été réalisée:** source officielle annuelle2025 encore non listée dans les catalogues capturés, aucune métrique cible, attestation humaine de non-consultation `unknown`. Le statut demeure `sealed_awaiting_official_target_publication`; ni le forecast ni l’assistant ne passent ces gates.
+
 ## Limites de preuve
 
 Le prévol4000→2000 providers, Recall@10=.5/Recall@20=1, est **synthétique et logiciel**; il ne s’ajoute pas à ce tableau médical. Son transport CMS simulé ne prouve pas une source officielle publique. L’évaluation réellement indépendante requiert la source cible future et les conditions/attestations de non-consultation; l’étude d’utilisateur extérieur humain requiert un participant réel. Un forecast scellé ou une exécution d’assistant ne satisfait pas ces gates.
