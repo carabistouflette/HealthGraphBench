@@ -37,6 +37,23 @@ Phase raw→fits→évaluation:1362.134s supervisées,1340.519s CPU rapportées,
 
 Paquet `HealthGraphBench_Q2_Reuse_20261003.tar.gz`:13 086 403B, SHA256 `b0b2cddc54be88120dc6933f544cfa5d4be3811b77d1b65bb15a5e403c66315a`. Wheel, logs, provenance, préparations dérivées, checkpoints et prédictions conservés, sans lesCSV raw. L’étude d’un participant humain extérieur demeure **pending**; cette exécution est assistant-authored.
 
+Inventaire complet du witness et de son wheel:31 fichiers, dont deux checkpoints cosine,111 700 682B; `results/q2_external_reuse_artifacts_20261003.json` et `results/SHA256SUMS_q2_external_reuse_20261003`. Les données d’origine2019–24 ne figurent pas dans ce ledger de sortie ni dans l’archive.
+
+
+## MAUDE — validation complète et reprise conservée
+
+`results/q2_maude_validation_20261003.json` conserve les84 fits de validation, trente époques de pertes lorsqu’applicables, sensibilités par seed et critères d’admissibilité. Les six configurations sont achevées pour chaque famille. Aucun seed n’est sélectionné.
+
+| Famille | Configuration choisie | Recall micro@10 validation2023, moyenne requise |
+|---|---|---:|
+| Logistique | C.01 | .186762 |
+| HGB | configuration01 | .185853 |
+| Spectral | configuration06 | .176163 |
+| BPR | configuration06 | .227169 |
+| GraphSAGE `mean` | configuration01 | .190785 |
+| GraphSAGE `none` | configuration04 | .149167 |
+
+Les six configurations `mean` passent les trois gates de validation; `none01` n’est pas admissible, les cinq autres le sont. Le contrôle `none04` est réellement apprenant sur validation, sans voisin; cela ne prouve ni généralisation ni effet causal à capacité égale. Le premier run s’est arrêté sur sérialisation avant les fits test, et reste incomplet conservé. Les nouveaux refits doivent passer à nouveau leurs gates avant toute interprétation de leurs métriques.
 
 ## Limites de preuve
 
