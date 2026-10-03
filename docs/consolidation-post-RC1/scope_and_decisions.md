@@ -155,3 +155,10 @@ C devient principal ; D1 reste complet mais secondaire, sous réglages fixes, sa
 
 Le nouvel IC par produit est conditionnel aux prédictions et à la population observée, hors incertitude de sélection/entraînement et sans retrait de toutes les dépendances réseau. Aucun nouveau fit, score, tuning, graine d'entraînement, D2 ou audit historique réussi ; seule la graine bootstrap 20261003 est nouvelle. Français révisé d'abord, puis traduction ; nouvelles preuves distinctes, anciens ZIP/ledgers/checkpoints conservés. Les gates humains, E/F et la revue cible restent ouverts.
 
+
+## 3 octobre 2026 — RC2.1 documentaire, sans nouvelle analyse
+
+Avis utilisateur favorable au positionnement exploratoire, sous correction de la légende de la figure 2 et du renvoi bibliographique vers S2. Portée inchangée : C principal, D1 secondaire, IC conditionnel non prospectif. Aucun entraînement, score, tuning, bootstrap, D2 ou audit scientifique acquis relancé. Le recalcul indépendant décrit dans le rapport reçu est attribué à cet audit, sans le présenter comme notre nouvelle exécution ou une validation prospective.
+
+Numérotation **RC2.1** demandée par l'utilisateur. Livraison distincte, RC2 auditée et tous les ledgers antérieurs conservés. Exception documentaire de conservation explicitée : bibliographie active corrigée dans une note ; original archivé à la même empreinte, 105 autres chemins protégés inchangés. Nouvelle review après corrections ; auteurs, déclarations, revue, archivage pérenne et autorisation de soumission restent ouverts.
+

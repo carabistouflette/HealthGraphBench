@@ -33,8 +33,8 @@ def main():
     release = json.loads((ROOT / 'release.json').read_text())
     provenance = json.loads((ROOT / 'provenance.json').read_text())
     status = json.loads((ROOT / release['current_scientific_status']).read_text())
-    check('package_identity', release['package_id'] == 'manuscript-rc2'
-          and release['release_candidate'] == provenance['revision'] == status['revision'] == 'RC2'
+    check('package_identity', release['package_id'] == 'manuscript-rc2.1'
+          and release['release_candidate'] == provenance['revision'] == status['revision'] == 'RC2.1'
           and (ROOT / 'VERSION').read_text().strip() == release['package_id'])
     check('parent_preserved', release['parent_archive'] == provenance['parent_archive']
           and provenance['parent_archive']['modified'] is False)
@@ -129,7 +129,7 @@ def main():
                   and '__pycache__' not in path.parts and path != ROOT / 'SHA256SUMS'}
         check('manifest_complete', actual == listed,
               {'unlisted': sorted(actual - listed), 'missing': sorted(listed - actual)})
-    report = {'revision': 'RC2', 'passed': all(row['passed'] for row in checks),
+    report = {'revision': release['release_candidate'], 'passed': all(row['passed'] for row in checks),
               'ready_for_submission': False, 'manifest_skipped': args.skip_manifest,
               'scope': 'Delivery integrity and arithmetic on retained results; no fits or scientific audits rerun',
               'checks': checks, 'pdfs': pdfs}

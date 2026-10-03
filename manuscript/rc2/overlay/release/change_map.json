@@ -1,42 +1,42 @@
 {
-  "scope": "Tracked RC2 source overlay relative to immutable RC1; hashes are source templates before compilation. Final SHA256SUMS covers actual compiled-state bytes. This map excludes itself.",
+  "scope": "RC2.1 source templates relative to immutable RC1; map excludes itself. Final SHA256SUMS is authoritative for actual compiled-state bytes. Historical bibliography preserved, active source-map note S1 to S2 corrected.",
   "parent_archive_sha256": "2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be",
   "files": [
     {
       "file": "README.md",
       "status": "changed",
       "previous_sha256": "aa25f3b7164ee0830ca07798b7cb1ac4a0a062220cb9127517f1a9cfbb86f865",
-      "overlay_sha256": "e5613f6dd4de48b4f30a3f188cf17a270c7af5f3f5b02d30c74029be7f345df1"
+      "overlay_sha256": "8e0e5debbe2df235d7a5be227479381b43da638106f287b04d1382e3ce6379aa"
     },
     {
       "file": "README_EN.md",
       "status": "changed",
       "previous_sha256": "93610899393cbf89539e77af56ccdc49f8aa731d3ebd05f92a0f4885a78dd3f8",
-      "overlay_sha256": "f6e87e6f336f398adc7f80651cc6f90bb0d4b78a2c331466b7369b8aae25bf80"
+      "overlay_sha256": "95524ea53f29b3df1ca78595ec327674c78554a3eea8cde065f7a06e9752bfdd"
     },
     {
       "file": "README_FR.md",
       "status": "changed",
       "previous_sha256": "a24b5eeac23ec302863193b86b00a5aa3e05f2386c7debdc0ff70c12c3dee025",
-      "overlay_sha256": "d57afa9a686b15def58020e666a956e6414f247f36f55d32ef6d73473779d080"
+      "overlay_sha256": "29c05bc8e83d000b892a4afbd90b73bdf94d227f9df8a686123c1b59be349791"
     },
     {
       "file": "RELEASE_NOTES_EN.md",
       "status": "changed",
       "previous_sha256": "2f6b3eeb7272dd170a9889c40ec94cf06acd5378b20acbe6f9d1018b2331d105",
-      "overlay_sha256": "5084e6d766a74ce7a1adc5bea466ea758927fc10b985f0829af415ee058b4a27"
+      "overlay_sha256": "8367d139a11ff3b90ff9203da4e54e50273afd4624dfa353c0c73295576551d7"
     },
     {
       "file": "RELEASE_NOTES_FR.md",
       "status": "changed",
       "previous_sha256": "90c392e1adbd95b6e4fa0f7e29c827b049a1b7d1f5fd0e8bd59d6bbbbec7f875",
-      "overlay_sha256": "e4bf3dd3a0133b357c1c35c98467deb31ff8910b825d1918f2aabbc66e3d22ba"
+      "overlay_sha256": "a9dc4c8f62708ce86b0a88c8d576dda0e706501d6781bb0af203982308e2da3d"
     },
     {
       "file": "VERSION",
       "status": "changed",
       "previous_sha256": "01fafa1cf658e6c09e41815caeba78fe656d0d0373b3c2ae574ff45908db2ee4",
-      "overlay_sha256": "d344089c1a634f310e25259a960e9c945e5763da6e3569e7e96df2aee24774f4"
+      "overlay_sha256": "03b243b712f06292310a0688a327e7d839329038505cfeb18b815c2d4e7681a3"
     },
     {
       "file": "data/post_rc1/AB_manifest.json",
@@ -126,7 +126,7 @@
       "file": "data/revision_status_RC2.json",
       "status": "added",
       "previous_sha256": null,
-      "overlay_sha256": "ac80842fe151c8442c67380425df42c780db792ea795bbed7f477ffbcb934fcb"
+      "overlay_sha256": "b6284e7f4c98874ded3eba661373339f3bd37c665adfc4f953ff0e1af994609c"
     },
     {
       "file": "figures/maude_aggregation_RC2_en.png",
@@ -201,6 +201,12 @@
       "overlay_sha256": "031ad9cfb6edd63626c98c04251b81f6f9b0715ff2b49ea984105de890627bdf"
     },
     {
+      "file": "history/RC1/references.bib",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "2c2a02620e54ffe4503e604c88ebe9ba6670cb574a2a8f391aa7ea2f8c919bfa"
+    },
+    {
       "file": "history/RC1/release/change_map.json",
       "status": "added",
       "previous_sha256": null,
@@ -240,31 +246,37 @@
       "file": "main_en.tex",
       "status": "changed",
       "previous_sha256": "9929e5fb96a35f5167b26bc030c8e91d7be59683badc43ac4ee339282bb34c30",
-      "overlay_sha256": "718d725cf7b8945c0bdab46c5e10e608d37b86d585d2a8ddf57115a39c0f29ce"
+      "overlay_sha256": "34d7d2850971b3d52fc9de592d3f3e7e3872a190e6037e80dc2de92c6e73cb62"
     },
     {
       "file": "main_fr.tex",
       "status": "changed",
       "previous_sha256": "51ee958ff5bc40db938c9c631264d82c99d467b764c7d64906df6d61ac4d324d",
-      "overlay_sha256": "7f2caae97ee223508e7e0dc49829889deccc79180afa1ad992f23f55c0962c5d"
+      "overlay_sha256": "735dfb0bdeac2601f0cc952e33f6299b55c2054ccd7ddcb0b38c369552680c68"
     },
     {
       "file": "metadata_en.tex",
       "status": "changed",
       "previous_sha256": "1190ad7146a1616111fde3a28152d5b0b4b7d7afa8940bda85efac9f5dad3b9a",
-      "overlay_sha256": "01e89e3fecd01ab141386baa15dd290c5c16d2704eb071cb4fadeb41ca36384a"
+      "overlay_sha256": "3cd46ac5be1ddb0f5e14710b253126a82e1904c2e55cf904485abbb85a42d912"
     },
     {
       "file": "metadata_fr.tex",
       "status": "changed",
       "previous_sha256": "cb5c1b12e43897dc885d1392a133ca1711a47d61f5c591d84ce37658cbfa2c82",
-      "overlay_sha256": "61bc32187011c5d1120ac2d2330c147545e70f736cd9e05c5b592547e45e6a30"
+      "overlay_sha256": "2b8c380045a807c841572f680d6bd06cc28bf700b82c5421c6d0008d5423642f"
     },
     {
       "file": "provenance.json",
       "status": "changed",
       "previous_sha256": "031ad9cfb6edd63626c98c04251b81f6f9b0715ff2b49ea984105de890627bdf",
-      "overlay_sha256": "24b5148432cb70f4279b6ddf3372388981d76e8f741ddd6c9f420aca89d3f81f"
+      "overlay_sha256": "ba95bb61e44bfc398cb3c7da4bcde3d241131d6dc85166259979ff383666e53c"
+    },
+    {
+      "file": "references.bib",
+      "status": "changed",
+      "previous_sha256": "2c2a02620e54ffe4503e604c88ebe9ba6670cb574a2a8f391aa7ea2f8c919bfa",
+      "overlay_sha256": "5efafad54e7b28dab6c80a8aa396c38bf9584a731e01a78203ddff0a9dd0424d"
     },
     {
       "file": "release/input_validation.json",
@@ -282,13 +294,13 @@
       "file": "release/protected_payload.json",
       "status": "changed",
       "previous_sha256": "51433e38f60b9287e0442afb8f78791fc57850e76df33878c41da0670170e6cb",
-      "overlay_sha256": "573d0c6a1820f9c8d955922dcd8aaf99cc387d6e50babfdf34c3d86a8d6a5570"
+      "overlay_sha256": "ae2f921161d8e847a77e2dbaf37b46f4b5ca9c50d2329413a7db3acb9b035946"
     },
     {
       "file": "release.json",
       "status": "changed",
       "previous_sha256": "aeb8f124ed31f831a709e955829008e9ced4d82f31e45ac085fa34d6b9597f4d",
-      "overlay_sha256": "0e9413dac6c0950e3b9b2a7b48d65a65b288fa3ea7c6cb1f32e7f4767287c957"
+      "overlay_sha256": "d7fcdca2c809013ecb05907ae8aab4026dde8386d7a9d3032c60f4eb670663d8"
     },
     {
       "file": "response_reviewers_fr.tex",
@@ -306,7 +318,7 @@
       "file": "scripts/check_review_package.py",
       "status": "changed",
       "previous_sha256": "e844d51dfbca2382b606fd018a4a98aac7064811f8fd8157f152f0fba27e6211",
-      "overlay_sha256": "64f226b9da208fe3eeb51b213a2e2ada7b2bc4bab15b3f86730a4cc8518d4d59"
+      "overlay_sha256": "ea573ac0a98639adba0259a92984d131dfdc9fe0b101b79549cb3a738862a17e"
     },
     {
       "file": "sections/abstract_en.tex",
@@ -324,13 +336,13 @@
       "file": "sections/body_en.tex",
       "status": "changed",
       "previous_sha256": "b23e08b2e04069a8eb5fcc0450305d6da631443c9231db9e74f3d98bbe4dd104",
-      "overlay_sha256": "f7993b36d92d0a8fa037486a61455a6ebf5308f94bed99b49abbd8b947f68fa7"
+      "overlay_sha256": "23798051112a37daef9b206970f09c279f321e7ffa6d7603f21630aed8aec8d9"
     },
     {
       "file": "sections/body_fr.tex",
       "status": "changed",
       "previous_sha256": "16349ff324e33d1e668392e9f4d060e5eeeda85cf4cf5f4da64b5f99f8072418",
-      "overlay_sha256": "a4cade9a89ef843a14aeca59c1f7f6dddd21704bbe538ba48b149b688cc74f42"
+      "overlay_sha256": "8cb4924d9b77f7f1a74e14c9a252aa1b91e305c064fa38377e58f1257b9dd603"
     },
     {
       "file": "sections/post_rc1_en.tex",
@@ -372,13 +384,13 @@
       "file": "supplement_en.tex",
       "status": "changed",
       "previous_sha256": "448ef4b0d2bca6398873b8ed423b51043a21c3e48b7621a9248c5aabeca7fca7",
-      "overlay_sha256": "c1840f508338e8a82bd29df3fff043069226e70acc0931422b0144fd6e2214ad"
+      "overlay_sha256": "df2456c871cb22eb50cc6146dcf629c753b749f3e73cac979cc53dac078e95f0"
     },
     {
       "file": "supplement_fr.tex",
       "status": "changed",
       "previous_sha256": "481778fb8cd57fb199fdcb42c0a726faf8c1ae4b7a2f03fdd2ecf806e3f0fd6e",
-      "overlay_sha256": "92557922332e7b656f68f0c0f767af4d44b76f5c22c2e029b18ea27e495542f5"
+      "overlay_sha256": "3524a89cf3484e78dfbadc108b71bc2dc87d0f60c57e094a3a99d226062e76a6"
     },
     {
       "file": "tables/cms_ap_bounds_R4_translated_en.tex",
@@ -541,6 +553,72 @@
       "status": "added",
       "previous_sha256": null,
       "overlay_sha256": "dced22b91ab9924b47e1cdbe189ff6aa65483fe2630e640c6c5170be3a36596a"
+    },
+    {
+      "file": "verification/rc2_minor/external_audit_received.md",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "645fecc09b9f14b986b655a1306a0fc311f59ebacfa77eeb010ae751af50fc74"
+    },
+    {
+      "file": "verification/rc2_minor/language_delta.json",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "53f5194fe9273a2c241b179b129a344d4fe12c41e7f189f395f3634eb8410645"
+    },
+    {
+      "file": "verification/rc2_minor/visual/main_en-1.png",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "edaaccf2e8c0ef0dd3ae1c83f6a97e18df1ce27a0460453a5a0496655ef00938"
+    },
+    {
+      "file": "verification/rc2_minor/visual/main_en-15.png",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "22d4daa78d9ca71d4c336527edcdd6457ca6f913b5186a933fc5f708cc3907b1"
+    },
+    {
+      "file": "verification/rc2_minor/visual/main_en-8.png",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "91b395d7773f2946ee7f923e2e5ad1cd46ea0229b481d557cae23414b3e3292a"
+    },
+    {
+      "file": "verification/rc2_minor/visual/main_fr-1.png",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "3bda012586a461b1c204068b680f0859b5b1426281edaced9b811b6c5b5f4171"
+    },
+    {
+      "file": "verification/rc2_minor/visual/main_fr-16.png",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "dba07fcf8e276314da0d9e7ee2ed2df4b5ddd69c8e53a852e4830d798bd93d12"
+    },
+    {
+      "file": "verification/rc2_minor/visual/main_fr-9.png",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "5126a08566ee171f7dbce291574ddd81bb8a4bef980dbc234af4901b81c3408e"
+    },
+    {
+      "file": "verification/rc2_minor/visual/supplement_en-1.png",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "63f88a08a138c8843e90dafbb24288b01ee61c2f64331ee576aea6f0f49ecf6e"
+    },
+    {
+      "file": "verification/rc2_minor/visual/supplement_fr-1.png",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "4837cab8f4b37167422f97f954329a4fa92526e350a84cf51204b74446edb04e"
+    },
+    {
+      "file": "verification/rc2_minor/visual_review.json",
+      "status": "added",
+      "previous_sha256": null,
+      "overlay_sha256": "ad04e86e4b8a52701c92413e77294908f848ac1718f7b79a2fc3adbf800203b1"
     },
     {
       "file": "verification/rc2_paired/attempt_1_failure.json",

@@ -37,3 +37,10 @@ Following the user's explicit choice, a new conditional GraphSAGE30–neighbors 
 
 Methods in S1, evidence map in S2, short history in S4, detailed registry in provenance. CMS: records dated before the inspection, without proof of public availability. Concordance of 27 pairs; new ZIP `HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip`. No new fit, tuning, D2, previously completed historical audit, or approval; old evidence and both RC2 candidates preserved.
 
+
+## 3 October 2026 — RC2.1, two documentary corrections after the audit
+
+The received opinion favors the exploratory resource-article positioning subject to these corrections; it is neither author approval nor an editorial decision. Figure 2: caption limited to validation recall, independent 0/3/10/30 fits, and losses referred to S11; French corrected then translated. Common bibliography: evidence map in S2, not S1. No added panel, result, training, score, tuning, bootstrap, D2, or successful scientific audit rerun.
+
+At the user's request, this correction is identified as **RC2.1** in metadata, PDF titles/footers, checker, and distinct ZIP `HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip`. Audited RC2 is preserved. Original bibliography archived byte-identically with its original hash; active bibliography modified only in one note. Incremental concordance: four modified pairs, 23 retained; earlier dated evidence preserved. The received audit's 61 tests are distinguished from the 64 upstream repository tests.
+

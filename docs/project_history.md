@@ -253,3 +253,22 @@ remain preserved. New archive:
 PR #4 remains draft toward develop, dependent on #3; human approval,
 declarations, venue, and submission remain open.
 
+
+## RC2.1 documentary correction after the received MAUDE audit
+
+On 3 October 2026, the user transmitted a favorable exploratory-resource
+opinion, conditional on correcting Figure 2's caption and the common
+bibliography's source-map reference to S2. The audit reports independent
+checkpoint/inference/bootstrap reconstruction; it is not a new project
+execution or prospective validation. Its 61 packaged tests differ from
+the documented upstream 64-test repository run.
+
+French caption corrected, then translated; no new scientific computation.
+The user requested RC2.1 numbering. Titles/footers and package metadata
+identify the distinct correction; audited RC2 and older ledgers are kept.
+Original bibliography archived with its original hash, active note S1→S2.
+Five PDFs recompiled, same 17/16/23/22/2 pages; corrected/version pages
+visually inspected and four scientific logs without warnings. Author,
+declaration, venue, permanent archive, submission, and new-review gates
+remain open. Manifest: `results/manuscript_rc2_1_20261003.json`.
+

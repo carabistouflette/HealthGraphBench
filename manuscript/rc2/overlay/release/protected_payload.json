@@ -1,5 +1,5 @@
 {
-  "scope": "RC1 inherited numerical data, original tables/figures, bibliography, core and scientific replay code preserved byte for byte. Scientific prose and package identity deliberately revised; new C/D1 files not represented as historical.",
+  "scope": "RC1 inherited numerical data, original tables/figures, core and scientific replay code preserved byte for byte. Original bibliography preserved at history/RC1/references.bib with its original hash; active bibliography changes only one source-map note from S1 to S2 after the received audit. Scientific prose and package identity deliberately revised; new C/D1 files not represented as historical.",
   "parent_archive": "HealthGraphBench_FAIA_LaTeX_RC1.zip",
   "parent_archive_sha256": "2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be",
   "files": {
@@ -47,7 +47,7 @@
     "figures/maude_cutoffs_en.png": "067fbf3a2d613bbf9f7f8a18e924930561234d960f787656a33abe72e46d0226",
     "figures/maude_cutoffs_fr.pdf": "0ffe1e9aec9b100df0b9644a5809e8bd7cb5f090c377c309fb391dc0ecf74c41",
     "figures/maude_cutoffs_fr.png": "38efeb1efb935eb15dbb5c773acdfa2ccbef0afcb031210277bf46ad0e3ce387",
-    "references.bib": "2c2a02620e54ffe4503e604c88ebe9ba6670cb574a2a8f391aa7ea2f8c919bfa",
+    "history/RC1/references.bib": "2c2a02620e54ffe4503e604c88ebe9ba6670cb574a2a8f391aa7ea2f8c919bfa",
     "scripts/acquire_inputs.py": "af38d24aa0186da84a4cf29ded0a0e2bf624b17d1aaa2ea81c0c95322869c8e3",
     "scripts/audit_maude_B.py": "4725bb564d6a52876985ffaf7bf3047a4da34cc9b3906f9b1d5b252ebb5f214a",
     "scripts/audit_numeric_consistency.py": "bc5183546841b82c83b711b395ff5e7a473e22de51539c0c22292515af548413",

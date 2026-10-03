@@ -1,6 +1,6 @@
 {
-  "revision": "RC2",
-  "package_id": "manuscript-rc2",
+  "revision": "RC2.1",
+  "package_id": "manuscript-rc2.1",
   "prepared_on": "2026-10-03",
   "packaging_started_at_utc": "2026-10-02T21:43:32+00:00",
   "translation_revision": {
@@ -38,18 +38,18 @@
     "latex_scientific_text_revised": true,
     "completed_C_D1_results_incorporated": true,
     "historical_numeric_payload_modified": false,
-    "new_figures_from_completed_outputs": true,
+    "new_figures_from_completed_outputs": false,
     "health_model_training_executed_during_RC2_preparation": false,
     "raw_archives_reacquired": false,
     "new_predictions_computed_during_RC2_preparation": false,
-    "new_tuning_bootstrap_or_intervals": true,
+    "new_tuning_bootstrap_or_intervals": false,
     "pdfs_recompiled": false,
     "package_checks_executed": false,
     "submission_sent": false,
     "github_release_published": false,
     "new_DOI_created": false,
     "new_tag_created": false,
-    "new_bootstrap_interval_only": true
+    "new_bootstrap_interval_only": false
   },
   "current_verification_directory": "verification/rc2",
   "retention_manifest": "release/protected_payload.json",
@@ -90,5 +90,23 @@
     "protocol_sha256": "3b83a0b38cd217617e2b7acbc1166bdf98ed9b5b9e31f9a7bf6c942b70a6d6ad",
     "historical_C_D1_payloads_unchanged": true,
     "no_new_fits_D2_or_historical_audits": true
+  },
+  "minor_documentary_revision": {
+    "requested_on": "2026-10-03",
+    "previous_commit": "2195bc3a096ff1fcd0d30d30e4a5c7f9fb177011",
+    "audited_archive": "HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip",
+    "audited_archive_sha256": "0dabeab0a95cbe956315866ebcb97ce1b6ad780dfeb2e304648e72359910726a",
+    "received_report": "verification/rc2_minor/external_audit_received.md",
+    "received_report_sha256": "645fecc09b9f14b986b655a1306a0fc311f59ebacfa77eeb010ae751af50fc74",
+    "changes": [
+      "Figure 2 caption describes validation recall only, losses referred to S11; French then English",
+      "Common hgbcode bibliography note points to evidence map S2, not methods S1"
+    ],
+    "new_analysis_training_tuning_bootstrap_or_score": false,
+    "external_audit_attribution": "User-transmitted audit reports independent inference/checkpoint/bootstrap reconstruction; not rerun in this documentary pass. Upstream acquisition and training remain outside that audit.",
+    "author_or_editorial_approval": false,
+    "historical_bibliography": "Original bytes and original hash retained at history/RC1/references.bib; active bibliography differs only by S1 to S2 in one note.",
+    "revision_label": "RC2.1",
+    "version_numbering_requested_by_user": true
   }
 }

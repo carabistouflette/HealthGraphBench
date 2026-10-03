@@ -37,3 +37,10 @@ Après choix explicite de l'utilisateur, un nouvel IC conditionnel GraphSAGE30�
 
 Méthodes en S1, carte des preuves en S2, historique court en S4, registre détaillé dans la provenance. CMS : enregistrements datés d'avant l'inspection, sans preuve de disponibilité publique. Concordance de 27 paires ; nouveau ZIP `HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip`. Aucun nouveau fit, tuning, D2, audit historique acquis ou approbation ; anciennes preuves et deux candidats RC2 conservés.
 
+
+## 3 octobre 2026 — RC2.1, deux corrections documentaires après audit
+
+Avis reçu favorable au positionnement d'article de ressource exploratoire, sous ces corrections ; ce n'est ni une approbation des auteurs ni une décision éditoriale. Figure 2 : légende limitée au rappel de validation, fits indépendants 0/3/10/30 et pertes renvoyées en S11 ; français corrigé puis traduit. Bibliographie commune : carte des preuves en S2, pas S1. Aucun panneau ajouté, résultat, entraînement, score, tuning, bootstrap, D2 ou audit scientifique réussi relancé.
+
+À la demande de l'utilisateur, ce correctif est identifié **RC2.1** dans les métadonnées, titres/pieds des PDF, contrôleur et ZIP distinct `HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip`. RC2 auditée est conservée. Bibliographie originale archivée byte-identique avec son empreinte initiale, bibliographie active modifiée uniquement dans une note. Concordance incrémentale : quatre paires modifiées, 23 conservées ; preuves antérieures datées préservées. Les 61 tests de l'audit reçu sont distingués des 64 tests amont du dépôt.
+

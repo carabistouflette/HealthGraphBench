@@ -1,6 +1,6 @@
-# Manuscript RC2 source overlay
+# Manuscript RC2.1 source overlay
 
-Working scientific and editorial revision of the user-supplied `HealthGraphBench_FAIA_LaTeX_RC1.zip`. RC1 and historical results are immutable. RC2 is not author-approved or submitted; no manuscript DOI, tag or editorial acceptance is claimed.
+RC2.1 is the documentary correction of audited RC2: Figure 2 caption describes validation recall only, with losses in S11; the common bibliography's evidence map points to S2. The French caption is canonical, then translated. No new scientific calculation. RC1, earlier RC2 archives and historical results are immutable. RC2.1 is not author-approved or submitted; no manuscript DOI, tag or editorial acceptance is claimed.
 
 ## Sources and assembly
 
@@ -9,8 +9,8 @@ Working scientific and editorial revision of the user-supplied `HealthGraphBench
 ```bash
 python scripts/build_manuscript_rc2.py \
   --source-zip "$HOME/Downloads/HealthGraphBench_FAIA_LaTeX_RC1.zip" \
-  --output-dir /tmp/hgb-rc2-rebuild/HealthGraphBench_RC2 \
-  --archive-path /tmp/HealthGraphBench_FAIA_LaTeX_RC2_rebuilt.zip
+  --output-dir /tmp/hgb-rc2-1-rebuild/HealthGraphBench_RC2_1 \
+  --archive-path /tmp/HealthGraphBench_FAIA_LaTeX_RC2_1_rebuilt.zip
 ```
 
 Both output paths must be new. A clone alone lacks the original ZIP and local checkpoints; missing or changed evidence causes failure rather than fabrication. `--evidence-root` may point to another root retaining the indexed repository-relative paths. The assembler checks the source digest, applies the overlay, adds pinned checkpoints, compiles all five reading-layout PDFs, checks retained bytes and numerical identities, and creates a fresh integrity manifest and ZIP. Rebuilt PDF/archive hashes may differ due to compiler metadata; they do not replace a delivered candidate.
@@ -45,4 +45,11 @@ PYTHONPATH=vendor/post_rc1 python scripts/analyze_maude_paired_comparison.py \
 ```
 
 Use a new output directory. Compact replay does not recheck original candidate identities. The first calculation attempt failed before draws because an unintended address-space restriction was confused with RSS; its failure record is preserved, statistical protocol and declared limits unchanged.
+
+
+## RC2.1 — two documentary corrections after the received audit
+
+Current archive: `HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip`; audited RC2 remains unchanged. `overlay/verification/rc2_minor/external_audit_received.md` is the user-transmitted report, not a new assistant execution, prospective validation, author approval or editorial decision. Its 61 packaged tests are distinct from the upstream 64-test repository run. No fits, scores, bootstrap or successful scientific audits are repeated in this pass.
+
+The original bibliography is retained at `history/RC1/references.bib` with its original pinned hash; the active common bibliography changes only the S1-to-S2 source-map note. The protected registry therefore retains 105 original paths and one archived bibliography. `language_delta.json` checks four modified bilingual pairs (caption/version labels) and records the 23 unchanged pairs; the earlier 27-pair report remains dated evidence.
 

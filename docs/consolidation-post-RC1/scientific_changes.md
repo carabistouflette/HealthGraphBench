@@ -126,3 +126,12 @@ Exécution réussie : 7,969 s, RSS 488 841 216 B ; première allocation échoué
 
 Révision française puis traduction : C principal avec courbe et tableau séparé ; D1 secondaire, preuves intégrales et perte presque plate conservées ; appariement distinct du contrôle de durée ; CMS limité aux enregistrements datés avant inspection, disponibilité publique non prouvée. Méthodes S1, carte des preuves S2, historique court S4, registre détaillé dans provenance, comparaison de code et nouvel IC en S11. 27 paires concordantes ; cinq PDF compilés, quatre scientifiques examinés : principaux FR/EN 17/16 pages, suppléments 23/22. Nouvelle livraison distincte `HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip` ; approbations, déclarations, revue et soumission restent ouvertes.
 
+
+## 3 octobre 2026 — avis reçu favorable et correctif documentaire RC2.1
+
+Le rapport utilisateur `HealthGraphBench_audit_RC2_consolidation_MAUDE.md` donne un avis favorable au positionnement de ressource exploratoire après deux corrections. Il rapporte un programme distinct sans import du projet : 252 400 coordonnées de neuf checkpoints et 2 975 156 scores candidats, concordance par observation pour les 6 370 cas ; 1 000 tirages indépendamment recalculés. Ce sont les exécutions rapportées par l'audit reçu, non des exécutions nouvelles de cette passe ; acquisition FDA et entraînements restent hors de cet audit. Les 61 tests du ZIP y sont distingués des 64 tests amont.
+
+Corrections françaises puis anglaises : légende de la figure 2 limitée au rappel de validation, pertes en S11 ; note de la bibliographie commune vers carte des preuves S2. Aucun panneau ajouté ni calcul/fit/score/tuning/bootstrap/D2, aucune réouverture CMS/Part D/B1/B2. À la demande de l'utilisateur, version **RC2.1**, noms et métadonnées distincts, RC2 auditée conservée. Bibliographie originale archivée à son empreinte d'origine ; version active ne change qu'une note.
+
+Cinq PDF recompilés, paginations 17/16/23/22/2 ; pages des corrections et mentions de version examinées, quatre logs scientifiques sans avertissement. Concordance incrémentale : quatre paires modifiées, 23 conservées ; résultats, figures, checkpoints et code de rejeu identiques aux bytes audités. [Manifeste RC2.1](../../results/manuscript_rc2_1_20261003.json). Nouvelle review attendue ; cet avis favorable n'est ni approbation des auteurs ni acceptation éditoriale, et les gates de soumission restent ouverts.
+

@@ -27,7 +27,7 @@ def digest(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source-zip', type=Path, required=True)
-    parser.add_argument('--output-dir', type=Path, required=True, help='New root named HealthGraphBench_RC2')
+    parser.add_argument('--output-dir', type=Path, required=True, help='New root named by overlay/release.json archive_root')
     parser.add_argument('--archive-path', type=Path, required=True, help='New ZIP path')
     parser.add_argument('--evidence-root', type=Path, default=REPO)
     args = parser.parse_args()
@@ -35,8 +35,9 @@ def main():
     archive_path = args.archive_path.resolve()
     if root.exists() or archive_path.exists():
         parser.error('Output directory and archive must both be new; immutable deliveries are never overwritten.')
-    if root.name != 'HealthGraphBench_RC2':
-        parser.error('Output root must be named HealthGraphBench_RC2.')
+    expected_root = json.loads((OVERLAY / 'release.json').read_text())['archive_root']
+    if root.name != expected_root:
+        parser.error('Output root must be named ' + expected_root + '.')
     if digest(args.source_zip) != SOURCE_SHA256:
         parser.error('Source is not the supplied, attested RC1 archive.')
     external = json.loads((REPO / 'manuscript/rc2/external_files.json').read_text())

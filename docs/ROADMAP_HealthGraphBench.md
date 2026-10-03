@@ -135,7 +135,7 @@ Le manuscrit identifie trois conditions : une origine non consultée, des choix 
 
 ## 8. Lot E — Finaliser le manuscrit et le dossier
 
-**Avancement technique RC2 :** français scientifique révisé puis traduit fidèlement ; C principal et D1 secondaire conservé. Nouvel IC conditionnel C30–voisins explicitement autorisé, sans nouveau fit/tuning/D2. Cinq PDF compilés, quatre scientifiques examinés, 694 contrôles de livraison, 27 paires concordantes, 64 tests et rejeu compact autonome exact. [Manifeste distinct](../results/manuscript_rc2_consolidation_20261003.json) et [sources](../manuscript/rc2/README.md) ; deux précédents ZIP conservés. Analyses exploratoires, gates auteurs/revue/soumission ouverts ; aucune garantie Q1/Q2 ni conformité à une revue non choisie.
+**Avancement technique RC2.1 :** avis reçu favorable au positionnement exploratoire, après deux corrections documentaires appliquées : légende figure 2 sans perte tracée, carte des preuves S2. Version RC2.1 demandée, français puis anglais, aucun recalcul. Cinq PDF recompilés, paginations inchangées, pages ciblées examinées ; 706 contrôles, 537 empreintes et concordance héritée + delta (4 paires modifiées, 23 conservées). [Manifeste distinct](../results/manuscript_rc2_1_20261003.json), [sources](../manuscript/rc2/README.md) ; RC2 auditée conservée. Les 61 tests du rapport reçu sont distincts des 64 tests amont. Nouvelle review, auteurs, déclarations, revue et soumission ouverts ; aucune garantie Q1/Q2.
 
 ### Cohérence scientifique
 

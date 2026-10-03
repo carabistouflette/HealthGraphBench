@@ -1,10 +1,10 @@
-# HealthGraphBench — révision de travail RC2
+# HealthGraphBench — révision documentaire RC2.1
 
-**3 octobre 2026 • `manuscript-rc2` • non soumise, non approuvée par les auteurs.**
-Archive : `HealthGraphBench_FAIA_LaTeX_RC2_consolidation_MAUDE.zip`; racine : `HealthGraphBench_RC2`.
+**3 octobre 2026 • `manuscript-rc2.1` • non soumise, non approuvée par les auteurs.**
+Archive : `HealthGraphBench_FAIA_LaTeX_RC2_1_consolidation_MAUDE.zip`; racine : `HealthGraphBench_RC2_1`.
 RC1 fournie est conservée intacte (SHA-256 `2d066cfbbe1c50ed1f0dc021799d3bac631a70c428cf79d5d78b68af44e6b7be`).
 
-**Consolidation ciblée MAUDE.** C porte l'apport principal ; D1 reste un diagnostic secondaire intégralement conservé en supplément. Le français canonique est révisé d'abord, puis l'anglais traduit fidèlement. La concordance actuelle de 27 paires est dans `verification/rc2_paired/language_concordance.json` ; le rapport antérieur de traduction reste une preuve datée. Les deux précédents ZIP RC2 sont conservés, non écrasés.
+**RC2.1 : corrections documentaires après audit reçu.** C reste principal et D1 secondaire complet. Seules la légende de la figure 2 (rappel en validation ; pertes en S11), la note bibliographique de carte des preuves (S2) et les mentions de version changent. Français corrigé avant traduction anglaise. La concordance antérieure de 27 paires reste datée ; les quatre paires modifiées et les 23 conservées sont documentées dans `verification/rc2_minor/language_delta.json`. Tous les ZIP antérieurs, dont RC2 auditée, sont conservés.
 
 ## Contenu et portée
 
@@ -18,9 +18,11 @@ RC1 fournie est conservée intacte (SHA-256 `2d066cfbbe1c50ed1f0dc021799d3bac631
 
 C sélectionne 30 époques sur validation 2023 avant ses tests; R@10 groupé 2024–2025 : 2775/13174 = 0,210642. Le test historique à trois époques n'est pas réentraîné dans C. D1 réutilise `mean30` C et ajoute seulement `none30` : 469/13174 = 0,035600, contraste +0,175042. `none` est self-only non-GNN, avec 64 contre 128 coefficients actifs de transformations partagées et perte proche de ln(2). Ce n'est pas un effet causal pur de l'agrégation.
 
-Toutes ces périodes étaient déjà consultées : analyses exploratoires, sans confirmation indépendante. Seul le nouvel IC conditionnel GraphSAGE30–voisins est autorisé et calculé dans cette passe : différence +0,018597, IC95 [ +0,011975 ; +0,025570 ], 1 000 tirages par produit, graine 20261003. Il ne couvre ni sélection ni entraînement ni toutes les dépendances de réseau. Aucun nouveau fit, tuning, D2, ingestion brute ou audit exhaustif historique réussi n'est relancé.
+Toutes ces périodes étaient déjà consultées : résultats exploratoires, sans validation prospective indépendante. Le contraste et son IC conditionnel restent inchangés : +0,018597, IC95 [ +0,011975 ; +0,025570 ], 1 000 tirages par produit, graine 20261003. Aucune analyse, aucun fit, score, tuning, bootstrap, D2 ou audit scientifique réussi n'est relancé dans cette correction.
 
-Les cinq PDF sont compilés ; les quatre documents scientifiques ont été examinés visuellement : principaux FR/EN 17/16 pages, suppléments 23/22. Les 64 tests du dépôt passent ; le nouveau rejeu compact hors dépôt restitue exactement l'intervalle et les 1 000 tirages. Preuves : `verification/rc2_paired/visual_review.json`, `repository_tests.json` et `compact_replay.json`. Ces vérifications techniques ne valent pas approbation humaine.
+Le rapport reçu `verification/rc2_minor/external_audit_received.md` donne un avis favorable au positionnement exploratoire, sous les deux corrections. Il rapporte un recalcul distinct depuis les instantanés/checkpoints, sans acquisition FDA ni entraînement ; ce n'est ni notre nouvelle exécution ni une approbation des auteurs ou une décision éditoriale. Les 61 tests exécutés par cet audit dans le ZIP sont distincts des 64 tests amont du dépôt documentés dans `verification/rc2_paired/repository_tests.json`. Les anciens rapports de compilation, lecture et rejeu restent des preuves datées.
+
+RC2.1 : cinq PDF recompilés, paginations inchangées (principaux FR/EN 17/16, suppléments 23/22, réponse historique 2). Les pages de légende, de référence et de version ont été examinées ; aucun avertissement dans les quatre logs scientifiques. Preuve actuelle : `verification/rc2_minor/visual_review.json`. Les résultats/figures/checkpoints et le runner de rejeu restent byte-identiques à RC2 auditée.
 
 ## Vérifier la livraison
 
@@ -31,7 +33,7 @@ sha256sum -c SHA256SUMS
 python scripts/check_review_package.py
 ```
 
-Le contrôle vérifie l'identité, les bytes historiques protégés, les ratios et contrastes conservés, les checkpoints et les PDF. Il ne relance ni fit ni audit scientifique réussi. `release/protected_payload.json` protège les données, anciennes tables/figures, bibliographie et outils scientifiques; le texte principal est volontairement révisé.
+Le contrôle vérifie l'identité, les bytes historiques protégés, les ratios et contrastes conservés, les checkpoints et les PDF. Il ne relance ni fit ni audit scientifique réussi. `release/protected_payload.json` conserve 105 fichiers protégés à leurs chemins historiques et la bibliographie originale archivée sous `history/RC1/references.bib`, sans réécrire son empreinte. La bibliographie active corrige seulement S1 en S2 dans une note.
 
 ## Compiler dans une copie
 
