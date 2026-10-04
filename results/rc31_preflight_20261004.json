@@ -1,0 +1,245 @@
+{
+  "schema": "healthgraphbench.rc31-preflight.v1",
+  "recorded_at_utc": "2026-10-04T20:08:19.671375+00:00",
+  "protocol_sha256": "faf881cf4a5880f5f444d11badc5ea3a79a08325efb4be394e9c5093137064a8",
+  "partd": {
+    "binary_neighbors": true,
+    "checkpoint_max_score_error": 0.0,
+    "probe_relative_loss_drop": 0.6531663009311671,
+    "learning_gate_passed": true,
+    "health_data_executed": false
+  },
+  "maude": {
+    "synthetic_only": true,
+    "reassignment": {
+      "randomization_seed": 303,
+      "attempts_per_edge": 10,
+      "edge_count": 4,
+      "attempted_swaps": 40,
+      "accepted_swaps": 28,
+      "rejected_same_endpoint": 12,
+      "rejected_duplicate": 0,
+      "changed_edges": 2,
+      "changed_fraction": 0.5,
+      "every_node_degree_preserved": true,
+      "typed_bipartite_edges_only": true,
+      "original_adjacency_sha256": "137943e96c5bfe35f2c808f2f6fcabd5695deb6bd8fe3c452afe919b84a9ea17",
+      "reassigned_adjacency_sha256": "15c32d1ffa560c2c5ca369909ef3bb1a10255d13714b201b4d1718d787c5b6f4",
+      "interpretation": "aggregation-only bounded edge-switch diagnostic; not a uniform null or medical causal effect"
+    },
+    "learning": [
+      {
+        "seed": 103,
+        "fanout": 4,
+        "gate": true
+      },
+      {
+        "seed": 103,
+        "fanout": 8,
+        "gate": true
+      },
+      {
+        "seed": 103,
+        "fanout": 16,
+        "gate": true
+      },
+      {
+        "seed": 103,
+        "fanout": 8,
+        "adjacency": "reassigned",
+        "gate": true
+      },
+      {
+        "seed": 211,
+        "fanout": 4,
+        "gate": true
+      },
+      {
+        "seed": 211,
+        "fanout": 8,
+        "gate": true
+      },
+      {
+        "seed": 211,
+        "fanout": 16,
+        "gate": true
+      },
+      {
+        "seed": 211,
+        "fanout": 8,
+        "adjacency": "reassigned",
+        "gate": true
+      },
+      {
+        "seed": 307,
+        "fanout": 4,
+        "gate": true
+      },
+      {
+        "seed": 307,
+        "fanout": 8,
+        "gate": true
+      },
+      {
+        "seed": 307,
+        "fanout": 16,
+        "gate": true
+      },
+      {
+        "seed": 307,
+        "fanout": 8,
+        "adjacency": "reassigned",
+        "gate": true
+      }
+    ]
+  },
+  "cms": {
+    "versions": {
+      "numpy": "2.3.5",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.8.0",
+      "threadpoolctl": "3.7.0"
+    },
+    "health_fit_executed": false,
+    "raw_dependencies": [
+      "health_citations.csv",
+      "ownership.csv",
+      "provider_info.csv",
+      "survey_dates.csv",
+      "penalties.csv",
+      "chow.json",
+      "chow_owners_full.json"
+    ],
+    "source_import_closure": [
+      "healthgraphbench/__init__.py",
+      "healthgraphbench/core.py",
+      "healthgraphbench/data.py",
+      "healthgraphbench/tasks/__init__.py",
+      "healthgraphbench/tasks/cms_nursing/__init__.py",
+      "healthgraphbench/tasks/cms_nursing/prepare.py",
+      "healthgraphbench/tasks/cms_nursing/models.py",
+      "healthgraphbench/tasks/cms_nursing/task.py",
+      "healthgraphbench/rc31/__init__.py",
+      "healthgraphbench/rc31/cms.py"
+    ],
+    "feature_sets": [
+      "facility_history",
+      "facility_plus_combined_ownership",
+      "facility_plus_documented_ownership"
+    ],
+    "operational_criterion": "Existing combined PAC association; raw owner role in CHOW_ROLES; nonempty raw ASSOCIATE ID - OWNER; ASSOCIATION DATE - OWNER < inspection; actual CHOW EFFECTIVE DATE < inspection joining ENROLLMENT ID to buyer/seller CCN; enrollment has one distinct CCN among events strictly before inspection. Both focal and peer links must satisfy the rule. No current-name fallback.",
+    "fixed_configurations": {
+      "logistic": {
+        "C": 0.01
+      },
+      "boosted": {
+        "learning_rate": 0.05,
+        "max_iter": 100,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 1
+      }
+    },
+    "fixed_parameters": {
+      "logistic": {
+        "solver": "lbfgs",
+        "class_weight": null,
+        "max_iter": 1000,
+        "tol": 1e-08
+      },
+      "boosted": {
+        "early_stopping": false,
+        "max_features": 1,
+        "max_bins": 255,
+        "min_samples_leaf": 20,
+        "seed_repetition_condition": "training_rows_gt_200000"
+      }
+    },
+    "cost": {
+      "preparation": "one verified full raw preparation plus strict combined/documented peer aggregation on every Q2 inspection; no row sampling",
+      "fits": "9 logistic + 9 HGB if all training windows <=200000; 3 HGB seeds in each window above 200000 (maximum 36 fits total)",
+      "logistic": "11 local + 0/12 relational + training-state-count columns; at most 1000 lbfgs iterations per fit",
+      "boosted": "100 iterations, 15 leaves, same rows/features; no early stopping or tuning",
+      "memory": "full raw CHOW owners + existing prepared histories/owner maps and inspection peer-history cache; numeric arrays for every training/target row"
+    }
+  },
+  "analysis": {
+    "zero_positive_workload_precision": 0.5,
+    "paired_delta": 1.0,
+    "tied_auc": 0.5,
+    "bootstrap_cluster_unit_not_training_seed": true
+  },
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.8.0",
+    "numba": "0.68.0",
+    "llvmlite": "0.50.0"
+  },
+  "source_sha256": {
+    "pyproject.toml": "98f491a4100fe5d410ef3074f0e7d7f8d5524cd5ce7d97d2514acfedd607df01",
+    "configs/task_contract_v0_1.json": "fcee1943a660800316d064ce2d24a93f825dbb8f87bff393ac99b0668a6d481f",
+    "configs/task_contract_v0_2.json": "482adfa6665138c246f6212158d61bf2cd33e70049ad3d5e793283a6b2cd9b8f",
+    "data/manifests/v0.1.json": "d01389cd5ffb245f481d036c592ed58b6de7cf4f817499214ce47c9f34661a87",
+    "data/manifests/partd_feasibility_v0_2_lookback.json": "1821460f2ad68e988bd7cb63afef79d671544e6edcd1ca1de5e35335ad638ec0",
+    "results/q2_partd_development_population_20261003.json": "46df7b0881edb0e03716a00eb7af5c7e43f02ccd55e96bf215836141d3e8f030",
+    "healthgraphbench/__init__.py": "50a7aa4d338b22060731ab4446ac69567c6399058c67947ad765812443322cfa",
+    "healthgraphbench/core.py": "d11984ba0698e0dafd65741a079ee4808a7987177c20923e76af790acfcfa16a",
+    "healthgraphbench/cli.py": "9131985ccd48617feb464f81b774342e9b6ee61eed915988e15ba71062075989",
+    "healthgraphbench/data.py": "c8f980999618963fcf4128c310fa0107663e319bed81554c65cb678c201f9b73",
+    "healthgraphbench/q2/__init__.py": "aca7cbf788512730a5b5c031fee998df623450d66253f5daac5ed76db0448d6b",
+    "healthgraphbench/q2/common.py": "b0571d915e1f566aa23ba258446b1a57ba0518a7de46e1a81fba1e3bd69187eb",
+    "healthgraphbench/q2/maude.py": "e9cc154851128be324701d24fe23326a53baf673df0d5061f3b97153eb24b15d",
+    "healthgraphbench/q2/maude_backend.py": "8387c61ab84684b9f47c6a02d42341ae509bb78309bea929b1907c51e4b23929",
+    "healthgraphbench/q2/partd.py": "e00af4a70c55f38e097e482dda663fb451b241e45339edcda78d247601c9f8de",
+    "healthgraphbench/q2/cms.py": "0f79f05342b36f4d4874c224b81707bf9056ea8055a8e7811df7d3bc883f6d4e",
+    "healthgraphbench/q2/prospective_partd.py": "00e54018af535904cf38259486d4341f4f278f851b278648332b4f5bd671b285",
+    "healthgraphbench/q2/reuse.py": "d31d494dfa7f5ae55e19ae4a19d856b98d60541f1b16ef940cff418ac0afa94b",
+    "healthgraphbench/tasks/__init__.py": "de7d83c85bcfb78295d002d473b33011d0deecff0a7e703d14b0680dba8636b2",
+    "healthgraphbench/tasks/partd/__init__.py": "bdb7deb4b95cba36c8c2a94fc9c884972feeb682810054a42bd575b3bcb37eb6",
+    "healthgraphbench/tasks/partd/task.py": "60faf2be61a16f36123fe21feb88dbea8b90d58ebdb50ddeb8214d5ea6f1a9a9",
+    "healthgraphbench/tasks/partd/task_contract_v0_2.json": "482adfa6665138c246f6212158d61bf2cd33e70049ad3d5e793283a6b2cd9b8f",
+    "healthgraphbench/tasks/maude/__init__.py": "463ecf76959b8eec9aeb85f8d39e3ba2a499a5d805e889de30126ac512b7a086",
+    "healthgraphbench/tasks/maude/data.py": "019d8d4792115e83327e2d5e6c5aa10dc42355bc908b84093fde28dadf0ba9d0",
+    "healthgraphbench/tasks/maude/task.py": "1fed3b0f1e37eaf2885275fb0fbfdcc8cc9b736d3c3568bcbee9ec8adaadecce",
+    "healthgraphbench/tasks/maude/models.py": "403f220c2269cbb7c1792477e3abaa73b0a9c75298b42c7b2265a9e2bb7295f0",
+    "healthgraphbench/tasks/maude/evaluate.py": "825cafb260dd2b8f8558224447a866cec9c7dba1cee5b5c5b05ad89a174145b7",
+    "healthgraphbench/tasks/maude/diagnostic.py": "c7316a2292a388c7004f4423abd00fe243f8cd8dfbf6422ccd728e3b402da4cf",
+    "healthgraphbench/tasks/maude/ablation.py": "eca360cfa636cf1b422afd63e917c68a679fd2366a223e9748d113052274e5b3",
+    "healthgraphbench/tasks/cms_nursing/__init__.py": "b19b0244651209774d6699bd31dca055e3357161d2a34a8eba0995ae84cbf252",
+    "healthgraphbench/tasks/cms_nursing/task.py": "627dcf322e7fbf1bba44be5388906f947665ead076ea26286d141f7371648c6b",
+    "healthgraphbench/tasks/cms_nursing/prepare.py": "21cc83a91b92399a637d3f699f645a12fcacc368e24b6e5acb869f7636e85f0d",
+    "healthgraphbench/tasks/cms_nursing/models.py": "bd082c21e9ac06ea17e470c69abaf038ec70fbe4751d07cdd72c56ba74190cfc",
+    "healthgraphbench/candidates/__init__.py": "2cdfe36bea33d76052c327a9ef056456279ca38deed00c8e1724bf4161df0a7a",
+    "healthgraphbench/candidates/partd.py": "76d616e202f6e8efe623f96d70006eb978d97c007533e8589b36a7d0925bcae4",
+    "healthgraphbench/candidates/partd_model.py": "923751d095b7cbf2106e7041f78994001d237ed59db3f648e91a7e861315396f",
+    "healthgraphbench/candidates/clinical_trials.py": "329c81a0496dbd3a00f7c0e01d722780e460baa23fe2ee8c6e9c1cb3bd3f2d5c",
+    "healthgraphbench/candidates/clinical_trials_stability.py": "7842c75f63b7b53b466957df289f9e4f94f4bbdfc6e109a8b829589d67e944f6",
+    "healthgraphbench/models/__init__.py": "4624d7963c5b413e3563f824262082fd4d5b0257565cc169c3b331b2f34ae89d",
+    "healthgraphbench/models/baselines.py": "5d4f05df7fef9c22ea304fddd3690f20f4f3057408acbd4d0ad3b2ef7c27e3cb",
+    "healthgraphbench/evaluation/__init__.py": "9e90e364bcf4196364ce11d7a5593adc66fa26631de81beeda6b686a5b632ac2",
+    "healthgraphbench/evaluation/metrics.py": "0e991ddd321567ad37217dfbd7c96e84f579477310a572870688ca59f0c9993c",
+    "healthgraphbench/evaluation/numpy_metrics.py": "d8b1e792ab770d339a6c5db6ba6cab944cca6c3ecc49e72a92403540e795a42c",
+    "healthgraphbench/evaluation/bootstrap.py": "13e7b9145a717a4ea18bac5b2387e47870d8530a95887c50e60ddc65b30328d5",
+    "healthgraphbench/controls/__init__.py": "688430939f2238f2ae4923cf46a3ef45bfed223cc2d824c8c94c600979485850",
+    "healthgraphbench/controls/synthetic.py": "5a9fdef73538d12082f2557285b25040ad1063befff961f527a81b0315e73033",
+    "scripts/run_q2_maude.py": "90b2a7c068419ea44f0c5d7df86a9b4c0b8eaf66c9f546cab27497a8df911b08",
+    "scripts/run_q2_cms.py": "8aba9d0bfbf9aa1c8754e64c7918595379c4034f81bcb4028b13fe4d23472a67",
+    "scripts/run_q2_partd.py": "9cc3c651771b91704557005ca0282701f3a942d150139d059651a9043f3e38f4",
+    "scripts/run_q2_prospective_partd.py": "f2752ed32eb7f4f49548b01e8b743ee80a3ceb4fc2a9dc63f0c712bebfa9e13e",
+    "scripts/run_q2_reuse.py": "2a50a2af03ccdb5e0fd4e226250fe077b66e4fd7ca09b92338ec2174a17daf03",
+    "scripts/build_partd_execution_v0_2.py": "4f544fd5a7e55c0696166907a0201a6d0619de99af025efeba820108800c7800",
+    "scripts/download_cms.py": "38848cf5d8b46247ba8c94eac844fbd6306768fc5753056903866b0a58cc386a",
+    "examples/q2_external_reuse/neighbor_cosine.py": "b53c66ba11e4b7e61e637aceded8ba8a84fdf3f0ef48bb679e480aa267d565b6",
+    "healthgraphbench/rc31/__init__.py": "59cf1de510729b1a891ee274b10ddb63ea318b0bbc212d2f588cbd6009789ebd",
+    "healthgraphbench/rc31/partd.py": "07016e305da2b742fdce5380148640d7d4a097d3c13dc261a26185bf6d23d1df",
+    "healthgraphbench/rc31/maude.py": "8923d735dd07e5b0529a583f4b520e70cd0550a278656649983166e90d345a20",
+    "healthgraphbench/rc31/cms.py": "f9cd8e77dc25d9c53a12e2ee77ff0dec8ec3d7f25e69f575afacf579ee5ea84d",
+    "healthgraphbench/rc31/analysis.py": "f6d4c03efdc539f4e89f1d0d7e3d2aa3945e6edba5be9f8bfa389b828d42d9fc",
+    "healthgraphbench/rc31/run.py": "8a42e6359a2e3883b0d905b77c139eceda8028bf15b4673c4c3f9899be6f798f",
+    "healthgraphbench/rc31/preflight.py": "e9d6c7af82bd8cd17d2960b712b10b50704db43f761a9fb191f2c73ee0d2093f",
+    "healthgraphbench/rc31/availability.py": "2cf548bd99ac821aa4d62104d6b4cf17aa24b835979d3bf3bef2bfcc21a70810"
+  },
+  "health_fit_or_score_performed": false,
+  "historical_audits_reexecuted": false,
+  "scope": "New neighbor/adapter/reassignment/checkpoint/denominator paths exercised on synthetic inputs; old exact-gradient proofs are reused, not re-audited."
+}

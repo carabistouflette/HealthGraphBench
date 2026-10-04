@@ -361,3 +361,27 @@ No official Part D2025 target or metric was acquired/computed. Human
 nonconsultation is unknown and external-human reuse remains unperformed.
 Authors, declarations, manuscript license, venue, final template and submission
 approval remain open. No merge/tag/Zenodo/submission or Q2 acceptance guarantee.
+
+## RC3.1 targeted relational-information protocol — 2026-10-04
+
+After documentary RC3 closeout, the user explicitly chose targeted new experiments
+before RC3.1. The [canonical French protocol](rc31-relational/protocol_fr.md)
+separates common Part D comparisons (common-count/Jaccard/cosine/BPR/GraphSAGE)
+from MAUDE fanout, aggregation-only reassignment and same-state BPR inference
+smoothing, plus matched-row CMS owner-representation contrasts. Successful
+historical BPR fits are reused, not retrained. All declared pre-target strata,
+zero-positive review workloads and conditional entity-cluster uncertainty remain
+exploratory; model/seed selection and actual cumulative budgets are locked.
+
+The new synthetic regression subset passed44 tests in3.723s; the new CLI preflight
+exercised adapters, persistent checkpoints, degree-preserving intervention and
+denominators without health fits/scores or replaying old gradient audits.
+A fresh metadata-only CMS catalogue capture at19:58:26.587211UTC still listed
+2013–24, not service2025; body and provenance are preserved in
+`results/rc31_catalog_20261004.json` and `results/rc31_availability_20261004.json`.
+The original forecast stays unchanged. Real temporal confirmation and an actual
+outside team remain gated by unavailable target/human evidence, documented
+[separately](rc31-relational/independence_and_reuse_fr.md). No medical result,
+external human success, manuscript approval or submission is asserted at this
+preflight boundary; RC3 and all historical/user files remain outside the change.
+
