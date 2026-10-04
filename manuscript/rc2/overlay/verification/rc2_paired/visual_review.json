@@ -1,0 +1,49 @@
+{
+  "scope": "Assistant visual inspection, not author/editorial approval",
+  "pdf_pages": {
+    "main_fr": 17,
+    "main_en": 16,
+    "supplement_fr": 23,
+    "supplement_en": 22
+  },
+  "all_scientific_pages_examined_as_contact_sheets": true,
+  "enlarged_pages_examined": {
+    "main_fr": [
+      1,
+      8,
+      9
+    ],
+    "main_en": [
+      1,
+      8
+    ],
+    "supplement_fr": [
+      1,
+      4,
+      18,
+      19,
+      21
+    ],
+    "supplement_en": [
+      1,
+      4,
+      18,
+      20
+    ]
+  },
+  "observations": [
+    "Readable current abstracts; C main and D1 secondary",
+    "Duration curve and distinct paired table present in both main PDFs",
+    "Methods first and evidence map second in both supplements",
+    "S11 code comparison and paired uncertainty explicitly limited",
+    "Complete D1 recall/loss figures retained, mean reused and none loss nearly flat",
+    "No clipped scientific table or figure observed on inspected pages"
+  ],
+  "latex_log_warnings": {
+    "main_fr": [],
+    "main_en": [],
+    "supplement_fr": [],
+    "supplement_en": []
+  },
+  "ready_for_submission": false
+}

@@ -1,0 +1,4015 @@
+{
+  "schema": "healthgraphbench.maude-aggregation-numeric-invariants.v1",
+  "status": "complete",
+  "scope": {
+    "run_directory": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z",
+    "baseline_run_directory": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z",
+    "prepared_snapshots": "streamed 2019Q1–2025Q4; first-occurrence positive labels, historical product support, and candidate relations independently derived",
+    "source_snapshots_scanned": 28,
+    "evaluation_quarters_scanned": 12,
+    "evaluation_quarters_expected": 12,
+    "evaluation_periods": [
+      "validation_2023",
+      "test_2024",
+      "test_2025"
+    ],
+    "none_checkpoints_reconstructed": 3,
+    "pinned_c_checkpoints_compared": 3,
+    "none_epoch_log_rows_scanned": 90,
+    "pinned_c_epoch_log_rows_compared": 90,
+    "none_candidate_set_rows_scanned": 9853,
+    "pinned_c_candidate_set_rows_scanned": 9853,
+    "candidate_ids_compared_per_model": 9187488,
+    "paired_candidate_id_items": 4593744,
+    "none_prediction_rows_reconstructed": 4593744,
+    "pinned_c_prediction_rows_paired": 4593744,
+    "paired_prediction_id_label_rows": 4593744,
+    "none_raw_checkpoint_score_comparisons": 4593744,
+    "expected_none_predictions": 4593744,
+    "quarter_metric_tables_recomputed": 12,
+    "annual_metric_tables_recomputed": 3,
+    "pooled_test_metric_tables_recomputed": 1,
+    "prediction_stream_coverage": "all eligible candidate pairs; deterministic sampling: none; every none score/rank/label and EOF checked"
+  },
+  "numchecks_observed": 51260776,
+  "checks_by_invariant": {
+    "C_log_rows": 1,
+    "C_paired_prediction_count": 1,
+    "C_reused_artifact_path": 50,
+    "Cmean30_aggregation_mode": 3,
+    "Cmean30_candidate_product_group_rows": 12,
+    "Cmean30_checkpoint_neighbor_weights_active": 3,
+    "Cmean30_checkpoint_neighbors_present": 6,
+    "Cmean30_prediction_candidate_coverage": 9853,
+    "Cmean30_prediction_identity": 4593744,
+    "Cmean30_prediction_label": 4593744,
+    "Cmean30_prediction_row_structure": 4593744,
+    "Cmean30_prediction_rows": 4593744,
+    "Cmean30_prediction_score_finite": 4593744,
+    "Cmean30_quarter_prediction_rows": 12,
+    "D1_artifact_inventory_nonempty": 1,
+    "aggregate_metric_values": 525,
+    "all_three_phase_checkpoints_loaded": 1,
+    "candidate_id_values": 19706,
+    "candidate_product_group_rows": 12,
+    "candidate_set_eof": 24,
+    "candidate_set_recorded_fields": 19706,
+    "candidate_set_rows": 19706,
+    "checkpoint_epochs_completed": 6,
+    "checkpoint_raw_parameter_dimensions": 21368,
+    "checkpoint_raw_parameter_keys": 12,
+    "checkpoint_resume_disabled": 6,
+    "checkpoint_schema": 6,
+    "checkpoint_self_weight_dimensions": 6,
+    "cohort_candidate_identity_match": 3,
+    "cohort_comparison_phase_status": 3,
+    "cohort_comparison_status": 1,
+    "cohort_values": 490129,
+    "completed_quarters_status": 2,
+    "configuration_values": 96,
+    "configured_mean_origin": 1,
+    "configured_none_mode": 1,
+    "duration_epochs": 1,
+    "eligible_label_values": 19706,
+    "epoch_log_rows": 6,
+    "epoch_loss_finite": 180,
+    "epoch_sequence": 180,
+    "epoch_skips": 180,
+    "epoch_step_arithmetic": 180,
+    "epoch_training_population": 180,
+    "evaluation_quarter_count": 1,
+    "file_sha256_pins": 120,
+    "file_size_pins": 111,
+    "fit_artifact_paths": 12,
+    "fit_epoch_totals": 18,
+    "fit_epochs_completed": 6,
+    "fit_epochs_requested": 6,
+    "fit_loss_semantics": 6,
+    "fully_paired_prediction_count": 1,
+    "manifest_overall_peak_rss": 1,
+    "metric_values": 1176,
+    "new_confidence_interval_absent": 1,
+    "none_Cmean30_epoch_triplets_steps_skips_match": 90,
+    "none_aggregation_mode": 3,
+    "none_cached_embedding_values": 96156,
+    "none_cached_embeddings_keys": 6,
+    "none_checkpoint_count": 1,
+    "none_checkpoint_neighbor_weights_zero": 3,
+    "none_checkpoint_neighbors_empty": 6,
+    "none_checkpoint_score_values": 4593744,
+    "none_effective_fanout": 3,
+    "none_log_rows": 1,
+    "none_prediction_candidate_coverage": 9853,
+    "none_prediction_count": 1,
+    "none_prediction_label": 4593744,
+    "none_prediction_problem_order": 4593744,
+    "none_prediction_row_structure": 4593744,
+    "none_prediction_rows": 4593744,
+    "none_quarter_prediction_rows": 12,
+    "overall_wall_includes_phase_wall": 1,
+    "paired_Cmean30_none30_labels": 4593744,
+    "paired_quarter_prediction_rows": 12,
+    "phase_quarters": 10,
+    "phase_resource_caps": 9,
+    "phase_status": 24,
+    "pinned_C_checkpoint_count": 1,
+    "pinned_C_manifest_status": 1,
+    "pinned_C_report_status": 1,
+    "pinned_C_reused_artifact_count": 1,
+    "pinned_C_run_id": 1,
+    "pinned_C_summary_sha256": 1,
+    "population_values": 72,
+    "positive_candidate_membership": 9853,
+    "prediction_eof": 24,
+    "prepared_input_expected_path_sha": 1,
+    "prepared_input_manifest_sha": 1,
+    "prepared_quarter_sequence": 28,
+    "prepared_schema": 1,
+    "prepared_snapshot_count": 1,
+    "primary_contrast_definition": 1,
+    "primary_contrast_metric": 1,
+    "primary_contrast_observed_direction": 1,
+    "protocol_expected_pin": 1,
+    "protocol_hash_expected": 1,
+    "protocol_pin_agreement": 1,
+    "quarter_population_values": 96,
+    "quarter_result_values": 7000,
+    "report_duration_epochs": 1,
+    "report_status": 1,
+    "resource_values": 83,
+    "run_id": 1,
+    "run_status": 1,
+    "selection_after_validation": 1,
+    "selection_candidate_cohorts_match": 1,
+    "selection_duration": 1,
+    "selection_duration_source": 1,
+    "selection_lock_manifest_timestamp": 1,
+    "selection_lock_report_timestamp": 1,
+    "selection_lock_timestamp": 1,
+    "selection_record_created_before_lock": 1,
+    "selection_status": 1,
+    "selection_variants": 1,
+    "summary_values": 2705,
+    "test_2024_trace_born_after_lock": 1,
+    "test_phase_duration": 2,
+    "test_phase_refit_quarter": 2,
+    "test_phase_status": 2,
+    "test_phases_serial_order": 1,
+    "test_scores_not_consulted": 2,
+    "trace_event_count": 3,
+    "trace_fit_started_before_evaluation": 3,
+    "trace_values": 159,
+    "validation_trace_before_lock": 1
+  },
+  "tolerance": {
+    "integers_and_strings": "exact; booleans are not accepted as integers",
+    "floating_point_scores_and_metrics": 1e-12,
+    "candidate_ids_hash": "exact SHA-256 over compact UTF-8 JSON list, ensure_ascii=False"
+  },
+  "discrepancies": {
+    "count": 0,
+    "examples_capped_at": 100,
+    "examples": []
+  },
+  "resources": {
+    "wall_seconds": 58.54687636499875,
+    "wall_limit_seconds": 900.0,
+    "rss_peak_bytes": 118292480,
+    "rss_current_at_report_bytes": 118292480,
+    "rss_limit_bytes": 536870912,
+    "rss_proc_status_high_water_bytes": 118292480,
+    "rss_resource_ru_maxrss_bytes": 571580416,
+    "python": "3.13.5 (main, Jul 23 2025, 00:37:22) [Clang 20.1.4 ]",
+    "platform": "linux",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1"
+    }
+  },
+  "command": {
+    "executable": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/consolidation-post-RC1/core-verification-20261002/analysis-env/bin/python",
+    "argv": [
+      "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/postchecks/audit_numeric_invariants.py"
+    ]
+  },
+  "evidence": {
+    "run_started_at_utc": "2026-10-02T20:51:22.508511+00:00",
+    "run_finished_at_utc": "2026-10-02T20:58:18.652080+00:00",
+    "input": {
+      "path": "results/generated/consolidation-post-RC1/core-verification-20261002/inputs/HealthGraphBench_RC1/data/real_R6/maude_B/prepared_snapshots.json.gz",
+      "sha256": "1cba7f84ff24131715c68a985d9302c96c7bab4a4b2a27d906559a41104fbd36",
+      "source_snapshots": 28,
+      "quarter_sequence": [
+        "2019Q1",
+        "2025Q4"
+      ],
+      "edge_derivation": "first-occurrence pairs from each streamed snapshot; only positive labels on products with historical reports and problems already in history",
+      "candidate_rule": "all historical problem IDs minus product's historical problem IDs, sorted lexically",
+      "support": "historical product_reports before the evaluated snapshot"
+    },
+    "selection_lock_order": {
+      "locked_at_utc": "2026-10-02T20:53:30.842192+00:00",
+      "selection_file_birth_utc": "2026-10-02T20:53:30.841904+00:00",
+      "validation_trace_birth_utc": "2026-10-02T20:51:22.513738+00:00",
+      "validation_trace_last_write_utc": "2026-10-02T20:53:30.438944+00:00",
+      "test_2024_trace_birth_utc": "2026-10-02T20:53:30.847309+00:00",
+      "test_2024_trace_last_write_utc": "2026-10-02T20:55:47.675109+00:00",
+      "test_2025_trace_birth_utc": "2026-10-02T20:55:48.042784+00:00",
+      "ordering_basis": "local Linux file birth and trace modification timestamps; traces contain fit_started before quarter evaluation and each test trace is born after its allowed predecessor"
+    },
+    "selected_duration_epochs": 30,
+    "test_scores_consulted": false,
+    "selection_validation_micro_recall_at_10": {
+      "mean30_reused_C": 0.20506164828033743,
+      "none30_reconstructed": 0.031148604802076575,
+      "signed_mean_minus_none": 0.17391304347826086
+    },
+    "none_training": {
+      "validation_2023": {
+        "checkpoint_sha256": "71279ddbc9761084ddc3fefa69f344f9386d43518e30dd2d3275ceb601349788",
+        "epoch_log_sha256": "24d0d904f23cd57ac11cbaccb63d59f579389f31b6f545f3f0acc7e364379b0c",
+        "checkpoint_configuration": {
+          "dimension": 8,
+          "epochs": 30,
+          "neighbor_sample": 0,
+          "learning_rate": 0.02,
+          "regularization": 0.0005,
+          "objective": "bpr",
+          "activation": "tanh",
+          "aggregation": "none"
+        },
+        "cohort_sha256": "f8678a712f5711978fb56ea1e46e7b1a4daf5a0f34527cd802767705c3e6df06",
+        "products": 2878,
+        "problems": 516,
+        "active_neighbor_fanout": 0,
+        "neighbor_maps_empty": true,
+        "neighbor_weights_all_zero": true,
+        "epochs_checked": 30,
+        "triplets_steps_skips_equal_pinned_C_per_epoch": true
+      },
+      "test_2024": {
+        "checkpoint_sha256": "15eeae8cfc5f6c233b0350de52042e5a52df669efa3817708552fb7550e3e765",
+        "epoch_log_sha256": "fc45ecc0a0bd67e1140b8e936381862043cac25c629157043a68b185a3ccd453",
+        "checkpoint_configuration": {
+          "dimension": 8,
+          "epochs": 30,
+          "neighbor_sample": 0,
+          "learning_rate": 0.02,
+          "regularization": 0.0005,
+          "objective": "bpr",
+          "activation": "tanh",
+          "aggregation": "none"
+        },
+        "cohort_sha256": "38836828dd409adf5945619dfaf65e57375ec12c11c121171cbad3738185f24e",
+        "products": 3059,
+        "problems": 517,
+        "active_neighbor_fanout": 0,
+        "neighbor_maps_empty": true,
+        "neighbor_weights_all_zero": true,
+        "epochs_checked": 30,
+        "triplets_steps_skips_equal_pinned_C_per_epoch": true
+      },
+      "test_2025": {
+        "checkpoint_sha256": "aeb0996196d0473cf4bda8b2bdd490afa128139e604fb4de77d1a61195f35602",
+        "epoch_log_sha256": "9d634e56ec72d0775f6bbc5c1b5d427214a4f6620832c7ebafc644bbdaf772b6",
+        "checkpoint_configuration": {
+          "dimension": 8,
+          "epochs": 30,
+          "neighbor_sample": 0,
+          "learning_rate": 0.02,
+          "regularization": 0.0005,
+          "objective": "bpr",
+          "activation": "tanh",
+          "aggregation": "none"
+        },
+        "cohort_sha256": "6dc3d3f4ee85cd2103aa7b28fb0924f581c800dd10eabce86e2df908dbb9cfa1",
+        "products": 3191,
+        "problems": 523,
+        "active_neighbor_fanout": 0,
+        "neighbor_maps_empty": true,
+        "neighbor_weights_all_zero": true,
+        "epochs_checked": 30,
+        "triplets_steps_skips_equal_pinned_C_per_epoch": true
+      }
+    },
+    "reconstruction": {
+      "method": "GraphSageRanker.from_checkpoint for each raw none30 checkpoint; ranking rescored from raw product/problem input vectors and self_weights",
+      "cached_embeddings_used_as_answers": false,
+      "cached_embedding_rebuild_comparisons": 10684,
+      "tie_break": "(-score, -historical problem popularity, problem code)",
+      "score_tolerance": 1e-12,
+      "all_scores_checked": 4593744,
+      "all_ranks_and_labels_checked": 4593744,
+      "all_candidate_prediction_eofs_checked": true
+    },
+    "paired_C_mean30": {
+      "origin": "reused from pinned C; no mean fit and no old C score audit rerun",
+      "reused_artifacts_verified": 50,
+      "candidate_sets_paired": 9853,
+      "candidate_ids_paired": 4593744,
+      "prediction_rows_paired_by_product_problem_identity_and_label": 4593744,
+      "C_candidate_and_prediction_artifacts_sha256_pinned": true,
+      "C_scores_recomputed": false,
+      "C_validation_micro_recall_at_10": 0.20506164828033743,
+      "C_pooled_test_micro_recall_at_10": 0.21064217397904964
+    },
+    "recomputed_none_metrics": {
+      "quarter_populations": {
+        "2023Q1": {
+          "products_with_positives": 914,
+          "positive_edges": 2007,
+          "candidate_pairs": 425657
+        },
+        "2023Q2": {
+          "products_with_positives": 943,
+          "positive_edges": 2133,
+          "candidate_pairs": 441235
+        },
+        "2023Q3": {
+          "products_with_positives": 893,
+          "positive_edges": 2136,
+          "candidate_pairs": 415234
+        },
+        "2023Q4": {
+          "products_with_positives": 733,
+          "positive_edges": 1429,
+          "candidate_pairs": 336462
+        },
+        "2024Q1": {
+          "products_with_positives": 722,
+          "positive_edges": 1514,
+          "candidate_pairs": 333657
+        },
+        "2024Q2": {
+          "products_with_positives": 781,
+          "positive_edges": 1731,
+          "candidate_pairs": 362816
+        },
+        "2024Q3": {
+          "products_with_positives": 729,
+          "positive_edges": 1387,
+          "candidate_pairs": 338245
+        },
+        "2024Q4": {
+          "products_with_positives": 718,
+          "positive_edges": 1371,
+          "candidate_pairs": 333018
+        },
+        "2025Q1": {
+          "products_with_positives": 695,
+          "positive_edges": 1266,
+          "candidate_pairs": 321242
+        },
+        "2025Q2": {
+          "products_with_positives": 926,
+          "positive_edges": 2051,
+          "candidate_pairs": 434467
+        },
+        "2025Q3": {
+          "products_with_positives": 888,
+          "positive_edges": 1985,
+          "candidate_pairs": 418866
+        },
+        "2025Q4": {
+          "products_with_positives": 911,
+          "positive_edges": 1869,
+          "candidate_pairs": 432845
+        }
+      },
+      "quarter_metrics": {
+        "2023Q1": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 2007,
+              "products": 914,
+              "hits_at_5": 36,
+              "hits_at_10": 54,
+              "hits_at_20": 111,
+              "recall_at_5": 0.017937219730941704,
+              "recall_at_10": 0.026905829596412557,
+              "recall_at_20": 0.05530642750373692,
+              "macro_recall_at_5": 0.019549077836824,
+              "macro_recall_at_10": 0.02669367163349657,
+              "macro_recall_at_20": 0.05662174607260851,
+              "mrr": 0.030802624767837884
+            },
+            "10": {
+              "positive_edges": 1822,
+              "products": 800,
+              "hits_at_5": 36,
+              "hits_at_10": 54,
+              "hits_at_20": 105,
+              "recall_at_5": 0.019758507135016465,
+              "recall_at_10": 0.029637760702524697,
+              "recall_at_20": 0.057628979143798026,
+              "macro_recall_at_5": 0.02233482142857142,
+              "macro_recall_at_10": 0.030497519841269832,
+              "macro_recall_at_20": 0.05927367822128854,
+              "mrr": 0.03352491817258356
+            },
+            "50": {
+              "positive_edges": 1505,
+              "products": 625,
+              "hits_at_5": 35,
+              "hits_at_10": 51,
+              "hits_at_20": 90,
+              "recall_at_5": 0.023255813953488372,
+              "recall_at_10": 0.03388704318936877,
+              "recall_at_20": 0.059800664451827246,
+              "macro_recall_at_5": 0.028055238095238088,
+              "macro_recall_at_10": 0.03650349206349205,
+              "macro_recall_at_20": 0.0633217366946779,
+              "mrr": 0.03838706740840416
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 185,
+              "products": 114,
+              "hits_at_5": 0,
+              "hits_at_10": 0,
+              "hits_at_20": 6,
+              "recall_at_5": 0.0,
+              "recall_at_10": 0.0,
+              "recall_at_20": 0.032432432432432434,
+              "macro_recall_at_5": 0.0,
+              "macro_recall_at_10": 0.0,
+              "macro_recall_at_20": 0.038011695906432746,
+              "mrr": 0.011698811401201506
+            },
+            "10-49": {
+              "positive_edges": 317,
+              "products": 175,
+              "hits_at_5": 1,
+              "hits_at_10": 3,
+              "hits_at_20": 15,
+              "recall_at_5": 0.0031545741324921135,
+              "recall_at_10": 0.00946372239747634,
+              "recall_at_20": 0.0473186119873817,
+              "macro_recall_at_5": 0.0019047619047619048,
+              "macro_recall_at_10": 0.009047619047619047,
+              "macro_recall_at_20": 0.044816326530612245,
+              "mrr": 0.016160099473224266
+            },
+            "50-199": {
+              "positive_edges": 355,
+              "products": 163,
+              "hits_at_5": 7,
+              "hits_at_10": 12,
+              "hits_at_20": 21,
+              "recall_at_5": 0.01971830985915493,
+              "recall_at_10": 0.03380281690140845,
+              "recall_at_20": 0.059154929577464786,
+              "macro_recall_at_5": 0.021165644171779144,
+              "macro_recall_at_10": 0.03380075956763073,
+              "macro_recall_at_20": 0.06652059596844873,
+              "mrr": 0.02870035423293509
+            },
+            "200+": {
+              "positive_edges": 1150,
+              "products": 462,
+              "hits_at_5": 28,
+              "hits_at_10": 39,
+              "hits_at_20": 69,
+              "recall_at_5": 0.02434782608695652,
+              "recall_at_10": 0.03391304347826087,
+              "recall_at_20": 0.06,
+              "macro_recall_at_5": 0.030485982271696556,
+              "macro_recall_at_10": 0.0374570535284821,
+              "macro_recall_at_20": 0.06219313482968943,
+              "mrr": 0.04180467400494414
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 2007,
+                "products": 914,
+                "hits_at_5": 36,
+                "hits_at_10": 54,
+                "hits_at_20": 111,
+                "product_recall_sum_at_5": 17.867857142857137,
+                "product_recall_sum_at_10": 24.398015873015865,
+                "product_recall_sum_at_20": 51.752275910364176,
+                "reciprocal_rank_sum": 28.153599037803826
+              },
+              "10": {
+                "positive_edges": 1822,
+                "products": 800,
+                "hits_at_5": 36,
+                "hits_at_10": 54,
+                "hits_at_20": 105,
+                "product_recall_sum_at_5": 17.867857142857137,
+                "product_recall_sum_at_10": 24.398015873015865,
+                "product_recall_sum_at_20": 47.41894257703083,
+                "reciprocal_rank_sum": 26.81993453806685
+              },
+              "50": {
+                "positive_edges": 1505,
+                "products": 625,
+                "hits_at_5": 35,
+                "hits_at_10": 51,
+                "hits_at_20": 90,
+                "product_recall_sum_at_5": 17.534523809523805,
+                "product_recall_sum_at_10": 22.814682539682533,
+                "product_recall_sum_at_20": 39.576085434173685,
+                "reciprocal_rank_sum": 23.9919171302526
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 185,
+                "products": 114,
+                "hits_at_5": 0,
+                "hits_at_10": 0,
+                "hits_at_20": 6,
+                "product_recall_sum_at_5": 0.0,
+                "product_recall_sum_at_10": 0.0,
+                "product_recall_sum_at_20": 4.333333333333333,
+                "reciprocal_rank_sum": 1.3336644997369718
+              },
+              "10-49": {
+                "positive_edges": 317,
+                "products": 175,
+                "hits_at_5": 1,
+                "hits_at_10": 3,
+                "hits_at_20": 15,
+                "product_recall_sum_at_5": 0.3333333333333333,
+                "product_recall_sum_at_10": 1.5833333333333333,
+                "product_recall_sum_at_20": 7.8428571428571425,
+                "reciprocal_rank_sum": 2.828017407814247
+              },
+              "50-199": {
+                "positive_edges": 355,
+                "products": 163,
+                "hits_at_5": 7,
+                "hits_at_10": 12,
+                "hits_at_20": 21,
+                "product_recall_sum_at_5": 3.45,
+                "product_recall_sum_at_10": 5.509523809523809,
+                "product_recall_sum_at_20": 10.842857142857143,
+                "reciprocal_rank_sum": 4.6781577399684195
+              },
+              "200+": {
+                "positive_edges": 1150,
+                "products": 462,
+                "hits_at_5": 28,
+                "hits_at_10": 39,
+                "hits_at_20": 69,
+                "product_recall_sum_at_5": 14.084523809523809,
+                "product_recall_sum_at_10": 17.30515873015873,
+                "product_recall_sum_at_20": 28.733228291316518,
+                "reciprocal_rank_sum": 19.313759390284194
+              }
+            }
+          }
+        },
+        "2023Q2": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 2133,
+              "products": 943,
+              "hits_at_5": 42,
+              "hits_at_10": 63,
+              "hits_at_20": 112,
+              "recall_at_5": 0.01969057665260197,
+              "recall_at_10": 0.029535864978902954,
+              "recall_at_20": 0.05250820440693858,
+              "macro_recall_at_5": 0.020698291045586906,
+              "macro_recall_at_10": 0.02922141043827152,
+              "macro_recall_at_20": 0.05613442025159949,
+              "mrr": 0.033678128544649334
+            },
+            "10": {
+              "positive_edges": 1912,
+              "products": 802,
+              "hits_at_5": 34,
+              "hits_at_10": 53,
+              "hits_at_20": 97,
+              "recall_at_5": 0.01778242677824268,
+              "recall_at_10": 0.027719665271966527,
+              "recall_at_20": 0.05073221757322176,
+              "macro_recall_at_5": 0.018206760335812706,
+              "macro_recall_at_10": 0.027189264393129728,
+              "macro_recall_at_20": 0.054885401035650414,
+              "mrr": 0.033910666930502334
+            },
+            "50": {
+              "positive_edges": 1625,
+              "products": 639,
+              "hits_at_5": 28,
+              "hits_at_10": 44,
+              "hits_at_20": 77,
+              "recall_at_5": 0.01723076923076923,
+              "recall_at_10": 0.02707692307692308,
+              "recall_at_20": 0.047384615384615386,
+              "macro_recall_at_5": 0.01799972111004975,
+              "macro_recall_at_10": 0.026404470594611436,
+              "macro_recall_at_20": 0.04859377928626753,
+              "mrr": 0.035687081490526344
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 221,
+              "products": 141,
+              "hits_at_5": 8,
+              "hits_at_10": 10,
+              "hits_at_20": 15,
+              "recall_at_5": 0.03619909502262444,
+              "recall_at_10": 0.04524886877828054,
+              "recall_at_20": 0.06787330316742081,
+              "macro_recall_at_5": 0.034869976359338056,
+              "macro_recall_at_10": 0.040780141843971635,
+              "macro_recall_at_20": 0.06323877068557919,
+              "mrr": 0.03235546339958471
+            },
+            "10-49": {
+              "positive_edges": 287,
+              "products": 163,
+              "hits_at_5": 6,
+              "hits_at_10": 9,
+              "hits_at_20": 20,
+              "recall_at_5": 0.020905923344947737,
+              "recall_at_10": 0.0313588850174216,
+              "recall_at_20": 0.06968641114982578,
+              "macro_recall_at_5": 0.019018404907975458,
+              "macro_recall_at_10": 0.030265848670756646,
+              "macro_recall_at_20": 0.07955010224948875,
+              "mrr": 0.02694668592525487
+            },
+            "50-199": {
+              "positive_edges": 363,
+              "products": 180,
+              "hits_at_5": 7,
+              "hits_at_10": 8,
+              "hits_at_20": 12,
+              "recall_at_5": 0.01928374655647383,
+              "recall_at_10": 0.02203856749311295,
+              "recall_at_20": 0.03305785123966942,
+              "macro_recall_at_5": 0.02052469135802469,
+              "macro_recall_at_10": 0.022376543209876542,
+              "macro_recall_at_20": 0.028163580246913577,
+              "mrr": 0.027730054199111103
+            },
+            "200+": {
+              "positive_edges": 1262,
+              "products": 459,
+              "hits_at_5": 21,
+              "hits_at_10": 36,
+              "hits_at_20": 65,
+              "recall_at_5": 0.01664025356576862,
+              "recall_at_10": 0.028526148969889066,
+              "recall_at_20": 0.05150554675118859,
+              "macro_recall_at_5": 0.017009536699079182,
+              "macro_recall_at_10": 0.027984049961174144,
+              "macro_recall_at_20": 0.056605622046798504,
+              "mrr": 0.0388074843499048
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 2133,
+                "products": 943,
+                "hits_at_5": 42,
+                "hits_at_10": 63,
+                "hits_at_20": 112,
+                "product_recall_sum_at_5": 19.518488455988454,
+                "product_recall_sum_at_10": 27.555790043290042,
+                "product_recall_sum_at_20": 52.93475829725832,
+                "reciprocal_rank_sum": 31.75847521760432
+              },
+              "10": {
+                "positive_edges": 1912,
+                "products": 802,
+                "hits_at_5": 34,
+                "hits_at_10": 53,
+                "hits_at_20": 97,
+                "product_recall_sum_at_5": 14.60182178932179,
+                "product_recall_sum_at_10": 21.805790043290042,
+                "product_recall_sum_at_20": 44.018091630591634,
+                "reciprocal_rank_sum": 27.19635487826287
+              },
+              "50": {
+                "positive_edges": 1625,
+                "products": 639,
+                "hits_at_5": 28,
+                "hits_at_10": 44,
+                "hits_at_20": 77,
+                "product_recall_sum_at_5": 11.50182178932179,
+                "product_recall_sum_at_10": 16.872456709956708,
+                "product_recall_sum_at_20": 31.05142496392495,
+                "reciprocal_rank_sum": 22.804045072446332
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 221,
+                "products": 141,
+                "hits_at_5": 8,
+                "hits_at_10": 10,
+                "hits_at_20": 15,
+                "product_recall_sum_at_5": 4.916666666666666,
+                "product_recall_sum_at_10": 5.75,
+                "product_recall_sum_at_20": 8.916666666666666,
+                "reciprocal_rank_sum": 4.562120339341444
+              },
+              "10-49": {
+                "positive_edges": 287,
+                "products": 163,
+                "hits_at_5": 6,
+                "hits_at_10": 9,
+                "hits_at_20": 20,
+                "product_recall_sum_at_5": 3.0999999999999996,
+                "product_recall_sum_at_10": 4.933333333333334,
+                "product_recall_sum_at_20": 12.966666666666667,
+                "reciprocal_rank_sum": 4.392309805816544
+              },
+              "50-199": {
+                "positive_edges": 363,
+                "products": 180,
+                "hits_at_5": 7,
+                "hits_at_10": 8,
+                "hits_at_20": 12,
+                "product_recall_sum_at_5": 3.6944444444444446,
+                "product_recall_sum_at_10": 4.027777777777778,
+                "product_recall_sum_at_20": 5.069444444444444,
+                "reciprocal_rank_sum": 4.991409755839999
+              },
+              "200+": {
+                "positive_edges": 1262,
+                "products": 459,
+                "hits_at_5": 21,
+                "hits_at_10": 36,
+                "hits_at_20": 65,
+                "product_recall_sum_at_5": 7.807377344877345,
+                "product_recall_sum_at_10": 12.844678932178931,
+                "product_recall_sum_at_20": 25.981980519480512,
+                "reciprocal_rank_sum": 17.812635316606304
+              }
+            }
+          }
+        },
+        "2023Q3": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 2136,
+              "products": 893,
+              "hits_at_5": 46,
+              "hits_at_10": 70,
+              "hits_at_20": 104,
+              "recall_at_5": 0.02153558052434457,
+              "recall_at_10": 0.03277153558052434,
+              "recall_at_20": 0.04868913857677903,
+              "macro_recall_at_5": 0.026627476479158647,
+              "macro_recall_at_10": 0.0403662607298189,
+              "macro_recall_at_20": 0.0574369458087862,
+              "mrr": 0.03263180921620648
+            },
+            "10": {
+              "positive_edges": 1972,
+              "products": 780,
+              "hits_at_5": 42,
+              "hits_at_10": 62,
+              "hits_at_20": 94,
+              "recall_at_5": 0.02129817444219067,
+              "recall_at_10": 0.03144016227180527,
+              "recall_at_20": 0.04766734279918864,
+              "macro_recall_at_5": 0.02802778183233591,
+              "macro_recall_at_10": 0.03926974892956617,
+              "macro_recall_at_20": 0.057104093086212906,
+              "mrr": 0.0338870496888808
+            },
+            "50": {
+              "positive_edges": 1697,
+              "products": 622,
+              "hits_at_5": 36,
+              "hits_at_10": 55,
+              "hits_at_20": 86,
+              "recall_at_5": 0.02121390689451974,
+              "recall_at_10": 0.03241013553329405,
+              "recall_at_20": 0.050677666470241606,
+              "macro_recall_at_5": 0.025501076895855325,
+              "macro_recall_at_10": 0.03799100348080644,
+              "macro_recall_at_20": 0.05981970944358959,
+              "mrr": 0.03636865525263112
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 164,
+              "products": 113,
+              "hits_at_5": 4,
+              "hits_at_10": 8,
+              "hits_at_20": 10,
+              "recall_at_5": 0.024390243902439025,
+              "recall_at_10": 0.04878048780487805,
+              "recall_at_20": 0.06097560975609756,
+              "macro_recall_at_5": 0.01696165191740413,
+              "macro_recall_at_10": 0.047935103244837754,
+              "macro_recall_at_20": 0.059734513274336286,
+              "mrr": 0.023967317457923402
+            },
+            "10-49": {
+              "positive_edges": 275,
+              "products": 158,
+              "hits_at_5": 6,
+              "hits_at_10": 7,
+              "hits_at_20": 8,
+              "recall_at_5": 0.02181818181818182,
+              "recall_at_10": 0.025454545454545455,
+              "recall_at_20": 0.02909090909090909,
+              "macro_recall_at_5": 0.0379746835443038,
+              "macro_recall_at_10": 0.04430379746835443,
+              "macro_recall_at_20": 0.046413502109704644,
+              "mrr": 0.02411769107715504
+            },
+            "50-199": {
+              "positive_edges": 329,
+              "products": 167,
+              "hits_at_5": 5,
+              "hits_at_10": 10,
+              "hits_at_20": 14,
+              "recall_at_5": 0.015197568389057751,
+              "recall_at_10": 0.030395136778115502,
+              "recall_at_20": 0.0425531914893617,
+              "macro_recall_at_5": 0.017964071856287425,
+              "macro_recall_at_10": 0.041916167664670656,
+              "macro_recall_at_20": 0.05588822355289422,
+              "mrr": 0.025379220472508266
+            },
+            "200+": {
+              "positive_edges": 1368,
+              "products": 455,
+              "hits_at_5": 31,
+              "hits_at_10": 45,
+              "hits_at_20": 72,
+              "recall_at_5": 0.02266081871345029,
+              "recall_at_10": 0.03289473684210526,
+              "recall_at_20": 0.05263157894736842,
+              "macro_recall_at_5": 0.02826740621807036,
+              "macro_recall_at_10": 0.03655033882431123,
+              "macro_recall_at_20": 0.06126269437489973,
+              "mrr": 0.04040214010599492
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 2136,
+                "products": 893,
+                "hits_at_5": 46,
+                "hits_at_10": 70,
+                "hits_at_20": 104,
+                "product_recall_sum_at_5": 23.778336495888674,
+                "product_recall_sum_at_10": 36.04707083172828,
+                "product_recall_sum_at_20": 51.291192607246074,
+                "reciprocal_rank_sum": 29.14020563007239
+              },
+              "10": {
+                "positive_edges": 1972,
+                "products": 780,
+                "hits_at_5": 42,
+                "hits_at_10": 62,
+                "hits_at_20": 94,
+                "product_recall_sum_at_5": 21.86166982922201,
+                "product_recall_sum_at_10": 30.63040416506161,
+                "product_recall_sum_at_20": 44.54119260724607,
+                "reciprocal_rank_sum": 26.431898757327026
+              },
+              "50": {
+                "positive_edges": 1697,
+                "products": 622,
+                "hits_at_5": 36,
+                "hits_at_10": 55,
+                "hits_at_20": 86,
+                "product_recall_sum_at_5": 15.861669829222011,
+                "product_recall_sum_at_10": 23.630404165061606,
+                "product_recall_sum_at_20": 37.207859273912725,
+                "reciprocal_rank_sum": 22.621303567136554
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 164,
+                "products": 113,
+                "hits_at_5": 4,
+                "hits_at_10": 8,
+                "hits_at_20": 10,
+                "product_recall_sum_at_5": 1.9166666666666665,
+                "product_recall_sum_at_10": 5.416666666666666,
+                "product_recall_sum_at_20": 6.75,
+                "reciprocal_rank_sum": 2.7083068727453443
+              },
+              "10-49": {
+                "positive_edges": 275,
+                "products": 158,
+                "hits_at_5": 6,
+                "hits_at_10": 7,
+                "hits_at_20": 8,
+                "product_recall_sum_at_5": 6.0,
+                "product_recall_sum_at_10": 7.0,
+                "product_recall_sum_at_20": 7.333333333333334,
+                "reciprocal_rank_sum": 3.810595190190496
+              },
+              "50-199": {
+                "positive_edges": 329,
+                "products": 167,
+                "hits_at_5": 5,
+                "hits_at_10": 10,
+                "hits_at_20": 14,
+                "product_recall_sum_at_5": 3.0,
+                "product_recall_sum_at_10": 7.0,
+                "product_recall_sum_at_20": 9.333333333333334,
+                "reciprocal_rank_sum": 4.2383298189088805
+              },
+              "200+": {
+                "positive_edges": 1368,
+                "products": 455,
+                "hits_at_5": 31,
+                "hits_at_10": 45,
+                "hits_at_20": 72,
+                "product_recall_sum_at_5": 12.861669829222013,
+                "product_recall_sum_at_10": 16.63040416506161,
+                "product_recall_sum_at_20": 27.874525940579378,
+                "reciprocal_rank_sum": 18.382973748227688
+              }
+            }
+          }
+        },
+        "2023Q4": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 1429,
+              "products": 733,
+              "hits_at_5": 34,
+              "hits_at_10": 53,
+              "hits_at_20": 85,
+              "recall_at_5": 0.023792862141357594,
+              "recall_at_10": 0.0370888733379986,
+              "recall_at_20": 0.05948215535339398,
+              "macro_recall_at_5": 0.022604971956950128,
+              "macro_recall_at_10": 0.03763512143457573,
+              "macro_recall_at_20": 0.062337869221345675,
+              "mrr": 0.03678041765019822
+            },
+            "10": {
+              "positive_edges": 1312,
+              "products": 655,
+              "hits_at_5": 29,
+              "hits_at_10": 43,
+              "hits_at_20": 70,
+              "recall_at_5": 0.022103658536585365,
+              "recall_at_10": 0.03277439024390244,
+              "recall_at_20": 0.053353658536585365,
+              "macro_recall_at_5": 0.021988973706530957,
+              "macro_recall_at_10": 0.034101593910754215,
+              "macro_recall_at_20": 0.055639172731673854,
+              "mrr": 0.03418200018467119
+            },
+            "50": {
+              "positive_edges": 1166,
+              "products": 554,
+              "hits_at_5": 27,
+              "hits_at_10": 38,
+              "hits_at_20": 59,
+              "recall_at_5": 0.023156089193825044,
+              "recall_at_10": 0.032590051457975985,
+              "recall_at_20": 0.05060034305317324,
+              "macro_recall_at_5": 0.023290212595266747,
+              "macro_recall_at_10": 0.03445224550820218,
+              "macro_recall_at_20": 0.05299697618395855,
+              "mrr": 0.036407355473927205
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 117,
+              "products": 78,
+              "hits_at_5": 5,
+              "hits_at_10": 10,
+              "hits_at_20": 15,
+              "recall_at_5": 0.042735042735042736,
+              "recall_at_10": 0.08547008547008547,
+              "recall_at_20": 0.1282051282051282,
+              "macro_recall_at_5": 0.027777777777777776,
+              "macro_recall_at_10": 0.0673076923076923,
+              "macro_recall_at_20": 0.11858974358974358,
+              "mrr": 0.058600461751739254
+            },
+            "10-49": {
+              "positive_edges": 146,
+              "products": 101,
+              "hits_at_5": 2,
+              "hits_at_10": 5,
+              "hits_at_20": 11,
+              "recall_at_5": 0.0136986301369863,
+              "recall_at_10": 0.03424657534246575,
+              "recall_at_20": 0.07534246575342465,
+              "macro_recall_at_5": 0.01485148514851485,
+              "macro_recall_at_10": 0.03217821782178218,
+              "macro_recall_at_20": 0.07013201320132013,
+              "mrr": 0.021975595924791688
+            },
+            "50-199": {
+              "positive_edges": 254,
+              "products": 148,
+              "hits_at_5": 5,
+              "hits_at_10": 8,
+              "hits_at_20": 11,
+              "recall_at_5": 0.01968503937007874,
+              "recall_at_10": 0.031496062992125984,
+              "recall_at_20": 0.04330708661417323,
+              "macro_recall_at_5": 0.02702702702702703,
+              "macro_recall_at_10": 0.04391891891891892,
+              "macro_recall_at_20": 0.05067567567567567,
+              "mrr": 0.028245108658615885
+            },
+            "200+": {
+              "positive_edges": 912,
+              "products": 406,
+              "hits_at_5": 22,
+              "hits_at_10": 30,
+              "hits_at_20": 48,
+              "recall_at_5": 0.02412280701754386,
+              "recall_at_10": 0.03289473684210526,
+              "recall_at_20": 0.05263157894736842,
+              "macro_recall_at_5": 0.0219280240831965,
+              "macro_recall_at_10": 0.031001339929911356,
+              "macro_recall_at_20": 0.05384316454658384,
+              "mrr": 0.03938275579083873
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 1429,
+                "products": 733,
+                "hits_at_5": 34,
+                "hits_at_10": 53,
+                "hits_at_20": 85,
+                "product_recall_sum_at_5": 16.569444444444443,
+                "product_recall_sum_at_10": 27.58654401154401,
+                "product_recall_sum_at_20": 45.69365813924638,
+                "reciprocal_rank_sum": 26.960046137595292
+              },
+              "10": {
+                "positive_edges": 1312,
+                "products": 655,
+                "hits_at_5": 29,
+                "hits_at_10": 43,
+                "hits_at_20": 70,
+                "product_recall_sum_at_5": 14.402777777777777,
+                "product_recall_sum_at_10": 22.33654401154401,
+                "product_recall_sum_at_20": 36.443658139246374,
+                "reciprocal_rank_sum": 22.389210120959632
+              },
+              "50": {
+                "positive_edges": 1166,
+                "products": 554,
+                "hits_at_5": 27,
+                "hits_at_10": 38,
+                "hits_at_20": 59,
+                "product_recall_sum_at_5": 12.902777777777777,
+                "product_recall_sum_at_10": 19.08654401154401,
+                "product_recall_sum_at_20": 29.360324805913038,
+                "reciprocal_rank_sum": 20.169674932555672
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 117,
+                "products": 78,
+                "hits_at_5": 5,
+                "hits_at_10": 10,
+                "hits_at_20": 15,
+                "product_recall_sum_at_5": 2.1666666666666665,
+                "product_recall_sum_at_10": 5.25,
+                "product_recall_sum_at_20": 9.25,
+                "reciprocal_rank_sum": 4.570836016635662
+              },
+              "10-49": {
+                "positive_edges": 146,
+                "products": 101,
+                "hits_at_5": 2,
+                "hits_at_10": 5,
+                "hits_at_20": 11,
+                "product_recall_sum_at_5": 1.5,
+                "product_recall_sum_at_10": 3.25,
+                "product_recall_sum_at_20": 7.083333333333334,
+                "reciprocal_rank_sum": 2.2195351884039605
+              },
+              "50-199": {
+                "positive_edges": 254,
+                "products": 148,
+                "hits_at_5": 5,
+                "hits_at_10": 8,
+                "hits_at_20": 11,
+                "product_recall_sum_at_5": 4.0,
+                "product_recall_sum_at_10": 6.5,
+                "product_recall_sum_at_20": 7.499999999999999,
+                "reciprocal_rank_sum": 4.180276081475151
+              },
+              "200+": {
+                "positive_edges": 912,
+                "products": 406,
+                "hits_at_5": 22,
+                "hits_at_10": 30,
+                "hits_at_20": 48,
+                "product_recall_sum_at_5": 8.902777777777779,
+                "product_recall_sum_at_10": 12.58654401154401,
+                "product_recall_sum_at_20": 21.860324805913038,
+                "reciprocal_rank_sum": 15.989398851080525
+              }
+            }
+          }
+        },
+        "2024Q1": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 1514,
+              "products": 722,
+              "hits_at_5": 26,
+              "hits_at_10": 51,
+              "hits_at_20": 90,
+              "recall_at_5": 0.017173051519154558,
+              "recall_at_10": 0.03368560105680317,
+              "recall_at_20": 0.059445178335535004,
+              "macro_recall_at_5": 0.019706063404124344,
+              "macro_recall_at_10": 0.03508949926509844,
+              "macro_recall_at_20": 0.06129492457024676,
+              "mrr": 0.029681449496383933
+            },
+            "10": {
+              "positive_edges": 1397,
+              "products": 655,
+              "hits_at_5": 24,
+              "hits_at_10": 45,
+              "hits_at_20": 83,
+              "recall_at_5": 0.01717967072297781,
+              "recall_at_10": 0.03221188260558339,
+              "recall_at_20": 0.05941302791696493,
+              "macro_recall_at_5": 0.020195080576759967,
+              "macro_recall_at_10": 0.03257193659450546,
+              "macro_recall_at_20": 0.059931199297279636,
+              "mrr": 0.030690932088240447
+            },
+            "50": {
+              "positive_edges": 1173,
+              "products": 533,
+              "hits_at_5": 19,
+              "hits_at_10": 34,
+              "hits_at_20": 66,
+              "recall_at_5": 0.01619778346121057,
+              "recall_at_10": 0.028985507246376812,
+              "recall_at_20": 0.056265984654731455,
+              "macro_recall_at_5": 0.019658119658119658,
+              "macro_recall_at_10": 0.03229705180924693,
+              "macro_recall_at_20": 0.05975409268092193,
+              "mrr": 0.03134673191904926
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 117,
+              "products": 67,
+              "hits_at_5": 2,
+              "hits_at_10": 6,
+              "hits_at_20": 7,
+              "recall_at_5": 0.017094017094017096,
+              "recall_at_10": 0.05128205128205128,
+              "recall_at_20": 0.05982905982905983,
+              "macro_recall_at_5": 0.014925373134328358,
+              "macro_recall_at_10": 0.05970149253731343,
+              "macro_recall_at_20": 0.07462686567164178,
+              "mrr": 0.019812627143159792
+            },
+            "10-49": {
+              "positive_edges": 224,
+              "products": 122,
+              "hits_at_5": 5,
+              "hits_at_10": 11,
+              "hits_at_20": 17,
+              "recall_at_5": 0.022321428571428572,
+              "recall_at_10": 0.049107142857142856,
+              "recall_at_20": 0.07589285714285714,
+              "macro_recall_at_5": 0.022540983606557378,
+              "macro_recall_at_10": 0.033772867664528396,
+              "macro_recall_at_20": 0.06070495197366188,
+              "mrr": 0.027825839384788807
+            },
+            "50-199": {
+              "positive_edges": 269,
+              "products": 147,
+              "hits_at_5": 2,
+              "hits_at_10": 7,
+              "hits_at_20": 11,
+              "recall_at_5": 0.007434944237918215,
+              "recall_at_10": 0.026022304832713755,
+              "recall_at_20": 0.040892193308550186,
+              "macro_recall_at_5": 0.00510204081632653,
+              "macro_recall_at_10": 0.024603174603174606,
+              "macro_recall_at_20": 0.03503401360544217,
+              "mrr": 0.0197130482478215
+            },
+            "200+": {
+              "positive_edges": 904,
+              "products": 386,
+              "hits_at_5": 17,
+              "hits_at_10": 27,
+              "hits_at_20": 55,
+              "recall_at_5": 0.018805309734513276,
+              "recall_at_10": 0.029867256637168143,
+              "recall_at_20": 0.06084070796460177,
+              "macro_recall_at_5": 0.025201496833621186,
+              "macro_recall_at_10": 0.0352271034913522,
+              "macro_recall_at_20": 0.06916821605940776,
+              "mrr": 0.03577717621871371
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 1514,
+                "products": 722,
+                "hits_at_5": 26,
+                "hits_at_10": 51,
+                "hits_at_20": 90,
+                "product_recall_sum_at_5": 14.227777777777778,
+                "product_recall_sum_at_10": 25.334618469401075,
+                "product_recall_sum_at_20": 44.25493553971816,
+                "reciprocal_rank_sum": 21.4300065363892
+              },
+              "10": {
+                "positive_edges": 1397,
+                "products": 655,
+                "hits_at_5": 24,
+                "hits_at_10": 45,
+                "hits_at_20": 83,
+                "product_recall_sum_at_5": 13.227777777777778,
+                "product_recall_sum_at_10": 21.33461846940108,
+                "product_recall_sum_at_20": 39.25493553971816,
+                "reciprocal_rank_sum": 20.102560517797492
+              },
+              "50": {
+                "positive_edges": 1173,
+                "products": 533,
+                "hits_at_5": 19,
+                "hits_at_10": 34,
+                "hits_at_20": 66,
+                "product_recall_sum_at_5": 10.477777777777778,
+                "product_recall_sum_at_10": 17.21432861432861,
+                "product_recall_sum_at_20": 31.84893139893139,
+                "reciprocal_rank_sum": 16.707808112853257
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 117,
+                "products": 67,
+                "hits_at_5": 2,
+                "hits_at_10": 6,
+                "hits_at_20": 7,
+                "product_recall_sum_at_5": 1.0,
+                "product_recall_sum_at_10": 4.0,
+                "product_recall_sum_at_20": 5.0,
+                "reciprocal_rank_sum": 1.327446018591706
+              },
+              "10-49": {
+                "positive_edges": 224,
+                "products": 122,
+                "hits_at_5": 5,
+                "hits_at_10": 11,
+                "hits_at_20": 17,
+                "product_recall_sum_at_5": 2.75,
+                "product_recall_sum_at_10": 4.120289855072464,
+                "product_recall_sum_at_20": 7.40600414078675,
+                "reciprocal_rank_sum": 3.3947524049442346
+              },
+              "50-199": {
+                "positive_edges": 269,
+                "products": 147,
+                "hits_at_5": 2,
+                "hits_at_10": 7,
+                "hits_at_20": 11,
+                "product_recall_sum_at_5": 0.75,
+                "product_recall_sum_at_10": 3.616666666666667,
+                "product_recall_sum_at_20": 5.1499999999999995,
+                "reciprocal_rank_sum": 2.8978180924297603
+              },
+              "200+": {
+                "positive_edges": 904,
+                "products": 386,
+                "hits_at_5": 17,
+                "hits_at_10": 27,
+                "hits_at_20": 55,
+                "product_recall_sum_at_5": 9.727777777777778,
+                "product_recall_sum_at_10": 13.59766194766195,
+                "product_recall_sum_at_20": 26.698931398931396,
+                "reciprocal_rank_sum": 13.809990020423491
+              }
+            }
+          }
+        },
+        "2024Q2": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 1731,
+              "products": 781,
+              "hits_at_5": 42,
+              "hits_at_10": 59,
+              "hits_at_20": 110,
+              "recall_at_5": 0.024263431542461005,
+              "recall_at_10": 0.0340843443096476,
+              "recall_at_20": 0.0635470826112074,
+              "macro_recall_at_5": 0.028405059253191523,
+              "macro_recall_at_10": 0.03803487672551859,
+              "macro_recall_at_20": 0.06280727551812561,
+              "mrr": 0.04025376131700147
+            },
+            "10": {
+              "positive_edges": 1572,
+              "products": 703,
+              "hits_at_5": 34,
+              "hits_at_10": 51,
+              "hits_at_20": 101,
+              "recall_at_5": 0.021628498727735368,
+              "recall_at_10": 0.03244274809160305,
+              "recall_at_20": 0.06424936386768448,
+              "macro_recall_at_5": 0.025092328353197916,
+              "macro_recall_at_10": 0.03579060352515729,
+              "macro_recall_at_20": 0.06323254933094752,
+              "mrr": 0.03807871255393651
+            },
+            "50": {
+              "positive_edges": 1333,
+              "products": 566,
+              "hits_at_5": 27,
+              "hits_at_10": 44,
+              "hits_at_20": 86,
+              "recall_at_5": 0.020255063765941484,
+              "recall_at_10": 0.033008252063015754,
+              "recall_at_20": 0.06451612903225806,
+              "macro_recall_at_5": 0.02690349991586741,
+              "macro_recall_at_10": 0.04019128692273568,
+              "macro_recall_at_20": 0.07147173105653673,
+              "mrr": 0.039247915412307655
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 159,
+              "products": 78,
+              "hits_at_5": 8,
+              "hits_at_10": 8,
+              "hits_at_20": 9,
+              "recall_at_5": 0.050314465408805034,
+              "recall_at_10": 0.050314465408805034,
+              "recall_at_20": 0.05660377358490566,
+              "macro_recall_at_5": 0.05826210826210826,
+              "macro_recall_at_10": 0.05826210826210826,
+              "macro_recall_at_20": 0.05897435897435897,
+              "mrr": 0.05985708542513814
+            },
+            "10-49": {
+              "positive_edges": 239,
+              "products": 137,
+              "hits_at_5": 7,
+              "hits_at_10": 7,
+              "hits_at_20": 15,
+              "recall_at_5": 0.029288702928870293,
+              "recall_at_10": 0.029288702928870293,
+              "recall_at_20": 0.06276150627615062,
+              "macro_recall_at_5": 0.017609677955599888,
+              "macro_recall_at_10": 0.017609677955599888,
+              "macro_recall_at_20": 0.02919330220187091,
+              "mrr": 0.03324828322665104
+            },
+            "50-199": {
+              "positive_edges": 288,
+              "products": 148,
+              "hits_at_5": 7,
+              "hits_at_10": 8,
+              "hits_at_20": 13,
+              "recall_at_5": 0.024305555555555556,
+              "recall_at_10": 0.027777777777777776,
+              "recall_at_20": 0.04513888888888889,
+              "macro_recall_at_5": 0.025788288288288292,
+              "macro_recall_at_10": 0.029166666666666664,
+              "macro_recall_at_20": 0.04966216216216216,
+              "mrr": 0.027899248680360634
+            },
+            "200+": {
+              "positive_edges": 1045,
+              "products": 418,
+              "hits_at_5": 20,
+              "hits_at_10": 36,
+              "hits_at_20": 73,
+              "recall_at_5": 0.019138755980861243,
+              "recall_at_10": 0.03444976076555024,
+              "recall_at_20": 0.06985645933014355,
+              "macro_recall_at_5": 0.027298359535201648,
+              "macro_recall_at_10": 0.04409474098469313,
+              "macro_recall_at_20": 0.07919377937320521,
+              "mrr": 0.04326610363318839
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 1731,
+                "products": 781,
+                "hits_at_5": 42,
+                "hits_at_10": 59,
+                "hits_at_20": 110,
+                "product_recall_sum_at_5": 22.18435127674258,
+                "product_recall_sum_at_10": 29.70523872263002,
+                "product_recall_sum_at_20": 49.0524821796561,
+                "reciprocal_rank_sum": 31.438187588578153
+              },
+              "10": {
+                "positive_edges": 1572,
+                "products": 703,
+                "hits_at_5": 34,
+                "hits_at_10": 51,
+                "hits_at_20": 101,
+                "product_recall_sum_at_5": 17.639906832298134,
+                "product_recall_sum_at_10": 25.160794278185577,
+                "product_recall_sum_at_20": 44.4524821796561,
+                "reciprocal_rank_sum": 26.769334925417365
+              },
+              "50": {
+                "positive_edges": 1333,
+                "products": 566,
+                "hits_at_5": 27,
+                "hits_at_10": 44,
+                "hits_at_20": 86,
+                "product_recall_sum_at_5": 15.227380952380955,
+                "product_recall_sum_at_10": 22.748268398268394,
+                "product_recall_sum_at_20": 40.45299977799979,
+                "reciprocal_rank_sum": 22.214320123366132
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 159,
+                "products": 78,
+                "hits_at_5": 8,
+                "hits_at_10": 8,
+                "hits_at_20": 9,
+                "product_recall_sum_at_5": 4.544444444444444,
+                "product_recall_sum_at_10": 4.544444444444444,
+                "product_recall_sum_at_20": 4.6,
+                "reciprocal_rank_sum": 4.6688526631607745
+              },
+              "10-49": {
+                "positive_edges": 239,
+                "products": 137,
+                "hits_at_5": 7,
+                "hits_at_10": 7,
+                "hits_at_20": 15,
+                "product_recall_sum_at_5": 2.4125258799171845,
+                "product_recall_sum_at_10": 2.4125258799171845,
+                "product_recall_sum_at_20": 3.9994824016563144,
+                "reciprocal_rank_sum": 4.5550148020511925
+              },
+              "50-199": {
+                "positive_edges": 288,
+                "products": 148,
+                "hits_at_5": 7,
+                "hits_at_10": 8,
+                "hits_at_20": 13,
+                "product_recall_sum_at_5": 3.8166666666666673,
+                "product_recall_sum_at_10": 4.316666666666666,
+                "product_recall_sum_at_20": 7.35,
+                "reciprocal_rank_sum": 4.129088804693374
+              },
+              "200+": {
+                "positive_edges": 1045,
+                "products": 418,
+                "hits_at_5": 20,
+                "hits_at_10": 36,
+                "hits_at_20": 73,
+                "product_recall_sum_at_5": 11.410714285714288,
+                "product_recall_sum_at_10": 18.43160173160173,
+                "product_recall_sum_at_20": 33.10299977799978,
+                "reciprocal_rank_sum": 18.085231318672747
+              }
+            }
+          }
+        },
+        "2024Q3": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 1387,
+              "products": 729,
+              "hits_at_5": 30,
+              "hits_at_10": 51,
+              "hits_at_20": 80,
+              "recall_at_5": 0.021629416005767843,
+              "recall_at_10": 0.03677000720980533,
+              "recall_at_20": 0.05767844268204758,
+              "macro_recall_at_5": 0.02229898319222938,
+              "macro_recall_at_10": 0.033800099413752276,
+              "macro_recall_at_20": 0.05441596807488846,
+              "mrr": 0.03634793132856389
+            },
+            "10": {
+              "positive_edges": 1247,
+              "products": 640,
+              "hits_at_5": 23,
+              "hits_at_10": 42,
+              "hits_at_20": 67,
+              "recall_at_5": 0.018444266238973536,
+              "recall_at_10": 0.03368083400160385,
+              "recall_at_20": 0.053728949478749,
+              "macro_recall_at_5": 0.018536096256684488,
+              "macro_recall_at_10": 0.02987877395276291,
+              "macro_recall_at_20": 0.049259974349588315,
+              "mrr": 0.030891521027885182
+            },
+            "50": {
+              "positive_edges": 1077,
+              "products": 529,
+              "hits_at_5": 19,
+              "hits_at_10": 35,
+              "hits_at_20": 54,
+              "recall_at_5": 0.017641597028783658,
+              "recall_at_10": 0.032497678737233054,
+              "recall_at_20": 0.05013927576601671,
+              "macro_recall_at_5": 0.01801468482220178,
+              "macro_recall_at_10": 0.02978402393781021,
+              "macro_recall_at_20": 0.048173017846652885,
+              "mrr": 0.0315066244139846
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 140,
+              "products": 89,
+              "hits_at_5": 7,
+              "hits_at_10": 9,
+              "hits_at_20": 13,
+              "recall_at_5": 0.05,
+              "recall_at_10": 0.06428571428571428,
+              "recall_at_20": 0.09285714285714286,
+              "macro_recall_at_5": 0.04935794542536115,
+              "macro_recall_at_10": 0.06199839486356341,
+              "macro_recall_at_20": 0.09149277688603531,
+              "mrr": 0.07558503910872524
+            },
+            "10-49": {
+              "positive_edges": 170,
+              "products": 111,
+              "hits_at_5": 4,
+              "hits_at_10": 7,
+              "hits_at_20": 13,
+              "recall_at_5": 0.023529411764705882,
+              "recall_at_10": 0.041176470588235294,
+              "recall_at_20": 0.07647058823529412,
+              "macro_recall_at_5": 0.02102102102102102,
+              "macro_recall_at_10": 0.03033033033033033,
+              "macro_recall_at_20": 0.054440154440154445,
+              "mrr": 0.027960082368005863
+            },
+            "50-199": {
+              "positive_edges": 223,
+              "products": 130,
+              "hits_at_5": 3,
+              "hits_at_10": 5,
+              "hits_at_20": 9,
+              "recall_at_5": 0.013452914798206279,
+              "recall_at_10": 0.02242152466367713,
+              "recall_at_20": 0.04035874439461883,
+              "macro_recall_at_5": 0.016666666666666666,
+              "macro_recall_at_10": 0.025897435897435896,
+              "macro_recall_at_20": 0.03854700854700855,
+              "mrr": 0.024104917192575064
+            },
+            "200+": {
+              "positive_edges": 854,
+              "products": 399,
+              "hits_at_5": 16,
+              "hits_at_10": 30,
+              "hits_at_20": 45,
+              "recall_at_5": 0.01873536299765808,
+              "recall_at_10": 0.0351288056206089,
+              "recall_at_20": 0.05269320843091335,
+              "macro_recall_at_5": 0.018453888732526503,
+              "macro_recall_at_10": 0.031050330818132674,
+              "macro_recall_at_20": 0.05130931160342924,
+              "mrr": 0.033918208220458865
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 1387,
+                "products": 729,
+                "hits_at_5": 30,
+                "hits_at_10": 51,
+                "hits_at_20": 80,
+                "product_recall_sum_at_5": 16.255958747135217,
+                "product_recall_sum_at_10": 24.64027247262541,
+                "product_recall_sum_at_20": 39.669240726593685,
+                "reciprocal_rank_sum": 26.497641938523078
+              },
+              "10": {
+                "positive_edges": 1247,
+                "products": 640,
+                "hits_at_5": 23,
+                "hits_at_10": 42,
+                "hits_at_20": 67,
+                "product_recall_sum_at_5": 11.863101604278073,
+                "product_recall_sum_at_10": 19.122415329768263,
+                "product_recall_sum_at_20": 31.52638358373652,
+                "reciprocal_rank_sum": 19.770573457846517
+              },
+              "50": {
+                "positive_edges": 1077,
+                "products": 529,
+                "hits_at_5": 19,
+                "hits_at_10": 35,
+                "hits_at_20": 54,
+                "product_recall_sum_at_5": 9.529768270944741,
+                "product_recall_sum_at_10": 15.7557486631016,
+                "product_recall_sum_at_20": 25.483526440879377,
+                "reciprocal_rank_sum": 16.667004314997854
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 140,
+                "products": 89,
+                "hits_at_5": 7,
+                "hits_at_10": 9,
+                "hits_at_20": 13,
+                "product_recall_sum_at_5": 4.392857142857142,
+                "product_recall_sum_at_10": 5.517857142857143,
+                "product_recall_sum_at_20": 8.142857142857142,
+                "reciprocal_rank_sum": 6.727068480676547
+              },
+              "10-49": {
+                "positive_edges": 170,
+                "products": 111,
+                "hits_at_5": 4,
+                "hits_at_10": 7,
+                "hits_at_20": 13,
+                "product_recall_sum_at_5": 2.333333333333333,
+                "product_recall_sum_at_10": 3.3666666666666667,
+                "product_recall_sum_at_20": 6.042857142857144,
+                "reciprocal_rank_sum": 3.103569142848651
+              },
+              "50-199": {
+                "positive_edges": 223,
+                "products": 130,
+                "hits_at_5": 3,
+                "hits_at_10": 5,
+                "hits_at_20": 9,
+                "product_recall_sum_at_5": 2.1666666666666665,
+                "product_recall_sum_at_10": 3.3666666666666667,
+                "product_recall_sum_at_20": 5.011111111111112,
+                "reciprocal_rank_sum": 3.1336392350347584
+              },
+              "200+": {
+                "positive_edges": 854,
+                "products": 399,
+                "hits_at_5": 16,
+                "hits_at_10": 30,
+                "hits_at_20": 45,
+                "product_recall_sum_at_5": 7.363101604278075,
+                "product_recall_sum_at_10": 12.389081996434937,
+                "product_recall_sum_at_20": 20.472415329768268,
+                "reciprocal_rank_sum": 13.533365079963087
+              }
+            }
+          }
+        },
+        "2024Q4": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 1371,
+              "products": 718,
+              "hits_at_5": 37,
+              "hits_at_10": 58,
+              "hits_at_20": 95,
+              "recall_at_5": 0.02698760029175784,
+              "recall_at_10": 0.04230488694383661,
+              "recall_at_20": 0.06929248723559446,
+              "macro_recall_at_5": 0.026092651545297788,
+              "macro_recall_at_10": 0.03961400716275368,
+              "macro_recall_at_20": 0.061229435219685914,
+              "mrr": 0.03965241897343656
+            },
+            "10": {
+              "positive_edges": 1272,
+              "products": 650,
+              "hits_at_5": 32,
+              "hits_at_10": 50,
+              "hits_at_20": 82,
+              "recall_at_5": 0.025157232704402517,
+              "recall_at_10": 0.03930817610062893,
+              "recall_at_20": 0.06446540880503145,
+              "macro_recall_at_5": 0.023822344322344324,
+              "macro_recall_at_10": 0.03491208791208791,
+              "macro_recall_at_20": 0.05412215562215561,
+              "mrr": 0.03972668021048999
+            },
+            "50": {
+              "positive_edges": 1095,
+              "products": 528,
+              "hits_at_5": 25,
+              "hits_at_10": 41,
+              "hits_at_20": 71,
+              "recall_at_5": 0.0228310502283105,
+              "recall_at_10": 0.03744292237442922,
+              "recall_at_20": 0.06484018264840183,
+              "macro_recall_at_5": 0.020909241221741218,
+              "macro_recall_at_10": 0.03243070586820587,
+              "macro_recall_at_20": 0.05394878164764527,
+              "mrr": 0.039853226949842946
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 99,
+              "products": 68,
+              "hits_at_5": 5,
+              "hits_at_10": 8,
+              "hits_at_20": 13,
+              "recall_at_5": 0.050505050505050504,
+              "recall_at_10": 0.08080808080808081,
+              "recall_at_20": 0.13131313131313133,
+              "macro_recall_at_5": 0.04779411764705882,
+              "macro_recall_at_10": 0.08455882352941177,
+              "macro_recall_at_20": 0.12916666666666665,
+              "mrr": 0.03894256891336696
+            },
+            "10-49": {
+              "positive_edges": 177,
+              "products": 122,
+              "hits_at_5": 7,
+              "hits_at_10": 9,
+              "hits_at_20": 11,
+              "recall_at_5": 0.03954802259887006,
+              "recall_at_10": 0.05084745762711865,
+              "recall_at_20": 0.062146892655367235,
+              "macro_recall_at_5": 0.03642987249544627,
+              "macro_recall_at_10": 0.045651183970856095,
+              "macro_recall_at_20": 0.054872495446265934,
+              "mrr": 0.03917900251886399
+            },
+            "50-199": {
+              "positive_edges": 245,
+              "products": 133,
+              "hits_at_5": 6,
+              "hits_at_10": 10,
+              "hits_at_20": 11,
+              "recall_at_5": 0.024489795918367346,
+              "recall_at_10": 0.04081632653061224,
+              "recall_at_20": 0.044897959183673466,
+              "macro_recall_at_5": 0.0193609022556391,
+              "macro_recall_at_10": 0.034398496240601505,
+              "macro_recall_at_20": 0.036904761904761905,
+              "mrr": 0.034105147854228565
+            },
+            "200+": {
+              "positive_edges": 850,
+              "products": 395,
+              "hits_at_5": 19,
+              "hits_at_10": 31,
+              "hits_at_20": 60,
+              "recall_at_5": 0.02235294117647059,
+              "recall_at_10": 0.036470588235294116,
+              "recall_at_20": 0.07058823529411765,
+              "macro_recall_at_5": 0.021430580671086996,
+              "macro_recall_at_10": 0.031768133413703034,
+              "macro_recall_at_20": 0.05968765411803386,
+              "mrr": 0.0417886561136827
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 1371,
+                "products": 718,
+                "hits_at_5": 37,
+                "hits_at_10": 58,
+                "hits_at_20": 95,
+                "product_recall_sum_at_5": 18.73452380952381,
+                "product_recall_sum_at_10": 28.44285714285714,
+                "product_recall_sum_at_20": 43.96273448773449,
+                "reciprocal_rank_sum": 28.470436822927454
+              },
+              "10": {
+                "positive_edges": 1272,
+                "products": 650,
+                "hits_at_5": 32,
+                "hits_at_10": 50,
+                "hits_at_20": 82,
+                "product_recall_sum_at_5": 15.484523809523811,
+                "product_recall_sum_at_10": 22.69285714285714,
+                "product_recall_sum_at_20": 35.17940115440115,
+                "reciprocal_rank_sum": 25.82234213681849
+              },
+              "50": {
+                "positive_edges": 1095,
+                "products": 528,
+                "hits_at_5": 25,
+                "hits_at_10": 41,
+                "hits_at_20": 71,
+                "product_recall_sum_at_5": 11.040079365079363,
+                "product_recall_sum_at_10": 17.1234126984127,
+                "product_recall_sum_at_20": 28.484956709956702,
+                "reciprocal_rank_sum": 21.042503829517074
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 99,
+                "products": 68,
+                "hits_at_5": 5,
+                "hits_at_10": 8,
+                "hits_at_20": 13,
+                "product_recall_sum_at_5": 3.25,
+                "product_recall_sum_at_10": 5.75,
+                "product_recall_sum_at_20": 8.783333333333333,
+                "reciprocal_rank_sum": 2.6480946861089536
+              },
+              "10-49": {
+                "positive_edges": 177,
+                "products": 122,
+                "hits_at_5": 7,
+                "hits_at_10": 9,
+                "hits_at_20": 11,
+                "product_recall_sum_at_5": 4.444444444444445,
+                "product_recall_sum_at_10": 5.569444444444444,
+                "product_recall_sum_at_20": 6.694444444444444,
+                "reciprocal_rank_sum": 4.779838307301407
+              },
+              "50-199": {
+                "positive_edges": 245,
+                "products": 133,
+                "hits_at_5": 6,
+                "hits_at_10": 10,
+                "hits_at_20": 11,
+                "product_recall_sum_at_5": 2.575,
+                "product_recall_sum_at_10": 4.575,
+                "product_recall_sum_at_20": 4.908333333333333,
+                "reciprocal_rank_sum": 4.535984664612399
+              },
+              "200+": {
+                "positive_edges": 850,
+                "products": 395,
+                "hits_at_5": 19,
+                "hits_at_10": 31,
+                "hits_at_20": 60,
+                "product_recall_sum_at_5": 8.465079365079363,
+                "product_recall_sum_at_10": 12.5484126984127,
+                "product_recall_sum_at_20": 23.576623376623374,
+                "reciprocal_rank_sum": 16.506519164904667
+              }
+            }
+          }
+        },
+        "2025Q1": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 1266,
+              "products": 695,
+              "hits_at_5": 17,
+              "hits_at_10": 43,
+              "hits_at_20": 76,
+              "recall_at_5": 0.013428120063191154,
+              "recall_at_10": 0.0339652448657188,
+              "recall_at_20": 0.06003159557661927,
+              "macro_recall_at_5": 0.01530775379696243,
+              "macro_recall_at_10": 0.03234315011045351,
+              "macro_recall_at_20": 0.05844164077604913,
+              "mrr": 0.023849289935688443
+            },
+            "10": {
+              "positive_edges": 1188,
+              "products": 630,
+              "hits_at_5": 16,
+              "hits_at_10": 36,
+              "hits_at_20": 64,
+              "recall_at_5": 0.013468013468013467,
+              "recall_at_10": 0.030303030303030304,
+              "recall_at_20": 0.05387205387205387,
+              "macro_recall_at_5": 0.015299823633156965,
+              "macro_recall_at_10": 0.026949983058357444,
+              "macro_recall_at_20": 0.04780466720532401,
+              "mrr": 0.023168541497194876
+            },
+            "50": {
+              "positive_edges": 1062,
+              "products": 537,
+              "hits_at_5": 16,
+              "hits_at_10": 35,
+              "hits_at_20": 60,
+              "recall_at_5": 0.015065913370998116,
+              "recall_at_10": 0.03295668549905838,
+              "recall_at_20": 0.05649717514124294,
+              "macro_recall_at_5": 0.017949513759569623,
+              "macro_recall_at_10": 0.029755101167160503,
+              "macro_recall_at_20": 0.05124197456118087,
+              "mrr": 0.025326478372747825
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 78,
+              "products": 65,
+              "hits_at_5": 1,
+              "hits_at_10": 7,
+              "hits_at_20": 12,
+              "recall_at_5": 0.01282051282051282,
+              "recall_at_10": 0.08974358974358974,
+              "recall_at_20": 0.15384615384615385,
+              "macro_recall_at_5": 0.015384615384615385,
+              "macro_recall_at_10": 0.08461538461538462,
+              "macro_recall_at_20": 0.16153846153846155,
+              "mrr": 0.03044731326262623
+            },
+            "10-49": {
+              "positive_edges": 126,
+              "products": 93,
+              "hits_at_5": 0,
+              "hits_at_10": 1,
+              "hits_at_20": 4,
+              "recall_at_5": 0.0,
+              "recall_at_10": 0.007936507936507936,
+              "recall_at_20": 0.031746031746031744,
+              "macro_recall_at_5": 0.0,
+              "macro_recall_at_10": 0.010752688172043012,
+              "macro_recall_at_20": 0.02795698924731183,
+              "mrr": 0.010708196312550414
+            },
+            "50-199": {
+              "positive_edges": 219,
+              "products": 137,
+              "hits_at_5": 3,
+              "hits_at_10": 6,
+              "hits_at_20": 11,
+              "recall_at_5": 0.0136986301369863,
+              "recall_at_10": 0.0273972602739726,
+              "recall_at_20": 0.0502283105022831,
+              "macro_recall_at_5": 0.021897810218978103,
+              "macro_recall_at_10": 0.032542579075425786,
+              "macro_recall_at_20": 0.051034063260340636,
+              "mrr": 0.019792043726056002
+            },
+            "200+": {
+              "positive_edges": 843,
+              "products": 400,
+              "hits_at_5": 13,
+              "hits_at_10": 29,
+              "hits_at_20": 49,
+              "recall_at_5": 0.01542111506524318,
+              "recall_at_10": 0.03440094899169632,
+              "recall_at_20": 0.05812574139976275,
+              "macro_recall_at_5": 0.016597222222222218,
+              "macro_recall_at_10": 0.028800389983579637,
+              "macro_recall_at_20": 0.05131318418171867,
+              "mrr": 0.02722202223923977
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 1266,
+                "products": 695,
+                "hits_at_5": 17,
+                "hits_at_10": 43,
+                "hits_at_20": 76,
+                "product_recall_sum_at_5": 10.63888888888889,
+                "product_recall_sum_at_10": 22.47848932676519,
+                "product_recall_sum_at_20": 40.616940339354144,
+                "reciprocal_rank_sum": 16.575256505303468
+              },
+              "10": {
+                "positive_edges": 1188,
+                "products": 630,
+                "hits_at_5": 16,
+                "hits_at_10": 36,
+                "hits_at_20": 64,
+                "product_recall_sum_at_5": 9.638888888888888,
+                "product_recall_sum_at_10": 16.97848932676519,
+                "product_recall_sum_at_20": 30.116940339354127,
+                "reciprocal_rank_sum": 14.596181143232773
+              },
+              "50": {
+                "positive_edges": 1062,
+                "products": 537,
+                "hits_at_5": 16,
+                "hits_at_10": 35,
+                "hits_at_20": 60,
+                "product_recall_sum_at_5": 9.638888888888888,
+                "product_recall_sum_at_10": 15.97848932676519,
+                "product_recall_sum_at_20": 27.516940339354125,
+                "reciprocal_rank_sum": 13.600318886165581
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 78,
+                "products": 65,
+                "hits_at_5": 1,
+                "hits_at_10": 7,
+                "hits_at_20": 12,
+                "product_recall_sum_at_5": 1.0,
+                "product_recall_sum_at_10": 5.5,
+                "product_recall_sum_at_20": 10.5,
+                "reciprocal_rank_sum": 1.979075362070705
+              },
+              "10-49": {
+                "positive_edges": 126,
+                "products": 93,
+                "hits_at_5": 0,
+                "hits_at_10": 1,
+                "hits_at_20": 4,
+                "product_recall_sum_at_5": 0.0,
+                "product_recall_sum_at_10": 1.0,
+                "product_recall_sum_at_20": 2.6,
+                "reciprocal_rank_sum": 0.9958622570671886
+              },
+              "50-199": {
+                "positive_edges": 219,
+                "products": 137,
+                "hits_at_5": 3,
+                "hits_at_10": 6,
+                "hits_at_20": 11,
+                "product_recall_sum_at_5": 3.0,
+                "product_recall_sum_at_10": 4.458333333333333,
+                "product_recall_sum_at_20": 6.991666666666667,
+                "reciprocal_rank_sum": 2.7115099904696724
+              },
+              "200+": {
+                "positive_edges": 843,
+                "products": 400,
+                "hits_at_5": 13,
+                "hits_at_10": 29,
+                "hits_at_20": 49,
+                "product_recall_sum_at_5": 6.6388888888888875,
+                "product_recall_sum_at_10": 11.520155993431855,
+                "product_recall_sum_at_20": 20.52527367268747,
+                "reciprocal_rank_sum": 10.888808895695908
+              }
+            }
+          }
+        },
+        "2025Q2": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 2051,
+              "products": 926,
+              "hits_at_5": 45,
+              "hits_at_10": 63,
+              "hits_at_20": 114,
+              "recall_at_5": 0.021940516821062895,
+              "recall_at_10": 0.030716723549488054,
+              "recall_at_20": 0.05558264261335934,
+              "macro_recall_at_5": 0.018677920142709938,
+              "macro_recall_at_10": 0.028784111647389553,
+              "macro_recall_at_20": 0.0498022049539348,
+              "mrr": 0.034589954235680495
+            },
+            "10": {
+              "positive_edges": 1836,
+              "products": 798,
+              "hits_at_5": 37,
+              "hits_at_10": 54,
+              "hits_at_20": 97,
+              "recall_at_5": 0.020152505446623094,
+              "recall_at_10": 0.029411764705882353,
+              "recall_at_20": 0.0528322440087146,
+              "macro_recall_at_5": 0.01730879789325322,
+              "macro_recall_at_10": 0.028409466230763656,
+              "macro_recall_at_20": 0.0470553572940814,
+              "mrr": 0.034035378185944494
+            },
+            "50": {
+              "positive_edges": 1581,
+              "products": 655,
+              "hits_at_5": 28,
+              "hits_at_10": 42,
+              "hits_at_20": 83,
+              "recall_at_5": 0.017710309930423784,
+              "recall_at_10": 0.026565464895635674,
+              "recall_at_20": 0.05249841872232764,
+              "macro_recall_at_5": 0.014523936327593346,
+              "macro_recall_at_10": 0.026025208592224392,
+              "macro_recall_at_20": 0.047076371916832734,
+              "mrr": 0.03478582859192727
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 215,
+              "products": 128,
+              "hits_at_5": 8,
+              "hits_at_10": 9,
+              "hits_at_20": 17,
+              "recall_at_5": 0.037209302325581395,
+              "recall_at_10": 0.04186046511627907,
+              "recall_at_20": 0.07906976744186046,
+              "macro_recall_at_5": 0.027213541666666667,
+              "macro_recall_at_10": 0.031119791666666667,
+              "macro_recall_at_20": 0.06692708333333333,
+              "mrr": 0.038047389295753443
+            },
+            "10-49": {
+              "positive_edges": 255,
+              "products": 143,
+              "hits_at_5": 9,
+              "hits_at_10": 12,
+              "hits_at_20": 14,
+              "recall_at_5": 0.03529411764705882,
+              "recall_at_10": 0.047058823529411764,
+              "recall_at_20": 0.054901960784313725,
+              "macro_recall_at_5": 0.030064632337359606,
+              "macro_recall_at_10": 0.03933036660309387,
+              "macro_recall_at_20": 0.046959101504556046,
+              "mrr": 0.03059800045224719
+            },
+            "50-199": {
+              "positive_edges": 319,
+              "products": 174,
+              "hits_at_5": 6,
+              "hits_at_10": 7,
+              "hits_at_20": 12,
+              "recall_at_5": 0.018808777429467086,
+              "recall_at_10": 0.0219435736677116,
+              "recall_at_20": 0.03761755485893417,
+              "macro_recall_at_5": 0.019827586206896553,
+              "macro_recall_at_10": 0.022701149425287358,
+              "macro_recall_at_20": 0.03668582375478927,
+              "mrr": 0.022505737822375863
+            },
+            "200+": {
+              "positive_edges": 1262,
+              "products": 481,
+              "hits_at_5": 22,
+              "hits_at_10": 35,
+              "hits_at_20": 71,
+              "recall_at_5": 0.017432646592709985,
+              "recall_at_10": 0.0277337559429477,
+              "recall_at_20": 0.056259904912836764,
+              "macro_recall_at_5": 0.012605360279778885,
+              "macro_recall_at_10": 0.027227674902093508,
+              "macro_recall_at_20": 0.05083511491100231,
+              "mrr": 0.03922810674972757
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 2051,
+                "products": 926,
+                "hits_at_5": 45,
+                "hits_at_10": 63,
+                "hits_at_20": 114,
+                "product_recall_sum_at_5": 17.2957540521494,
+                "product_recall_sum_at_10": 26.654087385482725,
+                "product_recall_sum_at_20": 46.116841787343624,
+                "reciprocal_rank_sum": 32.03029762224014
+              },
+              "10": {
+                "positive_edges": 1836,
+                "products": 798,
+                "hits_at_5": 37,
+                "hits_at_10": 54,
+                "hits_at_20": 97,
+                "product_recall_sum_at_5": 13.812420718816067,
+                "product_recall_sum_at_10": 22.670754052149398,
+                "product_recall_sum_at_20": 37.550175120676954,
+                "reciprocal_rank_sum": 27.160231792383705
+              },
+              "50": {
+                "positive_edges": 1581,
+                "products": 655,
+                "hits_at_5": 28,
+                "hits_at_10": 42,
+                "hits_at_20": 83,
+                "product_recall_sum_at_5": 9.513178294573642,
+                "product_recall_sum_at_10": 17.046511627906977,
+                "product_recall_sum_at_20": 30.83502360552544,
+                "reciprocal_rank_sum": 22.784717727712362
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 215,
+                "products": 128,
+                "hits_at_5": 8,
+                "hits_at_10": 9,
+                "hits_at_20": 17,
+                "product_recall_sum_at_5": 3.4833333333333334,
+                "product_recall_sum_at_10": 3.9833333333333334,
+                "product_recall_sum_at_20": 8.566666666666666,
+                "reciprocal_rank_sum": 4.870065829856441
+              },
+              "10-49": {
+                "positive_edges": 255,
+                "products": 143,
+                "hits_at_5": 9,
+                "hits_at_10": 12,
+                "hits_at_20": 14,
+                "product_recall_sum_at_5": 4.299242424242424,
+                "product_recall_sum_at_10": 5.624242424242424,
+                "product_recall_sum_at_20": 6.715151515151515,
+                "reciprocal_rank_sum": 4.375514064671348
+              },
+              "50-199": {
+                "positive_edges": 319,
+                "products": 174,
+                "hits_at_5": 6,
+                "hits_at_10": 7,
+                "hits_at_20": 12,
+                "product_recall_sum_at_5": 3.45,
+                "product_recall_sum_at_10": 3.95,
+                "product_recall_sum_at_20": 6.383333333333333,
+                "reciprocal_rank_sum": 3.9159983810934
+              },
+              "200+": {
+                "positive_edges": 1262,
+                "products": 481,
+                "hits_at_5": 22,
+                "hits_at_10": 35,
+                "hits_at_20": 71,
+                "product_recall_sum_at_5": 6.063178294573643,
+                "product_recall_sum_at_10": 13.096511627906978,
+                "product_recall_sum_at_20": 24.45169027219211,
+                "reciprocal_rank_sum": 18.86871934661896
+              }
+            }
+          }
+        },
+        "2025Q3": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 1985,
+              "products": 888,
+              "hits_at_5": 29,
+              "hits_at_10": 61,
+              "hits_at_20": 109,
+              "recall_at_5": 0.014609571788413099,
+              "recall_at_10": 0.030730478589420653,
+              "recall_at_20": 0.05491183879093199,
+              "macro_recall_at_5": 0.015086217169550501,
+              "macro_recall_at_10": 0.03350605642272309,
+              "macro_recall_at_20": 0.05286246640413308,
+              "mrr": 0.030469225417846846
+            },
+            "10": {
+              "positive_edges": 1799,
+              "products": 778,
+              "hits_at_5": 21,
+              "hits_at_10": 42,
+              "hits_at_20": 83,
+              "recall_at_5": 0.011673151750972763,
+              "recall_at_10": 0.023346303501945526,
+              "recall_at_20": 0.04613674263479711,
+              "macro_recall_at_5": 0.012463445818201602,
+              "macro_recall_at_10": 0.02419028890751255,
+              "macro_recall_at_20": 0.04045655976889909,
+              "mrr": 0.02532010730948506
+            },
+            "50": {
+              "positive_edges": 1538,
+              "products": 654,
+              "hits_at_5": 17,
+              "hits_at_10": 36,
+              "hits_at_20": 73,
+              "recall_at_5": 0.011053315994798439,
+              "recall_at_10": 0.02340702210663199,
+              "recall_at_20": 0.04746423927178153,
+              "macro_recall_at_5": 0.01171747326181577,
+              "macro_recall_at_10": 0.022609650514849294,
+              "macro_recall_at_20": 0.039623994478734534,
+              "mrr": 0.02554219985320143
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 186,
+              "products": 110,
+              "hits_at_5": 8,
+              "hits_at_10": 19,
+              "hits_at_20": 26,
+              "recall_at_5": 0.043010752688172046,
+              "recall_at_10": 0.10215053763440861,
+              "recall_at_20": 0.13978494623655913,
+              "macro_recall_at_5": 0.03363636363636364,
+              "macro_recall_at_10": 0.0993939393939394,
+              "macro_recall_at_20": 0.1406060606060606,
+              "mrr": 0.06688753349335115
+            },
+            "10-49": {
+              "positive_edges": 261,
+              "products": 124,
+              "hits_at_5": 4,
+              "hits_at_10": 6,
+              "hits_at_20": 10,
+              "recall_at_5": 0.01532567049808429,
+              "recall_at_10": 0.022988505747126436,
+              "recall_at_20": 0.038314176245210725,
+              "macro_recall_at_5": 0.01639784946236559,
+              "macro_recall_at_10": 0.032526881720430105,
+              "macro_recall_at_20": 0.04484767025089605,
+              "mrr": 0.02414874824827127
+            },
+            "50-199": {
+              "positive_edges": 294,
+              "products": 170,
+              "hits_at_5": 2,
+              "hits_at_10": 3,
+              "hits_at_20": 6,
+              "recall_at_5": 0.006802721088435374,
+              "recall_at_10": 0.01020408163265306,
+              "recall_at_20": 0.02040816326530612,
+              "macro_recall_at_5": 0.011764705882352941,
+              "macro_recall_at_10": 0.01372549019607843,
+              "macro_recall_at_20": 0.023529411764705882,
+              "mrr": 0.015451677252101857
+            },
+            "200+": {
+              "positive_edges": 1244,
+              "products": 484,
+              "hits_at_5": 15,
+              "hits_at_10": 33,
+              "hits_at_20": 67,
+              "recall_at_5": 0.012057877813504822,
+              "recall_at_10": 0.02652733118971061,
+              "recall_at_20": 0.053858520900321546,
+              "macro_recall_at_5": 0.011700883291792384,
+              "macro_recall_at_10": 0.025730120048301865,
+              "macro_recall_at_20": 0.04527705039068674,
+              "mrr": 0.029086391675901675
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 1985,
+                "products": 888,
+                "hits_at_5": 29,
+                "hits_at_10": 61,
+                "hits_at_20": 109,
+                "product_recall_sum_at_5": 13.396560846560845,
+                "product_recall_sum_at_10": 29.753378103378104,
+                "product_recall_sum_at_20": 46.941870166870174,
+                "reciprocal_rank_sum": 27.056672171048
+              },
+              "10": {
+                "positive_edges": 1799,
+                "products": 778,
+                "hits_at_5": 21,
+                "hits_at_10": 42,
+                "hits_at_20": 83,
+                "product_recall_sum_at_5": 9.696560846560846,
+                "product_recall_sum_at_10": 18.820044770044763,
+                "product_recall_sum_at_20": 31.475203500203495,
+                "reciprocal_rank_sum": 19.699043486779377
+              },
+              "50": {
+                "positive_edges": 1538,
+                "products": 654,
+                "hits_at_5": 17,
+                "hits_at_10": 36,
+                "hits_at_20": 73,
+                "product_recall_sum_at_5": 7.663227513227514,
+                "product_recall_sum_at_10": 14.786711436711437,
+                "product_recall_sum_at_20": 25.914092389092385,
+                "reciprocal_rank_sum": 16.704598703993735
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 186,
+                "products": 110,
+                "hits_at_5": 8,
+                "hits_at_10": 19,
+                "hits_at_20": 26,
+                "product_recall_sum_at_5": 3.7,
+                "product_recall_sum_at_10": 10.933333333333334,
+                "product_recall_sum_at_20": 15.466666666666665,
+                "reciprocal_rank_sum": 7.357628684268626
+              },
+              "10-49": {
+                "positive_edges": 261,
+                "products": 124,
+                "hits_at_5": 4,
+                "hits_at_10": 6,
+                "hits_at_20": 10,
+                "product_recall_sum_at_5": 2.033333333333333,
+                "product_recall_sum_at_10": 4.033333333333333,
+                "product_recall_sum_at_20": 5.561111111111111,
+                "reciprocal_rank_sum": 2.9944447827856373
+              },
+              "50-199": {
+                "positive_edges": 294,
+                "products": 170,
+                "hits_at_5": 2,
+                "hits_at_10": 3,
+                "hits_at_20": 6,
+                "product_recall_sum_at_5": 2.0,
+                "product_recall_sum_at_10": 2.333333333333333,
+                "product_recall_sum_at_20": 4.0,
+                "reciprocal_rank_sum": 2.6267851328573157
+              },
+              "200+": {
+                "positive_edges": 1244,
+                "products": 484,
+                "hits_at_5": 15,
+                "hits_at_10": 33,
+                "hits_at_20": 67,
+                "product_recall_sum_at_5": 5.663227513227514,
+                "product_recall_sum_at_10": 12.453378103378103,
+                "product_recall_sum_at_20": 21.91409238909238,
+                "reciprocal_rank_sum": 14.07781357113641
+              }
+            }
+          }
+        },
+        "2025Q4": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 1869,
+              "products": 911,
+              "hits_at_5": 47,
+              "hits_at_10": 83,
+              "hits_at_20": 121,
+              "recall_at_5": 0.02514713750668807,
+              "recall_at_10": 0.0444087747458534,
+              "recall_at_20": 0.06474050294275013,
+              "macro_recall_at_5": 0.02442374568674046,
+              "macro_recall_at_10": 0.04830775593189231,
+              "macro_recall_at_20": 0.0702992162555022,
+              "mrr": 0.03478553547759536
+            },
+            "10": {
+              "positive_edges": 1710,
+              "products": 808,
+              "hits_at_5": 37,
+              "hits_at_10": 68,
+              "hits_at_20": 100,
+              "recall_at_5": 0.021637426900584796,
+              "recall_at_10": 0.03976608187134503,
+              "recall_at_20": 0.05847953216374269,
+              "macro_recall_at_5": 0.02009079907667561,
+              "macro_recall_at_10": 0.044111013598127746,
+              "macro_recall_at_20": 0.06395534572041563,
+              "mrr": 0.030040563565765233
+            },
+            "50": {
+              "positive_edges": 1473,
+              "products": 669,
+              "hits_at_5": 30,
+              "hits_at_10": 56,
+              "hits_at_20": 77,
+              "recall_at_5": 0.020366598778004074,
+              "recall_at_10": 0.03801765105227427,
+              "recall_at_20": 0.05227427019687712,
+              "macro_recall_at_5": 0.019780815626239,
+              "macro_recall_at_10": 0.04326113451014532,
+              "macro_recall_at_20": 0.05646624714812528,
+              "mrr": 0.02888269977210862
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 159,
+              "products": 103,
+              "hits_at_5": 10,
+              "hits_at_10": 15,
+              "hits_at_20": 21,
+              "recall_at_5": 0.06289308176100629,
+              "recall_at_10": 0.09433962264150944,
+              "recall_at_20": 0.1320754716981132,
+              "macro_recall_at_5": 0.05841423948220065,
+              "macro_recall_at_10": 0.08122977346278318,
+              "macro_recall_at_20": 0.12006472491909384,
+              "mrr": 0.07200822775680656
+            },
+            "10-49": {
+              "positive_edges": 237,
+              "products": 139,
+              "hits_at_5": 7,
+              "hits_at_10": 12,
+              "hits_at_20": 23,
+              "recall_at_5": 0.029535864978902954,
+              "recall_at_10": 0.05063291139240506,
+              "recall_at_20": 0.0970464135021097,
+              "macro_recall_at_5": 0.02158273381294964,
+              "macro_recall_at_10": 0.04820143884892086,
+              "macro_recall_at_20": 0.09999999999999999,
+              "mrr": 0.03561330369494703
+            },
+            "50-199": {
+              "positive_edges": 299,
+              "products": 166,
+              "hits_at_5": 5,
+              "hits_at_10": 10,
+              "hits_at_20": 15,
+              "recall_at_5": 0.016722408026755852,
+              "recall_at_10": 0.033444816053511704,
+              "recall_at_20": 0.05016722408026756,
+              "macro_recall_at_5": 0.02108433734939759,
+              "macro_recall_at_10": 0.04417670682730924,
+              "macro_recall_at_20": 0.061445783132530116,
+              "mrr": 0.02241008950667811
+            },
+            "200+": {
+              "positive_edges": 1174,
+              "products": 503,
+              "hits_at_5": 25,
+              "hits_at_10": 46,
+              "hits_at_20": 62,
+              "recall_at_5": 0.02129471890971039,
+              "recall_at_10": 0.039182282793867124,
+              "recall_at_20": 0.05281090289608177,
+              "macro_recall_at_5": 0.019350627542651867,
+              "macro_recall_at_10": 0.04295897744324828,
+              "macro_recall_at_20": 0.05482290127653242,
+              "mrr": 0.031018789839825252
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 1869,
+                "products": 911,
+                "hits_at_5": 47,
+                "hits_at_10": 83,
+                "hits_at_20": 121,
+                "product_recall_sum_at_5": 22.25003232062056,
+                "product_recall_sum_at_10": 44.008365653953895,
+                "product_recall_sum_at_20": 64.0425860087625,
+                "reciprocal_rank_sum": 31.68962282008937
+              },
+              "10": {
+                "positive_edges": 1710,
+                "products": 808,
+                "hits_at_5": 37,
+                "hits_at_10": 68,
+                "hits_at_20": 100,
+                "product_recall_sum_at_5": 16.233365653953893,
+                "product_recall_sum_at_10": 35.64169898728722,
+                "product_recall_sum_at_20": 51.67591934209583,
+                "reciprocal_rank_sum": 24.272775361138308
+              },
+              "50": {
+                "positive_edges": 1473,
+                "products": 669,
+                "hits_at_5": 30,
+                "hits_at_10": 56,
+                "hits_at_20": 77,
+                "product_recall_sum_at_5": 13.23336565395389,
+                "product_recall_sum_at_10": 28.941698987287218,
+                "product_recall_sum_at_20": 37.77591934209581,
+                "reciprocal_rank_sum": 19.322526147540668
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 159,
+                "products": 103,
+                "hits_at_5": 10,
+                "hits_at_10": 15,
+                "hits_at_20": 21,
+                "product_recall_sum_at_5": 6.016666666666667,
+                "product_recall_sum_at_10": 8.366666666666667,
+                "product_recall_sum_at_20": 12.366666666666665,
+                "reciprocal_rank_sum": 7.416847458951075
+              },
+              "10-49": {
+                "positive_edges": 237,
+                "products": 139,
+                "hits_at_5": 7,
+                "hits_at_10": 12,
+                "hits_at_20": 23,
+                "product_recall_sum_at_5": 3.0,
+                "product_recall_sum_at_10": 6.7,
+                "product_recall_sum_at_20": 13.899999999999999,
+                "reciprocal_rank_sum": 4.950249213597637
+              },
+              "50-199": {
+                "positive_edges": 299,
+                "products": 166,
+                "hits_at_5": 5,
+                "hits_at_10": 10,
+                "hits_at_20": 15,
+                "product_recall_sum_at_5": 3.5,
+                "product_recall_sum_at_10": 7.333333333333333,
+                "product_recall_sum_at_20": 10.2,
+                "reciprocal_rank_sum": 3.7200748581085663
+              },
+              "200+": {
+                "positive_edges": 1174,
+                "products": 503,
+                "hits_at_5": 25,
+                "hits_at_10": 46,
+                "hits_at_20": 62,
+                "product_recall_sum_at_5": 9.73336565395389,
+                "product_recall_sum_at_10": 21.608365653953886,
+                "product_recall_sum_at_20": 27.57591934209581,
+                "reciprocal_rank_sum": 15.602451289432102
+              }
+            }
+          }
+        }
+      },
+      "annual_or_validation_populations": {
+        "validation_2023": {
+          "products_with_positives": 3483,
+          "positive_edges": 7705,
+          "candidate_pairs": 1618588
+        },
+        "2024": {
+          "products_with_positives": 2950,
+          "positive_edges": 6003,
+          "candidate_pairs": 1367736
+        },
+        "2025": {
+          "products_with_positives": 3420,
+          "positive_edges": 7171,
+          "candidate_pairs": 1607420
+        }
+      },
+      "annual_or_validation_metrics": {
+        "validation_2023": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 7705,
+              "products": 3483,
+              "hits_at_5": 158,
+              "hits_at_10": 240,
+              "hits_at_20": 412,
+              "recall_at_5": 0.020506164828033743,
+              "recall_at_10": 0.031148604802076575,
+              "recall_at_20": 0.05347177157689812,
+              "macro_recall_at_5": 0.022318152896692135,
+              "macro_recall_at_10": 0.033186167315411484,
+              "macro_recall_at_20": 0.05790177575484207,
+              "mrr": 0.033308161361778874
+            },
+            "10": {
+              "positive_edges": 7018,
+              "products": 3037,
+              "hits_at_5": 141,
+              "hits_at_10": 212,
+              "hits_at_20": 366,
+              "recall_at_5": 0.020091194072385295,
+              "recall_at_10": 0.030208036477628954,
+              "recall_at_20": 0.05215161014534055,
+              "macro_recall_at_5": 0.0226322444975893,
+              "macro_recall_at_10": 0.03265418310599655,
+              "macro_recall_at_20": 0.05677375204284324,
+              "mrr": 0.03386150750563595
+            },
+            "50": {
+              "positive_edges": 5993,
+              "products": 2440,
+              "hits_at_5": 126,
+              "hits_at_10": 188,
+              "hits_at_20": 312,
+              "recall_at_5": 0.021024528616719506,
+              "recall_at_10": 0.03136993158685133,
+              "recall_at_20": 0.052060737527114966,
+              "macro_recall_at_5": 0.023688849674526797,
+              "macro_recall_at_10": 0.033772166977969205,
+              "macro_recall_at_20": 0.05622774363849361,
+              "mrr": 0.03671595930425867
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 687,
+              "products": 446,
+              "hits_at_5": 17,
+              "hits_at_10": 28,
+              "hits_at_20": 46,
+              "recall_at_5": 0.024745269286754003,
+              "recall_at_10": 0.040756914119359534,
+              "recall_at_20": 0.06695778748180495,
+              "macro_recall_at_5": 0.020179372197309413,
+              "macro_recall_at_10": 0.03680866965620328,
+              "macro_recall_at_20": 0.0655829596412556,
+              "mrr": 0.02954019670058166
+            },
+            "10-49": {
+              "positive_edges": 1025,
+              "products": 597,
+              "hits_at_5": 15,
+              "hits_at_10": 24,
+              "hits_at_20": 54,
+              "recall_at_5": 0.014634146341463415,
+              "recall_at_10": 0.023414634146341463,
+              "recall_at_20": 0.05268292682926829,
+              "macro_recall_at_5": 0.018313791178112788,
+              "macro_recall_at_10": 0.028084868788386376,
+              "macro_recall_at_20": 0.059005344181223586,
+              "mrr": 0.02219507134376088
+            },
+            "50-199": {
+              "positive_edges": 1301,
+              "products": 658,
+              "hits_at_5": 24,
+              "hits_at_10": 38,
+              "hits_at_20": 58,
+              "recall_at_5": 0.018447348193697154,
+              "recall_at_10": 0.029208301306687164,
+              "recall_at_20": 0.044581091468101464,
+              "macro_recall_at_5": 0.021496116176967242,
+              "macro_recall_at_10": 0.03501109663723645,
+              "macro_recall_at_20": 0.049765402614946684,
+              "mrr": 0.02748962522217698
+            },
+            "200+": {
+              "positive_edges": 4692,
+              "products": 1782,
+              "hits_at_5": 102,
+              "hits_at_10": 150,
+              "hits_at_20": 254,
+              "recall_at_5": 0.021739130434782608,
+              "recall_at_10": 0.0319693094629156,
+              "recall_at_20": 0.05413469735720375,
+              "macro_recall_at_5": 0.02449851221178504,
+              "macro_recall_at_10": 0.0333146946346483,
+              "macro_recall_at_20": 0.058613950368849296,
+              "mrr": 0.04012276504276022
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 7705,
+                "products": 3483,
+                "hits_at_5": 158,
+                "hits_at_10": 240,
+                "hits_at_20": 412,
+                "product_recall_sum_at_5": 77.7341265391787,
+                "product_recall_sum_at_10": 115.5874207595782,
+                "product_recall_sum_at_20": 201.67188495411494,
+                "reciprocal_rank_sum": 116.01232602307581
+              },
+              "10": {
+                "positive_edges": 7018,
+                "products": 3037,
+                "hits_at_5": 141,
+                "hits_at_10": 212,
+                "hits_at_20": 366,
+                "product_recall_sum_at_5": 68.7341265391787,
+                "product_recall_sum_at_10": 99.17075409291152,
+                "product_recall_sum_at_20": 172.42188495411492,
+                "reciprocal_rank_sum": 102.83739829461638
+              },
+              "50": {
+                "positive_edges": 5993,
+                "products": 2440,
+                "hits_at_5": 126,
+                "hits_at_10": 188,
+                "hits_at_20": 312,
+                "product_recall_sum_at_5": 57.80079320584538,
+                "product_recall_sum_at_10": 82.40408742624486,
+                "product_recall_sum_at_20": 137.1956944779244,
+                "reciprocal_rank_sum": 89.58694070239116
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 687,
+                "products": 446,
+                "hits_at_5": 17,
+                "hits_at_10": 28,
+                "hits_at_20": 46,
+                "product_recall_sum_at_5": 8.999999999999998,
+                "product_recall_sum_at_10": 16.416666666666664,
+                "product_recall_sum_at_20": 29.25,
+                "reciprocal_rank_sum": 13.174927728459421
+              },
+              "10-49": {
+                "positive_edges": 1025,
+                "products": 597,
+                "hits_at_5": 15,
+                "hits_at_10": 24,
+                "hits_at_20": 54,
+                "product_recall_sum_at_5": 10.933333333333334,
+                "product_recall_sum_at_10": 16.766666666666666,
+                "product_recall_sum_at_20": 35.22619047619048,
+                "reciprocal_rank_sum": 13.250457592225246
+              },
+              "50-199": {
+                "positive_edges": 1301,
+                "products": 658,
+                "hits_at_5": 24,
+                "hits_at_10": 38,
+                "hits_at_20": 58,
+                "product_recall_sum_at_5": 14.144444444444446,
+                "product_recall_sum_at_10": 23.037301587301585,
+                "product_recall_sum_at_20": 32.74563492063492,
+                "reciprocal_rank_sum": 18.088173396192452
+              },
+              "200+": {
+                "positive_edges": 4692,
+                "products": 1782,
+                "hits_at_5": 102,
+                "hits_at_10": 150,
+                "hits_at_20": 254,
+                "product_recall_sum_at_5": 43.65634876140094,
+                "product_recall_sum_at_10": 59.36678583894327,
+                "product_recall_sum_at_20": 104.45005955728945,
+                "reciprocal_rank_sum": 71.4987673061987
+              }
+            }
+          }
+        },
+        "2024": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 6003,
+              "products": 2950,
+              "hits_at_5": 135,
+              "hits_at_10": 219,
+              "hits_at_20": 375,
+              "recall_at_5": 0.022488755622188907,
+              "recall_at_10": 0.03648175912043978,
+              "recall_at_20": 0.062468765617191405,
+              "macro_recall_at_5": 0.02420427512243369,
+              "macro_recall_at_10": 0.03665185993475039,
+              "macro_recall_at_20": 0.059979455231763526,
+              "mrr": 0.03655466877505691
+            },
+            "10": {
+              "positive_edges": 5488,
+              "products": 2648,
+              "hits_at_5": 113,
+              "hits_at_10": 188,
+              "hits_at_20": 333,
+              "recall_at_5": 0.020590379008746357,
+              "recall_at_10": 0.034256559766763846,
+              "recall_at_20": 0.06067784256559767,
+              "macro_recall_at_5": 0.021984633694817898,
+              "macro_recall_at_10": 0.03334995665415863,
+              "macro_recall_at_20": 0.056802568903894235,
+              "mrr": 0.034918735286208404
+            },
+            "50": {
+              "positive_edges": 4678,
+              "products": 2156,
+              "hits_at_5": 90,
+              "hits_at_10": 154,
+              "hits_at_20": 277,
+              "recall_at_5": 0.01923899102180419,
+              "recall_at_10": 0.03292005130397606,
+              "recall_at_20": 0.05921333903377512,
+              "macro_recall_at_5": 0.0214633610232759,
+              "macro_recall_at_10": 0.03378560221433734,
+              "macro_recall_at_20": 0.05856698252679372,
+              "mrr": 0.035543430603309056
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 515,
+              "products": 302,
+              "hits_at_5": 22,
+              "hits_at_10": 31,
+              "hits_at_20": 42,
+              "recall_at_5": 0.04271844660194175,
+              "recall_at_10": 0.06019417475728155,
+              "recall_at_20": 0.08155339805825243,
+              "macro_recall_at_5": 0.04366656154735625,
+              "macro_recall_at_10": 0.06560364764007148,
+              "macro_recall_at_20": 0.0878350678019552,
+              "mrr": 0.050898880293172126
+            },
+            "10-49": {
+              "positive_edges": 810,
+              "products": 492,
+              "hits_at_5": 23,
+              "hits_at_10": 34,
+              "hits_at_20": 56,
+              "recall_at_5": 0.028395061728395062,
+              "recall_at_10": 0.04197530864197531,
+              "recall_at_20": 0.0691358024691358,
+              "macro_recall_at_5": 0.024268909873363744,
+              "macro_recall_at_10": 0.03144090822378203,
+              "macro_recall_at_20": 0.04907070758078181,
+              "mrr": 0.03218124930314123
+            },
+            "50-199": {
+              "positive_edges": 1025,
+              "products": 558,
+              "hits_at_5": 18,
+              "hits_at_10": 30,
+              "hits_at_20": 44,
+              "recall_at_5": 0.0175609756097561,
+              "recall_at_10": 0.02926829268292683,
+              "recall_at_20": 0.042926829268292686,
+              "macro_recall_at_5": 0.016681600955794504,
+              "macro_recall_at_10": 0.028449820788530467,
+              "macro_recall_at_20": 0.04017821585025886,
+              "mrr": 0.02633786881141629
+            },
+            "200+": {
+              "positive_edges": 3653,
+              "products": 1598,
+              "hits_at_5": 72,
+              "hits_at_10": 124,
+              "hits_at_20": 233,
+              "recall_at_5": 0.019709827539009035,
+              "recall_at_10": 0.03394470298384889,
+              "recall_at_20": 0.0637831918970709,
+              "macro_recall_at_5": 0.0231330870042863,
+              "macro_recall_at_10": 0.035648784965025854,
+              "macro_recall_at_20": 0.06498809129119075,
+              "mrr": 0.03875788835041551
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 6003,
+                "products": 2950,
+                "hits_at_5": 135,
+                "hits_at_10": 219,
+                "hits_at_20": 375,
+                "product_recall_sum_at_5": 71.40261161117938,
+                "product_recall_sum_at_10": 108.12298680751364,
+                "product_recall_sum_at_20": 176.9393929337024,
+                "reciprocal_rank_sum": 107.83627288641789
+              },
+              "10": {
+                "positive_edges": 5488,
+                "products": 2648,
+                "hits_at_5": 113,
+                "hits_at_10": 188,
+                "hits_at_20": 333,
+                "product_recall_sum_at_5": 58.21531002387779,
+                "product_recall_sum_at_10": 88.31068522021205,
+                "product_recall_sum_at_20": 150.41320245751194,
+                "reciprocal_rank_sum": 92.46481103787985
+              },
+              "50": {
+                "positive_edges": 4678,
+                "products": 2156,
+                "hits_at_5": 90,
+                "hits_at_10": 154,
+                "hits_at_20": 277,
+                "product_recall_sum_at_5": 46.275006366182836,
+                "product_recall_sum_at_10": 72.8417583741113,
+                "product_recall_sum_at_20": 126.27041432776727,
+                "reciprocal_rank_sum": 76.63163638073432
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 515,
+                "products": 302,
+                "hits_at_5": 22,
+                "hits_at_10": 31,
+                "hits_at_20": 42,
+                "product_recall_sum_at_5": 13.187301587301587,
+                "product_recall_sum_at_10": 19.812301587301587,
+                "product_recall_sum_at_20": 26.52619047619047,
+                "reciprocal_rank_sum": 15.371461848537981
+              },
+              "10-49": {
+                "positive_edges": 810,
+                "products": 492,
+                "hits_at_5": 23,
+                "hits_at_10": 34,
+                "hits_at_20": 56,
+                "product_recall_sum_at_5": 11.940303657694962,
+                "product_recall_sum_at_10": 15.46892684610076,
+                "product_recall_sum_at_20": 24.142788129744652,
+                "reciprocal_rank_sum": 15.833174657145484
+              },
+              "50-199": {
+                "positive_edges": 1025,
+                "products": 558,
+                "hits_at_5": 18,
+                "hits_at_10": 30,
+                "hits_at_20": 44,
+                "product_recall_sum_at_5": 9.308333333333334,
+                "product_recall_sum_at_10": 15.875,
+                "product_recall_sum_at_20": 22.419444444444444,
+                "reciprocal_rank_sum": 14.69653079677029
+              },
+              "200+": {
+                "positive_edges": 3653,
+                "products": 1598,
+                "hits_at_5": 72,
+                "hits_at_10": 124,
+                "hits_at_20": 233,
+                "product_recall_sum_at_5": 36.966673032849506,
+                "product_recall_sum_at_10": 56.966758374111315,
+                "product_recall_sum_at_20": 103.85096988332282,
+                "reciprocal_rank_sum": 61.935105583963995
+              }
+            }
+          }
+        },
+        "2025": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 7171,
+              "products": 3420,
+              "hits_at_5": 138,
+              "hits_at_10": 250,
+              "hits_at_20": 420,
+              "recall_at_5": 0.019244177938920654,
+              "recall_at_10": 0.034862641193696836,
+              "recall_at_20": 0.058569237205410685,
+              "macro_recall_at_5": 0.01859100471000576,
+              "macro_recall_at_10": 0.035934011833210495,
+              "macro_recall_at_20": 0.05781235038079838,
+              "mrr": 0.03138942956686578
+            },
+            "10": {
+              "positive_edges": 6533,
+              "products": 3014,
+              "hits_at_5": 111,
+              "hits_at_10": 200,
+              "hits_at_20": 344,
+              "recall_at_5": 0.016990662788917803,
+              "recall_at_10": 0.030613806826878923,
+              "recall_at_20": 0.052655747742231744,
+              "macro_recall_at_5": 0.01638395358600521,
+              "macro_recall_at_10": 0.031224614179245706,
+              "macro_recall_at_20": 0.05003922969553099,
+              "mrr": 0.0284433416667333
+            },
+            "50": {
+              "positive_edges": 5654,
+              "products": 2515,
+              "hits_at_5": 91,
+              "hits_at_10": 169,
+              "hits_at_20": 293,
+              "recall_at_5": 0.016094800141492747,
+              "recall_at_10": 0.029890343119915105,
+              "recall_at_20": 0.051821719136894234,
+              "macro_recall_at_5": 0.015923920616558222,
+              "macro_recall_at_10": 0.030518255021340285,
+              "macro_recall_at_20": 0.0485256364517168,
+              "mrr": 0.02879211191467688
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 638,
+              "products": 406,
+              "hits_at_5": 27,
+              "hits_at_10": 50,
+              "hits_at_20": 76,
+              "recall_at_5": 0.04231974921630094,
+              "recall_at_10": 0.07836990595611286,
+              "recall_at_20": 0.11912225705329153,
+              "macro_recall_at_5": 0.034975369458128076,
+              "macro_recall_at_10": 0.07089490968801314,
+              "macro_recall_at_20": 0.11551724137931034,
+              "mrr": 0.053260141219573516
+            },
+            "10-49": {
+              "positive_edges": 879,
+              "products": 499,
+              "hits_at_5": 20,
+              "hits_at_10": 31,
+              "hits_at_20": 51,
+              "recall_at_5": 0.022753128555176336,
+              "recall_at_10": 0.03526734926052332,
+              "recall_at_20": 0.05802047781569966,
+              "macro_recall_at_5": 0.01870255662840833,
+              "macro_recall_at_10": 0.03478472095706564,
+              "macro_recall_at_20": 0.0576678609744742,
+              "mrr": 0.026685511659562747
+            },
+            "50-199": {
+              "positive_edges": 1131,
+              "products": 647,
+              "hits_at_5": 16,
+              "hits_at_10": 26,
+              "hits_at_20": 44,
+              "recall_at_5": 0.014146772767462422,
+              "recall_at_10": 0.022988505747126436,
+              "recall_at_20": 0.038903625110521665,
+              "macro_recall_at_5": 0.01846986089644513,
+              "macro_recall_at_10": 0.02793663060278207,
+              "macro_recall_at_20": 0.04261978361669243,
+              "mrr": 0.020053119571142124
+            },
+            "200+": {
+              "positive_edges": 4523,
+              "products": 1868,
+              "hits_at_5": 75,
+              "hits_at_10": 143,
+              "hits_at_20": 249,
+              "recall_at_5": 0.016581914658412557,
+              "recall_at_10": 0.03161618394870661,
+              "recall_at_20": 0.05505195666592969,
+              "macro_recall_at_5": 0.015042109395419665,
+              "macro_recall_at_10": 0.031412425791579664,
+              "macro_recall_at_20": 0.05057118612209195,
+              "mrr": 0.031818947057218085
+            }
+          },
+          "accumulators": {
+            "thresholds": {
+              "1": {
+                "positive_edges": 7171,
+                "products": 3420,
+                "hits_at_5": 138,
+                "hits_at_10": 250,
+                "hits_at_20": 420,
+                "product_recall_sum_at_5": 63.5812361082197,
+                "product_recall_sum_at_10": 122.8943204695799,
+                "product_recall_sum_at_20": 197.71823830233046,
+                "reciprocal_rank_sum": 107.35184911868097
+              },
+              "10": {
+                "positive_edges": 6533,
+                "products": 3014,
+                "hits_at_5": 111,
+                "hits_at_10": 200,
+                "hits_at_20": 344,
+                "product_recall_sum_at_5": 49.381236108219696,
+                "product_recall_sum_at_10": 94.11098713624656,
+                "product_recall_sum_at_20": 150.8182383023304,
+                "reciprocal_rank_sum": 85.72823178353417
+              },
+              "50": {
+                "positive_edges": 5654,
+                "products": 2515,
+                "hits_at_5": 91,
+                "hits_at_10": 169,
+                "hits_at_20": 293,
+                "product_recall_sum_at_5": 40.04866035064393,
+                "product_recall_sum_at_10": 76.75341137867082,
+                "product_recall_sum_at_20": 122.04197567606775,
+                "reciprocal_rank_sum": 72.41216146541235
+              }
+            },
+            "support_bands": {
+              "1-9": {
+                "positive_edges": 638,
+                "products": 406,
+                "hits_at_5": 27,
+                "hits_at_10": 50,
+                "hits_at_20": 76,
+                "product_recall_sum_at_5": 14.2,
+                "product_recall_sum_at_10": 28.783333333333335,
+                "product_recall_sum_at_20": 46.9,
+                "reciprocal_rank_sum": 21.623617335146847
+              },
+              "10-49": {
+                "positive_edges": 879,
+                "products": 499,
+                "hits_at_5": 20,
+                "hits_at_10": 31,
+                "hits_at_20": 51,
+                "product_recall_sum_at_5": 9.332575757575757,
+                "product_recall_sum_at_10": 17.357575757575756,
+                "product_recall_sum_at_20": 28.776262626262625,
+                "reciprocal_rank_sum": 13.316070318121811
+              },
+              "50-199": {
+                "positive_edges": 1131,
+                "products": 647,
+                "hits_at_5": 16,
+                "hits_at_10": 26,
+                "hits_at_20": 44,
+                "product_recall_sum_at_5": 11.95,
+                "product_recall_sum_at_10": 18.075,
+                "product_recall_sum_at_20": 27.575,
+                "reciprocal_rank_sum": 12.974368362528955
+              },
+              "200+": {
+                "positive_edges": 4523,
+                "products": 1868,
+                "hits_at_5": 75,
+                "hits_at_10": 143,
+                "hits_at_20": 249,
+                "product_recall_sum_at_5": 28.098660350643936,
+                "product_recall_sum_at_10": 58.678411378670816,
+                "product_recall_sum_at_20": 94.46697567606776,
+                "reciprocal_rank_sum": 59.43779310288338
+              }
+            }
+          }
+        }
+      },
+      "pooled_test_population": {
+        "products_with_positives": 6370,
+        "positive_edges": 13174,
+        "candidate_pairs": 2975156
+      },
+      "pooled_test_metrics": {
+        "thresholds": {
+          "1": {
+            "positive_edges": 13174,
+            "products": 6370,
+            "hits_at_5": 273,
+            "hits_at_10": 469,
+            "hits_at_20": 795,
+            "recall_at_5": 0.020722635494155154,
+            "recall_at_10": 0.035600425079702444,
+            "recall_at_20": 0.06034613632913314,
+            "macro_recall_at_5": 0.02119055694182089,
+            "macro_recall_at_10": 0.03626645326171014,
+            "macro_recall_at_20": 0.058815954668137035,
+            "mrr": 0.0337814948202667
+          },
+          "10": {
+            "positive_edges": 12021,
+            "products": 5662,
+            "hits_at_5": 224,
+            "hits_at_10": 388,
+            "hits_at_20": 677,
+            "recall_at_5": 0.018634057066799766,
+            "recall_at_10": 0.0322768488478496,
+            "recall_at_20": 0.05631810997421179,
+            "macro_recall_at_5": 0.019003275544347845,
+            "macro_recall_at_10": 0.032218592786375594,
+            "macro_recall_at_20": 0.05320230320731939,
+            "mrr": 0.03147174899707065
+          },
+          "50": {
+            "positive_edges": 10332,
+            "products": 4671,
+            "hits_at_5": 181,
+            "hits_at_10": 323,
+            "hits_at_20": 570,
+            "recall_at_5": 0.017518389469608982,
+            "recall_at_10": 0.031262098335269065,
+            "recall_at_20": 0.05516840882694541,
+            "macro_recall_at_5": 0.018480767869155805,
+            "macro_recall_at_10": 0.03202636903292274,
+            "macro_recall_at_20": 0.05316043459726719,
+            "mrr": 0.031908327520048525
+          }
+        },
+        "support_bands": {
+          "1-9": {
+            "positive_edges": 1153,
+            "products": 708,
+            "hits_at_5": 49,
+            "hits_at_10": 81,
+            "hits_at_20": 118,
+            "recall_at_5": 0.042497831743278404,
+            "recall_at_10": 0.07025151777970512,
+            "recall_at_20": 0.1023417172593235,
+            "macro_recall_at_5": 0.03868262936059546,
+            "macro_recall_at_10": 0.06863790243027532,
+            "macro_recall_at_20": 0.10370930858218994,
+            "mrr": 0.052252936700119816
+          },
+          "10-49": {
+            "positive_edges": 1689,
+            "products": 991,
+            "hits_at_5": 43,
+            "hits_at_10": 65,
+            "hits_at_20": 107,
+            "recall_at_5": 0.02545885139135583,
+            "recall_at_10": 0.03848431024274719,
+            "recall_at_20": 0.06335109532267615,
+            "macro_recall_at_5": 0.021466074082008797,
+            "macro_recall_at_10": 0.03312462422167156,
+            "macro_recall_at_20": 0.05339964758426567,
+            "mrr": 0.029413970711672344
+          },
+          "50-199": {
+            "positive_edges": 2156,
+            "products": 1205,
+            "hits_at_5": 34,
+            "hits_at_10": 56,
+            "hits_at_20": 88,
+            "recall_at_5": 0.015769944341372914,
+            "recall_at_10": 0.025974025974025976,
+            "recall_at_20": 0.04081632653061224,
+            "macro_recall_at_5": 0.0176417704011065,
+            "macro_recall_at_10": 0.028174273858921163,
+            "macro_recall_at_20": 0.041489165514061774,
+            "mrr": 0.02296340179194958
+          },
+          "200+": {
+            "positive_edges": 8176,
+            "products": 3466,
+            "hits_at_5": 147,
+            "hits_at_10": 267,
+            "hits_at_20": 482,
+            "recall_at_5": 0.01797945205479452,
+            "recall_at_10": 0.03265655577299413,
+            "recall_at_20": 0.05895303326810176,
+            "macro_recall_at_5": 0.018772456256056964,
+            "macro_recall_at_10": 0.03336560004408024,
+            "macro_recall_at_20": 0.05721810316197074,
+            "mrr": 0.03501814734184864
+          }
+        },
+        "accumulators": {
+          "thresholds": {
+            "1": {
+              "positive_edges": 13174,
+              "products": 6370,
+              "hits_at_5": 273,
+              "hits_at_10": 469,
+              "hits_at_20": 795,
+              "product_recall_sum_at_5": 134.98384771939908,
+              "product_recall_sum_at_10": 231.01730727709355,
+              "product_recall_sum_at_20": 374.6576312360329,
+              "reciprocal_rank_sum": 215.18812200509888
+            },
+            "10": {
+              "positive_edges": 12021,
+              "products": 5662,
+              "hits_at_5": 224,
+              "hits_at_10": 388,
+              "hits_at_20": 677,
+              "product_recall_sum_at_5": 107.59654613209749,
+              "product_recall_sum_at_10": 182.4216723564586,
+              "product_recall_sum_at_20": 301.23144075984237,
+              "reciprocal_rank_sum": 178.19304282141402
+            },
+            "50": {
+              "positive_edges": 10332,
+              "products": 4671,
+              "hits_at_5": 181,
+              "hits_at_10": 323,
+              "hits_at_20": 570,
+              "product_recall_sum_at_5": 86.32366671682676,
+              "product_recall_sum_at_10": 149.5951697527821,
+              "product_recall_sum_at_20": 248.31239000383502,
+              "reciprocal_rank_sum": 149.04379784614667
+            }
+          },
+          "support_bands": {
+            "1-9": {
+              "positive_edges": 1153,
+              "products": 708,
+              "hits_at_5": 49,
+              "hits_at_10": 81,
+              "hits_at_20": 118,
+              "product_recall_sum_at_5": 27.387301587301586,
+              "product_recall_sum_at_10": 48.59563492063492,
+              "product_recall_sum_at_20": 73.42619047619047,
+              "reciprocal_rank_sum": 36.99507918368483
+            },
+            "10-49": {
+              "positive_edges": 1689,
+              "products": 991,
+              "hits_at_5": 43,
+              "hits_at_10": 65,
+              "hits_at_20": 107,
+              "product_recall_sum_at_5": 21.27287941527072,
+              "product_recall_sum_at_10": 32.826502603676516,
+              "product_recall_sum_at_20": 52.91905075600728,
+              "reciprocal_rank_sum": 29.149244975267294
+            },
+            "50-199": {
+              "positive_edges": 2156,
+              "products": 1205,
+              "hits_at_5": 34,
+              "hits_at_10": 56,
+              "hits_at_20": 88,
+              "product_recall_sum_at_5": 21.258333333333333,
+              "product_recall_sum_at_10": 33.95,
+              "product_recall_sum_at_20": 49.99444444444444,
+              "reciprocal_rank_sum": 27.670899159299246
+            },
+            "200+": {
+              "positive_edges": 8176,
+              "products": 3466,
+              "hits_at_5": 147,
+              "hits_at_10": 267,
+              "hits_at_20": 482,
+              "product_recall_sum_at_5": 65.06533338349344,
+              "product_recall_sum_at_10": 115.64516975278212,
+              "product_recall_sum_at_20": 198.31794555939058,
+              "reciprocal_rank_sum": 121.37289868684738
+            }
+          }
+        }
+      },
+      "aggregation": "sum raw numerators and denominators across 2024Q1–2025Q4 before division; not an average of annual recalls"
+    },
+    "primary_test_contrast": {
+      "metric": "micro recall@10; pooled 2024Q1–2025Q4",
+      "mean30_reused_C": 0.21064217397904964,
+      "none30_new": 0.035600425079702444,
+      "exact_signed_mean_minus_none": 0.1750417488993472,
+      "new_confidence_interval": false
+    },
+    "phase_resources": {
+      "validation_2023": {
+        "status": "complete",
+        "wall_seconds": 128.00492632202804,
+        "worker_cpu_seconds": 127.589380032,
+        "peak_aggregate_rss_bytes": 303284224,
+        "phase_output_bytes": 28982697,
+        "limits": {
+          "timeout_seconds": 900.0,
+          "aggregate_rss_bytes": 536870912,
+          "output_bytes": 536870912
+        }
+      },
+      "test_2024": {
+        "status": "complete",
+        "wall_seconds": 136.89496369598783,
+        "worker_cpu_seconds": 136.32980348799998,
+        "peak_aggregate_rss_bytes": 300412928,
+        "phase_output_bytes": 24356623,
+        "limits": {
+          "timeout_seconds": 900.0,
+          "aggregate_rss_bytes": 536870912,
+          "output_bytes": 536870912
+        }
+      },
+      "test_2025": {
+        "status": "complete",
+        "wall_seconds": 150.30273603700334,
+        "worker_cpu_seconds": 149.846866824,
+        "peak_aggregate_rss_bytes": 302727168,
+        "phase_output_bytes": 28699696,
+        "limits": {
+          "timeout_seconds": 900.0,
+          "aggregate_rss_bytes": 536870912,
+          "output_bytes": 536870912
+        }
+      }
+    },
+    "trace_events": {
+      "validation_2023": 7,
+      "test_2024": 7,
+      "test_2025": 7
+    },
+    "provenance": {
+      "D1_run_manifest_sha256": "03835cb2bfc0dced9bc840f839965c0813d82ba792a3c261d1ca6f4575126e65",
+      "D1_report_sha256": "b863135ef668a8a558166c216cfb5e0f747730801206cbd95b676aaf34e60515",
+      "D1_selection_lock_sha256": "543b2f4cfd58543cf69d28fae972b34af1dca2c07d13203c92d9bb45582e5db5",
+      "C_diagnostic_summary_sha256": "0c8a610991e313d49a9fba03736d225897620cec86779989c8b243665942dff2",
+      "prepared_input_sha256": "1cba7f84ff24131715c68a985d9302c96c7bab4a4b2a27d906559a41104fbd36",
+      "protocol_sha256": "78d1408a96da81fceb85b1f3f91034592b3b96dd95fbe4d508906e121c1efaca",
+      "D1_code_sha256": {
+        "ablation_runner": {
+          "path": "/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/tasks/maude/ablation.py",
+          "sha256": "eca360cfa636cf1b422afd63e917c68a679fd2366a223e9748d113052274e5b3",
+          "size_bytes": 57043
+        },
+        "diagnostic_runner": {
+          "path": "/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/tasks/maude/diagnostic.py",
+          "sha256": "c7316a2292a388c7004f4423abd00fe243f8cd8dfbf6422ccd728e3b402da4cf",
+          "size_bytes": 54894
+        },
+        "cli": {
+          "path": "/home/arobin/Work/Repos/HealthGraphBench/scripts/run_maude_aggregation_ablation.py",
+          "sha256": "74d4ea6e3cebffe4b889e6dc34dcccc323c285addcc197be92e481907d9c4988",
+          "size_bytes": 380
+        },
+        "evaluation": {
+          "path": "/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/tasks/maude/evaluate.py",
+          "sha256": "825cafb260dd2b8f8558224447a866cec9c7dba1cee5b5c5b05ad89a174145b7",
+          "size_bytes": 30831
+        },
+        "models": {
+          "path": "/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/tasks/maude/models.py",
+          "sha256": "403f220c2269cbb7c1792477e3abaa73b0a9c75298b42c7b2265a9e2bb7295f0",
+          "size_bytes": 51861
+        },
+        "data": {
+          "path": "/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/tasks/maude/data.py",
+          "sha256": "019d8d4792115e83327e2d5e6c5aa10dc42355bc908b84093fde28dadf0ba9d0",
+          "size_bytes": 16840
+        }
+      },
+      "audit_script": {
+        "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/postchecks/audit_numeric_invariants.py",
+        "sha256": "e4cd12daf389a6d5d273a31d9c4363ace652792a655f5d42e04e859ddc173f66",
+        "size_bytes": 77059
+      },
+      "reused_C_audit_helpers": {
+        "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/postchecks/audit_numeric_invariants.py",
+        "sha256": "f437babebcabfd0a5767b735fa5004548fe35d5b12d1cf88982d8a925cdebc16",
+        "size_bytes": 64744
+      },
+      "C_run_manifest_sha256": "41f104f7b08c959b7c1c979e8448b7ab40a263f730a532aa74a0642e926d8fbb",
+      "C_report_sha256": "36517f4de36e7274c68219755efd9edc36028f170e4c3a4deed58bc8d445bedc",
+      "hash_inventories": {
+        "pinned_C_reused_artifacts_verified": 50,
+        "D1_run_artifacts_verified": 61
+      }
+    },
+    "limitations": [
+      "mean30 is reused pinned C evidence; D1 does not retrain it or rerun its prior score audit",
+      "none uses self-only aggregation but retains trainable node identity vectors; model capacity/gradient paths are not a pure causal intervention",
+      "positive-only historical candidate cohorts do not establish precision or broad clinical utility",
+      "no independent confirmation, new seeds, bootstrap, or confidence interval"
+    ]
+  },
+  "evidence_files": {
+    "docs/consolidation-post-RC1/aggregation_protocol.md": {
+      "sha256": "78d1408a96da81fceb85b1f3f91034592b3b96dd95fbe4d508906e121c1efaca",
+      "size_bytes": 8591
+    },
+    "healthgraphbench/tasks/maude/ablation.py": {
+      "sha256": "eca360cfa636cf1b422afd63e917c68a679fd2366a223e9748d113052274e5b3",
+      "size_bytes": 57043
+    },
+    "healthgraphbench/tasks/maude/data.py": {
+      "sha256": "019d8d4792115e83327e2d5e6c5aa10dc42355bc908b84093fde28dadf0ba9d0",
+      "size_bytes": 16840
+    },
+    "healthgraphbench/tasks/maude/diagnostic.py": {
+      "sha256": "c7316a2292a388c7004f4423abd00fe243f8cd8dfbf6422ccd728e3b402da4cf",
+      "size_bytes": 54894
+    },
+    "healthgraphbench/tasks/maude/evaluate.py": {
+      "sha256": "825cafb260dd2b8f8558224447a866cec9c7dba1cee5b5c5b05ad89a174145b7",
+      "size_bytes": 30831
+    },
+    "healthgraphbench/tasks/maude/models.py": {
+      "sha256": "403f220c2269cbb7c1792477e3abaa73b0a9c75298b42c7b2265a9e2bb7295f0",
+      "size_bytes": 51861
+    },
+    "results/generated/consolidation-post-RC1/core-verification-20261002/inputs/HealthGraphBench_RC1/data/real_R6/maude_B/prepared_snapshots.json.gz": {
+      "sha256": "1cba7f84ff24131715c68a985d9302c96c7bab4a4b2a27d906559a41104fbd36",
+      "size_bytes": 1643541
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/cohort_comparison.json": {
+      "sha256": "24aa8e07989d8be23e1e3c8ca7275c77b956b24b930eac0bd76b73583238dfba",
+      "size_bytes": 1329
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/postchecks/audit_numeric_invariants.py": {
+      "sha256": "e4cd12daf389a6d5d273a31d9c4363ace652792a655f5d42e04e859ddc173f66",
+      "size_bytes": 77059
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/report.json": {
+      "sha256": "b863135ef668a8a558166c216cfb5e0f747730801206cbd95b676aaf34e60515",
+      "size_bytes": 168240
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/run_manifest.json": {
+      "sha256": "03835cb2bfc0dced9bc840f839965c0813d82ba792a3c261d1ca6f4575126e65",
+      "size_bytes": 48354
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/selection_locked_before_test.json": {
+      "sha256": "543b2f4cfd58543cf69d28fae972b34af1dca2c07d13203c92d9bb45582e5db5",
+      "size_bytes": 623
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/stdout.txt": {
+      "sha256": "4f2812e6e68703c25c5eba9e440934799ca5d7f33b712d24256bbfb5add30527",
+      "size_bytes": 264
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q1/candidate_predictions.jsonl.gz": {
+      "sha256": "3738dc49eaba46bebdcfd8dfe7eea32bc2df068c0f38bcc7c2693ba76d4bc8a0",
+      "size_bytes": 5715029
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q1/candidate_sets.jsonl.gz": {
+      "sha256": "4479c2f66bd322c794ab3c99cf7b9487c92c48ee5294d2811e627f2c99f572de",
+      "size_bytes": 132308
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q1/quarter_result.json": {
+      "sha256": "e5c565844978142e18e332defb8b3c2235359707d2a29c1751c55a583247493e",
+      "size_bytes": 6477
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q2/candidate_predictions.jsonl.gz": {
+      "sha256": "ffc8c0cdd8b3a283645fbc6fe0be6fbf04c8320757780e775928d96a61390b0c",
+      "size_bytes": 6127591
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q2/candidate_sets.jsonl.gz": {
+      "sha256": "8b9562966cc6816d63898b0777a261ea5ac3e71e301b656617feff910d0965e0",
+      "size_bytes": 144594
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q2/quarter_result.json": {
+      "sha256": "c55ab723de2225d87b6b5aeb4084a65ec9296b388e3c158b2b76baa39517cc11",
+      "size_bytes": 6521
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q3/candidate_predictions.jsonl.gz": {
+      "sha256": "90da8a24f43072fadbd449021e4068674442904f7a1c4d4c94c5fa896ee20583",
+      "size_bytes": 5692269
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q3/candidate_sets.jsonl.gz": {
+      "sha256": "1061f2c6c72caa3d71d6e6b2c669bb60a913c288e13a6f6120513d433014d1d6",
+      "size_bytes": 134454
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q3/quarter_result.json": {
+      "sha256": "4de198aeb8833b42a13e4008e67e35afb0e1be9a83c9dd343036b05b63ea3f90",
+      "size_bytes": 6526
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q4/candidate_predictions.jsonl.gz": {
+      "sha256": "e7178a6f3b51fa1e10a3556316166c037642d34a29039a478fbe52d1cd1b7025",
+      "size_bytes": 5545537
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q4/candidate_sets.jsonl.gz": {
+      "sha256": "d6f4fbd2441e4988f7a6011ae2f4a8facc049aa9365b32f6aa48d173c489fd7f",
+      "size_bytes": 133217
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q4/quarter_result.json": {
+      "sha256": "1cdcc49b0e5918f1001053fc3d22d726e79f970638ff7f2a8aba6656613a320c",
+      "size_bytes": 6484
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/completed_quarters.json": {
+      "sha256": "4dd0a16d0789cadfb4b95cc7ccf432ac71a6912dbe60b131692d636a6f96c6a3",
+      "size_bytes": 103
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/fit_epochs_30/checkpoint.json.gz": {
+      "sha256": "15eeae8cfc5f6c233b0350de52042e5a52df669efa3817708552fb7550e3e765",
+      "size_bytes": 667600
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/fit_epochs_30/epochs.jsonl.gz": {
+      "sha256": "fc45ecc0a0bd67e1140b8e936381862043cac25c629157043a68b185a3ccd453",
+      "size_bytes": 677
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/phase_summary.json": {
+      "sha256": "35fcacb5e1571eeb256370cff30140f8b2ab3b4f662aed4424be1376d750bae4",
+      "size_bytes": 36460
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/supervisor_status.json": {
+      "sha256": "b743d0bf84b3d386aba398dc9e3414f51a611b0dfe08f16d4db614ad8510306e",
+      "size_bytes": 355
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/trace.jsonl.gz": {
+      "sha256": "68686551375fa3f302b8fa277eafcdd6d03a7b96da5085f2fe8489d29a40673b",
+      "size_bytes": 600
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/worker_status.json": {
+      "sha256": "15d1f5ff6e1fa58c62f57e85cebba842e63c24fc4c77c6e0ac29a7b7c02fb637",
+      "size_bytes": 176
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q1/candidate_predictions.jsonl.gz": {
+      "sha256": "59dac74efff905209535f10424db8232c0a866aab68d591e0d0a5df6c745e590",
+      "size_bytes": 5517851
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q1/candidate_sets.jsonl.gz": {
+      "sha256": "53422dd293d0e1584dbb0ca78188fa9363f233f78125d8c2aaf9b3af68c4cc0e",
+      "size_bytes": 130345
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q1/quarter_result.json": {
+      "sha256": "d960f5c0e0ebe0d5f6aa1595ba7d210c96452157eadfdde0161bdf7f87c63a2e",
+      "size_bytes": 6407
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q2/candidate_predictions.jsonl.gz": {
+      "sha256": "d3f67486e1de4da6f124a53f56e7c8b1d14be0d98a98d9e28151d8cbc7fe37ab",
+      "size_bytes": 7419055
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q2/candidate_sets.jsonl.gz": {
+      "sha256": "0aab0f24f67ab70534585871af7eed9ff1aaea35299104f4f89c7216dc446158",
+      "size_bytes": 169844
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q2/quarter_result.json": {
+      "sha256": "e31f2b893a961830633b0e03ad1ab9a1069c5cae9b87c1589b1abab2651ac8d3",
+      "size_bytes": 6528
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q3/candidate_predictions.jsonl.gz": {
+      "sha256": "b179a6bb08162297a83c4e95dd506ea55000d5a349b9ab19e93b6b2618abb47d",
+      "size_bytes": 7107641
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q3/candidate_sets.jsonl.gz": {
+      "sha256": "76d8f2832f35a5db9688bbc2d03a435387f596703a91cdb97a2d84d4b7cfbee3",
+      "size_bytes": 163236
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q3/quarter_result.json": {
+      "sha256": "ff7057063e1f54c59dd5c07ab93c1ea553d6d04e742c5bb9fc16f0ad4da551c9",
+      "size_bytes": 6510
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q4/candidate_predictions.jsonl.gz": {
+      "sha256": "5904f04a4234dc14244915da7829861e893fbde9c7c657b4bbda1d9056aa0e24",
+      "size_bytes": 7263059
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q4/candidate_sets.jsonl.gz": {
+      "sha256": "5ee9aed44817c2d259128c138a92863afbc6498f5ce3435fe90c373cb8d6ccda",
+      "size_bytes": 168864
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q4/quarter_result.json": {
+      "sha256": "1b26b4f63864104298be5fb9c1628efbff71003c0457dde9a930318e1893178b",
+      "size_bytes": 6487
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/completed_quarters.json": {
+      "sha256": "e74206353f8d899c2e839fa9efc7fd5cee6ce37d5db10179fe19f793ff6a65a1",
+      "size_bytes": 103
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/fit_epochs_30/checkpoint.json.gz": {
+      "sha256": "aeb0996196d0473cf4bda8b2bdd490afa128139e604fb4de77d1a61195f35602",
+      "size_bytes": 695996
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/fit_epochs_30/epochs.jsonl.gz": {
+      "sha256": "9d634e56ec72d0775f6bbc5c1b5d427214a4f6620832c7ebafc644bbdaf772b6",
+      "size_bytes": 653
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/phase_summary.json": {
+      "sha256": "cc087f735e507f93a2d0ad1e4a3715a35e82a10fa1eb445601412019cf855ebd",
+      "size_bytes": 36342
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/supervisor_status.json": {
+      "sha256": "7d745f05dd00f311bed841c12c983445fbfafa20af61e3f406560ea36279e07a",
+      "size_bytes": 350
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/trace.jsonl.gz": {
+      "sha256": "484f85dc3c119a30ae52be43314f48ea41b134a6cae5946d3c56a04a79b93050",
+      "size_bytes": 605
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/worker_status.json": {
+      "sha256": "22d676eb22cc5f0e308e705fa9a160e88328fe5e5e6c4614c4c6f82fbb7e0032",
+      "size_bytes": 170
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_aggregate_2024_2025.json": {
+      "sha256": "10b8f508e1d6ecef2d7e3243159e50a85a03c0aac26ab2b835c9fdd18e11f984",
+      "size_bytes": 6213
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q1/candidate_predictions.jsonl.gz": {
+      "sha256": "213d5dec1dacbfc65aa851d881a1a4d7b80760bc226f3cdb96a5fc367ab13cee",
+      "size_bytes": 7303582
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q1/candidate_sets.jsonl.gz": {
+      "sha256": "736a22827bf60d4708a59a9f5b916ea5c2d772e4f47f18dba99582599a9849ae",
+      "size_bytes": 163374
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q1/quarter_result.json": {
+      "sha256": "8146283a57c22371b04bce8bca748297b9cd7093d9c58b8a00427538b68fa888",
+      "size_bytes": 6464
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q2/candidate_predictions.jsonl.gz": {
+      "sha256": "7e191aca81963140b56a6d2d54cbdba024fec37edf90273b11f213ed8ccf879d",
+      "size_bytes": 7520935
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q2/candidate_sets.jsonl.gz": {
+      "sha256": "247d8e039ce6f16747dc77b73df6c424d30ed8e1db67b1eca9cb3b5a1e471185",
+      "size_bytes": 167485
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q2/quarter_result.json": {
+      "sha256": "077e11250a0e5dcc1063a4004fc809c817555de1a0e5722d69958c079c250369",
+      "size_bytes": 6569
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q3/candidate_predictions.jsonl.gz": {
+      "sha256": "5d6fdfd1971a84a7535285d54db4e6bd478fe16f948b7f7be86d92fe39dd327a",
+      "size_bytes": 7092949
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q3/candidate_sets.jsonl.gz": {
+      "sha256": "341ac4aea6393d2f97185f42cedda621c109b099b5187e44e4d0c91fbebf5505",
+      "size_bytes": 160920
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q3/quarter_result.json": {
+      "sha256": "56db67ac34c2f30720680fe96430706dba220d1deae345da49532826e8de878a",
+      "size_bytes": 6501
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q4/candidate_predictions.jsonl.gz": {
+      "sha256": "ba51fb6ed4b75bf5d3e09b1917317ea003dea6658a5cf450c02e50fb089b0f22",
+      "size_bytes": 5704163
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q4/candidate_sets.jsonl.gz": {
+      "sha256": "8ecba59d988786953545a3512acb03025cfb4e6268c18bc0ac124f7d4834789f",
+      "size_bytes": 135491
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q4/quarter_result.json": {
+      "sha256": "6ffaf9f9f9c12c932389cad32e4e378a430d849ff2b167d866a7abe7dbb07cd5",
+      "size_bytes": 6488
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/checkpoint.json.gz": {
+      "sha256": "71279ddbc9761084ddc3fefa69f344f9386d43518e30dd2d3275ceb601349788",
+      "size_bytes": 629138
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/epochs.jsonl.gz": {
+      "sha256": "24d0d904f23cd57ac11cbaccb63d59f579389f31b6f545f3f0acc7e364379b0c",
+      "size_bytes": 697
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/fit_result.json": {
+      "sha256": "12c3f7b25e491ed7d12ea205247cea205f027b04857ce5d7e9a2a86be30ab507",
+      "size_bytes": 36445
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/supervisor_status.json": {
+      "sha256": "8b3d462213d83578ea37ad5f0486528c16c8c5e24d8e0180e40fdf194f33d6ea",
+      "size_bytes": 350
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/trace.jsonl.gz": {
+      "sha256": "4e5bdd69fce4cd9aaa42d1df9a084a90e7adab15b79e278c8f231977bbcb09b3",
+      "size_bytes": 610
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/validation_summary.json": {
+      "sha256": "2cfc4a719cfa5bcb20471982b040e5449521b50e1ca94fd5a68b8869e709614a",
+      "size_bytes": 40709
+    },
+    "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/worker_status.json": {
+      "sha256": "1bab26cf2e04a486dcb8b04dbbd492557917f3bf1a74b45d8d856c347a06982f",
+      "size_bytes": 177
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/postchecks/audit_numeric_invariants.py": {
+      "sha256": "f437babebcabfd0a5767b735fa5004548fe35d5b12d1cf88982d8a925cdebc16",
+      "size_bytes": 64744
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/report.json": {
+      "sha256": "36517f4de36e7274c68219755efd9edc36028f170e4c3a4deed58bc8d445bedc",
+      "size_bytes": 16257
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/run_manifest.json": {
+      "sha256": "41f104f7b08c959b7c1c979e8448b7ab40a263f730a532aa74a0642e926d8fbb",
+      "size_bytes": 4323
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/selection.json": {
+      "sha256": "3b2f3168b1689252716f44a30ad61dab92dde169eb97b1a5b3d65b2a3ea05e73",
+      "size_bytes": 429
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q1/candidate_predictions.jsonl.gz": {
+      "sha256": "dc5fb5ee3f39f29c0898e9a3f2911fff5c8edb402bfa5e812d61382687f7e807",
+      "size_bytes": 5734281
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q1/candidate_sets.jsonl.gz": {
+      "sha256": "900f5908a6f3481440e3f927c6b55eace69dcdea1feb446a05b3921d1221fb4a",
+      "size_bytes": 132308
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q1/quarter_result.json": {
+      "sha256": "0ad10b77ca35dea131f2e2988e048bbb1874dbce3903234800fd05c0913bfa84",
+      "size_bytes": 6543
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q2/candidate_predictions.jsonl.gz": {
+      "sha256": "ff251ad75b1e85e5f96b24a9b4706d443acd72cb9cf92d171cc55b3d191992f9",
+      "size_bytes": 6142616
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q2/candidate_sets.jsonl.gz": {
+      "sha256": "bac7c0368662617a3816617f61f37e9f3be822d8873f62c8834eeaf47d5d8c3e",
+      "size_bytes": 144594
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q2/quarter_result.json": {
+      "sha256": "dc311ae120822a16b04f4f3afade3192e75510e41a0e731a4c85ae48c47d1cb6",
+      "size_bytes": 6532
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q3/candidate_predictions.jsonl.gz": {
+      "sha256": "586482dbe8e122908550336b8bc238c2bf560c1111ac95d3b77b575eefac35da",
+      "size_bytes": 5705647
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q3/candidate_sets.jsonl.gz": {
+      "sha256": "0fae41a046b2e5db8dce2e1b87f13f778eba2c682fd23e63915db3198d69836e",
+      "size_bytes": 134454
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q3/quarter_result.json": {
+      "sha256": "af16690d3ce5f1eba3d7095b97259bae7e674e84ba82273a1fbc142a548f754b",
+      "size_bytes": 6532
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q4/candidate_predictions.jsonl.gz": {
+      "sha256": "5ab8e77c696c4f44e5395bc191f230a8c46f02b7313096ac7b205fe695af3c2a",
+      "size_bytes": 5559685
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q4/candidate_sets.jsonl.gz": {
+      "sha256": "4ba20be6892490f62c0a961f8eb4a56586d3d02e140eb07c250a334c5500d9bb",
+      "size_bytes": 133217
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q4/quarter_result.json": {
+      "sha256": "993b8013e8f096152f21d9860e46a943c60afe290f69da36deacac38775fa038",
+      "size_bytes": 6515
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/fit_epochs_30/checkpoint.json.gz": {
+      "sha256": "9f5a0173ec023d3c03ca8ac63b62fce828ba1b79fef76280753ee27f8381db23",
+      "size_bytes": 691317
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/fit_epochs_30/epochs.jsonl.gz": {
+      "sha256": "5b4b46fa9e1e9b4f9e638da36a9d401053c465511710d8267b37c8262ec7a9b4",
+      "size_bytes": 922
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/phase_summary.json": {
+      "sha256": "80e055e94fb589012123b352fbf68a75e12232e80865ec61982fe9296e7cbbfb",
+      "size_bytes": 36547
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q1/candidate_predictions.jsonl.gz": {
+      "sha256": "9f9166a4e2002efccc914db09d632805170ccd367d7a41a7786bc601070d5689",
+      "size_bytes": 5508925
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q1/candidate_sets.jsonl.gz": {
+      "sha256": "f097867ec47f53fa96c0e9ccff8bc51bb17e034fb32d46cecb0b2f0e491e6e5e",
+      "size_bytes": 130345
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q1/quarter_result.json": {
+      "sha256": "bb535a4fcb48ef8989a383fc645b7728df1562b0c819db42b695ccbe0c20c6d0",
+      "size_bytes": 6489
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q2/candidate_predictions.jsonl.gz": {
+      "sha256": "ec241572d0bf5b892939354b08a3abed199dce57599abe3cc18b70ef15680dd9",
+      "size_bytes": 7402565
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q2/candidate_sets.jsonl.gz": {
+      "sha256": "bed8e2bcb3b33d6a235a79ec23be88ec4ac9aea8fa2b75e243e98a7fa1f9785c",
+      "size_bytes": 169844
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q2/quarter_result.json": {
+      "sha256": "d713df949ca9ac777bc340dff196492ca8024436b16f1196f5a7bd2ce9ed344f",
+      "size_bytes": 6548
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q3/candidate_predictions.jsonl.gz": {
+      "sha256": "ea34c08015d80638f55f900f65c58a599a4d8b087c8c83c42c6413fa8b4669fb",
+      "size_bytes": 7092036
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q3/candidate_sets.jsonl.gz": {
+      "sha256": "ffcf51ef018bd4fdf1b518d9eefcddad651aa9372837a73de963ef081a7d09d1",
+      "size_bytes": 163236
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q3/quarter_result.json": {
+      "sha256": "8d5977507a0e8e26e6ff6585c61139cce998bda7d85b12f628c2679dc81bb474",
+      "size_bytes": 6544
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q4/candidate_predictions.jsonl.gz": {
+      "sha256": "76c868844be14ef5bb5f9651f762545ad55b48e279507a98c6ce2b5d2834e28b",
+      "size_bytes": 7248131
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q4/candidate_sets.jsonl.gz": {
+      "sha256": "d8e7eb9e2faa823ae7a9b5f1bba75c41ee6a7d4cbae0076199d9ea16114c2565",
+      "size_bytes": 168864
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q4/quarter_result.json": {
+      "sha256": "e7fd0549267ca3e9ad88dfb0a4bf50df7d1ed72fca4a59e658e50310be397e35",
+      "size_bytes": 6535
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/fit_epochs_30/checkpoint.json.gz": {
+      "sha256": "a3c6122945b20110c9aad93dd872edc353d5f06f670a6329fa4c04002f293134",
+      "size_bytes": 720495
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/fit_epochs_30/epochs.jsonl.gz": {
+      "sha256": "d680c070bd05923f5a2da30c53b190b24479675b45ec1a2e9a6e63464fba3bd3",
+      "size_bytes": 923
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/phase_summary.json": {
+      "sha256": "4f9ae86d9ec8ca11fa7996773a050a001969b59ccb1ba7a024ceff7eb46796be",
+      "size_bytes": 36523
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_aggregate_2024_2025.json": {
+      "sha256": "9330d5ecc0f3c713cae5a9afbf596f8448a8ff30c421fd66f18cdceb433eaf9c",
+      "size_bytes": 6221
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q1/candidate_predictions.jsonl.gz": {
+      "sha256": "b03fd6afcfffe7ca7b137bfe53b87d7aa3613a5899e3ae22bc176eea0e6e5e96",
+      "size_bytes": 7314923
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q1/candidate_sets.jsonl.gz": {
+      "sha256": "5ad4e29ba9e91aa1c4dc4ccfe8837a8c09db7e186e81ae17701b7ef41fcbc6b6",
+      "size_bytes": 163374
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q1/quarter_result.json": {
+      "sha256": "6f567457ecd9dde3e0a1e1b4d5b022f5f2eb741f418c74a39f64f79b3bce13e5",
+      "size_bytes": 6583
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q2/candidate_predictions.jsonl.gz": {
+      "sha256": "50a6be56ad7a8d9e5db0eabfbcab7c07ebe35b7de25c7e48d49c71591b51dfe9",
+      "size_bytes": 7529423
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q2/candidate_sets.jsonl.gz": {
+      "sha256": "6e24bb9a6c11062c77b201d4bbbb4afe9a9a498e3af1e9fb1500728e73cafefb",
+      "size_bytes": 167485
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q2/quarter_result.json": {
+      "sha256": "f683e810c80ac6e5601d9996d96681f2fc46e6e112f0dc4685bfd05a1bfe13a2",
+      "size_bytes": 6578
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q3/candidate_predictions.jsonl.gz": {
+      "sha256": "9ef3421b4a45f7c5702a1ba1c40a345010ace046a35016a8c50dc310397ef9f6",
+      "size_bytes": 7101123
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q3/candidate_sets.jsonl.gz": {
+      "sha256": "bf069204f71a6a2267f6361569b98d8caaec3f44c36b137fd3e2da63a01145ca",
+      "size_bytes": 160920
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q3/quarter_result.json": {
+      "sha256": "1ebb2eb6f8c867c0a7f63c7cd7fc82ffbc812f9313b985432dfe936f74a5517b",
+      "size_bytes": 6578
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q4/candidate_predictions.jsonl.gz": {
+      "sha256": "f3732c5e30d9fe89dabfe6b8a409c258e3870a6bdf6368bd606f27026f77a865",
+      "size_bytes": 5709567
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q4/candidate_sets.jsonl.gz": {
+      "sha256": "eb814df1d3b11272d4545fa7afcc64e80b3e667b1dd48b8ee0a3d9018b206fb0",
+      "size_bytes": 135491
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q4/quarter_result.json": {
+      "sha256": "3edffa5d974e7084b803e76a80aca06d0b07ffc9c42c0da591672265ecfd3d7b",
+      "size_bytes": 6546
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/checkpoint.json.gz": {
+      "sha256": "429aca80805463f0448e2d9dd66e018f30a1d099ebd4b4abad37be25548bdb71",
+      "size_bytes": 652103
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/epochs.jsonl.gz": {
+      "sha256": "6fe5a0154068830322f9c385f1c0563571b34b5329060ac037d87a25acb141d7",
+      "size_bytes": 924
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/fit_result.json": {
+      "sha256": "5edee4cff3e5e473c47deafe828caea58e77bca9abd1af7f4b08b25299aa5eaf",
+      "size_bytes": 36683
+    },
+    "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/validation_summary.json": {
+      "sha256": "478e4a27800b6086029828e8e8ee5af79c1ad2c603e081a15cd94efdbb5b7b5e",
+      "size_bytes": 162783
+    },
+    "results/maude_duration_diagnostic_20261002T172405Z.json": {
+      "sha256": "0c8a610991e313d49a9fba03736d225897620cec86779989c8b243665942dff2",
+      "size_bytes": 71975
+    },
+    "scripts/run_maude_aggregation_ablation.py": {
+      "sha256": "74d4ea6e3cebffe4b889e6dc34dcccc323c285addcc197be92e481907d9c4988",
+      "size_bytes": 380
+    }
+  },
+  "partial_reason": null
+}

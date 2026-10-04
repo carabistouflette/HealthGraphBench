@@ -1,0 +1,99 @@
+{
+  "schema_version": 3,
+  "artifact": "HealthGraphBench manuscript working revision",
+  "release_candidate": "RC3",
+  "package_id": "manuscript-rc3",
+  "scientific_baseline": "Preserved RC2.2 including historical RC1/C/D1 and paired interval, plus completed Q2 tuned comparisons/reuse and sealed unevaluated prospective forecast",
+  "prepared_on": "2026-10-04",
+  "distribution_status": "local_working_revision_not_submitted",
+  "archive_name": "HealthGraphBench_LaTeX_RC3.zip",
+  "archive_root": "HealthGraphBench_RC3",
+  "language_policy": {
+    "canonical_language": "fr",
+    "english_role": "faithful_translation_of_french",
+    "independent_english_rewriting": false,
+    "same_structure_content_and_scientific_scope": true
+  },
+  "parent_archive": {
+    "name": "HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip",
+    "sha256": "a1731aa9eb02d8f31179adfea62d1d70a168594910aa2002780aa66e8f83c4f9",
+    "modified": false
+  },
+  "benchmark": {
+    "version": "0.2.0",
+    "source_commit": "b010d5a49eae56837a920b2e30dece41c42c0c44",
+    "declared_DOI": "10.5281/zenodo.22796551",
+    "modified": false
+  },
+  "q2_evidence_revision": "6b4ae00ebc4b701d757260616ccb0df16f51467b",
+  "manuscript_package_DOI": null,
+  "tag_created": false,
+  "documents": [
+    {
+      "source": "main_fr.tex",
+      "pdf": "main_fr.pdf",
+      "role": "manuscript",
+      "language": "fr"
+    },
+    {
+      "source": "main_en.tex",
+      "pdf": "main_en.pdf",
+      "role": "manuscript",
+      "language": "en",
+      "translation_of": "main_fr.tex"
+    },
+    {
+      "source": "supplement_fr.tex",
+      "pdf": "supplement_fr.pdf",
+      "role": "scientific supplement",
+      "language": "fr"
+    },
+    {
+      "source": "supplement_en.tex",
+      "pdf": "supplement_en.pdf",
+      "role": "scientific supplement",
+      "language": "en",
+      "translation_of": "supplement_fr.tex"
+    },
+    {
+      "source": "response_reviewers_fr.tex",
+      "pdf": "response_reviewers_fr.pdf",
+      "role": "historical R6 response, not a new RC3 review response",
+      "language": "fr"
+    }
+  ],
+  "integrity_manifest": "SHA256SUMS",
+  "current_provenance": "provenance.json",
+  "current_scientific_status": "data/revision_status_RC3.json",
+  "verification_directory": "verification/rc3",
+  "retention_manifest": "release/parent_payload_RC2_2.json",
+  "readiness": {
+    "ready_for_review": false,
+    "technical_verification_complete": false,
+    "author_validation_complete": false,
+    "ready_for_submission": false,
+    "editorial_acceptance_claimed": false
+  },
+  "scientific_gates": {
+    "strengthened_comparisons": "completed_exploratory",
+    "independent_evaluation_passed": false,
+    "target2025_source_acquired": false,
+    "target2025_metrics_computed": false,
+    "human_nonconsultation_attestations": "unknown",
+    "technical_end_to_end_reuse": "complete",
+    "external_human_study": "not_performed",
+    "author_validation_complete": false,
+    "journal_selected": false,
+    "submission_authorized": false
+  },
+  "outstanding_author_decisions": [
+    "Author identities, affiliations and corresponding author",
+    "Approval of scientific/bibliographic content and response",
+    "CRediT contributions, funding, competing interests, ethical position, data-use conditions and actual AI assistance",
+    "Exact journal, conference or volume, language, anonymization and final template",
+    "Permanent archive and publication-package identifier",
+    "Actual human nonconsultation/usage attestations and external participant study",
+    "Manuscript license and distribution/support conditions"
+  ],
+  "distribution_limit": "Compact Q2 protocols, complete grids/metrics/losses/gates, received verification and provenance, code source snapshots, original witness wheel and two cosine checkpoints included.193 tuned-comparison checkpoints, full new streams and seven prospective checkpoints/nine sealed outputs remain in five separately hashed Q2 archives; no raw FDA/CMS source bytes bundled. Prior RC2.2 nine inference checkpoints/paired contributions retained. Original run paths are provenance, not promised package paths."
+}

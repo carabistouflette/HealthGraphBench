@@ -1,0 +1,256 @@
+{
+  "schema": "healthgraphbench.rc3-actual-pdf-surface-review.v1",
+  "reviewed_at_utc": "2026-10-04T12:25:35.279366+00:00",
+  "method": "All pages rendered from actual compiled PDF and visually observed on20 six-page contact sheets;10 listed pages additionally read as individual full-page images. Text extraction checked blank pages and unresolved marks; LaTeX diagnostics checked overfull/undefined. This is assistant technical reading, not external scientific/human approval.",
+  "documents": {
+    "main_fr.pdf": {
+      "sha256": "171c65e4dbec481e890fc03befac7c587ef1ce13a105a4b56602e10f0cedbf4b",
+      "page_count": 20,
+      "visual_review_completed": true,
+      "reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "full_resolution_reviewed_pages": [
+        13
+      ],
+      "blank_pages": [],
+      "unresolved_references": [],
+      "contact_sheet_sha256": [
+        "aa1689f49cce97f365b41d35f7237e4529e090b9342aff15bc6e46408dd76b2b",
+        "b811a4b1994840bfd01e265b5791ac2f09858db75f646a4b72b3603aa69475a3",
+        "02586ffc651f6f9eef3d7e0bd4fe58d5125dcf4ec9eaf2315b5391ddbfaa0b7f",
+        "e4a2f0a6c3b0f4e797ab9b88b79a5c0d8c6f4b00d631db43e248a78dab87dc3a"
+      ],
+      "observations": "No clipped table/figure/heading or unexpected blank page observed; new comparison tables, learning/seed figures, forecast/reuse/gate statements readable. Reading layout, not venue template."
+    },
+    "main_en.pdf": {
+      "sha256": "73f2650b05b3c082030b885e98a980d40ecb374442f42c129937af607a924f40",
+      "page_count": 19,
+      "visual_review_completed": true,
+      "reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "full_resolution_reviewed_pages": [
+        12,
+        16
+      ],
+      "blank_pages": [],
+      "unresolved_references": [],
+      "contact_sheet_sha256": [
+        "f7b0456ab94632e59dabf48bc72cb71223f74daf7e6b365232cb960f2f221a51",
+        "ec709b78f8c6fcf54ae6a926bd48107726e241c2c23c80e0abdece3f177b001d",
+        "d33c6aefa489d18fff248f00919403055d9ca3c2b6a782f064b5c9cc6206c158",
+        "1f1283a636862d8dd54d34468f6867b9b904140adb90482bc1a516afcd3e0b7e"
+      ],
+      "observations": "No clipped table/figure/heading or unexpected blank page observed; new comparison tables, learning/seed figures, forecast/reuse/gate statements readable. Reading layout, not venue template."
+    },
+    "supplement_fr.pdf": {
+      "sha256": "51d143f174dd4de515726759f2f689b01a4bb73792c634a9906c67ae1b12032d",
+      "page_count": 32,
+      "visual_review_completed": true,
+      "reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "full_resolution_reviewed_pages": [
+        23,
+        26,
+        27,
+        28
+      ],
+      "blank_pages": [],
+      "unresolved_references": [],
+      "contact_sheet_sha256": [
+        "e3facc09293f9863dddbac02b36a351132fb5b564461132b3ea96735c820a774",
+        "1c884a8b594a8e5026805f88c07e7ad04c421ad42b1f8e457068b1e2234e1c4d",
+        "4fb1f7ba4aab9da0ccdffc8cee09f16d2bf635ccccc6c79a995fbaffa31eb329",
+        "14064a646797f423010974cfa1bde91e3ed0a528d73e650064172041e7dbb9d0",
+        "47d1eebe9e77e612f76c12177edf07e1adb42eb93da2eb5eec340e4596cbb99e",
+        "2d79daefec4682bc0133143f8cf810250e443bbbaa8f6804d7587bd6d1d99b4c"
+      ],
+      "observations": "No clipped table/figure/heading or unexpected blank page observed; new comparison tables, learning/seed figures, forecast/reuse/gate statements readable. Reading layout, not venue template."
+    },
+    "supplement_en.pdf": {
+      "sha256": "bc4a0e7e618188c86a7675ba2b6bb6dbc9f8249b55227a92c9c7aaab8dde9468",
+      "page_count": 31,
+      "visual_review_completed": true,
+      "reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "full_resolution_reviewed_pages": [
+        26,
+        27,
+        28
+      ],
+      "blank_pages": [],
+      "unresolved_references": [],
+      "contact_sheet_sha256": [
+        "a3c8ba5060a134cb3f4318fba43aa506f612a2bd86cc94a7962e4fbedb8f9d13",
+        "4711f661cdf1751741397c1a5921c6f565c19b133ea57001729ba08411182fd9",
+        "cd560094a4a0d8a5847bcaf655bfab3f3f6d2169ad227f3c83a10aa97514f96c",
+        "f7f62671a929964840c8c02e69ff7c85272c1b49f8d77aaf8c569a8707751b4c",
+        "8f381b4fba8cf158a5884aab76725fc21bf4fa8e99b7b6984928f2e3ec3b2934",
+        "2a6dd0a5003025318eda2c6d4fc4a8ecc7e5986bac2c39945bdf5dd1f8083d16"
+      ],
+      "observations": "No clipped table/figure/heading or unexpected blank page observed; new comparison tables, learning/seed figures, forecast/reuse/gate statements readable. Reading layout, not venue template."
+    }
+  },
+  "printed_Q2_decimal_checks": [
+    {
+      "document": "main_fr.pdf",
+      "expected_table_decimal_cells": 52,
+      "missing_or_underrepresented_values": {},
+      "passed": true
+    },
+    {
+      "document": "main_en.pdf",
+      "expected_table_decimal_cells": 52,
+      "missing_or_underrepresented_values": {},
+      "passed": true
+    },
+    {
+      "document": "supplement_fr.pdf",
+      "expected_table_decimal_cells": 96,
+      "missing_or_underrepresented_values": {},
+      "passed": true
+    },
+    {
+      "document": "supplement_en.pdf",
+      "expected_table_decimal_cells": 96,
+      "missing_or_underrepresented_values": {},
+      "passed": true
+    }
+  ],
+  "compilation_diagnostics": {
+    "response_reviewers_fr": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 0,
+      "undefined": 0
+    },
+    "supplement_en": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 29,
+      "undefined": 0
+    },
+    "supplement_fr": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 34,
+      "undefined": 0
+    },
+    "main_en": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 0,
+      "undefined": 0
+    },
+    "main_fr": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 0,
+      "undefined": 0
+    }
+  },
+  "accepted_layout_diagnostics": "Supplement FR34/EN29 underfull boxes retained; no LaTeX warnings, overfull boxes or undefined references.",
+  "scientific_validation_performed": false,
+  "external_human_participant": false
+}

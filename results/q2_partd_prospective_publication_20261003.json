@@ -1,0 +1,79 @@
+{
+  "schema": "healthgraphbench.q2-prospective-publication.v1",
+  "external_anchor": {
+    "commit": "2a59324003fe8b9c89a5f1e9ff6464f2a76f6ab2",
+    "github_commit_url": "https://github.com/carabistouflette/HealthGraphBench/commit/2a59324003fe8b9c89a5f1e9ff6464f2a76f6ab2",
+    "commit_datetime_reported_by_GitHub": "2026-10-03T22:42:12Z",
+    "public_GitHub_commit_observed": true,
+    "commit_datetime_alone_is_not_public_visibility_evidence": true,
+    "forecast_sha256": "382e111529f4009c0790267d1518dab050f66d72badc2cb28c8acf2bc120ff9e",
+    "contains_all_nine_score_hashes": true,
+    "repository_visibility_observed": {
+      "private": false,
+      "visibility": "public",
+      "url": "https://github.com/carabistouflette/HealthGraphBench"
+    }
+  },
+  "catalog_after_external_publication": {
+    "url": "https://data.cms.gov/jsonapi/node/dataset?include=field_ref_primary_data_file&fields%5Bnode--dataset%5D=field_dataset_version,field_ref_primary_data_file,field_last_updated_date,field_re_release_select,field_re_release_version&fields%5Bmedia--primary_dataset_file%5D=field_csv_metadata,field_num_rows,field_num_columns&filter%5Bfield_dataset_type.name%5D=Medicare+Part+D+Prescribers+-+by+Provider+and+Drug&sort=-field_dataset_version,-field_re_release_version",
+    "request_authentication": "none",
+    "captured_at_utc": "2026-10-03T22:43:54.412446Z",
+    "request_started_at_utc": "2026-10-03T22:43:53.140335Z",
+    "response_bytes": 278033,
+    "response_sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa",
+    "response_file": "catalog_response.json",
+    "response_file_sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa",
+    "metadata_only": true,
+    "service_2025_officially_listed": false,
+    "matching_dataset_nodes": [],
+    "status": 200,
+    "final_url": "https://data.cms.gov/jsonapi/node/dataset?include=field_ref_primary_data_file&fields%5Bnode--dataset%5D=field_dataset_version,field_ref_primary_data_file,field_last_updated_date,field_re_release_select,field_re_release_version&fields%5Bmedia--primary_dataset_file%5D=field_csv_metadata,field_num_rows,field_num_columns&filter%5Bfield_dataset_type.name%5D=Medicare+Part+D+Prescribers+-+by+Provider+and+Drug&sort=-field_dataset_version,-field_re_release_version",
+    "headers": {
+      "Content-Language": "en",
+      "Content-Security-Policy": "report-uri /report-csp-violation",
+      "Content-Type": "application/vnd.api+json",
+      "ETag": "\"1791067433\"",
+      "Last-Modified": "Sat, 03 Oct 2026 22:43:53 GMT",
+      "Referrer-Policy": "no-referrer-when-downgrade",
+      "X-Age": "0",
+      "X-AH-Environment": "prod",
+      "x-akamai-original-url": "08ff4c8072129a48657f3e6043a1820662e60637",
+      "X-Consumer-ID": "07eafadc-1bac-4607-8441-20c35fa46f17",
+      "X-Content-Type-Options": "nosniff",
+      "X-Drupal-Dynamic-Cache": "MISS",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Generator": "Drupal 10 (https://www.drupal.org)",
+      "X-Request-ID": "v-e8ea51ac-bf7b-11f1-aadd-33e5ae8b6173",
+      "X-XSS-Protection": "1; mode=block",
+      "Vary": "Accept-Encoding",
+      "Expires": "Sat, 03 Oct 2026 22:43:53 GMT",
+      "Cache-Control": "max-age=0, no-cache, no-store",
+      "Pragma": "no-cache",
+      "Date": "Sat, 03 Oct 2026 22:43:53 GMT",
+      "Transfer-Encoding": "chunked",
+      "Connection": "Transfer-Encoding",
+      "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains ; preload",
+      "Akamai-GRN": "0.15933617.1791067433.e895807"
+    }
+  },
+  "published_catalog_body": "results/q2_partd_prospective_publication_catalog_20261003.json",
+  "supervisor": {
+    "status": "complete",
+    "reason": null,
+    "pid": 2918500,
+    "exit_code": 0,
+    "wall_seconds": 1.2846109669990255,
+    "worker_cpu_seconds": 0.581185612,
+    "peak_aggregate_rss_bytes": 171548672,
+    "phase_output_bytes": 280821,
+    "limits": {
+      "timeout_seconds": 1800.0,
+      "aggregate_rss_bytes": 4294967296,
+      "output_bytes": 1073741824
+    }
+  },
+  "target_metrics_computed": false,
+  "independent_evaluation_passed": false,
+  "human_nonconsultation_gate": "unknown",
+  "claim": "scores externally hash-anchored while official catalogue still lacks annual2025"
+}

@@ -1,0 +1,27 @@
+% Inherited IOS entry point, not compiled and with no implicit journal selection.
+% Install the class/style using scripts/install_ios_template.py only if this format is selected.
+% Journal, language and final template require author approval.
+\documentclass{IOS-Book-Article}
+\input{ios_packages}
+\input{metadata_en}
+\begin{document}
+\begin{frontmatter}
+\title{\PaperTitle}
+\runningtitle{HealthGraphBench: exploratory benchmark}
+\author{\PaperAuthors}
+\address{\PaperAffiliation}
+\runningauthor{Authors to be supplied}
+\begin{abstract}
+\input{sections/abstract_en}
+\end{abstract}
+\begin{keyword}
+\PaperKeywords
+\end{keyword}
+\end{frontmatter}
+\input{sections/body_en}
+\section*{Declarations}
+% Replace this working statement with verified declarations and the real AI disclosure.
+Author identities and contributions, funding, competing interests, data use, the ethical framework, and AI assistance must be finalized before submission. Consult the RC3 scientific supplement: S11 retains C/D1 analyses, S12 the tuned comparisons, S13 the sealed unevaluated forecast, and S14 technical reuse without an external human study. Outstanding decisions are listed in submission/author_gates_RC3.md. Do not submit this file with its provisional fields.
+\bibliographystyle{vancouver}
+\bibliography{references}
+\end{document}

@@ -1,0 +1,542 @@
+{
+  "schema": "healthgraphbench.rc3-rendered-evidence.v1",
+  "new_fit_score_bootstrap": false,
+  "source_sha256": {
+    "q2_maude_comparison_20261003.json": "bdde4442196f453e87bbfcb7fac109559cbc4fdbb6671bf7a878628fa2abedec",
+    "q2_cms_comparison_20261003.json": "58a17b70f2eb57d053f6aa773335a269375eb831c233699f0d6f8b6f89547598",
+    "q2_partd_comparison_20261003.json": "ee44fef249df16205b8a2d126919553b20d2f4626e41dbf046c2445ca8ceff05",
+    "q2_external_reuse_20261003.json": "db6780b56cf61be71544993b48580127448d4746b80e68b81c69cf5a02177409",
+    "q2_partd_prospective_20261003.json": "1bfa09b992e18d90dc212d9a448186a689d96284ff3a59d519256556ce7183dc",
+    "maude_completion_resource_ledger.json": "571312e862ff05acbce83d4850c0a60ca49c9f33ba20eb74cb725e0273a37721"
+  },
+  "tables": {
+    "q2_maude": [
+      {
+        "id": "global_popularity",
+        "values": [
+          null,
+          0.18224221222721973,
+          0.1863059545391159
+        ]
+      },
+      {
+        "id": "neighbor_frequency",
+        "values": [
+          null,
+          0.18923871397634517,
+          0.19439408729605354
+        ]
+      },
+      {
+        "id": "logistic",
+        "configuration": {
+          "C": 0.01
+        },
+        "values": [
+          0.18676184295911746,
+          0.1897384641012827,
+          0.1870032073629898
+        ]
+      },
+      {
+        "id": "boosted",
+        "configuration": {
+          "max_iter": 100,
+          "max_leaf_nodes": 7,
+          "l2_regularization": 0
+        },
+        "values": [
+          0.18585334198572356,
+          0.18873896385140762,
+          0.1850508994561428
+        ]
+      },
+      {
+        "id": "spectral",
+        "configuration": {
+          "rank": 16,
+          "power_iterations": 24
+        },
+        "values": [
+          0.17616266493618862,
+          0.18835026930978957,
+          0.18128573420722352
+        ]
+      },
+      {
+        "id": "bpr",
+        "configuration": {
+          "dimension": 16,
+          "regularization": 0
+        },
+        "values": [
+          0.227168505299589,
+          0.23055139097118107,
+          0.23943661971830987
+        ]
+      },
+      {
+        "id": "graphsage_mean",
+        "configuration": {
+          "dimension": 8,
+          "regularization": 0.0005
+        },
+        "values": [
+          0.19078520441271904,
+          0.20406463434949193,
+          0.21182540789290197
+        ]
+      },
+      {
+        "id": "graphsage_none",
+        "configuration": {
+          "dimension": 16,
+          "regularization": 0.0005
+        },
+        "values": [
+          0.1491672074410556,
+          0.1934032983508246,
+          0.16538836982289778
+        ]
+      }
+    ],
+    "q2_cms": [
+      {
+        "id": "facility_history__logistic",
+        "values": [
+          0.6534935989486784,
+          0.6210821301603424,
+          0.6268739887255494,
+          0.6194159536499203
+        ]
+      },
+      {
+        "id": "facility_history__boosted",
+        "values": [
+          0.58083938191344,
+          0.6083956498134884,
+          0.6300426006859872,
+          0.6177563360387759
+        ]
+      },
+      {
+        "id": "facility_plus_combined_ownership__logistic",
+        "values": [
+          0.6553658303090433,
+          0.6218321587229312,
+          0.6265980295623232,
+          0.6195735301058373
+        ]
+      },
+      {
+        "id": "facility_plus_combined_ownership__boosted",
+        "values": [
+          0.5850641410581099,
+          0.6103192463479499,
+          0.6286135247341176,
+          0.6188716688471783
+        ]
+      }
+    ],
+    "q2_partd": [
+      {
+        "id": "specialty_popularity",
+        "configuration": null,
+        "values": [
+          0.22022782188470832,
+          0.21785975164353544
+        ]
+      },
+      {
+        "id": "history_overlap",
+        "configuration": null,
+        "values": [
+          0.22195374525371073,
+          0.21037253469685901
+        ]
+      },
+      {
+        "id": "logistic",
+        "configuration": {
+          "C": 0.1,
+          "class_weight": "balanced"
+        },
+        "values": [
+          0.19468415602347255,
+          0.18444119795471148
+        ]
+      },
+      {
+        "id": "boosted",
+        "configuration": {
+          "l2_regularization": 0,
+          "learning_rate": 0.1,
+          "max_iter": 100,
+          "max_leaf_nodes": 15
+        },
+        "values": [
+          0.19502934069727304,
+          0.19710250791331874
+        ]
+      },
+      {
+        "id": "bpr",
+        "configuration": {
+          "dimension": 32,
+          "learning_rate": 0.03,
+          "negative_samples": 5,
+          "regularization": 0.001
+        },
+        "values": [
+          0.23547347831089635,
+          0.23618212807401995
+        ]
+      }
+    ],
+    "q2_reuse": [
+      {
+        "id": "neighbor_cosine_top50",
+        "values": [
+          0.26095961339316537,
+          0.25858290723155586
+        ]
+      },
+      {
+        "id": "tabular_logistic",
+        "values": [
+          0.17846047635484985,
+          0.16818845872899926
+        ]
+      }
+    ],
+    "q2_seed_sensitivity": [
+      {
+        "task": "MAUDE",
+        "year": "2024",
+        "id": "spectral",
+        "values": [
+          0.18835026930978957,
+          0.18707313010161586,
+          0.18940529735132433
+        ],
+        "by_seed": {
+          "103": 0.18940529735132433,
+          "211": 0.18857238047642846,
+          "307": 0.18707313010161586
+        }
+      },
+      {
+        "task": "MAUDE",
+        "year": "2025",
+        "id": "spectral",
+        "values": [
+          0.18128573420722352,
+          0.1805884813833496,
+          0.18184353646632267
+        ],
+        "by_seed": {
+          "103": 0.1805884813833496,
+          "211": 0.18184353646632267,
+          "307": 0.18142518477199832
+        }
+      },
+      {
+        "task": "MAUDE",
+        "year": "2024",
+        "id": "bpr",
+        "values": [
+          0.23055139097118107,
+          0.22705314009661837,
+          0.2325503914709312
+        ],
+        "by_seed": {
+          "103": 0.23205064134599368,
+          "211": 0.2325503914709312,
+          "307": 0.22705314009661837
+        }
+      },
+      {
+        "task": "MAUDE",
+        "year": "2025",
+        "id": "bpr",
+        "values": [
+          0.23943661971830987,
+          0.23608980616371497,
+          0.24264398270812998
+        ],
+        "by_seed": {
+          "103": 0.24264398270812998,
+          "211": 0.23957607028308464,
+          "307": 0.23608980616371497
+        }
+      },
+      {
+        "task": "MAUDE",
+        "year": "2024",
+        "id": "graphsage_mean",
+        "values": [
+          0.20406463434949193,
+          0.2028985507246377,
+          0.2057304680992837
+        ],
+        "by_seed": {
+          "103": 0.20356488422455438,
+          "211": 0.2057304680992837,
+          "307": 0.2028985507246377
+        }
+      },
+      {
+        "task": "MAUDE",
+        "year": "2025",
+        "id": "graphsage_mean",
+        "values": [
+          0.21182540789290197,
+          0.2079207920792079,
+          0.21642727653046995
+        ],
+        "by_seed": {
+          "103": 0.21642727653046995,
+          "211": 0.2079207920792079,
+          "307": 0.21112815506902802
+        }
+      },
+      {
+        "task": "MAUDE",
+        "year": "2024",
+        "id": "graphsage_none",
+        "values": [
+          0.1934032983508246,
+          0.17991004497751126,
+          0.2092287189738464
+        ],
+        "by_seed": {
+          "103": 0.2092287189738464,
+          "211": 0.17991004497751126,
+          "307": 0.19107113110111612
+        }
+      },
+      {
+        "task": "MAUDE",
+        "year": "2025",
+        "id": "graphsage_none",
+        "values": [
+          0.16538836982289778,
+          0.1454469390601032,
+          0.1773811183935295
+        ],
+        "by_seed": {
+          "103": 0.1454469390601032,
+          "211": 0.17333705201506067,
+          "307": 0.1773811183935295
+        }
+      },
+      {
+        "task": "Part D",
+        "year": "2024",
+        "id": "boosted",
+        "values": [
+          0.19710250791331874,
+          0.19576333089846604,
+          0.197954711468225
+        ],
+        "by_seed": {
+          "103": 0.19576333089846604,
+          "211": 0.197954711468225,
+          "307": 0.19758948137326515
+        }
+      },
+      {
+        "task": "Part D",
+        "year": "2024",
+        "id": "bpr",
+        "values": [
+          0.23618212807401995,
+          0.23173849525200876,
+          0.24214755295836377
+        ],
+        "by_seed": {
+          "103": 0.23466033601168737,
+          "211": 0.23173849525200876,
+          "307": 0.24214755295836377
+        }
+      }
+    ],
+    "q2_resources": [
+      {
+        "id": "MAUDE",
+        "wall_kind": "phase_sum_including_failed_serialization",
+        "values": [
+          2158.50710560293,
+          2181.950316228,
+          1334.51171875
+        ],
+        "fits": "84 + 28"
+      },
+      {
+        "id": "CMS",
+        "wall_kind": "wall_seconds_sum",
+        "values": [
+          31.813172750004014,
+          43.866974409,
+          840.703125
+        ],
+        "fits": "24 + 8"
+      },
+      {
+        "id": "Part D",
+        "wall_kind": "run_wall_seconds_recorded",
+        "values": [
+          2013.0256813460037,
+          1999.93157175,
+          811.24609375
+        ],
+        "fits": "42 + 7"
+      },
+      {
+        "id": "reuse",
+        "wall_kind": "supervised_raw_fits_evaluation_phase",
+        "values": [
+          1362.1342658800022,
+          1340.5194875680002,
+          567.875
+        ],
+        "fits": null
+      },
+      {
+        "id": "prospective",
+        "wall_kind": "run_wall_seconds",
+        "values": [
+          2241.490268074005,
+          null,
+          796.2109375
+        ],
+        "fits": "7"
+      }
+    ]
+  },
+  "learning_probes": [
+    {
+      "variant": "graphsage_mean",
+      "year": "2024",
+      "seed": "103",
+      "before": 0.6930365382021384,
+      "after": 0.21475858217058885,
+      "relative_drop": 0.6901193943861729,
+      "state_changed": true,
+      "passed": true
+    },
+    {
+      "variant": "graphsage_mean",
+      "year": "2024",
+      "seed": "211",
+      "before": 0.6930516753767574,
+      "after": 0.21511901520848495,
+      "relative_drop": 0.6896060959790021,
+      "state_changed": true,
+      "passed": true
+    },
+    {
+      "variant": "graphsage_mean",
+      "year": "2024",
+      "seed": "307",
+      "before": 0.6930355032923121,
+      "after": 0.2183924629512992,
+      "relative_drop": 0.6848755050588159,
+      "state_changed": true,
+      "passed": true
+    },
+    {
+      "variant": "graphsage_mean",
+      "year": "2025",
+      "seed": "103",
+      "before": 0.6930383604803463,
+      "after": 0.22034764076712782,
+      "relative_drop": 0.6820556359760455,
+      "state_changed": true,
+      "passed": true
+    },
+    {
+      "variant": "graphsage_mean",
+      "year": "2025",
+      "seed": "211",
+      "before": 0.6930113615156959,
+      "after": 0.2187701868584612,
+      "relative_drop": 0.684319480159769,
+      "state_changed": true,
+      "passed": true
+    },
+    {
+      "variant": "graphsage_mean",
+      "year": "2025",
+      "seed": "307",
+      "before": 0.6930263290999732,
+      "after": 0.21677211051117623,
+      "relative_drop": 0.6872094155604505,
+      "state_changed": true,
+      "passed": true
+    },
+    {
+      "variant": "graphsage_none",
+      "year": "2024",
+      "seed": "103",
+      "before": 0.6931368240424647,
+      "after": 0.20451282064797494,
+      "relative_drop": 0.7049459593630744,
+      "state_changed": true,
+      "passed": true
+    },
+    {
+      "variant": "graphsage_none",
+      "year": "2024",
+      "seed": "211",
+      "before": 0.6931349726445142,
+      "after": 0.25526802833852613,
+      "relative_drop": 0.6317195951538798,
+      "state_changed": true,
+      "passed": true
+    },
+    {
+      "variant": "graphsage_none",
+      "year": "2024",
+      "seed": "307",
+      "before": 0.6931513377193489,
+      "after": 0.23770436557800054,
+      "relative_drop": 0.6570671473272911,
+      "state_changed": true,
+      "passed": true
+    },
+    {
+      "variant": "graphsage_none",
+      "year": "2025",
+      "seed": "103",
+      "before": 0.6931928177891931,
+      "after": 0.3487547531782239,
+      "relative_drop": 0.49688637240860195,
+      "state_changed": true,
+      "passed": true
+    },
+    {
+      "variant": "graphsage_none",
+      "year": "2025",
+      "seed": "211",
+      "before": 0.6931658709668539,
+      "after": 0.25102690273983275,
+      "relative_drop": 0.6378544973807049,
+      "state_changed": true,
+      "passed": true
+    },
+    {
+      "variant": "graphsage_none",
+      "year": "2025",
+      "seed": "307",
+      "before": 0.6931728313828524,
+      "after": 0.2861689830456463,
+      "relative_drop": 0.5871607049648058,
+      "state_changed": true,
+      "passed": true
+    }
+  ],
+  "matplotlib": "3.11.2",
+  "seed_ranges_are_confidence_intervals": false,
+  "french_then_faithful_english": true
+}

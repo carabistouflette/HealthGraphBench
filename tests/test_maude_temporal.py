@@ -3,6 +3,10 @@
 from __future__ import annotations
 
 import math
+import gzip
+import json
+import tempfile
+from pathlib import Path
 import unittest
 
 from healthgraphbench.tasks.maude.data import DataAudit, DataBundle, ProblemStats, QuarterSnapshot
@@ -13,6 +17,8 @@ from healthgraphbench.tasks.maude.models import (
     fit_graphsage,
     fit_logistic,
 )
+
+from healthgraphbench.q2.maude import _evaluate_quarter
 
 class TemporalGateTests(unittest.TestCase):
     def setUp(self) -> None:
@@ -62,6 +68,27 @@ class TemporalGateTests(unittest.TestCase):
         history = History.empty()
         history.add(self.bundle.snapshots[0], {})
         self.assertEqual(eligible_edges(observed["2019Q2"], history), frozenset({("A", "2")}))
+
+    def test_q2_prediction_archive_contains_independent_json_lines(self) -> None:
+        history = History.empty()
+        history.add(self.bundle.snapshots[0], {})
+        with tempfile.TemporaryDirectory() as temporary:
+            predictions = Path(temporary) / "predictions.jsonl.gz"
+            metrics = _evaluate_quarter(
+                self.bundle,
+                {"2019Q2": frozenset({("A", "2"), ("B", "1")})},
+                history, {}, "2019Q2", "global_popularity",
+                "global_popularity", None, predictions,
+            )
+            with gzip.open(predictions, "rt", encoding="utf-8") as source:
+                records = [json.loads(line) for line in source]
+        self.assertEqual([record["product"] for record in records], ["A", "B"])
+        self.assertEqual(
+            [(record["positive_ranks"][0]["problem"],
+              record["positive_ranks"][0]["rank"]) for record in records],
+            [("2", 1), ("1", 1)],
+        )
+        self.assertEqual(metrics["thresholds"]["1"]["hits_at_10"], 2)
 
     def test_graphsage_scores_are_finite_deterministic_and_bounded_to_nodes(self) -> None:
         history = History.empty()

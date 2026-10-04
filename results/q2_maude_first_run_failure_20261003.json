@@ -1,0 +1,19 @@
+{
+  "schema": "healthgraphbench.q2-maude-error.v1",
+  "run": "results/generated/q2-cycle-20261003/maude-comparison-001",
+  "status": "incomplete_after_complete_locked_validation",
+  "error": {
+    "status": "incomplete",
+    "type": "PhaseExecutionError",
+    "message": "worker exited with status 1",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/q2/maude.py\", line 1112, in run_comparison\n    return _run_comparison(source_root, output, protocol, protocol_sha256, limits)\n  File \"/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/q2/maude.py\", line 1041, in _run_comparison\n    supervisor = _run_phase(\n        budget,\n    ...<2 lines>...\n        phase_dir,\n    )\n  File \"/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/q2/maude.py\", line 805, in _run_phase\n    result = budget.execute(target, args, phase_dir, family=family)\n  File \"/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/q2/common.py\", line 216, in execute\n    raise error\n  File \"/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/q2/common.py\", line 204, in execute\n    supervisor = execute_phase(target, args, phase_dir, limits)\n  File \"/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/q2/common.py\", line 157, in execute_phase\n    return diagnostic._supervise_worker(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        _guarded_worker,\n        ^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n        max_output_bytes=int(effective[\"max_output_bytes\"]),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/tasks/maude/diagnostic.py\", line 914, in _supervise_worker\n    raise PhaseExecutionError(reason, supervisor)\nhealthgraphbench.tasks.maude.diagnostic.PhaseExecutionError: worker exited with status 1\n"
+  },
+  "complete_validation_fits": 84,
+  "completed_phases": 86,
+  "first_test_heuristics_status": "incomplete",
+  "selection_sha256": "f0b7eda7f53f5456029178ffc9baf14712ea9f1a6b636a19631a973a2fc4c82f",
+  "selection_not_recomputed_from_test": true,
+  "test_model_fits_performed": 0,
+  "correction": "replace escaped backslash-n with actual newline in gzip text wrapper and JSONL records; no numeric implementation change",
+  "continuation": "new root, reuse completed validation/preparation; retain original failed run and charge prior wall/output against the same total budgets"
+}

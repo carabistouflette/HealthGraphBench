@@ -1,0 +1,10 @@
+{
+  "scope": "Typesetting only after canonical French translation; no numerical/scientific content change",
+  "failure": "Missing closing math delimiter in selected Part D BPR L2 expression; observed actual supplement compilation failure",
+  "changed_sources": {
+    "sections/q2_supp_fr.tex": "6d8244ef24e53b22b28a77fb5f9bf0526806552bcc974b3096aab0056cb10078",
+    "sections/q2_supp_en.tex": "899e2d1b7bc8bb75faba1ac4370bad4098273fa5ba87667182e89625416142a9"
+  },
+  "corrected_compilation_returncode": 0,
+  "subsequent_assembly_QA_passed": true
+}

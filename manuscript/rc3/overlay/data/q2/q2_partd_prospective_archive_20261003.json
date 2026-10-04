@@ -1,0 +1,9 @@
+{
+  "path": "/home/arobin/Downloads/HealthGraphBench_Q2_PartD_Prospective_20261003.tar.gz",
+  "bytes": 115004400,
+  "sha256": "ced58e93d6168e6767bbbf34d6eb9a5785b4e8279ea59f012749c1aba474d35c",
+  "contents": "sealed Part D prospective run, public catalog/source capture receipts and responses, protocol and locked provenance, source manifest, development NPI inventory, comparison provenance/selection, cohort and salted hashes, cohort-derived history and layout, candidate scores, predictions, and fitted model checkpoints; excludes the six full 2019-2024 source CSVs",
+  "included_derived_cohort_edges": true,
+  "raw_source_csvs_included": false,
+  "run_root": "results/generated/q2-cycle-20261003/partd-prospective-001"
+}

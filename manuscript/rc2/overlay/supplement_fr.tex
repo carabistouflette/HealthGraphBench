@@ -1,0 +1,325 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage[a4paper,textwidth=150mm,textheight=235mm,centering,headheight=13pt]{geometry}
+\usepackage{microtype,amsmath,booktabs,tabularx,array,longtable,graphicx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[french]{babel}
+\usepackage{xurl}
+\usepackage{fancyvrb,flafter,needspace,placeins}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr,titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{.5em}{}
+\setlength{\parskip}{4pt}\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}\renewcommand{\bibfont}{\footnotesize}
+\renewcommand{\thesection}{S\arabic{section}}
+\setcounter{secnumdepth}{2}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small HealthGraphBench | RC2.2}
+\fancyhead[R]{\small Supplément scientifique}\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}\raggedbottom
+\clubpenalty=10000\widowpenalty=10000
+\newcommand{\src}[1]{{\small\nolinkurl{#1}}}
+\hypersetup{pdftitle={HealthGraphBench RC2.2 — Supplément scientifique},pdfauthor={},pdfsubject={Version de travail RC2.2; validation des auteurs requise}}
+\begin{document}
+
+\begin{center}
+{\small SUPPLÉMENT SCIENTIFIQUE • VERSION DE TRAVAIL RC2.2 — non approuvée par les auteurs}\par\vspace{7pt}
+{\LARGE\bfseries HealthGraphBench — RC2.2}\par\vspace{6pt}
+{\large Méthodes, traçabilité et analyses complémentaires}
+\end{center}
+
+\textbf{Organisation actuelle.} Le supplément commence par les définitions et configurations des méthodes (S1), puis la carte des preuves (S2). Les populations sont en S3 et la chronologie scientifique courte en S4. Les résultats et contrôles historiques S5--S10 restent séparés de l'exploration MAUDE de durée, du rapprochement apparié et du diagnostic secondaire D1 en S11. Le registre détaillé des versions et leurs statuts est conservé dans la provenance, non présenté comme une suite de nouvelles expériences.
+
+\par\Needspace{8\baselineskip}
+\section{Définitions et configurations des méthodes}
+\label{supp:methods}
+\subsection{MAUDE : historiques, heuristiques et entraînement}
+Pour un produit $p$, $H_p$ est l'ensemble des problèmes antérieurs et $U_c$ l'ensemble des produits historiquement associés au problème $c$. L'ensemble des pairs est $N_p=(\bigcup_{d\in H_p}U_d)\setminus\{p\}$. La fréquence des voisins vaut $|N_p\cap U_c|$ ; la popularité globale vaut $|U_c|$. Chaque produit pair contribue une fois, indépendamment de son volume de signalements ou du nombre de problèmes partagés. Il n'existe ni pondération de Jaccard ni normalisation par degré dans cette heuristique MAUDE. L'absence de soutien donne zéro. Les candidats sont tous les problèmes antérieurement connus hors $H_p$ ; les égalités suivent score décroissant, soutien global décroissant, puis code croissant\cite{hgbcode}.
+
+Les douze variables tabulaires sont : logarithmes $\log(1+x)$ des signalements antérieurs du produit et du problème, du nombre de produits associés au problème, du nombre de voisins qui lui sont associés et du nombre de produits associés pendant les quatre derniers trimestres ; fraction récente du soutien du problème ; logarithmes du nombre de fabricants du produit et de l'activité cumulée de leurs produits ; âges du produit et du problème en trimestres ; logarithme de la prévalence du problème parent ; fraction récente des signalements du produit. Elles incluent donc déjà de l'information relationnelle : « tabulaire » ne signifie pas « strictement local ».
+
+Le chemin tabulaire accumule les premiers liens admissibles et un non-positif historique déterministe par positif, avec caractéristiques construites avant l'ajout du trimestre cible. Les réajustements de 2023T1, 2024T1 et 2025T1 utilisent uniquement les lignes déjà accumulées. Les méthodes fondées sur les embeddings ajustent leur représentation sur le graphe historique disponible à ces réajustements, et non sur un même tableau de premières apparitions. Cette différence d'objectif et d'exemples interdit d'attribuer leur écart à la seule agrégation.
+
+\begin{tabularx}{\linewidth}{@{}p{36mm}X@{}}
+\toprule
+Méthode & Constantes du chemin gelé et qualification\\
+\midrule
+Logistique MAUDE & 40 époques ; taux d'apprentissage 0,15 ; $L_2=0,01$ ; standardisation sur les lignes d'entraînement.\\
+Arbres boostés & Arbres à un niveau ; 12 tours ; taux d'apprentissage 0,08.\\
+Factorisation spectrale & Rang 8 ; 18 itérations.\\
+BPR + moyenne fixe à un saut & Dimension 8 ; 4 époques ; combinaison après apprentissage : 0,5 vecteur de la cible et 0,5 moyenne des vecteurs voisins. Il n'y a pas de propagation apprise de bout en bout.\\
+{\raggedright \mbox{GraphSAGE} historique à un saut\par} & Dimension 8 ; 3 époques ; 8 voisins ; taux d'apprentissage 0,02 ; régularisation 0,0005 ; perte BPR ; activation $\tanh$ ; vecteurs de nœuds entraînables et transformations partagées.\\
+Exploration de durée C & Même configuration GraphSAGE ; entraînements séparés 0/3/10/30 comparés sur validation, réinitialisés de manière déterministe ; GraphSAGE30 sélectionné. Rapprochement apparié avec les voisins conservés et IC conditionnel par produit en S11.\\
+Diagnostic secondaire D1 & Mean30 conservé de C ; none30 self-only non-GNN, appris par BPR sur les mêmes arêtes. Durée imposée depuis mean, perte presque plate ; pas d'effet causal isolé.\\
+\bottomrule
+\end{tabularx}
+
+GraphSAGE échantillonne des voisins ; les exemples négatifs sont déterminés par des hachages, sans générateur aléatoire à l'exécution selon les métadonnées du dépôt. Cela garantit la reproductibilité de cette exécution, pas la stabilité des résultats si les choix changent.
+
+Aucune capacité de généralisation inductive aux nœuds absents du dernier réajustement n'est évaluée séparément. Ces cas reçoivent le score de repli zéro; leur fréquence dans les observations évaluées est documentée en S10. Les triplets BPR dépendent du graphe historique au réajustement. Employer la même fonction de perte ne rend pas ces exemples comparables aux lignes tabulaires.
+
+Les effectifs tabulaires des trois réajustements historiques, les inventaires de graphes et les nombres de triplets/pas impliqués par les boucles sont reconstruits à partir des archives et historiques préparés ; le détail est en S10. Ces reconstructions B1/B2 ne lisaient pas les checkpoints historiques et leurs nombres de pas sont des implications du code gelé, non des journaux d'optimiseur observés. En revanche, les nouveaux checkpoints bruts C/D1 ont été inspectés et audités numériquement comme décrit en S11. L'exploration D1 fournit une comparaison mean/none, mais pas un effet isolé à capacité égale. Le diagnostic synthétique distinct du noyau extrait reste décrit en S8\cite{hgbcode,hgbresults,hamilton2017}.
+
+\subsection{CMS : deux logistiques, et non un duel GNN--tabulaire}
+Les modèles emploient onze caractéristiques numériques locales et des indicatrices d'État : comptes antérieurs d'inspections et de déficiences sérieuses, taux antérieur, comptes d'inspections et de déficiences dans des fenêtres de 365 et 730 jours, délai depuis l'inspection précédente, âge de l'établissement et comptes de changements de propriétaire antérieurs et sur 365 jours. Les comptes sont transformés par $\log(1+x)$ ; le délai est plafonné à 1\,460 jours puis divisé par 365,25 ; l'âge est plafonné à 100 ans. Les taux ne sont pas logarithmés.
+
+L'augmentation ajoute douze variables : comptes de propriétaires, de pairs et de pairs avec historique ; inspections et déficiences antérieures des pairs et leur taux ; inspections et déficiences des pairs sur 365 jours et leur taux ; déficiences des pairs sur 730 jours ; nombres de pairs avec au moins une déficience sur 365 et 730 jours. Les comptes sont logarithmés. Les taux sont des rapports de totaux, avec zéro pour dénominateur nul ; ce n'est pas une moyenne non pondérée des taux d'établissements.
+
+Les identifiants CHOW \src{PAC:associate} sont prioritaires. Pour les CCN sans enregistrement dans cette représentation, le code utilise les noms courants normalisés, avec filtres de rôles. Ce choix est un repli, non une union systématique. Les CCN pairs sont dédupliqués et la cible est exclue. Une date de début antérieure ou égale à la cible suffit au filtre ; les dates de fin incomplètes empêchent d'assimiler ce filtre à une histoire juridique complète. Les noms ne certifient pas l'identité d'une personne morale. Les inspections des pairs restent strictement antérieures à la cible. Ces limites concernent la disponibilité historique aussi bien que la résolution des entités\cite{hgbcode}.
+
+Les deux logistiques sont standardisées sur les données d'entraînement et ajustées avec 300 itérations, un taux d'apprentissage de 0,08 et $L_2=0,05$. Pour l'année $y$, les lignes 2019 à $y-1$ sont utilisées. La référence de prévalence est la proportion de positifs dans cet entraînement ; elle est constante pendant l'année cible, puis recalculée l'année suivante. Le score est reconstruit juste avant l'inspection Health Standard ; le modèle ne prédit pas le calendrier des inspections.
+
+\subsection{Part D : représentations et références}
+Les lignes sont projetées sur le nom générique exact après retrait des espaces périphériques. Les noms génériques vides sont exclus ; les volumes et spécialités sont agrégés au niveau prescripteur--générique--année. Cela ne réalise ni correspondance RxNorm ni équivalence clinique. Le score de spécialité compte les prescripteurs ayant le médicament dans leur historique et la même spécialité dans leur dernière année observée. Une spécialité absente ou non unique déclenche un repli sur la popularité globale.
+
+Le recouvrement somme les similarités de Jaccard entre l'historique de la cible et ceux de ses pairs ayant au moins un médicament commun, pour les pairs historiquement associés au candidat. Ni le volume de prescriptions ni le nombre total de pairs ne normalise cette somme. Les égalités suivent score décroissant, soutien global antérieur décroissant et clé générique croissante\cite{hgbcode,hgbpartd}.
+
+La logistique utilise dix variables : soutien global en prescripteurs, volume global et volume moyen, taille et volume de l'historique du prescripteur, nombre d'années d'histoire du médicament et variable d'âge, soutien par spécialité, fraction par spécialité et présence de la spécialité. Les variables de compte/âge désignées \src{log_*} sont transformées dans le chemin source. L'entraînement considère des relations historiques positives, avec jusqu'à cinq non-relations historiques par positif ; les négatifs servent à l'entraînement seulement.
+
+La logistique utilise 18 époques, un taux d'apprentissage de 0,10 et $L_2=0,01$. BPR utilise une dimension de 12, cinq époques, trois négatifs par positif, un taux d'apprentissage de 0,03, une régularisation de 0,001 et un poids de spécialité de 0,35 ; aucune propagation de messages n'y est exécutée. Les modèles sont réajustés avant chaque cible 2023/2024. Aucune recherche exhaustive ni égalisation des budgets n'est attestée.
+
+\par\Needspace{17\baselineskip}
+\subsection{Contrôle synthétique : ce qui est effectivement mesuré}
+\label{supp:control}
+Le contrôle \src{healthgraphbench/controls/synthetic.py}, relu au commit épinglé, projette les associations dont la date de début précède le 1\textsuperscript{er} janvier 2024 en voisinages de CCN. Ce filtre ne certifie pas une histoire complète de propriété active. Pour chaque nœud, il génère $x_i\sim\mathcal N(0,1)$, calcule la moyenne des $x_j$ voisins, puis la standardise en $z_i$ à partir du sous-ensemble désigné « entraînement » (70\,\% des nœuds). Les étiquettes suivent
+\[
+Y_i\sim\mathrm{Bernoulli}\!\left(\sigma(-1+0,5x_i+\beta z_i)\right),
+\qquad \sigma(a)=(1+e^{-a})^{-1}.
+\]
+Le code mesure directement l'AUC de $z_i$ et celle de $x_i$ sur les nœuds de test. Le sous-ensemble d'entraînement sert à la standardisation, pas à l'ajustement des logistiques CMS. À $\beta=0$, le signal relationnel n'intervient pas dans les étiquettes, mais le terme local $0,5x_i$ demeure. Les valeurs conservées pour les graines 301, 302 et 303 sont un diagnostic de construction du signal et de mesure; elles ne valident ni les modèles CMS ni GraphSAGE MAUDE\cite{hgbcontrols}. R3 corrige cette interprétation sans réexécuter le contrôle.
+
+
+\section{Carte des preuves et périmètre de vérification}
+\label{supp:evidence}
+Le commit \nolinkurl{b010d5a49eae56837a920b2e30dece41c42c0c44} identifie l'état source du benchmark\cite{hgb2026,hgbresults}. Le DOI \nolinkurl{10.5281/zenodo.22796551} désigne v0.2 : sa résolution et le dépôt public Zenodo ont été vérifiés en ligne en R4. Ce DOI ne désigne pas le paquet manuscrit. La complétion ne modifie ni les artefacts expérimentaux gelés ni un dépôt distant.
+
+\begin{tabularx}{\linewidth}{@{}p{31mm}Xp{39mm}@{}}
+\toprule
+Pièces & Usage dans l'étude & Niveau de vérification\\
+\midrule
+Définitions des tâches, rapports v0.1/v0.2 et résumé unifié & Cibles, périodes, résultats et intervalles existants & Lecture ciblée documentée en R2; transcriptions conservées en R3\\
+Analyse v0.1 & AUC/AP/Brier annuels, effectifs et profondeur d'historique & Valeurs du résumé compact ; P/R au décile extraits séparément en R2 depuis les prédictions gelées\\
+Code des trois tâches & Heuristiques, conventions, constantes d'entraînement, égalités & Lecture ciblée R2, non audit exhaustif; description conservée\\
+Historique et mémo ClinicalTrials & Sélection des tâches et motifs de report & Traces disponibles, pas journal complet des décisions humaines\\
+Fichiers individuels MAUDE, classements Part D et prédictions CMS & Entrées des analyses complémentaires & Empreintes revérifiées, téléchargements réseau et trois rejeux réels exécutés en R4\\
+Résultats C/D1 post-RC1 et checkpoints bruts correspondants & Fichiers de métriques, manifestes, prévols, séries d'époques et audits numériques ; sources C/D1 épinglées & Nouveaux fits vérifiés ; limites d'exposition et de métriques mémoire détaillées en S11\\
+Rapprochement GraphSAGE30--voisins & Contributions produit--trimestre alignées, protocole et tirages de l'IC conditionnel & Calcul ciblé du 3 octobre 2026, sans fit ; limites d'appariement et d'incertitude en S11\\
+Code du contrôle synthétique & Portée de l\textquotesingle AUC directe & Source relue au commit épinglé pour R3, sans exécution\\
+Archives brutes FDA/CMS & Ingestion et reconstruction historique & Neuf archives officielles MAUDE ingérées pour B1/B2; CMS et la reconstruction exhaustive FDA/CMS restent hors portée\\
+\bottomrule
+\end{tabularx}
+
+
+
+\section{Populations et portée des données documentées}
+\label{supp:population}
+Les tableaux historiques ci-dessous associent les résumés gelés, l'extraction R2 de descripteurs depuis les fichiers individuels et la collecte MAUDE R6 limitée aux archives brutes. Leurs dénominateurs historiques restent inchangés ; les nouveaux dénominateurs C/D1 figurent séparément en S11. Une observation MAUDE est un produit--trimestre avec au moins un lien positif ; une observation CMS est une inspection cible ; une observation Part D est un prescripteur--année admissible. Les unités rééchantillonnées ne remplacent pas ces dénominateurs.
+
+\begin{tabularx}{\linewidth}{@{}p{35mm}rrX@{}}
+\toprule
+Partition & Observations & Positifs & Précision\\
+\midrule
+MAUDE validation 2023 & 3\,483 & 7\,705 & Liens positifs ; 1\,641 produits distincts\\
+MAUDE test 2024--2025 & 6\,370 & 13\,174 & Liens positifs ; 2\,026 produits distincts\\
+CMS validation 2023 & 2\,661 & 408 & 2\,660 CCN distincts\\
+CMS test 2024 & 8\,909 & 1\,253 & 8\,881 CCN distincts\\
+CMS test 2025 & 10\,076 & 1\,170 & 9\,990 CCN distincts\\
+CMS test regroupé & 18\,985 & 2\,423 & 13\,889 CCN distincts\\
+Part D validation 2023 & 2\,000 & 5\,794 & Liens ; 1\,035 observations avec positif\\
+Part D test 2024 & 2\,000 & 5\,476 & Liens ; 1\,019 observations avec positif\\
+\bottomrule
+\end{tabularx}
+\textbf{Descripteurs Part D récupérés.} Les sorties gelées fournissent aussi les effectifs historiques et d'entraînement, ainsi que la taille des listes de candidats pour les cohortes de validation 2023 et de test 2024. Les quantiles de candidats sont interpolés linéairement sur les 2\,000 prescripteurs admissibles de chaque cohorte.
+
+\begin{table}[!htbp]\centering\small
+\caption{Descripteurs de la représentation générique Part D extraits des résultats conservés.}
+\begin{tabularx}{\linewidth}{@{}Xrr@{}}
+\toprule
+Descripteur & Validation 2023 & Test 2024\\
+\midrule
+Médicaments dans l'historique & 1\,007 & 1\,042\\
+Arêtes historiques prescripteur--médicament & 58\,472 & 60\,200\\
+Lignes d'entraînement logistique & 337\,702 & 349\,460\\
+Dont positives & 58\,472 & 60\,200\\
+Dont négatives & 279\,230 & 289\,260\\
+Mises à jour des paramètres BPR & 877\,080 & 903\,000\\
+Nœuds de spécialité & 71 & 72\\
+Replis vers la popularité globale & 0/2\,000 & 0/2\,000\\
+Candidats : minimum & 613 & 675\\
+Candidats : premier quartile & 974 & 1\,008\\
+Candidats : médiane & 997 & 1\,032\\
+Candidats : troisième quartile & 1\,004 & 1\,039\\
+Candidats : maximum & 1\,006 & 1\,041\\
+Moyenne de candidats & 977,764 & 1\,011,9\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Ces descripteurs sont transcrits dans \src{data/available_descriptors_R2.json}. L'extraction a vérifié les empreintes SHA-256 des entrées et du rapport source ; elle n'a ni reconstruit les sources brutes ni relancé d'entraînement.
+
+CMS contient 10\,313 observations de test avec une inspection antérieure (1\,341 positives), et 8\,672 avec au moins deux (1\,082 positives). Le rapport caractérise l'historique retenu comme une ou deux inspections. Ces strates ne sont pas un décompte de tous les soins ou inspections jamais reçus par les établissements. Les extraits courants, leur sélection de fournisseurs et leur nombre limité de cycles tronquent l'histoire\cite{hgbanalysis,hgbresults}.
+
+\textbf{Entraînement CMS reconstitué.} Soient $n_0,p_0$ les effectifs avant 2023, et $c_{23},c_{24}$ les constantes de prévalence enregistrées : 0,1181026137463698 et 0,13793103448275862. Le protocole annuel ajoute les 2\,661 inspections de 2023 et leurs 408 positifs\cite{hgbcode}. Sous ce protocole,
+\[
+ c_{23}=p_0/n_0,\quad c_{24}=(p_0+408)/(n_0+2661),\qquad
+ n_0=\frac{408-2661c_{24}}{c_{24}-c_{23}}=2066.
+\]
+On obtient $p_0=244$, puis les effectifs ci-dessous. La constante 2025 est retrouvée indépendamment comme $1905/13636=0,1397037254326782$. Les entiers et les trois rapports sont contrôlés numériquement par \src{summary_identities_R4.py}.
+\begin{table}[!htbp]\centering\small
+\caption{Effectifs CMS reconstruits algébriquement sous le protocole déclaré, non lus directement dans les lignes d'entraînement.}
+\input{tables/cms_training_R4_fr.tex}
+\end{table}
+
+\par\Needspace{5\baselineskip}
+\textbf{Descripteurs MAUDE extraits.} L'exécution de \src{extract_descriptors_R4.py} sur le fichier gelé vérifié donne, par produit--trimestre distinct avec au moins un positif, les distributions du nombre total de candidats ci-dessous. Les quantiles utilisent l'interpolation linéaire; les lignes positives/négatives échantillonnées ne pondèrent pas plusieurs fois une observation.
+
+\begin{table}[!htbp]\centering\small
+\caption{Candidats MAUDE des seules observations avec positif. Les effectifs sans positif ne sont pas disponibles dans cet export.}
+\begin{tabular}{@{}lrrrrrr@{}}\toprule
+Partition & Observations & Min. & Q1 & Médiane & Q3 & Max.\\\midrule
+Validation 2023 & 3\,483 & 165 & 445 & 482 & 504 & 516\\
+Test 2024--2025 & 6\,370 & 151 & 444 & 485 & 510 & 533\\\bottomrule
+\end{tabular}
+\end{table}
+
+Les moyennes sont 464,710881 et 467,057457. Ces observations contiennent respectivement 7\,705 et 13\,174 liens positifs. Les résultats et la portée sont dans \src{data/real_R4/maude_descriptors.json}.
+
+\textbf{Descripteurs hérités et portée R6.} L'export MAUDE hérité de R4 ne contient ni \src{training_row_counts_at_refit} ni \src{quarterly_first_edges}; ses descripteurs de candidats concernent les seuls produit--trimestres avec positif et ne couvrent ni les observations sans positif ni toute l'histoire des candidats. Ces omissions décrivent l'ancien résumé, non la collecte actuelle : les archives et historiques MAUDE réingérés en R6 fournissent les effectifs aux réajustements et la couverture des nœuds/paires pour les douze trimestres, présentés en S10. Cette collecte reste bornée aux produit--trimestres évalués avec positif et à tous les candidats admissibles dans ces observations ; elle n'étend pas la population aux zéros positifs. Les inventaires sont reconstruits, pas extraits de checkpoints; un score nul ne sert pas à inférer l'absence d'un vecteur. Les effectifs CMS restent une reconstitution algébrique, faute de lignes d'entraînement disponibles. La disponibilité publique historique, le journal humain, les ablations étendues et les ressources comparables ne sont pas établis.
+
+\section{Chronologie et sélection des tâches}
+\label{supp:chronology}
+\textbf{Historique court des preuves.} Les analyses historiques, leurs contrôles et leurs étapes de conditionnement précèdent les nouveaux fits C/D1 et l'IC ciblé du 3 octobre. Le registre R2--R6/RC1, les transcriptions et les statuts datés sont conservés dans \src{provenance.json}, \src{history}, les fichiers \src{data/revision_status_*} et \src{data/source_map_*}. Ces traces distinguent contrôles sur résumés, rejeux de contributions et nouveaux entraînements ; elles ne constituent pas un journal humain exhaustif ou une préinscription. Le statut non approuvé de RC2 est récapitulé en S12.
+\begin{tabularx}{\linewidth}{@{}p{30mm}Xp{39mm}@{}}
+\toprule
+Trace & Ce qui est attesté & Ce que la trace ne démontre pas\\
+\midrule
+Socle v0.1 & MAUDE et CMS retenus malgré des résultats défavorables ou incertains ; définitions et exécutions conservées & Critère commun fixé avant consultation de tous les résultats\\
+15 septembre 2026 & Date portée par les fichiers d'exécution et analyses v0.1 utilisés & Date exacte de chaque décision scientifique ou de chaque accès humain au test\\
+Extension Part D & Cohorte et définition de tâche v0.2 bornées ; méthodes déjà exécutées conservées & Réplication indépendante des expériences v0.1\\
+16 septembre 2026 & Enregistrement compact Part D et publication du paquet v0.2 ; commit de conditionnement à 13:38:48 UTC & Date d'entraînement de tous les modèles ; l'adaptateur compact n'est pas un nouvel entraînement\\
+Mémo ClinicalTrials & Report motivé explicitement par l'instabilité relationnelle & Exclusion indépendante des performances\\
+29 septembre 2026 & R2 : analyses documentées; R3 : corrections et vérifications du paquet & Réouverture d'une période de test non consultée\\
+2 octobre 2026 & C : grille de durées sur validation, verrouillage à 30 puis tests ; D1 : none30 verrouillé sur validation avant ses tests & Périodes de test déjà consultées antérieurement ; pas de confirmation indépendante\\
+3 octobre 2026 & Rapprochement des prédictions GraphSAGE30 et voisins conservées ; IC conditionnel par produit, autorisé et cadré avant calcul & Analyse post hoc sur périodes déjà consultées ; pas d'incertitude de sélection ou d'entraînement\\
+\bottomrule
+\end{tabularx}
+
+Le projet documente aussi l'abandon de pistes de liaison produit--étiquette dont la définition prédictive restait insuffisamment défendable, et d'une piste d'évaluation humaine dont l'approbation indépendante n'avait pas été achevée. Ces motifs ne sont pas interchangeables avec un faible score. L'historique disponible est un résumé, non l'archive privée exhaustive\cite{hgbhistory}.
+
+ClinicalTrials considère des essais interventionnels dont la fin primaire réelle se situe 0 à 90 jours avant l'origine, et la première publication des résultats dans les 365 jours suivants. L'AP sponsor--local est négative en 2022 ($-0,048773$, IC $[-0,088028;-0,021689]$), et l'AP contexte hétérogène--sponsor est négative en 2023 ($-0,108077$, IC $[-0,171780;-0,049169]$). Ces valeurs décrivent des origines distinctes, sans moyenne d'AP regroupée ni conclusion juridique. Le report est explicitement dépendant des résultats. CMS et ClinicalTrials n'ont donc pas une règle historique uniforme de succès relationnel démontrée comme antérieure au test.
+
+\textbf{Décisions à dater par les auteurs.} Pour chaque changement de cible, candidats, variables, hyperparamètres, métrique principale, architecture et admission : date, pièce de décision, résultats alors accessibles et motif. En l'absence de cette trace, R2 ne reconstruit pas une préinscription. Dissocier, pour de futures versions, admissibilité des données et poursuite des modèles est une recommandation prospective ; un résultat négatif ne devrait pas exclure une tâche autrement valide.
+
+\section{CMS : analyse annuelle et décomposition de l'AUC}
+\label{supp:cms}
+\begin{table}[!htbp]\centering\small
+\caption{Métriques CMS transcrites de l'analyse gelée. 2023 est la validation ; 2024 et 2025 sont les partitions de test. AP selon les rangs du code.}
+\input{tables/cms_annual_all_fr}
+\end{table}
+
+Avec $P_y$ positifs, $N_y$ négatifs et AUC annuelle $A_y$, définir $W=\sum_y P_yN_y$, $T=(\sum_y P_y)(\sum_y N_y)$ et $C=T-W$, pour $y\in\{2024,2025\}$. Chaque comparaison positif--négatif de l'AUC regroupée est soit intra-annuelle, soit inter-annuelle. Ainsi
+\begin{align}
+A_{\mathrm{intra}}&=\frac{\sum_y P_yN_y A_y}{W},\\
+A_{\mathrm{pool}}&=\frac{W}{T}A_{\mathrm{intra}}+\frac{C}{T}A_{\mathrm{inter}}.
+\end{align}
+L'objet intra-annuel pondère les années par le nombre de paires positif--négatif ; ce n'est pas une moyenne simple des années. Les résumés donnent $P_{2024}=1253$, $N_{2024}=7656$, $P_{2025}=1170$ et $N_{2025}=8906$. Donc $W=20\,012\,988$, $C=20\,116\,738$, $T=40\,129\,726$ et les poids valent 0,498707 et 0,501293.
+
+\begin{table}[!htbp]\centering\small
+\caption{Décomposition R2. L'AUC inter-annuelle est reconstituée à partir des autres termes, pas réévaluée sur les prédictions.}
+\input{tables/cms_decomposition_fr}
+\end{table}
+
+L'écart propriétaires--historique intra-annuel vaut $+0,0002157849$ ; l'écart inter-annuel reconstitué vaut $+0,0024139600$. Leurs contributions pondérées sont $+0,0001076135$ et $+0,0012101005$, dont la somme est l'incrément regroupé $+0,0013177140$. Ces calculs sont exécutés par \src{scripts/revision_assets.py} et exportés dans \src{data/cms_year_decomposition_R2.json}. Ils ne constituent ni un nouveau test, ni une preuve d'un effet temporel causal. L'intervalle regroupé publié ne s'applique pas à l'AUC intra-annuelle sans nouvelle analyse d'incertitude.
+
+\textbf{Prévalence et égalités.} La constante de prévalence est propre à chaque entraînement annuel. Le code donne donc une AUC de 0,5 dans chaque année. Avec un score 2025 supérieur au score 2024, la formule $(W/2+P_{2025}N_{2024})/T$ retrouve exactement 0,4725677419. C'est un contrôle de cohérence algébrique, pas une lecture indépendante de l'ordre des scores individuels.
+
+L'AUC traite les égalités par rang moyen. L'AP gelée trie score décroissant puis indice croissant et moyenne la précision aux rangs positifs. Pour deux observations de même score, l'exemple purement illustratif $(1,0)$ donne AP=1, alors que $(0,1)$ donne AP=0,5, avec AUC=0,5 dans les deux cas. Ce comportement est testé dans R2 ; il n'est pas un résultat supplémentaire sur CMS. Le décile utilise les $\lceil0,1n\rceil$ premiers rangs après le même départage. Les métriques historiques sont conservées et leur convention est déclarée, plutôt que remplacée silencieusement par une AP à seuils regroupés. Les précisions/rappels annuels au décile ont été extraits directement des prédictions gelées, et non déduits des seules AUC/AP/Brier :
+\begin{table}[!htbp]\centering\small
+\caption{Précision et rappel au décile supérieur CMS, calculés séparément par année depuis les prédictions gelées. Le seuil retient $\lceil0,1n\rceil$ lignes avec le départage historique.}
+\begin{tabular}{@{}llrr@{}}
+\toprule
+Année & Modèle & $P_{10\%}$ & $R_{10\%}$\\
+\midrule
+2024 & Prévalence & 0,158249 & 0,112530\\
+2024 & Historique local & 0,273850 & 0,194733\\
+2024 & Historique + propriétaires & 0,267116 & 0,189944\\
+2025 & Prévalence & 0,123016 & 0,105983\\
+2025 & Historique local & 0,237103 & 0,204274\\
+2025 & Historique + propriétaires & 0,235119 & 0,202564\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Ces métriques CMS sont issues de \src{data/cms_annual_predictions_R2.json}, produit par \src{scripts/paired_revision_analysis.py} sur les prédictions CMS gelées ; aucun réentraînement CMS n'a eu lieu dans cette analyse R2.
+
+\section{Analyses appariées sur les prédictions conservées}
+\label{supp:bootstrap}
+\textbf{Statut.} Les deux intervalles ont été produits en R2, selon les sorties et la provenance reçues, à partir des fichiers individuels associés au commit source. R3 conserve les résultats et leurs empreintes sans rejouer les tirages sur ces entrées externes. Le protocole décrit ci-dessous est celui de R2 : post hoc, conditionnel aux prédictions et à la population observées, sans nouvelle exécution des entraînements ni validation indépendante.
+
+\subsection{Unités, dénominateurs et protocole}
+Pour MAUDE, le champ \src{entity_metrics} contient les contributions des deux méthodes, pour les produits ayant un soutien historique d'au moins 1, un positif et une observation entre 2024T1 et 2025T4. L'appariement est produit--trimestre ; le rééchantillonnage porte sur 2\,026 produits et conserve tous leurs trimestres. Les données comprennent 6\,370 produit--trimestres avec positif et 13\,174 liens positifs. Comme ces contributions n'incluent pas les produit--trimestres sans positif, elles ne suffisent pas à calculer la précision ou la charge.
+
+Pour Part D, le fichier \src{rankings.jsonl} couvre la représentation \src{generic} et l'année 2024. Les 2\,000 prescripteurs sont conservés, dont 981 sans positif ; les 5\,476 liens positifs se trouvent dans 1\,019 observations prescripteur--année. Les rangs des positifs donnent le rappel et la MRR ; la précision et la charge incluent aussi les observations sans positif.
+
+Pour chaque contraste, le script effectue 1\,000 tirages appariés de groupes avec remise. La graine 20260929 est la valeur de départ du générateur aléatoire ; les quantiles percentiles à 2,5 et 97,5\,\% utilisent une interpolation linéaire. Aucun tirage n'est indéfini pour les deux contrastes principaux à $K=10$. Cette valeur initialise les tirages, pas l'entraînement historique. Le protocole a été conçu après consultation des résultats et n'était pas préspécifié avant les avis des évaluateurs.
+
+\begin{table}[!htbp]\centering\small
+\caption{Contrastes principaux R2 au rappel micro à 10. Les estimations et IC à 95\,\% proviennent du bootstrap apparié par entité ; les valeurs affichées sont arrondies à six décimales.}
+\begin{tabularx}{\linewidth}{@{}Xrrr@{}}
+\toprule
+Contraste (A -- B) & Unité / grappes & $\Delta R@10$ & IC à 95\,\%\\
+\midrule
+MAUDE : voisins -- popularité globale & Produit / 2\,026 & $+0,007591$ & $[+0,005497;+0,009820]$\\
+Part D : BPR -- spécialité & Prescripteur / 2\,000 & $-0,037071$ & $[-0,047179;-0,027336]$\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Les estimations et bornes non arrondies, effectifs, empreintes d'entrée, paramètres et horodatages figurent dans \src{data/maude_neighbors_vs_global_R2.json} et \src{data/partd_bpr_vs_specialty_R2.json}.
+
+Les dépendances entre produits partageant un fabricant ou prescripteurs partageant une spécialité peuvent subsister entre groupes. Aucune correction universelle par groupe n'est prétendue. Les intervalles n'incluent pas l'incertitude de sélection, d'entraînement ou de changement de population.
+
+\subsection{Commandes, journaux et garde-fous}
+Avant l'écriture des résultats, le script vérifie les empreintes SHA-256, les clés d'appariement, le champ temporel, les dénominateurs et la différence ponctuelle.
+
+\begin{Verbatim}[fontsize=\footnotesize]
+python scripts/paired_revision_analysis.py maude INPUT.json \
+  --output NEW/maude_neighbors_vs_global_R2.json
+python scripts/paired_revision_analysis.py partd INPUT.jsonl \
+  --output NEW/partd_bpr_vs_specialty_R2.json
+python scripts/paired_revision_analysis.py cms INPUT.json \
+  --output NEW/cms_annual_predictions_R2.json
+\end{Verbatim}
+
+Les chemins d'entrée exacts sont indiqués dans \src{README_FR.md}. Remplacer \src{INPUT.json}/\src{INPUT.jsonl} par les entrées gelées et \src{NEW} par un répertoire de nouvelles sorties; ne pas viser les fichiers livrés déjà existants. Les doubles tirets ASCII sont conservés dans le PDF. Les quatre empreintes ci-dessous ont été consignées comme vérifiées lors de la production R2; R3 ne les recalcule pas sur les entrées externes :
+
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+Fichier MAUDE & \src{cab43cf672ba81fc90a1ab36ce902fadb4251200ddb126bb4490c4b77df113f6}\\
+Fichier CMS & \src{f3794fef2db35f3f6670a9a912d3cc35126f503e5569cb38b9ce96a388edfaf4}\\
+Fichier Part D & \src{a3488f80d42784663e9036b355664394384e821b7455e7cd652e98217d591cf4}\\
+Rapport source & \src{98538c08562b451823290996d1ef8a88fdff7ec8965f1bb8fb7e9b06e672ad48}\\
+\end{tabularx}
+
+Les sorties sont \src{data/maude_neighbors_vs_global_R2.json}, \src{data/partd_bpr_vs_specialty_R2.json}, \src{data/cms_annual_predictions_R2.json} et \src{data/available_descriptors_R2.json}. Elles consignent les effectifs, les résultats et les empreintes d'entrée. Les deux sorties de bootstrap ajoutent le statut, l'horodatage, la graine, les paramètres et les intervalles. Aucun journal texte de console distinct n'a été conservé ; \src{data/unit_tests_R2.log} consigne les 13 tests synthétiques, pas les exécutions réelles. Les fichiers d'entrée n'ont pas été écrasés.
+
+Les 13 tests synthétiques portent sur les dénominateurs avec zéro positif, les clés d'appariement, les incohérences de dénominateurs, le regroupement par entité, la différence nulle entre méthodes identiques, les tirages indéfinis, les adaptateurs MAUDE/Part D/CMS, les égalités de l'AP, la décomposition CMS, la cohérence de la prévalence et la reproductibilité de la graine. Ils ne remplacent pas les analyses réelles et ne testent ni le prétraitement FDA/CMS ni GraphSAGE.
+En R3, les 13 tests sont relancés et un journal distinct est livré dans \src{verification/unit_tests_R3.log}. La conservation des sorties reçues est vérifiable avec \src{history/R3/data/retained_R2_manifest.json}. Cette vérification ne remplace pas une reproduction indépendante des intervalles sur leurs entrées.
+\input{sections/supp_additions_fr}
+\input{sections/post_rc1_fr}
+
+\section{Éléments ouverts et préparation éditoriale}
+\label{supp:open}
+RC2 intègre les explorations MAUDE C/D1 de S11 tout en conservant les tableaux historiques. L'avis R6 et la réponse associée restent des pièces historiques : ils ne constituent ni une revue ni une approbation de RC2. Les vérifications techniques du paquet sont consignées dans \src{verification/rc2}; elles ne remplacent pas l'approbation scientifique et bibliographique des auteurs. Le manuscrit n'est ni soumis ni accepté.
+
+La référence RelBench v2 a été corrigée en \emph{3rd DATA-FM Workshop at ICLR 2026}, conformément au lieu imprimé sur la première page de l'article, et non en conférence principale\cite{gu2026relbench}. R3 ajoute une référence précise au contrôle synthétique et harmonise les notes de provenance; aucune nouvelle recherche exhaustive de littérature n'est revendiquée.
+
+La revue cible, ses exigences de longueur, de langue, d'anonymisation et de présentation restent à fixer. Le nom FAIA hérité désigne une collection d'ouvrages et d'actes, non un choix de revue. Les entrées \src{submission_ios_fr.tex} et \src{submission_ios_en.tex} sont destinées à la classe IOS ; elles ne sont pas compilées ou validées ici pour un support final. Les PDF livrés utilisent une maquette de lecture.
+
+Enfin, noms, affiliations, correspondant, contributions, financements, conflits d'intérêts, position éthique, conditions d'utilisation des données et déclaration d'assistance par IA doivent être approuvés par les auteurs. Ne pas remplacer les champs absents par « aucun » ou par une dispense supposée. Les éléments de la réponse aux évaluateurs sont des propositions de réponse documentées, non une attestation signée ni une soumission effectuée.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}

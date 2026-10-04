@@ -1,0 +1,345 @@
+{
+  "scope": "Figure-only numeric projections of actual Matplotlib objects; no inference, fit, bootstrap or scientific audit rerun. Real image rendering separately executed.",
+  "languages": [
+    "fr",
+    "en"
+  ],
+  "all_curve_points_interval_segments_and_axis_limits_identical": true,
+  "baseline_legends": [
+    [
+      "Factorisation spectrale",
+      "Popularité globale (IC complémentaire)",
+      "GraphSAGE (IC historique)"
+    ],
+    [
+      "Spectral factorization",
+      "Global popularity (additional CI)",
+      "GraphSAGE (historical CI)"
+    ]
+  ],
+  "derived_legends": [
+    [
+      "Factorisation spectrale",
+      "Popularité globale (IC complémentaire)",
+      "GraphSAGE historique, 3 époques (IC historique)"
+    ],
+    [
+      "Spectral factorization",
+      "Global popularity (additional CI)",
+      "Historical GraphSAGE, 3 epochs (historical CI)"
+    ]
+  ],
+  "numeric_projections": [
+    [
+      {
+        "lines": [
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              -0.004782146652497335,
+              -0.007590708972218002,
+              -0.009336572035828161
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              null,
+              -0.009819792167198318,
+              null
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              null,
+              -0.005497340992111607,
+              null
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              -0.021937148929710035,
+              -0.0171550022772127,
+              0.0008349779869439855
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              -0.011993320176104438,
+              -0.019204493699711556,
+              -0.022088963109154425
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              null,
+              -0.023578,
+              null
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              null,
+              -0.014845,
+              null
+            ]
+          },
+          {
+            "x": [
+              0.0,
+              1.0
+            ],
+            "y": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "interval_segments": [
+          [
+            [],
+            [
+              [
+                10.0,
+                -0.009819792167198318
+              ],
+              [
+                10.0,
+                -0.005497340992111607
+              ]
+            ],
+            []
+          ],
+          [
+            [],
+            [
+              [
+                10.0,
+                -0.023578
+              ],
+              [
+                10.0,
+                -0.014845
+              ]
+            ],
+            []
+          ]
+        ],
+        "xlim": [
+          4.25,
+          20.75
+        ],
+        "ylim": [
+          -0.0247986488993472,
+          0.002055626886291185
+        ]
+      }
+    ],
+    [
+      {
+        "lines": [
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              -0.004782146652497335,
+              -0.007590708972218002,
+              -0.009336572035828161
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              null,
+              -0.009819792167198318,
+              null
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              null,
+              -0.005497340992111607,
+              null
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              -0.021937148929710035,
+              -0.0171550022772127,
+              0.0008349779869439855
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              -0.011993320176104438,
+              -0.019204493699711556,
+              -0.022088963109154425
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              null,
+              -0.023578,
+              null
+            ]
+          },
+          {
+            "x": [
+              5.0,
+              10.0,
+              20.0
+            ],
+            "y": [
+              null,
+              -0.014845,
+              null
+            ]
+          },
+          {
+            "x": [
+              0.0,
+              1.0
+            ],
+            "y": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "interval_segments": [
+          [
+            [],
+            [
+              [
+                10.0,
+                -0.009819792167198318
+              ],
+              [
+                10.0,
+                -0.005497340992111607
+              ]
+            ],
+            []
+          ],
+          [
+            [],
+            [
+              [
+                10.0,
+                -0.023578
+              ],
+              [
+                10.0,
+                -0.014845
+              ]
+            ],
+            []
+          ]
+        ],
+        "xlim": [
+          4.25,
+          20.75
+        ],
+        "ylim": [
+          -0.0247986488993472,
+          0.002055626886291185
+        ]
+      }
+    ]
+  ],
+  "revision": "RC2.2",
+  "duration_only_run_succeeded_without_D1_epoch_input": true,
+  "D1_figure_outputs_not_created": true,
+  "four_original_historical_figures_unchanged": {
+    "figures/maude_cutoffs_en.pdf": "0fd7d1e1cfe4d58ee6e0bb4262863b1655674a4f9771f2e5c64997d819fba749",
+    "figures/maude_cutoffs_en.png": "067fbf3a2d613bbf9f7f8a18e924930561234d960f787656a33abe72e46d0226",
+    "figures/maude_cutoffs_fr.pdf": "0ffe1e9aec9b100df0b9644a5809e8bd7cb5f090c377c309fb391dc0ecf74c41",
+    "figures/maude_cutoffs_fr.png": "38efeb1efb935eb15dbb5c773acdfa2ccbef0afcb031210277bf46ad0e3ce387"
+  },
+  "new_figures": [
+    {
+      "path": "figures/maude_cutoffs_historical3_en.pdf",
+      "sha256": "584539a427c36de731c19617b7e82629393b5cc330c5769c6f8104316fbb1941"
+    },
+    {
+      "path": "figures/maude_cutoffs_historical3_en.png",
+      "sha256": "2a8ce49b2492e39eb5b341a8b3314e23e03c26815e45e9fa1b5a3eb9909e659c"
+    },
+    {
+      "path": "figures/maude_cutoffs_historical3_fr.pdf",
+      "sha256": "b488bf3ad29769fce7225d8935efda9f512611e4b267c19017b69c153888a769"
+    },
+    {
+      "path": "figures/maude_cutoffs_historical3_fr.png",
+      "sha256": "680b1294750b5f444841e7cb98a7d36fa715d508f71c501c355721812d4b79b5"
+    },
+    {
+      "path": "figures/maude_duration_RC2_en.png",
+      "sha256": "a400eac9cc1bfc28fb611c5ffd1dd02b7105a6e94658d8d8085c72faec479e68"
+    },
+    {
+      "path": "figures/maude_duration_RC2_fr.png",
+      "sha256": "6b1d2a6dc11bf26d9412217d1af1677522da8cc3fb1861c7eecf32e88ee48a9e"
+    }
+  ]
+}

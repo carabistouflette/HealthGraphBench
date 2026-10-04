@@ -1,0 +1,2287 @@
+{
+  "record_kind": "q2_partd_archive_manifest",
+  "archive_path": "/home/arobin/Downloads/HealthGraphBench_Q2_PartD_20261003.tar.gz",
+  "archive_filename": "HealthGraphBench_Q2_PartD_20261003.tar.gz",
+  "archive_format": "tar.gz",
+  "archive_root_in_tar": "partd-comparison-001",
+  "archive_sha256": "abaf9d40356dc6a8dc02cdddc5fa70328f9e18d082f7f2fabc0989328de3fca4",
+  "archive_size_bytes": 630693314,
+  "source_run_root": "results/generated/q2-cycle-20261003/partd-comparison-001",
+  "files_included_count": 324,
+  "uncompressed_included_file_bytes": 824915099,
+  "files_excluded_count": 0,
+  "excluded_files": [],
+  "policy": "Tous les artefacts du run sont conservés, dont le CSV edges.csv de préparation dérivée. Aucun CSV original CMS2019–24 n’est copié. Checkpoints, prédictions, scores NPZ, protocoles et ressources sont inclus.",
+  "manifest_entries": [
+    {
+      "path_in_run": "comparison.json",
+      "archive_path": "partd-comparison-001/comparison.json",
+      "size_bytes": 334983,
+      "sha256": "bcc91641b0231b2793b6924280bcaf4ead12f7170b231494304e0d03f5064f77",
+      "category": "run_protocol_or_summary_metadata"
+    },
+    {
+      "path_in_run": "phases/prepare_raw/prepared/edges.csv",
+      "archive_path": "partd-comparison-001/phases/prepare_raw/prepared/edges.csv",
+      "size_bytes": 63251985,
+      "sha256": "54fe20d8171e4ccaab820d04587f702fd2778f5803fb99d628521950ccb47d6e",
+      "category": "derived_preparation_rows"
+    },
+    {
+      "path_in_run": "phases/prepare_raw/prepared/report.json",
+      "archive_path": "partd-comparison-001/phases/prepare_raw/prepared/report.json",
+      "size_bytes": 141559,
+      "sha256": "f68ecac2fba955e38c688410e1eb0f000882de2073538711e0b4bca4dfdd7ab1",
+      "category": "derived_preparation_metadata"
+    },
+    {
+      "path_in_run": "phases/prepare_raw/result.json",
+      "archive_path": "partd-comparison-001/phases/prepare_raw/result.json",
+      "size_bytes": 360,
+      "sha256": "70a83647e5e4104a4002002e32a099990940c64f00fc92cb749e0930e45cac0f",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/prepare_raw/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/prepare_raw/supervisor_status.json",
+      "size_bytes": 354,
+      "sha256": "21cc38640843085b876b2178c0703e9331f2dc206706ef09dfe4806e56be6d1a",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/prepare_raw/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/prepare_raw/worker_status.json",
+      "size_bytes": 147,
+      "sha256": "0cf9bddc51076514515882a3b943f21fff0b6d4363c41f333af6a60d5ce6a033",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-103/all_candidate_scores.npz",
+      "size_bytes": 8204283,
+      "sha256": "127e248a42ec4babdf8ae56d450f8693eef464ac50ed41a4cde890fd5ffc7a88",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-103/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-103/model/checkpoint.pkl",
+      "size_bytes": 188889,
+      "sha256": "c9af2c64629260736267eabe7180cd054f988e1433d9a5892b0f879bda318491",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-103/predictions.jsonl",
+      "size_bytes": 3087099,
+      "sha256": "f0d0dcd5156530348d92a29183cf9b1cfeed26e3bded117a6436f61f1bf53906",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-103/result.json",
+      "size_bytes": 4560,
+      "sha256": "c92939915620ec2092995514f4b423ae793f8af287f25119a02f23103146a084",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-103/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "6c2d3f4434482a283099089ff631257c9f5b83954366cbc4d17ca28e0dc1a4e6",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-103/worker_status.json",
+      "size_bytes": 144,
+      "sha256": "7b91727c3e1078d9789383e407b0390fd8a7b73e815f1544f4f68bd132b44346",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-211/all_candidate_scores.npz",
+      "size_bytes": 7369653,
+      "sha256": "74877d9740ec6e02d64e47869f490a765b8e86f2be9c39fe138b54042f519624",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-211/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-211/model/checkpoint.pkl",
+      "size_bytes": 188881,
+      "sha256": "c414134ea71975978ed51b8848d3b54034ab61713fb292ad3e2faca9d67416b9",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-211/predictions.jsonl",
+      "size_bytes": 3104333,
+      "sha256": "36fdc7390ccc09d931d1e4aed891c306bda10afc9c6c4ce2db0c9d64e3d3bbb2",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-211/result.json",
+      "size_bytes": 4559,
+      "sha256": "ec715dde56ee06bd96dd8e8e2da967587c8ed4569453a73ccfcf6b7bf385398c",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-211/supervisor_status.json",
+      "size_bytes": 351,
+      "sha256": "df934e8708e598de976dd94259a4ca405430dbcb035e203f4474941cd03f5983",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-211/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "e416fe367c86d13eb11259e1ca8beb752aafb30988b0dc3d86558844e49128a3",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-307/all_candidate_scores.npz",
+      "size_bytes": 8001774,
+      "sha256": "ad27748d7223a3214411df7f62861e25dee5727db8be519c3294dbd16c5c969d",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-307/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-307/model/checkpoint.pkl",
+      "size_bytes": 188883,
+      "sha256": "00279dcf408a10ab48409e53b71e3a13d52d8d7b845ce21fe80ff05e29157d6e",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-307/predictions.jsonl",
+      "size_bytes": 3095204,
+      "sha256": "a2d37ef09d10ede40894bfaaefca7fe9f772976ff053761954d3094feb5593ad",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-307/result.json",
+      "size_bytes": 4560,
+      "sha256": "142f5d1499c70d7bd4baf04f960e7921fe8b43b033575127c80428534e19ae25",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-307/supervisor_status.json",
+      "size_bytes": 358,
+      "sha256": "7f639b7b769385a8cb0af4644ff44c41094db29dc803f5786933285d9d9a9654",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/boosted/config-02/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/test/boosted/config-02/seed-307/worker_status.json",
+      "size_bytes": 151,
+      "sha256": "050e0952d0e6561592fbb9357793257c305b30fcf24f987ee704c4f755380c9f",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-103/all_candidate_scores.npz",
+      "size_bytes": 15935644,
+      "sha256": "7a58dc08badbc9f41012cee087124cec1260f42a93f781c67dd2f70aceb810f2",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-103/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-103/model/checkpoint.npz",
+      "size_bytes": 789263,
+      "sha256": "cb42f965fcd5e3d89b7d653c4be17b34a13b40c2362683ced7fa25d1c2913ede",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-103/predictions.jsonl",
+      "size_bytes": 3069264,
+      "sha256": "b074b7d114c44500c7678fbb263f755cc2ecc1d2b2905f9e7859e2bd23750173",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-103/result.json",
+      "size_bytes": 4815,
+      "sha256": "1bc28fb27b7180f22d958f86c47148d9428386880a3973d23a0dc05a0c4e5ce4",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-103/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "db604d03e7b3ed7f3cc6b44dffdcf3e0a83712eb463a32bcaa78bce84d0f1687",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-103/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "2310ed144b2a008d85563de904ac6e7c1f498cf1fb8481dff45e4901541a832b",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-211/all_candidate_scores.npz",
+      "size_bytes": 15935754,
+      "sha256": "59a99f702783d215b59b0b3df8d3c27b26e3b57e349a6ec4ed875a55650b6150",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-211/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-211/model/checkpoint.npz",
+      "size_bytes": 789256,
+      "sha256": "7322902b9d6a6bb19464fa7f68fe10ff63cb76b603f878d7d28cab7ea6bfde09",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-211/predictions.jsonl",
+      "size_bytes": 3064864,
+      "sha256": "3a52395417cc8180436db2a0630af64917cfeba32d392c1039d69629b165ffce",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-211/result.json",
+      "size_bytes": 4813,
+      "sha256": "b2f779c9b3e1ffa1e71a7659541541aa934106b3c04a1a1ed30672f3d1a196f8",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-211/supervisor_status.json",
+      "size_bytes": 351,
+      "sha256": "6af249f4bf3425ef9198f1ce9f651227b4a2062b6ef8e1ea595fcdc7d0fdd6c3",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-211/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "dfdc212c27a9954e6f4ee7c1c60b84b690b75a50c0bc28bdfcc2be4a8c5c846c",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-307/all_candidate_scores.npz",
+      "size_bytes": 15935368,
+      "sha256": "0f944047963cd2449da2faad38e8053c01e4a25053f02f14388de2e7a7fc3d70",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-307/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-307/model/checkpoint.npz",
+      "size_bytes": 789146,
+      "sha256": "27dc8d8ada6a3f35f3d269af9bf99516913266a114b01a49ccc716040c56f9db",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-307/predictions.jsonl",
+      "size_bytes": 3063246,
+      "sha256": "7b8c8f244ae6e049e017bb62d49604cff75192fd390bd32f2ce3bd1b72932ac0",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-307/result.json",
+      "size_bytes": 4813,
+      "sha256": "b52e34f3ef3f2a20cc4fcbdb4622d466a2b8eba3016eee61ac3767402ac77309",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-307/supervisor_status.json",
+      "size_bytes": 351,
+      "sha256": "056a4547648b22566dc3609753c94572b03569182561b948e934e2cea387c7fb",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/bpr/config-05/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/test/bpr/config-05/seed-307/worker_status.json",
+      "size_bytes": 144,
+      "sha256": "45697dabdf7e9bd5f716a136c96a87e18dcabc7fe7331fbbd06901ff9a091cb2",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/history_overlap/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/test/history_overlap/all_candidate_scores.npz",
+      "size_bytes": 12984117,
+      "sha256": "bc602f1a1452cb54687340c8e5fd2ba71744ee1cd5a25f86750c81a60ac1b3ba",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/test/history_overlap/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/test/history_overlap/predictions.jsonl",
+      "size_bytes": 3093717,
+      "sha256": "28923c2d02e1547b0b8fa88785629a04a30c3a3c0b271e744952888638ab1eb2",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/test/history_overlap/result.json",
+      "archive_path": "partd-comparison-001/phases/test/history_overlap/result.json",
+      "size_bytes": 3441,
+      "sha256": "5f4aa6a3b7d87be4afa39521c1c33c88e733962c3de7fd02625c0195b731bccb",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/test/history_overlap/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/test/history_overlap/supervisor_status.json",
+      "size_bytes": 358,
+      "sha256": "66d3af65c657ca0ad0a0991bf566e67f171a7326a3f85048177d4cd0acc7b4a6",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/history_overlap/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/test/history_overlap/worker_status.json",
+      "size_bytes": 151,
+      "sha256": "16e3ee528a68474fc8357be8281895654edfe516bb7737e2a8bdccad0ed3de50",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/logistic/config-03/deterministic/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/test/logistic/config-03/deterministic/all_candidate_scores.npz",
+      "size_bytes": 14712468,
+      "sha256": "8c93c65bac6e931171620011f0ee360f028782450020cf12c27c089c1a26686e",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/test/logistic/config-03/deterministic/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/test/logistic/config-03/deterministic/model/checkpoint.npz",
+      "size_bytes": 1641,
+      "sha256": "5fd5da015cf52eb08a87e40d79946609b3ad9ee061463d44a6d3def8f06c91b6",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/test/logistic/config-03/deterministic/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/test/logistic/config-03/deterministic/predictions.jsonl",
+      "size_bytes": 3092610,
+      "sha256": "23d9822b9d738324de88c120c02b9b126cd17c0de42f7040a25cf723e05a62f3",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/test/logistic/config-03/deterministic/result.json",
+      "archive_path": "partd-comparison-001/phases/test/logistic/config-03/deterministic/result.json",
+      "size_bytes": 4348,
+      "sha256": "a67e9e1dea2b0feccf03e4ef50f165e2a6e1b1e8d6dab2431370c64e18dd8535",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/test/logistic/config-03/deterministic/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/test/logistic/config-03/deterministic/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "e971ab8175abbb521b746b9cbe85004e72c110bddc709b752862e46ed47d8dc3",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/logistic/config-03/deterministic/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/test/logistic/config-03/deterministic/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "1620d4e26bd5992581688169834cd1f840d2c3437296f14122fa0fdb92055fc8",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/specialty_popularity/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/test/specialty_popularity/all_candidate_scores.npz",
+      "size_bytes": 1183381,
+      "sha256": "8f6137ecd21abe78e33b5d28684ebc3d1053f875eb8df1565c3e2fd2236fc3ce",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/test/specialty_popularity/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/test/specialty_popularity/predictions.jsonl",
+      "size_bytes": 2562788,
+      "sha256": "275a2a5607daaf105ad1952be51a8ac4e6b761d59fb74f2b1f75c5d30070af07",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/test/specialty_popularity/result.json",
+      "archive_path": "partd-comparison-001/phases/test/specialty_popularity/result.json",
+      "size_bytes": 3453,
+      "sha256": "bf78bb7c3306c12af59b0fd9d38f55a32c6320733c6c1639a0f35d2fdbc96330",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/test/specialty_popularity/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/test/specialty_popularity/supervisor_status.json",
+      "size_bytes": 349,
+      "sha256": "6ac6fb08f91a349c5040c561e2d1671485311dc90d72a511a21b0a5cb6e606d8",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/test/specialty_popularity/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/test/specialty_popularity/worker_status.json",
+      "size_bytes": 144,
+      "sha256": "5fc3e794cc7da9f0464b6bcb164869f926ce2b041368d1a93aafba96a0e84155",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-103/all_candidate_scores.npz",
+      "size_bytes": 3302434,
+      "sha256": "6b0c512339d93789b15fc5aff9c8e4d3e375171eb83bcb795bf8d9c51e9607b4",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-103/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-103/model/checkpoint.pkl",
+      "size_bytes": 188817,
+      "sha256": "c3e86c432add9e1c554ae451b961aa591376a9f9e64f64b2cda269b0ac07f8be",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-103/predictions.jsonl",
+      "size_bytes": 3090334,
+      "sha256": "e8b84d2ccb4c5ec12e7575ed1a797d2ce59a3b3cdbc5da5a5b2363eddac592e7",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-103/result.json",
+      "size_bytes": 4585,
+      "sha256": "c10122a8cf0a8fec6b1b9a2cec41b88303cfa2abae62a77fd3181c2d4fd4adc7",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-103/supervisor_status.json",
+      "size_bytes": 351,
+      "sha256": "06b31dde92036e3ac0a6d1c5c325a7ae15c9a65be43423f3284a403df1b4b02e",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-103/worker_status.json",
+      "size_bytes": 144,
+      "sha256": "c490fc07f35d854cffba8b1669bc1d5f7d90ead1c50b0061ab418870c10b3835",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-211/all_candidate_scores.npz",
+      "size_bytes": 3697684,
+      "sha256": "abefce7818661dbe5bb41adb8e5fd314d71137efe388b3ae410fee4301eecd88",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-211/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-211/model/checkpoint.pkl",
+      "size_bytes": 188817,
+      "sha256": "7f3670ce23da42dcfe8838d67d9b0f0da113d8973dbf7d53db8fd879155ccee0",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-211/predictions.jsonl",
+      "size_bytes": 3090033,
+      "sha256": "1a59706ddf1f843f5b1e47e6ecd707bca21b6cb577a50809524e84122e70253b",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-211/result.json",
+      "size_bytes": 4586,
+      "sha256": "60808c2288eb834ad0de746f0c432a46f7539362c0d52eddd9be67d88699b485",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-211/supervisor_status.json",
+      "size_bytes": 351,
+      "sha256": "60fae19a91461e61b6ec776d6b77812750a89ec8f537f5d153f7f67840288084",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-211/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "34738f2245919cc3b01b74ebc4fdb20e085eb20cee63e3a6f180d5c7ff41f810",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-307/all_candidate_scores.npz",
+      "size_bytes": 3565541,
+      "sha256": "d90315723706fe9f09207b7baae9370680560376a735ff58038d0dfe720ad64c",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-307/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-307/model/checkpoint.pkl",
+      "size_bytes": 188803,
+      "sha256": "c0a39e2beeb97ea8f49129698b95e818ea9b4e5d7f36db3d4967828979a1310a",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-307/predictions.jsonl",
+      "size_bytes": 3091651,
+      "sha256": "bce72cc54ebfa007fc71e07d6c660ba855e105897e48b14b8b02bacde2e1d807",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-307/result.json",
+      "size_bytes": 4590,
+      "sha256": "322c482f10486f9d96f0c01cf94bb57713d99c8681a1b212dd365cd43972fdf8",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-307/supervisor_status.json",
+      "size_bytes": 350,
+      "sha256": "9944cf5c0adf172ea8a8e73c823ea857a18aed7eeecaa00f3c6d305fa3ef291d",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-00/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-00/seed-307/worker_status.json",
+      "size_bytes": 144,
+      "sha256": "6594f9fa08638441109ff297bd551df12e64ef3508b6475e153e1df120db53fe",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-103/all_candidate_scores.npz",
+      "size_bytes": 4910231,
+      "sha256": "32dd2b0a389582ff0f458b2a18459e76140bc1fd53748e8a93218fc1df890d27",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-103/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-103/model/checkpoint.pkl",
+      "size_bytes": 188817,
+      "sha256": "532f523f74db9fb2dd9cae049e859bef598a481b9481c9a220a737e8d04c28a3",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-103/predictions.jsonl",
+      "size_bytes": 3094817,
+      "sha256": "8dc1c6af8cb0d8a658bee959e01e34f4780d662801b2508d96e4e18747d54784",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-103/result.json",
+      "size_bytes": 4590,
+      "sha256": "8cca1f188986b809c2156bf5390c0f93befd89c3391d859c18a71e112ac813e5",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-103/supervisor_status.json",
+      "size_bytes": 357,
+      "sha256": "cbfcbe59a71f9a2bd02f3d83097fbaa7aa48636db0fc3025d32d0cc0c5548d43",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-103/worker_status.json",
+      "size_bytes": 150,
+      "sha256": "a15caa18d000a383ccc70ea8911396285562e89cc3496120ba093a8483dfd5bf",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-211/all_candidate_scores.npz",
+      "size_bytes": 5356331,
+      "sha256": "60fc48f598107ae886bab8b4664d130d6556d9b14ad4663bb29492a5835fc7da",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-211/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-211/model/checkpoint.pkl",
+      "size_bytes": 188817,
+      "sha256": "d3017a5b8fdf7b02515a95ed3e975f50e432c357b404bb4c44d587d021cdf99e",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-211/predictions.jsonl",
+      "size_bytes": 3096224,
+      "sha256": "ebaeac58932cc33796922bcef4e513e2e5021c433b5ae1921778e97706c347d1",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-211/result.json",
+      "size_bytes": 4587,
+      "sha256": "a0263382c2fb275d9766b98daf9dbb7219315419f5e815e113650496d87f1be3",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-211/supervisor_status.json",
+      "size_bytes": 343,
+      "sha256": "f96bacb148f621bc958de6dbc90b5f405f8c6d427f30a8d0c8b66b8c2c410246",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-211/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "92e34c4d9ff66bdd6b872cff0937c46cae313e5fba84163570e1982d2f6ca78c",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-307/all_candidate_scores.npz",
+      "size_bytes": 5140388,
+      "sha256": "ae64ba9165760f73e466f3d867ca79940be8f0481e99772d9b37f7c906b1cfeb",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-307/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-307/model/checkpoint.pkl",
+      "size_bytes": 188803,
+      "sha256": "adc67be09dcfdc06f269b8e6835d82622f092b887e02a21e7ab28397308f2ac2",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-307/predictions.jsonl",
+      "size_bytes": 3096102,
+      "sha256": "327687e0e55d3751e4995a98ed9bad73c4e2a92dbb705062a8256f0fa12cc2f3",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-307/result.json",
+      "size_bytes": 4590,
+      "sha256": "3642eb09460cc4e94631638594ba06a04b8a0004f349c8908590a76e826e15c3",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-307/supervisor_status.json",
+      "size_bytes": 351,
+      "sha256": "3983ee4ae0ab63937420fd6f2e1e8892734c10ee4642bc60a57e3ef65e2777e4",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-01/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-01/seed-307/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "e43f07f77e405615578af949c7d482c267c2e4c457e570eaa6db6aca758aa1c0",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-103/all_candidate_scores.npz",
+      "size_bytes": 7370758,
+      "sha256": "4c41040c1b492aa6d38804c2deccb05112c42e1b94d88dc9c22fcc723ca567d1",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-103/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-103/model/checkpoint.pkl",
+      "size_bytes": 188817,
+      "sha256": "4e7d99dddabb30d4fd9ad664a073fef79bb3c024c4c9a41d1f289b28cc1bdd63",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-103/predictions.jsonl",
+      "size_bytes": 3087300,
+      "sha256": "253224f119f4e94a2d866620bde179917f1e16d996d90d6534cefafaa0762208",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-103/result.json",
+      "size_bytes": 4588,
+      "sha256": "6da5acde6916dc8db394e442f97398de7032bb91ef0dc0158fd4302d597a8981",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-103/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "7d165e96f4f92f3530d66d10403f0f0df3de274a02f32d0c52dcf7d2d813596e",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-103/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "3f5ba97ec59794ad4bf7e584d7b2840ab6195ffe008c53dab0f5c2728d7095d8",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-211/all_candidate_scores.npz",
+      "size_bytes": 7205076,
+      "sha256": "841e0548032de30463ef1a9385a4a2e8d78a0c19257725c79bbf17324d7de0d0",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-211/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-211/model/checkpoint.pkl",
+      "size_bytes": 188817,
+      "sha256": "43db5372ce4389406acd78a82045234994d9d3242ad83abaed69ccfc7859ac8d",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-211/predictions.jsonl",
+      "size_bytes": 3099285,
+      "sha256": "a276fa8fb10ea31ec4923b03c5d3589d02363ab183cc919d6ce4524d6c6a20da",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-211/result.json",
+      "size_bytes": 4589,
+      "sha256": "a985975d75baf196b5d301b17ac5a84c8fdd17f13682f34d62268976ffb6cebe",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-211/supervisor_status.json",
+      "size_bytes": 349,
+      "sha256": "d564cbd9880d2e9ad9d64cba08a513c8b4670c69246c0203fe6a054e21bc065b",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-211/worker_status.json",
+      "size_bytes": 143,
+      "sha256": "ed747cc54b1554cc1ab69433f955e8f4eb2aba021444f505abd90726697979ac",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-307/all_candidate_scores.npz",
+      "size_bytes": 7265301,
+      "sha256": "e3bd331d6af999d0d01528aeff5de3d72dd176a653d42c8d2d8448318c9f753e",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-307/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-307/model/checkpoint.pkl",
+      "size_bytes": 188803,
+      "sha256": "aebe8e7649ad00fdaff0c9088d84f9e61aa7af68d3aa5c6b0b94cabcbf81d0c7",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-307/predictions.jsonl",
+      "size_bytes": 3098828,
+      "sha256": "a2758b931dfd841bce0b94e89f457325e238654bc421563f9d6b5644f2bec549",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-307/result.json",
+      "size_bytes": 4587,
+      "sha256": "0c75eb4520e8bf60c09a8d6c6b199cea021baf874cadcce7072a26a2a7c6c7a5",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-307/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "395b5b0d9537b536274ef0416428c5bf8e2e96839166905994e7200819e46c79",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-02/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-02/seed-307/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "2fd2fef7e11b46b38a3fcde7e00d4287ed95b97712f721b04c4d1c52ca4f7e1e",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-103/all_candidate_scores.npz",
+      "size_bytes": 7576451,
+      "sha256": "cd187fd07f93f85bf515dce688145e472990a502f1cd398ca1614e969a1fe9b2",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-103/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-103/model/checkpoint.pkl",
+      "size_bytes": 361644,
+      "sha256": "efa19ff58c0f1d5c75f99e01a88dee2ffbcfa23089025734187f27af1899a2ea",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-103/predictions.jsonl",
+      "size_bytes": 3098880,
+      "sha256": "77054a00d1ad19764b5014aaed2d3f31e712d7097a39d3dc6247e88175b3be9a",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-103/result.json",
+      "size_bytes": 4587,
+      "sha256": "485f261cfd806bf7a70288dd9cccede25a1ad1f55075629d0bcebdb130ba5205",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-103/supervisor_status.json",
+      "size_bytes": 343,
+      "sha256": "2c9dcf54303b3ef4639226d1f29393891324b798dd2ea046d7e7d82e0a5e46a8",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-103/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "6c99c00bde57fa28993ef68ebd56d36625ac79a137e47598adeec7837f380bfd",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-211/all_candidate_scores.npz",
+      "size_bytes": 7507103,
+      "sha256": "3fe2210fab75e17b8ba12666b9f18743c7b2c284b21cf78b6a5412397709b2f7",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-211/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-211/model/checkpoint.pkl",
+      "size_bytes": 361644,
+      "sha256": "c67c6c42c337a4851c759d34dc9aed4c455c143e130f20ee923f59609fe7ea82",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-211/predictions.jsonl",
+      "size_bytes": 3099782,
+      "sha256": "17e5325d38cb9c162836bac5e694d4fe37694c79d55cc53455bca4a2f415d947",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-211/result.json",
+      "size_bytes": 4585,
+      "sha256": "f3cebfa88599c8a2e7f5f65b7c8e5054f3c79af2646913866ddc9f06670d4a29",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-211/supervisor_status.json",
+      "size_bytes": 345,
+      "sha256": "337e78a1f55482937e1fec973d5d548105b7e2bac11603aff9f57d6cfdebb70e",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-211/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "bb951eb92e33d7ba1ed909d84b7a24724d38f1c19d944887a39e7c6504cb2bf7",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-307/all_candidate_scores.npz",
+      "size_bytes": 7619697,
+      "sha256": "9a67e43d31b356f1425d5a7cc41158b309bccd40147808b4d912e9275c294c6f",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-307/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-307/model/checkpoint.pkl",
+      "size_bytes": 361630,
+      "sha256": "98eca9d563cc3da54b66bf43879c0dfa4bedb5b4cd2d15ad9719ad6e1b5e7458",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-307/predictions.jsonl",
+      "size_bytes": 3100550,
+      "sha256": "68a59958800b20e02a87b65542fc70230c924a59978912ae83bdcda221922bad",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-307/result.json",
+      "size_bytes": 4590,
+      "sha256": "0266da960de470757c809b9c71e948ebf1b8f69a234e7cc79e501cbc7497a846",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-307/supervisor_status.json",
+      "size_bytes": 345,
+      "sha256": "458cb9404c97ef5a314c2a3d8f77f513d1a7c36b6171576e1e2809f8fedd9027",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-03/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-03/seed-307/worker_status.json",
+      "size_bytes": 144,
+      "sha256": "f83fca41b806277887ed56aa5ff8d9bc34d3cdc5686e72635ac4c5f7190189a8",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-103/all_candidate_scores.npz",
+      "size_bytes": 6176352,
+      "sha256": "31f04d224e85f24d4f16c3baefb059f6334e74d8673e6d7466e7f665ff215c35",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-103/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-103/model/checkpoint.pkl",
+      "size_bytes": 368044,
+      "sha256": "773b1387ceec188d56a063b9a86b505c2bd487bfc5ff66cb2fdcf1bc77759637",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-103/predictions.jsonl",
+      "size_bytes": 3086884,
+      "sha256": "3d479e1ee485452c12db9e7795c38323ea99c2a83ea3e8baac178d664b04a1d9",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-103/result.json",
+      "size_bytes": 4588,
+      "sha256": "644c91697b2cdb2595e0b18afbba9054971a99ab2602793a63e9b8909ae522db",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-103/supervisor_status.json",
+      "size_bytes": 351,
+      "sha256": "2b5081b7b01119bbaae0296d97dcea33b6ff4b002834d145da51592c896c7c77",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-103/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "551342531ec6a62ed400c31ff42cb585f10875894100f7f2bd57afcccbe0b5a3",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-211/all_candidate_scores.npz",
+      "size_bytes": 6256694,
+      "sha256": "935cefe0e1ff03682d2fa844e902b855d73e17b3aaf329a560eda4809495a4f5",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-211/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-211/model/checkpoint.pkl",
+      "size_bytes": 368044,
+      "sha256": "a08b6a4747cd28ef0031b2fcc69af3f5a67d10148738c4199c6551fe91e6197b",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-211/predictions.jsonl",
+      "size_bytes": 3094202,
+      "sha256": "cfe7f3bcee56ec0343778605fcce07b75c668cd4503c6d4c29f976f4a1bd8af8",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-211/result.json",
+      "size_bytes": 4587,
+      "sha256": "eaa3ba01c70ff37ba7ce83f9543de63c204875e78b43d2a43782be5381b5eb14",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-211/supervisor_status.json",
+      "size_bytes": 351,
+      "sha256": "ac9e461abb1754e7b689a4bb3b3219bc7fc1a837f3e7fffd5d1843c6a6bc0c21",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-211/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "f8eb7ba7e8da3b947cf03b590fbfcc191c933b0d871e59c979b63e4393d10618",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-307/all_candidate_scores.npz",
+      "size_bytes": 6082864,
+      "sha256": "1e8140a8ab0996363b73d7662f197503bbdd5c1c9c2ecb042a01f5bda852ea00",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-307/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-307/model/checkpoint.pkl",
+      "size_bytes": 368030,
+      "sha256": "10ea6cb79ac7b33b1db8e9c06c9fd45198ad1d337ba20fbc89d3125d13a935a5",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-307/predictions.jsonl",
+      "size_bytes": 3097808,
+      "sha256": "98d3405e60308e7242f67fc33f4c06f5877c3c6fb56b3e872154322712d25cea",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-307/result.json",
+      "size_bytes": 4591,
+      "sha256": "18796693ebaca34924a76b1e27bbe177a33d4dbf09e16bece65cd7404bad34fe",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-307/supervisor_status.json",
+      "size_bytes": 343,
+      "sha256": "ebcac64849d604c55d9ca9b5b5b539a1108baedafff24e88b0fc1d1b7456b53f",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-04/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-04/seed-307/worker_status.json",
+      "size_bytes": 144,
+      "sha256": "16ec28bd357b0fcc24df3138ff3eef18c31c5dedf917078951e103a2ac36ef82",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-103/all_candidate_scores.npz",
+      "size_bytes": 4855816,
+      "sha256": "106d0250f0818be59dc4eba2ac0b6a6ae924c8fad342d3493309f370f7e95441",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-103/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-103/model/checkpoint.pkl",
+      "size_bytes": 188817,
+      "sha256": "0718bc69a5aa8fb282715daf366f757ff85b8d079f37b64949e6a79c91bb83ce",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-103/predictions.jsonl",
+      "size_bytes": 3091980,
+      "sha256": "3f6b51297d08d9116f0e1864b98fcff8f81c8d93bbc68eea50d2a7a6d280ad53",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-103/result.json",
+      "size_bytes": 4590,
+      "sha256": "9e0d6da90aff1e2bcd7c9ae2466609170dfa8c767e34726d0d091fb560191361",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-103/supervisor_status.json",
+      "size_bytes": 350,
+      "sha256": "229838c6e3065f68916dc66dc37ae5be6b4b92e57e8509bf237c071bec455a74",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-103/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "a7b71bd9813b365c910cc1c0214ca79b7aac6534436481e5c3fa1e78f521f404",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-211/all_candidate_scores.npz",
+      "size_bytes": 5430639,
+      "sha256": "32f12dd05b10cfde1d90f002987f17c00e250de0ea855b110cb2087990943a90",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-211/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-211/model/checkpoint.pkl",
+      "size_bytes": 188817,
+      "sha256": "526c83d2e148dd81e8004dd3a3d97d6cb486467b7f0b708ea84373533433a4d1",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-211/predictions.jsonl",
+      "size_bytes": 3096995,
+      "sha256": "602ca6c37b88ed02b0f110ab7f12c07ddccb78191930fcffef4c77d2aaee84c3",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-211/result.json",
+      "size_bytes": 4586,
+      "sha256": "a558638f5177bfa438075edd8f514bd743181ae0657c0fd248db258a4cfe4688",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-211/supervisor_status.json",
+      "size_bytes": 351,
+      "sha256": "85521fbec54f408b1036bb14de49d65675d0f2a2376b4b4f98ec4c0a8ed55835",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-211/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "826808ccad25bec8c59218b5362a7f3df21de46a8e4c95cf12ca9225baa4f0c1",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-307/all_candidate_scores.npz",
+      "size_bytes": 5012206,
+      "sha256": "4d01836217dc293235f40ede24ec1108b2f7f68659c0e56f6140ad18f392d60f",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-307/model/checkpoint.pkl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-307/model/checkpoint.pkl",
+      "size_bytes": 188803,
+      "sha256": "8a10cf4034679e0a50a859f13d3392aee0c48824e036a29cd23cb67a899ddf49",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-307/predictions.jsonl",
+      "size_bytes": 3094752,
+      "sha256": "6ea475623955dc0ea2485a17f0e3cb08d1779197f1760bcefdc907f03141afef",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-307/result.json",
+      "size_bytes": 4582,
+      "sha256": "0c5c422b93db4d33a6dc7600d245bb7d455101cea466f49089bfa0e38670290d",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-307/supervisor_status.json",
+      "size_bytes": 350,
+      "sha256": "4b0fe2eda968dc2706358600595440444a866dd3a4855699bd50ae07565644ed",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/boosted/config-05/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/boosted/config-05/seed-307/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "df89b87711f7123245acd066c1370405825c34a9c454d59d9b90113e26a8e275",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-103/all_candidate_scores.npz",
+      "size_bytes": 15375967,
+      "sha256": "e14a13a7b1699869c58fafb8669f0dd4ff2a3f32faf11aa6f0a762d9d6308896",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-103/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-103/model/checkpoint.npz",
+      "size_bytes": 402398,
+      "sha256": "ab26bd13cf63c9a6b50ccd5e9af0ff724af613f7fb427689d582704cb8afed02",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-103/predictions.jsonl",
+      "size_bytes": 3069374,
+      "sha256": "3c36b8b238556b6bfd297a3697aff4290aed8f2be09fd17db8ec3450d88013ba",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-103/result.json",
+      "size_bytes": 4838,
+      "sha256": "bb387fe7e5df793ee2654525c4558e509104e88b8630a383c89166a3c60d6d32",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-103/supervisor_status.json",
+      "size_bytes": 357,
+      "sha256": "25797026b5417d46077aefd32e1a1afb330f4e6b738da5d701d3a3ca7ebbc46e",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-103/worker_status.json",
+      "size_bytes": 151,
+      "sha256": "6aa00669bbd24007c4f0db56f0ecbc6b8959ad7e5c9293ab1729ab2522cdaecf",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-211/all_candidate_scores.npz",
+      "size_bytes": 15373039,
+      "sha256": "59fe87d4ca910e261a2efd0ba89cebbd7c88910a996956887317dae85df722c0",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-211/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-211/model/checkpoint.npz",
+      "size_bytes": 402509,
+      "sha256": "abe18af3036908673d5c99e54dddc140e4d380070f9aeca8b445c611fd401413",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-211/predictions.jsonl",
+      "size_bytes": 3067403,
+      "sha256": "a58e3941507daeb63d220612ac4ad825cdd0c645199714e2a141e982cf15ff7c",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-211/result.json",
+      "size_bytes": 4838,
+      "sha256": "49c838804966d6e4964ae564e5037a72cb813bc9e5e3e1cf1f1d664b0de522d0",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-211/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "fae08d5e613722476845f2a536a52865522977be725892869abff6a1351e29f6",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-211/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "6b4fa4eae9fc088b9353fb333390defca0ab517c1a977ed705c4e024fe495ae7",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-307/all_candidate_scores.npz",
+      "size_bytes": 15376715,
+      "sha256": "c2c59e4446985bbdf3e8a3d467298f2b7cfdb4758335c2f71506dfc05a2ade82",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-307/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-307/model/checkpoint.npz",
+      "size_bytes": 402481,
+      "sha256": "516e0fece69d9b809e67b5b1c5e11e265e4f46d006747da58400c1bc89791d80",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-307/predictions.jsonl",
+      "size_bytes": 3076412,
+      "sha256": "c464e97bf098d16e166b4cb33032d80788e79ca1cb181d89dbbfc9064e745880",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-307/result.json",
+      "size_bytes": 4838,
+      "sha256": "9eb4d423e2bfc015550ab2f2a76daa746c7ea6ee8431f4ca3e6453d67a063c12",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-307/supervisor_status.json",
+      "size_bytes": 351,
+      "sha256": "02099bb13c80c9bac5f2ee2bfe153d156721a07408270cfd698d94b72ce6617b",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-00/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-00/seed-307/worker_status.json",
+      "size_bytes": 143,
+      "sha256": "e4c0d7069821572b0aa510fb2b8cc5a0bfe602a5388dd9dbf7c80dd721cbd3ec",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-103/all_candidate_scores.npz",
+      "size_bytes": 15405981,
+      "sha256": "bc0dcd9ed8643611f8a71a61595c8e67d9015bf663127732080684dcb5e6daf9",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-103/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-103/model/checkpoint.npz",
+      "size_bytes": 402526,
+      "sha256": "b7c5e7beb07f2fe59f31d66ed4864bc021950b775523b4894968ee4ce7ff27d0",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-103/predictions.jsonl",
+      "size_bytes": 3067639,
+      "sha256": "ce42ecaa77dcc9cc264623e769c0216433e126b6db6726f47fd9a9028690126d",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-103/result.json",
+      "size_bytes": 4838,
+      "sha256": "7d0c9632f6abeb0b6a4772a6afb5c302e23b0d63fa5b615861b38e52b380a2d7",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-103/supervisor_status.json",
+      "size_bytes": 358,
+      "sha256": "e6a1e3c907d00c223757e6bd683cbc9f65a041cf165cc917a6c02354190742fd",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-103/worker_status.json",
+      "size_bytes": 151,
+      "sha256": "991391873ed65a662f6ca906d896d57ebd664a671d188876563a47763a5a4622",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-211/all_candidate_scores.npz",
+      "size_bytes": 15403370,
+      "sha256": "77f670d5372708a503571627d1e0647f3c31d8151e4c80c38519d95b5d2c34f7",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-211/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-211/model/checkpoint.npz",
+      "size_bytes": 402499,
+      "sha256": "cc2518ec9f3e7fb3f83b326163e03c46a193b57f50b8541f5906e08456b2f76c",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-211/predictions.jsonl",
+      "size_bytes": 3067901,
+      "sha256": "cc93ab68518cd600f731b59e557fbb0106fcaa3c43e3385ea8808c03382e2b73",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-211/result.json",
+      "size_bytes": 4840,
+      "sha256": "2c3fadaad0b4851b39373bf5bc1f36d3d6bcd7cc7a3a6263c705b599ebaf6044",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-211/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "2a8e98941ab1191e660f05b5f2d70ce76dae9ad8d3ca55dd658045534d5f348b",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-211/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "16fc5c6b2b12bd248bb44826ef215fafb57a211e08ec68e5e7a515f6337411f6",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-307/all_candidate_scores.npz",
+      "size_bytes": 15407737,
+      "sha256": "42d4a0a04c6b1c2de660eb5b4cb244a1f002d9d9ee4b4bc9df92b49e0563e072",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-307/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-307/model/checkpoint.npz",
+      "size_bytes": 402485,
+      "sha256": "6e10699bae9edefab115a0c6aca7e896c079b4ceb85f2158fd38e8a0320b0251",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-307/predictions.jsonl",
+      "size_bytes": 3072586,
+      "sha256": "47789e05e48602b04971a33925e196185440ebd54e28be9007ef8306c00fdca0",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-307/result.json",
+      "size_bytes": 4836,
+      "sha256": "4727530780df544f2f42af3f5f841d5a0deda1b43a5cf6f9ed125db46f7f5ada",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-307/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "a5e8a5fcb1a56cc0fe6478d939542bd5517bba7924dbeffcc62559f066085974",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-01/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-01/seed-307/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "41cc33d544d784f59db85f2826039c5f83e72afbd246abd69e73e2933eaad107",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-103/all_candidate_scores.npz",
+      "size_bytes": 15332576,
+      "sha256": "d94afdefacab701c3b9ce0cd53450b4c74b76e196594cad5832575abda223831",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-103/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-103/model/checkpoint.npz",
+      "size_bytes": 402424,
+      "sha256": "224130264cae1b235f60981c0eb6510dac47465af7af8ed7afbe2b9e325d6845",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-103/predictions.jsonl",
+      "size_bytes": 3085438,
+      "sha256": "f64b93e5a84e2c17d01960fdde3e6155e79c531d0119b52a4c22674ea7fe38e3",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-103/result.json",
+      "size_bytes": 4830,
+      "sha256": "2f0762326d9fc7efa604a8d86312ffe27de269f652399d850cde752d9ef8e815",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-103/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "f043ea172d034589149929292789bd413afe547f91b68f300a49732626edad2e",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-103/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "1ab6859a1d4daf9c51e17aed15ed0b1c48a8d50b1ae7362e8c6adf08b0102d91",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-211/all_candidate_scores.npz",
+      "size_bytes": 15333838,
+      "sha256": "d0ba20f01978dd0bd51993ece4bd969bf4f943b0f20a098df205bb437866e100",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-211/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-211/model/checkpoint.npz",
+      "size_bytes": 402442,
+      "sha256": "e491cc836a6d1f721ce8d132cb1f9d287b3496863f6b75b6688f829046df3364",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-211/predictions.jsonl",
+      "size_bytes": 3085329,
+      "sha256": "b99f7c2a3c8c133fcc87b5e9a6d3bcbe80a0f4da3177a9ec067c4ae239b6bc78",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-211/result.json",
+      "size_bytes": 4831,
+      "sha256": "84dda295dda4083b43ab0e111c92ff942efed0fdcca01362238c6b899e8974b0",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-211/supervisor_status.json",
+      "size_bytes": 351,
+      "sha256": "a2c5c1dc3e5a472a9a638bb8044c75b3dcd59790c1e767642ab77d710d284f40",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-211/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "58014d29c178267b2a9c37ffb86605fd9f21c6109fdf43558fb89ea8b2975951",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-307/all_candidate_scores.npz",
+      "size_bytes": 15335169,
+      "sha256": "edd101656f05b384fb4193b277ac48b2ff9e16880aacecbdcbdc72ba80125a67",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-307/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-307/model/checkpoint.npz",
+      "size_bytes": 402443,
+      "sha256": "26beb23a85478e05d6f506affebb72e29b9b6018374632b3f70da67529fde16b",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-307/predictions.jsonl",
+      "size_bytes": 3086841,
+      "sha256": "00abfb0bfbd6c56278b7ef71eeab84ed2494b0e1666459eb901e32d32fd912ba",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-307/result.json",
+      "size_bytes": 4834,
+      "sha256": "6bdbb8be3e84260339dea86c1945b6f1b74fa2ea08164e0841733c17b86d315b",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-307/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "fe5a9fc5610dc755a1259b657666351ea713a1273f61465da9fd6384bdb29b4d",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-02/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-02/seed-307/worker_status.json",
+      "size_bytes": 144,
+      "sha256": "e9368ed65375c606357290612531cd013bab81492d37243179e93729ab7af74a",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-103/all_candidate_scores.npz",
+      "size_bytes": 15354439,
+      "sha256": "cc4a8daaa9454e463e04e60acc1d16222bacadf4c4f1d998f7566b01f1157bde",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-103/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-103/model/checkpoint.npz",
+      "size_bytes": 779824,
+      "sha256": "8bf52121ede121a573b215aff7774bd00abe503e85dc6cc57c53e8cea37d3c5a",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-103/predictions.jsonl",
+      "size_bytes": 3062609,
+      "sha256": "3038f05a562275e3d96573f27e8df0606076c013b216225e90bdb1d90c55a205",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-103/result.json",
+      "size_bytes": 4829,
+      "sha256": "a3d35d33ceb32d2f10a29e927d546d5f973adbbf06d235af844a2a6e9bf9039d",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-103/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "5435c095de5eab5fb6ed974d9d1a3bb799c9ff4fea094275af30f0f29cd2f69a",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-103/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "34d128b78fcc508e373ef6875f2029931bff886335c35737da7344c495d29c71",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-211/all_candidate_scores.npz",
+      "size_bytes": 15353064,
+      "sha256": "eed0c4c3a859311354badaad2b6adaf33da03bd87beadb7ef4c695c3e357b385",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-211/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-211/model/checkpoint.npz",
+      "size_bytes": 779722,
+      "sha256": "2eb49639291f7dbb0496ac9d72c55d25ff04931625415301b8eaedbe3f5763f3",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-211/predictions.jsonl",
+      "size_bytes": 3073413,
+      "sha256": "62b9333715892839669f903b6de592d30e5a8cae6b668643d4a264dd90a8f45d",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-211/result.json",
+      "size_bytes": 4836,
+      "sha256": "1edf0b074a0aa72cf48f65fd65ab102c2d81c2fd7b656d39621927417acdda03",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-211/supervisor_status.json",
+      "size_bytes": 358,
+      "sha256": "3405b63c23c25f7e57fea2ba66f2a7ed9af5b77dac9ce3aa9904f1b4a1f1ece1",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-211/worker_status.json",
+      "size_bytes": 151,
+      "sha256": "3f991142d248aa3876c77cfd59991d3b3d25ef07b73b550201b294fe3ac80513",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-307/all_candidate_scores.npz",
+      "size_bytes": 15353884,
+      "sha256": "01d2f06a79462d4b78ed05af5abb11ace4179ccd91e78a42c57dbd54762fd5bc",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-307/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-307/model/checkpoint.npz",
+      "size_bytes": 779674,
+      "sha256": "aaf9d26de5b3e1f406b0c7ee7cd60b9c8aadaf1b2228a75e205dff37ea7d2a4c",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-307/predictions.jsonl",
+      "size_bytes": 3076018,
+      "sha256": "324fdc09427a48dbc4f1dbef342addaef7c5194d6592c1151d502c22b4c6dfcf",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-307/result.json",
+      "size_bytes": 4841,
+      "sha256": "1c01084b653e2d14063fc00c00f29cf4738cd0a303befef40cae933fd035f236",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-307/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "ad5bd9ae86c8633616cde6384fe500300f3bcf1d67bacb631eb58fcad21c1138",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-03/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-03/seed-307/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "215d3f8c3b3fbf082436a3d4a92a5b73fef4989bf01030861c048b52b300ca8f",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-103/all_candidate_scores.npz",
+      "size_bytes": 15376225,
+      "sha256": "1dbec84a9e5893ce032c04b43cbd4b68f1c96d29e9a0d88a02593cbdd74d8348",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-103/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-103/model/checkpoint.npz",
+      "size_bytes": 779866,
+      "sha256": "e12d429ebdf2d3ab4327bd30b9aa260c79a6b1da7d6d0d1318251d0049610446",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-103/predictions.jsonl",
+      "size_bytes": 3064879,
+      "sha256": "8ff97dd27b184f9889a1d9e776703eb0476950dff6c16d815f575cdf87ce45dd",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-103/result.json",
+      "size_bytes": 4838,
+      "sha256": "01915ba70607075bb7734e7fbcd9a32634faee9233dfe2db99ccdb6d6f83b68d",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-103/supervisor_status.json",
+      "size_bytes": 357,
+      "sha256": "c6a63f646f1bd79b9b1024886eb8277f42e0a1b23e1dec48a1ac5aa232f4491e",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-103/worker_status.json",
+      "size_bytes": 151,
+      "sha256": "deb5aa0df4c6cfa2a0270958d85922622c73a0f7f87e6583546cc0e8c581793f",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-211/all_candidate_scores.npz",
+      "size_bytes": 15374661,
+      "sha256": "2c9ec34c7264184a354d45dc30148354b08ffdb20e585646e9fb71e76ec79437",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-211/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-211/model/checkpoint.npz",
+      "size_bytes": 779837,
+      "sha256": "6b2396b2c8ee4e61fb31d774f422486f8b844406d68db559f3b92f7c9b514d68",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-211/predictions.jsonl",
+      "size_bytes": 3075042,
+      "sha256": "1ed95decca514da4a03b19bf619b2f46051fc37ddbcbe3c5458960daeb2b5dac",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-211/result.json",
+      "size_bytes": 4838,
+      "sha256": "f5447051516a73ffa66d5bd4220ee18de163e494106e71aa8082aa8afece62e1",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-211/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "8825cdee2f85b6bffed3f323a16415324f4e8976b6e01f3ce90a511a52081bbf",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-211/worker_status.json",
+      "size_bytes": 144,
+      "sha256": "371dc5b4d7aaa68e050a513d1cd58a6df81a62aa5d2a558d1ce897824cfbd8c3",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-307/all_candidate_scores.npz",
+      "size_bytes": 15376810,
+      "sha256": "9f983da72e68b3275cb59def7cff9807e7629ffd4fa72e384d7e3850482ed3ca",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-307/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-307/model/checkpoint.npz",
+      "size_bytes": 779800,
+      "sha256": "ba8fcaeed91c99530591613c0e3d09cba47b3a7417b0511cdb4b52f570bad35f",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-307/predictions.jsonl",
+      "size_bytes": 3075060,
+      "sha256": "935e2e3de1afa848ff352191ed8141d0877b0482cef59afbc30812bab333428c",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-307/result.json",
+      "size_bytes": 4838,
+      "sha256": "ccb6ec6b15e048806c30ddfccab96f0d3fbc6bb6077bdca217a079616afc6d81",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-307/supervisor_status.json",
+      "size_bytes": 358,
+      "sha256": "bb7253d916b2f9ebd4b8cae8a5440cbee14a22505315616dd02b92499ac66c54",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-04/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-04/seed-307/worker_status.json",
+      "size_bytes": 151,
+      "sha256": "aea42a233a30e11568ec73d139d168467d01214414ee0bd3227c65243f46be9f",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-103/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-103/all_candidate_scores.npz",
+      "size_bytes": 15383027,
+      "sha256": "5f16b3420f065ad9b1ccd024cc522be623c87df9fe6da39572afcd0b3433cb28",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-103/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-103/model/checkpoint.npz",
+      "size_bytes": 779883,
+      "sha256": "6dd8f866be7037a030ad6798124b528dd8084e3ecfe9f4f8727c83badd1483a2",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-103/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-103/predictions.jsonl",
+      "size_bytes": 3069572,
+      "sha256": "d35aaf79d7872c1f331502a60f763d7cd4b1b8594cd6a1555ee585728e5a4914",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-103/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-103/result.json",
+      "size_bytes": 4838,
+      "sha256": "5c80753f1bbc7b0f3a006cd793d12029f0ad3d5db56abaab0c8297cabfdb28e0",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-103/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-103/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "5f1bee59d4c2d82d1e12eec11f6705d44734693c46278371bc386b7fad9ceab3",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-103/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-103/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "4b4430284af178d2487cdc35374c1a0576885f43413b8b696a7f397804055b5b",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-211/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-211/all_candidate_scores.npz",
+      "size_bytes": 15382444,
+      "sha256": "a9bf67dede5e2d63367f7af8410b866e7c0a27ce32fe20ad2025081e1b9a8b2d",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-211/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-211/model/checkpoint.npz",
+      "size_bytes": 779872,
+      "sha256": "bb2fa2f6662583772a1060bf8e413a928744ecaa6b6bb6c91cc35d082e37bd42",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-211/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-211/predictions.jsonl",
+      "size_bytes": 3073434,
+      "sha256": "1e987c2a8762a9162cefabf452dd06871dce8c6da83c82fd5c70b058ae4c33a7",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-211/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-211/result.json",
+      "size_bytes": 4834,
+      "sha256": "ab949bd7f4cb20a000760d0503ab0dd1fd3edc42d0da8aae0ded6fbc1893d378",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-211/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-211/supervisor_status.json",
+      "size_bytes": 358,
+      "sha256": "14dd55b20072bb32bf488f2ae4bac50fd3052f4c5ceeec6c0662c08fe1a1aecf",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-211/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-211/worker_status.json",
+      "size_bytes": 150,
+      "sha256": "081ff952c16e6ea5b05e4bd9b13100946fd82b2598d423364356fc52da58462a",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-307/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-307/all_candidate_scores.npz",
+      "size_bytes": 15383723,
+      "sha256": "74401fd826544c800324524c4806671c3d2a7dc5881c06a471ccb3813f071a85",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-307/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-307/model/checkpoint.npz",
+      "size_bytes": 779824,
+      "sha256": "a4d159ae4aef0f884fa2eff59972e3850950302215a898b3ada009355f123e03",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-307/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-307/predictions.jsonl",
+      "size_bytes": 3075069,
+      "sha256": "033415b20f91bfeb6a2d33b6f3bcfd6657b88df1faafb8bc83b528e037d576c6",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-307/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-307/result.json",
+      "size_bytes": 4832,
+      "sha256": "61b48c4da62c09b889899980413f2d7fc5dd20c5cc3df6e96d9b24c70ae5b3c1",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-307/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-307/supervisor_status.json",
+      "size_bytes": 356,
+      "sha256": "34732afbb54c545ba51a013b9a8dc958034ee19f26a66f1d04154e47bf62b59f",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/bpr/config-05/seed-307/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/bpr/config-05/seed-307/worker_status.json",
+      "size_bytes": 151,
+      "sha256": "eeda2692d0ca4443ff474dd49fd59c3bf664778a236d85eb863fa09efe82048c",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/history_overlap/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/history_overlap/all_candidate_scores.npz",
+      "size_bytes": 12561097,
+      "sha256": "1f5222d1685f151f63e3bd1240e733c87d5a0526bb3d4fc42c66ec4ae956318b",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/history_overlap/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/history_overlap/predictions.jsonl",
+      "size_bytes": 3099789,
+      "sha256": "a8845bd23ea2228d7f33ac8aa95e2506436a787c55296fbbee0cb57b030738a8",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/history_overlap/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/history_overlap/result.json",
+      "size_bytes": 3459,
+      "sha256": "ee78a9651d870930f554a843a2298d7303420033fd427c0be0031b57402cb429",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/history_overlap/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/history_overlap/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "2e0735a3c1999ac470b6e6d26b61f4bd0e939e6fe60244ef605530a0ee4a5185",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/history_overlap/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/history_overlap/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "94e0b3beb3943511b40b50ffabfd2db52989b33c433db581306d2319d56e7da4",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-00/deterministic/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-00/deterministic/all_candidate_scores.npz",
+      "size_bytes": 14227444,
+      "sha256": "54ae63242122ca7ad9d15304e434026bd03069394abb212ba52321307c69f146",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-00/deterministic/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-00/deterministic/model/checkpoint.npz",
+      "size_bytes": 1641,
+      "sha256": "3f4f4a2508feb7d96d21b218db40d152be187d84e21c3950531f720dcccbe1dd",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-00/deterministic/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-00/deterministic/predictions.jsonl",
+      "size_bytes": 3102319,
+      "sha256": "8fd2f06e84c6b2754e8adc4ad492fca00c90fd0827a2fa2fa4294857e78fa159",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-00/deterministic/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-00/deterministic/result.json",
+      "size_bytes": 4298,
+      "sha256": "aa939db1dae9d2c0e92b11401d661e26c635e5805cf0f43874343e96fc5727b4",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-00/deterministic/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-00/deterministic/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "c9dd9391e6663a5c239c207da1def2293d2cdeb09c6b9d03705029b410649e24",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-00/deterministic/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-00/deterministic/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "3dca1ab2495b4ddbea3478a86c16c16e2493c88aaaacad2db012bb596675ebe9",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-01/deterministic/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-01/deterministic/all_candidate_scores.npz",
+      "size_bytes": 14226832,
+      "sha256": "2d199712acf270f19d620a3aec8947710b9cb005ee7e479b4ccf7b150bbf9797",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-01/deterministic/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-01/deterministic/model/checkpoint.npz",
+      "size_bytes": 1640,
+      "sha256": "29a828d64556d94604e01af2f10a2859a507d7c08871b830bf9e7b71c6177142",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-01/deterministic/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-01/deterministic/predictions.jsonl",
+      "size_bytes": 3101918,
+      "sha256": "ad71267399ee74b6aa67ebd677452b7a8ab90bc472aabe33fc1198089531b5a0",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-01/deterministic/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-01/deterministic/result.json",
+      "size_bytes": 4298,
+      "sha256": "a05a652703bbe515115b067b0c96dd830ec7e06ca4bd98e1feda440a2a56d2dd",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-01/deterministic/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-01/deterministic/supervisor_status.json",
+      "size_bytes": 358,
+      "sha256": "98c80c9f7248c2b7c26512487686d5ee2f7eb0a665570cf009b8571ad0b63e7c",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-01/deterministic/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-01/deterministic/worker_status.json",
+      "size_bytes": 151,
+      "sha256": "0cf954ba86bc6201d7acdecc74ac459ecd5142123006f2ebbf5a1514de5b8612",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-02/deterministic/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-02/deterministic/all_candidate_scores.npz",
+      "size_bytes": 14227287,
+      "sha256": "530f1f818678c2cb2a59a9a619d685f41c1f7f14786e25aa3aac78f80b22ef91",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-02/deterministic/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-02/deterministic/model/checkpoint.npz",
+      "size_bytes": 1641,
+      "sha256": "237ff211d942fce7263dc00ac82e216499a38b697100b9749950ddc3db22a800",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-02/deterministic/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-02/deterministic/predictions.jsonl",
+      "size_bytes": 3101810,
+      "sha256": "103eff7f909d4a88c46e7909ed79fc9f66a13bede60a4b51fd9550e4f408ceb3",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-02/deterministic/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-02/deterministic/result.json",
+      "size_bytes": 4302,
+      "sha256": "d607a9a4e4970c3b422d5753430ae75a0a99495b3d0a6712cd540808e09fa7f0",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-02/deterministic/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-02/deterministic/supervisor_status.json",
+      "size_bytes": 358,
+      "sha256": "ed88583a4d977ca9ff7a422a9a793001822a72f797a6487e64ebcbd00dbc2a9c",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-02/deterministic/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-02/deterministic/worker_status.json",
+      "size_bytes": 151,
+      "sha256": "53b1ee13a4ca492eaf8c2320a3af7bd0017ca1bceff4eeddf8982cd0027446c2",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-03/deterministic/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-03/deterministic/all_candidate_scores.npz",
+      "size_bytes": 14221743,
+      "sha256": "18161273cb65ccb144c638eb88e8a2941d6cb03c403e17933988a9ad4d956de8",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-03/deterministic/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-03/deterministic/model/checkpoint.npz",
+      "size_bytes": 1641,
+      "sha256": "1c6e139e02fcc4fbc6db52494333e68700a9155b5b4b61fbd3f1e41d7987a365",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-03/deterministic/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-03/deterministic/predictions.jsonl",
+      "size_bytes": 3095638,
+      "sha256": "802fd38ce13c4705c88f553f74215527ab6c0ebbdd811625010d74953bde0952",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-03/deterministic/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-03/deterministic/result.json",
+      "size_bytes": 4368,
+      "sha256": "968ff590c89521dfa42be4fd0e1617df08ff59b6ea1542110a5a07a86d531189",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-03/deterministic/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-03/deterministic/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "e0e5f797d8fedf52ed20038e8e62a0d38c60aefc4e72302587ab226f0a334a02",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-03/deterministic/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-03/deterministic/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "ca77e05912bee81d2d6f5c2107a9f9bd2dbba948b734558617ee7e58b01967e4",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-04/deterministic/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-04/deterministic/all_candidate_scores.npz",
+      "size_bytes": 14220865,
+      "sha256": "d86d13d2e838b208738e6f2abf75186e87cb60f7f8d1b64a5a9c494984a0629b",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-04/deterministic/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-04/deterministic/model/checkpoint.npz",
+      "size_bytes": 1641,
+      "sha256": "4c375f63da9ce51868677e0635cdcb0119403490af6cdbc2fda6c5e1e2a9fa6e",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-04/deterministic/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-04/deterministic/predictions.jsonl",
+      "size_bytes": 3095632,
+      "sha256": "280502a1e95ab5b23e0ef4cadb320421759bf9906129b2d56a1371d6f01cb3f0",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-04/deterministic/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-04/deterministic/result.json",
+      "size_bytes": 4366,
+      "sha256": "901dc777071a993b57e6e9350f2760df75870bd517ec136493b548d0bf1c526d",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-04/deterministic/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-04/deterministic/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "ac15ac7e63efd74361763099ad4f8200814c47a3b530fb818e14be63d79dcc7e",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-04/deterministic/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-04/deterministic/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "fc5ca9e960a5c564feb90e1dffa7588b35cb22ad62a0a9ac7a2d7a4ebf742ada",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-05/deterministic/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-05/deterministic/all_candidate_scores.npz",
+      "size_bytes": 14221577,
+      "sha256": "82b7d44c78f27eb993540770ebe4148829b857efefd48cf7ceea2b307d954a6b",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-05/deterministic/model/checkpoint.npz",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-05/deterministic/model/checkpoint.npz",
+      "size_bytes": 1641,
+      "sha256": "697964fd835e9ba060cd1314281a7d5079866e56627261299506aaf37b5ee30a",
+      "category": "model_checkpoint"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-05/deterministic/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-05/deterministic/predictions.jsonl",
+      "size_bytes": 3095217,
+      "sha256": "1c0a1cf5bfa41c9602a7e27f5af125261042b1d217314371b3fc7190d7a4bf40",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-05/deterministic/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-05/deterministic/result.json",
+      "size_bytes": 4365,
+      "sha256": "ba62a57a9ca5847b59c343992da0789be71dbce577d457802b87c038fc913601",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-05/deterministic/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-05/deterministic/supervisor_status.json",
+      "size_bytes": 352,
+      "sha256": "f56f239c57699b066fb44e8a581eba7227df61ac68f572145a99cfc67b06acfc",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/logistic/config-05/deterministic/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/logistic/config-05/deterministic/worker_status.json",
+      "size_bytes": 145,
+      "sha256": "74063ba1e66c6a809c759f1832868e6fb24de504b1fc053e37844ea2465bcaed",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/specialty_popularity/all_candidate_scores.npz",
+      "archive_path": "partd-comparison-001/phases/validation/specialty_popularity/all_candidate_scores.npz",
+      "size_bytes": 1121344,
+      "sha256": "658011d2d7b4dceedda8d981d946213a93e1974f461deb84f97753be8c1f8aca",
+      "category": "candidate_score_table"
+    },
+    {
+      "path_in_run": "phases/validation/specialty_popularity/predictions.jsonl",
+      "archive_path": "partd-comparison-001/phases/validation/specialty_popularity/predictions.jsonl",
+      "size_bytes": 2563880,
+      "sha256": "0c6aef7f32485bd3c00bd6d010c8c20e65f953f85a73fe2709a4874aea27e30f",
+      "category": "predictions"
+    },
+    {
+      "path_in_run": "phases/validation/specialty_popularity/result.json",
+      "archive_path": "partd-comparison-001/phases/validation/specialty_popularity/result.json",
+      "size_bytes": 3471,
+      "sha256": "0588a290bae20c816863676e56438b7d1e61be95f76dc00cb25a9abd99cd2b3d",
+      "category": "phase_metrics_result"
+    },
+    {
+      "path_in_run": "phases/validation/specialty_popularity/supervisor_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/specialty_popularity/supervisor_status.json",
+      "size_bytes": 349,
+      "sha256": "a8b1deddb745e9c8d4da50b6a1b02bc09e412443058375edae75c019d93c5ba0",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "phases/validation/specialty_popularity/worker_status.json",
+      "archive_path": "partd-comparison-001/phases/validation/specialty_popularity/worker_status.json",
+      "size_bytes": 144,
+      "sha256": "4dd44072c535274378b1c8dcb7a90ac4924acab55977ced7952fb5897ddf4113",
+      "category": "phase_status"
+    },
+    {
+      "path_in_run": "protocol_executed.json",
+      "archive_path": "partd-comparison-001/protocol_executed.json",
+      "size_bytes": 14565,
+      "sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7",
+      "category": "run_protocol_or_summary_metadata"
+    },
+    {
+      "path_in_run": "resource_ledger.json",
+      "archive_path": "partd-comparison-001/resource_ledger.json",
+      "size_bytes": 27392,
+      "sha256": "2e54cfb3531ce33d17febe96cdbed93bc092baad6c8bd6340dfb27d228238014",
+      "category": "run_protocol_or_summary_metadata"
+    },
+    {
+      "path_in_run": "selection.json",
+      "archive_path": "partd-comparison-001/selection.json",
+      "size_bytes": 2429,
+      "sha256": "e532f030b3bbe2509916dbc401efdacdad77fe24638658b904a16709bf2372f6",
+      "category": "run_protocol_or_summary_metadata"
+    },
+    {
+      "path_in_run": "source_provenance.json",
+      "archive_path": "partd-comparison-001/source_provenance.json",
+      "size_bytes": 7297,
+      "sha256": "df258c40da9c106bbe0c91e2cf5c71bcd29dfbcf29b023922831c2ac455f3283",
+      "category": "run_protocol_or_summary_metadata"
+    }
+  ],
+  "inventory_path": "results/q2_partd_artifacts_20261003.json",
+  "checksum_scope": "Les empreintes des trois JSON livrables et de l’archive sont listées dans results/SHA256SUMS_q2_partd_20261003; le fichier de sommes lui-même est omis car auto-référentiel."
+}

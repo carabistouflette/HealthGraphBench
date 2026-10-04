@@ -9,3 +9,7 @@ venv/
 # Raw source files are user-managed and must not be committed.
 data/raw/
 results/generated/
+
+# RC3 delivery inputs are packed locally, not published as derived data in Git.
+manuscript/rc3/overlay/data/q2/reuse/*.whl
+manuscript/rc3/overlay/data/q2/reuse/checkpoints/*.npz

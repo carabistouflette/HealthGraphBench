@@ -1,0 +1,21 @@
+{
+  "revision": "RC3",
+  "source_parent": {
+    "path": "/home/arobin/Downloads/HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip",
+    "sha256": "a1731aa9eb02d8f31179adfea62d1d70a168594910aa2002780aa66e8f83c4f9"
+  },
+  "protected_user_files": {
+    "README.md": "e8d3fc9d60a720cdc7db17ee01924b2efb753ae8b7f22090febc531a84366124",
+    "docs/manuscript_audit_fr.md": "f0aade21ce9586f7b7b191c301523b16449ab30ec000211b6c450844d01af9b2",
+    "docs/manuscript_audit_fr_R2.md": "0cfc8edc72ec8b511a13cc0f9bff4801fd1104d26b6cafc421ad0513c3dd5233",
+    "docs/manuscript_audit_fr_R4.md": "812da6fd05df5efa090b43d7bdc4d2265aa2f79b5ed24738d7763a5249aa5170"
+  },
+  "scope": "Integrate completed Q2 evidence into a separate French canonical manuscript, faithful English translation, supplements and verified package; no fits, scoring, bootstrap, historical successful audit rerun or target acquisition",
+  "unmet_gates": [
+    "Official2025 independent evaluation",
+    "Human nonconsultation attestations",
+    "External human reuse study",
+    "Author/venue/declaration/license/submission approval"
+  ],
+  "q2_evidence_commit": "6b4ae00ebc4b701d757260616ccb0df16f51467b"
+}

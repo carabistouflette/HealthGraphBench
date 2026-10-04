@@ -1,0 +1,1556 @@
+{
+  "schema": "healthgraphbench.maude-aggregation-evidence.v1",
+  "run_id": "maude-aggregation-20261002T205122Z",
+  "status": "complete",
+  "technical_scope": "D1 single P2; exploratory mean30 reused from C versus newly fitted none30; no D2",
+  "started_at_utc": "2026-10-02T20:51:22.508511+00:00",
+  "finished_at_utc": "2026-10-02T20:58:18.652080+00:00",
+  "code_commit_before_health_training": "b14d878a78f559b65c70fc872a51a59af4c5ae85",
+  "code_sha256": {
+    "ablation_runner": {
+      "path": "/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/tasks/maude/ablation.py",
+      "sha256": "eca360cfa636cf1b422afd63e917c68a679fd2366a223e9748d113052274e5b3"
+    },
+    "diagnostic_runner": {
+      "path": "/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/tasks/maude/diagnostic.py",
+      "sha256": "c7316a2292a388c7004f4423abd00fe243f8cd8dfbf6422ccd728e3b402da4cf"
+    },
+    "cli": {
+      "path": "/home/arobin/Work/Repos/HealthGraphBench/scripts/run_maude_aggregation_ablation.py",
+      "sha256": "74d4ea6e3cebffe4b889e6dc34dcccc323c285addcc197be92e481907d9c4988"
+    },
+    "evaluation": {
+      "path": "/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/tasks/maude/evaluate.py",
+      "sha256": "825cafb260dd2b8f8558224447a866cec9c7dba1cee5b5c5b05ad89a174145b7"
+    },
+    "models": {
+      "path": "/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/tasks/maude/models.py",
+      "sha256": "403f220c2269cbb7c1792477e3abaa73b0a9c75298b42c7b2265a9e2bb7295f0"
+    },
+    "data": {
+      "path": "/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/tasks/maude/data.py",
+      "sha256": "019d8d4792115e83327e2d5e6c5aa10dc42355bc908b84093fde28dadf0ba9d0"
+    }
+  },
+  "command": {
+    "argv": [
+      "results/generated/consolidation-post-RC1/core-verification-20261002/analysis-env/bin/python",
+      "scripts/run_maude_aggregation_ablation.py",
+      "--prepared-input",
+      "results/generated/consolidation-post-RC1/core-verification-20261002/inputs/HealthGraphBench_RC1/data/real_R6/maude_B/prepared_snapshots.json.gz",
+      "--output-dir",
+      "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z",
+      "--protocol",
+      "docs/consolidation-post-RC1/aggregation_protocol.md",
+      "--protocol-sha256",
+      "78d1408a96da81fceb85b1f3f91034592b3b96dd95fbe4d508906e121c1efaca",
+      "--baseline-manifest",
+      "results/maude_duration_diagnostic_20261002T172405Z.json",
+      "--baseline-sha256",
+      "0c8a610991e313d49a9fba03736d225897620cec86779989c8b243665942dff2",
+      "--phase-timeout-seconds",
+      "900",
+      "--max-rss-mib",
+      "512",
+      "--max-output-mib",
+      "512"
+    ],
+    "api_arguments": {
+      "prepared_input": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/consolidation-post-RC1/core-verification-20261002/inputs/HealthGraphBench_RC1/data/real_R6/maude_B/prepared_snapshots.json.gz",
+      "output_dir": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z",
+      "protocol": "/home/arobin/Work/Repos/HealthGraphBench/docs/consolidation-post-RC1/aggregation_protocol.md",
+      "protocol_sha256": "78d1408a96da81fceb85b1f3f91034592b3b96dd95fbe4d508906e121c1efaca",
+      "baseline_manifest": "/home/arobin/Work/Repos/HealthGraphBench/results/maude_duration_diagnostic_20261002T172405Z.json",
+      "baseline_sha256": "0c8a610991e313d49a9fba03736d225897620cec86779989c8b243665942dff2",
+      "phase_timeout_seconds": 900.0,
+      "max_rss_mib": 512,
+      "max_output_mib": 512
+    },
+    "stdout_capture": {
+      "status": "captured",
+      "path": "stdout.txt",
+      "sha256": "4f2812e6e68703c25c5eba9e440934799ca5d7f33b712d24256bbfb5add30527",
+      "size_bytes": 264
+    }
+  },
+  "prepared_input": {
+    "path": "results/generated/consolidation-post-RC1/core-verification-20261002/inputs/HealthGraphBench_RC1/data/real_R6/maude_B/prepared_snapshots.json.gz",
+    "sha256": "1cba7f84ff24131715c68a985d9302c96c7bab4a4b2a27d906559a41104fbd36"
+  },
+  "protocol": {
+    "path": "docs/consolidation-post-RC1/aggregation_protocol.md",
+    "sha256": "78d1408a96da81fceb85b1f3f91034592b3b96dd95fbe4d508906e121c1efaca",
+    "executed_snapshot": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/aggregation_protocol_executed.md",
+    "retrieve_from_commit": "b14d878a78f559b65c70fc872a51a59af4c5ae85"
+  },
+  "baseline": {
+    "manifest": "results/maude_duration_diagnostic_20261002T172405Z.json",
+    "sha256": "0c8a610991e313d49a9fba03736d225897620cec86779989c8b243665942dff2",
+    "run_id": "maude-duration-20261002T172405Z",
+    "code_commit": "4a22c2addc8203efd2b38a60c416270855c3bf3b",
+    "results_commit": "5eb82ba534169b48cf3b926aa2aadaae04c38dba",
+    "origin": "mean30 retained output and measured C costs; no C fit repeated",
+    "reused_artifact_count": 50,
+    "historical_document_hash_scope": "C pilotage hashes belong to revision5eb82ba, not HEAD D1"
+  },
+  "environment": {
+    "python": "3.13.5 (main, Jul 23 2025, 00:37:22) [Clang 20.1.4 ]",
+    "platform": "Linux-7.2.7-arch1-1-x86_64-with-glibc2.44",
+    "effective_thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1"
+    }
+  },
+  "limits": {
+    "phase_timeout_seconds": 900.0,
+    "aggregate_rss_bytes_per_phase": 536870912,
+    "new_output_bytes_per_phase": 536870912,
+    "automatic_retries": 0,
+    "worker_count": 1,
+    "thread_count_per_library": 1
+  },
+  "enforcement": {
+    "platform": "Linux /proc",
+    "poll_interval_seconds": 0.05,
+    "aggregate_rss": "controller current RSS plus worker VmHWM/current RSS; inherited diagnostic supervisor terminates worker on limit",
+    "worker_termination": "SIGTERM, then SIGKILL after 2 seconds if still alive",
+    "phase_output": "inherited diagnostic worker byte budget plus controller directory polling"
+  },
+  "configuration": {
+    "aggregation_variants": {
+      "reused_baseline": "mean",
+      "new_fit": "none"
+    },
+    "duration_epochs": 30,
+    "dimension": 8,
+    "learning_rate": 0.02,
+    "regularization": 0.0005,
+    "objective": "bpr",
+    "activation": "tanh",
+    "mean_neighbor_sample": 8,
+    "none_effective_neighbor_sample": 0,
+    "none_validation_epochs": [
+      30
+    ],
+    "resume_supported": false
+  },
+  "selection_lock": {
+    "status": "locked",
+    "common_duration_epochs": 30,
+    "variants": [
+      "mean",
+      "none"
+    ],
+    "duration_source": "fixed by C selection and the pinned D1 protocol; no D1 tuning grid",
+    "validation_micro_recall_at_10": {
+      "mean30_reused": 0.20506164828033743,
+      "none30_new": 0.031148604802076575
+    },
+    "validation_population": {
+      "products_with_positives": 3483,
+      "positive_edges": 7705,
+      "candidate_pairs": 1618588
+    },
+    "validation_candidate_cohorts_match": true,
+    "locked_at_utc": "2026-10-02T20:53:30.842192+00:00",
+    "test_scores_consulted": false,
+    "tests_may_start_after_this_lock": true
+  },
+  "cohort_checks": {
+    "validation_2023": {
+      "status": "complete",
+      "baseline_population": {
+        "products_with_positives": 3483,
+        "positive_edges": 7705,
+        "candidate_pairs": 1618588
+      },
+      "none_population": {
+        "products_with_positives": 3483,
+        "positive_edges": 7705,
+        "candidate_pairs": 1618588
+      },
+      "candidate_ids_labels_support_and_candidate_hashes_match": true
+    },
+    "test_2024": {
+      "status": "complete",
+      "baseline_population": {
+        "products_with_positives": 2950,
+        "positive_edges": 6003,
+        "candidate_pairs": 1367736
+      },
+      "none_population": {
+        "products_with_positives": 2950,
+        "positive_edges": 6003,
+        "candidate_pairs": 1367736
+      },
+      "candidate_ids_labels_support_and_candidate_hashes_match": true
+    },
+    "test_2025": {
+      "status": "complete",
+      "baseline_population": {
+        "products_with_positives": 3420,
+        "positive_edges": 7171,
+        "candidate_pairs": 1607420
+      },
+      "none_population": {
+        "products_with_positives": 3420,
+        "positive_edges": 7171,
+        "candidate_pairs": 1607420
+      },
+      "candidate_ids_labels_support_and_candidate_hashes_match": true
+    }
+  },
+  "primary_results": [
+    {
+      "period": "validation2023",
+      "mean_hits10": 1580,
+      "none_hits10": 240,
+      "positive_edges": 7705,
+      "products": 3483,
+      "mean_r10": 0.20506164828033743,
+      "none_r10": 0.031148604802076575,
+      "mean_minus_none": 0.17391304347826086
+    },
+    {
+      "period": "2024",
+      "mean_hits10": 1206,
+      "none_hits10": 219,
+      "positive_edges": 6003,
+      "products": 2950,
+      "mean_r10": 0.20089955022488756,
+      "none_r10": 0.03648175912043978,
+      "mean_minus_none": 0.1644177911044478
+    },
+    {
+      "period": "2025",
+      "mean_hits10": 1569,
+      "none_hits10": 250,
+      "positive_edges": 7171,
+      "products": 3420,
+      "mean_r10": 0.21879793613164134,
+      "none_r10": 0.034862641193696836,
+      "mean_minus_none": 0.1839352949379445
+    },
+    {
+      "period": "pooled2024_2025",
+      "mean_hits10": 2775,
+      "none_hits10": 469,
+      "positive_edges": 13174,
+      "products": 6370,
+      "mean_r10": 0.21064217397904964,
+      "none_r10": 0.035600425079702444,
+      "mean_minus_none": 0.1750417488993472
+    }
+  ],
+  "support_one_metrics": {
+    "validation_2023": {
+      "mean30_reused": {
+        "positive_edges": 7705,
+        "products": 3483,
+        "hits_at_5": 942,
+        "hits_at_10": 1580,
+        "hits_at_20": 2491,
+        "recall_at_5": 0.12225827384815055,
+        "recall_at_10": 0.20506164828033743,
+        "recall_at_20": 0.32329656067488644,
+        "macro_recall_at_5": 0.1431327124719255,
+        "macro_recall_at_10": 0.2365042607762779,
+        "macro_recall_at_20": 0.35806802461395393,
+        "mrr": 0.16802082425307655
+      },
+      "none30_new": {
+        "positive_edges": 7705,
+        "products": 3483,
+        "hits_at_5": 158,
+        "hits_at_10": 240,
+        "hits_at_20": 412,
+        "recall_at_5": 0.020506164828033743,
+        "recall_at_10": 0.031148604802076575,
+        "recall_at_20": 0.05347177157689812,
+        "macro_recall_at_5": 0.022318152896692135,
+        "macro_recall_at_10": 0.033186167315411484,
+        "macro_recall_at_20": 0.05790177575484207,
+        "mrr": 0.033308161361778874
+      }
+    },
+    "test_2024": {
+      "mean30_reused": {
+        "positive_edges": 6003,
+        "products": 2950,
+        "hits_at_5": 735,
+        "hits_at_10": 1206,
+        "hits_at_20": 1858,
+        "recall_at_5": 0.12243878060969515,
+        "recall_at_10": 0.20089955022488756,
+        "recall_at_20": 0.309511910711311,
+        "macro_recall_at_5": 0.1472172035148757,
+        "macro_recall_at_10": 0.23364138458087047,
+        "macro_recall_at_20": 0.3474751101187229,
+        "mrr": 0.16233696881677334
+      },
+      "none30_new": {
+        "positive_edges": 6003,
+        "products": 2950,
+        "hits_at_5": 135,
+        "hits_at_10": 219,
+        "hits_at_20": 375,
+        "recall_at_5": 0.022488755622188907,
+        "recall_at_10": 0.03648175912043978,
+        "recall_at_20": 0.062468765617191405,
+        "macro_recall_at_5": 0.02420427512243369,
+        "macro_recall_at_10": 0.03665185993475039,
+        "macro_recall_at_20": 0.059979455231763526,
+        "mrr": 0.03655466877505691
+      }
+    },
+    "test_2025": {
+      "mean30_reused": {
+        "positive_edges": 7171,
+        "products": 3420,
+        "hits_at_5": 941,
+        "hits_at_10": 1569,
+        "hits_at_20": 2364,
+        "recall_at_5": 0.13122298145307487,
+        "recall_at_10": 0.21879793613164134,
+        "recall_at_20": 0.32966113512759726,
+        "macro_recall_at_5": 0.15710269785336245,
+        "macro_recall_at_10": 0.250324262278705,
+        "macro_recall_at_20": 0.3669900991878022,
+        "mrr": 0.1720976149131303
+      },
+      "none30_new": {
+        "positive_edges": 7171,
+        "products": 3420,
+        "hits_at_5": 138,
+        "hits_at_10": 250,
+        "hits_at_20": 420,
+        "recall_at_5": 0.019244177938920654,
+        "recall_at_10": 0.034862641193696836,
+        "recall_at_20": 0.058569237205410685,
+        "macro_recall_at_5": 0.01859100471000576,
+        "macro_recall_at_10": 0.035934011833210495,
+        "macro_recall_at_20": 0.05781235038079838,
+        "mrr": 0.03138942956686578
+      }
+    },
+    "pooled_test_2024_2025": {
+      "mean30_reused": {
+        "positive_edges": 13174,
+        "products": 6370,
+        "hits_at_5": 1676,
+        "hits_at_10": 2775,
+        "hits_at_20": 4222,
+        "recall_at_5": 0.12722028237437377,
+        "recall_at_10": 0.21064217397904964,
+        "recall_at_20": 0.32047973280704417,
+        "macro_recall_at_5": 0.15252464317541334,
+        "macro_recall_at_10": 0.24259828281110501,
+        "macro_recall_at_20": 0.35795254538030075,
+        "mrr": 0.16757737849488022
+      },
+      "none30_new": {
+        "positive_edges": 13174,
+        "products": 6370,
+        "hits_at_5": 273,
+        "hits_at_10": 469,
+        "hits_at_20": 795,
+        "recall_at_5": 0.020722635494155154,
+        "recall_at_10": 0.035600425079702444,
+        "recall_at_20": 0.06034613632913314,
+        "macro_recall_at_5": 0.02119055694182089,
+        "macro_recall_at_10": 0.03626645326171014,
+        "macro_recall_at_20": 0.058815954668137035,
+        "mrr": 0.0337814948202667
+      }
+    }
+  },
+  "primary_contrast": {
+    "metric": "micro recall@10, historical product support >=1, pooled 2024Q1-2025Q4",
+    "definition": "mean30 - none30",
+    "mean30": 0.21064217397904964,
+    "none30": 0.035600425079702444,
+    "signed_mean_minus_none": 0.1750417488993472,
+    "direction_interpreted_as_observed": true,
+    "new_confidence_interval": false
+  },
+  "capacity": {
+    "dimension": 8,
+    "active_shared_transformation_scalars": {
+      "mean": 128,
+      "none": 64
+    },
+    "inactive_neighbor_matrix_checkpoint_scalars_none": 64,
+    "by_fit": {
+      "validation_2023": {
+        "products": 2878,
+        "problems": 516,
+        "active_node_vector_scalars_each": 27152,
+        "mean_active_shared_transform_scalars": 128,
+        "none_active_shared_transform_scalars": 64,
+        "mean_total_active_parameter_scalars": 27280,
+        "none_total_active_parameter_scalars": 27216,
+        "mean_minus_none_active_parameter_scalars": 64
+      },
+      "test_2024": {
+        "products": 3059,
+        "problems": 517,
+        "active_node_vector_scalars_each": 28608,
+        "mean_active_shared_transform_scalars": 128,
+        "none_active_shared_transform_scalars": 64,
+        "mean_total_active_parameter_scalars": 28736,
+        "none_total_active_parameter_scalars": 28672,
+        "mean_minus_none_active_parameter_scalars": 64
+      },
+      "test_2025": {
+        "products": 3191,
+        "problems": 523,
+        "active_node_vector_scalars_each": 29712,
+        "mean_active_shared_transform_scalars": 128,
+        "none_active_shared_transform_scalars": 64,
+        "mean_total_active_parameter_scalars": 29840,
+        "none_total_active_parameter_scalars": 29776,
+        "mean_minus_none_active_parameter_scalars": 64
+      }
+    },
+    "interpretation": "none has 64 fewer active shared transformation scalars; node-identity vectors remain trainable in both"
+  },
+  "costs": {
+    "wall_seconds": 416.1435086679994,
+    "phase_wall_seconds": 415.2026260550192,
+    "worker_cpu_seconds": 413.76605034399995,
+    "peak_aggregate_rss_bytes": 303284224,
+    "origin": "none30 phase costs measured in D1; mean30 costs reused from C and kept separately",
+    "none30": {
+      "phase_wall_seconds": 415.2026260550192,
+      "worker_cpu_seconds": 413.76605034399995,
+      "peak_aggregate_rss_bytes": 303284224,
+      "phases": {
+        "validation_2023": {
+          "status": "complete",
+          "reason": null,
+          "pid": 3917078,
+          "exit_code": 0,
+          "wall_seconds": 128.00492632202804,
+          "worker_cpu_seconds": 127.589380032,
+          "peak_aggregate_rss_bytes": 303284224,
+          "phase_output_bytes": 28982697,
+          "limits": {
+            "timeout_seconds": 900.0,
+            "aggregate_rss_bytes": 536870912,
+            "output_bytes": 536870912
+          }
+        },
+        "test_2024": {
+          "status": "complete",
+          "reason": null,
+          "pid": 3961081,
+          "exit_code": 0,
+          "wall_seconds": 136.89496369598783,
+          "worker_cpu_seconds": 136.32980348799998,
+          "peak_aggregate_rss_bytes": 300412928,
+          "phase_output_bytes": 24356623,
+          "limits": {
+            "timeout_seconds": 900.0,
+            "aggregate_rss_bytes": 536870912,
+            "output_bytes": 536870912
+          }
+        },
+        "test_2025": {
+          "status": "complete",
+          "reason": null,
+          "pid": 4011079,
+          "exit_code": 0,
+          "wall_seconds": 150.30273603700334,
+          "worker_cpu_seconds": 149.846866824,
+          "peak_aggregate_rss_bytes": 302727168,
+          "phase_output_bytes": 28699696,
+          "limits": {
+            "timeout_seconds": 900.0,
+            "aggregate_rss_bytes": 536870912,
+            "output_bytes": 536870912
+          }
+        }
+      }
+    },
+    "mean30_reused_C": {
+      "origin": "measured in C and reused; no mean30 D1 refit",
+      "mean30_fit_wall_and_cpu_seconds": {
+        "validation_2023_mean30": {
+          "wall_seconds": 272.0915981569851,
+          "cpu_seconds": 269.570137795
+        },
+        "test_2024_mean30": {
+          "wall_seconds": 309.8165859900182,
+          "cpu_seconds": 307.938674359
+        },
+        "test_2025_mean30": {
+          "wall_seconds": 333.7489462060039,
+          "cpu_seconds": 332.469206424
+        }
+      },
+      "C_validation_phase_supervisor_includes_duration_grid": {
+        "status": "complete",
+        "reason": null,
+        "pid": 1358281,
+        "exit_code": 0,
+        "wall_seconds": 482.3596412370098,
+        "worker_cpu_seconds": 478.75906029299995,
+        "peak_aggregate_rss_bytes": 249405440,
+        "phase_output_bytes": 116627455,
+        "limits": {
+          "timeout_seconds": 900.0,
+          "aggregate_rss_bytes": 536870912,
+          "output_bytes": 536870912
+        }
+      },
+      "C_test_phase_supervisors": {
+        "2024": {
+          "status": "complete",
+          "reason": null,
+          "pid": 1508840,
+          "exit_code": 0,
+          "wall_seconds": 329.3184531859879,
+          "worker_cpu_seconds": 327.363863712,
+          "peak_aggregate_rss_bytes": 235630592,
+          "phase_output_bytes": 24442575,
+          "limits": {
+            "timeout_seconds": 900.0,
+            "aggregate_rss_bytes": 536870912,
+            "output_bytes": 536870912
+          }
+        },
+        "2025": {
+          "status": "complete",
+          "reason": null,
+          "pid": 1612030,
+          "exit_code": 0,
+          "wall_seconds": 356.21360963300685,
+          "worker_cpu_seconds": 354.86002935100004,
+          "peak_aggregate_rss_bytes": 238419968,
+          "phase_output_bytes": 28668881,
+          "limits": {
+            "timeout_seconds": 900.0,
+            "aggregate_rss_bytes": 536870912,
+            "output_bytes": 536870912
+          }
+        }
+      },
+      "full_C_diagnostic_costs_including_validation_grid": {
+        "wall_seconds": 1167.907775233005,
+        "phase_wall_seconds": 1167.8917040560045,
+        "worker_cpu_seconds": 1160.982953356,
+        "peak_aggregate_rss_bytes": 249405440
+      }
+    }
+  },
+  "optimization": {
+    "none_observed_fits": [
+      {
+        "phase": "validation_2023",
+        "epoch1_loss": 0.693145362207682,
+        "epoch30_loss": 0.6931471805589248,
+        "steps": 2030280,
+        "skips": 0
+      },
+      {
+        "phase": "test_2024",
+        "epoch1_loss": 0.693132477598398,
+        "epoch30_loss": 0.6931471805588587,
+        "steps": 2269710,
+        "skips": 0
+      },
+      {
+        "phase": "test_2025",
+        "epoch1_loss": 0.6931399471343127,
+        "epoch30_loss": 0.6931471805588161,
+        "steps": 2456730,
+        "skips": 0
+      }
+    ],
+    "none_epoch_rows": 90,
+    "none_steps": 6756720,
+    "none_skipped": 0,
+    "mean30_C_epoch_rows_reused": 90,
+    "loss_semantics": "mean softplus(-margin) before updates; regularization not included; none final loss near ln(2), no tuning after observation"
+  },
+  "numeric_audit": {
+    "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/postchecks/numeric_invariants.json",
+    "sha256": "5137c4c7a8df56b1c5ce84d41f1ce913b9d4add2db0048e639a7a550978213b7",
+    "script": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/postchecks/audit_numeric_invariants.py",
+    "script_sha256": "e4cd12daf389a6d5d273a31d9c4363ace652792a655f5d42e04e859ddc173f66",
+    "status": "complete",
+    "scope": {
+      "run_directory": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z",
+      "baseline_run_directory": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z",
+      "prepared_snapshots": "streamed 2019Q1–2025Q4; first-occurrence positive labels, historical product support, and candidate relations independently derived",
+      "source_snapshots_scanned": 28,
+      "evaluation_quarters_scanned": 12,
+      "evaluation_quarters_expected": 12,
+      "evaluation_periods": [
+        "validation_2023",
+        "test_2024",
+        "test_2025"
+      ],
+      "none_checkpoints_reconstructed": 3,
+      "pinned_c_checkpoints_compared": 3,
+      "none_epoch_log_rows_scanned": 90,
+      "pinned_c_epoch_log_rows_compared": 90,
+      "none_candidate_set_rows_scanned": 9853,
+      "pinned_c_candidate_set_rows_scanned": 9853,
+      "candidate_ids_compared_per_model": 9187488,
+      "paired_candidate_id_items": 4593744,
+      "none_prediction_rows_reconstructed": 4593744,
+      "pinned_c_prediction_rows_paired": 4593744,
+      "paired_prediction_id_label_rows": 4593744,
+      "none_raw_checkpoint_score_comparisons": 4593744,
+      "expected_none_predictions": 4593744,
+      "quarter_metric_tables_recomputed": 12,
+      "annual_metric_tables_recomputed": 3,
+      "pooled_test_metric_tables_recomputed": 1,
+      "prediction_stream_coverage": "all eligible candidate pairs; deterministic sampling: none; every none score/rank/label and EOF checked"
+    },
+    "checks": 51260776,
+    "discrepancies": {
+      "count": 0,
+      "examples_capped_at": 100,
+      "examples": []
+    },
+    "tolerance": {
+      "integers_and_strings": "exact; booleans are not accepted as integers",
+      "floating_point_scores_and_metrics": 1e-12,
+      "candidate_ids_hash": "exact SHA-256 over compact UTF-8 JSON list, ensure_ascii=False"
+    },
+    "selection_lock_order": {
+      "locked_at_utc": "2026-10-02T20:53:30.842192+00:00",
+      "selection_file_birth_utc": "2026-10-02T20:53:30.841904+00:00",
+      "validation_trace_birth_utc": "2026-10-02T20:51:22.513738+00:00",
+      "validation_trace_last_write_utc": "2026-10-02T20:53:30.438944+00:00",
+      "test_2024_trace_birth_utc": "2026-10-02T20:53:30.847309+00:00",
+      "test_2024_trace_last_write_utc": "2026-10-02T20:55:47.675109+00:00",
+      "test_2025_trace_birth_utc": "2026-10-02T20:55:48.042784+00:00",
+      "ordering_basis": "local Linux file birth and trace modification timestamps; traces contain fit_started before quarter evaluation and each test trace is born after its allowed predecessor"
+    },
+    "resources": {
+      "wall_seconds": 58.54687636499875,
+      "wall_limit_seconds": 900.0,
+      "rss_peak_bytes": 118292480,
+      "rss_current_at_report_bytes": 118292480,
+      "rss_limit_bytes": 536870912,
+      "rss_proc_status_high_water_bytes": 118292480,
+      "rss_resource_ru_maxrss_bytes": 571580416,
+      "python": "3.13.5 (main, Jul 23 2025, 00:37:22) [Clang 20.1.4 ]",
+      "platform": "linux",
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1"
+      }
+    },
+    "resource_interpretation": "VmHWM118292480 and cumulative ru_maxrss571580416 diverge; no startup readings or global audit RSS-under512MiB certification; training phase limits separately measured",
+    "raw_counter_name_caveat": "candidate_ids_compared_per_model=9187488 is total across both exports; paired candidate/prediction items=4593744",
+    "rss_probe": {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-publication-20261002T205122Z/rss_exec_probe.json",
+      "sha256": "dced22b91ab9924b47e1cdbe189ff6aa65483fe2630e640c6c5170be3a36596a",
+      "conclusion": "VmHWM resets across exec on the same PID; ru_maxrss retains the earlier image high-water mark",
+      "limitation": "D1 audit has no startup RSS readings; this probe does not establish the precise origin of its earlier 571580416-byte cumulative high-water mark; both audit readings remain unchanged"
+    }
+  },
+  "rendering": {
+    "metadata": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/postprocessing/render_metadata.json",
+    "metadata_sha256": "1c1bebd1c7a469b467621d67c2917c5d59fb031ced261db04dafb82c8f353dee",
+    "outputs": {
+      "csv": {
+        "path": "results/maude_aggregation_epochs_20261002T205122Z.csv",
+        "sha256": "05f579b9076ff976e43850223f51511fc27e6074231f16a5e7598b59b9948e7e",
+        "rows": 230,
+        "columns": 39,
+        "epoch_rows": 180
+      },
+      "svg": {
+        "path": "docs/consolidation-post-RC1/verification/maude_aggregation_20261002T205122Z.svg",
+        "sha256": "130c63895661731a8ae2160bef8130de92c017dd474d430cd7be570d08a1615d",
+        "bytes": 60811,
+        "text_preserved": true
+      },
+      "png": {
+        "path": "docs/consolidation-post-RC1/verification/maude_aggregation_20261002T205122Z.png",
+        "sha256": "034f04b645e5c4d5a8a6da35c04864177aaf5faf9a8865caefc298717a9a1230",
+        "bytes": 265663
+      }
+    },
+    "measured_epoch_rows": 180,
+    "mean30_origin": "90 epoch rows conserved from C",
+    "none30_origin": "90 new D1 epoch rows",
+    "visual_inspection": "PNG2484x1835 opened by renderer and parent; labels/loss series/result bars inspected; no epoch0 point"
+  },
+  "interpretation": {
+    "independent_confirmation": false,
+    "new_confidence_interval": false,
+    "isolated_aggregation_causal_effect": false,
+    "equal_active_capacity": false,
+    "equal_measured_cpu_budgets": false,
+    "none_is_message_passing_gnn": false,
+    "prior_validation_and_test_exposure": true,
+    "D2_engaged": false,
+    "human_approval": false,
+    "four_week_cycle_complete": false,
+    "remaining": "A/B human review, historical public availability, authors/declarations/editorial target, manuscript E and decision F remain open"
+  },
+  "preservation": "RC1, A/B/C manifests/ledgers, benchmark summary, main and four tags not replaced; preexisting root README DOI fix and three manuscript audit files excluded",
+  "artifact_hash_cycle_policy": "manifest does not hash itself, its ledger or inventory entries containing its own hash; inventory and ledger frozen afterward",
+  "artifacts": [
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/aggregation_protocol_executed.md",
+      "sha256": "78d1408a96da81fceb85b1f3f91034592b3b96dd95fbe4d508906e121c1efaca",
+      "size_bytes": 8591,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/cohort_comparison.json",
+      "sha256": "24aa8e07989d8be23e1e3c8ca7275c77b956b24b930eac0bd76b73583238dfba",
+      "size_bytes": 1329,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/postchecks/audit_numeric_invariants.py",
+      "sha256": "e4cd12daf389a6d5d273a31d9c4363ace652792a655f5d42e04e859ddc173f66",
+      "size_bytes": 77059,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/postchecks/numeric_invariants.json",
+      "sha256": "5137c4c7a8df56b1c5ce84d41f1ce913b9d4add2db0048e639a7a550978213b7",
+      "size_bytes": 168046,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/postprocessing/render_maude_aggregation.py",
+      "sha256": "17d3624c4a1e08cd50f0d3067b472a9569b4db938c48d6fbc301069eef8c2ed6",
+      "size_bytes": 22886,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/postprocessing/render_metadata.json",
+      "sha256": "1c1bebd1c7a469b467621d67c2917c5d59fb031ced261db04dafb82c8f353dee",
+      "size_bytes": 7076,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/report.json",
+      "sha256": "b863135ef668a8a558166c216cfb5e0f747730801206cbd95b676aaf34e60515",
+      "size_bytes": 168240,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/run_manifest.json",
+      "sha256": "03835cb2bfc0dced9bc840f839965c0813d82ba792a3c261d1ca6f4575126e65",
+      "size_bytes": 48354,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/selection_locked_before_test.json",
+      "sha256": "543b2f4cfd58543cf69d28fae972b34af1dca2c07d13203c92d9bb45582e5db5",
+      "size_bytes": 623,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/stdout.txt",
+      "sha256": "4f2812e6e68703c25c5eba9e440934799ca5d7f33b712d24256bbfb5add30527",
+      "size_bytes": 264,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q1/candidate_predictions.jsonl.gz",
+      "sha256": "3738dc49eaba46bebdcfd8dfe7eea32bc2df068c0f38bcc7c2693ba76d4bc8a0",
+      "size_bytes": 5715029,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q1/candidate_sets.jsonl.gz",
+      "sha256": "4479c2f66bd322c794ab3c99cf7b9487c92c48ee5294d2811e627f2c99f572de",
+      "size_bytes": 132308,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q1/quarter_result.json",
+      "sha256": "e5c565844978142e18e332defb8b3c2235359707d2a29c1751c55a583247493e",
+      "size_bytes": 6477,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q2/candidate_predictions.jsonl.gz",
+      "sha256": "ffc8c0cdd8b3a283645fbc6fe0be6fbf04c8320757780e775928d96a61390b0c",
+      "size_bytes": 6127591,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q2/candidate_sets.jsonl.gz",
+      "sha256": "8b9562966cc6816d63898b0777a261ea5ac3e71e301b656617feff910d0965e0",
+      "size_bytes": 144594,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q2/quarter_result.json",
+      "sha256": "c55ab723de2225d87b6b5aeb4084a65ec9296b388e3c158b2b76baa39517cc11",
+      "size_bytes": 6521,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q3/candidate_predictions.jsonl.gz",
+      "sha256": "90da8a24f43072fadbd449021e4068674442904f7a1c4d4c94c5fa896ee20583",
+      "size_bytes": 5692269,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q3/candidate_sets.jsonl.gz",
+      "sha256": "1061f2c6c72caa3d71d6e6b2c669bb60a913c288e13a6f6120513d433014d1d6",
+      "size_bytes": 134454,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q3/quarter_result.json",
+      "sha256": "4de198aeb8833b42a13e4008e67e35afb0e1be9a83c9dd343036b05b63ea3f90",
+      "size_bytes": 6526,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q4/candidate_predictions.jsonl.gz",
+      "sha256": "e7178a6f3b51fa1e10a3556316166c037642d34a29039a478fbe52d1cd1b7025",
+      "size_bytes": 5545537,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q4/candidate_sets.jsonl.gz",
+      "sha256": "d6f4fbd2441e4988f7a6011ae2f4a8facc049aa9365b32f6aa48d173c489fd7f",
+      "size_bytes": 133217,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/2024Q4/quarter_result.json",
+      "sha256": "1cdcc49b0e5918f1001053fc3d22d726e79f970638ff7f2a8aba6656613a320c",
+      "size_bytes": 6484,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/completed_quarters.json",
+      "sha256": "4dd0a16d0789cadfb4b95cc7ccf432ac71a6912dbe60b131692d636a6f96c6a3",
+      "size_bytes": 103,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/fit_epochs_30/checkpoint.json.gz",
+      "sha256": "15eeae8cfc5f6c233b0350de52042e5a52df669efa3817708552fb7550e3e765",
+      "size_bytes": 667600,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/fit_epochs_30/epochs.jsonl.gz",
+      "sha256": "fc45ecc0a0bd67e1140b8e936381862043cac25c629157043a68b185a3ccd453",
+      "size_bytes": 677,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/phase_summary.json",
+      "sha256": "35fcacb5e1571eeb256370cff30140f8b2ab3b4f662aed4424be1376d750bae4",
+      "size_bytes": 36460,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/supervisor_status.json",
+      "sha256": "b743d0bf84b3d386aba398dc9e3414f51a611b0dfe08f16d4db614ad8510306e",
+      "size_bytes": 355,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/trace.jsonl.gz",
+      "sha256": "68686551375fa3f302b8fa277eafcdd6d03a7b96da5085f2fe8489d29a40673b",
+      "size_bytes": 600,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2024/worker_status.json",
+      "sha256": "15d1f5ff6e1fa58c62f57e85cebba842e63c24fc4c77c6e0ac29a7b7c02fb637",
+      "size_bytes": 176,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q1/candidate_predictions.jsonl.gz",
+      "sha256": "59dac74efff905209535f10424db8232c0a866aab68d591e0d0a5df6c745e590",
+      "size_bytes": 5517851,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q1/candidate_sets.jsonl.gz",
+      "sha256": "53422dd293d0e1584dbb0ca78188fa9363f233f78125d8c2aaf9b3af68c4cc0e",
+      "size_bytes": 130345,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q1/quarter_result.json",
+      "sha256": "d960f5c0e0ebe0d5f6aa1595ba7d210c96452157eadfdde0161bdf7f87c63a2e",
+      "size_bytes": 6407,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q2/candidate_predictions.jsonl.gz",
+      "sha256": "d3f67486e1de4da6f124a53f56e7c8b1d14be0d98a98d9e28151d8cbc7fe37ab",
+      "size_bytes": 7419055,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q2/candidate_sets.jsonl.gz",
+      "sha256": "0aab0f24f67ab70534585871af7eed9ff1aaea35299104f4f89c7216dc446158",
+      "size_bytes": 169844,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q2/quarter_result.json",
+      "sha256": "e31f2b893a961830633b0e03ad1ab9a1069c5cae9b87c1589b1abab2651ac8d3",
+      "size_bytes": 6528,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q3/candidate_predictions.jsonl.gz",
+      "sha256": "b179a6bb08162297a83c4e95dd506ea55000d5a349b9ab19e93b6b2618abb47d",
+      "size_bytes": 7107641,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q3/candidate_sets.jsonl.gz",
+      "sha256": "76d8f2832f35a5db9688bbc2d03a435387f596703a91cdb97a2d84d4b7cfbee3",
+      "size_bytes": 163236,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q3/quarter_result.json",
+      "sha256": "ff7057063e1f54c59dd5c07ab93c1ea553d6d04e742c5bb9fc16f0ad4da551c9",
+      "size_bytes": 6510,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q4/candidate_predictions.jsonl.gz",
+      "sha256": "5904f04a4234dc14244915da7829861e893fbde9c7c657b4bbda1d9056aa0e24",
+      "size_bytes": 7263059,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q4/candidate_sets.jsonl.gz",
+      "sha256": "5ee9aed44817c2d259128c138a92863afbc6498f5ce3435fe90c373cb8d6ccda",
+      "size_bytes": 168864,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/2025Q4/quarter_result.json",
+      "sha256": "1b26b4f63864104298be5fb9c1628efbff71003c0457dde9a930318e1893178b",
+      "size_bytes": 6487,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/completed_quarters.json",
+      "sha256": "e74206353f8d899c2e839fa9efc7fd5cee6ce37d5db10179fe19f793ff6a65a1",
+      "size_bytes": 103,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/fit_epochs_30/checkpoint.json.gz",
+      "sha256": "aeb0996196d0473cf4bda8b2bdd490afa128139e604fb4de77d1a61195f35602",
+      "size_bytes": 695996,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/fit_epochs_30/epochs.jsonl.gz",
+      "sha256": "9d634e56ec72d0775f6bbc5c1b5d427214a4f6620832c7ebafc644bbdaf772b6",
+      "size_bytes": 653,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/phase_summary.json",
+      "sha256": "cc087f735e507f93a2d0ad1e4a3715a35e82a10fa1eb445601412019cf855ebd",
+      "size_bytes": 36342,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/supervisor_status.json",
+      "sha256": "7d745f05dd00f311bed841c12c983445fbfafa20af61e3f406560ea36279e07a",
+      "size_bytes": 350,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/trace.jsonl.gz",
+      "sha256": "484f85dc3c119a30ae52be43314f48ea41b134a6cae5946d3c56a04a79b93050",
+      "size_bytes": 605,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_2025/worker_status.json",
+      "sha256": "22d676eb22cc5f0e308e705fa9a160e88328fe5e5e6c4614c4c6f82fbb7e0032",
+      "size_bytes": 170,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/test_aggregate_2024_2025.json",
+      "sha256": "10b8f508e1d6ecef2d7e3243159e50a85a03c0aac26ab2b835c9fdd18e11f984",
+      "size_bytes": 6213,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q1/candidate_predictions.jsonl.gz",
+      "sha256": "213d5dec1dacbfc65aa851d881a1a4d7b80760bc226f3cdb96a5fc367ab13cee",
+      "size_bytes": 7303582,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q1/candidate_sets.jsonl.gz",
+      "sha256": "736a22827bf60d4708a59a9f5b916ea5c2d772e4f47f18dba99582599a9849ae",
+      "size_bytes": 163374,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q1/quarter_result.json",
+      "sha256": "8146283a57c22371b04bce8bca748297b9cd7093d9c58b8a00427538b68fa888",
+      "size_bytes": 6464,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q2/candidate_predictions.jsonl.gz",
+      "sha256": "7e191aca81963140b56a6d2d54cbdba024fec37edf90273b11f213ed8ccf879d",
+      "size_bytes": 7520935,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q2/candidate_sets.jsonl.gz",
+      "sha256": "247d8e039ce6f16747dc77b73df6c424d30ed8e1db67b1eca9cb3b5a1e471185",
+      "size_bytes": 167485,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q2/quarter_result.json",
+      "sha256": "077e11250a0e5dcc1063a4004fc809c817555de1a0e5722d69958c079c250369",
+      "size_bytes": 6569,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q3/candidate_predictions.jsonl.gz",
+      "sha256": "5d6fdfd1971a84a7535285d54db4e6bd478fe16f948b7f7be86d92fe39dd327a",
+      "size_bytes": 7092949,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q3/candidate_sets.jsonl.gz",
+      "sha256": "341ac4aea6393d2f97185f42cedda621c109b099b5187e44e4d0c91fbebf5505",
+      "size_bytes": 160920,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q3/quarter_result.json",
+      "sha256": "56db67ac34c2f30720680fe96430706dba220d1deae345da49532826e8de878a",
+      "size_bytes": 6501,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q4/candidate_predictions.jsonl.gz",
+      "sha256": "ba51fb6ed4b75bf5d3e09b1917317ea003dea6658a5cf450c02e50fb089b0f22",
+      "size_bytes": 5704163,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q4/candidate_sets.jsonl.gz",
+      "sha256": "8ecba59d988786953545a3512acb03025cfb4e6268c18bc0ac124f7d4834789f",
+      "size_bytes": 135491,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/2023Q4/quarter_result.json",
+      "sha256": "6ffaf9f9f9c12c932389cad32e4e378a430d849ff2b167d866a7abe7dbb07cd5",
+      "size_bytes": 6488,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/checkpoint.json.gz",
+      "sha256": "71279ddbc9761084ddc3fefa69f344f9386d43518e30dd2d3275ceb601349788",
+      "size_bytes": 629138,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/epochs.jsonl.gz",
+      "sha256": "24d0d904f23cd57ac11cbaccb63d59f579389f31b6f545f3f0acc7e364379b0c",
+      "size_bytes": 697,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/fit_epochs_30/fit_result.json",
+      "sha256": "12c3f7b25e491ed7d12ea205247cea205f027b04857ce5d7e9a2a86be30ab507",
+      "size_bytes": 36445,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/supervisor_status.json",
+      "sha256": "8b3d462213d83578ea37ad5f0486528c16c8c5e24d8e0180e40fdf194f33d6ea",
+      "size_bytes": 350,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/trace.jsonl.gz",
+      "sha256": "4e5bdd69fce4cd9aaa42d1df9a084a90e7adab15b79e278c8f231977bbcb09b3",
+      "size_bytes": 610,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/validation_summary.json",
+      "sha256": "2cfc4a719cfa5bcb20471982b040e5449521b50e1ca94fd5a68b8869e709614a",
+      "size_bytes": 40709,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-20261002T205122Z/validation_2023/worker_status.json",
+      "sha256": "1bab26cf2e04a486dcb8b04dbbd492557917f3bf1a74b45d8d856c347a06982f",
+      "size_bytes": 177,
+      "origin": "D1 local output/postprocessing evidence"
+    },
+    {
+      "path": "healthgraphbench/tasks/maude/models.py",
+      "sha256": "403f220c2269cbb7c1792477e3abaa73b0a9c75298b42c7b2265a9e2bb7295f0",
+      "size_bytes": 51861,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "healthgraphbench/tasks/maude/diagnostic.py",
+      "sha256": "c7316a2292a388c7004f4423abd00fe243f8cd8dfbf6422ccd728e3b402da4cf",
+      "size_bytes": 54894,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "healthgraphbench/tasks/maude/ablation.py",
+      "sha256": "eca360cfa636cf1b422afd63e917c68a679fd2366a223e9748d113052274e5b3",
+      "size_bytes": 57043,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "scripts/run_maude_aggregation_ablation.py",
+      "sha256": "74d4ea6e3cebffe4b889e6dc34dcccc323c285addcc197be92e481907d9c4988",
+      "size_bytes": 380,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "healthgraphbench/tasks/maude/evaluate.py",
+      "sha256": "825cafb260dd2b8f8558224447a866cec9c7dba1cee5b5c5b05ad89a174145b7",
+      "size_bytes": 30831,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "healthgraphbench/tasks/maude/data.py",
+      "sha256": "019d8d4792115e83327e2d5e6c5aa10dc42355bc908b84093fde28dadf0ba9d0",
+      "size_bytes": 16840,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "tests/test_graphsage_diagnostics.py",
+      "sha256": "406f82c05b4838fb52a3850fea4c8983ed6e85025d131210e56bb51a74afdf7d",
+      "size_bytes": 8794,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "tests/test_maude_aggregation_ablation.py",
+      "sha256": "5203e1c7cd6b100a361d63c0f5cdc9a19b7bd4f657c06bbc2cfb957c805b0cd6",
+      "size_bytes": 5820,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "docs/consolidation-post-RC1/aggregation_protocol.md",
+      "sha256": "78d1408a96da81fceb85b1f3f91034592b3b96dd95fbe4d508906e121c1efaca",
+      "size_bytes": 8591,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "results/maude_aggregation_preflight_20261002.json",
+      "sha256": "defb3ec1b55be264f0d9c10c80662ccdfae7077b5c76732a58e4d712caa54c26",
+      "size_bytes": 4097,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "docs/consolidation-post-RC1/verification/maude_aggregation_ablation.md",
+      "sha256": "afb28caef1a1fb448642b894d0f747df71a34903d39836044449b6dc506ff0a4",
+      "size_bytes": 18732,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "results/maude_aggregation_epochs_20261002T205122Z.csv",
+      "sha256": "05f579b9076ff976e43850223f51511fc27e6074231f16a5e7598b59b9948e7e",
+      "size_bytes": 211665,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "docs/consolidation-post-RC1/verification/maude_aggregation_20261002T205122Z.svg",
+      "sha256": "130c63895661731a8ae2160bef8130de92c017dd474d430cd7be570d08a1615d",
+      "size_bytes": 60811,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "docs/consolidation-post-RC1/verification/maude_aggregation_20261002T205122Z.png",
+      "sha256": "034f04b645e5c4d5a8a6da35c04864177aaf5faf9a8865caefc298717a9a1230",
+      "size_bytes": 265663,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "docs/consolidation-post-RC1/README.md",
+      "sha256": "2947729b2ba7f16b30899ead6ca1d6c0e849092b0ac73a959367d26938e5ca8c",
+      "size_bytes": 13591,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "docs/consolidation-post-RC1/scope_and_decisions.md",
+      "sha256": "6e2030b896b3d76f95ca0e1b38e454101c71f4ad050c67773b632eb8b6b20ff1",
+      "size_bytes": 20437,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "docs/consolidation-post-RC1/scientific_changes.md",
+      "sha256": "a826025d1f35fdc80ec0d8a743e6f50ea0ce6fc85e4532539263489cba13aaf6",
+      "size_bytes": 17147,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "docs/consolidation-post-RC1/claims_evidence.csv",
+      "sha256": "294c6f385b24dc58d8d953011b7c3416a7c8937fe6d69e34662d679ec2b292a3",
+      "size_bytes": 48399,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "docs/ROADMAP_HealthGraphBench.md",
+      "sha256": "b22f805f3b55719342cb3ba845a75c84b44bb6c0851f884431a8e489079559a0",
+      "size_bytes": 25812,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "docs/project_history.md",
+      "sha256": "e3957d10fc0c553c91c0db4e171ba204027bee75ddb422c16380931db5543c77",
+      "size_bytes": 11372,
+      "origin": "D1 versioned code/protocol/report or integration documentation"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/report.json",
+      "sha256": "36517f4de36e7274c68219755efd9edc36028f170e4c3a4deed58bc8d445bedc",
+      "size_bytes": 16257,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/run_manifest.json",
+      "sha256": "41f104f7b08c959b7c1c979e8448b7ab40a263f730a532aa74a0642e926d8fbb",
+      "size_bytes": 4323,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/selection.json",
+      "sha256": "3b2f3168b1689252716f44a30ad61dab92dde169eb97b1a5b3d65b2a3ea05e73",
+      "size_bytes": 429,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q1/candidate_predictions.jsonl.gz",
+      "sha256": "dc5fb5ee3f39f29c0898e9a3f2911fff5c8edb402bfa5e812d61382687f7e807",
+      "size_bytes": 5734281,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q1/candidate_sets.jsonl.gz",
+      "sha256": "900f5908a6f3481440e3f927c6b55eace69dcdea1feb446a05b3921d1221fb4a",
+      "size_bytes": 132308,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q1/quarter_result.json",
+      "sha256": "0ad10b77ca35dea131f2e2988e048bbb1874dbce3903234800fd05c0913bfa84",
+      "size_bytes": 6543,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q2/candidate_predictions.jsonl.gz",
+      "sha256": "ff251ad75b1e85e5f96b24a9b4706d443acd72cb9cf92d171cc55b3d191992f9",
+      "size_bytes": 6142616,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q2/candidate_sets.jsonl.gz",
+      "sha256": "bac7c0368662617a3816617f61f37e9f3be822d8873f62c8834eeaf47d5d8c3e",
+      "size_bytes": 144594,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q2/quarter_result.json",
+      "sha256": "dc311ae120822a16b04f4f3afade3192e75510e41a0e731a4c85ae48c47d1cb6",
+      "size_bytes": 6532,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q3/candidate_predictions.jsonl.gz",
+      "sha256": "586482dbe8e122908550336b8bc238c2bf560c1111ac95d3b77b575eefac35da",
+      "size_bytes": 5705647,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q3/candidate_sets.jsonl.gz",
+      "sha256": "0fae41a046b2e5db8dce2e1b87f13f778eba2c682fd23e63915db3198d69836e",
+      "size_bytes": 134454,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q3/quarter_result.json",
+      "sha256": "af16690d3ce5f1eba3d7095b97259bae7e674e84ba82273a1fbc142a548f754b",
+      "size_bytes": 6532,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q4/candidate_predictions.jsonl.gz",
+      "sha256": "5ab8e77c696c4f44e5395bc191f230a8c46f02b7313096ac7b205fe695af3c2a",
+      "size_bytes": 5559685,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q4/candidate_sets.jsonl.gz",
+      "sha256": "4ba20be6892490f62c0a961f8eb4a56586d3d02e140eb07c250a334c5500d9bb",
+      "size_bytes": 133217,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/2024Q4/quarter_result.json",
+      "sha256": "993b8013e8f096152f21d9860e46a943c60afe290f69da36deacac38775fa038",
+      "size_bytes": 6515,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/fit_epochs_30/checkpoint.json.gz",
+      "sha256": "9f5a0173ec023d3c03ca8ac63b62fce828ba1b79fef76280753ee27f8381db23",
+      "size_bytes": 691317,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/fit_epochs_30/epochs.jsonl.gz",
+      "sha256": "5b4b46fa9e1e9b4f9e638da36a9d401053c465511710d8267b37c8262ec7a9b4",
+      "size_bytes": 922,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2024/phase_summary.json",
+      "sha256": "80e055e94fb589012123b352fbf68a75e12232e80865ec61982fe9296e7cbbfb",
+      "size_bytes": 36547,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q1/candidate_predictions.jsonl.gz",
+      "sha256": "9f9166a4e2002efccc914db09d632805170ccd367d7a41a7786bc601070d5689",
+      "size_bytes": 5508925,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q1/candidate_sets.jsonl.gz",
+      "sha256": "f097867ec47f53fa96c0e9ccff8bc51bb17e034fb32d46cecb0b2f0e491e6e5e",
+      "size_bytes": 130345,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q1/quarter_result.json",
+      "sha256": "bb535a4fcb48ef8989a383fc645b7728df1562b0c819db42b695ccbe0c20c6d0",
+      "size_bytes": 6489,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q2/candidate_predictions.jsonl.gz",
+      "sha256": "ec241572d0bf5b892939354b08a3abed199dce57599abe3cc18b70ef15680dd9",
+      "size_bytes": 7402565,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q2/candidate_sets.jsonl.gz",
+      "sha256": "bed8e2bcb3b33d6a235a79ec23be88ec4ac9aea8fa2b75e243e98a7fa1f9785c",
+      "size_bytes": 169844,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q2/quarter_result.json",
+      "sha256": "d713df949ca9ac777bc340dff196492ca8024436b16f1196f5a7bd2ce9ed344f",
+      "size_bytes": 6548,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q3/candidate_predictions.jsonl.gz",
+      "sha256": "ea34c08015d80638f55f900f65c58a599a4d8b087c8c83c42c6413fa8b4669fb",
+      "size_bytes": 7092036,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q3/candidate_sets.jsonl.gz",
+      "sha256": "ffcf51ef018bd4fdf1b518d9eefcddad651aa9372837a73de963ef081a7d09d1",
+      "size_bytes": 163236,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q3/quarter_result.json",
+      "sha256": "8d5977507a0e8e26e6ff6585c61139cce998bda7d85b12f628c2679dc81bb474",
+      "size_bytes": 6544,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q4/candidate_predictions.jsonl.gz",
+      "sha256": "76c868844be14ef5bb5f9651f762545ad55b48e279507a98c6ce2b5d2834e28b",
+      "size_bytes": 7248131,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q4/candidate_sets.jsonl.gz",
+      "sha256": "d8e7eb9e2faa823ae7a9b5f1bba75c41ee6a7d4cbae0076199d9ea16114c2565",
+      "size_bytes": 168864,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/2025Q4/quarter_result.json",
+      "sha256": "e7fd0549267ca3e9ad88dfb0a4bf50df7d1ed72fca4a59e658e50310be397e35",
+      "size_bytes": 6535,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/fit_epochs_30/checkpoint.json.gz",
+      "sha256": "a3c6122945b20110c9aad93dd872edc353d5f06f670a6329fa4c04002f293134",
+      "size_bytes": 720495,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/fit_epochs_30/epochs.jsonl.gz",
+      "sha256": "d680c070bd05923f5a2da30c53b190b24479675b45ec1a2e9a6e63464fba3bd3",
+      "size_bytes": 923,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_2025/phase_summary.json",
+      "sha256": "4f9ae86d9ec8ca11fa7996773a050a001969b59ccb1ba7a024ceff7eb46796be",
+      "size_bytes": 36523,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/test_aggregate_2024_2025.json",
+      "sha256": "9330d5ecc0f3c713cae5a9afbf596f8448a8ff30c421fd66f18cdceb433eaf9c",
+      "size_bytes": 6221,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q1/candidate_predictions.jsonl.gz",
+      "sha256": "b03fd6afcfffe7ca7b137bfe53b87d7aa3613a5899e3ae22bc176eea0e6e5e96",
+      "size_bytes": 7314923,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q1/candidate_sets.jsonl.gz",
+      "sha256": "5ad4e29ba9e91aa1c4dc4ccfe8837a8c09db7e186e81ae17701b7ef41fcbc6b6",
+      "size_bytes": 163374,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q1/quarter_result.json",
+      "sha256": "6f567457ecd9dde3e0a1e1b4d5b022f5f2eb741f418c74a39f64f79b3bce13e5",
+      "size_bytes": 6583,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q2/candidate_predictions.jsonl.gz",
+      "sha256": "50a6be56ad7a8d9e5db0eabfbcab7c07ebe35b7de25c7e48d49c71591b51dfe9",
+      "size_bytes": 7529423,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q2/candidate_sets.jsonl.gz",
+      "sha256": "6e24bb9a6c11062c77b201d4bbbb4afe9a9a498e3af1e9fb1500728e73cafefb",
+      "size_bytes": 167485,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q2/quarter_result.json",
+      "sha256": "f683e810c80ac6e5601d9996d96681f2fc46e6e112f0dc4685bfd05a1bfe13a2",
+      "size_bytes": 6578,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q3/candidate_predictions.jsonl.gz",
+      "sha256": "9ef3421b4a45f7c5702a1ba1c40a345010ace046a35016a8c50dc310397ef9f6",
+      "size_bytes": 7101123,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q3/candidate_sets.jsonl.gz",
+      "sha256": "bf069204f71a6a2267f6361569b98d8caaec3f44c36b137fd3e2da63a01145ca",
+      "size_bytes": 160920,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q3/quarter_result.json",
+      "sha256": "1ebb2eb6f8c867c0a7f63c7cd7fc82ffbc812f9313b985432dfe936f74a5517b",
+      "size_bytes": 6578,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q4/candidate_predictions.jsonl.gz",
+      "sha256": "f3732c5e30d9fe89dabfe6b8a409c258e3870a6bdf6368bd606f27026f77a865",
+      "size_bytes": 5709567,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q4/candidate_sets.jsonl.gz",
+      "sha256": "eb814df1d3b11272d4545fa7afcc64e80b3e667b1dd48b8ee0a3d9018b206fb0",
+      "size_bytes": 135491,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/2023Q4/quarter_result.json",
+      "sha256": "3edffa5d974e7084b803e76a80aca06d0b07ffc9c42c0da591672265ecfd3d7b",
+      "size_bytes": 6546,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/checkpoint.json.gz",
+      "sha256": "429aca80805463f0448e2d9dd66e018f30a1d099ebd4b4abad37be25548bdb71",
+      "size_bytes": 652103,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/epochs.jsonl.gz",
+      "sha256": "6fe5a0154068830322f9c385f1c0563571b34b5329060ac037d87a25acb141d7",
+      "size_bytes": 924,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/fit_epochs_30/fit_result.json",
+      "sha256": "5edee4cff3e5e473c47deafe828caea58e77bca9abd1af7f4b08b25299aa5eaf",
+      "size_bytes": 36683,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-duration-20261002T172405Z/validation_2023/validation_summary.json",
+      "sha256": "478e4a27800b6086029828e8e8ee5af79c1ad2c603e081a15cd94efdbb5b7b5e",
+      "size_bytes": 162783,
+      "origin": "retained C mean30 output reused; not retrained"
+    },
+    {
+      "path": "results/maude_duration_diagnostic_20261002T172405Z.json",
+      "sha256": "0c8a610991e313d49a9fba03736d225897620cec86779989c8b243665942dff2",
+      "size_bytes": 71975,
+      "origin": "pinned C public evidence"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-publication-20261002T205122Z/launch.json",
+      "sha256": "3d652b2c811791251c134910cef97be497848219b8018d2b2fa0e2e7fe95e3c4",
+      "size_bytes": 2178,
+      "origin": "publication before health fits"
+    },
+    {
+      "path": "results/generated/consolidation-post-RC1/maude-aggregation-publication-20261002T205122Z/rss_exec_probe.json",
+      "sha256": "dced22b91ab9924b47e1cdbe189ff6aa65483fe2630e640c6c5170be3a36596a",
+      "size_bytes": 2312,
+      "origin": "post-audit non-health telemetry probe"
+    }
+  ]
+}

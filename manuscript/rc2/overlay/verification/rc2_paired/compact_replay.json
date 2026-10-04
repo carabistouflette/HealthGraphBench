@@ -1,0 +1,78 @@
+{
+  "scope": "Autonomous compact contribution replay outside repository; original candidate identities not reverified",
+  "command": [
+    "/home/arobin/Work/Repos/HealthGraphBench/results/generated/consolidation-post-RC1/core-verification-20261002/analysis-env/bin/python",
+    "scripts/analyze_maude_paired_comparison.py",
+    "--protocol",
+    "data/post_rc1/paired_protocol.json",
+    "--replay-contributions",
+    "data/post_rc1/paired_contributions.csv",
+    "--output-dir",
+    "output"
+  ],
+  "helper_module_path": "/tmp/hgb-paired-autonomous-6fe6ivbu/vendor/post_rc1/healthgraphbench/evaluation/bootstrap.py",
+  "no_repository_import": true,
+  "interval_exact_match": true,
+  "draws_exact_match": true,
+  "replay_result": {
+    "analysis": "MAUDE retained C30 versus historical neighbor_frequency",
+    "status": "completed",
+    "protocol_sha256": "3b83a0b38cd217617e2b7acbc1166bdf98ed9b5b9e31f9a7bf6c942b70a6d6ad",
+    "code_sha256": "4b6231b4ec90fcfe837086a35e2673fae986bad797068e2a61359180ed0b1fcd",
+    "bootstrap_helper_sha256": "13e7b9145a717a4ea18bac5b2387e47870d8530a95887c50e60ddc65b30328d5",
+    "executed_at_utc": "2026-10-03T13:46:47.640779+00:00",
+    "inputs": [
+      {
+        "role": "paired_contributions",
+        "sha256": "169ce34365fef1011272066be759b6b1e172d4eed92cf59334f7699674e82c93"
+      }
+    ],
+    "pairing": {
+      "scope": "Compact replay only; original candidate/label inputs not rechecked.",
+      "observations": 6370,
+      "positive_edges": 13174,
+      "candidate_pairs": 2975156,
+      "products": 2026,
+      "mismatches": 0
+    },
+    "point": {
+      "C30_hits": 2775,
+      "neighbors_hits": 2530,
+      "positive_edges": 13174,
+      "C30_r10": 0.21064217397904964,
+      "neighbors_r10": 0.19204493699711553
+    },
+    "interval": {
+      "estimate": 0.018597236981934114,
+      "ci95": [
+        0.011975077183345641,
+        0.025570110819776913
+      ],
+      "resamples": 1000,
+      "seed": 20261003,
+      "clusters": 2026,
+      "valid_resamples": 1000,
+      "undefined_resamples": 0
+    },
+    "scope": {
+      "conditional_on_retained_predictions_and_observed_population": true,
+      "model_selection_or_training_uncertainty_included": false,
+      "all_network_dependence_removed": false,
+      "independent_confirmation": false,
+      "duration_causal_effect": false,
+      "new_fits_tuning_seeds_D2_or_historical_audits": false
+    },
+    "cost": {
+      "wall_seconds": 0.04273398100031045,
+      "peak_rss_bytes": 226193408
+    },
+    "environment": {
+      "python": "3.13.5 (main, Jul 23 2025, 00:37:22) [Clang 20.1.4 ]",
+      "numpy": "2.3.5"
+    },
+    "contributions_sha256": "169ce34365fef1011272066be759b6b1e172d4eed92cf59334f7699674e82c93",
+    "draws_sha256": "bfbf0ed5d277fceec1a44fbd624f6a4e9ae2fa955e0fa6eafc99e274161df164"
+  },
+  "stdout": "{\n  \"analysis\": \"MAUDE retained C30 versus historical neighbor_frequency\",\n  \"status\": \"completed\",\n  \"protocol_sha256\": \"3b83a0b38cd217617e2b7acbc1166bdf98ed9b5b9e31f9a7bf6c942b70a6d6ad\",\n  \"code_sha256\": \"4b6231b4ec90fcfe837086a35e2673fae986bad797068e2a61359180ed0b1fcd\",\n  \"bootstrap_helper_sha256\": \"13e7b9145a717a4ea18bac5b2387e47870d8530a95887c50e60ddc65b30328d5\",\n  \"executed_at_utc\": \"2026-10-03T13:46:47.640779+00:00\",\n  \"inputs\": [\n    {\n      \"role\": \"paired_contributions\",\n      \"sha256\": \"169ce34365fef1011272066be759b6b1e172d4eed92cf59334f7699674e82c93\"\n    }\n  ],\n  \"pairing\": {\n    \"scope\": \"Compact replay only; original candidate/label inputs not rechecked.\",\n    \"observations\": 6370,\n    \"positive_edges\": 13174,\n    \"candidate_pairs\": 2975156,\n    \"products\": 2026,\n    \"mismatches\": 0\n  },\n  \"point\": {\n    \"C30_hits\": 2775,\n    \"neighbors_hits\": 2530,\n    \"positive_edges\": 13174,\n    \"C30_r10\": 0.21064217397904964,\n    \"neighbors_r10\": 0.19204493699711553\n  },\n  \"interval\": {\n    \"estimate\": 0.018597236981934114,\n    \"ci95\": [\n      0.011975077183345641,\n      0.025570110819776913\n    ],\n    \"resamples\": 1000,\n    \"seed\": 20261003,\n    \"clusters\": 2026,\n    \"valid_resamples\": 1000,\n    \"undefined_resamples\": 0\n  },\n  \"scope\": {\n    \"conditional_on_retained_predictions_and_observed_population\": true,\n    \"model_selection_or_training_uncertainty_included\": false,\n    \"all_network_dependence_removed\": false,\n    \"independent_confirmation\": false,\n    \"duration_causal_effect\": false,\n    \"new_fits_tuning_seeds_D2_or_historical_audits\": false\n  },\n  \"cost\": {\n    \"wall_seconds\": 0.04273398100031045,\n    \"peak_rss_bytes\": 226193408\n  },\n  \"environment\": {\n    \"python\": \"3.13.5 (main, Jul 23 2025, 00:37:22) [Clang 20.1.4 ]\",\n    \"numpy\": \"2.3.5\"\n  },\n  \"contributions_sha256\": \"169ce34365fef1011272066be759b6b1e172d4eed92cf59334f7699674e82c93\",\n  \"draws_sha256\": \"bfbf0ed5d277fceec1a44fbd624f6a4e9ae2fa955e0fa6eafc99e274161df164\"\n}\n",
+  "stderr": ""
+}

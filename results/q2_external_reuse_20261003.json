@@ -1,0 +1,503 @@
+{
+  "schema": "healthgraphbench.q2-reuse-evidence.v1",
+  "status": "complete",
+  "run_root": "results/generated/q2-cycle-20261003/external-reuse-001",
+  "code_commit": "abf13e3bbb279909c4633fd0dd7ed95231980129",
+  "wheel_build_commit": "f8ea41c4d8f090560fbdbc698db2300821b9cfef",
+  "wheel_sha256": "b5c776556ef64686804c4dec6e354127c59c3db441710519da793ffee6117428",
+  "protocol_sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7",
+  "evidence_limits": {
+    "external_human_participant_validation": "pending",
+    "historically_consulted_2019_2024_periods_are_exploratory": true,
+    "independent_public_availability_at_origin_established": false,
+    "technical_assistant_run_is_not_external_human_validation": true
+  },
+  "preparation": {
+    "cohort_size_by_target_year": {
+      "2022": 2000,
+      "2023": 2000,
+      "2024": 2000
+    },
+    "cohort_size_requested": 2000,
+    "contract_path": "/home/arobin/Work/Repos/HealthGraphBench/configs/task_contract_v0_2.json",
+    "contract_sha256": "482adfa6665138c246f6212158d61bf2cd33e70049ad3d5e793283a6b2cd9b8f",
+    "manifest_path": "/home/arobin/Work/Repos/HealthGraphBench/data/manifests/partd_feasibility_v0_2_lookback.json",
+    "manifest_sha256": "1821460f2ad68e988bd7cb63afef79d671544e6edcd1ca1de5e35335ad638ec0",
+    "preparation_report_sha256": "1f9785a988b30f6d59a42326af12c10b29da82103b4b7ec7afb96fbc45db0fe7",
+    "raw_source_root": "/home/arobin/healthgraphbench-data/partd-v0_2-lookback",
+    "raw_sources": [
+      {
+        "bytes": 2875,
+        "path": "/home/arobin/Work/Repos/HealthGraphBench/configs/task_contract_v0_2.json",
+        "sha256": "482adfa6665138c246f6212158d61bf2cd33e70049ad3d5e793283a6b2cd9b8f"
+      },
+      {
+        "bytes": 141379,
+        "path": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/preparation/report.json",
+        "sha256": "1f9785a988b30f6d59a42326af12c10b29da82103b4b7ec7afb96fbc45db0fe7"
+      },
+      {
+        "bytes": 63251985,
+        "path": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/preparation/edges.csv",
+        "sha256": "54fe20d8171e4ccaab820d04587f702fd2778f5803fb99d628521950ccb47d6e"
+      },
+      {
+        "bytes": 6917,
+        "path": "/home/arobin/Work/Repos/HealthGraphBench/data/manifests/partd_feasibility_v0_2_lookback.json",
+        "sha256": "1821460f2ad68e988bd7cb63afef79d671544e6edcd1ca1de5e35335ad638ec0"
+      },
+      {
+        "bytes": 3657232553,
+        "path": "/home/arobin/healthgraphbench-data/partd-v0_2-lookback/partd_2019.csv",
+        "sha256": "035a1b6cb076d7e2a110c6720931e61ab01e22c1db5c729fcbd284cd16980421"
+      },
+      {
+        "bytes": 3636794301,
+        "path": "/home/arobin/healthgraphbench-data/partd-v0_2-lookback/partd_2020.csv",
+        "sha256": "fb83c9e471aede743b3b130762f1c880399912843e216879ee10cc33661d3978"
+      },
+      {
+        "bytes": 3641939924,
+        "path": "/home/arobin/healthgraphbench-data/partd-v0_2-lookback/partd_2021.csv",
+        "sha256": "41aed37c7af3c54a287fde5d0908890438dbffd00d1686e704b7f94b4f8bcb01"
+      },
+      {
+        "bytes": 3738326206,
+        "path": "/home/arobin/healthgraphbench-data/partd-v0_2-lookback/partd_2022.csv",
+        "sha256": "a81ee7a58643bcd56a109ea5399f692a6352a64673f767a1d719c81aab86ae8f"
+      },
+      {
+        "bytes": 3877447342,
+        "path": "/home/arobin/healthgraphbench-data/partd-v0_2-lookback/partd_2023.csv",
+        "sha256": "63f8d21b891d8cc70c7c57a271855d32a2bfff6b176725ce8493ca8927b4c6c8"
+      },
+      {
+        "bytes": 4057615134,
+        "path": "/home/arobin/healthgraphbench-data/partd-v0_2-lookback/partd_2024.csv",
+        "sha256": "45387cb165f8c7a6a69adc832044d9af4a5655a38c77089571bbb0483e278ca1"
+      }
+    ],
+    "source_file_count": 10
+  },
+  "package": {
+    "distribution_versions": {
+      "healthgraphbench": "0.2.0",
+      "numba": "0.68.0",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.18.1",
+      "threadpoolctl": "3.7.0"
+    },
+    "imported_modules": {
+      "healthgraphbench": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/wheel-env/lib/python3.13/site-packages/healthgraphbench/__init__.py",
+      "healthgraphbench.candidates.partd": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/wheel-env/lib/python3.13/site-packages/healthgraphbench/candidates/partd.py",
+      "healthgraphbench.candidates.partd_model": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/wheel-env/lib/python3.13/site-packages/healthgraphbench/candidates/partd_model.py",
+      "healthgraphbench.q2.common": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/wheel-env/lib/python3.13/site-packages/healthgraphbench/q2/common.py",
+      "healthgraphbench.q2.partd": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/wheel-env/lib/python3.13/site-packages/healthgraphbench/q2/partd.py",
+      "healthgraphbench.tasks.partd.task": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/wheel-env/lib/python3.13/site-packages/healthgraphbench/tasks/partd/task.py"
+    },
+    "locked_package_source_sha256": {
+      "healthgraphbench/__init__.py": "50a7aa4d338b22060731ab4446ac69567c6399058c67947ad765812443322cfa",
+      "healthgraphbench/candidates/__init__.py": "2cdfe36bea33d76052c327a9ef056456279ca38deed00c8e1724bf4161df0a7a",
+      "healthgraphbench/candidates/clinical_trials.py": "329c81a0496dbd3a00f7c0e01d722780e460baa23fe2ee8c6e9c1cb3bd3f2d5c",
+      "healthgraphbench/candidates/clinical_trials_stability.py": "7842c75f63b7b53b466957df289f9e4f94f4bbdfc6e109a8b829589d67e944f6",
+      "healthgraphbench/candidates/partd.py": "76d616e202f6e8efe623f96d70006eb978d97c007533e8589b36a7d0925bcae4",
+      "healthgraphbench/candidates/partd_model.py": "923751d095b7cbf2106e7041f78994001d237ed59db3f648e91a7e861315396f",
+      "healthgraphbench/cli.py": "9131985ccd48617feb464f81b774342e9b6ee61eed915988e15ba71062075989",
+      "healthgraphbench/controls/__init__.py": "688430939f2238f2ae4923cf46a3ef45bfed223cc2d824c8c94c600979485850",
+      "healthgraphbench/controls/synthetic.py": "5a9fdef73538d12082f2557285b25040ad1063befff961f527a81b0315e73033",
+      "healthgraphbench/core.py": "d11984ba0698e0dafd65741a079ee4808a7987177c20923e76af790acfcfa16a",
+      "healthgraphbench/data.py": "c8f980999618963fcf4128c310fa0107663e319bed81554c65cb678c201f9b73",
+      "healthgraphbench/evaluation/__init__.py": "9e90e364bcf4196364ce11d7a5593adc66fa26631de81beeda6b686a5b632ac2",
+      "healthgraphbench/evaluation/bootstrap.py": "13e7b9145a717a4ea18bac5b2387e47870d8530a95887c50e60ddc65b30328d5",
+      "healthgraphbench/evaluation/metrics.py": "0e991ddd321567ad37217dfbd7c96e84f579477310a572870688ca59f0c9993c",
+      "healthgraphbench/evaluation/numpy_metrics.py": "d8b1e792ab770d339a6c5db6ba6cab944cca6c3ecc49e72a92403540e795a42c",
+      "healthgraphbench/models/__init__.py": "4624d7963c5b413e3563f824262082fd4d5b0257565cc169c3b331b2f34ae89d",
+      "healthgraphbench/models/baselines.py": "5d4f05df7fef9c22ea304fddd3690f20f4f3057408acbd4d0ad3b2ef7c27e3cb",
+      "healthgraphbench/q2/__init__.py": "aca7cbf788512730a5b5c031fee998df623450d66253f5daac5ed76db0448d6b",
+      "healthgraphbench/q2/cms.py": "736c04d4309248db7fd1fbc9a7bf53b015ed8efb185ae2681694bc877172efa6",
+      "healthgraphbench/q2/common.py": "b0571d915e1f566aa23ba258446b1a57ba0518a7de46e1a81fba1e3bd69187eb",
+      "healthgraphbench/q2/maude.py": "8601117b34a7d8de8b91fc5cd3611e305970e4974dad0119bfd55ac5801ad649",
+      "healthgraphbench/q2/maude_backend.py": "8387c61ab84684b9f47c6a02d42341ae509bb78309bea929b1907c51e4b23929",
+      "healthgraphbench/q2/partd.py": "e00af4a70c55f38e097e482dda663fb451b241e45339edcda78d247601c9f8de",
+      "healthgraphbench/q2/prospective_partd.py": "00e54018af535904cf38259486d4341f4f278f851b278648332b4f5bd671b285",
+      "healthgraphbench/q2/reuse.py": "d31d494dfa7f5ae55e19ae4a19d856b98d60541f1b16ef940cff418ac0afa94b",
+      "healthgraphbench/tasks/__init__.py": "de7d83c85bcfb78295d002d473b33011d0deecff0a7e703d14b0680dba8636b2",
+      "healthgraphbench/tasks/cms_nursing/__init__.py": "b19b0244651209774d6699bd31dca055e3357161d2a34a8eba0995ae84cbf252",
+      "healthgraphbench/tasks/cms_nursing/models.py": "bd082c21e9ac06ea17e470c69abaf038ec70fbe4751d07cdd72c56ba74190cfc",
+      "healthgraphbench/tasks/cms_nursing/prepare.py": "21cc83a91b92399a637d3f699f645a12fcacc368e24b6e5acb869f7636e85f0d",
+      "healthgraphbench/tasks/cms_nursing/task.py": "627dcf322e7fbf1bba44be5388906f947665ead076ea26286d141f7371648c6b",
+      "healthgraphbench/tasks/maude/__init__.py": "463ecf76959b8eec9aeb85f8d39e3ba2a499a5d805e889de30126ac512b7a086",
+      "healthgraphbench/tasks/maude/ablation.py": "eca360cfa636cf1b422afd63e917c68a679fd2366a223e9748d113052274e5b3",
+      "healthgraphbench/tasks/maude/data.py": "019d8d4792115e83327e2d5e6c5aa10dc42355bc908b84093fde28dadf0ba9d0",
+      "healthgraphbench/tasks/maude/diagnostic.py": "c7316a2292a388c7004f4423abd00fe243f8cd8dfbf6422ccd728e3b402da4cf",
+      "healthgraphbench/tasks/maude/evaluate.py": "825cafb260dd2b8f8558224447a866cec9c7dba1cee5b5c5b05ad89a174145b7",
+      "healthgraphbench/tasks/maude/models.py": "403f220c2269cbb7c1792477e3abaa73b0a9c75298b42c7b2265a9e2bb7295f0",
+      "healthgraphbench/tasks/maude/task.py": "1fed3b0f1e37eaf2885275fb0fbfdcc8cc9b736d3c3568bcbee9ec8adaadecce",
+      "healthgraphbench/tasks/partd/__init__.py": "bdb7deb4b95cba36c8c2a94fc9c884972feeb682810054a42bd575b3bcb37eb6",
+      "healthgraphbench/tasks/partd/task.py": "60faf2be61a16f36123fe21feb88dbea8b90d58ebdb50ddeb8214d5ea6f1a9a9",
+      "healthgraphbench/tasks/partd/task_contract_v0_2.json": "482adfa6665138c246f6212158d61bf2cd33e70049ad3d5e793283a6b2cd9b8f"
+    },
+    "package_name": "healthgraphbench",
+    "package_path": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/wheel-env/lib/python3.13/site-packages/healthgraphbench",
+    "package_version": "0.2.0",
+    "python": {
+      "executable": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/wheel-env/bin/python",
+      "version": "3.13.5 (main, Jul 23 2025, 00:37:22) [Clang 20.1.4 ]"
+    },
+    "site_packages_path": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/wheel-env/lib/python3.13/site-packages"
+  },
+  "fits": {
+    "neighbor_cosine_top50": {
+      "2023": {
+        "checkpoint": {
+          "bytes": 538855,
+          "path": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/checkpoints/target_year_2023/checkpoint.npz",
+          "sha256": "82501e0e52c480e17d37b7cf86e3ff767fe52630d7816c425fbb70bac2170802"
+        },
+        "fit_algorithm": "cosine similarity over binary provider-by-generic-drug incidence",
+        "fit_scope": {
+          "generic_drug_count": 1007,
+          "incidence_nonzero": 58472,
+          "prior_years": [
+            2019,
+            2020,
+            2021,
+            2022
+          ],
+          "provider_count": 2000,
+          "scope_sha256": "2c2684a04563b0b27bbf04eb05bcbca3875f766957baa352e0ebc8fc5b4220f0",
+          "target_year": 2023
+        },
+        "model_name": "neighbor_cosine_top50",
+        "neighbors": {
+          "actual_per_provider": 50,
+          "maximum": 50,
+          "sort_order": "cosine descending, NPI ascending; self excluded"
+        },
+        "reload_score_identity_verified": true,
+        "reload_score_probe_candidate_count": 1004,
+        "supervision": {
+          "loss": null,
+          "objective": "unsupervised binary-incidence fit",
+          "random_seed": null,
+          "target_year_labels_used": false,
+          "tuning": "none"
+        }
+      },
+      "2024": {
+        "checkpoint": {
+          "bytes": 550041,
+          "path": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/checkpoints/target_year_2024/checkpoint.npz",
+          "sha256": "20c95c84cf2143611c17fde10f0b970e7c9115472e672b43599bb4957bdcc625"
+        },
+        "fit_algorithm": "cosine similarity over binary provider-by-generic-drug incidence",
+        "fit_scope": {
+          "generic_drug_count": 1042,
+          "incidence_nonzero": 60200,
+          "prior_years": [
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "provider_count": 2000,
+          "scope_sha256": "f118efed079fa6e221b3c8dcbedbe40af9163319f2db59001082bb5a833a8612",
+          "target_year": 2024
+        },
+        "model_name": "neighbor_cosine_top50",
+        "neighbors": {
+          "actual_per_provider": 50,
+          "maximum": 50,
+          "sort_order": "cosine descending, NPI ascending; self excluded"
+        },
+        "reload_score_identity_verified": true,
+        "reload_score_probe_candidate_count": 1038,
+        "supervision": {
+          "loss": null,
+          "objective": "unsupervised binary-incidence fit",
+          "random_seed": null,
+          "target_year_labels_used": false,
+          "tuning": "none"
+        }
+      }
+    },
+    "tabular_logistic": {
+      "evaluation": "public PartDTask.evaluate recalculated test metrics",
+      "method": "public PartDTask.fit_predict('tabular_logistic', ...)"
+    }
+  },
+  "metrics": {
+    "neighbor_cosine_top50": {
+      "matches_ranker_test_metrics": true,
+      "test_metrics_recalculated_with_public_task_evaluate": {
+        "all_provider_years": {
+          "candidate_empty_provider_year_count": 0,
+          "eligible_provider_year_count": 2000,
+          "fraction_zero_positive_provider_years_recommended_at_10": 1.0,
+          "fraction_zero_positive_provider_years_recommended_at_20": 1.0,
+          "fraction_zero_positive_provider_years_recommended_at_5": 1.0,
+          "hits_at_10": 1416,
+          "hits_at_20": 2215,
+          "hits_at_5": 848,
+          "ineligible_provider_year_count": 0,
+          "positive_empty_fraction_of_eligible": 0.4905,
+          "positive_empty_provider_year_count": 981,
+          "precision_at_10": 0.0708,
+          "precision_at_20": 0.055375,
+          "precision_at_5": 0.0848,
+          "precision_denominator": "actual top-K recommendation slots, min(K, candidate_count) per eligible provider-year",
+          "recommendation_burden_per_eligible_provider_year_at_10": 10.0,
+          "recommendation_burden_per_eligible_provider_year_at_20": 20.0,
+          "recommendation_burden_per_eligible_provider_year_at_5": 5.0,
+          "recommendation_burden_per_target_provider_year_at_10": 10.0,
+          "recommendation_burden_per_target_provider_year_at_20": 20.0,
+          "recommendation_burden_per_target_provider_year_at_5": 5.0,
+          "recommendation_slots_at_10": 20000,
+          "recommendation_slots_at_20": 40000,
+          "recommendation_slots_at_5": 10000,
+          "target_cohort_provider_year_count": 2000,
+          "top_k_is_ranking_threshold_not_calibrated_confidence": true,
+          "zero_positive_provider_years_recommended_at_10": 981,
+          "zero_positive_provider_years_recommended_at_20": 981,
+          "zero_positive_provider_years_recommended_at_5": 981
+        },
+        "positive_containing_provider_years": {
+          "contributing_provider_count": 1019,
+          "contributing_provider_year_count": 1019,
+          "hits_at_10": 1416,
+          "hits_at_20": 2215,
+          "hits_at_5": 848,
+          "micro_recall_at_10": 0.25858290723155586,
+          "micro_recall_at_20": 0.40449233016800584,
+          "micro_recall_at_5": 0.15485756026296568,
+          "mrr": 0.36655075912205526,
+          "positive_count": 5476,
+          "provider_macro_recall_at_10": 0.34104556731784236,
+          "provider_macro_recall_at_20": 0.4954167140533363,
+          "provider_macro_recall_at_5": 0.21504206257929437
+        }
+      },
+      "validation_metrics": {
+        "all_provider_years": {
+          "candidate_empty_provider_year_count": 0,
+          "eligible_provider_year_count": 2000,
+          "fraction_zero_positive_provider_years_recommended_at_10": 1.0,
+          "fraction_zero_positive_provider_years_recommended_at_20": 1.0,
+          "fraction_zero_positive_provider_years_recommended_at_5": 1.0,
+          "hits_at_10": 1512,
+          "hits_at_20": 2298,
+          "hits_at_5": 942,
+          "ineligible_provider_year_count": 0,
+          "positive_empty_fraction_of_eligible": 0.4825,
+          "positive_empty_provider_year_count": 965,
+          "precision_at_10": 0.0756,
+          "precision_at_20": 0.05745,
+          "precision_at_5": 0.0942,
+          "precision_denominator": "actual top-K recommendation slots, min(K, candidate_count) per eligible provider-year",
+          "recommendation_burden_per_eligible_provider_year_at_10": 10.0,
+          "recommendation_burden_per_eligible_provider_year_at_20": 20.0,
+          "recommendation_burden_per_eligible_provider_year_at_5": 5.0,
+          "recommendation_burden_per_target_provider_year_at_10": 10.0,
+          "recommendation_burden_per_target_provider_year_at_20": 20.0,
+          "recommendation_burden_per_target_provider_year_at_5": 5.0,
+          "recommendation_slots_at_10": 20000,
+          "recommendation_slots_at_20": 40000,
+          "recommendation_slots_at_5": 10000,
+          "target_cohort_provider_year_count": 2000,
+          "top_k_is_ranking_threshold_not_calibrated_confidence": true,
+          "zero_positive_provider_years_recommended_at_10": 965,
+          "zero_positive_provider_years_recommended_at_20": 965,
+          "zero_positive_provider_years_recommended_at_5": 965
+        },
+        "positive_containing_provider_years": {
+          "contributing_provider_count": 1035,
+          "contributing_provider_year_count": 1035,
+          "hits_at_10": 1512,
+          "hits_at_20": 2298,
+          "hits_at_5": 942,
+          "micro_recall_at_10": 0.26095961339316537,
+          "micro_recall_at_20": 0.3966171901967553,
+          "micro_recall_at_5": 0.1625819813600276,
+          "mrr": 0.39380729798985814,
+          "positive_count": 5794,
+          "provider_macro_recall_at_10": 0.3622241359862661,
+          "provider_macro_recall_at_20": 0.5038766506930068,
+          "provider_macro_recall_at_5": 0.2518004649548196
+        }
+      }
+    },
+    "tabular_logistic": {
+      "matches_ranker_test_metrics": true,
+      "test_metrics_recalculated_with_public_task_evaluate": {
+        "all_provider_years": {
+          "candidate_empty_provider_year_count": 0,
+          "eligible_provider_year_count": 2000,
+          "fraction_zero_positive_provider_years_recommended_at_10": 1.0,
+          "fraction_zero_positive_provider_years_recommended_at_20": 1.0,
+          "fraction_zero_positive_provider_years_recommended_at_5": 1.0,
+          "hits_at_10": 921,
+          "hits_at_20": 1542,
+          "hits_at_5": 542,
+          "ineligible_provider_year_count": 0,
+          "positive_empty_fraction_of_eligible": 0.4905,
+          "positive_empty_provider_year_count": 981,
+          "precision_at_10": 0.04605,
+          "precision_at_20": 0.03855,
+          "precision_at_5": 0.0542,
+          "precision_denominator": "actual top-K recommendation slots, min(K, candidate_count) per eligible provider-year",
+          "recommendation_burden_per_eligible_provider_year_at_10": 10.0,
+          "recommendation_burden_per_eligible_provider_year_at_20": 20.0,
+          "recommendation_burden_per_eligible_provider_year_at_5": 5.0,
+          "recommendation_burden_per_target_provider_year_at_10": 10.0,
+          "recommendation_burden_per_target_provider_year_at_20": 20.0,
+          "recommendation_burden_per_target_provider_year_at_5": 5.0,
+          "recommendation_slots_at_10": 20000,
+          "recommendation_slots_at_20": 40000,
+          "recommendation_slots_at_5": 10000,
+          "target_cohort_provider_year_count": 2000,
+          "top_k_is_ranking_threshold_not_calibrated_confidence": true,
+          "zero_positive_provider_years_recommended_at_10": 981,
+          "zero_positive_provider_years_recommended_at_20": 981,
+          "zero_positive_provider_years_recommended_at_5": 981
+        },
+        "positive_containing_provider_years": {
+          "contributing_provider_count": 1019,
+          "contributing_provider_year_count": 1019,
+          "hits_at_10": 921,
+          "hits_at_20": 1542,
+          "hits_at_5": 542,
+          "micro_recall_at_10": 0.16818845872899926,
+          "micro_recall_at_20": 0.28159240321402484,
+          "micro_recall_at_5": 0.0989773557341125,
+          "mrr": 0.21722543503608704,
+          "positive_count": 5476,
+          "provider_macro_recall_at_10": 0.16644754396989972,
+          "provider_macro_recall_at_20": 0.2678314174372891,
+          "provider_macro_recall_at_5": 0.10087544783140007
+        }
+      },
+      "validation_metrics": {
+        "all_provider_years": {
+          "candidate_empty_provider_year_count": 0,
+          "eligible_provider_year_count": 2000,
+          "fraction_zero_positive_provider_years_recommended_at_10": 1.0,
+          "fraction_zero_positive_provider_years_recommended_at_20": 1.0,
+          "fraction_zero_positive_provider_years_recommended_at_5": 1.0,
+          "hits_at_10": 1034,
+          "hits_at_20": 1705,
+          "hits_at_5": 599,
+          "ineligible_provider_year_count": 0,
+          "positive_empty_fraction_of_eligible": 0.4825,
+          "positive_empty_provider_year_count": 965,
+          "precision_at_10": 0.0517,
+          "precision_at_20": 0.042625,
+          "precision_at_5": 0.0599,
+          "precision_denominator": "actual top-K recommendation slots, min(K, candidate_count) per eligible provider-year",
+          "recommendation_burden_per_eligible_provider_year_at_10": 10.0,
+          "recommendation_burden_per_eligible_provider_year_at_20": 20.0,
+          "recommendation_burden_per_eligible_provider_year_at_5": 5.0,
+          "recommendation_burden_per_target_provider_year_at_10": 10.0,
+          "recommendation_burden_per_target_provider_year_at_20": 20.0,
+          "recommendation_burden_per_target_provider_year_at_5": 5.0,
+          "recommendation_slots_at_10": 20000,
+          "recommendation_slots_at_20": 40000,
+          "recommendation_slots_at_5": 10000,
+          "target_cohort_provider_year_count": 2000,
+          "top_k_is_ranking_threshold_not_calibrated_confidence": true,
+          "zero_positive_provider_years_recommended_at_10": 965,
+          "zero_positive_provider_years_recommended_at_20": 965,
+          "zero_positive_provider_years_recommended_at_5": 965
+        },
+        "positive_containing_provider_years": {
+          "contributing_provider_count": 1035,
+          "contributing_provider_year_count": 1035,
+          "hits_at_10": 1034,
+          "hits_at_20": 1705,
+          "hits_at_5": 599,
+          "micro_recall_at_10": 0.17846047635484985,
+          "micro_recall_at_20": 0.294269934414912,
+          "micro_recall_at_5": 0.10338280980324474,
+          "mrr": 0.25050073376741383,
+          "positive_count": 5794,
+          "provider_macro_recall_at_10": 0.19001615573234412,
+          "provider_macro_recall_at_20": 0.2909935896504158,
+          "provider_macro_recall_at_5": 0.1169370286651637
+        }
+      }
+    }
+  },
+  "resources": {
+    "wheel_preflight": {
+      "exit_code": 0,
+      "limits": {
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824,
+        "timeout_seconds": 1800.0
+      },
+      "peak_aggregate_rss_bytes": 217931776,
+      "phase_output_bytes": 57835,
+      "pid": 2198386,
+      "reason": null,
+      "status": "complete",
+      "wall_seconds": 0.39900346000285936,
+      "worker_cpu_seconds": 0.22105742100000003
+    },
+    "raw_fits_evaluation": {
+      "exit_code": 0,
+      "limits": {
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824,
+        "timeout_seconds": 1800.0
+      },
+      "peak_aggregate_rss_bytes": 595460096,
+      "phase_output_bytes": 111371329,
+      "pid": 2198445,
+      "reason": null,
+      "status": "complete",
+      "wall_seconds": 1362.1342658800022,
+      "worker_cpu_seconds": 1340.5194875680002
+    }
+  },
+  "artifacts": {
+    "checkpoints/target_year_2023/checkpoint.npz": {
+      "bytes": 538855,
+      "sha256": "82501e0e52c480e17d37b7cf86e3ff767fe52630d7816c425fbb70bac2170802"
+    },
+    "checkpoints/target_year_2024/checkpoint.npz": {
+      "bytes": 550041,
+      "sha256": "20c95c84cf2143611c17fde10f0b970e7c9115472e672b43599bb4957bdcc625"
+    },
+    "inputs/partd_manifest.json": {
+      "bytes": 6917,
+      "sha256": "1821460f2ad68e988bd7cb63afef79d671544e6edcd1ca1de5e35335ad638ec0"
+    },
+    "inputs/task_contract.json": {
+      "bytes": 2875,
+      "sha256": "482adfa6665138c246f6212158d61bf2cd33e70049ad3d5e793283a6b2cd9b8f"
+    },
+    "metrics_recalculated.json": {
+      "bytes": 9553,
+      "sha256": "85559d36adf5b82b6ad62559040eac75f2b36fbcc0cf9ffc6db2c55bad51866c"
+    },
+    "prediction_payloads.json": {
+      "bytes": 46781728,
+      "sha256": "c522002943a2075820d50a717e61092eb7b7b81920de3a407f2ae68f59674e7f"
+    },
+    "preparation/edges.csv": {
+      "bytes": 63251985,
+      "sha256": "54fe20d8171e4ccaab820d04587f702fd2778f5803fb99d628521950ccb47d6e"
+    },
+    "preparation/report.json": {
+      "bytes": 141379,
+      "sha256": "1f9785a988b30f6d59a42326af12c10b29da82103b4b7ec7afb96fbc45db0fe7"
+    },
+    "source_files.json": {
+      "bytes": 2191,
+      "sha256": "eb12b2ef7294b0b944f7812e64db9c17c00e4758d04be015e8ec5bbba9ec08f2"
+    }
+  },
+  "result_sha256": "31c392454ae58ba6f570b6a0a5f98a1c6c6064580dba47e75d5bde47a39f6367",
+  "baseline_scope": "public SDK tabular_logistic, historical 18-epoch algorithm; not the Q2 validation-selected LBFGS comparator"
+}
