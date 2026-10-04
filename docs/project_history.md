@@ -448,3 +448,11 @@ and the sealed Q2 forecast is unchanged. Independent temporal confirmation,
 outside-human reproduction, clinical utility, author/declaration/license/venue
 and submission gates remain open. No merge, tag, Zenodo or submission.
 
+The sealed manuscript/source evidence was published as
+`45f41cbb22b9e350e0da1d21cc3892c51f7f67e1` on draft PR7. Its observed
+[CI run37244132661](https://github.com/carabistouflette/HealthGraphBench/actions/runs/37244132661)
+passed Gitflow direction, editable package installation, regression suite and
+installed CLI in32s. The attributed API response is retained in
+`results/rc31_publication_ci_20261005.json`. This software verification does not
+close the independent temporal, human, clinical or submission gates above.
+

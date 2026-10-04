@@ -1,0 +1,105 @@
+{
+  "revision": "RC3.1",
+  "observed_at_utc": "2026-10-04T23:34:19.648396+00:00",
+  "run": {
+    "conclusion": "success",
+    "databaseId": 37244132661,
+    "headSha": "45f41cbb22b9e350e0da1d21cc3892c51f7f67e1",
+    "jobs": [
+      {
+        "completedAt": "2026-10-04T23:33:05Z",
+        "conclusion": "success",
+        "databaseId": 111558529037,
+        "name": "Gitflow and tests",
+        "startedAt": "2026-10-04T23:32:33Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-04T23:32:34Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-04T23:32:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T23:32:38Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "startedAt": "2026-10-04T23:32:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T23:32:40Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@v5",
+            "number": 3,
+            "startedAt": "2026-10-04T23:32:38Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T23:32:40Z",
+            "conclusion": "success",
+            "name": "Check pull-request direction",
+            "number": 4,
+            "startedAt": "2026-10-04T23:32:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T23:32:53Z",
+            "conclusion": "success",
+            "name": "Install package",
+            "number": 5,
+            "startedAt": "2026-10-04T23:32:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T23:33:03Z",
+            "conclusion": "success",
+            "name": "Run regression suite",
+            "number": 6,
+            "startedAt": "2026-10-04T23:32:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T23:33:03Z",
+            "conclusion": "success",
+            "name": "Exercise installed CLI",
+            "number": 7,
+            "startedAt": "2026-10-04T23:33:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T23:33:03Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@v5",
+            "number": 13,
+            "startedAt": "2026-10-04T23:33:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T23:33:04Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 14,
+            "startedAt": "2026-10-04T23:33:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T23:33:04Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 15,
+            "startedAt": "2026-10-04T23:33:04Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/carabistouflette/HealthGraphBench/actions/runs/37244132661/job/111558529037"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/carabistouflette/HealthGraphBench/actions/runs/37244132661"
+  },
+  "scope": "Publication commit with sealed manuscript evidence; no medical rerun or external human reproduction."
+}
