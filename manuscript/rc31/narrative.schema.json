@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:healthgraphbench:rc31:narrative:v1",
+  "title": "RC3.1 actual-analysis-bound canonical French and faithful English narrative",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["canonical_language", "english_role", "analysis_sha256", "translation_of_fr_sha256", "fr", "en"],
+  "properties": {
+    "canonical_language": {"const": "fr"},
+    "english_role": {"const": "faithful_translation"},
+    "analysis_sha256": {"$ref": "#/$defs/sha256"},
+    "translation_of_fr_sha256": {"$ref": "#/$defs/sha256"},
+    "fr": {"$ref": "#/$defs/language"},
+    "en": {"$ref": "#/$defs/language"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "heading"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "heading": {"type": "string", "pattern": "\\S"},
+        "paragraphs": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "\\S"}},
+        "latex": {"type": "string", "pattern": "\\S"}
+      },
+      "oneOf": [{"required": ["paragraphs"]}, {"required": ["latex"]}]
+    },
+    "mainSections": {
+      "type": "array",
+      "minItems": 7,
+      "items": {"$ref": "#/$defs/section"},
+      "allOf": [
+        {"contains": {"properties": {"id": {"const": "question"}}, "required": ["id"]}},
+        {"contains": {"properties": {"id": {"const": "data"}}, "required": ["id"]}},
+        {"contains": {"properties": {"id": {"const": "methods"}}, "required": ["id"]}},
+        {"contains": {"properties": {"id": {"const": "historical_context"}}, "required": ["id"]}},
+        {"contains": {"properties": {"id": {"const": "results"}}, "required": ["id"]}},
+        {"contains": {"properties": {"id": {"const": "interpretation"}}, "required": ["id"]}},
+        {"contains": {"properties": {"id": {"const": "limits"}}, "required": ["id"]}}
+      ]
+    },
+    "language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "abstract", "sections", "supplement"],
+      "properties": {
+        "title": {"type": "string", "pattern": "\\S"},
+        "abstract": {"type": "string", "pattern": "\\S"},
+        "sections": {"$ref": "#/$defs/mainSections"},
+        "supplement": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/section"}}
+      }
+    }
+  },
+  "$comment": "Assembler additionally requires unique section IDs and identical ordered FR/EN IDs, actual analysis byte hash, and SHA256(json.dumps(fr, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')). Hashes/structure do not certify human approval or translation/scientific fidelity."
+}

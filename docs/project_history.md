@@ -385,3 +385,66 @@ outside team remain gated by unavailable target/human evidence, documented
 external human success, manuscript approval or submission is asserted at this
 preflight boundary; RC3 and all historical/user files remain outside the change.
 
+## RC3.1 targeted experiments completed — 2026-10-05
+
+The pre-fit lock was published as `dde6a2facf83a493c23ea4797ff5da9e90138452`
+on draft [PR7](https://github.com/carabistouflette/HealthGraphBench/pull/7),
+dependent on PR6. Its observed CI passed before the medical run.
+`experiment-001` completed75 new fits and126 phases in9,243.60s, with zero
+historical BPR retraining. All57 new GraphSAGE fits changed persisted state
+and passed the fixed-probe gate; minimum relative loss reduction47.09%.
+The [French results](rc31-relational/results_fr.md) distinguish36 overall
+contrasts and300 strata records:296 defined with2,000 valid draws,40 undefined.
+
+Part D cosine k50 has test2024 micro-recall@10 .258583 versus reused BPR .236182;
+paired conditional difference+.022401[+.014212;+.030800]. The aggregate gain
+reverses for rare/weak-neighbor-support candidates. MAUDE real aggregation
+outperforms bounded degree-preserving reassignment under fixed settings, but
+fanout and same-state BPR smoothing gains vary by year. CMS owner restriction
+does not restore a consistent gain over local history; documentation is not
+ownership ground truth. Zero-positive observations remain in workload measures.
+
+Actual results, layouts, states and resource bounds are retained in
+`results/rc31_execution_20261004.json`, the pinned registry and the separate
+full-output/input TAR. Its Part D selection metadata is explicitly external
+to that TAR. Canonical French and faithful English are bound to actual analysis
+SHA256 `2a569d2aa0c1a09befa2fbc9fcc2b5f5fe6899e8889798fb6b2bef90cb4a44c8`.
+New paper assets were actually rendered; parent RC3 bytes remain under
+`history/RC3`. PDF compilation/visual inspection/sealing are separate gates.
+
+All new results remain exploratory on previously consulted periods. The sealed
+Part D forecast is unchanged; no Part D2025 target was acquired/evaluated.
+Temporal confirmation, actual outside-human reproduction, clinical utility,
+authors/declarations/license/venue and submission approval remain unperformed
+or unknown. No old scientific audit, merge, tag, Zenodo or submission.
+
+## RC3.1 bilingual manuscript sealed — 2026-10-05
+
+Canonical French and faithful English were assembled from the completed run,
+without another medical fit or bootstrap. Four current PDFs compiled cleanly:
+15 pages per main manuscript and100 per supplement. Two AI technical reviewers
+actually inspected all230 rasterized pages, with13 additional enlarged views;
+no surface finding remains. This is not an outside-human reproduction or author
+approval. Compilation, attributed surface reports and delivery evidence are
+preserved in `results/rc31_{compilation,surface_review,delivery}_20261005.json`.
+
+The sealed package QA passed numerical derivation, bilingual assets, consumed
+sources, resource limits, parent-byte retention, four actual visual reviews,
+LaTeX diagnostics and manifest integrity. The exported ZIP passed CRC inspection;
+all four standalone PDF bytes match their ZIP members. Delivery is distinct:
+`HealthGraphBench_LaTeX_RC3_1.zip` (45,213,511 bytes), SHA256
+`4af00f95ebc6c92cc15ad1d83d2b83fc32713c0e954cce12b7f4d36c58376427`,
+and four RC3_1 FR/EN PDFs in Downloads. RC3 and earlier deliveries remain retained.
+
+The separate6,803,096,874-byte experiment/input TAR remains unchanged, SHA256
+`f9a43842601a9e376c72db932b2b9aba30a3e1d4764dd5e35636b457155042d1`.
+The2,429-byte actually consumed Part D BPR selection metadata is outside that
+TAR but included byte-exact in the manuscript ZIP at
+`data/reused_inputs/partd_selection.json`. Neither ZIP alone nor this split
+delivery claims an autonomous rebuild from every original raw input.
+
+All new results remain exploratory. No Part D2025 target was acquired/evaluated,
+and the sealed Q2 forecast is unchanged. Independent temporal confirmation,
+outside-human reproduction, clinical utility, author/declaration/license/venue
+and submission gates remain open. No merge, tag, Zenodo or submission.
+

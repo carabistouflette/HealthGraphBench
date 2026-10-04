@@ -1,0 +1,20 @@
+{
+  "schema": "healthgraphbench.rc31-prefit-publication.v1",
+  "scientific_commit": "dde6a2facf83a493c23ea4797ff5da9e90138452",
+  "protocol": "configs/rc31_relational_protocol_20261004.json",
+  "protocol_sha256": "faf881cf4a5880f5f444d11badc5ea3a79a08325efb4be394e9c5093137064a8",
+  "pull_request": "https://github.com/carabistouflette/HealthGraphBench/pull/7",
+  "draft": true,
+  "base": "develop",
+  "head": "feature/rc31-relational-information",
+  "dependency_pull_request": 6,
+  "observed_ci": {
+    "name": "Gitflow and tests",
+    "conclusion": "pass",
+    "reported_duration_seconds": 36,
+    "job_url": "https://github.com/carabistouflette/HealthGraphBench/actions/runs/37231245034/job/111521142682"
+  },
+  "publication_and_ci_observed_before_new_medical_run_launch": true,
+  "run_root": "results/generated/rc31-cycle-20261004/experiment-001",
+  "scientific_status": "exploratory; no independent temporal or external-human confirmation"
+}

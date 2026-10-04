@@ -1,0 +1,945 @@
+{
+  "revision": "RC3.1",
+  "reviewer": {
+    "id": "RC31VisualEnglish",
+    "role": "AI assistant performing read-only technical PDF visual inspection; not an external human reviewer, independent reproducer, author, or approver"
+  },
+  "reviewed_at_utc": "2026-10-04T23:30:20.945488+00:00",
+  "package_root": "results/generated/rc31-cycle-20261004/manuscript-003/HealthGraphBench_RC3_1",
+  "method": {
+    "actual_pdf_page_counts": "pdfinfo reported 15 main and 100 supplement pages",
+    "rasterizer": "pdftoppm -r 90 -png on the actual existing PDFs",
+    "contact_sheets": "Existing paper-env Python/Pillow; two original 745x1053 page rasters side by side, without reducing their size; page-number labels above the PDF surfaces",
+    "inspection": "Every contact sheet listed below was opened with functions.read as an image and visually inspected. Dense table/plot surfaces were additionally rasterized at 180 dpi and opened as images. Text extraction and compilation diagnostics were not substituted for visual inspection.",
+    "compilation_reference": "verification/rc31/compilation.json (current RC3.1); English document hashes match the actual PDFs; overfull and undefined diagnostics are empty."
+  },
+  "limits": [
+    "AI technical visual/layout and visible-language review only; no external human reproduction, medical scoring, scientific result re-audit, or author approval.",
+    "No source/PDF edits, builds, tests, recompilation, or old historical audit execution.",
+    "The observed absence of rendering defects is not a guarantee of journal compliance, scientific validity, accessibility, author authorization, or print-at-native-size readability for every reader.",
+    "Historical results were inspected only as current PDF surfaces; their numerical provenance was not re-audited."
+  ],
+  "documents": {
+    "main_en.pdf": {
+      "pdf_sha256": "d83cec5871424653aa22cb50c3a0af1e6c194d266802cdb1e2f812e606f1ef8c",
+      "page_count": 15,
+      "visual_review_completed": true,
+      "reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "blank_pages": [],
+      "unresolved_references": [],
+      "overfull_boxes": [],
+      "missing_glyphs": [],
+      "clipping_or_text_collisions": [],
+      "unintended_french_scientific_prose": [],
+      "findings": [],
+      "proof_artifacts": [
+        "results/generated/rc31-cycle-20261004/visual-en/main/sheet-001-002.png",
+        "results/generated/rc31-cycle-20261004/visual-en/main/sheet-003-004.png",
+        "results/generated/rc31-cycle-20261004/visual-en/main/sheet-005-006.png",
+        "results/generated/rc31-cycle-20261004/visual-en/main/sheet-007-008.png",
+        "results/generated/rc31-cycle-20261004/visual-en/main/sheet-009-010.png",
+        "results/generated/rc31-cycle-20261004/visual-en/main/sheet-011-012.png",
+        "results/generated/rc31-cycle-20261004/visual-en/main/sheet-013-014.png",
+        "results/generated/rc31-cycle-20261004/visual-en/main/sheet-015-015.png",
+        "results/generated/rc31-cycle-20261004/visual-en/main/zoom-12.png"
+      ],
+      "proof_coverage": [
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/main/sheet-001-002.png",
+          "pages": [
+            1,
+            2
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/main/sheet-003-004.png",
+          "pages": [
+            3,
+            4
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/main/sheet-005-006.png",
+          "pages": [
+            5,
+            6
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/main/sheet-007-008.png",
+          "pages": [
+            7,
+            8
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/main/sheet-009-010.png",
+          "pages": [
+            9,
+            10
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/main/sheet-011-012.png",
+          "pages": [
+            11,
+            12
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/main/sheet-013-014.png",
+          "pages": [
+            13,
+            14
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/main/sheet-015-015.png",
+          "pages": [
+            15
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/main/zoom-12.png",
+          "pages": [
+            12
+          ],
+          "render_dpi": 180,
+          "actually_viewed": true
+        }
+      ],
+      "surface_result": "No observed rendering defect: content remains within margins; table values and labels are separated; plot axes/ticks/titles are legible on viewed images, including enlargements; no unintended blank page, missing glyph, visible ?? reference, or unintended French scientific prose.",
+      "visible_caveats": [
+        {
+          "pages": [
+            1
+          ],
+          "observation": "Targeted exploratory status, author approval unknown, independent temporal evaluation/external human reproduction not completed, and no submission are prominent on the title surface."
+        },
+        {
+          "pages": [
+            2,
+            4,
+            13,
+            14
+          ],
+          "observation": "CMS is explicitly conditional on an inspection taking place, not prediction of inspection occurrence or national prioritization of facilities; caveats remain visible in limitations/evidence scope."
+        },
+        {
+          "pages": [
+            5,
+            6,
+            14
+          ],
+          "observation": "Retained historical context is identified separately from new RC3.1 results, with historical CI origins distinguished."
+        },
+        {
+          "pages": [
+            4,
+            6,
+            8,
+            9,
+            14
+          ],
+          "observation": "Seed min/max ranges are descriptive and separate from conditional paired intervals; main results explicitly say seed ranges are not confidence intervals."
+        },
+        {
+          "pages": [
+            12,
+            13,
+            14
+          ],
+          "observation": "Figure caption specifies overlapping strata and conditional fixed-fit intervals; exploratory limits and unmet external/human/author gates are visible."
+        }
+      ]
+    },
+    "supplement_en.pdf": {
+      "pdf_sha256": "074dc0a29c6cd6e59ae93dfb9c2df6df31ab76673499a11a886cf187f2c4bdac",
+      "page_count": 100,
+      "visual_review_completed": true,
+      "reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100
+      ],
+      "blank_pages": [],
+      "unresolved_references": [],
+      "overfull_boxes": [],
+      "missing_glyphs": [],
+      "clipping_or_text_collisions": [],
+      "unintended_french_scientific_prose": [],
+      "findings": [],
+      "proof_artifacts": [
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-001-002.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-003-004.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-005-006.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-007-008.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-009-010.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-011-012.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-013-014.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-015-016.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-017-018.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-019-020.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-021-022.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-023-024.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-025-026.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-027-028.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-029-030.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-031-032.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-033-034.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-035-036.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-037-038.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-039-040.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-041-042.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-043-044.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-045-046.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-047-048.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-049-050.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-051-052.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-053-054.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-055-056.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-057-058.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-059-060.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-061-062.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-063-064.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-065-066.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-067-068.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-069-070.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-071-072.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-073-074.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-075-076.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-077-078.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-079-080.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-081-082.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-083-084.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-085-086.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-087-088.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-089-090.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-091-092.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-093-094.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-095-096.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-097-098.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-099-100.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-054.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-055.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-065.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-084.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-093.png",
+        "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-099.png"
+      ],
+      "proof_coverage": [
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-001-002.png",
+          "pages": [
+            1,
+            2
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-003-004.png",
+          "pages": [
+            3,
+            4
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-005-006.png",
+          "pages": [
+            5,
+            6
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-007-008.png",
+          "pages": [
+            7,
+            8
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-009-010.png",
+          "pages": [
+            9,
+            10
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-011-012.png",
+          "pages": [
+            11,
+            12
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-013-014.png",
+          "pages": [
+            13,
+            14
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-015-016.png",
+          "pages": [
+            15,
+            16
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-017-018.png",
+          "pages": [
+            17,
+            18
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-019-020.png",
+          "pages": [
+            19,
+            20
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-021-022.png",
+          "pages": [
+            21,
+            22
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-023-024.png",
+          "pages": [
+            23,
+            24
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-025-026.png",
+          "pages": [
+            25,
+            26
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-027-028.png",
+          "pages": [
+            27,
+            28
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-029-030.png",
+          "pages": [
+            29,
+            30
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-031-032.png",
+          "pages": [
+            31,
+            32
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-033-034.png",
+          "pages": [
+            33,
+            34
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-035-036.png",
+          "pages": [
+            35,
+            36
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-037-038.png",
+          "pages": [
+            37,
+            38
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-039-040.png",
+          "pages": [
+            39,
+            40
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-041-042.png",
+          "pages": [
+            41,
+            42
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-043-044.png",
+          "pages": [
+            43,
+            44
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-045-046.png",
+          "pages": [
+            45,
+            46
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-047-048.png",
+          "pages": [
+            47,
+            48
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-049-050.png",
+          "pages": [
+            49,
+            50
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-051-052.png",
+          "pages": [
+            51,
+            52
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-053-054.png",
+          "pages": [
+            53,
+            54
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-055-056.png",
+          "pages": [
+            55,
+            56
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-057-058.png",
+          "pages": [
+            57,
+            58
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-059-060.png",
+          "pages": [
+            59,
+            60
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-061-062.png",
+          "pages": [
+            61,
+            62
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-063-064.png",
+          "pages": [
+            63,
+            64
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-065-066.png",
+          "pages": [
+            65,
+            66
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-067-068.png",
+          "pages": [
+            67,
+            68
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-069-070.png",
+          "pages": [
+            69,
+            70
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-071-072.png",
+          "pages": [
+            71,
+            72
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-073-074.png",
+          "pages": [
+            73,
+            74
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-075-076.png",
+          "pages": [
+            75,
+            76
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-077-078.png",
+          "pages": [
+            77,
+            78
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-079-080.png",
+          "pages": [
+            79,
+            80
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-081-082.png",
+          "pages": [
+            81,
+            82
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-083-084.png",
+          "pages": [
+            83,
+            84
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-085-086.png",
+          "pages": [
+            85,
+            86
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-087-088.png",
+          "pages": [
+            87,
+            88
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-089-090.png",
+          "pages": [
+            89,
+            90
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-091-092.png",
+          "pages": [
+            91,
+            92
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-093-094.png",
+          "pages": [
+            93,
+            94
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-095-096.png",
+          "pages": [
+            95,
+            96
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-097-098.png",
+          "pages": [
+            97,
+            98
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/sheet-099-100.png",
+          "pages": [
+            99,
+            100
+          ],
+          "render_dpi": 90,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-054.png",
+          "pages": [
+            54
+          ],
+          "render_dpi": 180,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-055.png",
+          "pages": [
+            55
+          ],
+          "render_dpi": 180,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-065.png",
+          "pages": [
+            65
+          ],
+          "render_dpi": 180,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-084.png",
+          "pages": [
+            84
+          ],
+          "render_dpi": 180,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-093.png",
+          "pages": [
+            93
+          ],
+          "render_dpi": 180,
+          "actually_viewed": true
+        },
+        {
+          "path": "results/generated/rc31-cycle-20261004/visual-en/supplement/zoom-099.png",
+          "pages": [
+            99
+          ],
+          "render_dpi": 180,
+          "actually_viewed": true
+        }
+      ],
+      "surface_result": "No observed rendering defect: content remains within margins; table values and labels are separated; plot axes/ticks/titles are legible on viewed images, including enlargements; no unintended blank page, missing glyph, visible ?? reference, or unintended French scientific prose.",
+      "visible_caveats": [
+        {
+          "pages": [
+            1,
+            2,
+            3
+          ],
+          "observation": "Exploratory status, limits to reproduction, unmet external human study/approval requirements, assistant not being a genuine independent participant, and no automatic submission are visible."
+        },
+        {
+          "pages": [
+            2,
+            3
+          ],
+          "observation": "Intervals condition on fixed procedures; seed min/max are descriptive and separate. CMS workload is restricted to retained inspection episodes, not ranking all facilities nationally."
+        },
+        {
+          "pages": [
+            54,
+            55
+          ],
+          "observation": "Retained historical C/D1/Q2 section explicitly separates historical numerical context from new RC3.1 experiments; Q2 ranges are not CIs and D1 has no CI."
+        },
+        {
+          "pages": [
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "observation": "Workload plot titles visibly state descriptive seed range (not a CI). Sparse one-figure pages are intentional, not blank pages."
+        },
+        {
+          "pages": [
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99
+          ],
+          "observation": "Stratum plot titles visibly state paired conditional CI; fixed fits. Dense titles/ticks checked further on pages 65, 84, 93, and 99."
+        }
+      ],
+      "layout_notes": [
+        "Multi-page table continuations are expected and display continued headers; they are not defects.",
+        "Resource table cells containing em dashes on pages 50\u201354 are rendered missing/unreported numerical cells, not broken references; scientific completeness of those records was outside this visual-only assignment.",
+        "Pages 56\u201399 intentionally place individual plots on sparse pages; every page contains its figure and caption."
+      ]
+    }
+  }
+}
