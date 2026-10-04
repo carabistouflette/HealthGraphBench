@@ -1,0 +1,87 @@
+{
+  "benchmark": "HealthGraphBench",
+  "version": "0.2",
+  "scope": "Part D admission contract",
+  "task": {
+    "id": "partd_prescriber_drug",
+    "admission_status": "admitted_v0_2_replication_task",
+    "source": "CMS Medicare Part D Public Use Files",
+    "target": {
+      "name": "first_observed_published_provider_drug_relationship",
+      "definition": "A provider-drug relationship is positive in year t when it is absent from every retained earlier CMS Part D public-use snapshot and observable in the published file for year t."
+    },
+    "drug_identity": "exact_trimmed_generic_name",
+    "temporal_split": {
+      "warmup_history_years": [
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "validation": {
+        "target_year": 2023,
+        "history_years": [
+          2019,
+          2020,
+          2021,
+          2022
+        ]
+      },
+      "held_out_test": {
+        "target_year": 2024,
+        "history_years": [
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ]
+      },
+      "target_rows_are_scored_before_history_update": true
+    },
+    "provider_cohort": "For each target year, select up to 2,000 providers first observed strictly before that target year, choosing the smallest (SHA-256 NPI, NPI) values.",
+    "candidate_construction": "For each eligible target provider, rank every drug observed globally in the target cohort's strictly prior history except drugs in that provider's entire strictly prior history; no sampled evaluation negatives.",
+    "ranking_tie_policy": {
+      "primary_key": "model score descending",
+      "secondary_key": "prior global provider support descending",
+      "final_tie_key": "canonical source-native drug key ascending",
+      "canonical_candidate_id": "exact trimmed generic_name"
+    },
+    "metrics": {
+      "positive_containing": [
+        "micro Recall@5",
+        "micro Recall@10",
+        "micro Recall@20",
+        "provider-macro Recall@5",
+        "provider-macro Recall@10",
+        "provider-macro Recall@20",
+        "MRR"
+      ],
+      "all_eligible_provider_year": [
+        "precision@5",
+        "precision@10",
+        "precision@20",
+        "recommendation burden at K"
+      ]
+    },
+    "baselines_and_models_already_run": [
+      {
+        "name": "specialty_popularity",
+        "role": "interpretable relational baseline"
+      },
+      {
+        "name": "history_overlap",
+        "role": "interpretable relational baseline"
+      },
+      {
+        "name": "tabular_logistic",
+        "role": "learned tabular baseline"
+      },
+      {
+        "name": "graph_bpr",
+        "role": "learned latent relational model"
+      }
+    ],
+    "suppression_limitation": "CMS suppresses provider-drug combinations with 10 or fewer Part D claims; absence is non-observation subject to suppression and left censoring."
+  }
+}

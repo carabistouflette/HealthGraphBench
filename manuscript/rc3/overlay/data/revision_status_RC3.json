@@ -1,0 +1,42 @@
+{
+  "schema": "healthgraphbench.manuscript-scientific-status.v3",
+  "revision": "RC3",
+  "package_id": "manuscript-rc3",
+  "current_operations": {
+    "completed_Q2_evidence_incorporated": true,
+    "french_canonical_then_faithful_english": true,
+    "historical_numeric_payload_modified": false,
+    "new_figures_from_completed_outputs": true,
+    "health_model_training_executed_during_RC3_preparation": false,
+    "raw_sources_acquired_during_RC3_preparation": false,
+    "new_scores_or_target2025_metrics_computed": false,
+    "new_tuning_bootstrap_or_intervals": false,
+    "historical_successful_audits_rerun": false,
+    "pdfs_recompiled": false,
+    "package_checks_executed": false,
+    "surfaces_visually_inspected": false,
+    "submission_sent": false,
+    "github_release_published": false,
+    "new_DOI_created": false,
+    "new_tag_created": false
+  },
+  "scientific_gates": {
+    "strengthened_comparisons": "completed_exploratory",
+    "independent_evaluation_passed": false,
+    "target2025_source_acquired": false,
+    "target2025_metrics_computed": false,
+    "human_nonconsultation_attestations": "unknown",
+    "technical_end_to_end_reuse": "complete",
+    "external_human_study": "not_performed",
+    "author_validation_complete": false,
+    "journal_selected": false,
+    "submission_authorized": false
+  },
+  "completed_Q2_counts": {
+    "validation_fits": 150,
+    "selected_test_refits": 43,
+    "checkpoints": 193
+  },
+  "frozen_cycle_status": "data/q2/q2_cycle_status_20261003.json",
+  "new_scientific_execution_during_manuscript_preparation": false
+}

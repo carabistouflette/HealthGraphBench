@@ -1,0 +1,550 @@
+{
+  "schema": "healthgraphbench.q2-cms-summary.v1",
+  "status": "complete",
+  "evidence_level": "exploratory_on_previously_consulted_2023_2025",
+  "run_root": "results/generated/q2-cycle-20261003/cms-comparison-002",
+  "code_commit": "3e7d548800cbbfd317d9cd74497dcc132707b904",
+  "protocol_sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7",
+  "preparation": {
+    "rows": 23712,
+    "source_files": [
+      {
+        "path": "health_citations.csv",
+        "bytes": 165336194,
+        "sha256": "54d6e3e7c4c183da210601f2a1b59abff6f23a0aff49d5a9f097105e6fd97741",
+        "verified": true
+      },
+      {
+        "path": "ownership.csv",
+        "bytes": 57251685,
+        "sha256": "550ef28dc3a2c5ac544760023b5cb494e5fbd77567848dca36324211dd83aa68",
+        "verified": true
+      },
+      {
+        "path": "provider_info.csv",
+        "bytes": 9151628,
+        "sha256": "a5808fcded1ca73a629fde88fc23dcba3b6ff8ed75199883062a262e14ef8fe0",
+        "verified": true
+      },
+      {
+        "path": "survey_dates.csv",
+        "bytes": 7786920,
+        "sha256": "0cebe80f61018356728283b47f3f5d61ce6d7e2bd2afa385a225e51ee2c4468f",
+        "verified": true
+      },
+      {
+        "path": "penalties.csv",
+        "bytes": 2712484,
+        "sha256": "3683f1debe5a19073075b3d5a1ceaa417971705d725d8c72cb568db95a39124d",
+        "verified": true
+      },
+      {
+        "path": "chow.json",
+        "bytes": 5018534,
+        "sha256": "fdc762f7b22173c6cc70d512207f6b9032c6ce6ab02e9bba467052be9331f2e1",
+        "verified": true
+      },
+      {
+        "path": "chow_owners_full.json",
+        "bytes": 125653423,
+        "sha256": "ba0a61e19765256a57efee604e795ecbb993ae9c439ff682efb010ce444ad866",
+        "verified": true
+      }
+    ],
+    "manifest_path": "/home/arobin/Work/Repos/HealthGraphBench/data/manifests/v0.1.json",
+    "manifest_sha256": "d01389cd5ffb245f481d036c592ed58b6de7cf4f817499214ce47c9f34661a87",
+    "rows_sha256": "e55766d0e52c7e32fdc5f3a7f042f27c3aaa64e0d31a1e0130cbafac2b31e40a",
+    "input_level": "raw_verified_then_new_preparation",
+    "availability": "retrospective_snapshot_not_origin_verified"
+  },
+  "selection": {
+    "facility_history__logistic": {
+      "configuration_index": 0,
+      "mean_validation_roc_auc": 0.6534935989486784,
+      "grid_validation_roc_auc": [
+        0.6534935989486784,
+        0.6383754123042914,
+        0.6360636797994831,
+        0.6357732174094671,
+        0.6355828394384829,
+        0.6354718762782521
+      ],
+      "tie_break": "published_grid_order",
+      "seed_selection": false
+    },
+    "facility_history__boosted": {
+      "configuration_index": 5,
+      "mean_validation_roc_auc": 0.58083938191344,
+      "grid_validation_roc_auc": [
+        0.5760309783034385,
+        0.5754054506844904,
+        0.5703049528732931,
+        0.5688640636014726,
+        0.5693639417595712,
+        0.58083938191344
+      ],
+      "tie_break": "published_grid_order",
+      "seed_selection": false
+    },
+    "facility_plus_combined_ownership__logistic": {
+      "configuration_index": 0,
+      "mean_validation_roc_auc": 0.6553658303090433,
+      "grid_validation_roc_auc": [
+        0.6553658303090433,
+        0.637874990209133,
+        0.6354435915511344,
+        0.6350497811197271,
+        0.6349312028406568,
+        0.6346842554154374
+      ],
+      "tie_break": "published_grid_order",
+      "seed_selection": false
+    },
+    "facility_plus_combined_ownership__boosted": {
+      "configuration_index": 5,
+      "mean_validation_roc_auc": 0.5850641410581099,
+      "grid_validation_roc_auc": [
+        0.5789655187418954,
+        0.584676313934362,
+        0.5603139169560412,
+        0.5756534859838298,
+        0.5670783182336405,
+        0.5850641410581099
+      ],
+      "tie_break": "published_grid_order",
+      "seed_selection": false
+    }
+  },
+  "models": {
+    "facility_history__logistic": {
+      "validation_fit_count": 6,
+      "validation_training_rows": [
+        2066
+      ],
+      "validation_seed_values": [
+        "None"
+      ],
+      "validation_train_loss_range": [
+        0.32461909562915686,
+        0.3289405282835851
+      ],
+      "annual": {
+        "2024": [
+          {
+            "seed": null,
+            "training_rows": 4727,
+            "losses": {
+              "definition": "unweighted strictly-prior training binary cross-entropy data loss",
+              "initial_zero_logit": 0.6931471805599453,
+              "trained": 0.3669714254086308,
+              "full_iteration_trace_available": false
+            },
+            "metrics": {
+              "rows": 8909,
+              "positives": 1253,
+              "prevalence": 0.14064429228869682,
+              "roc_auc": 0.6210821301603424,
+              "average_precision": 0.21146919377171003,
+              "precision_at_top_10_percent": 0.2615039281705948,
+              "recall_at_top_10_percent": 0.18595371109337588,
+              "brier": 0.12047628723156639
+            },
+            "checkpoint": {
+              "path": "checkpoint.pkl",
+              "sha256": "0216d49054a0266a2677c87c69da702603feb495a72cfff08b70f893a93548d3",
+              "trusted_internal_pickle_only": true
+            },
+            "phase_path": "test/facility_history__logistic/2024/seedNone"
+          }
+        ],
+        "2025": [
+          {
+            "seed": null,
+            "training_rows": 13636,
+            "losses": {
+              "definition": "unweighted strictly-prior training binary cross-entropy data loss",
+              "initial_zero_logit": 0.6931471805599454,
+              "trained": 0.3800074156101106,
+              "full_iteration_trace_available": false
+            },
+            "metrics": {
+              "rows": 10076,
+              "positives": 1170,
+              "prevalence": 0.11611750694720127,
+              "roc_auc": 0.6268739887255494,
+              "average_precision": 0.18618923175796212,
+              "precision_at_top_10_percent": 0.24107142857142858,
+              "recall_at_top_10_percent": 0.2076923076923077,
+              "brier": 0.10075298878801205
+            },
+            "checkpoint": {
+              "path": "checkpoint.pkl",
+              "sha256": "f30ea2e45298f4197b2c47b903faf95cb7c7106ce99dd73b03c59ff25f3c031e",
+              "trusted_internal_pickle_only": true
+            },
+            "phase_path": "test/facility_history__logistic/2025/seedNone"
+          }
+        ]
+      },
+      "pooled_by_seed": {
+        "None": {
+          "rows": 18985,
+          "positives": 2423,
+          "prevalence": 0.12762707400579404,
+          "roc_auc": 0.6194159536499203,
+          "average_precision": 0.19675068969895676,
+          "precision_at_top_10_percent": 0.2564507635597683,
+          "recall_at_top_10_percent": 0.20099050763516302,
+          "brier": 0.11000844656170843
+        }
+      },
+      "pooled_streams": {
+        "None": {
+          "years": [
+            2024,
+            2025
+          ],
+          "deterministic_fit_reused_years": [],
+          "seed_selection": false
+        }
+      }
+    },
+    "facility_history__boosted": {
+      "validation_fit_count": 6,
+      "validation_training_rows": [
+        2066
+      ],
+      "validation_seed_values": [
+        "None"
+      ],
+      "validation_train_loss_range": [
+        0.21219647269635022,
+        0.28938319478663144
+      ],
+      "annual": {
+        "2024": [
+          {
+            "seed": null,
+            "training_rows": 4727,
+            "losses": {
+              "definition": "unweighted strictly-prior training binary cross-entropy data loss",
+              "initial_zero_logit": 0.6931471805599453,
+              "trained": 0.3406080818070469,
+              "full_iteration_trace_available": false
+            },
+            "metrics": {
+              "rows": 8909,
+              "positives": 1253,
+              "prevalence": 0.14064429228869682,
+              "roc_auc": 0.6083956498134884,
+              "average_precision": 0.2031027030763001,
+              "precision_at_top_10_percent": 0.24803591470258138,
+              "recall_at_top_10_percent": 0.17637669592976857,
+              "brier": 0.11967690596679902
+            },
+            "checkpoint": {
+              "path": "checkpoint.pkl",
+              "sha256": "150da858e2d2a53d6876fef8b65720543f88e8bfee8e2675cab997e40e556183",
+              "trusted_internal_pickle_only": true
+            },
+            "phase_path": "test/facility_history__boosted/2024/seedNone"
+          }
+        ],
+        "2025": [
+          {
+            "seed": null,
+            "training_rows": 13636,
+            "losses": {
+              "definition": "unweighted strictly-prior training binary cross-entropy data loss",
+              "initial_zero_logit": 0.6931471805599454,
+              "trained": 0.368727246923182,
+              "full_iteration_trace_available": false
+            },
+            "metrics": {
+              "rows": 10076,
+              "positives": 1170,
+              "prevalence": 0.11611750694720127,
+              "roc_auc": 0.6300426006859872,
+              "average_precision": 0.18518062041881544,
+              "precision_at_top_10_percent": 0.23214285714285715,
+              "recall_at_top_10_percent": 0.2,
+              "brier": 0.10068773372963234
+            },
+            "checkpoint": {
+              "path": "checkpoint.pkl",
+              "sha256": "ee489c1f23ec47f7ddedb013beb745091ed1229926f0e44880a8e71d375b6fac",
+              "trusted_internal_pickle_only": true
+            },
+            "phase_path": "test/facility_history__boosted/2025/seedNone"
+          }
+        ]
+      },
+      "pooled_by_seed": {
+        "None": {
+          "rows": 18985,
+          "positives": 2423,
+          "prevalence": 0.12762707400579404,
+          "roc_auc": 0.6177563360387759,
+          "average_precision": 0.192860955159042,
+          "precision_at_top_10_percent": 0.24223275408109532,
+          "recall_at_top_10_percent": 0.18984729673957904,
+          "brier": 0.10959869161537993
+        }
+      },
+      "pooled_streams": {
+        "None": {
+          "years": [
+            2024,
+            2025
+          ],
+          "deterministic_fit_reused_years": [],
+          "seed_selection": false
+        }
+      }
+    },
+    "facility_plus_combined_ownership__logistic": {
+      "validation_fit_count": 6,
+      "validation_training_rows": [
+        2066
+      ],
+      "validation_seed_values": [
+        "None"
+      ],
+      "validation_train_loss_range": [
+        0.322503253562785,
+        0.3279323439739279
+      ],
+      "annual": {
+        "2024": [
+          {
+            "seed": null,
+            "training_rows": 4727,
+            "losses": {
+              "definition": "unweighted strictly-prior training binary cross-entropy data loss",
+              "initial_zero_logit": 0.6931471805599453,
+              "trained": 0.3662295772804731,
+              "full_iteration_trace_available": false
+            },
+            "metrics": {
+              "rows": 8909,
+              "positives": 1253,
+              "prevalence": 0.14064429228869682,
+              "roc_auc": 0.6218321587229312,
+              "average_precision": 0.21358918664578888,
+              "precision_at_top_10_percent": 0.26936026936026936,
+              "recall_at_top_10_percent": 0.19154030327214686,
+              "brier": 0.12039105283785334
+            },
+            "checkpoint": {
+              "path": "checkpoint.pkl",
+              "sha256": "7a665f9ecd27ea896f9bf754da1e6181985b1620be066312d1ac8ac9b24d81d5",
+              "trusted_internal_pickle_only": true
+            },
+            "phase_path": "test/facility_plus_combined_ownership__logistic/2024/seedNone"
+          }
+        ],
+        "2025": [
+          {
+            "seed": null,
+            "training_rows": 13636,
+            "losses": {
+              "definition": "unweighted strictly-prior training binary cross-entropy data loss",
+              "initial_zero_logit": 0.6931471805599454,
+              "trained": 0.37957595263876853,
+              "full_iteration_trace_available": false
+            },
+            "metrics": {
+              "rows": 10076,
+              "positives": 1170,
+              "prevalence": 0.11611750694720127,
+              "roc_auc": 0.6265980295623232,
+              "average_precision": 0.18624536858232532,
+              "precision_at_top_10_percent": 0.24305555555555555,
+              "recall_at_top_10_percent": 0.2094017094017094,
+              "brier": 0.10085623752511734
+            },
+            "checkpoint": {
+              "path": "checkpoint.pkl",
+              "sha256": "d03ffbd396128f7b24427f0e418f92c2ec06ae06627a4db756378cc333383732",
+              "trusted_internal_pickle_only": true
+            },
+            "phase_path": "test/facility_plus_combined_ownership__logistic/2025/seedNone"
+          }
+        ]
+      },
+      "pooled_by_seed": {
+        "None": {
+          "rows": 18985,
+          "positives": 2423,
+          "prevalence": 0.12762707400579404,
+          "roc_auc": 0.6195735301058373,
+          "average_precision": 0.1977466602513066,
+          "precision_at_top_10_percent": 0.25487098472880465,
+          "recall_at_top_10_percent": 0.19975237309120925,
+          "brier": 0.11002324672296641
+        }
+      },
+      "pooled_streams": {
+        "None": {
+          "years": [
+            2024,
+            2025
+          ],
+          "deterministic_fit_reused_years": [],
+          "seed_selection": false
+        }
+      }
+    },
+    "facility_plus_combined_ownership__boosted": {
+      "validation_fit_count": 6,
+      "validation_training_rows": [
+        2066
+      ],
+      "validation_seed_values": [
+        "None"
+      ],
+      "validation_train_loss_range": [
+        0.15960223445261518,
+        0.2658570012806504
+      ],
+      "annual": {
+        "2024": [
+          {
+            "seed": null,
+            "training_rows": 4727,
+            "losses": {
+              "definition": "unweighted strictly-prior training binary cross-entropy data loss",
+              "initial_zero_logit": 0.6931471805599453,
+              "trained": 0.3219437771279472,
+              "full_iteration_trace_available": false
+            },
+            "metrics": {
+              "rows": 8909,
+              "positives": 1253,
+              "prevalence": 0.14064429228869682,
+              "roc_auc": 0.6103192463479499,
+              "average_precision": 0.20505047802304957,
+              "precision_at_top_10_percent": 0.25813692480359146,
+              "recall_at_top_10_percent": 0.18355945730247406,
+              "brier": 0.12033664118348068
+            },
+            "checkpoint": {
+              "path": "checkpoint.pkl",
+              "sha256": "14371cd9eb1d7028ae0dc7a9a154d089be403b423b2d7c0ea7026e8afbfc1552",
+              "trusted_internal_pickle_only": true
+            },
+            "phase_path": "test/facility_plus_combined_ownership__boosted/2024/seedNone"
+          }
+        ],
+        "2025": [
+          {
+            "seed": null,
+            "training_rows": 13636,
+            "losses": {
+              "definition": "unweighted strictly-prior training binary cross-entropy data loss",
+              "initial_zero_logit": 0.6931471805599454,
+              "trained": 0.3630272483216062,
+              "full_iteration_trace_available": false
+            },
+            "metrics": {
+              "rows": 10076,
+              "positives": 1170,
+              "prevalence": 0.11611750694720127,
+              "roc_auc": 0.6286135247341176,
+              "average_precision": 0.18417767315447783,
+              "precision_at_top_10_percent": 0.22916666666666666,
+              "recall_at_top_10_percent": 0.19743589743589743,
+              "brier": 0.10088136131325279
+            },
+            "checkpoint": {
+              "path": "checkpoint.pkl",
+              "sha256": "85f2f1f3374af0c15dd1041a8b3590996f516465c7ea844377f6ecc5e4ff421f",
+              "trusted_internal_pickle_only": true
+            },
+            "phase_path": "test/facility_plus_combined_ownership__boosted/2025/seedNone"
+          }
+        ]
+      },
+      "pooled_by_seed": {
+        "None": {
+          "rows": 18985,
+          "positives": 2423,
+          "prevalence": 0.12762707400579404,
+          "roc_auc": 0.6188716688471783,
+          "average_precision": 0.1935407726438092,
+          "precision_at_top_10_percent": 0.23854660347551343,
+          "recall_at_top_10_percent": 0.18695831613702021,
+          "brier": 0.11001104729502051
+        }
+      },
+      "pooled_streams": {
+        "None": {
+          "years": [
+            2024,
+            2025
+          ],
+          "deterministic_fit_reused_years": [],
+          "seed_selection": false
+        }
+      }
+    },
+    "prevalence": {
+      "annual": {
+        "2024": {
+          "rows": 8909,
+          "positives": 1253,
+          "prevalence": 0.14064429228869682,
+          "roc_auc": 0.5,
+          "average_precision": 0.14881623582231315,
+          "precision_at_top_10_percent": 0.15824915824915825,
+          "recall_at_top_10_percent": 0.11252992817238627,
+          "brier": 0.12087083710322989
+        },
+        "2025": {
+          "rows": 10076,
+          "positives": 1170,
+          "prevalence": 0.11611750694720127,
+          "roc_auc": 0.5,
+          "average_precision": 0.11868688072587125,
+          "precision_at_top_10_percent": 0.12301587301587301,
+          "recall_at_top_10_percent": 0.10598290598290598,
+          "brier": 0.1031905412300126
+        }
+      },
+      "pooled": {
+        "rows": 18985,
+        "positives": 2423,
+        "prevalence": 0.12762707400579404,
+        "roc_auc": 0.47256774192776696,
+        "average_precision": 0.12175362285714753,
+        "precision_at_top_10_percent": 0.114797261716693,
+        "recall_at_top_10_percent": 0.08997111019397441,
+        "brier": 0.11148728897478441
+      }
+    }
+  },
+  "resources": {
+    "phases": 33,
+    "wall_seconds_sum": 31.813172750004014,
+    "worker_cpu_seconds_sum": 43.866974409,
+    "peak_aggregate_rss_bytes_max": 881541120,
+    "family_validation_seconds": {
+      "facility_history__logistic": 2.645836169995164,
+      "facility_history__boosted": 3.7951417110016337,
+      "facility_plus_combined_ownership__logistic": 2.8581652650027536,
+      "facility_plus_combined_ownership__boosted": 4.020763197000633
+    },
+    "limits": {
+      "timeout_seconds": 1800,
+      "max_rss_bytes": 4294967296,
+      "max_output_bytes": 1073741824,
+      "family_validation_wall_seconds": 21600,
+      "run_wall_seconds": 86400,
+      "total_output_bytes": 17179869184
+    }
+  },
+  "result_sha256": "f9f946e77720db3f6d11f3f6d85e2c210fdb2e42e74c1f425f1438228b939a29",
+  "failed_first_run": "results/q2_cms_first_run_failure_20261003.json",
+  "availability_limit": "August2026 retrospective snapshot; no origin-valid availability asserted",
+  "no_new_bootstrap_or_uncertainty_interval": true
+}

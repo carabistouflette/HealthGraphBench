@@ -1,0 +1,69 @@
+{
+  "schema": "healthgraphbench.q2-cycle-status.v1",
+  "recorded_at_utc": "2026-10-03T22:47:19.086655+00:00",
+  "protocol_sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7",
+  "priorities": {
+    "P1_strengthened_comparisons": {
+      "status": "completed_exploratory",
+      "domains": [
+        "maude",
+        "cms_nursing",
+        "partd_prescriber_drug"
+      ],
+      "validation_fits": 150,
+      "selected_test_refits": 43,
+      "fit_checkpoints": 193,
+      "none_control_learning_gate_passed_for_selected_validation_and_test_seeds": true,
+      "no_capacity_equal_causal_aggregation_claim": true,
+      "no_lucky_seed_selection": true,
+      "equal_grid_opportunities_not_equal_compute_cost": true
+    },
+    "P2_independent_evaluation": {
+      "status": "sealed_forecast_published_target_evaluation_blocked",
+      "actual_learned_forecast_fits": 7,
+      "actual_heuristic_outputs": 2,
+      "new_disjoint_cohort_size": 2000,
+      "target_metrics_computed": false,
+      "independent_evaluation_passed": false,
+      "external_anchor_commit": "2a59324003fe8b9c89a5f1e9ff6464f2a76f6ab2",
+      "catalogue_absent_2025_after_external_publication": "2026-10-03T22:43:54.412446Z",
+      "blocking_prerequisites": [
+        "Official annual service2025 dataset node and primary-file metadata with publicly recaptured verified target bytes",
+        "Actual human nonconsultation/usage attestations"
+      ]
+    },
+    "P3_end_to_end_reuse": {
+      "technical_wheel_raw_fits_scores_public_evaluation": "complete",
+      "external_new_model": "neighbor_cosine_top50",
+      "checkpoint_reload_score_identity": "passed",
+      "external_human_study": "not_performed",
+      "blocking_prerequisite": "Actual external human participant, environment, commands, deviations and observed result; assistant run is not a substitute"
+    }
+  },
+  "runtime_verification": "results/q2_runtime_verification_20261003.json",
+  "results_document": "docs/q2-scientific-cycle/results_fr.md",
+  "scientific_evidence": [
+    "results/q2_maude_comparison_20261003.json",
+    "results/q2_cms_comparison_20261003.json",
+    "results/q2_partd_comparison_20261003.json",
+    "results/q2_external_reuse_20261003.json",
+    "results/q2_partd_prospective_20261003.json",
+    "results/q2_partd_prospective_publication_20261003.json"
+  ],
+  "preserved": [
+    "RC2.2",
+    "historical_C_D1_runs_checkpoints_ledgers_packages_environments",
+    "README.md",
+    "docs/manuscript_audit_fr.md",
+    "docs/manuscript_audit_fr_R2.md",
+    "docs/manuscript_audit_fr_R4.md"
+  ],
+  "publication_policy": {
+    "branch": "feature/q2-scientific-cycle",
+    "draft_PR": 5,
+    "depends_on_PR": 4,
+    "base": "develop",
+    "merge_tag_Zenodo_submission_performed": false,
+    "journal_quartile_or_acceptance_guaranteed": false
+  }
+}

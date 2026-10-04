@@ -322,3 +322,42 @@ The clean-wheel witness completed verified raw-to-new-fits-to-scores-to-public-e
 The prospective runner completed fresh full public recaptures of all six2019–24 sources, three official catalogue gates, a disjoint2000-provider cohort and seven learned fits plus two heuristic score outputs. Origin and forecast were sealed at22:10:50 and22:28:54UTC on2026-10-03, with no official annual2025 node listed. Exact forecast/origin records and all nine score hashes were pushed publicly under2a59324003fe8b9c89a5f1e9ff6464f2a76f6ab2; repository visibility was observed public. A further official catalogue capture after external publication at22:43:54UTC still listed no2025 node, and its response body is preserved separately.
 
 This is a real sealed forecast with public-input and external hash-anchor evidence, not a completed independent evaluation. No official2025 outcome file or target metric was acquired/computed. Human nonconsultation and an external human reuse study remain unknown/unmet. No merge/tag, manuscript deposit or journal acceptance/quartile claim is implied.
+
+## RC3 manuscript integration of completed Q2 evidence — 2026-10-04
+
+The user authorized a distinct RC3 after the experimental cycle. Canonical
+French was stabilized before faithful English translation; historical RC1,
+C/D1, RC2.2 and ClinicalTrials remain distinguished from new Q2 comparisons.
+The main manuscript integrates validation-only model selection and three
+comparison tables. Supplement S12 records grids, learning gates, seed spans,
+resources and retained failures; S13 documents the sealed, unevaluated Part D
+forecast; S14 describes actual API/wheel reuse; S15 retains human gates.
+
+Five reading-layout PDFs compiled after a missing math delimiter was corrected
+in both supplements. Assembly QA passed765 checks across34 bilingual source
+pairs; final sealed-package QA passed1520 checks. Main FR/EN PDFs have20/19
+pages and supplements32/31. All102 scientific pages were visually observed on
+contact sheets, with10 additional full-page reads;296 printed Q2 decimal cells
+were checked. No overfull box, unresolved reference or LaTeX warning remains;
+supplements retain34/29 underfull diagnostics. Actual ZIP CRC and included-PDF
+hashes passed. No historical successful scientific audit or medical
+fit/score/bootstrap/source acquisition was rerun.
+
+Delivery: `HealthGraphBench_LaTeX_RC3.zip` plus four standalone RC3 PDFs in
+Downloads. Manifest and surface evidence:
+`results/manuscript_rc3_20261004.json` and
+`results/manuscript_rc3_surface_review_20261004.json`.
+Every parent byte is retained; replaced members are under `history/RC2.2/`.
+Four consumed-source archives remain distinct from the later integration
+snapshot. The exact reuse wheel and two cosine NPZ inputs are packed locally,
+not committed as derived data. Five heavy experimental archives remain
+separately hash-indexed. The four protected user documents retain their
+initial SHA-256 fingerprints.
+
+Q2 periods remain exploratory. Selected mean/none dimensions/configurations
+and capacities differ, so no capacity-matched causal aggregation effect is
+claimed; D1's nearly flat loss does not establish a historical optimizer bug.
+No official Part D2025 target or metric was acquired/computed. Human
+nonconsultation is unknown and external-human reuse remains unperformed.
+Authors, declarations, manuscript license, venue, final template and submission
+approval remain open. No merge/tag/Zenodo/submission or Q2 acceptance guarantee.

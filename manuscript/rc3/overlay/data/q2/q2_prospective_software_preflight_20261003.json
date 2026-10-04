@@ -1,0 +1,78 @@
+{
+  "evidence": "synthetic software only; 4000 fake 9-prefixed IDs and SYNTH drugs; real local HTTP, simulated CMS transport/catalogue; NOT medical, official availability or independent evaluation evidence; committed Git gate not exercised here",
+  "numeric_evaluation": {
+    "positive_containing_provider_years": {
+      "positive_count": 2000,
+      "contributing_provider_count": 2000,
+      "contributing_provider_year_count": 2000,
+      "hits_at_5": 1000,
+      "hits_at_10": 1000,
+      "hits_at_20": 2000,
+      "micro_recall_at_5": 0.5,
+      "micro_recall_at_10": 0.5,
+      "micro_recall_at_20": 1.0,
+      "provider_macro_recall_at_5": 0.5,
+      "provider_macro_recall_at_10": 0.5,
+      "provider_macro_recall_at_20": 1.0,
+      "mrr": 0.5454545454545191
+    },
+    "all_provider_years": {
+      "precision_at_5": 0.1,
+      "hits_at_5": 1000,
+      "recommendation_slots_at_5": 10000,
+      "recommendation_burden_per_target_provider_year_at_5": 5.0,
+      "recommendation_burden_per_eligible_provider_year_at_5": 5.0,
+      "zero_positive_provider_years_recommended_at_5": 0,
+      "fraction_zero_positive_provider_years_recommended_at_5": null,
+      "precision_at_10": 0.05,
+      "hits_at_10": 1000,
+      "recommendation_slots_at_10": 20000,
+      "recommendation_burden_per_target_provider_year_at_10": 10.0,
+      "recommendation_burden_per_eligible_provider_year_at_10": 10.0,
+      "zero_positive_provider_years_recommended_at_10": 0,
+      "fraction_zero_positive_provider_years_recommended_at_10": null,
+      "precision_at_20": 0.09090909090909091,
+      "hits_at_20": 2000,
+      "recommendation_slots_at_20": 22000,
+      "recommendation_burden_per_target_provider_year_at_20": 11.0,
+      "recommendation_burden_per_eligible_provider_year_at_20": 11.0,
+      "zero_positive_provider_years_recommended_at_20": 0,
+      "fraction_zero_positive_provider_years_recommended_at_20": null,
+      "target_cohort_provider_year_count": 2000,
+      "eligible_provider_year_count": 2000,
+      "ineligible_provider_year_count": 0,
+      "candidate_empty_provider_year_count": 0,
+      "positive_empty_provider_year_count": 0,
+      "positive_empty_fraction_of_eligible": 0.0,
+      "precision_denominator": "actual top-K recommendation slots, min(K, candidate_count) per eligible provider-year",
+      "top_k_is_ranking_threshold_not_calibrated_confidence": true
+    }
+  },
+  "forecast_model_runs": {
+    "specialty_popularity": 1,
+    "history_overlap": 1,
+    "logistic": 1,
+    "boosted": 1,
+    "bpr": 3
+  },
+  "forecast_sha256": "9b257b8a2aaf2142dbb9512067f783cd0026cba7c93b935299b0cfdf9037277e",
+  "evaluation_sha256": "d7e8f2b66a34d922ca97cb30dc67159a3d42aa56fb130bfaa1ac5b2013fc0bc6",
+  "publication_race_refused": true,
+  "score_tamper_refused": {
+    "type": "ValueError",
+    "message": "forecast candidate score hash mismatch for bpr",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/q2/common.py\", line 108, in _guarded_worker\n    result = target(*args, phase_dir)\n  File \"/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/q2/prospective_partd.py\", line 1687, in _evaluate_target_worker\n    sealed_runs = _sealed_runs(run_root, forecast, origin, origin_dir, layout)\n  File \"/home/arobin/Work/Repos/HealthGraphBench/healthgraphbench/q2/prospective_partd.py\", line 1430, in _sealed_runs\n    raise ValueError(f\"forecast candidate score hash mismatch for {family}\")\nValueError: forecast candidate score hash mismatch for bpr\n"
+  },
+  "status": "passed",
+  "source_sha256": {
+    "healthgraphbench/q2/prospective_partd.py": "00e54018af535904cf38259486d4341f4f278f851b278648332b4f5bd671b285",
+    "scripts/run_q2_prospective_partd.py": "f2752ed32eb7f4f49548b01e8b743ee80a3ceb4fc2a9dc63f0c712bebfa9e13e",
+    "healthgraphbench/q2/partd.py": "e00af4a70c55f38e097e482dda663fb451b241e45339edcda78d247601c9f8de",
+    "healthgraphbench/q2/common.py": "b0571d915e1f566aa23ba258446b1a57ba0518a7de46e1a81fba1e3bd69187eb",
+    "healthgraphbench/candidates/partd.py": "76d616e202f6e8efe623f96d70006eb978d97c007533e8589b36a7d0925bcae4",
+    "healthgraphbench/candidates/partd_model.py": "923751d095b7cbf2106e7041f78994001d237ed59db3f648e91a7e861315396f",
+    "healthgraphbench/tasks/partd/task.py": "60faf2be61a16f36123fe21feb88dbea8b90d58ebdb50ddeb8214d5ea6f1a9a9",
+    "results/generated/q2-cycle-20261003/prospective-software-002/synthetic_manifest.json": "67f60d252d15bb216e19d498352bf393f28a14a3265884ba5a17b3f1fb9f7280",
+    "results/q2_partd_development_population_20261003.json": "46df7b0881edb0e03716a00eb7af5c7e43f02ccd55e96bf215836141d3e8f030"
+  }
+}

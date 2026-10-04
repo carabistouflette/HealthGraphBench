@@ -1,0 +1,523 @@
+{
+  "limits": {
+    "timeout_seconds": 1800,
+    "max_rss_bytes": 4294967296,
+    "max_output_bytes": 1073741824,
+    "family_validation_wall_seconds": 21600,
+    "run_wall_seconds": 84695.04225283404,
+    "total_output_bytes": 16839922207
+  },
+  "family_validation_seconds": {},
+  "phases": [
+    {
+      "phase": "test/heuristics/year2024/seed000",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2508149,
+      "exit_code": 0,
+      "wall_seconds": 20.606580240004405,
+      "worker_cpu_seconds": 21.051223594,
+      "peak_aggregate_rss_bytes": 1141350400,
+      "phase_output_bytes": 910886,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/logistic/year2024/seed000",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2510752,
+      "exit_code": 0,
+      "wall_seconds": 34.647679968002194,
+      "worker_cpu_seconds": 35.02,
+      "peak_aggregate_rss_bytes": 1223503872,
+      "phase_output_bytes": 1019005,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/boosted/year2024/seed000",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2515124,
+      "exit_code": 0,
+      "wall_seconds": 38.39081514999998,
+      "worker_cpu_seconds": 38.727270597,
+      "peak_aggregate_rss_bytes": 1232396288,
+      "phase_output_bytes": 1001181,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/spectral/year2024/seed103",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2519945,
+      "exit_code": 0,
+      "wall_seconds": 10.758129891997669,
+      "worker_cpu_seconds": 11.19,
+      "peak_aggregate_rss_bytes": 1150025728,
+      "phase_output_bytes": 1631388,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/spectral/year2024/seed211",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2521375,
+      "exit_code": 0,
+      "wall_seconds": 10.949147446997813,
+      "worker_cpu_seconds": 11.409687323,
+      "peak_aggregate_rss_bytes": 1150230528,
+      "phase_output_bytes": 1631104,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/spectral/year2024/seed307",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2522759,
+      "exit_code": 0,
+      "wall_seconds": 10.95297325499996,
+      "worker_cpu_seconds": 11.334534609999999,
+      "peak_aggregate_rss_bytes": 1150144512,
+      "phase_output_bytes": 1631053,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/bpr/year2024/seed103",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2524165,
+      "exit_code": 0,
+      "wall_seconds": 4.474569026002428,
+      "worker_cpu_seconds": 4.895459354,
+      "peak_aggregate_rss_bytes": 1252499456,
+      "phase_output_bytes": 2148712,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/bpr/year2024/seed211",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2524731,
+      "exit_code": 0,
+      "wall_seconds": 4.561117935998482,
+      "worker_cpu_seconds": 5.000882852,
+      "peak_aggregate_rss_bytes": 1252425728,
+      "phase_output_bytes": 2148364,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/bpr/year2024/seed307",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2525315,
+      "exit_code": 0,
+      "wall_seconds": 4.6510484340033145,
+      "worker_cpu_seconds": 5.08,
+      "peak_aggregate_rss_bytes": 1252442112,
+      "phase_output_bytes": 2147779,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_mean/year2024/seed103",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2525905,
+      "exit_code": 0,
+      "wall_seconds": 10.352465432995814,
+      "worker_cpu_seconds": 10.808337284999999,
+      "peak_aggregate_rss_bytes": 1274630144,
+      "phase_output_bytes": 2811280,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_mean/year2024/seed211",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2527233,
+      "exit_code": 0,
+      "wall_seconds": 10.638727141995332,
+      "worker_cpu_seconds": 10.98969385,
+      "peak_aggregate_rss_bytes": 1283170304,
+      "phase_output_bytes": 2811515,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_mean/year2024/seed307",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2528590,
+      "exit_code": 0,
+      "wall_seconds": 9.998200593996444,
+      "worker_cpu_seconds": 10.459631737,
+      "peak_aggregate_rss_bytes": 1292599296,
+      "phase_output_bytes": 2809994,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_none/year2024/seed103",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2529845,
+      "exit_code": 0,
+      "wall_seconds": 9.749564737001492,
+      "worker_cpu_seconds": 9.88,
+      "peak_aggregate_rss_bytes": 1304137728,
+      "phase_output_bytes": 3218882,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_none/year2024/seed211",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2531092,
+      "exit_code": 0,
+      "wall_seconds": 8.862227147998055,
+      "worker_cpu_seconds": 9.287144395,
+      "peak_aggregate_rss_bytes": 1312411648,
+      "phase_output_bytes": 3217200,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_none/year2024/seed307",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2532229,
+      "exit_code": 0,
+      "wall_seconds": 9.656105288995604,
+      "worker_cpu_seconds": 9.731054173,
+      "peak_aggregate_rss_bytes": 1323773952,
+      "phase_output_bytes": 3217439,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/heuristics/year2025/seed000",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2533443,
+      "exit_code": 0,
+      "wall_seconds": 28.503122867994534,
+      "worker_cpu_seconds": 28.888643787,
+      "peak_aggregate_rss_bytes": 1214681088,
+      "phase_output_bytes": 1051455,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/logistic/year2025/seed000",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2537052,
+      "exit_code": 0,
+      "wall_seconds": 46.94539947799785,
+      "worker_cpu_seconds": 47.223131386,
+      "peak_aggregate_rss_bytes": 1301610496,
+      "phase_output_bytes": 1178500,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/boosted/year2025/seed000",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2543007,
+      "exit_code": 0,
+      "wall_seconds": 51.48748651799542,
+      "worker_cpu_seconds": 51.726044177,
+      "peak_aggregate_rss_bytes": 1306247168,
+      "phase_output_bytes": 1140225,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/spectral/year2025/seed103",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2549520,
+      "exit_code": 0,
+      "wall_seconds": 14.567630612000357,
+      "worker_cpu_seconds": 15.009719252999998,
+      "peak_aggregate_rss_bytes": 1223610368,
+      "phase_output_bytes": 1831348,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/spectral/year2025/seed211",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2551382,
+      "exit_code": 0,
+      "wall_seconds": 12.973875085001055,
+      "worker_cpu_seconds": 13.331935648,
+      "peak_aggregate_rss_bytes": 1223958528,
+      "phase_output_bytes": 1831900,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/spectral/year2025/seed307",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2553014,
+      "exit_code": 0,
+      "wall_seconds": 13.00825784799963,
+      "worker_cpu_seconds": 13.410816921,
+      "peak_aggregate_rss_bytes": 1224183808,
+      "phase_output_bytes": 1832117,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/bpr/year2025/seed103",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2554680,
+      "exit_code": 0,
+      "wall_seconds": 5.491548535996117,
+      "worker_cpu_seconds": 5.9161264209999995,
+      "peak_aggregate_rss_bytes": 1326956544,
+      "phase_output_bytes": 2369422,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/bpr/year2025/seed211",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2555380,
+      "exit_code": 0,
+      "wall_seconds": 6.0176987550003105,
+      "worker_cpu_seconds": 6.395437174,
+      "peak_aggregate_rss_bytes": 1326952448,
+      "phase_output_bytes": 2369318,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/bpr/year2025/seed307",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2556144,
+      "exit_code": 0,
+      "wall_seconds": 5.554115029000968,
+      "worker_cpu_seconds": 5.945242904,
+      "peak_aggregate_rss_bytes": 1325953024,
+      "phase_output_bytes": 2370462,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_mean/year2025/seed103",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2556844,
+      "exit_code": 0,
+      "wall_seconds": 11.910977580999315,
+      "worker_cpu_seconds": 12.278819877,
+      "peak_aggregate_rss_bytes": 1349173248,
+      "phase_output_bytes": 3001394,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_mean/year2025/seed211",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2558362,
+      "exit_code": 0,
+      "wall_seconds": 11.88891645399417,
+      "worker_cpu_seconds": 12.26,
+      "peak_aggregate_rss_bytes": 1358708736,
+      "phase_output_bytes": 3002688,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_mean/year2025/seed307",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2559865,
+      "exit_code": 0,
+      "wall_seconds": 13.076492827000038,
+      "worker_cpu_seconds": 13.438903257,
+      "peak_aggregate_rss_bytes": 1368395776,
+      "phase_output_bytes": 3001287,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_none/year2025/seed103",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2561533,
+      "exit_code": 0,
+      "wall_seconds": 10.857255506998627,
+      "worker_cpu_seconds": 11.249436245,
+      "peak_aggregate_rss_bytes": 1380634624,
+      "phase_output_bytes": 3437625,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_none/year2025/seed211",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2562920,
+      "exit_code": 0,
+      "wall_seconds": 10.409421980002662,
+      "worker_cpu_seconds": 10.820931203,
+      "peak_aggregate_rss_bytes": 1389133824,
+      "phase_output_bytes": 3430328,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    {
+      "phase": "test/graphsage_none/year2025/seed307",
+      "family": null,
+      "status": "complete",
+      "reason": null,
+      "pid": 2564233,
+      "exit_code": 0,
+      "wall_seconds": 11.607807667998713,
+      "worker_cpu_seconds": 12.031950337,
+      "peak_aggregate_rss_bytes": 1399336960,
+      "phase_output_bytes": 3419141,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    }
+  ]
+}

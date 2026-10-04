@@ -1,0 +1,23 @@
+{
+  "schema": "healthgraphbench.q2-source-recovery.v1",
+  "status": "complete",
+  "source_root": "/home/arobin/healthgraphbench-data/q2-cycle-20261003/cms",
+  "frozen_manifest": "data/manifests/v0.1.json",
+  "frozen_manifest_changed": false,
+  "sources_verified_against_frozen_manifest": ["health_citations.csv", "ownership.csv", "provider_info.csv", "survey_dates.csv", "penalties.csv", "chow.json", "chow_owners_full.json"],
+  "owners": {
+    "records": 119419,
+    "bytes": 125653423,
+    "sha256": "ba0a61e19765256a57efee604e795ecbb993ae9c439ff682efb010ce444ad866",
+    "page_size_requested": 5000,
+    "complete_pages_until_empty": true,
+    "serialization": {"ensure_ascii": false, "sort_keys": false, "separators": [",", ":"], "indent": null, "trailing_newline": false},
+    "successful_recovery_wall_seconds": 29.84
+  },
+  "failed_attempts_retained": [
+    {"stage": "frozen_complete_url_without_pagination", "response_bytes": 6845794, "response_sha256": "fba9afac73b3ca9e384e954c58348df630fd71dfebd2237de126e420b84ec783", "error": "capped response differs from frozen complete source"},
+    {"stage": "complete_pagination_spaced_serializations", "records": 119419, "wall_seconds": 36.93, "error": "none of the tried spaced/indented JSON serializations matches frozen bytes"}
+  ],
+  "conclusion": "Complete pagination plus compact UTF-8 JSON exactly restores the frozen source; no evidence of a changed source dataset was needed to explain the mismatch.",
+  "origin_valid_historical_public_availability_claim": false
+}

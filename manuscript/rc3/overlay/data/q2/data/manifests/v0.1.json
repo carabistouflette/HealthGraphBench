@@ -1,0 +1,52 @@
+{
+  "benchmark_version": "0.1",
+  "raw_data_policy": "Raw FDA and CMS files are not vendored. Download from the official URLs into a user-managed directory, verify hashes, then build derived task rows.",
+  "maude": {
+    "snapshot": "Annual MAUDE files for 2019-2025; device-problem mapping through 2025.",
+    "official_urls": {
+      "data_files": "https://www.fda.gov/medical-devices/medical-device-reporting-mdr-how-report-medical-device-problems/mdr-data-files",
+      "adverse_event_codes": "https://www.fda.gov/medical-devices/mandatory-reporting-requirements-manufacturers-importers-and-device-user-facilities/mdr-adverse-event-codes",
+      "device_problem_map": "https://www.accessdata.fda.gov/MAUDE/ftparea/deviceproblemcodes2025.zip",
+      "file_template": "https://www.accessdata.fda.gov/MAUDE/ftparea/device{year}.zip",
+      "problem_file": "https://www.accessdata.fda.gov/MAUDE/ftparea/foidevproblem_thru2025.zip"
+    },
+    "files": [
+      {"path": "device2019.zip", "bytes": 51660033, "sha256": "ce058cfca6b9e80cc9e2cc5dcb57172361e73f9c385ba21c51638b112183743f"},
+      {"path": "device2020.zip", "bytes": 57465130, "sha256": "2a70246bbd75e69296edaf523f06436d54e414cf37616bb2818c4d035c52d12f"},
+      {"path": "device2021.zip", "bytes": 69836955, "sha256": "3f8502baa09a020b7340b64ae5ad78e361031c054d3df3289db8d3396481eb2f"},
+      {"path": "device2022.zip", "bytes": 87069078, "sha256": "4f057893c42d533c3a56c7d8dec15f3526574c8cc4ee3d291770281aea314128"},
+      {"path": "device2023.zip", "bytes": 85109630, "sha256": "8d3fb8e41d29fdefdab39194b458142c1339768a714cd1240dd62ffe54e42b6b"},
+      {"path": "device2024.zip", "bytes": 100046684, "sha256": "d637c520cb976dbd7fffd7d2da486486001e19b1e7a36a6b76a05cf20982ebec"},
+      {"path": "device2025.zip", "bytes": 109619172, "sha256": "85882b9441329dd9a41076038d24e7ab3ee955eb25b2604b5a8d93712863913d"},
+      {"path": "foidevproblem_thru2025.zip", "bytes": 76764511, "sha256": "3f6deb2ea42d766ceca44b12fd2fe4932ff0518476b03b280371e29950f89a86"},
+      {"path": "deviceproblemcodes2025.zip", "bytes": 12977, "sha256": "bea877b445701b29ceb8e5c1cbd376fb176a8631f3668441c19a3cbada70dd15"}
+    ]
+  },
+  "cms": {
+    "snapshot": "August 2026 CMS nursing-home release.",
+    "official_dataset_pages": {
+      "health_citations": "https://data.cms.gov/provider-data/dataset/r5ix-sfxw",
+      "ownership": "https://data.cms.gov/provider-data/dataset/y2hd-n93e",
+      "provider_info": "https://data.cms.gov/provider-data/dataset/4pq5-n9py",
+      "penalties": "https://data.cms.gov/provider-data/dataset/g6vv-u9sr"
+    },
+    "official_urls": {
+      "health_citations": "https://data.cms.gov/provider-data/sites/default/files/resources/600f5d1861dd2e0280b2e961e8396245_1786724148/NH_HealthCitations_Aug2026.csv",
+      "ownership": "https://data.cms.gov/provider-data/sites/default/files/resources/cc4bedc83a7b3752efb24f7817a856ce_1786724150/NH_Ownership_Aug2026.csv",
+      "provider_info": "https://data.cms.gov/provider-data/sites/default/files/resources/328596835e6db31b2564cd733c3795f4_1786724150/NH_ProviderInfo_Aug2026.csv",
+      "survey_dates": "https://data.cms.gov/provider-data/sites/default/files/resources/c695a10fcf74e3a839879a307008563e_1786724153/NH_SurveyDates_Aug2026.csv",
+      "penalties": "https://data.cms.gov/provider-data/sites/default/files/resources/22b16c9dfd718b1b2a003eb8d4222046_1786724150/NH_Penalties_Aug2026.csv",
+      "chow": "https://data.cms.gov/data-api/v1/dataset/f557a6ed-95b3-4a22-8433-4175db2dec1c/data?size=100000",
+      "chow_owners": "https://data.cms.gov/data-api/v1/dataset/a4358712-e910-4eaf-8f24-5e90ba3cf8d0/data?size=100000"
+    },
+    "files": [
+      {"path": "health_citations.csv", "bytes": 165336194, "sha256": "54d6e3e7c4c183da210601f2a1b59abff6f23a0aff49d5a9f097105e6fd97741"},
+      {"path": "ownership.csv", "bytes": 57251685, "sha256": "550ef28dc3a2c5ac544760023b5cb494e5fbd77567848dca36324211dd83aa68"},
+      {"path": "provider_info.csv", "bytes": 9151628, "sha256": "a5808fcded1ca73a629fde88fc23dcba3b6ff8ed75199883062a262e14ef8fe0"},
+      {"path": "survey_dates.csv", "bytes": 7786920, "sha256": "0cebe80f61018356728283b47f3f5d61ce6d7e2bd2afa385a225e51ee2c4468f"},
+      {"path": "penalties.csv", "bytes": 2712484, "sha256": "3683f1debe5a19073075b3d5a1ceaa417971705d725d8c72cb568db95a39124d"},
+      {"path": "chow.json", "bytes": 5018534, "sha256": "fdc762f7b22173c6cc70d512207f6b9032c6ce6ab02e9bba467052be9331f2e1"},
+      {"path": "chow_owners_full.json", "bytes": 125653423, "sha256": "ba0a61e19765256a57efee604e795ecbb993ae9c439ff682efb010ce444ad866"}
+    ]
+  }
+}

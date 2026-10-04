@@ -1,0 +1,151 @@
+{
+  "revision": "RC3",
+  "prepared_on": "2026-10-04",
+  "base_scientific_commit": "6b4ae00ebc4b701d757260616ccb0df16f51467b",
+  "branch": "feature/manuscript-rc3",
+  "delivery": {
+    "revision": "RC3",
+    "archive": {
+      "path": "/home/arobin/Downloads/HealthGraphBench_LaTeX_RC3.zip",
+      "sha256": "6cc3005a46ac2c906daf42a7c27781dfae8953b5eaa78c874e41b622014dd402"
+    },
+    "standalone_pdfs": [
+      {
+        "path": "/home/arobin/Downloads/HealthGraphBench_RC3_manuscrit_FR.pdf",
+        "sha256": "171c65e4dbec481e890fc03befac7c587ef1ce13a105a4b56602e10f0cedbf4b"
+      },
+      {
+        "path": "/home/arobin/Downloads/HealthGraphBench_RC3_manuscript_EN.pdf",
+        "sha256": "73f2650b05b3c082030b885e98a980d40ecb374442f42c129937af607a924f40"
+      },
+      {
+        "path": "/home/arobin/Downloads/HealthGraphBench_RC3_supplement_FR.pdf",
+        "sha256": "51d143f174dd4de515726759f2f689b01a4bb73792c634a9906c67ae1b12032d"
+      },
+      {
+        "path": "/home/arobin/Downloads/HealthGraphBench_RC3_supplement_EN.pdf",
+        "sha256": "bc4a0e7e618188c86a7675ba2b6bb6dbc9f8249b55227a92c9c7aaab8dde9468"
+      }
+    ],
+    "root": "/tmp/hgb-rc3-20261004/HealthGraphBench_RC3",
+    "checks": 1520,
+    "package_passed": true,
+    "surface_report": "/tmp/hgb-rc3-20261004/HealthGraphBench_RC3/verification/rc3/surface_review.json",
+    "parent_RC2_2_unchanged": true,
+    "scientific_gates": {
+      "strengthened_comparisons": "completed_exploratory",
+      "independent_evaluation_passed": false,
+      "target2025_source_acquired": false,
+      "target2025_metrics_computed": false,
+      "human_nonconsultation_attestations": "unknown",
+      "technical_end_to_end_reuse": "complete",
+      "external_human_study": "not_performed",
+      "author_validation_complete": false,
+      "journal_selected": false,
+      "submission_authorized": false
+    },
+    "submission_performed": false
+  },
+  "archive_bytes": 25479448,
+  "archive_CRC_passed": true,
+  "actual_ZIP_scientific_PDF_hashes_match_inspected": {
+    "main_fr.pdf": true,
+    "main_en.pdf": true,
+    "supplement_fr.pdf": true,
+    "supplement_en.pdf": true
+  },
+  "scientific_PDF_pages": {
+    "main_fr.pdf": 20,
+    "main_en.pdf": 19,
+    "supplement_fr.pdf": 32,
+    "supplement_en.pdf": 31
+  },
+  "assembly_checks": 765,
+  "sealed_package_checks": 1520,
+  "bilingual_pairs": 34,
+  "visual_overview_pages": 102,
+  "full_page_visual_reads": 10,
+  "PDF_printed_decimal_cells_checked": 296,
+  "compilation_diagnostics": {
+    "response_reviewers_fr": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 0,
+      "undefined": 0
+    },
+    "supplement_en": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 29,
+      "undefined": 0
+    },
+    "supplement_fr": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 34,
+      "undefined": 0
+    },
+    "main_en": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 0,
+      "undefined": 0
+    },
+    "main_fr": {
+      "LaTeX_warnings": 0,
+      "overfull": 0,
+      "underfull": 0,
+      "undefined": 0
+    }
+  },
+  "protected_user_files": {
+    "README.md": {
+      "initial_sha256": "e8d3fc9d60a720cdc7db17ee01924b2efb753ae8b7f22090febc531a84366124",
+      "final_sha256": "e8d3fc9d60a720cdc7db17ee01924b2efb753ae8b7f22090febc531a84366124",
+      "unchanged": true
+    },
+    "docs/manuscript_audit_fr.md": {
+      "initial_sha256": "f0aade21ce9586f7b7b191c301523b16449ab30ec000211b6c450844d01af9b2",
+      "final_sha256": "f0aade21ce9586f7b7b191c301523b16449ab30ec000211b6c450844d01af9b2",
+      "unchanged": true
+    },
+    "docs/manuscript_audit_fr_R2.md": {
+      "initial_sha256": "0cfc8edc72ec8b511a13cc0f9bff4801fd1104d26b6cafc421ad0513c3dd5233",
+      "final_sha256": "0cfc8edc72ec8b511a13cc0f9bff4801fd1104d26b6cafc421ad0513c3dd5233",
+      "unchanged": true
+    },
+    "docs/manuscript_audit_fr_R4.md": {
+      "initial_sha256": "812da6fd05df5efa090b43d7bdc4d2265aa2f79b5ed24738d7763a5249aa5170",
+      "final_sha256": "812da6fd05df5efa090b43d7bdc4d2265aa2f79b5ed24738d7763a5249aa5170",
+      "unchanged": true
+    }
+  },
+  "verification_commands": [
+    {
+      "command": "python scripts/build_manuscript_rc3.py assemble --source-zip RC2.2 --output-dir /tmp/hgb-rc3-20261004/HealthGraphBench_RC3",
+      "result": "Initial supplement compilation failed on missing closing math delimiter; failure retained"
+    },
+    {
+      "command": "python scripts/compile_pdfs.py in assembly after both supplement source corrections",
+      "result": "Return code0; five documents compiled"
+    },
+    {
+      "command": "RC3 checker --skip-manifest --allow-unsealed",
+      "result": "765 checks passed,34 bilingual pairs"
+    },
+    {
+      "command": "PyMuPDF rendered all four scientific PDFs; actual pages observed",
+      "result": "102 overview pages and10 full-page views, no unexpected blank/clipping/undefined reference"
+    },
+    {
+      "command": "python scripts/build_manuscript_rc3.py seal ...",
+      "result": "1520 final checks passed; exclusive ZIP/four standalone PDFs created"
+    },
+    {
+      "command": "zipfile.testzip plus inspected-PDF SHA comparison and final protected-user SHA comparison",
+      "result": "Passed"
+    }
+  ],
+  "no_new_scientific_execution": true,
+  "no_merge_tag_Zenodo_submission": true
+}

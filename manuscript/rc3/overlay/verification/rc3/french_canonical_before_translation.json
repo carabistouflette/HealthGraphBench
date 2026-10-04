@@ -1,0 +1,14 @@
+{
+  "recorded_at_utc": "2026-10-04T11:58:46.292756+00:00",
+  "policy": "French canonical revision completed before faithful English translation; no independent English redraft",
+  "files": {
+    "main_fr.tex": "354236f9f3e1347642f1079998a3ea0d43b8edd4d1436c64b6adffbb29671485",
+    "metadata_fr.tex": "ec8caeec7f6b35d534fc9a9f1a4646ba79d6430430c8557afed2ad2f969ad031",
+    "supplement_fr.tex": "1397d21f0528cb6dacc0a34b16144eefa8e6ac6d85b118db74ceadc9eb823173",
+    "sections/abstract_fr.tex": "8cfe0933eb70f271c8aae5ac01267fcd890e14836cec76d66888550fa82c0b2e",
+    "sections/body_fr.tex": "694a2a077b2b0590defbb5a06fab0846f988d7e56cf10224380d53c560c5fd53",
+    "sections/post_rc1_fr.tex": "0ecd086506d4784319802e522a0618a1e1196c731665dfa97f113d07cf19e9f5",
+    "sections/supp_additions_fr.tex": "b8929275acccddb720b21a476d45ffbdb64b93151356e13b7b16f94efbce3840",
+    "sections/q2_supp_fr.tex": "3966f050c23cab935231b6fc6cd7994e2fb995e464cc03e0b425a9797009a745"
+  }
+}
