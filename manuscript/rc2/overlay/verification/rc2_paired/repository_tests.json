@@ -1,0 +1,13 @@
+{
+  "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 results/generated/consolidation-post-RC1/core-verification-20261002/analysis-env/bin/python -m unittest discover -s tests -v",
+  "tests_run": 64,
+  "test_seconds": 2.088,
+  "passed": true,
+  "new_behavioral_regressions": 3,
+  "new_tests_cover": [
+    "product blocks and pooled ratio, not mean of recalls",
+    "positive identity mismatch despite equal denominator",
+    "candidate identity mismatch despite equal cardinality"
+  ],
+  "scope": "Repository unit/fixture suite; no real medical fits, candidate re-score or historical successful scientific audit rerun"
+}

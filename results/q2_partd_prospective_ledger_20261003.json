@@ -1,0 +1,40 @@
+{
+  "schema": "healthgraphbench.q2-prospective-resource-ledger-summary.v1",
+  "full_ledger_path": "results/generated/q2-cycle-20261003/partd-prospective-001/resource_ledger.json",
+  "full_ledger_bytes": 9601,
+  "full_ledger_sha256": "052ad0d9dc5b17f73efd1732604bef331224038561331b38ce4718f191f61e34",
+  "phase_count": 19,
+  "completed_phase_count": 19,
+  "run_wall_seconds": 2241.490268074005,
+  "output_bytes_before_final_report": 199775083,
+  "maximum_observed_phase_rss_bytes": 834887680,
+  "limits": {
+    "timeout_seconds": 1800,
+    "max_rss_bytes": 4294967296,
+    "max_output_bytes": 1073741824,
+    "family_validation_wall_seconds": 21600,
+    "run_wall_seconds": 86400,
+    "total_output_bytes": 17179869184
+  },
+  "phase_wall_seconds": {
+    "capture_catalog": 1.3721783820001292,
+    "capture_sources/service-year-2019": 189.60412141899724,
+    "capture_sources/service-year-2020": 191.46659252599784,
+    "capture_sources/service-year-2021": 191.2392134719994,
+    "capture_sources/service-year-2022": 195.4927848389998,
+    "capture_sources/service-year-2023": 190.21240175900311,
+    "capture_sources/service-year-2024": 196.612737276002,
+    "catalog_after_source_captures": 1.08733240699803,
+    "prepare_origin": 964.8984234739983,
+    "forecast_fits/specialty_popularity/deterministic": 3.087986443999398,
+    "forecast_fits/history_overlap/deterministic": 15.385983234002197,
+    "forecast_fits/logistic/deterministic": 12.143784280000546,
+    "forecast_fits/boosted/seed-103": 18.26813054300146,
+    "forecast_fits/boosted/seed-211": 18.374181355000474,
+    "forecast_fits/boosted/seed-307": 18.380923275995883,
+    "forecast_fits/bpr/seed-103": 11.029782220000925,
+    "forecast_fits/bpr/seed-211": 10.929893859000003,
+    "forecast_fits/bpr/seed-307": 11.00421520799864,
+    "catalog_before_forecast_seal": 0.846361841999169
+  }
+}

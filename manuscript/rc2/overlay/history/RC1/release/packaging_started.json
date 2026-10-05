@@ -1,0 +1,20 @@
+{
+  "started_at_utc": "2026-09-30T11:51:28.027566+00:00",
+  "modified_original_files": [
+    "AUDIT_R5_FR.md",
+    "data/revision_status_R6.json",
+    "hgb_preview.sty",
+    "main_en.tex",
+    "main_fr.tex",
+    "metadata_en.tex",
+    "metadata_fr.tex",
+    "provenance.json",
+    "response_reviewers_fr.tex",
+    "scripts/check_review_package.py",
+    "sections/supp_additions_en.tex",
+    "sections/supp_additions_fr.tex",
+    "supplement_en.tex",
+    "supplement_fr.tex"
+  ],
+  "scientific_payload_files_protected": 108
+}

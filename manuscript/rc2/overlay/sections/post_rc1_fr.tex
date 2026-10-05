@@ -1,0 +1,118 @@
+\par\Needspace{10\baselineskip}
+\section{Exploration MAUDE de durée, rapprochement apparié et diagnostic secondaire}
+\label{supp:post-rc1}
+
+\textbf{Statut et périmètre.} C et D1 sont de nouvelles explorations sur 28 instantanés MAUDE préparés pour la période 2019T1--2025T4, selon l'horloge \texttt{DATE\_RECEIVED}. Les périodes de validation et de test avaient déjà été consultées dans le développement antérieur ; ces résultats ne constituent donc pas une confirmation indépendante. Les effectifs ne concernent que les produit--trimestres évalués avec au moins un lien positif, au seuil de soutien historique du produit $\geq1$ ; ils ne couvrent ni les observations sans positif ni une population clinique complète.
+
+Les fichiers de provenance comprennent les manifestes, prévols, séries d'époques et métriques de \src{data/post_rc1}, ainsi que les snapshots préparés sous \src{data/real_R6/maude_B/prepared_snapshots.json.gz} (SHA-256 \src{1cba7f84ff24131715c68a985d9302c96c7bab4a4b2a27d906559a41104fbd36}). Les exécutions utilisent les commits \src{4a22c2addc8203efd2b38a60c416270855c3bf3b} pour C et \src{b14d878a78f559b65c70fc872a51a59af4c5ae85} pour D1, ce dernier fixé avant l'entraînement de santé ; le code est fourni sous \src{vendor/post_rc1/healthgraphbench/tasks/maude/models.py}. Le fichier \src{data/post_rc1/checkpoint_index.json} répertorie les neuf checkpoints d'inférence inclus : six fits C et trois fits none30 de D1. Les flux complets de scores des candidats ne sont pas inclus.
+
+\subsection{C : sélection exploratoire de la durée}
+
+L'entraînement de validation s'appuie sur l'historique jusqu'à 2022T4 et évalue 2023 ; les scores retenus par le protocole utilisent les mêmes 3\,483 produit--trimestres avec positif, 7\,705 liens positifs et 1\,618\,588 paires candidates. Quatre entraînements séparés, réinitialisés de manière déterministe et sans reprise de l'état d'un entraînement précédent, ont été comparés, avec la même dimension 8, huit voisins échantillonnés, le taux d'apprentissage 0,02, la régularisation 0,0005, l'objectif BPR, l'activation $\tanh$ et les règles de négatifs et de classement fixées. Il ne s'agit pas de répétitions aléatoires indépendantes ni d'une validation externe. À zéro époque, aucun triplet n'est optimisé ; la perte n'est pas définie comme une perte mesurée nulle.
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{C : grille de validation 2023. La perte de données BPR est mesurée avant mise à jour, hors régularisation ; aucune perte n'est observée à zéro époque. Les entraînements sont séparés et réinitialisés de manière déterministe ; seule la durée sélectionnée est évaluée dans les tests C.}
+\label{tab:duration-rc2}
+\input{tables/maude_duration_RC2_fr.tex}
+\end{table}
+
+La règle de sélection prévoyait le maximum du rappel micro@10 sur 3, 10 et 30 époques, avec préférence pour la durée la plus courte en cas d'égalité. Elle a retenu 30 époques sur la validation, et le verrou a été enregistré à 17:32:26.207893 UTC avant l'évaluation test de C. Le fit à zéro époque est un témoin descriptif, non une durée admissible à la sélection. Le verrou local atteste l'ordre des fichiers et exécutions rapportés ; il n'efface pas l'exposition antérieure aux mêmes périodes.
+
+La sensibilité observée n'est pas monotone : dix époques donnent un rappel de validation inférieur à trois, alors que trente donnent le maximum de cette grille. Ce constat ne signifie ni que prolonger tout entraînement améliore son rappel, ni que trente est une durée optimale.
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{figures/maude_duration_RC2_fr.png}
+\caption{C : rappel micro@10 en validation selon la durée d'entraînement. Le fit à zéro époque n'a aucune perte d'entraînement observée.}
+\label{fig:maude-duration-rc2}
+\end{figure}
+
+Après le choix, la durée sélectionnée a été ajustée séparément avant 2024 et 2025, avec historique roulant entre les trimestres de test. Au test 2024, le rappel micro@10 est $1\,206/6\,003=0,200899550225$ ; en 2025, $1\,569/7\,171=0,218797936132$. En cumulant les liens retrouvés et les liens positifs des deux années, le rappel atteint $2\,775/13\,174=0,210642173979$, pour 6\,370 produit--trimestres positifs et 2\,975\,156 paires candidates. Ce rappel regroupé n'est pas la moyenne arithmétique des deux rappels annuels.
+
+Le test historique du benchmark donnait 0,172840443297 au GraphSAGE à trois époques et 0,192044936997 à la fréquence des voisins. Ces valeurs restent inchangées. Il faut distinguer l'appariement des prédictions, possible avec des sorties historiques conservées, du contrôle expérimental de la durée. L'absence d'un nouveau fit à trois époques dans les tests C ne suffit pas à rendre l'appariement impossible ; inversement, des clés et dénominateurs concordants ne démontrent pas que seule la durée explique une différence entre entraînements.
+
+\subsection{Rapprochement du chemin historique et du calcul C}
+
+Le fichier individuel historique indique le commit d'exécution \src{ca0d64b2738c3f36637196cfb14d2fe4115a7c37} ; \src{b010d5a49eae56837a920b2e30dece41c42c0c44} identifie l'état source du benchmark cité. Leur rôle est distinct du commit C \src{4a22c2addc8203efd2b38a60c416270855c3bf3b}. La comparaison des sources entre l'exécution historique et C ne montre aucun changement de \src{evaluate.py}. Dans \src{models.py}, C ajoute les callbacks de perte/état et la reconstruction depuis checkpoint, et extrait le calcul final des représentations dans une fonction.
+
+\begin{table}[!htbp]\centering\footnotesize
+\caption{Rapprochement historique--C du chemin à agrégation moyenne. Il décrit le code et les preuves conservées, non une nouvelle exécution historique sur les données de santé.}
+\begin{tabularx}{\linewidth}{@{}p{34mm}X@{}}
+\toprule
+Élément & Constat de comparaison\\
+\midrule
+Initialisation et voisinage & Ordres de nœuds triés, vecteurs sinusoïdaux avec sels 11/17, transformations initiales identité/0,25 et échantillonnage déterministe à huit voisins inchangés.\\
+Triplets et optimisation & Ordre produits/positifs, hachage dépendant de l'époque, exclusion des voisins positifs, coefficient BPR, gradients et mises à jour régularisées inchangés ; C ajoute des compteurs et la perte avant mise à jour.\\
+Représentation et score & Même moyenne à un saut, $\tanh$, produit scalaire et repli zéro ; extraction du calcul final et export de l'état brut, sans modification de ces opérations.\\
+Évaluation & Source d'évaluation inchangée ; le nouveau runner lit les instantanés préparés, ajuste aux origines annuelles, garde les représentations fixes pendant l'année et enrichit l'historique après chaque trimestre.\\
+Preuve et limite & Prévol conservé : 364 scores identiques à trois époques sur trois fixtures non vides, plus cas vide et reconstruction de checkpoint. Ce contrôle non médical ne prouve pas l'équivalence de toutes les exécutions possibles.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Les rapports du prévol et leurs empreintes restent dans \src{data/post_rc1/C_preflight.json}. Les instantanés préparés n'exposent pas tous les champs du \src{DataBundle} historique ; ce rapprochement concerne le chemin GraphSAGE fondé sur le graphe, non toutes les méthodes tabulaires. Aucun modèle historique n'est réentraîné pour cette vérification de sources. Elle soutient la lecture de C comme une sensibilité de configuration, sans transformer la sélection sur périodes déjà consultées en expérience confirmatoire ou en effet causal général de la durée.
+
+\subsection{GraphSAGE30--voisins : rapprochement apparié et IC conditionnel}
+
+Après autorisation de cette analyse supplémentaire le 3 octobre 2026, le protocole a été fixé avant le nouveau calcul : test 2024T1--2025T4, rappel micro à dix, différence GraphSAGE30 moins voisins, 1\,000 tirages de produits avec remise et graine 20261003. Le modèle sélectionné et les résultats historiques étaient déjà connus ; ce gel de calcul n'est donc ni une préinscription externe ni une correction de la sélection. Aucun modèle n'est entraîné ou scoré.
+
+Les clés (produit, trimestre), soutiens et ensembles de problèmes positifs concordent sur 6\,370 observations, 13\,174 liens positifs et 2\,026 produits. Les listes candidates complètes de C sont vérifiées contre celles reconstruites à partir des instantanés préparés et de la règle historique inchangée ; elles totalisent 2\,975\,156 paires. L'export historique ne conserve pas ses listes complètes : il fournit les cardinalités et les prédictions de positifs/non-positifs échantillonnés. L'accord des listes reconstruites avec C et des cardinalités/positifs avec l'export historique est donc établi, pas l'identité byte à byte de deux exports complets. Toute discordance aurait arrêté l'analyse ; aucune observation n'est supprimée par intersection opportuniste.
+
+Les hits historiques sont lus dans \src{entity_metrics}, et les hits C dans les rangs/étiquettes conservés, sans recalcul des scores. GraphSAGE30 retrouve 2\,775 liens, les voisins 2\,530, sur le même dénominateur 13\,174. La différence est $+0,018597236982$ et l'IC conditionnel à 95\,\% est $[+0,011975077183;+0,025570110820]$. Chaque tirage garde ensemble tous les trimestres d'un produit et recalcule le rapport des sommes ; ce n'est ni une moyenne de rappels par produit ni un rééchantillonnage indépendant des trimestres. Les quantiles à 2,5 et 97,5\,\% utilisent une interpolation linéaire ; les 1\,000 tirages sont définis.
+
+L'intervalle est conditionnel aux prédictions et à la population observées. Il ne couvre ni la sélection sur validation, ni la variabilité d'entraînement, ni toutes les dépendances de réseau entre produits, ni le passage à une autre population. Il ne constitue pas une confirmation indépendante ou un effet causal de durée. Il ne s'applique ni au GraphSAGE historique à trois époques ni à D1.
+
+Les entrées épinglées, le protocole, le CSV des contributions et les tirages sont sous \src{data/post_rc1/paired_*}; le rapprochement de sources est décrit dans \src{verification/rc2_paired/code_bridge.json}. Le calcul achevé dure 7,969 s, avec un pic RSS de 488\,841\,216 octets, sous les plafonds 900 s / 512 Mio. Une première tentative s'est arrêtée avant les tirages : une limite d'espace d'adressage avait été confondue avec le plafond RSS. Cette restriction ajoutée par erreur a été retirée, sans changer les plafonds RSS/temps/sorties ni le protocole statistique ; la trace est conservée dans \src{verification/rc2_paired/attempt_1_failure.json}.
+
+\paragraph{Calcul original dans le dépôt, avec les sorties conservées.}
+\begin{Verbatim}[fontsize=\footnotesize]
+python scripts/analyze_maude_paired_comparison.py \
+  --protocol results/maude_paired_protocol_20261003.json \
+  --output-dir NEW/maude_paired
+\end{Verbatim}
+
+\paragraph{Rejeu compact depuis la racine du paquet, sans entrées originales.}
+\begin{Verbatim}[fontsize=\footnotesize]
+PYTHONPATH=vendor/post_rc1 python \
+  scripts/analyze_maude_paired_comparison.py \
+  --protocol data/post_rc1/paired_protocol.json \
+  --replay-contributions data/post_rc1/paired_contributions.csv \
+  --output-dir NEW/maude_paired_replay
+\end{Verbatim}
+Utiliser une nouvelle destination et un environnement avec NumPy (calcul original : Python 3.13.5, NumPy 2.3.5). Le rejeu compact reproduit le contraste et ses tirages, mais ne revérifie pas les identités des candidats originaux. Les checkpoints C/D1 sont inclus séparément ; leurs audits antérieurs ne sont pas relancés pour cet IC.
+
+
+\subsection{D1 : diagnostic secondaire de suppression du voisinage sous réglages fixes}
+
+D1 compare le modèle \emph{mean} de C à 30 époques, réutilisé sans nouvel ajustement, à un seul nouveau modèle \emph{none} à 30 époques. Le choix commun de durée provient de C et du protocole D1 fixé ; aucune grille ni aucun ajustement de durée n'a été mené dans D1. Les mêmes périodes et règles d'évaluation sont utilisées pour les deux variantes : identifiants de candidats, étiquettes, soutiens, négatifs hachés et conventions de classement concordent. Les deux modèles conservent des vecteurs d'identité de nœuds entraînables. Le modèle \emph{none} calcule $h=\tanh(W_{\mathrm{self}}x)$ à partir du seul vecteur propre du nœud ; il n'agrège pas les voisins et n'est pas un GNN.
+
+L'absence de propagation ne signifie pas l'absence d'information relationnelle : les vecteurs d'identité de \emph{none} sont appris à partir des mêmes arêtes historiques et de BPR. D1 compare deux modes de calcul et d'apprentissage des représentations. La durée a été choisie pour \emph{mean}, puis imposée à \emph{none} ; aucun réglage propre au contrôle n'a établi sa capacité à optimiser efficacement cette tâche.
+
+La variante \emph{mean} a 128 scalaires de transformations partagées actives, contre 64 pour \emph{none} ; le nombre de scalaires des vecteurs de nœuds est le même dans chaque paire de fits. Cette différence de 64 paramètres doit être déclarée, mais elle ne démontre pas que la capacité explique l'écart. La durée imposée et la perte presque plate du contrôle sont également essentielles pour interpréter ce diagnostic. Le contraste n'isole pas un effet causal de l'agrégation à capacité égale.
+
+Le choix D1 a été verrouillé à 20:53:30.842192 UTC à partir de la validation, avant les premiers tests propres à D1. Cependant, les résultats de test du modèle \emph{mean} issus de C étaient déjà disponibles au moment de ce verrou et les périodes de test avaient déjà été consultées antérieurement. L'ordre du verrou D1 et de ses tests ne transforme donc pas l'analyse en confirmation indépendante.
+
+\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{2.5pt}
+\caption{D1 : rappel micro@10 sur les cohortes avec au moins un lien positif, au soutien historique $\geq1$. Mean30 est conservé de C ; none30 est nouvellement ajusté dans D1. Les liens retrouvés sont indiqués entre parenthèses. Aucun intervalle n'est associé au contraste.}
+\label{tab:aggregation-rc2}
+\input{tables/maude_aggregation_RC2_fr.tex}
+\end{table}
+
+Sur le test regroupé, mean30 obtient $2\,775/13\,174=0,210642173979$ et none30 $469/13\,174=0,035600425080$ ; l'écart descriptif signé mean30--none30 est $+0,175041748899$. Aucun intervalle de confiance ni test statistique n'est associé à cet écart. La figure indique aussi les contrastes annuels et les pertes enregistrées.
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{figures/maude_aggregation_RC2_fr.png}
+\caption{D1 : rappels micro@10 dans le panneau supérieur ; pertes observées dans le panneau inférieur. Mean30 est réutilisé de C ; seuls les fits none30 sont nouveaux dans D1. Le rappel regroupé cumule les deux années de test et ne représente pas une cohorte distincte supplémentaire.}
+\label{fig:maude-aggregation-rc2}
+\end{figure}
+
+Les trois fits none30 comportent 90 époques observées, 6\,756\,720 pas et aucun positif sauté. La perte de données exportée, moyenne de $\operatorname{softplus}(-\text{marge})$ avant mise à jour et hors régularisation, reste proche de $\ln(2)$ sans baisse observée (environ 0,693132--0,693145 à la première époque et 0,693147 à la trentième). Ce constat est plus informatif pour la portée du contrôle que la seule hauteur des barres de rappel : il n'établit pas un apprentissage efficace sous les paramètres retenus. Il n'identifie cependant ni bug, ni effondrement des représentations, ni manque d'époques, ni autre cause d'échec. D1 reste un diagnostic de sensibilité à la suppression du voisinage sous réglages fixes, pas une démonstration du bénéfice causal de l'agrégation.
+
+\subsection{Audits, coûts et portée des vérifications}
+
+Les audits C et D1 portent sur les nouveaux fits et ne remplacent pas la reconstruction historique B1/B2 de S10. L'audit C reconstruit les scores à partir de six checkpoints bruts et vérifie 9\,449\,508 prédictions, 24 trimestres-fit et 20\,302 listes candidates ; aucun écart n'est détecté, avec une tolérance absolue de $10^{-12}$ pour les flottants. Le rapport est conservé sous \src{verification/post_rc1/C_numeric_audit.json}, avec le manifeste \src{data/post_rc1/C_manifest.json}. Les reconstructions B1/B2 antérieures reconstituaient entrées d'entraînement et inventaires de nœuds, sans inspection des checkpoints historiques.
+
+L'audit D1 reconstruit les scores none30 depuis trois checkpoints bruts et les apparie aux sorties mean30 conservées de C. Il vérifie 4\,593\,744 nouveaux scores, 9\,853 listes candidates par variante, 12 trimestres et 51\,260\,776 contrôles numériques ; aucun écart n'est détecté à la tolérance absolue $10^{-12}$. Le nombre de 9\,187\,488 identifiants candidats est la somme des deux exports, soit 4\,593\,744 paires de chaque côté. L'audit D1 a duré 58,547 s. Ses mesures mémoire finales divergent : $118\,292\,480$ octets pour \texttt{VmHWM} et \texttt{VmRSS}, contre $571\,580\,416$ octets pour \texttt{ru\_maxrss}. Faute de mesures au démarrage, il n'est pas possible de certifier que l'audit entier est resté sous 512 Mio ni d'attribuer avec certitude la divergence au processus ou au lanceur. Un probe indépendant de télémétrie montre qu'une portée différente après \texttt{exec} peut expliquer la divergence, sans établir l'origine exacte de cette mesure d'audit. Les deux valeurs restent consignées dans \src{data/post_rc1/post_rc1_metrics.json}.
+
+Pour les phases d'entraînement, les limites étaient de 900 s, 512 Mio de RSS agrégée et 512 Mio de sorties par phase, avec un seul travailleur et un environnement monothread ; chaque phase C et D1 rapportée s'est achevée sous ces plafonds, sans nouvelle tentative. C a totalisé 1\,167,908 s entre ses phases (pic RSS agrégé maximal 249\,405\,440 octets) ; ce cumul de plusieurs phases n'était pas soumis à un plafond global de 900 s. D1 a totalisé 416,144 s (pic RSS agrégé maximal 303\,284\,224 octets). Les mesures mean30 sont celles de C et sont réutilisées ; elles ne constituent pas de nouveaux coûts d'ajustement dans D1. Ces coûts ne démontrent pas une égalité des budgets CPU entre variantes ou entre exécutions.
+
+Ces vérifications établissent la cohérence numérique des sorties RC2 avec les instantanés préparés, checkpoints et journaux audités. Elles ne vérifient pas une disponibilité publique historique de chaque champ, ne corrigent pas l'exposition préalable aux périodes, ne fournissent ni confirmation indépendante ni bénéfice clinique et ne justifient aucune inférence causale ou générale sur les graphes.

@@ -1,0 +1,64 @@
+{
+  "schema": "healthgraphbench.manuscript-provenance.v3",
+  "revision": "RC3",
+  "package_id": "manuscript-rc3",
+  "prepared_on": "2026-10-04",
+  "parent_archive": {
+    "name": "HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip",
+    "sha256": "a1731aa9eb02d8f31179adfea62d1d70a168594910aa2002780aa66e8f83c4f9",
+    "modified": false
+  },
+  "historical_provenance": "history/RC2.2/provenance.json",
+  "current_status_file": "data/revision_status_RC3.json",
+  "current_verification_directory": "verification/rc3",
+  "retention_manifest": "release/parent_payload_RC2_2.json",
+  "q2_protocol": {
+    "path": "data/q2/q2_scientific_protocol_20261003.json",
+    "sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7"
+  },
+  "q2_evidence_revision": "6b4ae00ebc4b701d757260616ccb0df16f51467b",
+  "executed_sources": "data/q2/source_snapshots/index.json",
+  "snapshot_scope": "Four Git archives preserve exact consumed source trees; vendor/q2 is the later integration source snapshot, not retroactive execution provenance",
+  "external_archives": "data/q2/external_archive_registry.json",
+  "current_operations": {
+    "completed_Q2_evidence_incorporated": true,
+    "french_canonical_then_faithful_english": true,
+    "historical_numeric_payload_modified": false,
+    "new_figures_from_completed_outputs": true,
+    "health_model_training_executed_during_RC3_preparation": false,
+    "raw_sources_acquired_during_RC3_preparation": false,
+    "new_scores_or_target2025_metrics_computed": false,
+    "new_tuning_bootstrap_or_intervals": false,
+    "historical_successful_audits_rerun": false,
+    "pdfs_recompiled": false,
+    "package_checks_executed": false,
+    "surfaces_visually_inspected": false,
+    "submission_sent": false,
+    "github_release_published": false,
+    "new_DOI_created": false,
+    "new_tag_created": false
+  },
+  "scientific_gates": {
+    "strengthened_comparisons": "completed_exploratory",
+    "independent_evaluation_passed": false,
+    "target2025_source_acquired": false,
+    "target2025_metrics_computed": false,
+    "human_nonconsultation_attestations": "unknown",
+    "technical_end_to_end_reuse": "complete",
+    "external_human_study": "not_performed",
+    "author_validation_complete": false,
+    "journal_selected": false,
+    "submission_authorized": false
+  },
+  "DOI": {
+    "benchmark_declared": "10.5281/zenodo.22796551",
+    "manuscript_package_DOI": null,
+    "new_publication_or_DOI_claimed": false
+  },
+  "observed_forecast_anchor": {
+    "commit": "2a59324003fe8b9c89a5f1e9ff6464f2a76f6ab2",
+    "record": "data/q2/q2_partd_prospective_publication_20261003.json"
+  },
+  "literature_scope": "Narrative review frozen29September2026 retained; no new exhaustive literature review or journal-quartile certification",
+  "human_author_and_editorial_gates": "submission/author_gates_RC3.md"
+}

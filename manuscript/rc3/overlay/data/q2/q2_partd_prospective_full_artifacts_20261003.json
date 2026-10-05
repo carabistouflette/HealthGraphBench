@@ -1,0 +1,432 @@
+{
+  "schema": "healthgraphbench.q2-artifact-inventory.v1",
+  "scope": "complete prospective run plus post-publication catalogue phase",
+  "files": {
+    "results/generated/q2-cycle-20261003/partd-prospective-001/forecast.json": {
+      "bytes": 38186,
+      "sha256": "382e111529f4009c0790267d1518dab050f66d72badc2cb28c8acf2bc120ff9e"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/resource_ledger.json": {
+      "bytes": 9601,
+      "sha256": "052ad0d9dc5b17f73efd1732604bef331224038561331b38ce4718f191f61e34"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/selection.json": {
+      "bytes": 2429,
+      "sha256": "e532f030b3bbe2509916dbc401efdacdad77fe24638658b904a16709bf2372f6"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/source_provenance.json": {
+      "bytes": 7414,
+      "sha256": "74364fef735725517da7c557b175da0966de8a031e1958555540e91f21931b30"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/protocol_executed.json": {
+      "bytes": 14565,
+      "sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/sealed_origin/origin.json": {
+      "bytes": 21376,
+      "sha256": "ff6641fd17742aad670ed41748cd104e3bed058a65348459c390a716bda44fe3"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/sealed_origin/cohort.json": {
+      "bytes": 304495,
+      "sha256": "2ec15e00cb4e90a390b6f668a0637cf250953ceb1ee7adb40334f7e626790319"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/sealed_origin/selection.json": {
+      "bytes": 2429,
+      "sha256": "e532f030b3bbe2509916dbc401efdacdad77fe24638658b904a16709bf2372f6"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/sealed_origin/candidate_layout.npz": {
+      "bytes": 322600,
+      "sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/sealed_origin/history_rows.jsonl": {
+      "bytes": 21432950,
+      "sha256": "d57026f60072fa00e2595cc3874ea4dd75c00e9c07953856debc48bc7de794a9"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/sealed_origin/edges.csv": {
+      "bytes": 48539963,
+      "sha256": "a44b6f5035dceaaeb244e82cad7898fc1ee6aa03e194c35e3cbfec7ac1f48f52"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_catalog/supervisor_status.json": {
+      "bytes": 349,
+      "sha256": "9305763f0ad37fb4a03683147494ff31b5f356e33f7602bbd52bca4af360f389"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_catalog/worker_status.json": {
+      "bytes": 140,
+      "sha256": "3688f530d0b0c08675576975ecde8d47e0a1381c344aaca6cc6bf96a9b8e6bd8"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_catalog/result.json": {
+      "bytes": 2646,
+      "sha256": "161548a0df83af051ec5854b2abf1e452dfef356f802a03ba26ff8e5757b7822"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_catalog/catalog_response.json": {
+      "bytes": 278033,
+      "sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/catalog_after_source_captures/supervisor_status.json": {
+      "bytes": 346,
+      "sha256": "fed4cbc775d92d6bd9ea87435ff8426b087e46115b4e10b95cc9ca425c71dbd1"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/catalog_after_source_captures/worker_status.json": {
+      "bytes": 142,
+      "sha256": "ff8b62f1c5bd4cb38c615b5f0068f957c3a907d5923cb047535485661c5f859a"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/catalog_after_source_captures/result.json": {
+      "bytes": 2646,
+      "sha256": "d4e56adc96878e920a93717ec8e06c881a453943077c17ee56cb3e2d9a14eea5"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/catalog_after_source_captures/catalog_response.json": {
+      "bytes": 278033,
+      "sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/catalog_before_forecast_seal/supervisor_status.json": {
+      "bytes": 355,
+      "sha256": "b7812439e0abb9e14e4d58f92146cf28270bd0df08f22d5072e9b54b00bb8028"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/catalog_before_forecast_seal/worker_status.json": {
+      "bytes": 150,
+      "sha256": "d4f42258367168ab4aa353dd2b58ce8b8e3d91f582ac9c1d60d1baa9eb4ce86f"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/catalog_before_forecast_seal/result.json": {
+      "bytes": 2672,
+      "sha256": "56e86e606bd87cc809d5d3c6a909411eadfd385dfe84062df63f0dcc907de97a"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/catalog_before_forecast_seal/catalog_response.json": {
+      "bytes": 278033,
+      "sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2019/supervisor_status.json": {
+      "bytes": 353,
+      "sha256": "88c1df280f3310a5ce7cc9faa7efad745d34ade0a036ca4d3b965564df2574ae"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2019/worker_status.json": {
+      "bytes": 148,
+      "sha256": "4162b88f2052d7e1950a5735c536b58a548559af94ad226fa6469993017f7cc8"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2019/result.json": {
+      "bytes": 1833,
+      "sha256": "625125f3621d45d5dabc2ed8e6e375ef8151db7ed89d36771ce84bb0270ea13e"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2019/capture_attempt.json": {
+      "bytes": 1833,
+      "sha256": "f20962b360e83d0f1a5ad4de8e5b62bba6a669046fa5f0df0acd31d68c41ce47"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2020/supervisor_status.json": {
+      "bytes": 347,
+      "sha256": "59038b8e1ad0accee3e8f7dd51cc268ce3d65d3837b389f6bc70e1cc9d2de0e0"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2020/worker_status.json": {
+      "bytes": 142,
+      "sha256": "4d7bb8b07d49df5f9bc8c9ec7a765d5f51b99ba9f5940e373ff1cea7cbc34f81"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2020/result.json": {
+      "bytes": 1833,
+      "sha256": "f05e06a21dc6b609fc0fef0c188a420b5965aa7fe5c1ad8cc188352ff56b83b9"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2020/capture_attempt.json": {
+      "bytes": 1833,
+      "sha256": "0fcee99a6c82b456da008a0ab371878bd963d42aef7f12a63006d4a367e4569b"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2021/supervisor_status.json": {
+      "bytes": 347,
+      "sha256": "4005cd17846cea9f697e2e53d226bc1d6c89fa41e97c804ded77a9e079583634"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2021/worker_status.json": {
+      "bytes": 144,
+      "sha256": "4dccbab1a01c1ae3cd80179c47b81ea042fe331ea7064834dd4fa91daba6c615"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2021/result.json": {
+      "bytes": 1833,
+      "sha256": "ecb367a304fec8df54d0a050e14845693e07425c7897bc52b0db1e3b08156c56"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2021/capture_attempt.json": {
+      "bytes": 1833,
+      "sha256": "a51c7846a792975e7388947a7a15c29e78999119ffca77f04436c6a5fe470c54"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2022/supervisor_status.json": {
+      "bytes": 347,
+      "sha256": "5109910b6196f72b1cf8ba5e2d4ddfcb4cf280f1dac2469165298b8a1bbf8464"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2022/worker_status.json": {
+      "bytes": 144,
+      "sha256": "8832ae813b7e3abd315c1cc44790c2de91392ba236f52ef1e0a3ea4ddb5887a3"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2022/result.json": {
+      "bytes": 1833,
+      "sha256": "820b7733d4cb044e4dae72c410e1abd5536203a3c962456933c0d1f2eacf1ff1"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2022/capture_attempt.json": {
+      "bytes": 1833,
+      "sha256": "1c67c1dc991f4c390cc8ddca8c228ab3ea6e8aac32426e31f6dfd46e9a150e74"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2023/supervisor_status.json": {
+      "bytes": 354,
+      "sha256": "f500d1aa146653badd69ed8bae542d495aef1bf4061aa9511130f7a5fdfb3414"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2023/worker_status.json": {
+      "bytes": 149,
+      "sha256": "8f3a7d5d75fbbab66480ab3fe3a5567f701d09dfc43681e4a00e86da3d864187"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2023/result.json": {
+      "bytes": 1833,
+      "sha256": "4a2d1b4026226a48b92e8d15211562c4e5f6cded8870a240bcd0c6f1ddeefe3b"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2023/capture_attempt.json": {
+      "bytes": 1833,
+      "sha256": "68cc6c4c950f6fe31838a906c5fe3ac1e24a73589d6c5e84cd75f0dbd7258d8c"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2024/supervisor_status.json": {
+      "bytes": 345,
+      "sha256": "67d1c0c5bcd6278b9515f68acbf0a482ab66083f16ce7688d99d7e7493e02532"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2024/worker_status.json": {
+      "bytes": 142,
+      "sha256": "c1eef98db278a626b54f997b5475b8f6511ba0c11d5c9b0df7d3911230487d6b"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2024/result.json": {
+      "bytes": 1833,
+      "sha256": "463759aeaa0501aa6e6ecc5643399344d77d496ce602d9c24f850e575f55331a"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/capture_sources/service-year-2024/capture_attempt.json": {
+      "bytes": 1833,
+      "sha256": "e0724afa83e56e92674b09b87acc16d4df03ccb3435c7539203e1a7ab15b1209"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/prepare_origin/supervisor_status.json": {
+      "bytes": 347,
+      "sha256": "25758dca57f2d2a7b5c058bd308c4fa83a7d66341069dd2829fba922cba913ba"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/prepare_origin/worker_status.json": {
+      "bytes": 144,
+      "sha256": "852fee090022b6d78b041ecf5fd99cda408264cf47aebab845a3c1f569f1492c"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/prepare_origin/result.json": {
+      "bytes": 533,
+      "sha256": "ce1eeb46687a62409c0e44cc98b158be1fc3fceb7d145ae4971ed5729af1ec75"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-103/supervisor_status.json": {
+      "bytes": 351,
+      "sha256": "7af8a80f3dcc371824b989817e57a78b82c3d8679ba5d612b550ca1b0c3af753"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-103/worker_status.json": {
+      "bytes": 145,
+      "sha256": "064094f52965febb0ff931348ae1810506f02b2604673f92ca593004b65bbedb"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-103/result.json": {
+      "bytes": 1806,
+      "sha256": "05875cc0392d8dfcad381da104d42b65ff07c57881fc14daf67e3eeed84e729b"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-103/candidate_scores.npz": {
+      "bytes": 7681593,
+      "sha256": "df04fcabcc5874ebdf81e200b8e9da442f0ae24593f164d314f978ef2cde23ad"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-103/predictions.jsonl": {
+      "bytes": 2760575,
+      "sha256": "852a488797099cf85a2b63f58b9955ef52f09258154e67701cd1a058174c4655"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-103/model/checkpoint.pkl": {
+      "bytes": 189017,
+      "sha256": "8bc706d9bb6003bde338ccf9f5d5c6d48aa2bfe6365463f13674d374addc91e5"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-211/supervisor_status.json": {
+      "bytes": 352,
+      "sha256": "6fd98fea1230f77a6cce4a771adc265d49f5f9bb28588e1d1ac952b53eabb598"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-211/worker_status.json": {
+      "bytes": 145,
+      "sha256": "ac12e47b48e01ca8e01add610011e1363e2262c98cd65f91b9846c4073b00328"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-211/result.json": {
+      "bytes": 1806,
+      "sha256": "20c70f7b3fdf9302b5c4c20c74cb336aa0b82c16d14c515efbc10134d8d7ca27"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-211/candidate_scores.npz": {
+      "bytes": 7740205,
+      "sha256": "3376c67bcb7732a80c24f1083d760f31dfba0b59f373961027bef378bf0f91b4"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-211/predictions.jsonl": {
+      "bytes": 2757094,
+      "sha256": "936e951ebe573a7f7dd590e80d78ef0b6d3bad6b4cb30080854380d0d2d278e7"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-211/model/checkpoint.pkl": {
+      "bytes": 189009,
+      "sha256": "5ab2312498e5f56624b64c561781108823b0071c7276bcf120ee23f8a3c8cf9d"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-307/supervisor_status.json": {
+      "bytes": 352,
+      "sha256": "cae2e0a657bcb969e0334b6b94a99d8db4a0a1b0b74109a8e24beab5dd7a7e56"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-307/worker_status.json": {
+      "bytes": 145,
+      "sha256": "518652b0d7813d2118973fecd7fa54c4413c49a00fd78848e4b85d5364db46fc"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-307/result.json": {
+      "bytes": 1807,
+      "sha256": "0ecd87e0fbca1e5f4fb4aad73b8775e7c9e384f14b575078c45e2acd1d33d203"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-307/candidate_scores.npz": {
+      "bytes": 7839503,
+      "sha256": "469a379e931e8a8603df3d6266b8bf9a58805ad5934919be6a63d0d49d62932b"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-307/predictions.jsonl": {
+      "bytes": 2753625,
+      "sha256": "cfefce80840ee59c6fd0d7435218cdf4eb0e51cd4ddc19dbd9ecf9e15b697256"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/boosted/seed-307/model/checkpoint.pkl": {
+      "bytes": 189011,
+      "sha256": "68c3794204f0ff6fbfb0c800652e31a06964f658d25a0cb740498ec0f387e2bc"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-103/supervisor_status.json": {
+      "bytes": 352,
+      "sha256": "3e1c0d7c0c2aef62f11978aa4e76d1172755756ad98c67b74a0792c29edb5a98"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-103/worker_status.json": {
+      "bytes": 145,
+      "sha256": "7be893eba7bc75bea0233d32746e1649e011c3456878bc9d244c03b5376708d4"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-103/result.json": {
+      "bytes": 2068,
+      "sha256": "6263c8d0e113187650c43a82f7b2f7ea706fc2dc3decb5e1eb19c7f67bb171ec"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-103/candidate_scores.npz": {
+      "bytes": 16308554,
+      "sha256": "e70e63c9bd6f68f1a01b4783716b6e970b80465618651130302e5a9a04cef8d4"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-103/predictions.jsonl": {
+      "bytes": 2744105,
+      "sha256": "ccacc0f71453811b67ce83019ceb836bd298d8fa20e797aaea0eca79ea0bbe15"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-103/model/checkpoint.npz": {
+      "bytes": 801427,
+      "sha256": "e516c716b6968b9cc814210088ac2cd42b6940ad39972d74b57c695134c15d50"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-211/supervisor_status.json": {
+      "bytes": 358,
+      "sha256": "2c421b769cfe2a849b5bd33ecc815e5ab75108a2ba93b7891b0097c56a964128"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-211/worker_status.json": {
+      "bytes": 151,
+      "sha256": "b174e7c3410bfbd0faaa15ba57f09a35a2fb349414003626f9bf270aa2ef47e4"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-211/result.json": {
+      "bytes": 2067,
+      "sha256": "f010faef4ce90fe4f44625dcf2ff9caad67c2dd24b23653356a53d07718565e4"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-211/candidate_scores.npz": {
+      "bytes": 16308216,
+      "sha256": "2e7080db9e097438276689d28485a6c589945d6bdfe68689ad71dcf255037863"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-211/predictions.jsonl": {
+      "bytes": 2753791,
+      "sha256": "7e7874cd2dda035c46ff17e4583e11ae0cb60a994d05077b744339305af67439"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-211/model/checkpoint.npz": {
+      "bytes": 801495,
+      "sha256": "fa9fccfab2d2a901c3def6027f3452029eb5db3954b8293e7cec03dba9af7c4a"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-307/supervisor_status.json": {
+      "bytes": 351,
+      "sha256": "4d6cc72ae8fdff7e8c15dd1b5e9bd6f6524383b226ee83d79a450e115341fb1c"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-307/worker_status.json": {
+      "bytes": 144,
+      "sha256": "953461756c40dd235ad2584f27e7a61c83d63984470fc1e1534c77fcf51aa2d9"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-307/result.json": {
+      "bytes": 2067,
+      "sha256": "cb085d9f1ec3eb198b486acab230039b8811749605351d285d3a866b74be48e1"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-307/candidate_scores.npz": {
+      "bytes": 16308379,
+      "sha256": "651ccc5075e382b6400e1d09401a629d450f375002c3c6b5ecdcbe4f5f7fe69c"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-307/predictions.jsonl": {
+      "bytes": 2755339,
+      "sha256": "fbe310378db0b46e1e58370308f3fd477b8f374f83a08e7ead02f8f039b74fdf"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/bpr/seed-307/model/checkpoint.npz": {
+      "bytes": 801470,
+      "sha256": "618ed4609b3c23e294051dd3eeeb94f4490603ea6aba17e83765616b167f24aa"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/history_overlap/deterministic/supervisor_status.json": {
+      "bytes": 351,
+      "sha256": "07900545373f6c0b7269769851e2e919fe2570d558327c39f37a1121a6ac96b5"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/history_overlap/deterministic/worker_status.json": {
+      "bytes": 144,
+      "sha256": "9746d3cd8fae8c24abbd791c6f7480885c2b0a8212e4ca24e5a263ac5ba732f7"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/history_overlap/deterministic/result.json": {
+      "bytes": 708,
+      "sha256": "d429aa2e74d97a0f189f288f2f5869fa5795d0193d50f185c0f7b28730814048"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/history_overlap/deterministic/candidate_scores.npz": {
+      "bytes": 12848472,
+      "sha256": "c49890a26af7d6b35cbd707781697a27790a3f9483300965c1dc4a961c8915a2"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/history_overlap/deterministic/predictions.jsonl": {
+      "bytes": 2746515,
+      "sha256": "b355ed24a997ac7df5b953f0a635c838b5ed75f4def9b723b204ee5e4d4335e8"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/logistic/deterministic/supervisor_status.json": {
+      "bytes": 358,
+      "sha256": "782e7b353e0ef7555fb7af3740d0c5d4e4507d99ebf8f16a0b49175976f5780d"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/logistic/deterministic/worker_status.json": {
+      "bytes": 151,
+      "sha256": "a487b47d0a06137e06b0f44f9c2924afca5c8d698c24b109215a9a0b3f17fc53"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/logistic/deterministic/result.json": {
+      "bytes": 1577,
+      "sha256": "b43dc22c9e1d9a2afc5d20537daebd581ceb15fcc9a5d3160fa071df958f6c88"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/logistic/deterministic/candidate_scores.npz": {
+      "bytes": 15084175,
+      "sha256": "9e83095e4abd2aeb7b008f58f951f24885532796945bfeba1a566832a01041e3"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/logistic/deterministic/predictions.jsonl": {
+      "bytes": 2754313,
+      "sha256": "777eb5f885b8ab4bd2fb14bdb089147f244232f81951b4c8b370884802130eca"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/logistic/deterministic/model/checkpoint.npz": {
+      "bytes": 1640,
+      "sha256": "1d4be61c47bc46a04f45ed1ff50de2906ae947cecec842ac2242b8244f5ac315"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/specialty_popularity/deterministic/supervisor_status.json": {
+      "bytes": 349,
+      "sha256": "157921cf45261c046509fc0f03b0071df76a00522ec4b9e82d18da0e91207d02"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/specialty_popularity/deterministic/worker_status.json": {
+      "bytes": 144,
+      "sha256": "4e9954ecb8c5e07e04d94c15e6451c71b20765d51b3aaec3dd6160d29d0fb300"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/specialty_popularity/deterministic/result.json": {
+      "bytes": 713,
+      "sha256": "68d25345abac10c252ca0e4bdb3b902dec323fdb2895c9b1bb948f4fd13e9ee0"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/specialty_popularity/deterministic/candidate_scores.npz": {
+      "bytes": 899870,
+      "sha256": "26c79bb9c5b9d576016f0314a9c08c71dd94313f3c1ad323ee897b31f988f800"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-001/phases/forecast_fits/specialty_popularity/deterministic/predictions.jsonl": {
+      "bytes": 2211234,
+      "sha256": "33eee6327858f147a897f0dd0c67a80be726d53bddf45d23f0921cb22b5a21d0"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-publication-001/catalog_after_external_publication/supervisor_status.json": {
+      "bytes": 349,
+      "sha256": "df46f5e623a59eb1b4578d62e15361912916e559f3bed41d50f2285c450f3f34"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-publication-001/catalog_after_external_publication/worker_status.json": {
+      "bytes": 142,
+      "sha256": "edb25a82fcbd412305d6271de17f53fa1c2ca4d1e30f05743fd571bf804e3bdc"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-publication-001/catalog_after_external_publication/result.json": {
+      "bytes": 2646,
+      "sha256": "b958cede96d3edf117e1100ebb9ded0c1e7ea53d1e78cec10d231e062c9cb7b9"
+    },
+    "results/generated/q2-cycle-20261003/partd-prospective-publication-001/catalog_after_external_publication/catalog_response.json": {
+      "bytes": 278033,
+      "sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa"
+    }
+  },
+  "file_count": 106,
+  "raw_original_csvs_included": false
+}

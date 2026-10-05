@@ -1,0 +1,60 @@
+{
+  "revision": "RC3.1",
+  "archive": {
+    "path": "/home/arobin/Downloads/HealthGraphBench_LaTeX_RC3_1.zip",
+    "sha256": "4af00f95ebc6c92cc15ad1d83d2b83fc32713c0e954cce12b7f4d36c58376427",
+    "bytes": 45213511
+  },
+  "standalone_pdfs": [
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_RC3_1_manuscrit_FR.pdf",
+      "sha256": "8f469678aec4383519bdc687f4d26bfd29bb6f3741416659145a07831d8b240b"
+    },
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_RC3_1_manuscript_EN.pdf",
+      "sha256": "d83cec5871424653aa22cb50c3a0af1e6c194d266802cdb1e2f812e606f1ef8c"
+    },
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_RC3_1_supplement_FR.pdf",
+      "sha256": "d88b44478bb1d09343afb245a528b471f9413e74e777ed436791a14e126e1fa3"
+    },
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_RC3_1_supplement_EN.pdf",
+      "sha256": "074dc0a29c6cd6e59ae93dfb9c2df6df31ab76673499a11a886cf187f2c4bdac"
+    }
+  ],
+  "package_QA": {
+    "schema": "healthgraphbench.rc31-package-qa.v1",
+    "passed": true,
+    "sealed": true,
+    "checks": [
+      "actual_numeric_derivation",
+      "bilingual_tables",
+      "actual_plot_points_and_assets",
+      "consumed_source_records",
+      "exploratory_limits_and_gates",
+      "compact_external_evidence_scope",
+      "parent_byte_retention",
+      "resource_completion_and_limits",
+      "four_actual_pdf_visual_reviews",
+      "latex_diagnostics",
+      "manifest_integrity"
+    ]
+  },
+  "parent_RC3_unchanged": true,
+  "scientific_gates": {
+    "independent_temporal_evaluation_completed": false,
+    "external_human_reproduction_completed": false,
+    "author_approval": "unknown",
+    "venue_compliance": "unknown",
+    "submission_performed": false
+  },
+  "submission_performed": false,
+  "export_smoke": {
+    "zip_crc_passed": true,
+    "standalone_pdf_bytes_match_zip": true,
+    "consumed_partd_selection_in_zip": true,
+    "selection_bytes": 2429,
+    "performed_at_utc": "2026-10-04T23:31:40.005565+00:00"
+  }
+}

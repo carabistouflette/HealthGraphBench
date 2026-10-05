@@ -1,0 +1,65 @@
+{
+  "revision": "RC1",
+  "prepared_on": "2026-09-30",
+  "source_commit": "b010d5a49eae56837a920b2e30dece41c42c0c44",
+  "parent_archive": {
+    "name": "HealthGraphBench_FAIA_LaTeX_R6_revisions_mineures.zip",
+    "sha256": "c260ef238e29c948beccb4f7601db992ea41994e4b9ec3c5877f04b10f56d186",
+    "modified": false
+  },
+  "historical_provenance": "history/R6_minor/provenance.json",
+  "historical_status": "history/R6_minor/data/revision_status_R6.json",
+  "current_status_file": "data/revision_status_R6.json",
+  "inherited_scientific_evidence": {
+    "MAUDE_B": "data/real_R6/maude_B/",
+    "original_collection_checks": "verification/real_R6/collection_checks.json",
+    "earlier_analyses_and_compacts": "data/real_R4/",
+    "interpretation": "The nine-source acquisition and sampler concordance are received evidence of R6 collection, not newly executed during editorial finishing. Numerical outputs and input keys are preserved."
+  },
+  "current_operations": {
+    "release_candidate_packaged": true,
+    "editorial_finishing_applied": true,
+    "data_and_figures_modified": false,
+    "new_scientific_analyses": false,
+    "raw_archives_reacquired": false,
+    "raw_data_reconstruction_executed": false,
+    "health_model_training_executed": false,
+    "new_predictions_computed": false,
+    "frozen_compacts_replayed": true,
+    "MAUDE_B_offline_replayed": true,
+    "coverage_summary_replayed": true,
+    "unit_tests_executed": true,
+    "pdfs_recompiled": true,
+    "remote_repository_modified": false,
+    "github_release_published": false,
+    "submission_sent": false,
+    "new_DOI_created": false
+  },
+  "current_verification_directory": "verification/rc1",
+  "retention_manifest": "release/protected_payload.json",
+  "current_change_log": "RELEASE_NOTES_FR.md",
+  "ready_for_review": true,
+  "submission_ready_claimed": false,
+  "DOI": {
+    "benchmark_declared": "10.5281/zenodo.22796551",
+    "manuscript_package_DOI": null,
+    "resolution_rechecked_during_finishing": false,
+    "new_publication_or_DOI_claimed": false
+  },
+  "remaining_decisions": [
+    "author_validation",
+    "editorial_and_venue_requirements",
+    "permanent_archive_decision"
+  ],
+  "operations_scope_note": "RC1 preserves existing scientific payload bytes. Only release identification, distribution documentation and verification records are added or updated. Local numerical replay is distinguished from raw acquisition and model training.",
+  "review": {
+    "source": "review_inputs/review_R6_minor.txt",
+    "source_sha256": "3ce5f6f85c8cbfc67e9b4dc14ce6b35ec892bddc684cba1ade2c170954d79a72",
+    "recommendation": "accept_after_minor_revisions",
+    "B1_B2_lifted": true,
+    "editorial_acceptance_claimed": false
+  },
+  "scientific_revision": "R6",
+  "package_id": "manuscript-rc1",
+  "packaging_started_at_utc": "2026-09-30T11:51:28.027566+00:00"
+}

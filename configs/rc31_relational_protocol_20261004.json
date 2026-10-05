@@ -1,0 +1,394 @@
+{
+  "schema": "healthgraphbench.q2-protocol.v1",
+  "cycle": "rc31-relational-information",
+  "status": "locked_before_new_health_execution",
+  "base_commit": "7cf5e577d084b9e47f031913f21023c3ea79685f",
+  "evidence_level": "exploratory_on_previously_consulted_2023_2025",
+  "question": "When do relations add predictive information beyond individual history and popularity, and how simple can the exploiting model be?",
+  "seeds": [
+    103,
+    211,
+    307
+  ],
+  "limits": {
+    "timeout_seconds": 1800,
+    "max_rss_bytes": 4294967296,
+    "max_output_bytes": 1073741824,
+    "family_validation_wall_seconds": 3600,
+    "run_wall_seconds": 21600,
+    "total_output_bytes": 8589934592
+  },
+  "primary_contrast": {
+    "task": "partd",
+    "left": "cosine_selected_validation2023",
+    "right": "bpr_selected_validation2023_reused_all_seeds",
+    "metric": "micro_recall_at_10",
+    "test_year": 2024,
+    "practical_margin_absolute": 0.01,
+    "margin_definition": "analytic one-percentage-point yardstick, not clinical utility or human-author certified benefit"
+  },
+  "selection": {
+    "complete_grid_required": true,
+    "seed_selection_forbidden": true,
+    "exact_tie_break": "published_grid_order",
+    "criterion": "mean validation2023 micro_recall_at_10; one stream for deterministic methods",
+    "no_selection_of_maude_diagnostic_factor_levels": true
+  },
+  "learning_gate": {
+    "variants": [
+      "mean",
+      "none"
+    ],
+    "fixed_historical_probe_max_triplets": 20000,
+    "minimum_relative_bpr_data_loss_reduction": 0.01,
+    "required_for_every_seed": true,
+    "changed_checkpoint_required": true,
+    "capacity_equal_causal_claim": false,
+    "selection_requires_all_seed_learning_gates": true
+  },
+  "uncertainty": {
+    "conditional_entity_cluster_bootstrap_draws": 2000,
+    "seed": 313,
+    "interval_percentiles": [
+      0.025,
+      0.975
+    ],
+    "cluster_units": {
+      "partd": "provider",
+      "maude": "product",
+      "cms": "facility"
+    },
+    "same_resamples_for_paired_methods": true,
+    "mean_seed_hits_before_ratio": true,
+    "zero_positive_units_retained": true,
+    "training_seed_ranges_separate": true,
+    "selection_uncertainty_covered": false,
+    "period_and_network_independence_claimed": false,
+    "multiple_contrasts": "exploratory, no simultaneous confidence or confirmatory discovery claim"
+  },
+  "workload": {
+    "K": [
+      1,
+      5,
+      10,
+      20,
+      50,
+      100
+    ],
+    "precision_denominator": "actual slots min(K,candidate_count), zero-positive eligible observations included",
+    "coverage": "entity-period with >=1 retrieved observable positive / all eligible entity-periods",
+    "missing_link_is_clinical_error": false,
+    "maude_extended_universe": "all historically known product-quarters support>=1 with nonempty candidates",
+    "cms_task": "serious deficiency conditional on an inspection, NOT facility-inspection prioritization"
+  },
+  "strata": {
+    "partd_history_distinct_drugs": [
+      "<=10",
+      "11-50",
+      ">50"
+    ],
+    "maude_history_report_support": [
+      "1-9",
+      "10-49",
+      "50-199",
+      "200+"
+    ],
+    "positive_candidate_historical_provider_or_product_support": [
+      "<=5",
+      "6-50",
+      ">50"
+    ],
+    "positive_candidate_neighbor_support": [
+      "0",
+      "1-2",
+      "3+"
+    ],
+    "partd_neighbor_stratifier": "fixed strictly-prior cosine top50, independent of selected similarity/k",
+    "cms_prior_inspections": [
+      "1",
+      "2-3",
+      ">3"
+    ],
+    "cms_documentation_proxy": [
+      "no_combined_links",
+      "none_retained",
+      "some_retained",
+      "all_retained"
+    ],
+    "all_groups_reported": true,
+    "groups_defined_from_prior_information_only": true
+  },
+  "inputs": {
+    "partd_prepared": "results/generated/q2-cycle-20261003/partd-comparison-001/phases/prepare_raw/prepared",
+    "partd_reuse_root": "results/generated/q2-cycle-20261003/partd-comparison-001",
+    "maude_prepared": "results/generated/q2-cycle-20261003/maude-comparison-001/prepared",
+    "maude_validation_bpr_root": "results/generated/q2-cycle-20261003/maude-comparison-001/validation/bpr/config06",
+    "maude_test_bpr_root": "results/generated/q2-cycle-20261003/maude-comparison-002/test/bpr",
+    "cms_baseline_rows": "results/generated/q2-cycle-20261003/cms-comparison-002/preparation/rows.jsonl.gz",
+    "cms_manifest": "data/manifests/v0.1.json",
+    "historical_manifest_or_ledger_rewritten": false
+  },
+  "tasks": {
+    "partd": {
+      "validation_year": 2023,
+      "test_year": 2024,
+      "cohort_size": 2000,
+      "history_years": {
+        "2023": [
+          2019,
+          2020,
+          2021,
+          2022
+        ],
+        "2024": [
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ]
+      },
+      "same_original_candidate_and_tie_conventions": true,
+      "similarity_representation": "binary distinct provider-generic drug incidence, not claims frequency",
+      "neighbor_measures": [
+        "common_count",
+        "jaccard",
+        "cosine"
+      ],
+      "neighbor_k_grid": [
+        8,
+        16,
+        32,
+        50,
+        100,
+        200
+      ],
+      "neighbor_weighting": "positive similarity weighted vote; self excluded, similarity descending/NPI lexical ties; fixed neighbor list independent of candidates",
+      "graphsage_grid": [
+        {
+          "dimension": 16,
+          "regularization": 0.0005
+        },
+        {
+          "dimension": 16,
+          "regularization": 5e-06
+        },
+        {
+          "dimension": 16,
+          "regularization": 0
+        },
+        {
+          "dimension": 32,
+          "regularization": 0.0005
+        },
+        {
+          "dimension": 32,
+          "regularization": 5e-06
+        },
+        {
+          "dimension": 32,
+          "regularization": 0
+        }
+      ],
+      "graphsage_fixed": {
+        "epochs": 30,
+        "learning_rate": 0.02,
+        "fanout": 8,
+        "aggregation": "mean"
+      },
+      "bpr_selected_configuration": {
+        "dimension": 32,
+        "learning_rate": 0.03,
+        "regularization": 0.001,
+        "negative_samples": 5
+      },
+      "bpr_fixed": {
+        "epochs": 30,
+        "specialty_weight": 0.35
+      },
+      "bpr_reuse": "original six-grid validation selection index5/config-05 and three selected seed outputs, no retraining",
+      "fixed_baselines": [
+        "global_popularity",
+        "specialty_popularity"
+      ],
+      "architecture_only_effect_claimed": false
+    },
+    "maude": {
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "fixed": {
+        "dimension": 16,
+        "regularization": 5e-06,
+        "epochs": 30,
+        "learning_rate": 0.02
+      },
+      "graph_levels": [
+        {
+          "fanout": 4,
+          "adjacency": "real"
+        },
+        {
+          "fanout": 8,
+          "adjacency": "real"
+        },
+        {
+          "fanout": 16,
+          "adjacency": "real"
+        },
+        {
+          "fanout": 8,
+          "adjacency": "reassigned"
+        }
+      ],
+      "primary_diagnostic_contrasts": [
+        "fanout16_minus8",
+        "real8_minus_reassigned8",
+        "bpr_smoothed_minus_raw"
+      ],
+      "reassignment": {
+        "seed": 303,
+        "attempts_per_edge": 10,
+        "method": "bounded bipartite double-edge switches",
+        "preserve": "every node degree, node types and pre-origin aggregate graph cutoff",
+        "unchanged": "original training labels/probe/negative CSR/candidate histories/targets/initialization/model dimension and active parameter count",
+        "uniform_null_or_medical_causality_claimed": false,
+        "within_quarter_degree_preservation_claimed": false
+      },
+      "bpr_reuse": "selected original config06 d16/L2=0; same learned tensors for raw versus .5self+.5mean, no refit",
+      "learning_gate": {
+        "variants": [
+          "mean",
+          "none"
+        ],
+        "fixed_historical_probe_max_triplets": 20000,
+        "minimum_relative_bpr_data_loss_reduction": 0.01,
+        "required_for_every_seed": true,
+        "changed_checkpoint_required": true,
+        "capacity_equal_causal_claim": false,
+        "selection_requires_all_seed_learning_gates": true
+      }
+    },
+    "cms": {
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "feature_sets": [
+        "facility_history",
+        "facility_plus_combined_ownership",
+        "facility_plus_documented_ownership"
+      ],
+      "same_base_rows_labels_facilities": true,
+      "history_cutoff": "strictly before inspection; training rows before target year; state/scaler training-only",
+      "new_combined_owner_cutoff": "strict < instead of historical <=; old results unchanged",
+      "logistic_configuration": {
+        "C": 0.01
+      },
+      "logistic_fixed": {
+        "solver": "lbfgs",
+        "class_weight": null,
+        "max_iter": 1000,
+        "tol": 1e-08
+      },
+      "boosted_configuration": {
+        "learning_rate": 0.05,
+        "max_iter": 100,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 1
+      },
+      "boosted_fixed": {
+        "early_stopping": false,
+        "max_features": 1,
+        "max_bins": 255,
+        "min_samples_leaf": 20,
+        "seed_repetition_condition": "training_rows_gt_200000"
+      },
+      "documentation_proxy": "existing combined PAC owner IDs supported by actual dated CHOW enrollment-to-CCN event and owner association, both strictly before inspection; one CCN among earlier enrollment events; both ends must qualify",
+      "owner_ground_truth_or_known_enddates_claimed": false,
+      "new_configuration_selection": false,
+      "cms2026_intact_claimed": false
+    }
+  },
+  "independent_evaluation": {
+    "status": "requires_real_official_target_and_human_evidence",
+    "old_forecast_origin_protocol_scores_unchanged": true,
+    "new_comparators_retroactively_added": false,
+    "new_confirmation_requires_separate_protocol_before_unconsulted_target": true,
+    "human_nonconsultation_attestations": "unknown",
+    "official_catalog_metadata_url": "https://data.cms.gov/jsonapi/node/dataset?include=field_ref_primary_data_file&fields%5Bnode--dataset%5D=field_dataset_version,field_ref_primary_data_file,field_last_updated_date,field_re_release_select,field_re_release_version&fields%5Bmedia--primary_dataset_file%5D=field_csv_metadata,field_num_rows,field_num_columns&filter%5Bfield_dataset_type.name%5D=Medicare+Part+D+Prescribers+-+by+Provider+and+Drug&sort=-field_dataset_version,-field_re_release_version",
+    "target_outcomes_opened_by_availability_check": false
+  },
+  "external_reuse": {
+    "status": "not_performed_by_external_human",
+    "assistant_run_is_external_human_validation": false,
+    "required": "real external participant reproduces from raw sources and adds own comparator without author intervention; commands/environment/deviations/results and consent recorded"
+  },
+  "locked_sources": [
+    "pyproject.toml",
+    "configs/task_contract_v0_1.json",
+    "configs/task_contract_v0_2.json",
+    "data/manifests/v0.1.json",
+    "data/manifests/partd_feasibility_v0_2_lookback.json",
+    "results/q2_partd_development_population_20261003.json",
+    "healthgraphbench/__init__.py",
+    "healthgraphbench/core.py",
+    "healthgraphbench/cli.py",
+    "healthgraphbench/data.py",
+    "healthgraphbench/q2/__init__.py",
+    "healthgraphbench/q2/common.py",
+    "healthgraphbench/q2/maude.py",
+    "healthgraphbench/q2/maude_backend.py",
+    "healthgraphbench/q2/partd.py",
+    "healthgraphbench/q2/cms.py",
+    "healthgraphbench/q2/prospective_partd.py",
+    "healthgraphbench/q2/reuse.py",
+    "healthgraphbench/tasks/__init__.py",
+    "healthgraphbench/tasks/partd/__init__.py",
+    "healthgraphbench/tasks/partd/task.py",
+    "healthgraphbench/tasks/partd/task_contract_v0_2.json",
+    "healthgraphbench/tasks/maude/__init__.py",
+    "healthgraphbench/tasks/maude/data.py",
+    "healthgraphbench/tasks/maude/task.py",
+    "healthgraphbench/tasks/maude/models.py",
+    "healthgraphbench/tasks/maude/evaluate.py",
+    "healthgraphbench/tasks/maude/diagnostic.py",
+    "healthgraphbench/tasks/maude/ablation.py",
+    "healthgraphbench/tasks/cms_nursing/__init__.py",
+    "healthgraphbench/tasks/cms_nursing/task.py",
+    "healthgraphbench/tasks/cms_nursing/prepare.py",
+    "healthgraphbench/tasks/cms_nursing/models.py",
+    "healthgraphbench/candidates/__init__.py",
+    "healthgraphbench/candidates/partd.py",
+    "healthgraphbench/candidates/partd_model.py",
+    "healthgraphbench/candidates/clinical_trials.py",
+    "healthgraphbench/candidates/clinical_trials_stability.py",
+    "healthgraphbench/models/__init__.py",
+    "healthgraphbench/models/baselines.py",
+    "healthgraphbench/evaluation/__init__.py",
+    "healthgraphbench/evaluation/metrics.py",
+    "healthgraphbench/evaluation/numpy_metrics.py",
+    "healthgraphbench/evaluation/bootstrap.py",
+    "healthgraphbench/controls/__init__.py",
+    "healthgraphbench/controls/synthetic.py",
+    "scripts/run_q2_maude.py",
+    "scripts/run_q2_cms.py",
+    "scripts/run_q2_partd.py",
+    "scripts/run_q2_prospective_partd.py",
+    "scripts/run_q2_reuse.py",
+    "scripts/build_partd_execution_v0_2.py",
+    "scripts/download_cms.py",
+    "examples/q2_external_reuse/neighbor_cosine.py",
+    "healthgraphbench/rc31/__init__.py",
+    "healthgraphbench/rc31/partd.py",
+    "healthgraphbench/rc31/maude.py",
+    "healthgraphbench/rc31/cms.py",
+    "healthgraphbench/rc31/analysis.py",
+    "healthgraphbench/rc31/run.py",
+    "healthgraphbench/rc31/preflight.py",
+    "healthgraphbench/rc31/availability.py"
+  ]
+}

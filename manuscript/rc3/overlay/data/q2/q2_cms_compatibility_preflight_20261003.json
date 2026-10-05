@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "evidence": "synthetic supervised CMS fitting smoke; no health evaluation",
+  "unchanged_protocol_sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7",
+  "source_sha256": "0f79f05342b36f4d4874c224b81707bf9056ea8055a8e7811df7d3bc883f6d4e",
+  "initial_medical_run": "cms-comparison-001",
+  "initial_failure": "HistGradientBoostingClassifier max_features requires float, received JSON integer1",
+  "retained_failed_run": "results/generated/q2-cycle-20261003/cms-comparison-001",
+  "change": "float conversion of fixed max_features; same value, grid, seeds and budgets; no result-based tuning",
+  "predictions": [
+    {
+      "ccn": "TARGET_0",
+      "date": "2023-01-01",
+      "year": 2023,
+      "label": 1,
+      "score": 2.190173102017321e-05
+    },
+    {
+      "ccn": "TARGET_1",
+      "date": "2023-01-01",
+      "year": 2023,
+      "label": 0,
+      "score": 0.9999780982689799
+    }
+  ],
+  "fit_result": {
+    "family": "boosted",
+    "feature_set": "facility_history",
+    "year": 2023,
+    "configuration": {
+      "learning_rate": 0.1,
+      "max_iter": 100,
+      "max_leaf_nodes": 15,
+      "l2_regularization": 0
+    },
+    "fixed": {
+      "early_stopping": false,
+      "max_features": 1,
+      "max_bins": 255,
+      "min_samples_leaf": 20,
+      "seed_repetition_condition": "training_rows_gt_200000"
+    },
+    "seed": null,
+    "training_rows": 100,
+    "training_positives": 50,
+    "target_rows": 2,
+    "feature_dimension": 12,
+    "state_vocabulary_source": "strictly_prior_training_only",
+    "iterations": 100,
+    "losses": {
+      "definition": "unweighted strictly-prior training binary cross-entropy data loss",
+      "initial_zero_logit": 0.6931471805599453,
+      "trained": 2.1901970866537032e-05,
+      "full_iteration_trace_available": false
+    },
+    "warnings": [],
+    "checkpoint": {
+      "path": "checkpoint.pkl",
+      "sha256": "8e519d2bdad31f2820f63cde1d3d31cbde734327ceb797ab856be062d19164ea",
+      "trusted_internal_pickle_only": true
+    },
+    "prediction_sha256": "b149d50d1b141aaff274cfd08ddd05b45e017a20302e534b80d4be2d0a9f4f8e",
+    "metrics": {
+      "rows": 2,
+      "positives": 1,
+      "prevalence": 0.5,
+      "roc_auc": 0.0,
+      "average_precision": 0.5,
+      "precision_at_top_10_percent": 0.0,
+      "recall_at_top_10_percent": 0.0,
+      "brier": 0.9999561970176456
+    }
+  },
+  "supervisor": {
+    "status": "complete",
+    "reason": null,
+    "pid": 2247905,
+    "exit_code": 0,
+    "wall_seconds": 0.09270760700019309,
+    "worker_cpu_seconds": 0.426620324,
+    "peak_aggregate_rss_bytes": 306999296,
+    "phase_output_bytes": 31999,
+    "limits": {
+      "timeout_seconds": 1800.0,
+      "aggregate_rss_bytes": 4294967296,
+      "output_bytes": 1073741824
+    }
+  }
+}

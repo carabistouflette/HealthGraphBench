@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "revision": "2026-10-03 targeted MAUDE consolidation",
+  "canonical_language": "fr",
+  "english_role": "faithful_translation",
+  "scope": "Assistant editorial reading plus locale-normalized numeric/math/structure/citation invariants; not semantic certification or author approval. Inline expression multisets permit natural phrase order; display equation order is preserved.",
+  "author_approval": false,
+  "pair_count": 27,
+  "all_checks_passed": true,
+  "pairs": [
+    {
+      "fr": "sections/abstract_fr.tex",
+      "en": "sections/abstract_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "f15c82a7173eb00e3e8eb4c4f511ddf7cad8d2daee6f7148464d93d0d6894597",
+      "en_sha256": "9007d8a108f35ccb60e1cb308229f8b46e60675a5de0c36315927b799e2c69ef"
+    },
+    {
+      "fr": "sections/body_fr.tex",
+      "en": "sections/body_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "a4cade9a89ef843a14aeca59c1f7f6dddd21704bbe538ba48b149b688cc74f42",
+      "en_sha256": "f7993b36d92d0a8fa037486a61455a6ebf5308f94bed99b49abbd8b947f68fa7"
+    },
+    {
+      "fr": "sections/supp_additions_fr.tex",
+      "en": "sections/supp_additions_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "b8929275acccddb720b21a476d45ffbdb64b93151356e13b7b16f94efbce3840",
+      "en_sha256": "23ab90f8aed9abcedf0601797c3882445a1edbbb377aa833890763387b2e7d8e"
+    },
+    {
+      "fr": "sections/post_rc1_fr.tex",
+      "en": "sections/post_rc1_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "62ee8a857d573c5191bab0758479814de129fea063fa4caa995621dc42058697",
+      "en_sha256": "ce49065bbf57e46187e9b532a609206e044d6ed71632ab7bd743b08fe955cc69"
+    },
+    {
+      "fr": "supplement_fr.tex",
+      "en": "supplement_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "92557922332e7b656f68f0c0f767af4d44b76f5c22c2e029b18ea27e495542f5",
+      "en_sha256": "c1840f508338e8a82bd29df3fff043069226e70acc0931422b0144fd6e2214ad"
+    },
+    {
+      "fr": "main_fr.tex",
+      "en": "main_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "7f2caae97ee223508e7e0dc49829889deccc79180afa1ad992f23f55c0962c5d",
+      "en_sha256": "718d725cf7b8945c0bdab46c5e10e608d37b86d585d2a8ddf57115a39c0f29ce"
+    },
+    {
+      "fr": "metadata_fr.tex",
+      "en": "metadata_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "61bc32187011c5d1120ac2d2330c147545e70f736cd9e05c5b592547e45e6a30",
+      "en_sha256": "01e89e3fecd01ab141386baa15dd290c5c16d2704eb071cb4fadeb41ca36384a"
+    },
+    {
+      "fr": "submission_ios_fr.tex",
+      "en": "submission_ios_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "d06bc50e52aabff7f44b02bd88e6f40e31193bd2a11e379929ee2d918672cede",
+      "en_sha256": "b15242cba2b2b02f46f8979ecae8d3c7afbeac6abe75094a599ea0d650e661eb"
+    },
+    {
+      "fr": "tables/cms_annual_all_fr.tex",
+      "en": "tables/cms_annual_all_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "61a16daf0b1caf4d344ebaf726423493d36516578176ed55aebcc33b8e7a4a4c",
+      "en_sha256": "31923bf98b538378acd7150d9e51405868ab9cfbc088ef9da68c25120736dce5"
+    },
+    {
+      "fr": "tables/cms_annual_test_fr.tex",
+      "en": "tables/cms_annual_test_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "4cc9cec478535e16c4e266f03d481590f8e30f15cf7cc5ca1082bb3c38e2e335",
+      "en_sha256": "34e4f7aca9d1ff7f140a6150d46ed1b467585bb7973ccf5dbe61298661a06c07"
+    },
+    {
+      "fr": "tables/cms_ap_bounds_R4_fr.tex",
+      "en": "tables/cms_ap_bounds_R4_translated_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "955a9457dda689a5127f30be2083208498ddf93eca3f238f01c110f98e393429",
+      "en_sha256": "f5130941bda713bfb027475edff197f576665b03bd34b755cf29aa30593f6bab"
+    },
+    {
+      "fr": "tables/cms_ap_exact_R4_fr.tex",
+      "en": "tables/cms_ap_exact_R4_translated_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "9d367a79a2baf908743bc4d3ca39a2440bfa0e2a8442ecb6221376ffb2ee6d7a",
+      "en_sha256": "93434c94c2eb2256fa2add5cd2f1c13fb087e791968e3d1eb992ce1a7f469b08"
+    },
+    {
+      "fr": "tables/cms_ap_identity_R4_fr.tex",
+      "en": "tables/cms_ap_identity_R4_translated_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "3196e9636a41b3280a363702dbc8c1b3d99b86052a2bdd005beb631d7d8a2cd7",
+      "en_sha256": "648b4ce2b4835ff8af43678c10b59df1397088313a041db7941ab9fa73d2aa14"
+    },
+    {
+      "fr": "tables/cms_decile_exact_R4_fr.tex",
+      "en": "tables/cms_decile_exact_R4_translated_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "6b3c6fb1f540abf62f87b9c8c11dbd8ac8f5e662b9d136cd8200fc8ede03cbce",
+      "en_sha256": "05ac7d5551d56e8efb406dc300e4a40429be188fbd4a9e0d2988e7c1dd47d9cf"
+    },
+    {
+      "fr": "tables/cms_decomposition_fr.tex",
+      "en": "tables/cms_decomposition_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "ef79433ae89506ae24e754d9483742df02b66540056b7009095c0474b62cfcfc",
+      "en_sha256": "a300c154ae31a465608312694146b0c52e08ecd5225efc5c4e4b6c3eced73e07"
+    },
+    {
+      "fr": "tables/cms_fr.tex",
+      "en": "tables/cms_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "e3896e03859283e561d81fccbd2104b6ed1562c547184a4c27e80f191e74acc3",
+      "en_sha256": "2b3dab93225885ebbab484ee0c2ab598e5059df296ad5ea0f2571ec3339d71af"
+    },
+    {
+      "fr": "tables/cms_training_R4_fr.tex",
+      "en": "tables/cms_training_R4_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "2f0bcbaa8930359b0ea3cbeb9fd4947a8f76be8fef1220a5b06e623e3bfe7e5b",
+      "en_sha256": "0537e4360d8cf873f2f1305b72d2b7f5115e9ee4a6b5c4692c15d804393b315a"
+    },
+    {
+      "fr": "tables/graphsage_control_R4_fr.tex",
+      "en": "tables/graphsage_control_R4_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "9c5505a22d9176a057a527c5958cd6dea9ca06a41379cc0650b1aea995d36fae",
+      "en_sha256": "fb2591af12ea9ce527133c4e683d27ce4422c1f031e3f6081145340c1ab24d3d"
+    },
+    {
+      "fr": "tables/maude_B1_graph_R6_fr.tex",
+      "en": "tables/maude_B1_graph_R6_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "2af215c8e3e076885f508d94cfeb67c769516f34f2c907b9246dafef5af4a5a6",
+      "en_sha256": "3cabf0c56d711acffcb6283c52e25d426035d48a283cde1669d946764f78325c"
+    },
+    {
+      "fr": "tables/maude_B1_tabular_R6_fr.tex",
+      "en": "tables/maude_B1_tabular_R6_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "90cd892fe4be0649627a93a95ba7a3a3f1ffea2b0d7919272ed751f7e6fdc9ab",
+      "en_sha256": "224a5ccafcb25caf45eb739438f0a95057771851776847d7ae94ad95e9db5d2c"
+    },
+    {
+      "fr": "tables/maude_B2_coverage_R6_fr.tex",
+      "en": "tables/maude_B2_coverage_R6_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "9d10068f2ff769e1afb9d80ac9bd785055de1fd6ead85c364d779c036cbc1d92",
+      "en_sha256": "5bf2efbb7c833e673b7a3ae93b609d74675423f7c6d782201e8ffe6d33e05e5f"
+    },
+    {
+      "fr": "tables/maude_B2_missing_pairs_R6_fr.tex",
+      "en": "tables/maude_B2_missing_pairs_R6_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "a00480518c25605e6633eee3775677711dbd359277de52aeeec0f9fdd914219d",
+      "en_sha256": "d40f09fd162dd21184a3cf30c2b69371ad80c2c63dd0a1a12b7570a1d23e1346"
+    },
+    {
+      "fr": "tables/maude_aggregation_RC2_fr.tex",
+      "en": "tables/maude_aggregation_RC2_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "03198c0ea074cd6dc9f958d9d3a5e6e3a8652a315aadcc520a19547fc011422b",
+      "en_sha256": "086f21d89f21cb8b5c8f66cf0f7ade664845f846fec92a8dbdee820a451ad1bf"
+    },
+    {
+      "fr": "tables/maude_duration_RC2_fr.tex",
+      "en": "tables/maude_duration_RC2_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "1531b5064fcd90dbe441d9674ab90dccea1a7ba0b0910b1c492e77c5130874a1",
+      "en_sha256": "87f426ed2ffaaca6d220932861148289988106f0501415a69ea38eb9c291995d"
+    },
+    {
+      "fr": "tables/maude_fr.tex",
+      "en": "tables/maude_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "880619ce3816081d98d86a0f4d24afb722fd934e66849af5afffb9dae15eb659",
+      "en_sha256": "764d3959b9839c6a573f97b9110cd2b26ec4b4d0922527236f8ad3c4527728e9"
+    },
+    {
+      "fr": "tables/partd_fr.tex",
+      "en": "tables/partd_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "8f38573ce7d53d5ab080b61964966a5012f0bb00ca80f59185d113115af6f014",
+      "en_sha256": "572e13a7c3f2e2d2810ef5c125fc1ebff790441681a67dcf1b46f4225dbaf00e"
+    },
+    {
+      "fr": "tables/maude_paired_RC2_fr.tex",
+      "en": "tables/maude_paired_RC2_en.tex",
+      "numeric_values_match": true,
+      "math_units_match": true,
+      "display_equations_in_order_match": true,
+      "structure_matches": true,
+      "citations_references_labels_match": true,
+      "fr_sha256": "da34a84a641cced94cbad5273fa06531fbff8c7833b57a66705a305222485ccc",
+      "en_sha256": "9ad248a3395ee11f00a4c7bfc9477b5bc05dc0ab18cfaa9561282c86a5ba8dda"
+    }
+  ],
+  "French_scientific_content_revised_before_translation": true,
+  "historical_translation_report_retained_as_dated_evidence": true,
+  "normalizations": [
+    "decimal and thousands punctuation",
+    "French/English quarter letters",
+    "translated textual mathematical subscripts including pool/pooled abbreviation",
+    "tuple punctuation preserved"
+  ],
+  "editorial_review": {
+    "new_and_changed_paragraphs_translated_from_French": true,
+    "D1_all_numbers_and_figures_retained_in_supplement": true,
+    "same_method_and_evidence_map_order": true,
+    "CMS_record_dates_distinct_from_public_availability": true
+  }
+}

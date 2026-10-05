@@ -1,0 +1,377 @@
+{
+  "evidence": "synthetic one-step BPR derivatives, every entry of node inputs and shared matrices; not medical learning evidence",
+  "variants": {
+    "mean": {
+      "coordinates": [
+        {
+          "block": "product_inputs",
+          "index": [
+            0,
+            0
+          ],
+          "numerical": -0.04497882305498635,
+          "analytical": -0.0449788231104975,
+          "absolute_error": 5.551115123125783e-11
+        },
+        {
+          "block": "product_inputs",
+          "index": [
+            0,
+            1
+          ],
+          "numerical": -0.021015473694596665,
+          "analytical": -0.021015473708474453,
+          "absolute_error": 1.3877787807814457e-11
+        },
+        {
+          "block": "product_inputs",
+          "index": [
+            1,
+            0
+          ],
+          "numerical": 0.014470821485534913,
+          "analytical": 0.014470821464718231,
+          "absolute_error": 2.0816681711721685e-11
+        },
+        {
+          "block": "product_inputs",
+          "index": [
+            1,
+            1
+          ],
+          "numerical": -0.007770325882727747,
+          "analytical": -0.007770325868849959,
+          "absolute_error": 1.3877787807814457e-11
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            0,
+            0
+          ],
+          "numerical": -0.06112299488769679,
+          "analytical": -0.061122994929330154,
+          "absolute_error": 4.163336342344337e-11
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            0,
+            1
+          ],
+          "numerical": 0.04110509049803923,
+          "analytical": 0.04110509052232536,
+          "absolute_error": 2.42861286636753e-11
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            1,
+            0
+          ],
+          "numerical": 0.0,
+          "analytical": 0.0,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            1,
+            1
+          ],
+          "numerical": 0.0,
+          "analytical": 0.0,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            2,
+            0
+          ],
+          "numerical": 0.05467447194984487,
+          "analytical": 0.054674471974131,
+          "absolute_error": 2.42861286636753e-11
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            2,
+            1
+          ],
+          "numerical": -0.04605567804905064,
+          "analytical": -0.04605567804905064,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "self_weights",
+          "index": [
+            0,
+            0
+          ],
+          "numerical": -0.006506174654585806,
+          "analytical": -0.0065061745990746545,
+          "absolute_error": 5.551115123125783e-11
+        },
+        {
+          "block": "self_weights",
+          "index": [
+            0,
+            1
+          ],
+          "numerical": -0.0020078250728694513,
+          "analytical": -0.002007825038174982,
+          "absolute_error": 3.469446951953614e-11
+        },
+        {
+          "block": "self_weights",
+          "index": [
+            1,
+            0
+          ],
+          "numerical": -0.0012231460289058305,
+          "analytical": -0.0012231459595168914,
+          "absolute_error": 6.938893903907228e-11
+        },
+        {
+          "block": "self_weights",
+          "index": [
+            1,
+            1
+          ],
+          "numerical": 0.0055202046267410765,
+          "analytical": 0.005520204737763379,
+          "absolute_error": 1.1102230246251565e-10
+        },
+        {
+          "block": "neighbor_weights",
+          "index": [
+            0,
+            0
+          ],
+          "numerical": -0.011330282378985146,
+          "analytical": -0.011330282378985146,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "neighbor_weights",
+          "index": [
+            0,
+            1
+          ],
+          "numerical": 0.009433511305445563,
+          "analytical": 0.009433511293302499,
+          "absolute_error": 1.214306433183765e-11
+        },
+        {
+          "block": "neighbor_weights",
+          "index": [
+            1,
+            0
+          ],
+          "numerical": 0.004873417336348496,
+          "analytical": 0.00487341730859292,
+          "absolute_error": 2.7755575615628914e-11
+        },
+        {
+          "block": "neighbor_weights",
+          "index": [
+            1,
+            1
+          ],
+          "numerical": -0.007994190254212441,
+          "analytical": -0.007994190254212441,
+          "absolute_error": 0.0
+        }
+      ],
+      "maximum_absolute_error": 1.1102230246251565e-10
+    },
+    "none": {
+      "coordinates": [
+        {
+          "block": "product_inputs",
+          "index": [
+            0,
+            0
+          ],
+          "numerical": -0.01657867448878747,
+          "analytical": -0.016578674461031895,
+          "absolute_error": 2.7755575615628914e-11
+        },
+        {
+          "block": "product_inputs",
+          "index": [
+            0,
+            1
+          ],
+          "numerical": -0.04837978501148754,
+          "analytical": -0.04837978502536533,
+          "absolute_error": 1.3877787807814457e-11
+        },
+        {
+          "block": "product_inputs",
+          "index": [
+            1,
+            0
+          ],
+          "numerical": 0.0,
+          "analytical": 0.0,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "product_inputs",
+          "index": [
+            1,
+            1
+          ],
+          "numerical": 0.0,
+          "analytical": 0.0,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            0,
+            0
+          ],
+          "numerical": -0.04778837642271938,
+          "analytical": -0.04778837643659717,
+          "absolute_error": 1.3877787807814457e-11
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            0,
+            1
+          ],
+          "numerical": 0.04757353494477812,
+          "analytical": 0.04757353498988093,
+          "absolute_error": 4.5102810375396984e-11
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            1,
+            0
+          ],
+          "numerical": 0.0,
+          "analytical": 0.0,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            1,
+            1
+          ],
+          "numerical": 0.0,
+          "analytical": 0.0,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            2,
+            0
+          ],
+          "numerical": 0.04794739139057924,
+          "analytical": 0.04794739141486537,
+          "absolute_error": 2.42861286636753e-11
+        },
+        {
+          "block": "problem_inputs",
+          "index": [
+            2,
+            1
+          ],
+          "numerical": -0.047367681110799253,
+          "analytical": -0.047367681096921466,
+          "absolute_error": 1.3877787807814457e-11
+        },
+        {
+          "block": "self_weights",
+          "index": [
+            0,
+            0
+          ],
+          "numerical": -0.004404274611680137,
+          "analytical": -0.004404274611680137,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "self_weights",
+          "index": [
+            0,
+            1
+          ],
+          "numerical": -0.0026278467180063103,
+          "analytical": -0.002627846662495159,
+          "absolute_error": 5.551115123125783e-11
+        },
+        {
+          "block": "self_weights",
+          "index": [
+            1,
+            0
+          ],
+          "numerical": -0.0033820783951199473,
+          "analytical": -0.0033820783673643717,
+          "absolute_error": 2.7755575615628914e-11
+        },
+        {
+          "block": "self_weights",
+          "index": [
+            1,
+            1
+          ],
+          "numerical": 0.007062752993558519,
+          "analytical": 0.00706275304906967,
+          "absolute_error": 5.551115123125783e-11
+        },
+        {
+          "block": "neighbor_weights",
+          "index": [
+            0,
+            0
+          ],
+          "numerical": 0.0,
+          "analytical": 0.0,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "neighbor_weights",
+          "index": [
+            0,
+            1
+          ],
+          "numerical": 0.0,
+          "analytical": 0.0,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "neighbor_weights",
+          "index": [
+            1,
+            0
+          ],
+          "numerical": 0.0,
+          "analytical": 0.0,
+          "absolute_error": 0.0
+        },
+        {
+          "block": "neighbor_weights",
+          "index": [
+            1,
+            1
+          ],
+          "numerical": 0.0,
+          "analytical": 0.0,
+          "absolute_error": 0.0
+        }
+      ],
+      "maximum_absolute_error": 5.551115123125783e-11
+    }
+  },
+  "status": "passed",
+  "source_sha256": "8387c61ab84684b9f47c6a02d42341ae509bb78309bea929b1907c51e4b23929"
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "artifact": "HealthGraphBench publication package",
+  "release_candidate": "RC1",
+  "package_id": "manuscript-rc1",
+  "scientific_baseline": "R6 after minor revisions",
+  "prepared_on": "2026-09-30",
+  "distribution_status": "local_release_candidate_not_published",
+  "archive_name": "HealthGraphBench_FAIA_LaTeX_RC1.zip",
+  "archive_root": "HealthGraphBench_RC1",
+  "parent_archive": {
+    "name": "HealthGraphBench_FAIA_LaTeX_R6_revisions_mineures.zip",
+    "sha256": "c260ef238e29c948beccb4f7601db992ea41994e4b9ec3c5877f04b10f56d186",
+    "modified": false
+  },
+  "benchmark": {
+    "version": "0.2.0",
+    "source_commit": "b010d5a49eae56837a920b2e30dece41c42c0c44",
+    "declared_DOI": "10.5281/zenodo.22796551",
+    "modified": false
+  },
+  "manuscript_package_DOI": null,
+  "suggested_future_tag": "manuscript-rc1",
+  "tag_created": false,
+  "documents": [
+    {
+      "source": "main_fr.tex",
+      "pdf": "main_fr.pdf",
+      "role": "manuscript",
+      "language": "fr"
+    },
+    {
+      "source": "main_en.tex",
+      "pdf": "main_en.pdf",
+      "role": "manuscript",
+      "language": "en"
+    },
+    {
+      "source": "supplement_fr.tex",
+      "pdf": "supplement_fr.pdf",
+      "role": "scientific supplement",
+      "language": "fr"
+    },
+    {
+      "source": "supplement_en.tex",
+      "pdf": "supplement_en.pdf",
+      "role": "scientific supplement",
+      "language": "en"
+    },
+    {
+      "source": "response_reviewers_fr.tex",
+      "pdf": "response_reviewers_fr.pdf",
+      "role": "response to reviewers",
+      "language": "fr"
+    }
+  ],
+  "scientific_freeze": "No new experiment, model score, interval, figure or scientific interpretation; payload hashes in release/protected_payload.json",
+  "integrity_manifest": "SHA256SUMS",
+  "current_provenance": "provenance.json",
+  "verification_directory": "verification/rc1",
+  "readiness": {
+    "ready_for_review": true,
+    "author_validation_complete": false,
+    "ready_for_submission": false,
+    "editorial_acceptance_claimed": false,
+    "remote_publication_done": false
+  },
+  "outstanding_author_decisions": [
+    "Author identities, affiliations and corresponding author",
+    "Approval of scientific/bibliographic content and response",
+    "CRediT contributions, funding, competing interests, ethical position, data-use conditions and actual AI assistance",
+    "Exact volume/conference, language, anonymization and final template",
+    "Permanent archive and publication-package identifier"
+  ],
+  "immutability_policy": "Do not replace released files under the same RC1 identifier. Any subsequent correction must receive RC2 or a new explicitly versioned package. Rebuilds must use a separate directory; regenerated PDFs need not have identical bytes."
+}

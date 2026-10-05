@@ -1,0 +1,9 @@
+{
+  "revision": "RC3.1",
+  "parent_archive": "/home/arobin/Downloads/HealthGraphBench_LaTeX_RC3.zip",
+  "parent_sha256": "6cc3005a46ac2c906daf42a7c27781dfae8953b5eaa78c874e41b622014dd402",
+  "sealed": true,
+  "compiled": true,
+  "run_root": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/rc31-cycle-20261004/experiment-001",
+  "assembler_sha256": "a6f8725576b7b6a95af2f62ff2c66a632698707970b49892a57142bf6f9f7e36"
+}

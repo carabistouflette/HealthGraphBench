@@ -1,0 +1,55 @@
+{
+  "schema": "healthgraphbench.q2-final-runtime-evidence.v1",
+  "recorded_at_utc": "2026-10-03T22:11:02.533341+00:00",
+  "protocol_sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7",
+  "suite": {
+    "command": "results/generated/q2-cycle-20261003/env/bin/python -m unittest discover -s tests",
+    "tests": 80,
+    "failures": 0,
+    "test_seconds_reported": 3.83,
+    "command_wall_seconds": 4.67
+  },
+  "actual_smokes": {
+    "maude_completion": {
+      "status": "COMPLETE",
+      "new_test_phases": 30,
+      "validation_fits_retrained": 0,
+      "medical_test_refits": 28,
+      "graphsage_selected_refit_learning_gates_passed": 12,
+      "minimum_graphsage_refit_probe_relative_loss_drop": 0.49688637240860195,
+      "run_root": "results/generated/q2-cycle-20261003/maude-comparison-002"
+    },
+    "cms_comparison": {
+      "status": "complete",
+      "validation_fits": 24,
+      "test_refits": 8,
+      "run_root": "results/generated/q2-cycle-20261003/cms-comparison-002"
+    },
+    "partd_comparison": {
+      "status": "complete",
+      "validation_fits": 42,
+      "test_refits": 7,
+      "run_root": "results/generated/q2-cycle-20261003/partd-comparison-001"
+    },
+    "wheel_raw_reuse": {
+      "status": "complete",
+      "run_root": "results/generated/q2-cycle-20261003/external-reuse-001",
+      "human_external_validation": false
+    },
+    "partd_archive_prepared_consumer": {
+      "command": "tar -xOf /home/arobin/Downloads/HealthGraphBench_Q2_PartD_20261003.tar.gz partd-comparison-001/phases/prepare_raw/prepared/edges.csv | sha256sum",
+      "actual_sha256": "54fe20d8171e4ccaab820d04587f702fd2778f5803fb99d628521950ccb47d6e"
+    }
+  },
+  "publication_before_resumed_maude_fits": {
+    "commit": "ae648fed26bd87d0a731a0cb1fd8d0a4bee4c30a",
+    "observed_CI_status": "success",
+    "CI_run": 37156377156,
+    "CI_url": "https://github.com/carabistouflette/HealthGraphBench/actions/runs/37156377156"
+  },
+  "evidence_limits": {
+    "independent_medical_target_evaluation_not_claimed": true,
+    "external_human_reuse_not_claimed": true,
+    "dedicated_machine_timing_not_claimed": true
+  }
+}

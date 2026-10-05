@@ -1,0 +1,27 @@
+{
+  "scope": "Assistant technical inspection, not human author approval or venue-format certification",
+  "english_pdfs": {
+    "main_en.pdf": 15,
+    "supplement_en.pdf": 20
+  },
+  "all_english_page_contact_sheets_examined": true,
+  "enlarged_pages_examined": {
+    "main_en.pdf": [
+      1
+    ],
+    "supplement_en.pdf": [
+      1,
+      18
+    ]
+  },
+  "english_figures_examined": true,
+  "english_critical_latex_warnings": [],
+  "clipping_observed": false,
+  "french_pdf_extracted_text_unchanged": [
+    "main_fr.pdf",
+    "supplement_fr.pdf",
+    "response_reviewers_fr.pdf"
+  ],
+  "canonical_french_tex_files_unchanged": 53,
+  "contact_sheets_directory": "results/generated/manuscript-rc2-translation-20261002T233250Z/visual-review"
+}

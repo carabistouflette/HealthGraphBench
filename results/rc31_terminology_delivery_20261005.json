@@ -1,0 +1,85 @@
+{
+  "revision": "RC3.1",
+  "archive": {
+    "path": "/home/arobin/Downloads/HealthGraphBench_RC3_1_corrige/HealthGraphBench_LaTeX_RC3_1.zip",
+    "sha256": "df03ac46f142aa920c83e367142a16d2de2272611f60395c2b062418f15073dd",
+    "bytes": 45213855
+  },
+  "standalone_pdfs": [
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_RC3_1_corrige/HealthGraphBench_RC3_1_manuscrit_FR.pdf",
+      "sha256": "46a277507cd5da39726c83a1a6e3348448070f56b1f3cdf9166fd7efc38bd82b"
+    },
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_RC3_1_corrige/HealthGraphBench_RC3_1_manuscript_EN.pdf",
+      "sha256": "cb9c9b6b85af36ea734cd7eaf8e5ea7eaafa85b66937177c4fe82cda3aab5415"
+    },
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_RC3_1_corrige/HealthGraphBench_RC3_1_supplement_FR.pdf",
+      "sha256": "9790f783e94dc5c24ba6a1935c4af09d70d0576e2edc01f274accbfb07d697a3"
+    },
+    {
+      "path": "/home/arobin/Downloads/HealthGraphBench_RC3_1_corrige/HealthGraphBench_RC3_1_supplement_EN.pdf",
+      "sha256": "ff71fc2c26a63218d5e709143b9d4821ca71cb9e37ea575211ca371fd445a310"
+    }
+  ],
+  "package_QA": {
+    "schema": "healthgraphbench.rc31-package-qa.v1",
+    "passed": true,
+    "sealed": true,
+    "checks": [
+      "actual_numeric_derivation",
+      "bilingual_tables",
+      "actual_plot_points_and_assets",
+      "consumed_source_records",
+      "exploratory_limits_and_gates",
+      "compact_external_evidence_scope",
+      "parent_byte_retention",
+      "resource_completion_and_limits",
+      "four_actual_pdf_visual_reviews",
+      "latex_diagnostics",
+      "manifest_integrity"
+    ]
+  },
+  "parent_RC3_unchanged": true,
+  "scientific_gates": {
+    "independent_temporal_evaluation_completed": false,
+    "external_human_reproduction_completed": false,
+    "author_approval": "unknown",
+    "venue_compliance": "unknown",
+    "submission_performed": false
+  },
+  "submission_performed": false,
+  "export_smoke": {
+    "zip_crc_passed": true,
+    "standalone_pdf_bytes_match_zip": true,
+    "metadata_selection_preserved": true,
+    "performed_at_utc": "2026-10-05T00:10:46.192855+00:00"
+  },
+  "correction_scope": {
+    "revision": "RC3.1",
+    "reason": "User correction: Q2 is a journal-ranking goal, not a session, experimental cycle, comparison or forecast name.",
+    "scientific_outputs_unchanged_sha256": {
+      "partd_experiments.json": "de6f1fb128c992caa8bd038e9d0b0b4a91347056ff3e90788287166bf54209d7",
+      "maude_experiments.json": "63e4747cab06a18f34b5ccb32e029a33b374ccb7a0804e868176bbd4e02991d8",
+      "cms_experiments.json": "031cd71d4761cbd5a935b18f21c2473cb35d716f5152f0d81c3befcc5dfb7fff",
+      "analysis.json": "2a569d2aa0c1a09befa2fbc9fcc2b5f5fe6899e8889798fb6b2bef90cb4a44c8",
+      "cycle.json": "c672451270ec449bf3d1079628a87e4330843f035b63e9ac4c8107b76594e240",
+      "protocol_executed.json": "faf881cf4a5880f5f444d11badc5ea3a79a08325efb4be394e9c5093137064a8",
+      "source_provenance.json": "2b94e949d952f875afa074db815afbd24a0f93edce036a5b4a6156502cdc3637",
+      "resource_ledger.json": "e5bc16500e5bca8381b0e3f262a0c86ca158c37b4165221524036d0a9cadde66"
+    },
+    "numeric_assets_manifest_unchanged": true,
+    "new_medical_fits": 0,
+    "new_bootstrap_computations": 0,
+    "canonical_fr_sha256": "ebb31d8d67629a81f0818fbb6d51fd85a318ed33621f31567733dae9c9d17f29",
+    "pdf_text_standalone_Q2_tokens": {
+      "main_fr.pdf": 0,
+      "supplement_fr.pdf": 0,
+      "main_en.pdf": 0,
+      "supplement_en.pdf": 0
+    },
+    "visual_diff_report": "results/rc31_terminology_surface_diff_20261005.json",
+    "legacy_internal_identifiers_preserved": true
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schema": "healthgraphbench.rc31-execution-report.v1",
+  "status": "completed_exploratory",
+  "run_root": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/rc31-cycle-20261004/experiment-001",
+  "analysis": {
+    "role": "rc31_analysis",
+    "path": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/rc31-cycle-20261004/experiment-001/analysis.json",
+    "bytes": 865334,
+    "sha256": "2a569d2aa0c1a09befa2fbc9fcc2b5f5fe6899e8889798fb6b2bef90cb4a44c8"
+  },
+  "analysis_sha256": "2a569d2aa0c1a09befa2fbc9fcc2b5f5fe6899e8889798fb6b2bef90cb4a44c8",
+  "evidence_sources": [
+    {
+      "role": "completed_cycle",
+      "path": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/rc31-cycle-20261004/experiment-001/cycle.json",
+      "bytes": 173881,
+      "sha256": "c672451270ec449bf3d1079628a87e4330843f035b63e9ac4c8107b76594e240"
+    },
+    {
+      "role": "resource_ledger",
+      "path": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/rc31-cycle-20261004/experiment-001/resource_ledger.json",
+      "bytes": 63309,
+      "sha256": "e5bc16500e5bca8381b0e3f262a0c86ca158c37b4165221524036d0a9cadde66"
+    },
+    {
+      "role": "executed_protocol",
+      "path": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/rc31-cycle-20261004/experiment-001/protocol_executed.json",
+      "bytes": 13654,
+      "sha256": "faf881cf4a5880f5f444d11badc5ea3a79a08325efb4be394e9c5093137064a8"
+    },
+    {
+      "role": "consumed_source_provenance",
+      "path": "/home/arobin/Work/Repos/HealthGraphBench/results/generated/rc31-cycle-20261004/experiment-001/source_provenance.json",
+      "bytes": 8210,
+      "sha256": "2b94e949d952f875afa074db815afbd24a0f93edce036a5b4a6156502cdc3637"
+    }
+  ],
+  "new_medical_training_fits": 75,
+  "historical_BPR_training_fits_repeated": 0,
+  "phases": {
+    "count": 126,
+    "status_counts": {
+      "complete": 126
+    },
+    "nonzero_exit_codes": 0
+  },
+  "limits": {
+    "timeout_seconds": 1800,
+    "max_rss_bytes": 4294967296,
+    "max_output_bytes": 1073741824,
+    "family_validation_wall_seconds": 3600,
+    "run_wall_seconds": 21600,
+    "total_output_bytes": 8589934592
+  },
+  "observed_resource_ledger": {
+    "maximum_phase_wall_seconds": 374.0972264769953,
+    "sum_phase_wall_seconds": 9239.787939699992,
+    "sum_phase_wall_is_run_elapsed_wall": false,
+    "maximum_peak_aggregate_rss_bytes": 1240743936,
+    "maximum_phase_output_bytes": 118079046,
+    "sum_phase_output_bytes": 6845996551,
+    "sum_phase_output_is_total_run_disk_usage": false,
+    "family_validation_seconds": {
+      "partd_common_count": 96.96887546099606,
+      "partd_jaccard": 84.13429234498471,
+      "partd_cosine": 84.12963096999738,
+      "partd_graphsage": 522.6672701380303,
+      "graph_real_k4": 349.8906979419844,
+      "graph_real_k8": 353.9888241900044,
+      "graph_real_k16": 359.94442742598767,
+      "graph_reassigned_k8": 348.0642724659847,
+      "cms_logistic": 1.8442910559970187,
+      "cms_boosted": 2.2153820269886637
+    },
+    "scope": "Recorded worker/supervisor resource observations only; no newly run resource or scientific audit."
+  },
+  "learning_gate": {
+    "locked_contract": {
+      "variants": [
+        "mean",
+        "none"
+      ],
+      "fixed_historical_probe_max_triplets": 20000,
+      "minimum_relative_bpr_data_loss_reduction": 0.01,
+      "required_for_every_seed": true,
+      "changed_checkpoint_required": true,
+      "capacity_equal_causal_claim": false,
+      "selection_requires_all_seed_learning_gates": true
+    },
+    "observed_new_graph_diagnostics": {
+      "partd": {
+        "new_graph_training_records": 21,
+        "records_with_learning_gate_passed": 21,
+        "records_with_changed_state": 21,
+        "minimum_observed_probe_relative_loss_drop": 0.5156293806652776,
+        "scope": "Observed new GraphSAGE fit diagnostics only; not an independent scientific audit or a capacity-equal causal test."
+      },
+      "maude": {
+        "new_graph_training_records": 36,
+        "records_with_learning_gate_passed": 36,
+        "records_with_changed_state": 36,
+        "minimum_observed_probe_relative_loss_drop": 0.4709418630312649,
+        "scope": "Observed new GraphSAGE fit diagnostics only; not an independent scientific audit or a capacity-equal causal test."
+      }
+    },
+    "historical_BPR_scope": "Selected historical states and their recorded diagnostics were reused; no historical BPR fit was repeated."
+  },
+  "data_scope": {
+    "partd": "Prepared-derived edges/report and selected historical BPR artifacts are pinned. Original Part D raw releases are not represented as retained raw inputs in this registry or companion TAR. The consumed historical selection.json is pinned externally and is not in the TAR.",
+    "maude": "Prepared-derived bundle, metadata and training rows, plus nine original selected BPR checkpoints are pinned. The bundle filename maude_raw_bundle.pkl.gz does not constitute retention of the original raw MAUDE source releases.",
+    "cms": "Historical prepared baseline rows and source manifest, plus seven retained raw snapshot files used by RC3.1 preparation are pinned. Retrospective snapshot availability is not forecast-origin verification.",
+    "archive_layout": "Run files and reused repository inputs keep their repository-relative paths; seven external raw CMS files use cms/<filename>. The historical Part D selection.json is external only.",
+    "accessibility": "Paths and byte hashes establish local file accessibility at registry creation, not access by an independent external human. Absolute local paths may be unavailable on other machines.",
+    "external_human_access_proven": false,
+    "external_human_reproduction_completed": false,
+    "independent_temporal_evaluation_completed": false,
+    "evidence_level": "exploratory_on_previously_consulted_2023_2025"
+  },
+  "protocol_inputs": {
+    "partd_prepared": "results/generated/q2-cycle-20261003/partd-comparison-001/phases/prepare_raw/prepared",
+    "partd_reuse_root": "results/generated/q2-cycle-20261003/partd-comparison-001",
+    "maude_prepared": "results/generated/q2-cycle-20261003/maude-comparison-001/prepared",
+    "maude_validation_bpr_root": "results/generated/q2-cycle-20261003/maude-comparison-001/validation/bpr/config06",
+    "maude_test_bpr_root": "results/generated/q2-cycle-20261003/maude-comparison-002/test/bpr",
+    "cms_baseline_rows": "results/generated/q2-cycle-20261003/cms-comparison-002/preparation/rows.jsonl.gz",
+    "cms_manifest": "data/manifests/v0.1.json",
+    "historical_manifest_or_ledger_rewritten": false
+  },
+  "source_provenance": {
+    "code_commit": "dde6a2facf83a493c23ea4797ff5da9e90138452",
+    "base_commit": "7cf5e577d084b9e47f031913f21023c3ea79685f",
+    "started_at_utc": "2026-10-04T20:16:31.388990+00:00",
+    "locked_protocol_sha256": "faf881cf4a5880f5f444d11badc5ea3a79a08325efb4be394e9c5093137064a8",
+    "consumed_source_file_count": 62
+  },
+  "evidence_level": "exploratory_on_previously_consulted_2023_2025",
+  "independent_temporal_evaluation_completed": false,
+  "external_human_reproduction_completed": false,
+  "human_nonconsultation_attestations": "unknown",
+  "interpretation_limits": [
+    "All new results are exploratory on previously consulted 2023–2025 data; no independent temporal confirmation was performed.",
+    "No actual external-human reproduction study was performed; an assistant execution is not human validation or external access proof.",
+    "Part D and MAUDE retention is prepared-derived; CMS additionally retains the seven consumed raw snapshot files.",
+    "Learning gates establish recorded optimization/state change, not causal identification or clinical utility.",
+    "No PDF, compilation, publication, submission, merge, tag, or Zenodo proof is asserted by this execution report."
+  ],
+  "evidence_registry_path": "/home/arobin/Work/Repos/HealthGraphBench/results/rc31_evidence_registry_20261004.json"
+}

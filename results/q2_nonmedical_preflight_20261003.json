@@ -1,0 +1,188 @@
+{
+  "evidence": "synthetic software smoke only; no medical fit or public availability proof",
+  "checks": {
+    "external_cosine": {
+      "expected_score_G_C": 0.7071067811865475,
+      "observed_scores": {
+        "G-A": 0.0,
+        "G-C": 0.7071067811865475
+      },
+      "public_evaluation": {
+        "positive_containing_provider_years": {
+          "positive_count": 4,
+          "contributing_provider_count": 4,
+          "contributing_provider_year_count": 4,
+          "hits_at_5": 4,
+          "hits_at_10": 4,
+          "hits_at_20": 4,
+          "micro_recall_at_5": 1.0,
+          "micro_recall_at_10": 1.0,
+          "micro_recall_at_20": 1.0,
+          "provider_macro_recall_at_5": 1.0,
+          "provider_macro_recall_at_10": 1.0,
+          "provider_macro_recall_at_20": 1.0,
+          "mrr": 1.0
+        },
+        "all_provider_years": {
+          "precision_at_5": 0.4444444444444444,
+          "hits_at_5": 4,
+          "recommendation_slots_at_5": 9,
+          "recommendation_burden_per_target_provider_year_at_5": 1.8,
+          "recommendation_burden_per_eligible_provider_year_at_5": 1.8,
+          "zero_positive_provider_years_recommended_at_5": 1,
+          "fraction_zero_positive_provider_years_recommended_at_5": 1.0,
+          "precision_at_10": 0.4444444444444444,
+          "hits_at_10": 4,
+          "recommendation_slots_at_10": 9,
+          "recommendation_burden_per_target_provider_year_at_10": 1.8,
+          "recommendation_burden_per_eligible_provider_year_at_10": 1.8,
+          "zero_positive_provider_years_recommended_at_10": 1,
+          "fraction_zero_positive_provider_years_recommended_at_10": 1.0,
+          "precision_at_20": 0.4444444444444444,
+          "hits_at_20": 4,
+          "recommendation_slots_at_20": 9,
+          "recommendation_burden_per_target_provider_year_at_20": 1.8,
+          "recommendation_burden_per_eligible_provider_year_at_20": 1.8,
+          "zero_positive_provider_years_recommended_at_20": 1,
+          "fraction_zero_positive_provider_years_recommended_at_20": 1.0,
+          "target_cohort_provider_year_count": 5,
+          "eligible_provider_year_count": 5,
+          "ineligible_provider_year_count": 0,
+          "candidate_empty_provider_year_count": 0,
+          "positive_empty_provider_year_count": 1,
+          "positive_empty_fraction_of_eligible": 0.2,
+          "precision_denominator": "actual top-K recommendation slots, min(K, candidate_count) per eligible provider-year",
+          "top_k_is_ranking_threshold_not_calibrated_confidence": true
+        }
+      },
+      "checkpoint_sha256": "a0678d08fe7aa14c1d236bef38aa6b2627311a3eaf2c7db0b75a01bfd6268df8"
+    },
+    "gradient": {
+      "mean": {
+        "analytical_gradient": -0.0449788231104975,
+        "finite_difference_gradient": -0.04497882305498635,
+        "absolute_error": 5.551115123125783e-11
+      },
+      "none": {
+        "analytical_gradient": -0.016578674461031895,
+        "finite_difference_gradient": -0.01657867448878747,
+        "absolute_error": 2.7755575615628914e-11
+      }
+    },
+    "timeout": {
+      "status": "incomplete",
+      "reason": "timeout",
+      "pid": 1951712,
+      "exit_code": -15,
+      "wall_seconds": 0.16130424499715446,
+      "worker_cpu_seconds": 0.58,
+      "peak_aggregate_rss_bytes": 333955072,
+      "phase_output_bytes": 44,
+      "limits": {
+        "timeout_seconds": 0.15,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    "rss": {
+      "status": "incomplete",
+      "reason": "rss_limit",
+      "pid": 1951767,
+      "exit_code": -15,
+      "wall_seconds": 0.005322687000443693,
+      "worker_cpu_seconds": 0.0,
+      "peak_aggregate_rss_bytes": 329056256,
+      "phase_output_bytes": 0,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 1048576,
+        "output_bytes": 1073741824
+      }
+    },
+    "output": {
+      "status": "incomplete",
+      "reason": "output_limit",
+      "pid": 1951768,
+      "exit_code": -15,
+      "wall_seconds": 0.06116635299986228,
+      "worker_cpu_seconds": 0.24,
+      "peak_aggregate_rss_bytes": 335831040,
+      "phase_output_bytes": 2097196,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1024
+      }
+    },
+    "exception": {
+      "status": "incomplete",
+      "reason": "worker_error",
+      "pid": 1951802,
+      "exit_code": 1,
+      "wall_seconds": 0.02161379099925398,
+      "worker_cpu_seconds": 0.0,
+      "peak_aggregate_rss_bytes": 329252864,
+      "phase_output_bytes": 542,
+      "limits": {
+        "timeout_seconds": 1800.0,
+        "aggregate_rss_bytes": 4294967296,
+        "output_bytes": 1073741824
+      }
+    },
+    "phase_reuse_refused": true,
+    "resource_ledger": {
+      "limits": {
+        "timeout_seconds": 1800,
+        "max_rss_bytes": 4294967296,
+        "max_output_bytes": 1073741824,
+        "family_validation_wall_seconds": 21600,
+        "run_wall_seconds": 86400,
+        "total_output_bytes": 17179869184
+      },
+      "family_validation_seconds": {
+        "synthetic": 0.01612311400094768
+      },
+      "phases": [
+        {
+          "phase": "successful",
+          "family": "synthetic",
+          "status": "complete",
+          "reason": null,
+          "pid": 1951817,
+          "exit_code": 0,
+          "wall_seconds": 0.01612311400094768,
+          "worker_cpu_seconds": 0.014916559,
+          "peak_aggregate_rss_bytes": 333836288,
+          "phase_output_bytes": 163,
+          "limits": {
+            "timeout_seconds": 1800.0,
+            "aggregate_rss_bytes": 4294967296,
+            "output_bytes": 1073741824
+          }
+        }
+      ]
+    },
+    "owners": {
+      "offsets": [
+        0,
+        2,
+        3,
+        0,
+        2,
+        3
+      ],
+      "bytes": 76,
+      "sha256": "3d28b2c044d355b9b2dc5623df25983671c74c97481f55a50ea833f3e152a371",
+      "wrong_hash_refused_without_partial": true,
+      "transport": "real local HTTP; not CMS/public medical evidence"
+    },
+    "reuse_existing_output_refused_before_writes": true
+  },
+  "status": "passed",
+  "source_sha256": {
+    "healthgraphbench/q2/maude_backend.py": "8387c61ab84684b9f47c6a02d42341ae509bb78309bea929b1907c51e4b23929",
+    "healthgraphbench/q2/reuse.py": "d31d494dfa7f5ae55e19ae4a19d856b98d60541f1b16ef940cff418ac0afa94b",
+    "scripts/download_cms.py": "38848cf5d8b46247ba8c94eac844fbd6306768fc5753056903866b0a58cc386a",
+    "examples/q2_external_reuse/neighbor_cosine.py": "b53c66ba11e4b7e61e637aceded8ba8a84fdf3f0ef48bb679e480aa267d565b6"
+  }
+}

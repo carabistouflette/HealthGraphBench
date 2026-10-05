@@ -1,0 +1,32 @@
+{
+  "schema": "healthgraphbench.rc31-runtime-preflight.v1",
+  "protocol_sha256": "faf881cf4a5880f5f444d11badc5ea3a79a08325efb4be394e9c5093137064a8",
+  "new_regression_subset": {
+    "command": "results/generated/rc31-cycle-20261004/env/bin/python -m unittest discover -s tests -p 'test_rc31_*.py'",
+    "tests": 44,
+    "failures": 0,
+    "reported_test_seconds": 3.723,
+    "command_wall_seconds": 6.8
+  },
+  "actual_new_surface_CLI_smoke": {
+    "command": "results/generated/rc31-cycle-20261004/env/bin/python -m healthgraphbench.rc31.preflight --protocol configs/rc31_relational_protocol_20261004.json --output results/rc31_preflight_20261004.json",
+    "exit_code": 0,
+    "command_wall_seconds": 3.53,
+    "report": "results/rc31_preflight_20261004.json"
+  },
+  "metadata_only_availability_smoke": {
+    "exit_code": 0,
+    "command_wall_seconds": 2.41,
+    "report": "results/rc31_availability_20261004.json",
+    "target_labels_opened": false
+  },
+  "source_review": {
+    "remaining_evidence_backed_findings": 0,
+    "test_family_budget_finding": "retracted reading error: selected2024 calls have family=None",
+    "fit_count_finding": "resolved by derivation from completed executions",
+    "runtime_by_reviewer": false
+  },
+  "medical_fits_or_scores_started": false,
+  "independent_target_evaluation_completed": false,
+  "external_human_reproduction_completed": false
+}

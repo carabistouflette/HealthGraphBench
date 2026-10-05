@@ -1,0 +1,132 @@
+{
+  "schema": "healthgraphbench.q2-artifact-inventory.v1",
+  "file_count": 31,
+  "files": {
+    "results/generated/q2-cycle-20261003/external-reuse-001/run_status.json": {
+      "bytes": 27,
+      "sha256": "c53e9111a25e1bc7a3e3d99467432279ee5267848114b84deb069d59b0f8429d"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/result.json": {
+      "bytes": 34081,
+      "sha256": "31c392454ae58ba6f570b6a0a5f98a1c6c6064580dba47e75d5bde47a39f6367"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/resource_ledger.json": {
+      "bytes": 1308,
+      "sha256": "989670c050af1a6b7d304c3e1e79156bc80d4b34b70a28e4983ca6be2494a566"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/wheel_source_lock.json": {
+      "bytes": 6048,
+      "sha256": "a9817e8876dc5e8e94b852d592a8f57fa18e8f6ad1d5eb34b1e6eba726a7a8ad"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/source_provenance.json": {
+      "bytes": 7422,
+      "sha256": "602b5e973f07060f07452863644eb353f019bcdfbec8dcbf26d4f533b11df3c0"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/protocol_executed.json": {
+      "bytes": 14565,
+      "sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/supervisor_status.json": {
+      "bytes": 359,
+      "sha256": "3c547a72e2296937642445fadc4ac8755c6742524aa5b90be4fd1e715616e576"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/driver.stdout.log": {
+      "bytes": 14535,
+      "sha256": "e15b463fa018625ef8a1a398564308f09256d67d1f63e7192bd60edda9f98b4f"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/worker_status.json": {
+      "bytes": 151,
+      "sha256": "b821708f682ad1c36cc4342a2ea16f7052387742869ff6ce775c4fce8cac2c5d"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/result.json": {
+      "bytes": 17155,
+      "sha256": "bb80b6f0f8f6a6375743e05efdedd633775de00033a57110eccc55c10c982f84"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/driver.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/neighbor_cosine.py": {
+      "bytes": 37726,
+      "sha256": "b53c66ba11e4b7e61e637aceded8ba8a84fdf3f0ef48bb679e480aa267d565b6"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/wheel_preflight/supervisor_status.json": {
+      "bytes": 357,
+      "sha256": "d83d8897cf007f553ee5947768e36f772a731a0144ebf6a1cc143df38937d2d9"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/wheel_preflight/driver.stdout.log": {
+      "bytes": 6354,
+      "sha256": "273f28553f2a0b1cd3fad17942532be28fd9b1bd1fe10a8c415cd702ca8cd976"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/wheel_preflight/worker_status.json": {
+      "bytes": 152,
+      "sha256": "8b8e13d2b0875568283957d41ce19258416a56bfb82cb76f5a12458993217adc"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/wheel_preflight/result.json": {
+      "bytes": 6894,
+      "sha256": "8589dc8307e4a661d562c157c1edabf055ce74e8e29619fd5c9a6140e3a41056"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/wheel_preflight/driver.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/wheel_preflight/neighbor_cosine.py": {
+      "bytes": 37726,
+      "sha256": "b53c66ba11e4b7e61e637aceded8ba8a84fdf3f0ef48bb679e480aa267d565b6"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/wheel_preflight/preflight.json": {
+      "bytes": 6709,
+      "sha256": "975d0a777870dcc58cbeb586348245fd8cbd30c409563172ff27fb4144dacf45"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/result.json": {
+      "bytes": 16238,
+      "sha256": "cfe0bf708a1d31b14da7689eb7db2b2c3e6e9500598976d811cced1e9d68e56d"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/source_files.json": {
+      "bytes": 2191,
+      "sha256": "eb12b2ef7294b0b944f7812e64db9c17c00e4758d04be015e8ec5bbba9ec08f2"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/checkpoints/target_year_2023/checkpoint.npz": {
+      "bytes": 538855,
+      "sha256": "82501e0e52c480e17d37b7cf86e3ff767fe52630d7816c425fbb70bac2170802"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/checkpoints/target_year_2024/checkpoint.npz": {
+      "bytes": 550041,
+      "sha256": "20c95c84cf2143611c17fde10f0b970e7c9115472e672b43599bb4957bdcc625"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/inputs/partd_manifest.json": {
+      "bytes": 6917,
+      "sha256": "1821460f2ad68e988bd7cb63afef79d671544e6edcd1ca1de5e35335ad638ec0"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/inputs/task_contract.json": {
+      "bytes": 2875,
+      "sha256": "482adfa6665138c246f6212158d61bf2cd33e70049ad3d5e793283a6b2cd9b8f"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/metrics_recalculated.json": {
+      "bytes": 9553,
+      "sha256": "85559d36adf5b82b6ad62559040eac75f2b36fbcc0cf9ffc6db2c55bad51866c"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/prediction_payloads.json": {
+      "bytes": 46781728,
+      "sha256": "c522002943a2075820d50a717e61092eb7b7b81920de3a407f2ae68f59674e7f"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/preparation/edges.csv": {
+      "bytes": 63251985,
+      "sha256": "54fe20d8171e4ccaab820d04587f702fd2778f5803fb99d628521950ccb47d6e"
+    },
+    "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/preparation/report.json": {
+      "bytes": 141379,
+      "sha256": "1f9785a988b30f6d59a42326af12c10b29da82103b4b7ec7afb96fbc45db0fe7"
+    },
+    "results/generated/q2-cycle-20261003/dist/healthgraphbench-0.2.0-py3-none-any.whl": {
+      "bytes": 207350,
+      "sha256": "b5c776556ef64686804c4dec6e354127c59c3db441710519da793ffee6117428"
+    },
+    "results/generated/q2-cycle-20261003/dist/.gitignore": {
+      "bytes": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+    }
+  },
+  "raw_csv_files_included": false,
+  "human_external_validation": "pending"
+}

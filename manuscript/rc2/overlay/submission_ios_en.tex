@@ -1,0 +1,27 @@
+% Official-class entry point. Not compiled in the delivered preparation run.
+% First install the official class/style using scripts/install_ios_template.py.
+% Check whether the selected volume accepts a manuscript in French.
+\documentclass{IOS-Book-Article}
+\input{ios_packages}
+\input{metadata_en}
+\begin{document}
+\begin{frontmatter}
+\title{\PaperTitle}
+\runningtitle{HealthGraphBench: exploratory benchmark}
+\author{\PaperAuthors}
+\address{\PaperAffiliation}
+\runningauthor{Authors to be supplied}
+\begin{abstract}
+\input{sections/abstract_en}
+\end{abstract}
+\begin{keyword}
+\PaperKeywords
+\end{keyword}
+\end{frontmatter}
+\input{sections/body_en}
+\section*{Declarations}
+% Replace this working statement with verified declarations and the real AI disclosure.
+Author identities and contributions, funding, competing interests, data use, the ethical framework, and AI assistance must be finalized before submission. Consult the RC2 scientific supplement, particularly S11 for the post-RC1 explorations and S12 for the open items. Do not submit this file with its provisional fields.
+\bibliographystyle{vancouver}
+\bibliography{references}
+\end{document}

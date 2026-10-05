@@ -1,0 +1,94 @@
+{
+  "schema": "healthgraphbench.q2-partd-prospective-evidence.v1",
+  "record_kind": "partd_q2_prospective_forecast",
+  "task": "partd_prescriber_drug",
+  "status": "sealed_awaiting_official_target_publication",
+  "run_root": "results/generated/q2-cycle-20261003/partd-prospective-001",
+  "command": "results/generated/q2-cycle-20261003/env/bin/python -u scripts/run_q2_prospective_partd.py forecast --source-root /home/arobin/healthgraphbench-data/partd-v0_2-lookback --comparison-dir results/generated/q2-cycle-20261003/partd-comparison-001 --protocol configs/q2_scientific_protocol_20261003.json --protocol-sha256 22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7 --output-dir results/generated/q2-cycle-20261003/partd-prospective-001",
+  "code_commit": "ae648fed26bd87d0a731a0cb1fd8d0a4bee4c30a",
+  "protocol": {
+    "path": "configs/q2_scientific_protocol_20261003.json",
+    "sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7",
+    "evidence_level": "exploratory_on_previously_consulted_2023_2025"
+  },
+  "run_provenance": {
+    "source_provenance_path": "results/generated/q2-cycle-20261003/partd-prospective-001/source_provenance.json",
+    "source_provenance_sha256": "74364fef735725517da7c557b175da0966de8a031e1958555540e91f21931b30",
+    "started_at_utc": "2026-10-03T21:51:33.119359+00:00",
+    "python": "3.13.5",
+    "packages": {"healthgraphbench": "0.2.0", "numpy": "2.3.5", "scikit-learn": "1.8.0", "scipy": "1.18.1", "numba": "0.68.0", "llvmlite": "0.50.0"}
+  },
+  "source_manifest": {
+    "path": "data/manifests/partd_feasibility_v0_2_lookback.json",
+    "sha256": "1821460f2ad68e988bd7cb63afef79d671544e6edcd1ca1de5e35335ad638ec0"
+  },
+  "catalogue_gates": [
+    {"phase": "before_source_captures", "captured_at_utc": "2026-10-03T21:51:34.490005Z", "http_status": 200, "response_bytes": 278033, "response_sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa", "metadata_only": true, "service_2025_officially_listed": false, "matching_dataset_nodes": 0},
+    {"phase": "after_source_captures", "captured_at_utc": "2026-10-03T22:10:50.219774Z", "http_status": 200, "response_bytes": 278033, "response_sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa", "metadata_only": true, "service_2025_officially_listed": false, "matching_dataset_nodes": 0},
+    {"phase": "before_forecast_seal", "captured_at_utc": "2026-10-03T22:28:54.599259Z", "http_status": 200, "response_bytes": 278033, "response_sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa", "metadata_only": true, "service_2025_officially_listed": false, "matching_dataset_nodes": 0}
+  ],
+  "public_source_captures": [
+    {"service_year": 2019, "path": "partd_2019.csv", "capture_started_at_utc": "2026-10-03T21:51:34.498060Z", "capture_completed_at_utc": "2026-10-03T21:54:44.095527Z", "http_status": 200, "received_bytes": 3657232553, "sha256": "035a1b6cb076d7e2a110c6720931e61ab01e22c1db5c729fcbd284cd16980421", "receipt_sha256": "f20962b360e83d0f1a5ad4de8e5b62bba6a669046fa5f0df0acd31d68c41ce47", "matches_retained_local_bytes": true},
+    {"service_year": 2020, "path": "partd_2020.csv", "capture_started_at_utc": "2026-10-03T21:54:44.104011Z", "capture_completed_at_utc": "2026-10-03T21:57:55.560802Z", "http_status": 200, "received_bytes": 3636794301, "sha256": "fb83c9e471aede743b3b130762f1c880399912843e216879ee10cc33661d3978", "receipt_sha256": "0fcee99a6c82b456da008a0ab371878bd963d42aef7f12a63006d4a367e4569b", "matches_retained_local_bytes": true},
+    {"service_year": 2021, "path": "partd_2021.csv", "capture_started_at_utc": "2026-10-03T21:57:55.577745Z", "capture_completed_at_utc": "2026-10-03T22:01:06.800349Z", "http_status": 200, "received_bytes": 3641939924, "sha256": "41aed37c7af3c54a287fde5d0908890438dbffd00d1686e704b7f94b8f8bcb01", "receipt_sha256": "a51c7846a792975e7388947a7a15c29e78999119ffca77f04436c6a5fe470c54", "matches_retained_local_bytes": true},
+    {"service_year": 2022, "path": "partd_2022.csv", "capture_started_at_utc": "2026-10-03T22:01:06.822365Z", "capture_completed_at_utc": "2026-10-03T22:04:22.296294Z", "http_status": 200, "received_bytes": 3738326206, "sha256": "a81ee7a58643bcd56a109ea5399f692a6352a64673f767a1d719c81aab86ae8f", "receipt_sha256": "1c67c1dc991f4c390cc8ddca8c228ab3ea6e8aac32426e31f6dfd46e9a150e74", "matches_retained_local_bytes": true},
+    {"service_year": 2023, "path": "partd_2023.csv", "capture_started_at_utc": "2026-10-03T22:04:22.329216Z", "capture_completed_at_utc": "2026-10-03T22:07:32.514405Z", "http_status": 200, "received_bytes": 3877447342, "sha256": "63f8d21b891d8cc70c7c57a271855d32a2bfff6b176725ce8493ca8927b4c6c8", "receipt_sha256": "68cc6c4c950f6fe31838a906c5fe3ac1e24a73589d6c5e84cd75f0dbd7258d8c", "matches_retained_local_bytes": true},
+    {"service_year": 2024, "path": "partd_2024.csv", "capture_started_at_utc": "2026-10-03T22:07:32.537897Z", "capture_completed_at_utc": "2026-10-03T22:10:49.135195Z", "http_status": 200, "received_bytes": 4057615134, "sha256": "45387cb165f8c7a6a69adc832044d9af4a5655a38c77089571bbb0483e278ca1", "receipt_sha256": "e0724afa83e56e92674b09b87acc16d4df03ccb3435c7539203e1a7ab15b1209", "matches_retained_local_bytes": true}
+  ],
+  "origin": {
+    "path": "results/generated/q2-cycle-20261003/partd-prospective-001/sealed_origin/origin.json",
+    "sha256": "ff6641fd17742aad670ed41748cd104e3bed058a65348459c390a716bda44fe3",
+    "status": "sealed_awaiting_official_target_publication",
+    "origin_sealed_at_utc": "2026-10-03T22:10:50.231060Z",
+    "official_target_publication_found_at_origin": false,
+    "source_manifest_sha256": "1821460f2ad68e988bd7cb63afef79d671544e6edcd1ca1de5e35335ad638ec0",
+    "cohort": {"size": 2000, "eligible_first_seen_npis_after_exclusions": 1490683, "development_exclusion_npis": 2518, "comparison_preparation_exclusion_npis": 2288, "union_exclusion_npis": 2518, "overlap": 2288, "salt": "q2-prospective-20261003", "cohort_sha256": "2ec15e00cb4e90a390b6f668a0637cf250953ceb1ee7adb40334f7e626790319"},
+    "derived_history": {"edges_sha256": "a44b6f5035dceaaeb244e82cad7898fc1ee6aa03e194c35e3cbfec7ac1f48f52", "raw_cohort_edge_rows": 197267, "history_rows_path": "sealed_origin/history_rows.jsonl", "history_rows": 187291, "history_rows_sha256": "d57026f60072fa00e2595cc3874ea4dd75c00e9c07953856debc48bc7de794a9", "candidate_layout_sha256": "8fb061b17bd8d614bef1b350ed43a6836eb4ad2b9135c90feb9246712ebab0bc", "candidate_score_count_per_fit": 2112688, "global_prior_drugs": 1087, "boosted_seed_policy_training_rows": 359300}
+  },
+  "selected_configurations": {
+    "logistic": {"configuration_index": 3, "configuration": {"C": 0.1, "class_weight": "balanced"}},
+    "boosted": {"configuration_index": 2, "configuration": {"learning_rate": 0.1, "max_iter": 100, "max_leaf_nodes": 15, "l2_regularization": 0}},
+    "bpr": {"configuration_index": 5, "configuration": {"dimension": 32, "learning_rate": 0.03, "negative_samples": 5, "regularization": 0.001}}
+  },
+  "completed_fit_families": {
+    "specialty_popularity": {"runs": 1, "seeds": [null], "fit": "deterministic history-only baseline"},
+    "history_overlap": {"runs": 1, "seeds": [null], "fit": "deterministic history-only baseline"},
+    "logistic": {"runs": 1, "seeds": [null], "checkpoint_sha256": "1d4be61c47bc46a04f45ed1ff50de2906ae947cecec842ac2242b8244f5ac315"},
+    "boosted": {"runs": 3, "seeds": [103, 211, 307], "checkpoint_sha256_by_seed": {"103": "8bc706d9bb6003bde338ccf9f5d5c6d48aa2bfe6365463f13674d374addc91e5", "211": "5ab2312498e5f56624b64c561781108823b0071c7276bcf120ee23f8a3c8cf9d", "307": "68c3794204f0ff6fbfb0c800652e31a06964f658d25a0cb740498ec0f387e2bc"}},
+    "bpr": {"runs": 3, "seeds": [103, 211, 307], "checkpoint_sha256_by_seed": {"103": "e516c716b6968b9cc814210088ac2cd42b6940ad39972d74b57c695134c15d50", "211": "fa9fccfab2d2a901c3def6027f3452029eb5db3954b8293e7cec03dba9af7c4a", "307": "618ed4609b3c23e294051dd3eeeb94f4490603ea6aba17e83765616b167f24aa"}}
+  },
+  "forecast": {
+    "path": "results/generated/q2-cycle-20261003/partd-prospective-001/forecast.json",
+    "sha256": "382e111529f4009c0790267d1518dab050f66d72badc2cb28c8acf2bc120ff9e",
+    "forecast_sealed_at_utc": "2026-10-03T22:28:54.610343Z",
+    "candidate_scoring": "all candidates scored; no target labels or metrics used"
+  },
+  "independent_evaluation": {
+    "status": "awaiting_official_target_publication",
+    "passed": false,
+    "target_metrics_computed": false,
+    "target_source_acquired": false,
+    "human_nonconsultation_gate": "unknown; external human attestation required"
+  },
+  "resources": {
+    "run_wall_seconds": 2241.490268074005,
+    "phase_count": 19,
+    "completed_phase_count": 19,
+    "maximum_observed_phase_rss_bytes": 834887680,
+    "output_bytes_before_final_report": 199775083,
+    "limits": {"timeout_seconds": 1800, "max_rss_bytes": 4294967296, "max_output_bytes": 1073741824, "family_validation_wall_seconds": 21600, "run_wall_seconds": 86400, "total_output_bytes": 17179869184},
+    "ledger_summary_path": "results/q2_partd_prospective_ledger_20261003.json",
+    "ledger_summary_sha256": "10090c4772997b511227c993e12248bcec2c2c4c9053978ec7a1619e4739e8f4"
+  },
+  "evidence_files": {
+    "artifact_inventory_path": "results/q2_partd_prospective_artifacts_20261003.json",
+    "artifact_inventory_sha256": "ec23aedd0a4cfce55827718e5c3850379f465a12fee182bc4efbe7566c55fd19",
+    "archive_record_path": "results/q2_partd_prospective_archive_20261003.json",
+    "archive_record_sha256": "256ef4ccc00fe2dff909e4c5dd45795431464d79a3b8552841e4c084421b3c30",
+    "archive_path": "/home/arobin/Downloads/HealthGraphBench_Q2_PartD_Prospective_20261003.tar.gz",
+    "archive_bytes": 115004400,
+    "archive_sha256": "ced58e93d6168e6767bbbf34d6eb9a5785b4e8279ea59f012749c1aba474d35c",
+    "archive_excludes_six_full_2019_2024_source_csvs": true,
+    "proofs_and_scores_git_published_by_this_task": false
+  }
+}

@@ -1,0 +1,751 @@
+[
+  {
+    "source": "results/q2_cycle_status_20261003.json",
+    "target": "data/q2/q2_cycle_status_20261003.json",
+    "sha256": "e34f8411b06738a86c76c19938a37434af81e132a6ee493855604e4254edf44a",
+    "bytes": 2826,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_runtime_verification_20261003.json",
+    "target": "data/q2/q2_runtime_verification_20261003.json",
+    "sha256": "edaa4f12e4b5423580c7f060047062213906aae433f2bd00298d3968d5b46509",
+    "bytes": 2143,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_maude_validation_20261003.json",
+    "target": "data/q2/q2_maude_validation_20261003.json",
+    "sha256": "1815d69e2225223b75b6475edadb66eb3fef9e8a0f9c366dcaddf581c2be8a26",
+    "bytes": 1146511,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_maude_comparison_20261003.json",
+    "target": "data/q2/q2_maude_comparison_20261003.json",
+    "sha256": "bdde4442196f453e87bbfcb7fac109559cbc4fdbb6671bf7a878628fa2abedec",
+    "bytes": 839788,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_cms_comparison_20261003.json",
+    "target": "data/q2/q2_cms_comparison_20261003.json",
+    "sha256": "58a17b70f2eb57d053f6aa773335a269375eb831c233699f0d6f8b6f89547598",
+    "bytes": 18936,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_comparison_20261003.json",
+    "target": "data/q2/q2_partd_comparison_20261003.json",
+    "sha256": "ee44fef249df16205b8a2d126919553b20d2f4626e41dbf046c2445ca8ceff05",
+    "bytes": 403885,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_external_reuse_20261003.json",
+    "target": "data/q2/q2_external_reuse_20261003.json",
+    "sha256": "db6780b56cf61be71544993b48580127448d4746b80e68b81c69cf5a02177409",
+    "bytes": 26053,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_prospective_20261003.json",
+    "target": "data/q2/q2_partd_prospective_20261003.json",
+    "sha256": "1bfa09b992e18d90dc212d9a448186a689d96284ff3a59d519256556ce7183dc",
+    "bytes": 9925,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_prospective_forecast_20261003.json",
+    "target": "data/q2/q2_partd_prospective_forecast_20261003.json",
+    "sha256": "382e111529f4009c0790267d1518dab050f66d72badc2cb28c8acf2bc120ff9e",
+    "bytes": 38186,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_prospective_origin_20261003.json",
+    "target": "data/q2/q2_partd_prospective_origin_20261003.json",
+    "sha256": "ff6641fd17742aad670ed41748cd104e3bed058a65348459c390a716bda44fe3",
+    "bytes": 21376,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_prospective_publication_20261003.json",
+    "target": "data/q2/q2_partd_prospective_publication_20261003.json",
+    "sha256": "6713cb4c80fdfbfca11d69012d613389386c82f7c5d816085b64707fac119049",
+    "bytes": 4233,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_prospective_publication_catalog_20261003.json",
+    "target": "data/q2/q2_partd_prospective_publication_catalog_20261003.json",
+    "sha256": "1388b6cd63fd11d2977cb041d7ade58075b34ef3943253129b1df696325d85fa",
+    "bytes": 278033,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_prospective_full_artifacts_20261003.json",
+    "target": "data/q2/q2_partd_prospective_full_artifacts_20261003.json",
+    "sha256": "5bc28eff1db7c7c0e2d9d662e6451256c3982cf5d5ae4295e2ab0c3dc37c77ae",
+    "bytes": 24910,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_prospective_artifacts_20261003.json",
+    "target": "data/q2/q2_partd_prospective_artifacts_20261003.json",
+    "sha256": "ec23aedd0a4cfce55827718e5c3850379f465a12fee182bc4efbe7566c55fd19",
+    "bytes": 3100,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_prospective_ledger_20261003.json",
+    "target": "data/q2/q2_partd_prospective_ledger_20261003.json",
+    "sha256": "10090c4772997b511227c993e12248bcec2c2c4c9053978ec7a1619e4739e8f4",
+    "bytes": 1854,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_prospective_archive_20261003.json",
+    "target": "data/q2/q2_partd_prospective_archive_20261003.json",
+    "sha256": "256ef4ccc00fe2dff909e4c5dd45795431464d79a3b8552841e4c084421b3c30",
+    "bytes": 725,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_artifacts_20261003.json",
+    "target": "data/q2/q2_partd_artifacts_20261003.json",
+    "sha256": "80fa70b49c4a91dee57f020bae36a4ce026d1db3f7ef27eb686de2f5a4becaed",
+    "bytes": 180733,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_archive_20261003.json",
+    "target": "data/q2/q2_partd_archive_20261003.json",
+    "sha256": "c070ee3b0873ec416d6b1bd3cf0b1ccdc780cdfc21cf5b92da75763cfd04429e",
+    "bytes": 115587,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_maude_artifacts_20261003.json",
+    "target": "data/q2/q2_maude_artifacts_20261003.json",
+    "sha256": "341d220003aebe6ee0b93e0ef76d725f8c82b6af895853a2755b55d6602693f4",
+    "bytes": 142577,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_maude_archive_20261003.json",
+    "target": "data/q2/q2_maude_archive_20261003.json",
+    "sha256": "82598ad6139353b7bd207986971d315094c31100347a8eb197b9227232231d16",
+    "bytes": 417,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_external_reuse_artifacts_20261003.json",
+    "target": "data/q2/q2_external_reuse_artifacts_20261003.json",
+    "sha256": "042a9db1ed30a0749bab89606ac16c8f2bd4ce4c3f94935a665605be78688760",
+    "bytes": 6891,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_external_reuse_archive_20261003.json",
+    "target": "data/q2/q2_external_reuse_archive_20261003.json",
+    "sha256": "eefd10ea6199e89eb3d83fac36b80cc0aa65517e4936b5450b018a7429640bd4",
+    "bytes": 413,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_cms_artifacts_20261003.json",
+    "target": "data/q2/q2_cms_artifacts_20261003.json",
+    "sha256": "ccec529678093473e51228235f1a08d71d32881921500ceaac16c4345665571f",
+    "bytes": 33634,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_cms_archive_20261003.json",
+    "target": "data/q2/q2_cms_archive_20261003.json",
+    "sha256": "c4f3d161b8b67b8fda5b3fe1b6fe975749cdcefcdc8b9e6fc6937e0f8b571192",
+    "bytes": 358,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_maude_first_run_failure_20261003.json",
+    "target": "data/q2/q2_maude_first_run_failure_20261003.json",
+    "sha256": "0716a485a0fbaa6ca572fc91ff1022b437cd6d0333cdfb331e9bb92da24e485b",
+    "bytes": 2489,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_maude_completion_preflight_20261003.json",
+    "target": "data/q2/q2_maude_completion_preflight_20261003.json",
+    "sha256": "45bbfb9fae327c968ccc2cf97ec76353b158a31f6caf7e91072fefe0a63e4a4c",
+    "bytes": 1596,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_cms_first_run_failure_20261003.json",
+    "target": "data/q2/q2_cms_first_run_failure_20261003.json",
+    "sha256": "351677f336bc1b31f2c15a723f6f7020e69846993af86e184d50273e73bafc96",
+    "bytes": 1059,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_cms_compatibility_preflight_20261003.json",
+    "target": "data/q2/q2_cms_compatibility_preflight_20261003.json",
+    "sha256": "715cb68f4d05a3c6fbe652256e60180dc5967c28633c63f8cfc7b0702551933a",
+    "bytes": 2785,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_published_wheel_preflight_20261003.json",
+    "target": "data/q2/q2_published_wheel_preflight_20261003.json",
+    "sha256": "25099dc2227ec490b935bbdc13c583e12d742699511e0651c67e8a3eff0def4c",
+    "bytes": 7695,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_preflight_publication_20261003.json",
+    "target": "data/q2/q2_preflight_publication_20261003.json",
+    "sha256": "fc130f3f6a30c19915205ed5d14392f9c1fb4d2bf6bed016b1cc11f591ce8759",
+    "bytes": 8698,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_all_gradients_preflight_20261003.json",
+    "target": "data/q2/q2_all_gradients_preflight_20261003.json",
+    "sha256": "5fc15921be554fa694964532a9f9e9e7adbb7015163d6a8227a634c6a3ffa00b",
+    "bytes": 9343,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_prospective_software_preflight_20261003.json",
+    "target": "data/q2/q2_prospective_software_preflight_20261003.json",
+    "sha256": "9b39d58a5577120ac652bff43fd25b69dfd84ff6166dd769ecc1f2c7943c4b07",
+    "bytes": 4670,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_nonmedical_preflight_20261003.json",
+    "target": "data/q2/q2_nonmedical_preflight_20261003.json",
+    "sha256": "960988720445ae3e8b073df28bd52545406e4ee67af495b72c011d237026170d",
+    "bytes": 6605,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_cms_raw_recovery_20261003.json",
+    "target": "data/q2/q2_cms_raw_recovery_20261003.json",
+    "sha256": "45725b379d60f42b6a4c0b450673b5c48f42c4cab36da7c1d8a51ab38e80c85b",
+    "bytes": 1527,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/q2_partd_development_population_20261003.json",
+    "target": "data/q2/q2_partd_development_population_20261003.json",
+    "sha256": "46df7b0881edb0e03716a00eb7af5c7e43f02ccd55e96bf215836141d3e8f030",
+    "bytes": 48040,
+    "role": "Completed evidence, retained; no scientific calculation rerun"
+  },
+  {
+    "source": "results/SHA256SUMS_q2_maude_20261003",
+    "target": "data/q2/SHA256SUMS_q2_maude_20261003",
+    "sha256": "598e998a40d9c7405b66788aea649e5661630760aaa4a279d4407dd125c7ce2d",
+    "bytes": 108874,
+    "role": "Original run ledger; repository-relative paths are not bundled-file promises"
+  },
+  {
+    "source": "results/SHA256SUMS_q2_cms_20261003",
+    "target": "data/q2/SHA256SUMS_q2_cms_20261003",
+    "sha256": "f70bee248e6489d2528fe903e34b7ce1b3ace36ff86ff22d5d5ed0b9e61d20ba",
+    "bytes": 33589,
+    "role": "Original run ledger; repository-relative paths are not bundled-file promises"
+  },
+  {
+    "source": "results/SHA256SUMS_q2_partd_20261003",
+    "target": "data/q2/SHA256SUMS_q2_partd_20261003",
+    "sha256": "07f7ff3c092f30d4cfb62230fa00b17c59f6ce78a7e3f27259f3795543879a12",
+    "bytes": 451,
+    "role": "Original run ledger; repository-relative paths are not bundled-file promises"
+  },
+  {
+    "source": "results/SHA256SUMS_q2_external_reuse_20261003",
+    "target": "data/q2/SHA256SUMS_q2_external_reuse_20261003",
+    "sha256": "5743a4a12e9f5d95a66b170037148f481a402184ad28272044107f484384334d",
+    "bytes": 5035,
+    "role": "Original run ledger; repository-relative paths are not bundled-file promises"
+  },
+  {
+    "source": "results/SHA256SUMS_q2_partd_prospective_20261003",
+    "target": "data/q2/SHA256SUMS_q2_partd_prospective_20261003",
+    "sha256": "e40f365afa2942db707db5b0b0ff78ba548d6b21fd9bd86475be2d2aadb97378",
+    "bytes": 2259,
+    "role": "Original run ledger; repository-relative paths are not bundled-file promises"
+  },
+  {
+    "source": "configs/q2_scientific_protocol_20261003.json",
+    "target": "data/q2/q2_scientific_protocol_20261003.json",
+    "sha256": "22b3b308e1ddd55f9ebfc388edc1a08ba3dc8a4a83205b230406643155536db7",
+    "bytes": 14565,
+    "role": "Locked original protocol, unchanged"
+  },
+  {
+    "source": "results/generated/q2-cycle-20261003/maude-comparison-002/resource_ledger.json",
+    "target": "data/q2/maude_completion_resource_ledger.json",
+    "sha256": "571312e862ff05acbce83d4850c0a60ca49c9f33ba20eb74cb725e0273a37721",
+    "bytes": 14828,
+    "role": "Completed phases after immutable validation reuse"
+  },
+  {
+    "source": "results/generated/q2-cycle-20261003/maude-comparison-001/source_provenance.json",
+    "target": "data/q2/maude_validation_source_provenance.json",
+    "sha256": "3d396fd635f96122a43295ea06adf8d15b2a1a10f3433f544c451a94a480f38b",
+    "bytes": 7299,
+    "role": "Executed source snapshot provenance; source archives are separately identified"
+  },
+  {
+    "source": "results/generated/q2-cycle-20261003/maude-comparison-002/source_provenance.json",
+    "target": "data/q2/maude_completion_source_provenance.json",
+    "sha256": "8fec5af9906f1fd620bba488afbff61c796b8f96bf4027b0e0fd9012e1e0f4d4",
+    "bytes": 7392,
+    "role": "Executed source snapshot provenance; source archives are separately identified"
+  },
+  {
+    "source": "results/generated/q2-cycle-20261003/cms-comparison-002/source_provenance.json",
+    "target": "data/q2/cms_source_provenance.json",
+    "sha256": "de5fa0221e177a7488192e91a1fec80cf7dc1684abcde3ab3335201c285d6bb3",
+    "bytes": 7295,
+    "role": "Executed source snapshot provenance; source archives are separately identified"
+  },
+  {
+    "source": "results/generated/q2-cycle-20261003/partd-comparison-001/source_provenance.json",
+    "target": "data/q2/partd_source_provenance.json",
+    "sha256": "df258c40da9c106bbe0c91e2cf5c71bcd29dfbcf29b023922831c2ac455f3283",
+    "bytes": 7297,
+    "role": "Executed source snapshot provenance; source archives are separately identified"
+  },
+  {
+    "source": "results/generated/q2-cycle-20261003/external-reuse-001/source_provenance.json",
+    "target": "data/q2/reuse_source_provenance.json",
+    "sha256": "602b5e973f07060f07452863644eb353f019bcdfbec8dcbf26d4f533b11df3c0",
+    "bytes": 7422,
+    "role": "Executed source snapshot provenance; source archives are separately identified"
+  },
+  {
+    "source": "results/generated/q2-cycle-20261003/partd-prospective-001/source_provenance.json",
+    "target": "data/q2/prospective_source_provenance.json",
+    "sha256": "74364fef735725517da7c557b175da0966de8a031e1958555540e91f21931b30",
+    "bytes": 7414,
+    "role": "Executed source snapshot provenance; source archives are separately identified"
+  },
+  {
+    "source": "pyproject.toml",
+    "target": "vendor/q2/pyproject.toml",
+    "sha256": "98f491a4100fe5d410ef3074f0e7d7f8d5524cd5ce7d97d2514acfedd607df01",
+    "bytes": 1070,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "configs/task_contract_v0_1.json",
+    "target": "data/q2/configs/task_contract_v0_1.json",
+    "sha256": "fcee1943a660800316d064ce2d24a93f825dbb8f87bff393ac99b0668a6d481f",
+    "bytes": 3101,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "configs/task_contract_v0_2.json",
+    "target": "data/q2/configs/task_contract_v0_2.json",
+    "sha256": "482adfa6665138c246f6212158d61bf2cd33e70049ad3d5e793283a6b2cd9b8f",
+    "bytes": 2875,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "data/manifests/v0.1.json",
+    "target": "data/q2/data/manifests/v0.1.json",
+    "sha256": "d01389cd5ffb245f481d036c592ed58b6de7cf4f817499214ce47c9f34661a87",
+    "bytes": 4599,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "data/manifests/partd_feasibility_v0_2_lookback.json",
+    "target": "data/q2/data/manifests/partd_feasibility_v0_2_lookback.json",
+    "sha256": "1821460f2ad68e988bd7cb63afef79d671544e6edcd1ca1de5e35335ad638ec0",
+    "bytes": 6917,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/__init__.py",
+    "target": "vendor/q2/healthgraphbench/__init__.py",
+    "sha256": "50a7aa4d338b22060731ab4446ac69567c6399058c67947ad765812443322cfa",
+    "bytes": 220,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/core.py",
+    "target": "vendor/q2/healthgraphbench/core.py",
+    "sha256": "d11984ba0698e0dafd65741a079ee4808a7987177c20923e76af790acfcfa16a",
+    "bytes": 2354,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/cli.py",
+    "target": "vendor/q2/healthgraphbench/cli.py",
+    "sha256": "9131985ccd48617feb464f81b774342e9b6ee61eed915988e15ba71062075989",
+    "bytes": 641,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/data.py",
+    "target": "vendor/q2/healthgraphbench/data.py",
+    "sha256": "c8f980999618963fcf4128c310fa0107663e319bed81554c65cb678c201f9b73",
+    "bytes": 1691,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/q2/__init__.py",
+    "target": "vendor/q2/healthgraphbench/q2/__init__.py",
+    "sha256": "aca7cbf788512730a5b5c031fee998df623450d66253f5daac5ed76db0448d6b",
+    "bytes": 100,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/q2/common.py",
+    "target": "vendor/q2/healthgraphbench/q2/common.py",
+    "sha256": "b0571d915e1f566aa23ba258446b1a57ba0518a7de46e1a81fba1e3bd69187eb",
+    "bytes": 9239,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/q2/maude.py",
+    "target": "vendor/q2/healthgraphbench/q2/maude.py",
+    "sha256": "e9cc154851128be324701d24fe23326a53baf673df0d5061f3b97153eb24b15d",
+    "bytes": 47936,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/q2/maude_backend.py",
+    "target": "vendor/q2/healthgraphbench/q2/maude_backend.py",
+    "sha256": "8387c61ab84684b9f47c6a02d42341ae509bb78309bea929b1907c51e4b23929",
+    "bytes": 54805,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/q2/partd.py",
+    "target": "vendor/q2/healthgraphbench/q2/partd.py",
+    "sha256": "e00af4a70c55f38e097e482dda663fb451b241e45339edcda78d247601c9f8de",
+    "bytes": 45924,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/q2/cms.py",
+    "target": "vendor/q2/healthgraphbench/q2/cms.py",
+    "sha256": "0f79f05342b36f4d4874c224b81707bf9056ea8055a8e7811df7d3bc883f6d4e",
+    "bytes": 15374,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/q2/prospective_partd.py",
+    "target": "vendor/q2/healthgraphbench/q2/prospective_partd.py",
+    "sha256": "00e54018af535904cf38259486d4341f4f278f851b278648332b4f5bd671b285",
+    "bytes": 93020,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/q2/reuse.py",
+    "target": "vendor/q2/healthgraphbench/q2/reuse.py",
+    "sha256": "d31d494dfa7f5ae55e19ae4a19d856b98d60541f1b16ef940cff418ac0afa94b",
+    "bytes": 21732,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/__init__.py",
+    "target": "vendor/q2/healthgraphbench/tasks/__init__.py",
+    "sha256": "de7d83c85bcfb78295d002d473b33011d0deecff0a7e703d14b0680dba8636b2",
+    "bytes": 38,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/partd/__init__.py",
+    "target": "vendor/q2/healthgraphbench/tasks/partd/__init__.py",
+    "sha256": "bdb7deb4b95cba36c8c2a94fc9c884972feeb682810054a42bd575b3bcb37eb6",
+    "bytes": 155,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/partd/task.py",
+    "target": "vendor/q2/healthgraphbench/tasks/partd/task.py",
+    "sha256": "60faf2be61a16f36123fe21feb88dbea8b90d58ebdb50ddeb8214d5ea6f1a9a9",
+    "bytes": 21471,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/partd/task_contract_v0_2.json",
+    "target": "vendor/q2/healthgraphbench/tasks/partd/task_contract_v0_2.json",
+    "sha256": "482adfa6665138c246f6212158d61bf2cd33e70049ad3d5e793283a6b2cd9b8f",
+    "bytes": 2875,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/maude/__init__.py",
+    "target": "vendor/q2/healthgraphbench/tasks/maude/__init__.py",
+    "sha256": "463ecf76959b8eec9aeb85f8d39e3ba2a499a5d805e889de30126ac512b7a086",
+    "bytes": 97,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/maude/data.py",
+    "target": "vendor/q2/healthgraphbench/tasks/maude/data.py",
+    "sha256": "019d8d4792115e83327e2d5e6c5aa10dc42355bc908b84093fde28dadf0ba9d0",
+    "bytes": 16840,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/maude/task.py",
+    "target": "vendor/q2/healthgraphbench/tasks/maude/task.py",
+    "sha256": "1fed3b0f1e37eaf2885275fb0fbfdcc8cc9b736d3c3568bcbee9ec8adaadecce",
+    "bytes": 5863,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/maude/models.py",
+    "target": "vendor/q2/healthgraphbench/tasks/maude/models.py",
+    "sha256": "403f220c2269cbb7c1792477e3abaa73b0a9c75298b42c7b2265a9e2bb7295f0",
+    "bytes": 51861,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/maude/evaluate.py",
+    "target": "vendor/q2/healthgraphbench/tasks/maude/evaluate.py",
+    "sha256": "825cafb260dd2b8f8558224447a866cec9c7dba1cee5b5c5b05ad89a174145b7",
+    "bytes": 30831,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/maude/diagnostic.py",
+    "target": "vendor/q2/healthgraphbench/tasks/maude/diagnostic.py",
+    "sha256": "c7316a2292a388c7004f4423abd00fe243f8cd8dfbf6422ccd728e3b402da4cf",
+    "bytes": 54894,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/maude/ablation.py",
+    "target": "vendor/q2/healthgraphbench/tasks/maude/ablation.py",
+    "sha256": "eca360cfa636cf1b422afd63e917c68a679fd2366a223e9748d113052274e5b3",
+    "bytes": 57043,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/cms_nursing/__init__.py",
+    "target": "vendor/q2/healthgraphbench/tasks/cms_nursing/__init__.py",
+    "sha256": "b19b0244651209774d6699bd31dca055e3357161d2a34a8eba0995ae84cbf252",
+    "bytes": 112,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/cms_nursing/task.py",
+    "target": "vendor/q2/healthgraphbench/tasks/cms_nursing/task.py",
+    "sha256": "627dcf322e7fbf1bba44be5388906f947665ead076ea26286d141f7371648c6b",
+    "bytes": 7902,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/cms_nursing/prepare.py",
+    "target": "vendor/q2/healthgraphbench/tasks/cms_nursing/prepare.py",
+    "sha256": "21cc83a91b92399a637d3f699f645a12fcacc368e24b6e5acb869f7636e85f0d",
+    "bytes": 14793,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/tasks/cms_nursing/models.py",
+    "target": "vendor/q2/healthgraphbench/tasks/cms_nursing/models.py",
+    "sha256": "bd082c21e9ac06ea17e470c69abaf038ec70fbe4751d07cdd72c56ba74190cfc",
+    "bytes": 6849,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/candidates/__init__.py",
+    "target": "vendor/q2/healthgraphbench/candidates/__init__.py",
+    "sha256": "2cdfe36bea33d76052c327a9ef056456279ca38deed00c8e1724bf4161df0a7a",
+    "bytes": 346,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/candidates/partd.py",
+    "target": "vendor/q2/healthgraphbench/candidates/partd.py",
+    "sha256": "76d616e202f6e8efe623f96d70006eb978d97c007533e8589b36a7d0925bcae4",
+    "bytes": 66108,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/candidates/partd_model.py",
+    "target": "vendor/q2/healthgraphbench/candidates/partd_model.py",
+    "sha256": "923751d095b7cbf2106e7041f78994001d237ed59db3f648e91a7e861315396f",
+    "bytes": 67336,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/candidates/clinical_trials.py",
+    "target": "vendor/q2/healthgraphbench/candidates/clinical_trials.py",
+    "sha256": "329c81a0496dbd3a00f7c0e01d722780e460baa23fe2ee8c6e9c1cb3bd3f2d5c",
+    "bytes": 51479,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/candidates/clinical_trials_stability.py",
+    "target": "vendor/q2/healthgraphbench/candidates/clinical_trials_stability.py",
+    "sha256": "7842c75f63b7b53b466957df289f9e4f94f4bbdfc6e109a8b829589d67e944f6",
+    "bytes": 19341,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/models/__init__.py",
+    "target": "vendor/q2/healthgraphbench/models/__init__.py",
+    "sha256": "4624d7963c5b413e3563f824262082fd4d5b0257565cc169c3b331b2f34ae89d",
+    "bytes": 779,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/models/baselines.py",
+    "target": "vendor/q2/healthgraphbench/models/baselines.py",
+    "sha256": "5d4f05df7fef9c22ea304fddd3690f20f4f3057408acbd4d0ad3b2ef7c27e3cb",
+    "bytes": 2370,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/evaluation/__init__.py",
+    "target": "vendor/q2/healthgraphbench/evaluation/__init__.py",
+    "sha256": "9e90e364bcf4196364ce11d7a5593adc66fa26631de81beeda6b686a5b632ac2",
+    "bytes": 646,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/evaluation/metrics.py",
+    "target": "vendor/q2/healthgraphbench/evaluation/metrics.py",
+    "sha256": "0e991ddd321567ad37217dfbd7c96e84f579477310a572870688ca59f0c9993c",
+    "bytes": 1326,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/evaluation/numpy_metrics.py",
+    "target": "vendor/q2/healthgraphbench/evaluation/numpy_metrics.py",
+    "sha256": "d8b1e792ab770d339a6c5db6ba6cab944cca6c3ecc49e72a92403540e795a42c",
+    "bytes": 5024,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/evaluation/bootstrap.py",
+    "target": "vendor/q2/healthgraphbench/evaluation/bootstrap.py",
+    "sha256": "13e7b9145a717a4ea18bac5b2387e47870d8530a95887c50e60ddc65b30328d5",
+    "bytes": 3301,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/controls/__init__.py",
+    "target": "vendor/q2/healthgraphbench/controls/__init__.py",
+    "sha256": "688430939f2238f2ae4923cf46a3ef45bfed223cc2d824c8c94c600979485850",
+    "bytes": 151,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "healthgraphbench/controls/synthetic.py",
+    "target": "vendor/q2/healthgraphbench/controls/synthetic.py",
+    "sha256": "5a9fdef73538d12082f2557285b25040ad1063befff961f527a81b0315e73033",
+    "bytes": 3877,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "scripts/run_q2_maude.py",
+    "target": "scripts/q2/run_q2_maude.py",
+    "sha256": "90b2a7c068419ea44f0c5d7df86a9b4c0b8eaf66c9f546cab27497a8df911b08",
+    "bytes": 9602,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "scripts/run_q2_cms.py",
+    "target": "scripts/q2/run_q2_cms.py",
+    "sha256": "8aba9d0bfbf9aa1c8754e64c7918595379c4034f81bcb4028b13fe4d23472a67",
+    "bytes": 155,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "scripts/run_q2_partd.py",
+    "target": "scripts/q2/run_q2_partd.py",
+    "sha256": "9cc3c651771b91704557005ca0282701f3a942d150139d059651a9043f3e38f4",
+    "bytes": 2108,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "scripts/run_q2_prospective_partd.py",
+    "target": "scripts/q2/run_q2_prospective_partd.py",
+    "sha256": "f2752ed32eb7f4f49548b01e8b743ee80a3ceb4fc2a9dc63f0c712bebfa9e13e",
+    "bytes": 3087,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "scripts/run_q2_reuse.py",
+    "target": "scripts/q2/run_q2_reuse.py",
+    "sha256": "2a50a2af03ccdb5e0fd4e226250fe077b66e4fd7ca09b92338ec2174a17daf03",
+    "bytes": 1872,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "scripts/build_partd_execution_v0_2.py",
+    "target": "scripts/q2/build_partd_execution_v0_2.py",
+    "sha256": "4f544fd5a7e55c0696166907a0201a6d0619de99af025efeba820108800c7800",
+    "bytes": 3308,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "scripts/download_cms.py",
+    "target": "scripts/q2/download_cms.py",
+    "sha256": "38848cf5d8b46247ba8c94eac844fbd6306768fc5753056903866b0a58cc386a",
+    "bytes": 3624,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "examples/q2_external_reuse/neighbor_cosine.py",
+    "target": "examples/q2_external_reuse/neighbor_cosine.py",
+    "sha256": "b53c66ba11e4b7e61e637aceded8ba8a84fdf3f0ef48bb679e480aa267d565b6",
+    "bytes": 37726,
+    "role": "Current integration snapshot6b4ae00, not retroactively attributed to earlier fits"
+  },
+  {
+    "source": "results/generated/q2-cycle-20261003/dist/healthgraphbench-0.2.0-py3-none-any.whl",
+    "target": "data/q2/reuse/healthgraphbench-0.2.0-py3-none-any.whl",
+    "sha256": "b5c776556ef64686804c4dec6e354127c59c3db441710519da793ffee6117428",
+    "bytes": 207350,
+    "role": "Original development wheel used by assistant witness, build f8ea41c4"
+  },
+  {
+    "source": "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/checkpoints/target_year_2023/checkpoint.npz",
+    "target": "data/q2/reuse/checkpoints/target_year_2023.npz",
+    "sha256": "82501e0e52c480e17d37b7cf86e3ff767fe52630d7816c425fbb70bac2170802",
+    "bytes": 538855,
+    "role": "Retained cosine incidence checkpoint; other Q2 checkpoints external"
+  },
+  {
+    "source": "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/demonstration_output/checkpoints/target_year_2024/checkpoint.npz",
+    "target": "data/q2/reuse/checkpoints/target_year_2024.npz",
+    "sha256": "20c95c84cf2143611c17fde10f0b970e7c9115472e672b43599bb4957bdcc625",
+    "bytes": 550041,
+    "role": "Retained cosine incidence checkpoint; other Q2 checkpoints external"
+  },
+  {
+    "source": "results/generated/q2-cycle-20261003/external-reuse-001/raw_fits_evaluation/neighbor_cosine.py",
+    "target": "data/q2/reuse/executed_neighbor_cosine.py",
+    "sha256": "b53c66ba11e4b7e61e637aceded8ba8a84fdf3f0ef48bb679e480aa267d565b6",
+    "bytes": 37726,
+    "role": "Exact executed out-of-package witness driver, distinct from current example"
+  },
+  {
+    "source": "LICENSE",
+    "target": "vendor/q2/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357,
+    "role": "Apache2 code license/notice; not a manuscript or upstream data license"
+  },
+  {
+    "source": "NOTICE",
+    "target": "vendor/q2/NOTICE",
+    "sha256": "ccc86c709938fc54c2e4ba2bf0f452bba1a69b012c82c3881d60a1661308c88d",
+    "bytes": 410,
+    "role": "Apache2 code license/notice; not a manuscript or upstream data license"
+  }
+]
