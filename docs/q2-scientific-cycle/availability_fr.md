@@ -1,4 +1,4 @@
-# Disponibilité publique et indépendance — cycle Q2
+# Disponibilité publique et indépendance — comparaisons exploratoires
 
 ## Ce que les sources actuelles n’établissent pas
 

@@ -8,7 +8,9 @@ French supplied by the analysis owner is canonical; English is its faithful tran
 
 The only consumed parent is the RC3 ZIP with SHA-256 `6cc3005a46ac2c906daf42a7c27781dfae8953b5eaa78c874e41b622014dd402`. Every parent file is retained byte-for-byte under `history/RC3/`, including historical results and interval origins. RC3 and RC2.2 are never changed. Parent checks concern byte consumption/retention only, not reruns of historical scientific audits.
 
-The new main manuscript includes historical MAUDE/CMS/Part D tables and the complete historical interval table, with original RC3 captions/origins, in its historical-context section. The supplement reuses C/D1/Q2 tables without recomputation. Task definitions, cohort filters and dataset limitations must be explained in the supplied scientific text; complete historical sources remain accessible, without silently dropping numerical context.
+The new main manuscript includes historical MAUDE/CMS/Part D tables and the complete historical interval table, with original RC3 captions/origins, in its historical-context section. The supplement reuses training-duration, message-passing and earlier tuned-comparison tables without recomputation. Task definitions, cohort filters and dataset limitations must be explained in the supplied scientific text; complete historical sources remain accessible, without silently dropping numerical context.
+
+Q2 denotes only the editorial aim of journal ranking, not a session, experimental cycle or forecast. Legacy `q2` identifiers in paths, APIs and historical evidence remain preserved for traceability, without naming the current scientific prose.
 
 Python 3.11 or newer; Matplotlib 3.7 or newer for figures only. Compilation reuses the parent's `scripts/compile_pdfs.py`, adapted to the four RC3.1 documents, and requires latexmk, BibTeX and the parent's LaTeX packages. Sealing requires `pdfinfo` (Poppler) to compare the actual page count with the visual report. No tool fits, scores or recomputes an interval.
 

@@ -1,0 +1,96 @@
+{
+  "revision": "RC3.1",
+  "reviewer": {
+    "id": "RC31TermsEnglish",
+    "role": "AI assistant performing read-only technical PDF visual inspection; not an external human reviewer, independent reproducer, author, or approver"
+  },
+  "reviewed_on": "2026-10-05",
+  "package_root": "results/generated/rc31-cycle-20261004/manuscript-004/HealthGraphBench_RC3_1",
+  "source_raster_diff": "results/rc31_terminology_surface_diff_20261005.json",
+  "method": {
+    "current_pdf_hashes": "SHA-256 values below were computed from the current PDFs under package_root",
+    "fresh_page_inspection": "Opened every listed changed-page PNG from the existing current-package 90 dpi raster set with functions.read; all 12 changed English pages were visually inspected. No text extraction or compilation diagnostic was substituted for inspection.",
+    "unchanged_page_reuse": "For pages explicitly listed as pixel-identical in source_raster_diff, reused only the original attributed AI visual review and proof in the prior report. The parent-provided comparison used the same pdftoppm 90 dpi settings and found exact raster-byte equality. These pages were not freshly viewed for this report.",
+    "reuse_report": "results/rc31_surface_en_20261005.json",
+    "limits": [
+      "Visual/layout and visible-language review only; no independent reproduction, medical scoring, scientific-result re-audit, human validation, or author approval.",
+      "No source or PDF edits, builds, tests, recompilation, or historical audit reruns were performed.",
+      "The review does not establish journal compliance, scientific validity, accessibility, author authorization, or print-at-native-size readability for every reader."
+    ]
+  },
+  "documents": {
+    "main_en.pdf": {
+      "sha256": "cb9c9b6b85af36ea734cd7eaf8e5ea7eaafa85b66937177c4fe82cda3aab5415",
+      "pdf_sha256": "cb9c9b6b85af36ea734cd7eaf8e5ea7eaafa85b66937177c4fe82cda3aab5415",
+      "page_count": 15,
+      "visual_review_completed": true,
+      "reviewed_pages": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+      "prior_review_report": "results/rc31_surface_en_20261005.json",
+      "reused_pixel_identical_pages": [1, 6, 10, 11, 12, 13, 15],
+      "newly_viewed_pages": [2, 3, 4, 5, 7, 8, 9, 14],
+      "blank_pages": [],
+      "unresolved_references": [],
+      "overfull_boxes": [],
+      "missing_glyphs": [],
+      "clipping_or_text_collisions": [],
+      "findings": [
+        {
+          "page": 8,
+          "category": "visible terminology/typography inconsistency",
+          "severity": "minor",
+          "description": "Section heading 6.5 is rendered as “PARTD” without a space; the manuscript otherwise writes the name as “Part D”. The heading remains legible and is not clipped, but the spelling is inconsistent."
+        }
+      ],
+      "proof_artifacts": [
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-02.png",
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-03.png",
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-04.png",
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-05.png",
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-07.png",
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-08.png",
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-09.png",
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-14.png"
+      ],
+      "proof_coverage": [
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-02.png", "pages": [2], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"},
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-03.png", "pages": [3], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"},
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-04.png", "pages": [4], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"},
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-05.png", "pages": [5], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"},
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-07.png", "pages": [7], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"},
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-08.png", "pages": [8], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"},
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-09.png", "pages": [9], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"},
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/main/page-14.png", "pages": [14], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"}
+      ],
+      "surface_result": "All 15 pages are covered by fresh inspection or explicitly attributed exact-pixel-identical prior review. No blank page, visible unresolved reference, clipping, collision, or missing glyph was observed. One minor visible spelling inconsistency is recorded above. The edited comparison/forecast wording reads naturally in the inspected context; no Q2 is visible as an experiment, comparison, or forecast name."
+    },
+    "supplement_en.pdf": {
+      "sha256": "ff71fc2c26a63218d5e709143b9d4821ca71cb9e37ea575211ca371fd445a310",
+      "pdf_sha256": "ff71fc2c26a63218d5e709143b9d4821ca71cb9e37ea575211ca371fd445a310",
+      "page_count": 100,
+      "visual_review_completed": true,
+      "reviewed_pages": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100],
+      "prior_review_report": "results/rc31_surface_en_20261005.json",
+      "reused_pixel_identical_pages": [2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100],
+      "newly_viewed_pages": [1, 3, 54, 55],
+      "blank_pages": [],
+      "unresolved_references": [],
+      "overfull_boxes": [],
+      "missing_glyphs": [],
+      "clipping_or_text_collisions": [],
+      "findings": [],
+      "proof_artifacts": [
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/supplement/page-001.png",
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/supplement/page-003.png",
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/supplement/page-054.png",
+        "results/generated/rc31-cycle-20261004/terminology-visual/en/supplement/page-055.png"
+      ],
+      "proof_coverage": [
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/supplement/page-001.png", "pages": [1], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"},
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/supplement/page-003.png", "pages": [3], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"},
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/supplement/page-054.png", "pages": [54], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"},
+        {"path": "results/generated/rc31-cycle-20261004/terminology-visual/en/supplement/page-055.png", "pages": [55], "render_dpi": 90, "actually_viewed": true, "basis": "fresh changed-page inspection"}
+      ],
+      "surface_result": "All 100 pages are covered by fresh inspection or explicitly attributed exact-pixel-identical prior review. The four changed pages show no observed blank page, visible unresolved reference, clipping, collision, missing glyph, or defect in changed terminology. Historical numerical tables remain legible and separated in the inspected page images."
+    }
+  }
+}

@@ -87,14 +87,22 @@ def historical_assets(root, lang):
     directory.mkdir(exist_ok=True)
     (directory / ('historical_context_' + lang + '.tex')).write_text('\n\n'.join(blocks) + '\n', encoding='utf-8')
     fr = lang == 'fr'
-    context = '\\section{' + ('Contexte numérique historique C/D1/Q2 conservé' if fr else 'Retained historical C/D1/Q2 numerical context') + '}\n'
-    context += tex('Ces tables sont reprises sans recalcul de RC3. Les configurations, périodes et origines des IC restent celles des analyses historiques, pas des expériences RC3.1. Les plages Q2 sont des plages de graines, pas des IC ; D1 n’a pas d’IC. Les méthodes, filtres de cohorte, dénominateurs et limites d’origine figurent dans les sources et suppléments complets history/RC3.' if fr else
-                   'These tables are reproduced without recomputation from RC3. Configurations, periods and CI origins remain those of historical analyses, not RC3.1 experiments. Q2 ranges are seed ranges, not CIs; D1 has no CI. Original methods, cohort filters, denominators and limitations are retained in the complete sources and supplements under history/RC3.') + '\n\n'
-    names = ('maude_duration_RC2', 'maude_aggregation_RC2', 'maude_paired_RC2', 'q2_partd', 'q2_maude', 'q2_cms', 'q2_seed_sensitivity')
-    for name in names:
+    context = '\\section{' + ('Contexte numérique historique conservé' if fr else 'Retained historical numerical context') + '}\n'
+    context += tex('Ces tables sont reprises sans recalcul de RC3. Les configurations, périodes et origines des IC restent celles des analyses historiques, pas des expériences RC3.1. Les plages des comparaisons antérieures sont des plages de graines, pas des IC ; D1 n’a pas d’IC. Les méthodes, filtres de cohorte, dénominateurs et limites d’origine figurent dans les sources et suppléments complets history/RC3.' if fr else
+                   'These tables are reproduced without recomputation from RC3. Configurations, periods and CI origins remain those of historical analyses, not RC3.1 experiments. Ranges from the earlier comparisons are seed ranges, not CIs; D1 has no CI. Original methods, cohort filters, denominators and limitations are retained in the complete sources and supplements under history/RC3.') + '\n\n'
+    names = (
+        ('maude_duration_RC2', 'MAUDE : durée d’apprentissage', 'MAUDE: training duration'),
+        ('maude_aggregation_RC2', 'MAUDE : avec et sans propagation', 'MAUDE: with and without message passing'),
+        ('maude_paired_RC2', 'MAUDE : intervalle apparié conservé', 'MAUDE: retained paired interval'),
+        ('q2_partd', 'Part D : comparaisons antérieures réglées', 'Part D: earlier tuned comparisons'),
+        ('q2_maude', 'MAUDE : comparaisons antérieures réglées', 'MAUDE: earlier tuned comparisons'),
+        ('q2_cms', 'CMS : comparaisons antérieures réglées', 'CMS: earlier tuned comparisons'),
+        ('q2_seed_sensitivity', 'Étendues entre graines des comparaisons antérieures', 'Seed ranges from earlier comparisons'),
+    )
+    for name, heading_fr, heading_en in names:
         historical = root / 'history/RC3/tables' / (name + '_' + lang + '.tex')
         require(historical.is_file(), 'Historical numeric context missing: ' + name)
-        context += '\\subsection{' + tex(name.replace('_', ' ')) + '}\n'
+        context += '\\subsection{' + tex(heading_fr if fr else heading_en) + '}\n'
         context += '\\begin{center}\\footnotesize\\input{history/RC3/tables/' + name + '_' + lang + '.tex}\\end{center}\n'
     context += tex('L’IC C GraphSAGE30–voisins est apparié par produit, conditionnel aux prédictions C sélectionnées : 1 000 tirages, graine 20261003 ; il ne concerne ni GraphSAGE historique à trois époques ni RC3.1. Les IC historiques publiés et complémentaires gardent leurs origines distinctes dans le tableau historique du manuscrit et dans le supplément RC3 conservé.' if fr else
                    'The C GraphSAGE30–neighbors CI is product-paired, conditional on selected C predictions: 1,000 draws, seed 20261003; it concerns neither historical three-epoch GraphSAGE nor RC3.1. Published and complementary historical CIs retain their distinct origins in the manuscript historical table and retained RC3 supplement.') + '\n'

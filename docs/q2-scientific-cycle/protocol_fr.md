@@ -1,12 +1,14 @@
-# Cycle scientifique Q2 — protocole du 3 octobre 2026
+# Comparaisons scientifiques renforcées — protocole du 3 octobre 2026
 
 Ce cycle renforce les expériences, la disponibilité des informations et la réutilisation. Il ne constitue ni une nouvelle clôture rédactionnelle de RC2.2, ni une garantie de quartile ou d’acceptation. RC2.2, C, D1, leurs packages, checkpoints, résultats et ledgers sont conservés. D2 et ClinicalTrials ne sont pas réintroduits; aucun merge, tag, dépôt ou envoi de manuscrit n’est automatique.
 
+Q2 est l'objectif de classement de revue, non le nom d'une séance, d'un cycle ou d'un forecast. Les anciens chemins et identifiants techniques `q2` sont conservés pour la traçabilité des preuves, sans modifier le protocole exécutable ni les résultats.
+
 ## Verrou avant tout fit médical
 
-Le protocole exécutable est `configs/q2_scientific_protocol_20261003.json`, depuis le commit RC2.2 `6130e9cd35dd66ba9edab2dc69d1b24c2d8f3d91`. Les sources scientifiques réellement exécutées doivent être énumérées dans `locked_sources`, byte-identiques à leur blob dans HEAD, et publiées avec le prévol avant les fits médicaux. Le SHA256 du protocole est fourni explicitement au runner; une modification non committée d’une source verrouillée bloque l’exécution. Les quatre documents utilisateur laissés hors périmètre ne sont pas un motif pour ignorer ce verrou et ne sont pas ajoutés aux commits Q2.
+Le protocole exécutable est `configs/q2_scientific_protocol_20261003.json`, depuis le commit RC2.2 `6130e9cd35dd66ba9edab2dc69d1b24c2d8f3d91`. Les sources scientifiques réellement exécutées doivent être énumérées dans `locked_sources`, byte-identiques à leur blob dans HEAD, et publiées avec le prévol avant les fits médicaux. Le SHA256 du protocole est fourni explicitement au runner; une modification non committée d’une source verrouillée bloque l’exécution. Les quatre documents utilisateur laissés hors périmètre ne sont pas un motif pour ignorer ce verrou et ne sont pas ajoutés aux commits de ces comparaisons.
 
-Chaque run conserve le protocole exact, le commit, les SHA des sources, l’argumentaire d’exécution, Python, les versions des dépendances, les entrées et leur niveau de préparation. Les sorties Q2 sont distinctes des sorties historiques et un répertoire de phase existant ne peut pas être réutilisé. Les erreurs, checkpoints déjà produits et grilles incomplètes sont conservés; une grille incomplète ne donne aucune sélection.
+Chaque run conserve le protocole exact, le commit, les SHA des sources, l’argumentaire d’exécution, Python, les versions des dépendances, les entrées et leur niveau de préparation. Les nouvelles sorties sont distinctes des sorties historiques et un répertoire de phase existant ne peut pas être réutilisé. Les erreurs, checkpoints déjà produits et grilles incomplètes sont conservés; une grille incomplète ne donne aucune sélection.
 
 ## Budget de recherche et initialisations
 
@@ -16,7 +18,7 @@ Les fits véritablement stochastiques utilisent les trois seeds appariés **103,
 
 Les plafonds sont **1 800 s**, **4 GiB de RSS agrégée contrôleur + worker** et **1 GiB de fichiers par phase**, **21 600 s par famille de validation**, **86 400 s par run** et **16 GiB de sorties totales**. Le superviseur Linux contrôle ces plafonds et conserve son état. Les modèles n’utilisent pas de workers de calcul supplémentaires; pour la démonstration wheel, `exec` remplace le PID supervisé au lieu de créer un descendant non compté. Les bibliothèques numériques sont effectivement limitées à un thread. Une capture publique en streaming compte dans le temps du run mais ne duplique pas les CSV dans les sorties.
 
-L’environnement Q2 est séparé de l’environnement historique. L’extra Q2 fixe NumPy **2.3.5**, scikit-learn **1.8.0** et Numba **0.68.0**; les autres versions réellement utilisées sont enregistrées. L’absence du backend Numba requis n’est pas masquée par un fallback Python. Le NumPy/Numba du cycle ne doit pas remplacer les dépendances de l’analyse RC2.2.
+L’environnement des comparaisons est séparé de l’environnement historique. L’extra technique `q2` fixe NumPy **2.3.5**, scikit-learn **1.8.0** et Numba **0.68.0**; les autres versions réellement utilisées sont enregistrées. L’absence du backend Numba requis n’est pas masquée par un fallback Python. Le NumPy/Numba du cycle ne doit pas remplacer les dépendances de l’analyse RC2.2.
 
 ## P1 — comparaisons renforcées
 
@@ -35,7 +37,7 @@ Training jusqu’à 2022Q4; choix sur micro Recall@10 de validation2023; refit a
 | GraphSAGE `mean` | dimension8/16 × régularisation.0005/.000005/0 | 30 époques,LR.02,fanout8 |
 | GraphSAGE `none` | même grille | 30 époques,LR.02,aucun voisin |
 
-Popularité globale et fréquence des voisins ont zéro opportunité de tuning. Les embeddings BPR/GraphSAGE Q2 sont initialisés par normales de sigma.05; GraphSAGE démarre avec transformation propre identité et transformation voisine .25 identité. Les kernels BPR MAUDE sont séquentiels par arête/époque, choisissent un départ négatif par mélange entier déterministe du seed, de l’époque et des indices, puis parcourent cycliquement le vocabulaire jusqu’au premier problème hors histoire du produit. Cette règle nouvelle est publiée dans le code: on ne prétend pas rejouer exactement les initialisations ou trajectoires C/D1. Les gradients du nouveau kernel sont contrôlés numériquement; fidélité à la formule n’est pas identité avec un run historique.
+Popularité globale et fréquence des voisins ont zéro opportunité de tuning. Les embeddings BPR/GraphSAGE des nouvelles comparaisons sont initialisés par normales de sigma.05; GraphSAGE démarre avec transformation propre identité et transformation voisine .25 identité. Les kernels BPR MAUDE sont séquentiels par arête/époque, choisissent un départ négatif par mélange entier déterministe du seed, de l’époque et des indices, puis parcourent cycliquement le vocabulaire jusqu’au premier problème hors histoire du produit. Cette règle nouvelle est publiée dans le code: on ne prétend pas rejouer exactement les initialisations ou trajectoires C/D1. Les gradients du nouveau kernel sont contrôlés numériquement; fidélité à la formule n’est pas identité avec un run historique.
 
 **Gate d’apprentissage, avant sélection:** probe BPR fixe construit exclusivement dans l’histoire du fit, au plus20 000 triplets, partagé à historique égal entre `mean`/`none`. Changement de l’état persistant et baisse relative de perte de données ≥**1 %** pour **chacun des trois seeds**. Les six configurations sont toutes exécutées et leurs échecs de gate conservés; parmi elles, seules celles passant les trois gates sont admissibles. La métrique de validation choisit ensuite la meilleure configuration admissible. Aucune configuration admissible: run non concluant, pas contrôle « apprenant » inventé. Le refit sélectionné doit également passer la gate avant scoring de test. Une baisse de training n’est pas une preuve de généralisation.
 
@@ -67,7 +69,7 @@ Voir [la règle de disponibilité et ses gates](availability_fr.md). On ne rebap
 
 ## P3 — réutilisation et modèle hors paquet
 
-Voir [le parcours de migration et de réutilisation](reuse_fr.md). La préparation raw, les fits numériques, scores, checkpoints et métriques doivent être observés dans un environnement wheel propre. Le nouveau cosine top50 est appris sur incidence historique binaire via `PartDHistoryView`, sans whitelist dans le package. Son fit est non supervisé; aucune perte d’optimiseur inexistante n’est rapportée. Le baseline SDK historique n’est pas le gagnant de grille Q2 par simple renommage.
+Voir [le parcours de migration et de réutilisation](reuse_fr.md). La préparation raw, les fits numériques, scores, checkpoints et métriques doivent être observés dans un environnement wheel propre. Le nouveau cosine top50 est appris sur incidence historique binaire via `PartDHistoryView`, sans whitelist dans le package. Son fit est non supervisé; aucune perte d’optimiseur inexistante n’est rapportée. Le baseline SDK historique n’est pas le gagnant de la nouvelle grille par simple renommage.
 
 La preuve technique réalisée par assistant/agent n’est ni une expérience par utilisateur humain extérieur, ni une évaluation indépendante. Un participant réel, son environnement/commande, ses écarts et son résultat demeurent des preuves séparées. Les noms/auteurs/affiliations, déclarations, licence de manuscrit, support et approbation restent des gates humains.
 

@@ -289,7 +289,7 @@ Five PDFs compiled, 17/16/23/22/2 pages; 13 selected pages and four relevant bil
 
 Portable evidence matrix and author checklist bundled under `submission/`. Archive: `HealthGraphBench_FAIA_LaTeX_RC2_2_cloture.zip`; manifest: `results/manuscript_rc2_2_20261003.json`. Earlier deliveries and ledgers remain immutable. PR #4 stays draft/develop, dependent on #3; no merge/tag. Author/venue/declaration/license/archive/submission gates remain open; no manuscript Zenodo deposit or benchmark republication.
 
-## Scientific Q2 cycle: protocol and software preflight — 2026-10-03
+## Tuned scientific comparisons: protocol and software preflight — 2026-10-03
 
 The user authorized a scientific cycle after RC2.2, not another editorial revision. The separate [French protocol](q2-scientific-cycle/protocol_fr.md) fixes six configurations per tunable family, paired seeds103/211/307, validation-only selection, conditional HGB repetitions and enforced budgets. MAUDE `none` must change its checkpoint and reduce a fixed historical BPR probe loss by at least1% for every seed before selection and after selected refits. Different active capacities prevent a capacity-equal causal aggregation claim.
 
@@ -301,7 +301,7 @@ The integrated repository suite passed78 tests. No new medical fit had run at th
 
 ### CMS first-run compatibility correction
 
-The first medical CMS run was retained incomplete: six facility-history logistic validation fits completed, but HGB rejected the JSON integer `max_features=1` before its first fit. The CMS adapter now converts that fixed value to float, as the other Q2 adapters already do; protocol bytes, grids, seeds and budgets are unchanged. A supervised synthetic fit learned the strictly prior relation and scored the deliberately inverted target labels without target fitting. Its preflight and regression are published before restarting the full CMS comparison in a new output root; no incomplete-grid selection or overwriting is permitted. Other active runs retain their original source snapshots.
+The first medical CMS run was retained incomplete: six facility-history logistic validation fits completed, but HGB rejected the JSON integer `max_features=1` before its first fit. The CMS adapter now converts that fixed value to float, as the other comparison adapters already do; protocol bytes, grids, seeds and budgets are unchanged. A supervised synthetic fit learned the strictly prior relation and scored the deliberately inverted target labels without target fitting. Its preflight and regression are published before restarting the full CMS comparison in a new output root; no incomplete-grid selection or overwriting is permitted. Other active runs retain their original source snapshots.
 
 ### MAUDE post-validation serialization correction
 
@@ -309,13 +309,13 @@ All84 MAUDE validation fits and the six complete grids were preserved with a loc
 
 The published controller can finish from complete locked validation in a new root, checking source lineage, every configuration/seed/result and validation-only selection. It does not refit successful validation runs; prior wall time and output bytes remain charged against the original cumulative budgets. The incomplete root, original preparation, checkpoints and error are retained. Protocol bytes and SHA256 remain unchanged; selected test refits retain their learning gates. This correction is published before any resumed medical test fit.
 
-### Q2 comparisons and technical reuse completed
+### Tuned comparisons and technical reuse completed
 
 The three exploratory comparisons completed with150 validation fits and43 selected test refits,193 preserved checkpoints. MAUDE reused its84 complete validation fits after the serialization fix, then completed28 test refits; all12 selected GraphSAGE refits passed the fixed learning gate before scoring. Mean/none capacities and separately selected configurations remain unequal, and none’s seed spread is reported rather than selecting a favorable seed. CMS completed24 validation fits and8 test refits. Part D completed42 validation fits and7 test refits, with HGB training counts337702/349460 requiring all three seeds.
 
 Separate CMS, MAUDE and Part D evidence/ledgers/archives preserve losses, checkpoints, scores, source snapshots and measured budgets, without original FDA/CMS raw files. Part D’s derived edges.csv is included, consistent with the CMS derived preparation and the reuse witness. Historical files/packages remain unchanged. Runtime/resource observations are not dedicated-machine timing or equal compute.
 
-The clean-wheel witness completed verified raw-to-new-fits-to-scores-to-public-evaluation, including an out-of-package cosine model and reloaded checkpoints. Its SDK logistic baseline is not renamed as the selected Q2 LBFGS comparator. The final local suite passed80 tests, and the completed MAUDE CLI plus archive extraction were exercised. See [French results](q2-scientific-cycle/results_fr.md) and `results/q2_runtime_verification_20261003.json`. Assistant-authored reuse is not an external human study; the independent2025 target evaluation and human attestations remain separate gates.
+The clean-wheel witness completed verified raw-to-new-fits-to-scores-to-public-evaluation, including an out-of-package cosine model and reloaded checkpoints. Its SDK logistic baseline is not renamed as the selected LBFGS comparator from the tuned comparisons. The final local suite passed80 tests, and the completed MAUDE CLI plus archive extraction were exercised. See [French results](q2-scientific-cycle/results_fr.md) and `results/q2_runtime_verification_20261003.json`. Assistant-authored reuse is not an external human study; the independent2025 target evaluation and human attestations remain separate gates.
 
 ### Part D public forecast anchor
 
@@ -323,11 +323,11 @@ The prospective runner completed fresh full public recaptures of all six2019–2
 
 This is a real sealed forecast with public-input and external hash-anchor evidence, not a completed independent evaluation. No official2025 outcome file or target metric was acquired/computed. Human nonconsultation and an external human reuse study remain unknown/unmet. No merge/tag, manuscript deposit or journal acceptance/quartile claim is implied.
 
-## RC3 manuscript integration of completed Q2 evidence — 2026-10-04
+## RC3 manuscript integration of completed comparison evidence — 2026-10-04
 
 The user authorized a distinct RC3 after the experimental cycle. Canonical
 French was stabilized before faithful English translation; historical RC1,
-C/D1, RC2.2 and ClinicalTrials remain distinguished from new Q2 comparisons.
+C/D1, RC2.2 and ClinicalTrials remain distinguished from new tuned comparisons.
 The main manuscript integrates validation-only model selection and three
 comparison tables. Supplement S12 records grids, learning gates, seed spans,
 resources and retained failures; S13 documents the sealed, unevaluated Part D
@@ -337,7 +337,7 @@ Five reading-layout PDFs compiled after a missing math delimiter was corrected
 in both supplements. Assembly QA passed765 checks across34 bilingual source
 pairs; final sealed-package QA passed1520 checks. Main FR/EN PDFs have20/19
 pages and supplements32/31. All102 scientific pages were visually observed on
-contact sheets, with10 additional full-page reads;296 printed Q2 decimal cells
+contact sheets, with10 additional full-page reads;296 printed comparison decimal cells
 were checked. No overfull box, unresolved reference or LaTeX warning remains;
 supplements retain34/29 underfull diagnostics. Actual ZIP CRC and included-PDF
 hashes passed. No historical successful scientific audit or medical
@@ -354,7 +354,7 @@ not committed as derived data. Five heavy experimental archives remain
 separately hash-indexed. The four protected user documents retain their
 initial SHA-256 fingerprints.
 
-Q2 periods remain exploratory. Selected mean/none dimensions/configurations
+Previously consulted periods remain exploratory. Selected mean/none dimensions/configurations
 and capacities differ, so no capacity-matched causal aggregation effect is
 claimed; D1's nearly flat loss does not establish a historical optimizer bug.
 No official Part D2025 target or metric was acquired/computed. Human
@@ -444,7 +444,7 @@ TAR but included byte-exact in the manuscript ZIP at
 delivery claims an autonomous rebuild from every original raw input.
 
 All new results remain exploratory. No Part D2025 target was acquired/evaluated,
-and the sealed Q2 forecast is unchanged. Independent temporal confirmation,
+and the sealed Part D forecast is unchanged. Independent temporal confirmation,
 outside-human reproduction, clinical utility, author/declaration/license/venue
 and submission gates remain open. No merge, tag, Zenodo or submission.
 
@@ -455,4 +455,30 @@ passed Gitflow direction, editable package installation, regression suite and
 installed CLI in32s. The attributed API response is retained in
 `results/rc31_publication_ci_20261005.json`. This software verification does not
 close the independent temporal, human, clinical or submission gates above.
+
+## Journal-quartile terminology corrected — 2026-10-05
+
+The user clarified that Q2 is a journal-ranking objective, not the name of a
+session, experimental cycle, comparison or forecast. Current French/English
+RC3.1 prose now uses earlier tuned comparisons and the Part D forecast.
+Generated historical headings no longer expose internal file identifiers.
+Current descriptive documentation and draft PR5/PR6 descriptions were corrected;
+legacy paths, API names, executed protocols, ledgers and historical archives
+remain unchanged for traceability. No journal quartile or acceptance is certified.
+
+The terminology-only rebuild is `manuscript-004/HealthGraphBench_RC3_1`.
+All eight scientific JSON inputs and the numerical asset manifest match the
+previous delivery; no medical fit or bootstrap was run. Four cleanly compiled
+PDFs retain15/15/100/100 pages and contain no standalone Q2 token in extracted
+text. AI reviewers inspected30 changed pages;200 unchanged pages inherit their
+attributed prior visual review through exact raster-byte equality. A minor
+pre-existing all-caps PARTD heading note is retained, not a Q2 naming defect.
+
+Corrected delivery is separate in Downloads/`HealthGraphBench_RC3_1_corrige/`:
+`HealthGraphBench_LaTeX_RC3_1.zip` (45,213,855 bytes), SHA256
+`df03ac46f142aa920c83e367142a16d2de2272611f60395c2b062418f15073dd`,
+plus four standalone PDFs. Sealed QA, ZIP CRC and exported-PDF byte equality
+passed. Evidence is under `results/rc31_terminology_*_20261005.json`.
+Earlier deliveries and the experiment TAR are preserved; all scientific,
+human, author and submission gates above remain unchanged.
 

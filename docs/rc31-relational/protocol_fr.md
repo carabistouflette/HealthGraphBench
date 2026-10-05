@@ -2,7 +2,7 @@
 
 ## Décision et question
 
-Après la clôture documentaire RC3, l'utilisateur a explicitement choisi **de nouvelles expériences ciblées avant RC3.1**. Cela ouvre un cycle distinct, pas une modification des preuves RC3 ni une recherche générale du meilleur modèle. RC3, Q2, C/D1, les anciens ZIP, checkpoints, ledgers, environnements et les quatre documents utilisateur restent immuables. D2/ClinicalTrials restent hors périmètre.
+Après la clôture documentaire RC3, l'utilisateur a explicitement choisi **de nouvelles expériences ciblées avant RC3.1**. Cela ouvre un cycle distinct, pas une modification des preuves RC3 ni une recherche générale du meilleur modèle. RC3, les comparaisons antérieures réglées, C/D1, les anciens ZIP, checkpoints, ledgers, environnements et les quatre documents utilisateur restent immuables. D2/ClinicalTrials restent hors périmètre.
 
 **Dans quelles situations les relations apportent-elles une information prédictive supplémentaire à l'historique individuel et à la popularité, et quelle complexité faut-il pour l'exploiter ?**
 
@@ -18,7 +18,7 @@ Les fits stochastiques utilisent **103/211/307**, tous rapportés, jamais un see
 
 ## Part D : comparaison commune
 
-Préparation raw Q2 conservée et déclarée comme **entrée préparée vérifiée**, non nouvelle acquisition raw; validation2023 avec2019–22, test2024 avec2019–23. Même cohorte2000, identité generic name trim exact, candidats globaux historiques hors toute l'histoire du provider, ranking/ties et positifs observables. Aucun échantillonnage de candidats d'évaluation. Tous les provider–années, y compris sans positif, sont retenus.
+Préparation antérieure conservée et déclarée comme **entrée préparée vérifiée**, non nouvelle acquisition raw; validation2023 avec2019–22, test2024 avec2019–23. Même cohorte2000, identité generic name trim exact, candidats globaux historiques hors toute l'histoire du provider, ranking/ties et positifs observables. Aucun échantillonnage de candidats d'évaluation. Tous les provider–années, y compris sans positif, sont retenus.
 
 | Procédure | Réglages avant test |
 |---|---|
@@ -26,7 +26,7 @@ Préparation raw Q2 conservée et déclarée comme **entrée préparée vérifi�
 | Voisins Jaccard | même grille k |
 | Voisins cosinus | même grille k |
 | GraphSAGE mean | d16/32 × L2 .0005/.000005/0;30époques,LR.02,fanout8 |
-| BPR | sélection Q2 six configurations, config-05 d32/LR.03/L2.001/5négatifs;30époques,poids spécialité.35; trois sorties conservées réutilisées |
+| BPR | sélection antérieure sur six configurations, config-05 d32/LR.03/L2.001/5négatifs;30époques,poids spécialité.35; trois sorties conservées réutilisées |
 | Popularités globale / spécialité | références fixes, sans tuning |
 
 « Fréquence » signifie **nombre de médicaments distincts partagés**, pas pondération par claims. Incidence binaire; similarités strictement positives; soi exclu; similarité décroissante puisNPI lexical; votes pondérés; voisins choisis une fois par provider, pas selon le candidat. Six opportunités nominales par procédure réglée, **pas même calcul**.
@@ -41,15 +41,15 @@ Même architecture d16, L2.000005, LR.02,30époques, trois seeds;2023 puis refit
 
 Réassignation : doubles échanges bipartites bornés, seed303,10tentatives par arête; conservation de chaque degré, des types de nœuds et de l'univers agrégé **antérieur à l'origine annuelle**. Étiquettes d'entraînement, probe, CSR des négatifs, histoire/candidats/cibles et initialisation restent identiques. Tentatives, échanges acceptés, fraction changée et adjacency complète conservés. Pas de null uniforme, de conservation revendiquée des degrés par trimestre, ni de causalité médicale.
 
-BPR : checkpoints annuels sélectionnés Q2 réutilisés (validation config06, d16/L2=0). Sur **les mêmes représentations apprises**, comparer scores bruts x·y et scores avec .5vecteur propre+.5moyenne fixe des voisins historiques. C'est une intervention sur le **lissage à l'inférence**, conditionnelle à une configuration sélectionnée avec lissage; pas retrait de tout apprentissage relationnel ni comparaison des meilleurs BPR bruts et lissés séparément réglés.
+BPR : checkpoints annuels sélectionnés antérieurement réutilisés (validation config06, d16/L2=0). Sur **les mêmes représentations apprises**, comparer scores bruts x·y et scores avec .5vecteur propre+.5moyenne fixe des voisins historiques. C'est une intervention sur le **lissage à l'inférence**, conditionnelle à une configuration sélectionnée avec lissage; pas retrait de tout apprentissage relationnel ni comparaison des meilleurs BPR bruts et lissés séparément réglés.
 
 ## CMS : histoire locale, agrégats et documentation des liens
 
-La cible demeure une déficience grave **conditionnellement à une inspection Health Standard ayant lieu**, pas la priorisation nationale des établissements à inspecter. Reproduire exactement les23712 épisodes/histoires locales/labels Q2, puis recomputer les seuls agrégats de relations. Même training, mêmes établissements, mêmes lignes d'évaluation; états et scaler appris dans le passé strict.
+La cible demeure une déficience grave **conditionnellement à une inspection Health Standard ayant lieu**, pas la priorisation nationale des établissements à inspecter. Reproduire exactement les23712 épisodes/histoires locales/labels des comparaisons antérieures, puis recomputer les seuls agrégats de relations. Même training, mêmes établissements, mêmes lignes d'évaluation; états et scaler appris dans le passé strict.
 
 Trois jeux : histoire locale; histoire+propriétaires combinés; histoire+liens mieux documentés selon un **proxy opérationnel**, non vérité de propriété. Paramètres partagés : logistique C.01/LBFGS1000/tol1e-8, pas class_weight; HGB LR.05/100itérations/15feuilles/L2=1, early_stoppingFalse, max_features1.0, max_bins255, min_samples_leaf20. Aucun tuning selon jeu de variables ou sous-groupe. Fits antérieurs aux cibles2023/24/25; ces training<200000 sont déterministes.
 
-Le proxy conserve les identifiants PAC propriétaires déjà combinés s'ils sont soutenus par un événement CHOW daté qui relie enrollment etCCN, et par une date d'association propriétaire, **tous deux strictement antérieurs à l'inspection**; enrollment doit désigner un seulCCN parmi événements antérieurs. Les deux extrémités d'une relation de pair doivent qualifier. Aucune nouvelle résolution parfaite des noms, date de fin ou vérité externe n'est inventée. La règle des associations combinées devient elle aussi strictement`<` dans ce nouveau cycle, au lieu du`<=` historique; résultats Q2 intacts. Snapshot rétrospectif, fins inconnues et disponibilité publique à l'origine non établie restent des limites. La sensibilité à la représentation ne tranche pas causalement redondance versus erreurs de liens sans vérité de propriété.
+Le proxy conserve les identifiants PAC propriétaires déjà combinés s'ils sont soutenus par un événement CHOW daté qui relie enrollment etCCN, et par une date d'association propriétaire, **tous deux strictement antérieurs à l'inspection**; enrollment doit désigner un seulCCN parmi événements antérieurs. Les deux extrémités d'une relation de pair doivent qualifier. Aucune nouvelle résolution parfaite des noms, date de fin ou vérité externe n'est inventée. La règle des associations combinées devient elle aussi strictement`<` dans ce nouveau cycle, au lieu du`<=` historique; résultats antérieurs intacts. Snapshot rétrospectif, fins inconnues et disponibilité publique à l'origine non établie restent des limites. La sensibilité à la représentation ne tranche pas causalement redondance versus erreurs de liens sans vérité de propriété.
 
 ## Sous-groupes, incertitude et charge
 

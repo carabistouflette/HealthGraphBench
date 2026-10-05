@@ -35,11 +35,11 @@ Par soutien voisin fixe top50 : cosinus−BPR **+.037752**[+.027685;+.048108] po
 
 Vraies8−réassignées8 : intervalles [+.011838;+.020048], [+.002908;+.015055], [+.012123;+.020884]. Réassignation :63,09/62,17/61,63% d'arêtes changées, degrés annuels conservés; labels/probe/négatifs/init/candidats inchangés. Une réalisation bornée, pas null uniforme ni causalité médicale.
 
-Les trois intervalles16−8 incluent zéro et ont une borne supérieure sous.01;4−8en2025 a[−.008257;−.000565]. Tous les niveaux restent rapportés, sans sélectionner le fanout favorable. Lissage−brut : [+.002827;+.012461], [−.001570;+.009519], [+.006591;+.017260]. Même état appris, modification d'inférence; réglage historiquement choisi avec lissage. Pas suppression de toute information relationnelle, ni transfert des résultats GraphSAGE Q2 réglés séparément.
+Les trois intervalles16−8 incluent zéro et ont une borne supérieure sous.01;4−8en2025 a[−.008257;−.000565]. Tous les niveaux restent rapportés, sans sélectionner le fanout favorable. Lissage−brut : [+.002827;+.012461], [−.001570;+.009519], [+.006591;+.017260]. Même état appris, modification d'inférence; réglage historiquement choisi avec lissage. Pas suppression de toute information relationnelle, ni transfert des résultats GraphSAGE antérieurs réglés séparément.
 
 ## CMS : incrément non cohérent, proxy non vérité externe
 
-Même23712lignes préparées/histoires locales/labels queQ2, agrégats recomputés, associations strictement avant inspection. Task demeure déficience conditionnelle à une inspection, pas priorisation nationale.
+Même23712lignes préparées/histoires locales/labels que dans les comparaisons antérieures, agrégats recomputés, associations strictement avant inspection. Task demeure déficience conditionnelle à une inspection, pas priorisation nationale.
 
 Logistique combiné−local : +.001939/+.000764/−.000285 ; documenté−local : +.001893/−.000571/−.000685. Les bornes supérieures sont sous le repère analytique.01 dans ces contrastes. Boosting combiné−local : −.007163/+.001867/−.004204 ; documenté−local : −.023589/−.006054/−.003129. Le documenté2023 a[−.037002;−.010218]; les intervalles combinés2023/2024 ne permettent pas d'exclure un gain positif>.01. Pas bénéfice uniforme, pas équivalence clinique générale.
 
@@ -51,4 +51,4 @@ PartD cosinus@10 :1416liens/20000slots, précision observable.070800, couverture
 
 **336 enregistrements de contraste** :296avec2000tirages valides,40indéfinis avec zéro tirage valide. Bootstrap provider/produit/établissement, seed313, conditionnel aux fits/configurations; étendues de seeds séparées. Pas couverture de sélection, garantie de dépendance de réseau/période ou simultanée. Marge.01 absolue conventionnelle, non clinique. Toutes périodes déjà consultées : résultats exploratoires.
 
-Forecast PartD Q2 scellé inchangé; aucun fichier cible PartD2025 acquis ou métrique de cette cible calculée. La capture officielle ne le listait pas à l'instant documenté, pas preuve d'absence universelle. Non-consultation humaine unknown; équipe extérieure, confirmation temporelle et étude d'utilité humaine non réalisées. CMS2026 non certifiée intacte. Auteurs/CRediT/déclarations/éthique/IA/licence/support/approbation demeurent humains. Aucun merge/tag/Zenodo/envoi automatique.
+Forecast PartD scellé inchangé; aucun fichier cible PartD2025 acquis ou métrique de cette cible calculée. La capture officielle ne le listait pas à l'instant documenté, pas preuve d'absence universelle. Non-consultation humaine unknown; équipe extérieure, confirmation temporelle et étude d'utilité humaine non réalisées. CMS2026 non certifiée intacte. Auteurs/CRediT/déclarations/éthique/IA/licence/support/approbation demeurent humains. Aucun merge/tag/Zenodo/envoi automatique.

@@ -1,4 +1,4 @@
-# Résultats scientifiques Q2 — artefacts distincts de RC2.2
+# Résultats des comparaisons scientifiques — artefacts distincts de RC2.2
 
 Les résultats ci-dessous sont de **nouveaux fits**, pas des rejeux des métriques historiques. Les périodes/cohortes déjà consultées restent exploratoires. Les comparateurs sont réglés sur validation2023, jamais sur les tests. Aucun nouvel IC/bootstrap ni garantie de quartile/acceptation.
 
@@ -31,7 +31,7 @@ Ressources mesurées du run complet:33 phases, somme des durées supervisées31.
 | Cosine top50 hors paquet, non supervisé, sans tuning | .260960 | .258583 |
 | Logistique SDK public, algorithme historique18 époques | .178460 | .168188 |
 
-Chaque target a2000 providers;2024 compte5476 relations positives réparties sur1019 providers et981 providers sans positif. Le logistique SDK n’est **pas** le comparator LBFGS choisi par la nouvelle grille Q2. Ces métriques de witness sont exploratoires; le but ici est la réutilisation observable, pas une comparaison réglée supplémentaire ou une validation humaine.
+Chaque target a2000 providers;2024 compte5476 relations positives réparties sur1019 providers et981 providers sans positif. Le logistique SDK n’est **pas** le comparator LBFGS choisi par la nouvelle grille. Ces métriques de witness sont exploratoires; le but ici est la réutilisation observable, pas une comparaison réglée supplémentaire ou une validation humaine.
 
 Phase raw→fits→évaluation:1362.134s supervisées,1340.519s CPU rapportées,595 460 096B de RSS agrégée maximale. Le PID après `execve` est bien celui supervisé. Le wheel vient du clone propre `f8ea41c4d8f090560fbdbc698db2300821b9cfef`, SHA256 `b5c776556ef64686804c4dec6e354127c59c3db441710519da793ffee6117428`; versionSDK0.2.0 de développement, pas nouvelle publication du benchmarkDOI.
 
